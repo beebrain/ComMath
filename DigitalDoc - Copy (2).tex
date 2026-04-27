@@ -1,0 +1,205 @@
+% !TeX spellcheck = en_US
+
+
+%% for drawing https://www.mathcha.io/editor
+%\documentclass{KKUThesisClass}
+\documentclass{kkubee_edit_all}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{diagbox}
+
+%\usepackage[caption=false]{subfig}
+\usepackage{subcaption}
+\usepackage{caption}
+%\usepackage[export]{adjustbox}
+%\usepackage{soul}
+\newsavebox{\bigleftbox}
+\usepackage{varwidth}
+\usepackage{tabularx}
+\usepackage{karnaugh-map}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes.gates.logic.US,shapes.gates.logic.IEC,calc}
+
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{afterpage}
+\usepackage{longtable}  %% for long table package
+\usepackage{tabularx}
+\usepackage[user,titleref]{zref}
+
+%% set above space for equation
+\setlength{\abovedisplayskip}{-5pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+
+
+%\newcommand*{\captionsource}[2]{%
+%	\caption[{#1}]{#1%
+%	\\%
+%	\noindent\textbf{ที่มา:} #2%
+%	}%
+%%}
+
+
+\usepackage{circuitikz}
+%\usepackage[table,xcdraw]{xcolor}
+\usepackage{tikz-timing}
+
+\usepackage{enumitem}
+\usepackage{multicol}
+
+
+\usepackage{mathtools}
+
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+
+%\makeatletter
+%\def\thalph#1{\expandafter\@thalph\csname c@#1\endcsname}
+%\def\@thalph#1{\ifcase#1\or ก\or ข\or ค\or ง\or จ\or ฉ\or ช\or ซ\else\@ctrerr\fi}
+%\def\thainum#1{\expandafter\@thainum\csname c@#1\endcsname}
+%\def\@thainum#1{\ifcase#1\or 1\or 2\or 3\or 4\or 5\or 6\or 7\or 8\or 9\or 10\or 11\else\@ctrerr\fi}
+%\def\normalnum#1{\expandafter\@thainum\csname c@#1\endcsname}
+%\def\@\normalnum#1{\ifcase#1\or 1\or 2\or 3\or 4\or 5\or 6\or 7\or 8\or 9\or 10\or 11\else\@ctrerr\fi}
+%
+%
+%\makeatother
+
+
+
+%%%%%%%%%%% ordering
+%\renewcommand{\labelenumi}{\thalph{enumi}.}
+%\newcounter{subenum}[enumi]
+%\renewcommand{\thesubenum}{\thalph{subenum}}
+
+
+
+%%%%%%%%%%%%%%%%%%% infomation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\courseIdth{4121701}
+\titleth{ดิจิทัลเบื้องต้น}
+
+
+\authorth{นาย~พิศิษฐ์~~นาคใจ} 
+\academicyearth{2564}
+\degreeA{วศ.บ. (วิศวกรรมคอมพิวเตอร์)}
+\degreeB{วท.ม. (วิทยาการคอมพิวเตอร์)}
+\degreeC{ปร.ด. (วิศวกรรมคอมพิวเตอร์)}
+
+
+\addbibresource{./DigitalBook.bib}
+
+%\includeonly{   % Of course this list allows many more file
+%ch6
+%}
+%%%%%%%%%%%%%%%%%%%% Begin Document %%%%%%%%%%%%%%%%%%
+\begin{document}
+	\maketitle	
+	\setkkuinfofirst
+	\parenpage
+	
+	\include{acc}
+	\thispagestyle{empty}
+	\mbox{}
+	\tableofcontents
+	\listoftables
+	\listoffigures
+	
+
+	
+	\noparenpage
+	\thispagestyle{empty}
+	\setkkupagestyle
+	
+	
+	\pagenumbering{roman}
+	\setkkuinfofirst
+	
+	
+	
+	%======================================================
+	% generate table of contents, do not need to edit
+%	
+%	\pagestyle{myheadings}
+%	\tableofcontents
+%	\newpage
+%	
+%	\addcontentsline{toc}{chapter}{LIST OF TABLES}
+%	\listoftables
+%	\newpage
+%	
+%	\addcontentsline{toc}{chapter}{LIST OF FIGURES}
+%	\listoffigures
+%	\newpage
+	
+	\thispagestyle{empty}
+	\setkkupagestyle
+	\emergencystretch=3em
+	
+	\cleartoleftpage
+	\include{organize}
+
+	
+	%%%%%%%%%%%% main content %%%%%%%%%%%%%%%%%%%
+	\cleartoleftpage
+	\include{ch1_or}
+	\cleartoleftpage
+	\include{ch1}
+	\RefChapter
+	
+	\cleartoleftpage
+	\include{ch2_or}
+	\cleartoleftpage
+	\include{ch2}
+	\RefChapter
+	
+	\cleartoleftpage
+	\include{ch3_or}
+	\cleartoleftpage
+	\include{ch3}
+	\RefChapter
+	
+	\cleartoleftpage
+	\include{ch4_or}
+	\cleartoleftpage
+	\include{ch4}
+	\RefChapter
+	
+	\cleartoleftpage
+	\include{ch5_or}
+	\cleartoleftpage
+	\include{ch5}
+	\RefChapter
+	
+	\cleartoleftpage
+	\include{ch6_or}
+	\cleartoleftpage
+	\include{ch6}
+	\RefChapter
+	
+	\cleartoleftpage
+	\include{ch7_or}
+	\cleartoleftpage
+	\include{ch7}
+	\RefChapter
+	
+	\cleartoleftpage
+	\include{ch8_or}
+	\cleartoleftpage
+	\include{ch8}
+	\RefChapter
+	
+	\cleartoleftpage
+	\include{ch9_or}
+	\cleartoleftpage
+	\include{ch9}
+	\RefChapter
+
+	\nocite{*}
+	\printbibliography[title=บรรณานุกรม]
+
+	
+\end{document}

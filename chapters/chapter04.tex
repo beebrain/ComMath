@@ -1,0 +1,850 @@
+﻿\chapter{ระบบเลขฐาน (Number Bases)}
+
+\section{วัตถุประสงค์การเรียนรู้}
+หลังจากศึกษาจบบทนี้ ผู้เรียนจะสามารถ:
+\begin{enumerate}
+    \item อธิบายความหมายและความสำคัญของระบบเลขฐานต่างๆ ได้
+    \item แปลงเลขฐานสิบเป็นฐานอื่นและในทางกลับกันได้
+    \item ดำเนินการบวก ลบ คูณ หาร เลขฐานสองและฐานสิบหกได้
+    \item เข้าใจการแทนจำนวนลบในฐานสอง (1's complement และ 2's complement)
+    \item อธิบายมาตรฐาน IEEE 754 สำหรับการแทนเลขทศนิยมในคอมพิวเตอร์ได้
+    \item เข้าใจการแทนข้อมูลในคอมพิวเตอร์ (ASCII, Unicode)
+\end{enumerate}
+
+\section{บทนำ}
+ระบบเลขฐาน (Number Base System) คือวิธีการเขียนและแทนจำนวนโดยใช้ตัวเลขหลายตัวมาประกอบกัน ค่าของแต่ละตำแหน่งจะขึ้นอยู่กับฐาน (base หรือ radix) ของระบบนั้นๆ ระบบเลขฐานมีความสำคัญอย่างยิ่งในวิทยาการคอมพิวเตอร์ เนื่องจากคอมพิวเตอร์ทำงานด้วยสัญญาณไฟฟ้าสองสถานะ (เปิด/ปิด) จึงใช้ระบบเลขฐานสอง (binary) เป็นภาษาพื้นฐาน
+
+ในชีวิตประจำวัน มนุษย์ใช้ระบบเลขฐานสิบ (decimal) ซึ่งมีรากฐานจากการนับนิ้วมือทั้งสิบนิ้ว อารยธรรมโบราณใช้ระบบฐานที่แตกต่างกัน เช่น ชาวบาบิโลเนียใช้ฐาน 60 (sexagesimal) ซึ่งยังคงใช้อยู่ในการวัดเวลา (60 วินาที 60 นาที) และการวัดมุม (360 องศา)
+\label{sec:number-base-intro}
+
+\section{ระบบเลขฐานสิบ (Decimal System)}
+ระบบเลขฐานสิบใช้ตัวเลข 10 ตัว คือ $0, 1, 2, 3, 4, 5, 6, 7, 8, 9$ และมีฐานเท่ากับ 10
+\label{sec:decimal-system}
+
+\subsection{ค่าประจำตำแหน่ง}
+ในระบบเลขฐานสิบ ค่าของตัวเลขในแต่ละตำแหน่งจะคูณด้วย $10^n$ โดย $n$ คือตำแหน่งจากขวาสุด (เริ่มที่ 0)
+
+\begin{thrm}
+จำนวนใดๆ ในระบบเลขฐานสิบสามารถเขียนในรูปผลบวกของค่าประจำตำแหน่งได้:
+$$d_n d_{n-1} \ldots d_1 d_0 . d_{-1} d_{-2} \ldots d_{-m} = \sum_{i=-m}^{n} d_i \times 10^i$$
+โดย $d_i$ คือเลขโดด (digit) ในแต่ละตำแหน่ง และ $10^i$ คือค่าประจำตำแหน่ง (place value)
+\end{thrm}
+\label{thrm:decimal-place-value}
+
+\begin{ex}
+$4729$ ในฐานสิบ หมายความว่า:
+$$4729 = 4 \times 10^3 + 7 \times 10^2 + 2 \times 10^1 + 9 \times 10^0 = 4000 + 700 + 20 + 9$$
+
+สำหรับจำนวนทศนิยม $53.847$:
+$$53.847 = 5 \times 10^1 + 3 \times 10^0 + 8 \times 10^{-1} + 4 \times 10^{-2} + 7 \times 10^{-3}$$
+\end{ex}
+\label{ex:decimal-place-value}
+
+\section{ระบบเลขฐานสอง (Binary System)}
+ระบบเลขฐานสองใช้ตัวเลขเพียง 2 ตัว คือ $0$ และ $1$ และมีฐานเท่ากับ 2 คอมพิวเตอร์ใช้ระบบนี้เพราะวงจรอิเล็กทรอนิกส์สามารถแสดงสองสถานะได้ง่าย (เช่น มีไฟ/ไม่มีไฟ, ปิด/เปิด)
+\label{sec:binary-system}
+
+\begin{thrm}
+จำนวนในระบบเลขฐานสองสามารถเขียนในรูปผลบวกของ $2^i$ ได้:
+$$(b_n b_{n-1} \ldots b_1 b_0)_2 = \sum_{i=0}^{n} b_i \times 2^i$$
+โดย $b_i \in \{0, 1\}$
+\end{thrm}
+\label{thrm:binary-expansion}
+
+\begin{rem}
+เลขฐานสอง $(1101)_2$ อ่านว่า "หนึ่งหนึ่งศูนย์หนึ่งฐานสอง" ไม่ใช่ "พันหนึ่งร้อยเอ็ด" เพราะแต่ละหลักมีค่าประจำตำแหน่งเป็น $2^n$ ไม่ใช่ $10^n$
+\end{rem}
+\label{warn:binary-reading}
+
+\begin{ex}
+แปลง $(1101)_2$ เป็นฐานสิบ:
+$$(1101)_2 = 1 \times 2^3 + 1 \times 2^2 + 0 \times 2^1 + 1 \times 2^0$$
+$$= 1 \times 8 + 1 \times 4 + 0 \times 2 + 1 \times 1$$
+$$= 8 + 4 + 0 + 1 = 13$$
+
+แปลง $(10110)_2$ เป็นฐานสิบ:
+$$(10110)_2 = 1 \times 2^4 + 0 \times 2^3 + 1 \times 2^2 + 1 \times 2^1 + 0 \times 2^0$$
+$$= 16 + 0 + 4 + 2 + 0 = 22$$
+\end{ex}
+
+\begin{thrm}
+สำหรับจำนวนทศนิยมในฐานสอง:
+$$(0.b_1 b_2 \ldots b_m)_2 = \sum_{i=1}^{m} b_i \times 2^{-i}$$
+\end{thrm}
+
+\begin{ex}
+แปลง $(0.101)_2$ เป็นฐานสิบ:
+$$(0.101)_2 = 1 \times 2^{-1} + 0 \times 2^{-2} + 1 \times 2^{-3}$$
+$$= \frac{1}{2} + 0 + \frac{1}{8} = 0.5 + 0.125 = 0.625$$
+
+แปลง $(10.011)_2$ เป็นฐานสิบ:
+$$(10.011)_2 = 1 \times 2^1 + 0 \times 2^0 + 0 \times 2^{-1} + 1 \times 2^{-2} + 1 \times 2^{-3}$$
+$$= 2 + 0 + 0 + 0.25 + 0.125 = 2.375$$
+\end{ex}
+
+\section{ระบบเลขฐานแปด (Octal System)}
+ระบบเลขฐานแปดใช้ตัวเลข 8 ตัว คือ $0, 1, 2, 3, 4, 5, 6, 7$ และมีฐานเท่ากับ 8
+
+\begin{thrm}
+ความสัมพันธ์ระหว่างฐานสองและฐานแปด: กลุ่มตัวเลขฐานสอง 3 ตัว สามารถแทนด้วยตัวเลขฐานแปด 1 ตัว เนื่องจาก $2^3 = 8$
+\end{thrm}
+
+\begin{ex}
+แปลง $(110101)_2$ เป็นฐานแปด:
+
+จัดกลุ่มตัวเลขฐานสองครั้งละ 3 ตัวจากขวาสุด:
+$$110101_2 = 110\ 101_2$$
+
+แปลงแต่ละกลุ่ม:
+\begin{enumerate}
+    \item $110_2 = 6_8$
+    \item $101_2 = 5_8$
+\end{enumerate}
+
+ดังนั้น $(110101)_2 = (65)_8$
+\end{ex}
+
+\begin{ex}
+แปลง $(472)_8$ เป็นฐานสิบ:
+$$(472)_8 = 4 \times 8^2 + 7 \times 8^1 + 2 \times 8^0$$
+$$= 4 \times 64 + 7 \times 8 + 2 \times 1$$
+$$= 256 + 56 + 2 = 314$$
+\end{ex}
+
+\begin{rem}
+ฐานแปดเคยใช้กันแพร่หลายในยุคแรกของคอมพิวเตอร์เนื่องจากการแปลงระหว่างฐานสองและฐานแปดทำได้ง่าย ปัจจุบันฐานสิบหกมีการใช้มากกว่า
+\end{rem}
+
+\section{ระบบเลขฐานสิบหก (Hexadecimal System)}
+ระบบเลขฐานสิบหกใช้ตัวเลขและตัวอักษร 16 ตัว คือ $0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F$ โดย $A=10, B=11, C=12, D=13, E=14, F=15$ และมีฐานเท่ากับ 16
+
+\begin{thrm}
+ความสัมพันธ์ระหว่างฐานสองและฐานสิบหก: กลุ่มตัวเลขฐานสอง 4 ตัว สามารถแทนด้วยตัวเลขฐานสิบหก 1 ตัว เนื่องจาก $2^4 = 16$
+\end{thrm}
+
+\begin{table}[H]
+\centering
+\caption{ตารางเปรียบเทียบฐานสิบ ฐานสอง และฐานสิบหก}
+\label{tab:binary-hex}
+\begin{tabular}{|c|c|c|}
+\hline
+ฐานสิบ & ฐานสอง (4 หลัก) & ฐานสิบหก \\
+\hline
+0 & 0000 & 0 \\
+1 & 0001 & 1 \\
+2 & 0010 & 2 \\
+3 & 0011 & 3 \\
+4 & 0100 & 4 \\
+5 & 0101 & 5 \\
+6 & 0110 & 6 \\
+7 & 0111 & 7 \\
+8 & 1000 & 8 \\
+9 & 1001 & 9 \\
+10 & 1010 & A \\
+11 & 1011 & B \\
+12 & 1100 & C \\
+13 & 1101 & D \\
+14 & 1110 & E \\
+15 & 1111 & F \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{ex}
+แปลง $(11010110)_2$ เป็นฐานสิบหก:
+
+จัดกลุ่มตัวเลขฐานสองครั้งละ 4 ตัวจากขวาสุด:
+$$11010110_2 = 1101\ 0110_2$$
+
+แปลงแต่ละกลุ่ม:
+\begin{enumerate}
+    \item $1101_2 = D_{16}$
+    \item $0110_2 = 6_{16}$
+\end{enumerate}
+
+ดังนั้น $(11010110)_2 = (D6)_{16}$
+\end{ex}
+
+\begin{ex}
+แปลง $(3A.F)_{16}$ เป็นฐานสิบ:
+$$(3A.F)_{16} = 3 \times 16^1 + 10 \times 16^0 + 15 \times 16^{-1}$$
+$$= 3 \times 16 + 10 \times 1 + 15 \times \frac{1}{16}$$
+$$= 48 + 10 + 0.9375 = 58.9375$$
+\end{ex}
+
+\section{การแปลงฐานทั่วไป}
+
+\subsection{การแปลงจากฐานใดๆ เป็นฐานสิบ}
+วิธีที่ง่ายที่สุดในการแปลงจากฐานใดๆ เป็นฐานสิบคือการกระจายตามค่าประจำตำแหน่ง
+
+\begin{thrm}
+ถ้า $(d_n d_{n-1} \ldots d_1 d_0)_b$ เป็นจำนวนในฐาน $b$ แล้ว:
+$$(d_n d_{n-1} \ldots d_1 d_0)_b = \sum_{i=0}^{n} d_i \times b^i$$
+\end{thrm}
+
+\begin{ex}
+แปลง $(2B3)_{16}$ เป็นฐานสิบ:
+$$(2B3)_{16} = 2 \times 16^2 + 11 \times 16^1 + 3 \times 16^0$$
+$$= 2 \times 256 + 11 \times 16 + 3 \times 1$$
+$$= 512 + 176 + 3 = 691$$
+
+แปลง $(57)_8$ เป็นฐานสิบ:
+$$(57)_8 = 5 \times 8^1 + 7 \times 8^0 = 40 + 7 = 47$$
+\end{ex}
+
+\subsection{การแปลงจากฐานสิบเป็นฐานใดๆ}
+ใช้วิธีหารต่อเนื่อง (successive division) โดยหารจำนวนด้วยฐานที่ต้องการแล้วบันทึกเศษ
+
+\begin{thrm}
+ขั้นตอนการแปลงจำนวนเต็มจากฐานสิบเป็นฐาน $b$:
+\begin{enumerate}
+    \item หารจำนวนด้วย $b$ จดเศษไว้
+    \item นำผลหารไปหารด้วย $b$ อีก จดเศษ
+    \item ทำซ้ำจนกว่าผลหารเป็น 0
+    \item เศษที่ได้อ่านจากล่างขึ้นบนคือคำตอบ
+\end{enumerate}
+\end{thrm}
+
+\begin{ex}
+แปลง $45$ ฐานสิบเป็นฐานสอง:
+
+\begin{tabular}{r|c|c}
+หาร & ผลหาร & เศษ\\\hline
+$45 \div 2$ & 22 & 1 \\
+$22 \div 2$ & 11 & 0 \\
+$11 \div 2$ & 5 & 1 \\
+$5 \div 2$ & 2 & 1 \\
+$2 \div 2$ & 1 & 0 \\
+$1 \div 2$ & 0 & 1
+\end{tabular}
+
+อ่านเศษจากล่างขึ้นบน: $101101_2$
+
+ตรวจสอบ: $101101_2 = 1 \times 2^5 + 0 \times 2^4 + 1 \times 2^3 + 1 \times 2^2 + 0 \times 2^1 + 1 \times 2^0$
+$$= 32 + 0 + 8 + 4 + 0 + 1 = 45 \checkmark$$
+\end{ex}
+
+\begin{ex}
+แปลง $158$ ฐานสิบเป็นฐานแปด:
+
+\begin{tabular}{r|c|c}
+หาร & ผลหาร & เศษ\\\hline
+$158 \div 8$ & 19 & 6 \\
+$19 \div 8$ & 2 & 3 \\
+$2 \div 8$ & 0 & 2
+\end{tabular}
+
+ดังนั้น $158_{10} = 236_8$
+
+ตรวจสอบ: $236_8 = 2 \times 8^2 + 3 \times 8^1 + 6 \times 8^0 = 128 + 24 + 6 = 158 \checkmark$
+\end{ex}
+
+\begin{ex}
+แปลง $2543$ ฐานสิบเป็นฐานสิบหก:
+
+\begin{tabular}{r|c|c}
+หาร & ผลหาร & เศษ\\\hline
+$2543 \div 16$ & 158 & 15 (F) \\
+$158 \div 16$ & 9 & 14 (E) \\
+$9 \div 16$ & 0 & 9
+\end{tabular}
+
+ดังนั้น $2543_{10} = 9EF_{16}$
+
+ตรวจสอบ: $9EF_{16} = 9 \times 16^2 + 14 \times 16^1 + 15 \times 16^0$
+$$= 9 \times 256 + 14 \times 16 + 15 = 2304 + 224 + 15 = 2543 \checkmark$$
+\end{ex}
+
+\section{การแปลงจำนวนทศนิยมระหว่างฐาน}
+
+\subsection{การแปลงส่วนทศนิยมจากฐานสิบเป็นฐานอื่น}
+ใช้วิธีคูณต่อเนื่อง (successive multiplication) กับส่วนทศนิยม
+
+\begin{thrm}
+ขั้นตอนการแปลงส่วนทศนิยมจากฐานสิบเป็นฐาน $b$:
+\begin{enumerate}
+    \item คูณส่วนทศนิยมด้วย $b$
+    \item บันทึกผลคูณที่เป็นจำนวนเต็ม (0 หรือ 1 สำหรับฐานสอง) เป็นเลขหลักถัดไป
+    \item นำส่วนทศนิยมของผลคูณไปคูณต่อ
+    \item ทำซ้ำจนกว่าส่วนทศนิยมเป็น 0 หรือได้จำนวนหลักตามต้องการ
+\end{enumerate}
+\end{thrm}
+
+\begin{ex}
+แปลง $0.625$ ฐานสิบเป็นฐานสอง:
+
+\begin{tabular}{r|c|c}
+คูณ & ผลลัพธ์ & เลขหลัก\\\hline
+$0.625 \times 2$ & $1.25$ & 1 \\
+$0.25 \times 2$ & $0.5$ & 0 \\
+$0.5 \times 2$ & $1.0$ & 1
+\end{tabular}
+
+ดังนั้น $0.625_{10} = 0.101_2$
+
+ตรวจสอบ: $0.101_2 = 1 \times 2^{-1} + 0 \times 2^{-2} + 1 \times 2^{-3} = 0.5 + 0 + 0.125 = 0.625 \checkmark$
+\end{ex}
+
+\begin{ex}
+แปลง $0.7$ ฐานสิบเป็นฐานสอง (แสดง 8 หลัก):
+
+\begin{tabular}{r|c|c}
+คูณ & ผลลัพธ์ & เลขหลัก\\\hline
+$0.7 \times 2$ & $1.4$ & 1 \\
+$0.4 \times 2$ & $0.8$ & 0 \\
+$0.8 \times 2$ & $1.6$ & 1 \\
+$0.6 \times 2$ & $1.2$ & 1 \\
+$0.2 \times 2$ & $0.4$ & 0 \\
+$0.4 \times 2$ & $0.8$ & 0 \\
+$0.8 \times 2$ & $1.6$ & 1 \\
+$0.6 \times 2$ & $1.2$ & 1
+\end{tabular}
+
+สังเกตว่า $0.4$ ปรากฏซ้ำอีกแล้ว ดังนั้น $0.7_{10} \approx 0.10110011_2$ (repeating)
+
+ค่าจริงคือ $0.7 = 0.\overline{1011}_2$ ( repeating block "$1011$")
+\end{ex}
+
+\begin{rem}
+ไม่ใช่ทุกจำนวนทศนิยมที่แปลงได้ลงตัวในฐานใดฐานหนึ่ง การแปลง $0.1_{10}$ เป็นฐานสองจะได้ทศนิยมซ้ำไม่รู้จบ นี่คือสาเหตุของปัญหา floating-point error ในคอมพิวเตอร์
+\end{rem}
+
+\begin{ex}
+แปลง $0.3125$ ฐานสิบเป็นฐานแปด:
+
+\begin{tabular}{r|c|c}
+คูณ & ผลลัพธ์ & เลขหลัก\\\hline
+$0.3125 \times 8$ & $2.5$ & 2 \\
+$0.5 \times 8$ & $4.0$ & 4
+\end{tabular}
+
+ดังนั้น $0.3125_{10} = 0.24_8$
+
+ตรวจสอบ: $0.24_8 = 2 \times 8^{-1} + 4 \times 8^{-2} = \frac{2}{8} + \frac{4}{64} = 0.25 + 0.0625 = 0.3125 \checkmark$
+\end{ex}
+
+\section{การบวกและลบเลขฐานสอง}
+
+\subsection{การบวกเลขฐานสอง}
+การบวกเลขฐานสองมีกฎพื้นฐานดังนี้:
+\begin{thrm}
+การบวกเลขฐานสอง:
+\begin{enumerate}
+    \item $0 + 0 = 0$
+    \item $0 + 1 = 1$
+    \item $1 + 0 = 1$
+    \item $1 + 1 = 10$ (เป็น 0 ทด 1)
+    \item $1 + 1 + 1 = 11$ (เป็น 1 ทด 1)
+\end{enumerate}
+\end{thrm}
+
+\begin{ex}
+บวก $(1011)_2$ กับ $(1101)_2$:
+
+\begin{align*}
+  & \ \ \ 1011 \\
+  &+ \ 1101 \\
+  \hline
+  & \ 11000
+\end{align*}
+
+ขั้นตอน:
+\begin{enumerate}
+    \item $1 + 1 = 10$ คือ เขียน 0 ทด 1
+    \item $1 + 0 + ทด1 = 10$ คือ เขียน 0 ทด 1
+    \item $0 + 1 + ทด1 = 10$ คือ เขียน 0 ทด 1
+    \item $1 + 1 + ทด1 = 11$ คือ เขียน 1 ทด 1
+    \item ทด 1 ลงมาเป็น 1
+\end{enumerate}
+
+ดังนั้น $1011_2 + 1101_2 = 11000_2$
+
+ตรวจสอบ: $1011_2 = 11_{10}$, $1101_2 = 13_{10}$, $11000_2 = 24_{10}$ ซึ่ง $11 + 13 = 24 \checkmark$
+\end{ex}
+
+\begin{ex}
+บวก $(1111)_2$ กับ $(0001)_2$:
+
+\begin{align*}
+  & \ \ \ 1111 \\
+  &+ \ 0001 \\
+  \hline
+  & \ 10000
+\end{align*}
+
+ดังนั้น $1111_2 + 0001_2 = 10000_2$ (เป็น $2^4 = 16$)
+\end{ex}
+
+\subsection{การลบเลขฐานสอง}
+การลบเลขฐานสองใช้หลักการยืม (borrowing)
+
+\begin{thrm}
+การลบเลขฐานสอง:
+\begin{enumerate}
+    \item $0 - 0 = 0$
+    \item $1 - 0 = 1$
+    \item $1 - 1 = 0$
+    \item $0 - 1 = 1$ (ยืม 1 จากหลักซ้าย ทำให้หลักซ้ายลดลง 1)
+\end{enumerate}
+\end{thrm}
+
+\begin{ex}
+ลบ $(1100)_2$ ด้วย $(0101)_2$:
+
+\begin{align*}
+  & \ \ \ 1100 \\
+  &- \ 0101 \\
+  \hline
+  & \ 0111
+\end{align*}
+
+ขั้นตอน:
+\begin{enumerate}
+    \item $0 - 1$ คือ ยืม 1 จากหลักซ้าย ได้ $10 - 1 = 1$
+    \item $0$ (หลักที่ยืมไปแล้วลดเหลือ 0) $- 0 = 0$
+    \item $1 - 0 = 1$
+\end{enumerate}
+
+ดังนั้น $1100_2 - 0101_2 = 0111_2$
+
+ตรวจสอบ: $1100_2 = 12_{10}$, $0101_2 = 5_{10}$, $0111_2 = 7_{10}$ ซึ่ง $12 - 5 = 7 \checkmark$
+\end{ex}
+
+\section{การคูณและการหารเลขฐานสอง}
+
+\subsection{การคูณเลขฐานสอง}
+การคูณเลขฐานสองมีกฎง่ายๆ เพราะตัวคูณมีแค่ 0 กับ 1
+
+\begin{thrm}
+การคูณเลขฐานสอง:
+\begin{enumerate}
+    \item $0 \times 0 = 0$
+    \item $0 \times 1 = 0$
+    \item $1 \times 0 = 0$
+    \item $1 \times 1 = 1$
+\end{enumerate}
+\end{thrm}
+
+\begin{ex}
+คูณ $(1011)_2$ ด้วย $(1101)_2$:
+
+\begin{align*}
+  & \ \ \ \ \ \ 1011 \\
+  & \times \ \ 1101 \\
+  \hline
+  & \ \ \ \ 1011 \quad \text{(} 1011 \times 1 \text{)} \\
+  & \ \ \ 0000 \quad \text{(} 1011 \times 0 \text{ ทดไป 1 หลัก)}\\
+  & \ \ 1011 \quad \text{(} 1011 \times 1 \text{ ทดไป 2 หลัก)}\\
+  & 1011 \quad \text{(} 1011 \times 1 \text{ ทดไป 3 หลัก)}\\
+  \hline
+  & 10001111
+\end{align*}
+
+ดังนั้น $1011_2 \times 1101_2 = 10001111_2$
+
+ตรวจสอบ: $1011_2 = 11_{10}$, $1101_2 = 13_{10}$, $10001111_2 = 143_{10}$ ซึ่ง $11 \times 13 = 143 \checkmark$
+\end{ex}
+
+\begin{rem}
+การคูณเลขฐานสองในคอมพิวเตอร์ใช้วิธี shift-and-add ซึ่งประสิทธิภาพกว่าการคูณแบบธรรมดามาก
+\end{rem}
+
+\section{การแทนจำนวนเต็มลบในฐานสอง}
+
+ในคอมพิวเตอร์ จำนวนเต็มลบต้องมีการแทนที่พิเศษ เนื่องจากไม่มีเครื่องหมายลบในฐานสอง มี 3 วิธีหลักที่ใช้กัน:
+
+\subsection{Signed Magnitude (Sign-Magnitude)}
+ใช้หลักซ้ายสุดเป็น bit สำหรับเครื่องหมาย (0 = บวก, 1 = ลบ) และหลักที่เหลือเป็นค่าสัมบูรณ์
+
+\begin{thrm}
+ในระบบ signed magnitude ขนาด $n$ bits:
+\begin{enumerate}
+    \item bit ซ้ายสุด = เครื่องหมาย (0 บวก, 1 ลบ)
+    \item bits ที่เหลือ = ค่าสัมบูรณ์
+    \item ช่วง: $-(2^{n-1}-1)$ ถึง $+(2^{n-1}-1)$
+    \item มี 0 สองแบบ คือ $+0$ และ $-0$
+\end{enumerate}
+\end{thrm}
+
+\begin{ex}
+ในระบบ signed magnitude 8 bits:
+\begin{enumerate}
+    \item $+45 = 00101101_2$
+    \item $-45 = 10101101_2$
+\end{enumerate}
+\end{ex}
+
+\begin{rem}
+วิธี signed magnitude ไม่ค่อยใช้ในปัจจุบันเพราะมี 0 สองแบบและวงจรลำบาก
+\end{rem}
+
+\subsection{1's Complement}
+การแทนจำนวนลบโดยการกลับ bit ทุก bit ของจำนวนบวก
+
+\begin{thrm}
+ในระบบ 1's complement ขนาด $n$ bits:
+\begin{enumerate}
+    \item ค่าบวก เหมือน unsigned
+    \item ค่าลบ คือ กลับ bit ทุก bit ของค่าบวก
+    \item ช่วง: $-(2^{n-1}-1)$ ถึง $+(2^{n-1}-1)$
+    \item ยังมี 0 สองแบบ คือ $+0 = 00000000$, $-0 = 11111111$
+\end{enumerate}
+\end{thrm}
+
+\begin{ex}
+ในระบบ 1's complement 8 bits:
+\begin{enumerate}
+    \item $+45 = 00101101_2$
+    \item $-45 = 11010010_2$ (กลับ bit ของ 00101101)
+\end{enumerate}
+
+การบวกใน 1's complement ต้องมี end-around carry:
+$$00101101 + 11010010 = 11111111 = -0$$
+\end{ex}
+
+\subsection{2's Complement}
+วิธีที่ใช้กันมากที่สุดในคอมพิวเตอร์ปัจจุบัน
+
+\begin{thrm}
+ในระบบ 2's complement ขนาด $n$ bits:
+\begin{enumerate}
+    \item ค่าบวก เหมือน unsigned
+    \item ค่าลบ คือ กลับ bit ทุก bit แล้วบวก 1 หรือเทียบเท่ากับ $2^n - |x|$
+    \item ช่วง: $-2^{n-1}$ ถึง $+(2^{n-1}-1)$
+    \item มี 0 แบบเดียว คือ $00000000$
+    \item การบวกปกติใช้ได้เลยโดยไม่ต้อง special case
+\end{enumerate}
+\end{thrm}
+
+\begin{ex}
+ในระบบ 2's complement 8 bits:
+\begin{enumerate}
+    \item $+45 = 00101101_2$
+    \item $-45 = 11010011_2$ (กลับ bit แล้วบวก 1)
+\end{enumerate}
+
+ตรวจสอบ: $00101101 + 11010011 = 100000000_2 = 00000000_2$ (ลบ bit ซ้ายสุด)
+\end{ex}
+
+\begin{ex}
+หาค่าของ $11010011_2$ ในระบบ 2's complement 8 bits:
+
+bit ซ้ายสุดคือ 1 ดังนั้นเป็นจำนวนลบ หาค่าสัมบูรณ์โดยกลับ bit แล้วบวก 1:
+$$11010011 \rightarrow 00101100 \rightarrow 00101101_2 = 45$$
+ดังนั้น $11010011_2 = -45$
+\end{ex}
+
+\begin{thrm}
+ช่วงค่าในระบบ 2's complement $n$ bits:
+\begin{enumerate}
+    \item ค่าบวกมากที่สุด คือ $2^{n-1} - 1$ (เช่น 127 ใน 8 bits)
+    \item ค่าลบน้อยที่สุด คือ $-2^{n-1}$ (เช่น -128 ใน 8 bits)
+    \item ไม่มี $-0$ เพราะ $-128$ ใช้ $10000000_2$
+\end{enumerate}
+\end{thrm}
+
+\section{การบวกและลบในฐานสิบหก}
+
+การบวกในฐานสิบหกทำได้โดยบวกตามปกติแล้วทดเมื่อผลลัพธ์เกิน 15 (F)
+
+\begin{thrm}
+ถ้าผลบวกของแต่ละหลักเกิน $F_{16}$ ให้ทด 1 ไปหลักซ้าย และเขียนผลลัพธ์ลบ 16
+\end{thrm}
+
+\begin{ex}
+บวก $(3A5)_{16}$ กับ $(1F7)_{16}$:
+
+\begin{align*}
+  & \ \ \ 3A5 \\
+  &+ \ 1F7 \\
+  \hline
+  & \ 59C
+\end{align*}
+
+ขั้นตอน:
+\begin{enumerate}
+    \item $5 + 7 = 12$ เขียน $C$ ไม่ทด
+    \item $A + F = 10 + 15 = 25 = 16 + 9$ เขียน $9$ ทด 1
+    \item $3 + 1 + ทด1 = 5$ เขียน $5$
+\end{enumerate}
+
+ดังนั้น $3A5_{16} + 1F7_{16} = 59C_{16}$
+
+ตรวจสอบ: $3A5_{16} = 933_{10}$, $1F7_{16} = 503_{10}$, $59C_{16} = 1436_{10}$ ซึ่ง $933 + 503 = 1436 \checkmark$
+\end{ex}
+
+\begin{ex}
+ลบ $(9F2)_{16}$ ด้วย $(3A4)_{16}$:
+
+\begin{align*}
+  & \ \ \ 9F2 \\
+  &- \ 3A4 \\
+  \hline
+  & \ 64E
+\end{align*}
+
+ขั้นตอน:
+\begin{enumerate}
+    \item $2 - 4$ ยืม 1 คือ $12 - 4 = 8$ เขียน $8$
+    \item $F - 1$ (ยืมไปแล้วลดเหลือ $E$) $- A = 14 - 10 = 4$ เขียน $4$
+    \item $9 - 3 = 6$ เขียน $6$
+\end{enumerate}
+
+ดังนั้น $9F2_{16} - 3A4_{16} = 64E_{16}$
+
+ตรวจสอบ: $9F2_{16} = 2546_{10}$, $3A4_{16} = 932_{10}$, $64E_{16} = 1614_{10}$ ซึ่ง $2546 - 932 = 1614 \checkmark$
+\end{ex}
+
+\section{IEEE 754: การแทนทศนิยมในคอมพิวเตอร์}
+
+มาตรฐาน IEEE 754 (Institute of Electrical and Electronics Engineers) กำหนดวิธีการแทนจำนวนทศนิยมแบบ floating-point ในคอมพิวเตอร์ ปัจจุบันใช้กันแพร่หลายในฮาร์ดแวร์และซอฟต์แวร์คอมพิวเตอร์ทั่วโลก
+
+\subsection{โครงสร้างของ IEEE 754 Single Precision (32 bits)}
+\begin{thrm}
+จำนวน single precision 32 bits แบ่งเป็น 3 ส่วน:
+\begin{enumerate}
+    \item \textbf{Sign (S)} คือ 1 bit เครื่องหมาย (0 = บวก, 1 = ลบ)
+    \item \textbf{Exponent (E)} คือ 8 bits เลขยกกำลัง (biased)
+    \item \textbf{Fraction (F)} คือ 23 bits ส่วนเศษ (mantissa)
+\end{enumerate}
+
+ค่าจริงคือ: $(-1)^S \times 1.F \times 2^{E-127}$
+
+\end{thrm}
+
+\begin{ex}
+จำนวน $3.14$ ในระบบ IEEE 754 single precision:
+
+\begin{enumerate}
+    \item แปลงเป็นฐานสอง: $3.14 \approx 11.00100011..._2$
+    \item Normalize: $1.100100011... \times 2^1$
+    \item Sign = 0
+    \item Exponent = $1 + 127 = 128 = 10000000_2$
+    \item Fraction = $100100011...$ (23 bits)
+\end{enumerate}
+
+\end{ex}
+
+\subsection{Special Values ใน IEEE 754}
+\begin{thrm}
+ค่าพิเศษใน IEEE 754:
+\begin{enumerate}
+    \item \textbf{Zero} คือ Exponent = 0, Fraction = 0
+    \item \textbf{Denormalized} คือ Exponent = 0, Fraction $\neq$ 0 (very small numbers)
+    \item \textbf{Infinity} คือ Exponent = 255, Fraction = 0
+    \item \textbf{NaN (Not a Number)} คือ Exponent = 255, Fraction $\neq$ 0
+\end{enumerate}
+\end{thrm}
+
+\begin{ex}
+ใน single precision:
+\begin{enumerate}
+    \item $+0 = 00000000\_00000000000000000000000_2$
+    \item $-0 = 10000000\_00000000000000000000000_2$
+    \item $+\infty = 01111111\_00000000000000000000000_2$
+    \item $-\infty = 11111111\_00000000000000000000000_2$
+\end{enumerate}
+\end{ex}
+
+\begin{rem}
+\textbf{Machine Epsilon} คือค่าที่เล็กที่สุดที่บวกกับ 1 แล้วได้ค่าต่างจาก 1 ใน floating-point สำหรับ single precision คือ $2^{-23} \approx 1.19 \times 10^{-7}$ นี่คือขอบเขตของความแม่นยำในการคำนวณทศนิยม
+\end{rem}
+
+\section{การแทนข้อมูลในคอมพิวเตอร์}
+
+คอมพิวเตอร์แทนทุกสิ่งด้วย bits ข้อมูลประเภทต่างๆ เช่น ตัวอักษร รูปภาพ เสียง ล้วนแปลงเป็นตัวเลขก่อนประมวลผล
+
+\subsection{ASCII (American Standard Code for Information Interchange)}
+ASCII ใช้ 7 bits (หรือ 8 bits รวม parity) แทนอักขระ 128 ตัว
+
+\begin{thrm}
+ASCII แบ่งออกเป็น:
+\begin{enumerate}
+    \item 0--31 คือ ตัวควบคุม (control characters)
+    \item 32--47 คือ ช่องว่างและเครื่องหมายพิเศษ (!, ", \#, ...)
+    \item 48--57 คือ ตัวเลข 0--9
+    \item 65--90 คือ ตัวอักษรภาษาอังกฤษพิมพ์ใหญ่ A--Z
+    \item 97--122 คือ ตัวอักษรภาษาอังกฤษพิมพ์เล็ก a--z
+\end{enumerate}
+\end{thrm}
+
+\begin{table}[H]
+\centering
+\caption{ตาราง ASCII Code บางส่วน}
+\label{tab:ascii}
+\begin{tabular}{|c|c|c|}
+\hline
+อักขระ & ASCII (decimal) & ASCII (hex) \\
+\hline
+'A' & 65 & 41 \\
+'B' & 66 & 42 \\
+'0' & 48 & 30 \\
+'/' & 47 & 2F \\
+'a' & 97 & 61 \\
+'\{' & 123 & 7B \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{ex}
+คำ "Hi" ใน ASCII hexadecimal:
+\begin{enumerate}
+    \item 'H' = 0x48
+    \item 'i' = 0x69
+    \item ดังนั้น "Hi" = 0x4869
+\end{enumerate}
+\end{ex}
+
+\begin{rem}
+ASCII มีข้อจำกัดในการแทนอักขระภาษาอื่น เช่น ภาษาไทย จีน ญี่ปุ่น จึงพัฒนา Unicode ขึ้นมาเพื่อแก้ปัญหานี้
+\end{rem}
+
+\subsection{Unicode}
+Unicode ใช้หลาย bytes แทนอักขระ รองรับอักขระจากทั่วโลก
+
+\begin{thrm}
+Unicode มีหลาย encoding:
+\begin{enumerate}
+    \item \textbf{UTF-8} คือ 1--4 bytes ใช้กันแพร่หลายที่สุดบนอินเทอร์เน็ต
+    \item \textbf{UTF-16} คือ 2--4 bytes ใช้ใน Windows และ Java
+    \item \textbf{UTF-32} คือ 4 bytes ต่ออักขระ
+\end{enumerate}
+\end{thrm}
+
+\begin{ex}
+อักขระไทยใน UTF-8:
+\begin{enumerate}
+    \item 'ก' (U+0E01) = 0xE0 0xB8 0x81 (3 bytes)
+    \item 'ข' (U+0E02) = 0xE0 0xB8 0x82 (3 bytes)
+\end{enumerate}
+
+ดังนั้นคำว่า "กข" = 0xE0B881E0B882
+\end{ex}
+
+\section{แบบฝึกหัด}
+\subsection{ส่วนที่ 1: การแปลงฐาน}
+\begin{enumerate}
+    \item แปลงต่อไปนี้เป็นฐานสิบ:
+    \begin{enumerate}
+        \item $(1011)_2$
+        \item $(10010)_2$
+        \item $(72)_8$
+        \item $(5F)_{16}$
+        \item $(1001.101)_2$
+        \item $(3A.8)_{16}$
+    \end{enumerate}
+
+    \item แปลงต่อไปนี้เป็นฐานสอง:
+    \begin{enumerate}
+        \item $45_{10}$
+        \item $127_{10}$
+        \item $0.625_{10}$
+        \item $0.8125_{10}$
+        \item $73_{10}$
+        \item $255_{10}$
+    \end{enumerate}
+
+    \item แปลงต่อไปนี้เป็นฐานแปดและฐานสิบหก:
+    \begin{enumerate}
+        \item $(11010110)_2$
+        \item $(10101010)_2$
+    \end{enumerate}
+
+    \item แปลงต่อไปนี้เป็นฐานสิบ:
+    \begin{enumerate}
+        \item $(A1B)_{16}$
+        \item $(777)_8$
+        \item $(3CD.2A)_{16}$
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{ส่วนที่ 2: การดำเนินการฐานสอง}
+\begin{enumerate}
+    \item จงหา:
+    \begin{enumerate}
+        \item $(1011)_2 + (1101)_2$
+        \item $(10001)_2 - (111)_2$
+        \item $(1101)_2 \times (101)_2$
+        \item $(11000)_2 \div (100)_2$
+    \end{enumerate}
+
+    \item จงหา 2's complement ของ $(45)_{10}$ ใน 8 bits
+
+    \item กำหนดให้ในระบบ 2's complement 8 bits จงหาค่าของ:
+    \begin{enumerate}
+        \item $01101001_2$
+        \item $10110110_2$
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{ส่วนที่ 3: การดำเนินการฐานสิบหก}
+\begin{enumerate}
+    \item จงหา:
+    \begin{enumerate}
+        \item $(3A7)_{16} + (1B9)_{16}$
+        \item $(FF)_{16} - (A1)_{16}$
+        \item $(2F)_{16} \times (4)_{16}$
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{ส่วนที่ 4: การแทนข้อมูลและ IEEE 754}
+\begin{enumerate}
+    \item เขียนคำต่อไปนี้ในรูป hexadecimal (ASCII):
+    \begin{enumerate}
+        \item "Hi"
+        \item "OK"
+    \end{enumerate}
+
+    \item อธิบายข้อดีข้อเสียของ signed magnitude, 1's complement และ 2's complement
+
+    \item จำนวน $1.0$ ใน IEEE 754 single precision มีค่า hex คือ $3F800000$ จงอธิบายว่าแต่ละ field คืออะไร
+\end{enumerate}
+
+\section{เฉลยแบบฝึกหัด}
+\subsection{เฉลยส่วนที่ 1}
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item $1011_2 = 1 \times 8 + 1 \times 2 + 1 \times 1 = 11$
+        \item $10010_2 = 1 \times 16 + 1 \times 2 = 18$
+        \item $72_8 = 7 \times 8 + 2 = 58$
+        \item $5F_{16} = 5 \times 16 + 15 = 95$
+        \item $1001.101_2 = 9.625$
+        \item $3A.8_{16} = 58.5$
+    \end{enumerate}
+
+    \item
+    \begin{enumerate}
+        \item $45 = 101101_2$
+        \item $127 = 1111111_2$
+        \item $0.625 = 0.101_2$
+        \item $0.8125 = 0.1101_2$
+        \item $73 = 1001001_2$
+        \item $255 = 11111111_2$
+    \end{enumerate}
+\end{enumerate}
+
+\section{สรุป}
+ในบทนี้เราได้ศึกษาระบบเลขฐานอย่างครอบคลุม ซึ่งประกอบด้วย:
+
+\begin{enumerate}
+    \item \textbf{ระบบเลขฐานสิบ} คือ ระบบที่มนุษย์ใช้ทั่วไป ฐาน 10
+    \item \textbf{ระบบเลขฐานสอง} คือ ภาษาของคอมพิวเตอร์ ฐาน 2
+    \item \textbf{ระบบเลขฐานแปด} คือ ฐาน 8 ง่ายต่อการแปลงกับฐานสอง
+    \item \textbf{ระบบเลขฐานสิบหก} คือ ฐาน 16 ใช้แทนข้อมูลในคอมพิวเตอร์
+    \item \textbf{การแปลงฐาน} คือ หารต่อเนื่องสำหรับจำนวนเต็ม คูณต่อเนื่องสำหรับทศนิยม
+    \item \textbf{การดำเนินการฐานสองและฐานสิบหก} คือ บวก ลบ คูณ หาร
+    \item \textbf{การแทนจำนวนลบ} คือ Signed Magnitude, 1's complement, 2's complement
+    \item \textbf{IEEE 754} คือ มาตรฐานการแทนทศนิยมในคอมพิวเตอร์
+    \item \textbf{ASCII และ Unicode} คือ การแทนอักขระในคอมพิวเตอร์
+\end{enumerate}
+
+ความเข้าใจในระบบเลขฐานเป็นพื้นฐานที่จำเป็นสำหรับการศึกษาวิทยาการคอมพิวเตอร์ โดยเฉพาะอย่างยิ่งในเรื่อง สถาปัตยกรรมคอมพิวเตอร์ (Computer Architecture) การเขียนโปรแกรมระดับต่ำ (Low-level Programming) และการเข้ารหัสข้อมูล (Data Encoding)
+
+\begin{thebibliography}{99}
+    \bibitem{Stallings} Stallings, William. \textit{Computer Organization and Architecture}. 11th ed., Pearson, 2020.
+    \bibitem{Patterson} Patterson, David A., and John L. Hennessy. \textit{Computer Organization and Design}. 5th ed., Morgan Kaufmann, 2017.
+    \bibitem{Rosen} Rosen, Kenneth H. \textit{Discrete Mathematics and Its Applications}. 8th ed., McGraw-Hill, 2019.
+    \bibitem{IEEE754} IEEE Standard for Floating-Point Arithmetic, IEEE Std 754-2019, IEEE, 2019.
+    \bibitem{Unicode} The Unicode Consortium. \textit{The Unicode Standard}. Version 14.0, Unicode Inc., 2021.
+\end{thebibliography}

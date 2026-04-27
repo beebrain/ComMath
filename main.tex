@@ -1,0 +1,200 @@
+% !TeX spellcheck = en_US
+
+%% Updated Main.tex to use the kkubee_edit_all template
+\documentclass{kkubee_edit_all}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{diagbox}
+
+\usepackage{subcaption}
+\usepackage{caption}
+\newsavebox{\bigleftbox}
+\usepackage{varwidth}
+\usepackage{tabularx}
+\usepackage{karnaugh-map}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes.gates.logic.US,shapes.gates.logic.IEC,calc}
+
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{afterpage}
+\usepackage{longtable}  %% for long table package
+\usepackage[user,titleref]{zref}
+
+%% set above space for equation
+\setlength{\abovedisplayskip}{-5pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+
+\usepackage{circuitikz}
+\usepackage{tikz-timing}
+
+\usepackage{multicol}
+\usepackage{mathtools}
+
+%% ============ Theorem Environments ============
+\newtheorem{thrm}{ทฤษฎีบท}[chapter]
+\newtheorem{ex}[thrm]{ตัวอย่าง}
+\newtheorem{rem}[thrm]{หมายเหตุ}
+\newtheorem{warning}[thrm]{คำเตือน}
+\newtheorem{prop}[thrm]{บทแทรก}
+\newtheorem{cor}[thrm]{บทสรุป}
+\newtheorem{definition}[thrm]{นิยาม}
+
+%% ============ Boxed Theorem Styles (tcolorbox) ============
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+%% ทฤษฎีบท — กรอบสีเทา ไม่มี background
+\tcolorboxenvironment{thrm}{
+  enhanced jigsaw, breakable,
+  colback=white, colframe=gray!60!black,
+  boxrule=1.5pt, arc=4pt,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+}
+
+%% นิยาม — กรอบสีเทา ไม่มี background
+\tcolorboxenvironment{definition}{
+  enhanced jigsaw, breakable,
+  colback=white, colframe=gray!60!black,
+  boxrule=1.5pt, arc=4pt,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+}
+
+%% ============ Learning Objectives Environment (Fixed Group Nesting) ============
+% Use simple macros to avoid LaTeX environment stack issues
+\def\beginlearningObjectives{
+    \vspace{1em}
+    \noindent\textbf{วัตถุประสงค์การเรียนรู้:}
+    \begin{itemize}[label=\checkmark, leftmargin=2em]
+}
+\def\endlearningObjectives{
+    \end{itemize}
+    \vspace{1em}
+}
+
+%% ============ Exercise and Hint Environments ============
+\newtheorem{exercise}{แบบฝึกหัด}[chapter]
+
+%% แบบฝึกหัด — น้ำตาล (Brown)
+\tcolorboxenvironment{exercise}{
+  enhanced jigsaw, breakable,
+  colback=brown!5!white, colframe=brown!55!black,
+  boxrule=1.5pt, arc=4pt,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+}
+
+\newenvironment{hint}{\small\itshape\noindent\textbf{คำใบ้: }}{}
+
+%% ============ Custom Commands ============
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+%% ============ Section Numbering (Chapter.Section format) ============
+%% Override class defaults which set these to empty
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+\renewcommand{\thesubsection}{\thechapter.\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thechapter.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+%% Restore titleformat to show the section number
+\titleformat{\section}{\large\bfseries\upshape}{\thesection}{1em}{}
+\titleformat{\subsection}{\bfseries\upshape}{\thesubsection}{1em}{}
+
+\usepackage{biblatex}
+\addbibresource{references.bib}
+
+%%%%%%%%%%%%%%%%%%% infomation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\courseIdth{4091606}
+\titleth{คณิตศาสตร์สำหรับคอมพิวเตอร์ (Mathematics for Computer)}
+
+\authorth{ผู้ช่วยศาสตราจารย์ ดร.พิศิษฐ์~นาคใจ}
+\academicyearth{2568}
+\degreeA{หลักสูตรสาขาวิชาวิทยาการข้อมูล}
+\degreeB{คณะวิทยาศาสตร์และเทคโนโลยี}
+\degreeC{มหาวิทยาลัยราชภัฏอุตรดิตถ์}
+
+%%%%%%%%%%%%%%%%%%%% Begin Document %%%%%%%%%%%%%%%%%%
+\begin{document}
+	\maketitle	
+	\setkkuinfofirst
+	\parenpage
+	
+	%\include{acc}
+	\thispagestyle{empty}
+	\mbox{}
+	\tableofcontents
+	\listoftables
+	\listoffigures
+	
+	\noparenpage
+	\thispagestyle{empty}
+	\setkkupagestyle
+	
+	\pagenumbering{roman}
+	\setkkuinfofirst
+	
+	\thispagestyle{empty}
+	\setkkupagestyle
+	\emergencystretch=3em
+	
+	\cleartoleftpage
+	\include{organize}
+
+	%%%%%%%%%%%% main content %%%%%%%%%%%%%%%%%%%
+	
+	%% บทที่ 1
+	\cleartoleftpage
+	\include{chapters/chapter01_or}
+	\cleartoleftpage
+	\include{chapters/chapter01}
+	\RefChapter
+	
+	%% บทที่ 2
+	\cleartoleftpage
+	\include{chapters/chapter02_or}
+	\cleartoleftpage
+	\include{chapters/chapter02}
+	\RefChapter
+	
+	%% บทที่ 3
+	\cleartoleftpage
+	\include{chapters/chapter03_or}
+	\cleartoleftpage
+	\include{chapters/chapter03}
+	\RefChapter
+	
+	%% บทที่ 4
+	\cleartoleftpage
+	\include{chapters/chapter04_or}
+	\cleartoleftpage
+	\include{chapters/chapter04}
+	\RefChapter
+	
+	%% บทที่ 5
+	\cleartoleftpage
+	\include{chapters/chapter05_or}
+	\cleartoleftpage
+	\include{chapters/chapter05}
+	\RefChapter
+	
+	%% บทที่ 6
+	\cleartoleftpage
+	\include{chapters/chapter06_or}
+	\cleartoleftpage
+	\include{chapters/chapter06}
+	\RefChapter
+	
+	%% บทที่ 7 (ยังไม่เปิดใช้งาน)
+	%\cleartoleftpage
+	%\include{chapters/chapter07_or}
+	%\cleartoleftpage
+	%\include{chapters/chapter07}
+	%\RefChapter
+
+	\nocite{*}
+	\printbibliography[title=บรรณานุกรม]
+
+\end{document}

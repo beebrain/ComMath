@@ -1,0 +1,13 @@
+NewBook / Thai textbook integration
+===================================
+
+1) Skill path (this folder): .agents/skills/humanize-academic-writing/
+
+2) Thai LaTeX prose check (sections):
+   python scripts/analyze_tex_thai.py ..\..\..\chapter01_.tex
+   (run from this folder, or pass absolute path to any .tex chapter)
+
+3) English AI-pattern detector (abstracts, English drafts only):
+   python scripts/ai_detector.py your_english.txt
+
+4) See SKILL.md for humanize workflow and ethics (original ideas only).

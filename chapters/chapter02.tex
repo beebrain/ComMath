@@ -1,0 +1,815 @@
+﻿\chapter{ทฤษฎีเซต (Set Theory)}
+\label{ch:set}
+
+\section{วัตถุประสงค์การเรียนรู้}
+หลังจากศึกษาจบบทนี้ ผู้เรียนจะสามารถ:
+\begin{enumerate}
+    \item อธิบายความหมายและความสำคัญของเซต สมาชิก และการเป็นสมาชิกของเซตได้
+    \item ดำเนินการระหว่างเซต (เพิ่ม ตัด ผลต่าง คอมพลีเมนต์) และอธิบายความหมายของผลลัพธ์ได้
+    \item พิสูจน์และประยุกต์ใช้กฎของเดมอร์แกน (De Morgan's Laws) สำหรับเซตได้
+    \item เขียนและตีความเพาเวอร์เซต (Power Set) และผลคูณคาร์ทีเซียน (Cartesian Product) ได้
+    \item อธิบายความสัมพันธ์ระหว่างเซตกับโครงสร้างข้อมูลและฐานข้อมูลในคอมพิวเตอร์ได้
+    \item พิสูจน์ข้อความทางเซตโดยใช้เทคนิคการพิสูจน์ที่เหมาะสมได้
+\end{enumerate}
+
+\section{บทนำ: ความเป็นมาและความสำคัญของทฤษฎีเซต}
+
+\subsection{ประวัติและที่มาของทฤษฎีเซต}
+ทฤษฎีเซต (Set Theory) เป็นรากฐานทางคณิตศาสตร์ที่พัฒนาขึ้นอย่างเป็นระบบโดย Georg Cantor (1845--1918) นักคณิตศาสตร์ชาวเยอรมัน ในช่วงปลายศตวรรษที่ 19 การค้นพบของ Cantor ถือเป็นการปฏิวัติวงการคณิตศาสตร์ เพราะก่อนหน้านั้นไม่เคยมีใครตั้งคำถามเกี่ยวกับธรรมชาติของความไม่สิ้นสุด (infinity) อย่างจริงจังมาก่อน
+
+Cantor เริ่มศึกษาเรื่องเซตเมื่อเขาพยายามทำความเข้าใจเรื่องอนุกรมฟูเรียร์ (Fourier series) และค่าความไม่ต่อเนื่อง (discontinuity) ในการวิเคราะห์ทางคณิตศาสตร์ เขาสร้างทฤษฎีที่สามารถเปรียบเทียบขนาดของเซตอนันต์ได้ ผลลัพธ์ที่โด่งดังที่สุดของ Cantor คือ การที่เซตของจำนวนเต็ม $\mathbb{Z}$ และเซตของจำนวนตรรกะ $\mathbb{Q}$ มีขนาดเท่ากัน (countable infinite) ในขณะที่เซตของจำนวนจริง $\mathbb{R}$ มีขนาดใหญ่กว่า (uncountable infinite) แสดงให้เห็นว่าความอนันต์มีหลายระดับ
+
+แม้ทฤษฎีเซตจะถูกตั้งคำถามในช่วงแรก แต่ปัจจุบันเป็นพื้นฐานของคณิตศาสตร์ทั้งหมด และเป็นภาษาที่ใช้กำหนดโครงสร้างของวิทยาการคอมพิวเตอร์อย่างแท้จริง
+\label{sec:set-intro}
+
+\subsection{ทฤษฎีเซตกับวิทยาการคอมพิวเตอร์}
+ทฤษฎีเซตมีความสำคัญอย่างยิ่งในวิทยาการคอมพิวเตอร์ ได้แก่:
+
+\begin{enumerate}
+    \item \textbf{โครงสร้างข้อมูล (Data Structures)} คือ Arrays เป็นการจัดเรียงสมาชิกในเซตตามลำดับ List คือเซตที่มีลำดับและอนุญาตให้ซ้ำกันได้ Hash Table ใช้หลักการของการจับคู่ระหว่างสมาชิกกับตำแหน่ง Tree และ Graph ก็มีความเกี่ยวข้องอย่างลึกซึ้งกับทฤษฎีเซต
+    \item \textbf{ฐานข้อมูล (Database Systems)} คือระบบฐานข้อมูลเชิงสัมพันธ์ (Relational Database) มีพื้นฐานมาจากทฤษฎีเซตโดยตรง Relational Algebra ซึ่งเป็นพื้นฐานทางคณิตศาสตร์ของ SQL คือการดำเนินการระหว่างเซต ได้แก่ Union, Intersection, Difference และ Cartesian Product
+    \item \textbf{ทฤษฎีภาษา (Language Theory)} คือในการศึกษาภาษาการเขียนโปรแกรมและทฤษฎีการคำนวณ แนวคิดเรื่องตัวอักษร (Alphabet) สายอักขระ (String) และภาษา (Language) ล้วนเป็นเซตทั้งนั้น
+    \item \textbf{การพิสูจน์ความถูกต้องของโปรแกรม (Program Verification)} คือการพิสูจน์ว่าโปรแกรมทำงานถูกต้องตามข้อกำหนด ต้องใช้การดำเนินการระหว่างเซตเพื่ออธิบายสถานะของโปรแกรม Precondition และ Postcondition เป็นเซตของสถานะที่เป็นไปได้
+    \item \textbf{ทฤษฎีความน่าจะเป็น (Probability Theory)} คือ sample space คือเซตของผลลัพธ์ที่เป็นไปได้ทั้งหมด และ events คือเซตย่อยของ sample space การดำเนินการระหว่าง events เช่น union, intersection, complement ตรงกับการดำเนินการระหว่างเซต
+    \item \textbf{Logic และ AI} คือระบบฐานความรู้ (Knowledge Base) ในปัญญาประดิษฐ์ใช้ทฤษฎีเซตในการจัดการข้อเท็จจริงและกฎเกณฑ์ การอนุมาน (Inference) ก็คือการดำเนินการระหว่างเซตของข้อเท็จจริง
+\end{enumerate}
+
+\begin{rem}
+ในการเขียนโปรแกรม เรามักใช้เซตในความหมายที่ไม่เคร่งครัดนัก เช่น "เซตของตัวเลข" อาจหมายถึง list หรือ array ที่มีข้อมูลซ้ำกันได้ แต่ในทางคณิตศาสตร์ เซตตามนิยามไม่มีสมาชิกซ้ำกันและไม่มีลำดับ ความแตกต่างนี้สำคัญเมื่อต้องการพิสูจน์คุณสมบัติทางคณิตศาสตร์
+\end{rem}
+\label{rem:set-programming}
+
+
+\section{นิยามพื้นฐานของเซต}
+\label{sec:set-basics}
+
+ในบทนี้ เราจะศึกษาหัวใจสำคัญของทฤษฎีเซต นั่นคือความหมายของเซต สมาชิก และวิธีการเขียนเซตในรูปแบบต่างๆ ความเข้าใจที่ลึกซึ้งในพื้นฐานเหล่านี้จะเป็นรากฐานให้เราสามารถศึกษาหัวข้อที่ซับซ้อนขึ้นในบทต่อไป เช่น การดำเนินการระหว่างเซต ความสัมพันธ์ระหว่างเซต และการพิสูจน์ทางเซต
+
+ทฤษฎีเซตเป็นภาษาพื้นฐานของคณิตศาสตร์ทั้งหมด เหมือนกับที่ตัวอักษรเป็นพื้นฐานของภาษา เราต้องเรียนรู้ตัวอักษรและไวยากรณ์ก่อนจึงจะสามารถเขียนประโยคและเรียนรู้วรรณกรรมได้ ในทำนองเดียวกัน เราต้องเข้าใจเซตและสมาชิกอย่างลึกซึ้งก่อนจึงจะสามารถศึกษาคณิตศาสตร์ขั้นสูงได้
+
+ในชีวิตประจำวัน เรามักจัดกลุ่มของสิ่งต่างๆ อยู่เสมอ เช่น "กลุ่มเพื่อนสนิท" "กลุ่มวิชาที่ชอบ" "กลุ่มของใช้บนโต๊ะ" ในทางคณิตศาสตร์ เราเรียกกลุ่มของสิ่งต่างๆ ว่า "เซต" และเรียกสิ่งที่อยู่ในกลุ่มว่า "สมาชิก"
+
+\subsection{นิยามของเซตและสมาชิก}
+\begin{thrm}
+\textbf{เซต (Set)} คือ กลุ่มของวัตถุที่มีคุณสมบัติร่วมกันหรือมีการระบุไว้อย่างชัดเจน โดยเรียกวัตถุแต่ละชิ้นว่า \textbf{สมาชิก (Element)} ของเซต ถ้า $a$ เป็นสมาชิกของเซต $A$ เขียนแทนด้วย $a \in A$ อ่านว่า "$a$ เป็นสมาชิกของ $A$" ถ้า $a$ ไม่เป็นสมาชิกของ $A$ เขียนแทนด้วย $a \notin A$ อ่านว่า "$a$ ไม่เป็นสมาชิกของ $A$" สัญลักษณ์ $\in$ มาจากภาษากรีก "epsilon" ($\varepsilon$) ซึ่ง Cantor นำมาใช้เพื่อแสดงการ "เป็นสมาชิกของ" (element of) ความสัมพันธ์ $a \in A$ เป็นความสัมพันธ์ระหว่างวัตถุกับเซต ไม่ใช่ความสัมพันธ์ระหว่างเซตกับเซต
+\label{def:set-membership}
+\label{rem:epsilon-symbol}
+\end{thrm}
+
+\begin{ex}
+พิจารณาตัวอย่างต่อไปนี้ซึ่งแสดงเซตในบริบทที่แตกต่างกัน:
+\begin{enumerate}
+    \item[(ก)] $A = \{1, 2, 3, 4, 5\}$ — เซตของจำนวนเต็มบวกตั้งแต่ 1 ถึง 5 สมาชิกของ $A$ คือ 1, 2, 3, 4, 5 สังเกตว่าเราสามารถตรวจสอบได้ทันทีว่า $3 \in A$ เป็นจริง แต่ $7 \notin A$ ก็เป็นจริงเช่นกัน
+    \item[(ข)] $B = \{\text{แดง}, \text{เขียว}, \text{น้ำเงิน}\}$ — เซตของสีพื้นฐานในระบบสี RGB ลำดับไม่สำคัญ ดังนั้น $\{\text{แดง}, \text{เขียว}, \text{น้ำเงิน}\} = \{\text{เขียว}, \text{แดง}, \text{น้ำเงิน}\}$
+    \item[(ค)] $\mathbb{N} = \{0, 1, 2, 3, \ldots\}$ — เซตของจำนวนนับ (Natural Numbers) สัญลักษณ์ $\mathbb{N}$ เป็นมาตรฐาน ในตำราเล่มนี้เราจะถือว่า $\mathbb{N} = \{0, 1, 2, 3, \ldots\}$ คือเริ่มที่ 0
+    \item[(ง)] $\mathbb{Z} = \{\ldots, -2, -1, 0, 1, 2, \ldots\}$ — เซตของจำนวนเต็ม (Integers) สัญลักษณ์ $\mathbb{Z}$ มาจากภาษาเยอรมัน "Zahlen"
+    \item[(จ)] $\mathbb{Q} = \left\{\frac{a}{b} \mid a, b \in \mathbb{Z}, b \neq 0\right\}$ — เซตของจำนวนตรรกะ (Rational Numbers) สัญลักษณ์ $\mathbb{Q}$ มาจาก "quotient"
+    \item[(ฉ)] $\mathbb{R}$ — เซตของจำนวนจริง (Real Numbers) รวมถึงจำนวนตรรกะและจำนวนอตรรกะ (irrational numbers) เช่น $\sqrt{2}$, $\pi$, $e$
+\end{enumerate}
+เมื่อเรากล่าวว่า $a \in A$ เรากำลังยืนยันว่าวัตถุ $a$ มีอยู่ในเซต $A$ ความจริงนี้มีค่าความจริง (truth value) เป็นจริง (True) หรือเท็จ (False) อย่างใดอย่างหนึ่งเสมอ ไม่มีทางที่ $a \in A$ จะเป็น "ครึ่งหนึ่งจริง" — นี่คือหลักการที่เรียกว่า Law of Excluded Middle ในตรรกศาสตร์
+\label{ex:set-examples}
+\end{ex}
+
+\begin{rem}
+\textbf{ความสัมพันธ์ระหว่างเซตของจำนวนต่างๆ มีความสำคัญมาก:}
+\[
+\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}
+\]
+จำนวนนับเป็นเซตย่อยของจำนวนเต็ม จำนวนเต็มเป็นเซตย่อยของจำนวนตรรกะ และจำนวนตรรกะเป็นเซตย่อยของจำนวนจริง ตัวอย่างเช่น $\frac{1}{2} \in \mathbb{Q}$ เป็นจริง และ $\frac{1}{2} \in \mathbb{R}$ ก็เป็นจริงด้วย แต่ $\sqrt{2} \notin \mathbb{Q}$ แต่ $\sqrt{2} \in \mathbb{R}$
+\label{warn:number-sets}
+\end{rem}
+
+\begin{ex}
+พิจารณาความจริงของประโยคต่อไปนี้:
+\begin{enumerate}
+    \item $3 \in \{1, 2, 3, 4, 5\}$ เป็นจริง เพราะ 3 อยู่ในเซต
+    \item $7 \in \{1, 2, 3, 4, 5\}$ เป็นเท็จ เพราะ 7 ไม่อยู่ในเซต
+    \item $\sqrt{2} \in \mathbb{Q}$ เป็นเท็จ เพราะ $\sqrt{2}$ เป็นจำนวนอตรรกะ
+    \item $\sqrt{2} \in \mathbb{R}$ เป็นจริง เพราะ $\sqrt{2}$ เป็นจำนวนจริง
+    \item $0.75 \in \mathbb{Q}$ เป็นจริง เพราะ $0.75 = \frac{3}{4}$
+    \item $0.\overline{3} \in \mathbb{Q}$ เป็นจริง เพราะ $0.\overline{3} = \frac{1}{3}$
+\end{enumerate}
+\end{ex}
+
+\begin{rem}
+ในการเขียนโปรแกรม การทดสอบ $a \in A$ อาจมีความหมายต่างกันขึ้นอยู่กับโครงสร้างข้อมูล: ใน Array/List ต้องตรวจสอบทุก element ทีละตัว ใช้เวลา $O(n)$ ใน Hash Set ใช้ hash function ใช้เวลา $O(1)$ โดยเฉลี่ย ใน Tree ใช้เวลา $O(\log n)$ ถ้า balanced
+\end{rem}
+
+\subsection{วิธีการเขียนเซต}
+\begin{ex}
+มี 2 วิธีหลักในการเขียนเซต:
+
+\textbf{1. แจกแจงสมาชิก (Roster Method)} — เขียนสมาชิกทั้งหมดภายในวงเล็บปีกกา $\{\}$ โดยคั่นด้วยเครื่องหมายจุลภาค วิธีนี้เหมาะกับเซตที่มีจำนวนสมาชิกน้อยและสามารถระบุได้ทั้งหมด
+
+$A = \{1, 2, 3\}$ แสดงเซตที่มีสมาชิกสามตัว $B = \{a, e, i, o, u\}$ แสดงเซตของสระในภาษาอังกฤษ สังเกตว่าลำดับไม่สำคัญ $\{a, e, i, o, u\} = \{e, a, i, o, u\}$ และไม่มีสมาชิกซ้ำ $\{1, 1, 2, 2, 3\} = \{1, 2, 3\}$
+
+\textbf{การใช้ ... (ellipsis):} เมื่อเซตมีสมาชิกมากแต่มีรูปแบบที่ชัดเจน เช่น $\{1, 2, 3, \ldots, 100\}$ แสดงเซตของจำนวนเต็มตั้งแต่ 1 ถึง 100 ข้อควรระวัง: ต้องมีสมาชิกอย่างน้อย 2 ตัวก่อน ellipsis เพื่อให้ผู้อ่านเข้าใจรูปแบบ
+\label{ex:roster-ellipsis}
+\end{ex}
+
+\begin{ex}
+\textbf{2. แจกแจงโดยกำหนดคุณสมบัติ (Set-builder Notation)} — เขียนในรูป $\{x \mid \text{เงื่อนไขที่ } x \text{ ต้อง satisfy}\}$ วิธีนี้เหมาะกับเซตที่มีจำนวนสมาชิกมากหรืออนันต์ พิจารณาตัวอย่างต่อไปนี้:
+\begin{itemize}
+    \item $A = \{x \in \mathbb{Z} \mid x > 0\}$ — เซตของจำนวนเต็มบวก เขียนแบบย่อได้เป็น $\mathbb{Z}^+$
+    \item $B = \{n^2 \mid n \in \mathbb{N} \text{ และ } n < 5\} = \{0, 1, 4, 9, 16\}$ — สมาชิกคือกำลังสองของจำนวนนับที่น้อยกว่า 5
+    \item $E = \{x \in \mathbb{Z} \mid x \text{ หารด้วย } 2 \text{ ลงตัว}\} = 2\mathbb{Z}$ — เซตของจำนวนคู่
+    \item $O = \{x \in \mathbb{Z} \mid x \text{ หารด้วย } 2 \text{ ไม่ลงตัว}\}$ — เซตของจำนวนคี่
+    \item $C = \{x \in \mathbb{R} \mid x^2 - 5x + 6 = 0\} = \{2, 3\}$ — เซตของคำตอบของสมการ $x^2 - 5x + 6 = 0$
+    \item $D = \{x \in \mathbb{R} \mid x^2 + 1 = 0\} = \emptyset$ — ไม่มีจำนวนจริงที่ยกกำลังสองแล้วบวก 1 ได้ศูนย์
+\end{itemize}
+\label{ex:set-builder}
+\end{ex}
+
+\begin{rem}
+\textbf{คุณสมบัติสำคัญของเซต:}
+\begin{enumerate}
+    \item \textbf{ไม่มีลำดับ (Unordered)} คือลำดับของสมาชิกไม่สำคัญ $\{1, 2\} = \{2, 1\}$ หากต้องการลำดับ ต้องใช้ tuple หรือ sequence แทน
+    \item \textbf{ไม่มีสมาชิกซ้ำ (No Duplicates)} คือ $\{1, 1, 2\} = \{1, 2\}$ หากต้องซ้ำ ต้องใช้ multiset หรือ list แทน
+\end{enumerate}
+\end{rem}
+
+\begin{verbatim}
+# List (ordered and allows duplicates)
+my_list = [1, 2, 2, 3]
+# Set (unordered and no duplicates)
+my_set = {1, 2, 2, 3}  # = {1, 2, 3}
+\end{verbatim}
+นี่แสดงให้เห็นว่าในทางคณิตศาสตร์ $\{1, 2, 2, 3\} = \{1, 2, 3\}$ แต่ในการเขียนโปรแกรม list $[1, 2, 2, 3] \neq [2, 1, 2, 3]$ เมื่อต้องการเปลี่ยนจาก list ที่มีซ้ำไปเป็นเซต เราต้อง "ลบซ้ำ" ซึ่งในทางคณิตศาสตร์ทำได้โดยการกำหนดเซตใหม่ $\{1, 2, 2, 3\} = \{x \mid x \in \{1, 2, 2, 3\}\}$ แต่ในทางปฏิบัติ เราอาจใช้ฟังก์ชัน "unique" หรือ "distinct"
+
+\subsection{เซตพิเศษ}
+\begin{rem}
+\textbf{ความเข้าใจผิดที่พบบ่อย:} $\emptyset$ คือเซตที่ไม่มีสมาชิกเลย แต่ $\{\emptyset\}$ คือเซตที่มีสมาชิก 1 ตัว คือ $\emptyset$ ดังนั้น $\emptyset \neq \{\emptyset\} \neq \{\{\emptyset\}\}$ และ $|\emptyset| = 0$, $|\{\emptyset\}| = 1$
+\end{rem}
+
+\begin{thrm}
+เซตพิเศษที่สำคัญ ได้แก่: (1) \textbf{เซตว่าง (Empty Set)} เขียนแทนด้วย $\emptyset$ หรือ $\{\quad\}$ คือเซตที่ไม่มีสมาชิกเลย (2) \textbf{Singleton Set} คือเซตที่มีสมาชิกเพียงตัวเดียว เช่น $\{5\}$, $\{a\}$, $\{\emptyset\}$ (3) \textbf{Universal Set} เขียนแทนด้วย $U$ คือเซตที่ประกอบด้วยสมาชิกทุกตัวที่สนใจในบริบทหนึ่ง เช่น ในการศึกษาเรื่องจำนวน $\mathbb{R}$ อาจเป็น Universal Set เป็นเหมือน "กรอบอ้างอิง" ที่กำหนดขอบเขตของการพิจารณา นอกจากนี้ เซตจำกัด (Finite Set) คือเซตที่มีจำนวนสมาชิกจำกัด ในขณะที่ $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$ เป็น \textbf{เซตอนันต์ (Infinite Set)} ที่มีจำนวนสมาชิกไม่สิ้นสุด และเซตว่างเป็นเซตย่อยของทุกเซต: $\emptyset \subseteq A$ สำหรับทุกเซต $A$ เพราะ "ทุกสมาชิกของ $\emptyset$ มีคุณสมบัติ P" เป็นจริงโดย vacuous truth
+\end{thrm}
+
+\begin{rem}
+\textbf{ความเข้าใจผิดที่พบบ่อย:} $\emptyset \in \{\emptyset\}$ เป็นจริง เพราะ $\emptyset$ เป็นสมาชิกของ $\{\emptyset\}$ แต่ $\emptyset \subseteq \{\emptyset\}$ ก็เป็นจริงด้วย (เซตว่างเป็นเซตย่อยของทุกเซต) แสดงว่า $\in$ (เป็นสมาชิก) และ $\subseteq$ (เป็นเซตย่อย) เป็นความสัมพันธ์ที่ต่างกัน แต่สามารถเป็นจริงทั้งคู่พร้อมกันได้
+\end{rem}
+
+\begin{ex}
+เพื่อเข้าใจความแตกต่างระหว่าง $\in$ และ $\subseteq$: $1 \in \{1, 2, 3\}$ ถูกต้อง แต่ $\{1\} \in \{1, 2, 3\}$ ไม่ถูกต้อง ส่วน $\{1\} \subseteq \{1, 2, 3\}$ ถูกต้องเพราะทุกสมาชิกของ $\{1\}$ (คือ 1) อยู่ใน $\{1, 2, 3\}$ และ $\emptyset \subseteq \{1, 2, 3\}$ ถูกต้อง (เซตว่างเป็นเซตย่อยของทุกเซต) แต่ $\emptyset \in \{1, 2, 3\}$ ไม่ถูกต้อง สรุปคือ $\in$ และ $\subseteq$ เป็นความสัมพันธ์ที่ต่างกันแต่สามารถเป็นจริงทั้งคู่พร้อมกันได้ และในชีวิตจริง: ฐานข้อมูลนักศึกษา $U$ = นักศึกษาทั้งหมด, $A$ = นักศึกษาคณิตศาสตร์, $B$ = นักศึกษาฟิสิกส์ แล้ว $A \cap B$ = นักศึกษาที่เรียนทั้งสองวิชา
+\end{ex}
+
+\section{ความสัมพันธ์ระหว่างเซต}
+
+\subsection{เซตย่อย (Subset) และเซตย่อยแท้ (Proper Subset)}
+การเข้าใจนิยามนี้เป็นสิ่งสำคัญมาก เพราะเป็นพื้นฐานของการพิสูจน์ทางเซตทั้งหมด เมื่อต้องการพิสูจน์ว่า $A \subseteq B$ เราต้องสมมติว่า $x \in A$ แล้วแสดงว่า $x \in B$ ด้วย --- นี่คือรูปแบบ direct proof สำหรับ subset
+
+\begin{thrm}
+เซต $A$ เป็น \textbf{เซตย่อย (Subset)} ของเซต $B$ เขียนแทนด้วย $A \subseteq B$ ก็ต่อเมื่อทุกสมาชิกของ $A$ เป็นสมาชิกของ $B$ ด้วย กล่าวคือ $\forall x, (x \in A \rightarrow x \in B)$ นอกจากนี้ $\emptyset \subseteq A$ และ $A \subseteq A$ สำหรับทุกเซต $A$ (เซตว่างเป็นเซตย่อยของทุกเซตโดย vacuous truth และเซตทุกเซตเป็นเซตย่อยของตัวเอง) ความสัมพันธ์ระหว่าง $\subseteq$ และ $=$ มีความสำคัญมาก: $A \subseteq B$ และ $B \subseteq A$ ก็ต่อเมื่อ $A = B$ นี่คือ Extensionality Axiom และ $A \subseteq B$ และ $B \not\subseteq A$ ก็ต่อเมื่อ $A \subsetneq B$ (เซตย่อยแท้ / Proper Subset) ตัวอย่างเช่น $\{1, 2\} \subsetneq \{1, 2, 3\}$ เพราะ $\{1, 2\} \subseteq \{1, 2, 3\}$ แต่ $\{1, 2, 3\} \not\subseteq \{1, 2\}$ ในขณะที่ $\{1, 2, 3\} \not\subsetneq \{1, 2, 3\}$
+\end{thrm}
+
+\begin{ex}
+$\{1, 2\} \subseteq \{1, 2, 3\}$ ถูกต้องเพราะ 1 และ 2 ต่างก็อยู่ใน $\{1, 2, 3\}$ และ $\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}$ เป็นความจริงพื้นฐานที่แสดงความสัมพันธ์ระหว่างเซตของจำนวน $\emptyset \subseteq \{1, 2\}$ ถูกต้องเพราะเซตว่างเป็นเซตย่อยของทุกเซต ส่วน $\{1, 2\} \not\subseteq \{2, 3\}$ ไม่ถูกต้องเพราะ $1 \in \{1, 2\}$ แต่ $1 \notin \{2, 3\}$
+\end{ex}
+
+\begin{thrm}
+ในการพิสูจน์ว่า $A = B$ เราต้องพิสูจน์ทั้ง $A \subseteq B$ และ $B \subseteq A$ นั่นคือต้องแสดงว่า: (1) ทุก $x \in A \Rightarrow x \in B$ (แสดง $A \subseteq B$) และ (2) ทุก $x \in B \Rightarrow x \in A$ (แสดง $B \subseteq A$) วิธีนี้เรียกว่า "proof by double inclusion" เป็นเทคนิคมาตรฐานในการพิสูจน์ความเท่ากันของเซต
+\label{thrm:double-inclusion}
+\end{thrm}
+
+\begin{ex}
+พิสูจน์ว่า $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ (Distributive Law): ต้องแสดง $\subseteq$ และ $\supseteq$ ($\subseteq$) สมมติ $x \in A \cap (B \cup C)$ โดยนิยามของ intersection และ union: $x \in A$ และ $x \in B \cup C$ ซึ่งหมายความว่า $x \in A$ และ $(x \in B$ หรือ $x \in C)$ ใช้ distributive law ของตรรกศาสตร์: $(x \in A \text{ และ } x \in B)$ หรือ $(x \in A \text{ และ } x \in C)$ กลับไปใช้นิยามของ intersection และ union: $x \in (A \cap B) \cup (A \cap C)$ ($\supseteq$) พิสูจน์กลับกันโดยทำตามขั้นตอนย้อนกลับ สรุปได้ว่า $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+\end{ex}
+
+\section{การดำเนินการระหว่างเซต (Set Operations)}
+
+การดำเนินการระหว่างเซตเป็นเครื่องมือพื้นฐานในการสร้างเซตใหม่จากเซตที่มีอยู่ เราจะศึกษาการดำเนินการ 4 อย่างหลักๆ ได้แก่ union ($\cup$)، intersection ($\cap$)، difference ($\setminus$)، และ complement ($^c$)
+
+\subsection{ยูเนียน (Union)}
+\begin{thrm}
+\textbf{ยูเนียน (Union)} ของเซต $A$ และ $B$ เขียนแทนด้วย $A \cup B$ คือเซตที่ประกอบด้วยสมาชิกที่อยู่ใน $A$ หรืออยู่ใน $B$ หรืออยู่ทั้งสองเซต กล่าวคือ $A \cup B = \{x \mid x \in A \text{ หรือ } x \in B\}$ สมบัติสำคัญ ได้แก่: (1) $A \cup A = A$ (Idempotent Law) (2) $A \cup \emptyset = A$ (Identity Law) (3) $A \cup U = U$ (Domination Law) (4) $A \cup B = B \cup A$ (Commutative Law) (5) $(A \cup B) \cup C = A \cup (B \cup C)$ (Associative Law) และ $A \subseteq A \cup B$, $B \subseteq A \cup B$ สำหรับทุกเซต $A, B, C$ สมาชิกใหม่จะเข้ามาในผลลัพธ์ก็ต่อเมื่อมันอยู่ใน $A$ หรืออยู่ใน $B$ อย่างน้อยที่หนึ่ง และสมาชิกที่อยู่ทั้งสองเซตจะปรากฏในผลลัพธ์เพียงครั้งเดียว (เพราะเซตไม่มีสมาชิกซ้ำ)
+\label{def:union}
+\end{thrm}
+
+\begin{ex}
+พิจารณาตัวอย่างต่อไปนี้เพื่อเข้าใจ union อย่างลึกซึ้ง: $\{1, 2\} \cup \{2, 3\} = \{1, 2, 3\}$ --- สังเกตว่า 2 อยู่ทั้งสองเซต แต่ในผลลัพธ์ 2 ปรากฏเพียงครั้งเดียว $\{1, 2\} \cup \emptyset = \{1, 2\}$ --- union กับเซตว่างไม่เปลี่ยนเซตเดิม $\{x \mid x \text{ เป็นจำนวนคู่}\} \cup \{x \mid x \text{ เป็นจำนวนคี่}\} = \mathbb{Z}$ --- ทุกจำนวนเต็มเป็นได้ทั้งคู่หรือคี่อย่างใดอย่างหนึ่ง $A \cup A = A$ และ $A \cup B = B \cup A$ แสดงสมบัติ idempotent และ commutative ตามลำดับ
+\end{ex}
+
+\subsection{อินเตอร์เซกชัน (Intersection)}
+ในการคิดถึง intersection ให้นึกภาพว่าเป็นส่วนที่ซ้อนทับกันของเซตสองเซต สมาชิกต้องอยู่ในทั้งสองเซตจึงจะอยู่ใน intersection การที่ $x \in A \cap B$ หมายความว่า $x$ เป็นสมาชิกของ $A$ และ $x$ เป็นสมาชิกของ $B$ ทั้งคู่ ในทางตรรกศาสตร์สอดคล้องกับ "AND" และถ้า $A \cap B = \emptyset$ เราจะเรียก $A$ และ $B$ ว่า \textbf{เซตแยกกัน (Disjoint Sets)}
+
+\begin{thrm}
+\textbf{อินเตอร์เซกชัน (Intersection)} ของเซต $A$ และ $B$ เขียนแทนด้วย $A \cap B$ คือเซตที่ประกอบด้วยสมาชิกที่อยู่ทั้งใน $A$ และใน $B$ พร้อมกัน นั่นคือ $A \cap B = \{x \mid x \in A \text{ และ } x \in B\}$ สมบัติสำคัญ ได้แก่ $A \cap A = A$ (Idempotent), $A \cap \emptyset = \emptyset$ (Domination), $A \cap U = A$ (Identity), $A \cap B = B \cap A$ (Commutative), $(A \cap B) \cap C = A \cap (B \cap C)$ (Associative) และ $A \cap B \subseteq A$, $A \cap B \subseteq B$
+\end{thrm}
+
+\begin{ex}
+$\{1, 2\} \cap \{2, 3\} = \{2\}$ --- 2 เป็นสมาชิกเพียงตัวเดียวที่อยู่ทั้งสองเซต $\{1, 2\} \cap \{3, 4\} = \emptyset$ --- ไม่มีสมาชิกใดที่อยู่ทั้งสองเซตจึงเป็น disjoint $\mathbb{Z} \cap \mathbb{R} = \mathbb{Z}$ เพราะทุกจำนวนเต็มเป็นจำนวนจริง และ $\{x \mid x \text{ เป็นจำนวนคู่}\} \cap \{x \mid x \text{ เป็นจำนวนคี่}\} = \emptyset$ เพราะไม่มีจำนวนใดเป็นได้ทั้งคู่และคี่พร้อมกัน
+\end{ex}
+
+\begin{thrm}[Algebraic Laws for Set Operations]
+สำหรับเซต $A, B, C$ ใดๆ ใน universal set $U$ การดำเนินการระหว่างเซตมีสมบัติดังต่อไปนี้:
+
+\begin{enumerate}
+    \item \textbf{Idempotent Laws:} $A \cup A = A$ และ $A \cap A = A$
+    \item \textbf{Identity Laws:} $A \cup \emptyset = A$ และ $A \cap U = A$
+    \item \textbf{Domination Laws:} $A \cup U = U$ และ $A \cap \emptyset = \emptyset$
+    \item \textbf{Commutative Laws:} $A \cup B = B \cup A$ และ $A \cap B = B \cap A$
+    \item \textbf{Associative Laws:} $(A \cup B) \cup C = A \cup (B \cup C)$ และ $(A \cap B) \cap C = A \cap (B \cap C)$
+    \item \textbf{Distributive Laws:} $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ และ $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+    \item \textbf{Absorption Laws:} $A \cup (A \cap B) = A$ และ $A \cap (A \cup B) = A$
+    \item \textbf{Complement Laws:} $A \cup A^c = U$, $A \cap A^c = \emptyset$, $(A^c)^c = A$, $\emptyset^c = U$, และ $U^c = \emptyset$
+\end{enumerate}
+\label{thrm:set-algebraic-laws}
+\end{thrm}
+
+\begin{ex}
+การพิสูจน์ Absorption Law $A \cup (A \cap B) = A$ โดย double inclusion:
+
+($\subseteq$) ถ้า $x \in A \cup (A \cap B)$ แล้ว $x \in A$ หรือ $x \in A \cap B$
+
+ถ้า $x \in A$ ก็เสร็จ ถ้า $x \in A \cap B$ แล้ว $x \in A$ โดยนิยามของ $\cap$
+
+ดังนั้น $x \in A$ ในทุกกรณี
+
+($\supseteq$) ถ้า $x \in A$ แล้ว $x \in A \cup (A \cap B)$ เพราะ $x \in A \Rightarrow x \in A \cup X$ สำหรับทุกเซต $X$
+
+สรุปได้ว่า $A \cup (A \cap B) = A$
+\label{ex:absorption-proof}
+\end{ex}
+
+\subsection{ผลต่าง (Set Difference)}
+\begin{thrm}
+\textbf{ผลต่าง (Difference)} ของเซต $A$ และ $B$ เขียนแทนด้วย $A - B$ หรือ $A \setminus B$ คือเซตที่ประกอบด้วยสมาชิกที่อยู่ใน $A$ แต่ไม่อยู่ใน $B$ กล่าวคือ $A - B = \{x \mid x \in A \text{ และ } x \notin B\}$ ในทางตรรกศาสตร์สอดคล้องกับ "A และ ไม่ B" และโดยทั่วไป $A - B \neq B - A$ ไม่มีสมบัติสลับที่ ตัวอย่างเช่น $\{1, 2\} - \{2, 3\} = \{1\}$ ในขณะที่ $\{2, 3\} - \{1, 2\} = \{3\}$
+\label{def:set-difference}
+\end{thrm}
+
+\begin{ex}
+พิจารณาตัวอย่างต่อไปนี้: $\{1, 2, 3\} - \{2, 4\} = \{1, 3\}$ --- นำ 2 และ 4 ออกจากเซตแรก 2 อยู่ในเซตแรกดังนั้นถูกนำออก 4 ไม่อยู่ในเซตแรกดังนั้นไม่กระทบ $\mathbb{Z} - \mathbb{N} = \{x \in \mathbb{Z} \mid x < 0\} = \mathbb{Z}^-$ (จำนวนเต็มลบ) --- จำนวนเต็มที่ไม่เป็นจำนวนนับคือจำนวนเต็มลบ $\{1, 2\} - \{1, 2\} = \emptyset$ --- นำสมาชิกทั้งหมดออกไม่เหลืออะไร และ $\{1, 2\} - \{3, 4\} = \{1, 2\}$ --- ไม่มีสมาชิกใดในเซตที่สองที่อยู่ในเซตแรก ในบริบทต่างๆ: ให้ $U$ เป็นเซตของนักศึกษาทั้งหมด และ $A$ เป็นเซตของนักศึกษาที่สอบผ่าน แล้ว $U - A$ คือนักศึกษาที่สอบตก
+\end{ex}
+
+\subsection{คอมพลีเมนต์ (Complement)}
+Complement เป็นการดำเนินการที่ให้ "สิ่งที่ไม่อยู่ใน A" โดยอ้างอิงกับ Universal Set สิ่งสำคัญคือต้องกำหนด Universal Set ก่อนเสมอ เพราะ complement ขึ้นอยู่กับบริบท
+
+\begin{thrm}
+\textbf{คอมพลีเมนต์ (Complement)} ของเซต $A$ เขียนแทนด้วย $A^c$ หรือ $\overline{A}$ คือเซตที่ประกอบด้วยสมาชิกทั้งหมดใน Universal Set $U$ ที่ไม่อยู่ใน $A$ นั่นคือ $A^c = \{x \in U \mid x \notin A\} = U - A$ สมบัติสำคัญ: (1) $A \cup A^c = U$ (Complement Law) (2) $A \cap A^c = \emptyset$ (Non-Contradiction) (3) $(A^c)^c = A$ (Double Complement) (4) $A - B = A \cap B^c$ (Set Difference as Intersection with Complement) ซึ่งเป็นประโยชน์มากในการเปลี่ยนผลต่างเป็น intersection กับ complement ทำให้สามารถใช้ distributive law ได้
+\label{def:complement}
+\end{thrm}
+
+\begin{ex}
+ถ้า $U = \{1, 2, 3, 4, 5\}$ และ $A = \{1, 2\}$ แล้ว $A^c = \{3, 4, 5\}$ เพราะ $3 \in U$ และ $3 \notin A$ ในขณะที่ $1 \notin A^c$ เพราะ $1 \in A$ แต่ถ้าเปลี่ยน Universal Set เป็น $U = \{1, 2, 3, 4, 5, 6, 7\}$ แล้ว $A^c = \{3, 4, 5, 6, 7\}$ --- เซตเดียวกัน $A$ มี complement ต่างกันเพราะ Universal Set ต่างกัน พิสูจน์ $A - B = A \cap B^c$: สมมติ $x \in A - B$ แล้ว $x \in A$ และ $x \notin B$ ซึ่งหมายความว่า $x \in A$ และ $x \in B^c$ ดังนั้น $x \in A \cap B^c$ ได้ $A - B \subseteq A \cap B^c$ และพิสูจน์กลับได้ $A \cap B^c \subseteq A - B$ ดังนั้น $A - B = A \cap B^c$
+\label{ex:complement}
+\end{ex}
+
+\section{กฎของเดมอร์แกน (De Morgan's Laws)}
+
+กฎของเดมอร์แกนตั้งชื่อตาม Augustus De Morgan (1806--1871) นักคณิตศาสตร์ชาวอังกฤษ ซึ่งเป็นหนึ่งในผู้ก่อตั้งสาขาตรรกศาสตร์คณิตศาสตร์ (mathematical logic) กฎเหล่านี้แสดงความสัมพันธ์ระหว่าง complement กับ union และ intersection และมีความสำคัญมากในการพิสูจน์ทางคณิตศาสตร์และการออกแบบวงจรดิจิทัล
+
+\begin{thrm}[De Morgan's Laws สำหรับเซต]
+สำหรับทุกเซต $A$ และ $B$:
+\begin{enumerate}
+    \item $(A \cup B)^c = A^c \cap B^c$ \hfill (Complement ของ Union = Intersection ของ Complements)
+    \item $(A \cap B)^c = A^c \cup B^c$ \hfill (Complement ของ Intersection = Union ของ Complements)
+\end{enumerate}
+\end{thrm}
+
+กฎข้อ 1 พูดว่า "ไม่ (A หรือ B)" เท่ากับ "(ไม่ A) และ (ไม่ B)"
+
+กฎข้อ 2 พูดว่า "ไม่ (A และ B)" เท่ากับ "(ไม่ A) หรือ (ไม่ B)"
+
+\begin{rem}
+สังเกตความสอดคล้องกับ De Morgan's Laws ในตรรกศาสตร์:
+\begin{enumerate}
+    \item $\neg(p \land q) \equiv \neg p \lor \neg q$ สอดคล้องกับ $(A \cap B)^c = A^c \cup B^c$
+    \item $\neg(p \lor q) \equiv \neg p \land \neg q$ สอดคล้องกับ $(A \cup B)^c = A^c \cap B^c$
+\end{enumerate}
+นี่เป็นตัวอย่างที่แสดงความเชื่อมโยงระหว่างตรรกศาสตร์และทฤษฎีเซตอย่างลึกซึ้ง ทั้งสองระบบมีโครงสร้างทางคณิตศาสตร์ที่เหมือนกัน
+\end{rem}
+
+De Morgan's Laws มีการประยุกต์ใช้มากในวงจรดิจิทัล ในการออกแบบวงจร เรามักต้องการแปลง AND gates เป็น OR gates หรือในทางกลับกัน โดยใช้ NOT gates De Morgan's Laws บอกเราว่าวิธีที่ถูกต้องคืออะไร
+
+\begin{ex}
+พิสูจน์ $(A \cup B)^c = A^c \cap B^c$
+
+สมมติ $x \in (A \cup B)^c$
+
+$x \notin A \cup B$
+
+$\neg(x \in A \cup B)$
+
+$\neg(x \in A \text{ หรือ } x \in B)$
+
+$\neg(x \in A) \text{ และ } \neg(x \in B)$ \hfill (De Morgan ในตรรกศาสตร์)
+
+$x \notin A \text{ และ } x \notin B$
+
+$x \in A^c \text{ และ } x \in B^c$
+
+$x \in A^c \cap B^c$
+
+ดังนั้น $(A \cup B)^c \subseteq A^c \cap B^c$
+
+สมมติ $x \in A^c \cap B^c$
+
+$x \in A^c \text{ และ } x \in B^c$
+
+$x \notin A \text{ และ } x \notin B$
+
+$\neg(x \in A) \text{ และ } \neg(x \in B)$
+
+$\neg(x \in A \text{ หรือ } x \in B)$ \hfill (De Morgan ในตรรกศาสตร์)
+
+$x \notin A \cup B$
+
+$x \in (A \cup B)^c$
+
+ดังนั้น $A^c \cap B^c \subseteq (A \cup B)^c$
+
+เนื่องจาก $\subseteq$ และ $\supseteq$ ต่างก็เป็นจริง ดังนั้น $(A \cup B)^c = A^c \cap B^c$
+\end{ex}
+
+\subsection{เพาเวอร์เซต (Power Set)}
+\begin{thrm}
+\textbf{เพาเวอร์เซต (Power Set)} ของเซต $A$ เขียนแทนด้วย $\mathcal{P}(A)$ หรือ $2^A$ คือเซตที่ประกอบด้วยเซตย่อยทั้งหมดของ $A$ กล่าวคือ $\mathcal{P}(A) = \{B \mid B \subseteq A\}$ เพาเวอร์เซตเป็น "เซตของเซต" เพราะสมาชิกของมันคือเซตย่อยของ $A$ สมบัติสำคัญ: ถ้า $|A| = n$ แล้ว $|\mathcal{P}(A)| = 2^n$ เพราะแต่ละสมาชิกใน $A$ สามารถตัดสินใจได้ 2 ทางคือ "อยู่" หรือ "ไม่อยู่" ในเซตย่อย สัญลักษณ์ $2^A$ จึงสื่อความหมายเพราะ $|\mathcal{P}(A)| = 2^{|A|}$
+\label{def:power-set}
+\end{thrm}
+
+\begin{ex}
+พิจารณาตัวอย่างต่อไปนี้: $\mathcal{P}(\{1, 2\}) = \{\emptyset, \{1\}, \{2\}, \{1, 2\}\}$ --- เซตย่อยทั้งหมดได้แก่ เซตว่าง, เซตที่มี 1, เซตที่มี 2, และเซตเดิม $\mathcal{P}(\emptyset) = \{\emptyset\}$ --- สังเกตว่าเพาเวอร์เซตของเซตว่างไม่ใช่เซตว่าง เพราะมันมีสมาชิก 1 ตัว คือ $\emptyset$ เอง $\mathcal{P}(\{a\}) = \{\emptyset, \{a\}\}$ --- มีเซตย่อย 2 ตัว และ $\mathcal{P}(\{1, 2, 3\}) = \{\emptyset, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\}$ --- มีเซตย่อย 8 ตัว ซึ่งตรงกับ $2^3 = 8$
+\end{ex}
+
+
+\subsection{ผลคูณคาร์ทีเซียน (Cartesian Product)}
+คู่อันดับ $(a, b)$ แตกต่างจากเซต $\{a, b\}$ ตรงที่มีลำดับ กล่าวคือ $(a, b) \neq (b, a)$ ยกเว้นกรณี $a = b$ และ $(a, b) = (c, d)$ ก็ต่อเมื่อ $a = c$ และ $b = d$ สัญลักษณ์ Cartesian Product มาจากชื่อนักคณิตศาสตร์ Rene Descartes ผู้ที่พัฒนาเรขาคณิตวิเคราะห์ $\mathbb{R} \times \mathbb{R} = \mathbb{R}^2$ คือระนาบ 2 มิติที่เราใช้กันทั่วไป
+
+\begin{thrm}
+\textbf{ผลคูณคาร์ทีเซียน (Cartesian Product)} ของเซต $A$ และ $B$ เขียนแทนด้วย $A \times B$ คือเซตของคู่อันดับ (ordered pairs) $(a, b)$ โดยที่ $a \in A$ และ $b \in B$ นั่นคือ $A \times B = \{(a, b) \mid a \in A \text{ และ } b \in B\}$ สัญลักษณ์ $\times$ อ่านว่า "คูณ" หรือ "cross"
+\end{thrm}
+
+\begin{ex}
+$\{1, 2\} \times \{a, b\} = \{(1, a), (1, b), (2, a), (2, b)\}$ --- สมาชิกตัวแรกมาจากเซตแรก สมาชิกตัวหลังมาจากเซตหลัง ทุกคู่ที่เป็นไปได้จะอยู่ในผลลัพธ์ สังเกตว่าลำดับสำคัญ $(1,3) \neq (3,1)$ นอกจากนี้ $\mathbb{R} \times \mathbb{R} = \mathbb{R}^2$ คือระนาบ 2 มิติ และ $\emptyset \times A = A \times \emptyset = \emptyset$ สำหรับทุกเซต $A$ เพราะไม่มีคู่อันดับใดที่มาจากเซตว่าง
+\end{ex}
+
+\begin{thrm}
+ถ้า $|A| = m$ และ $|B| = n$ แล้ว $|A \times B| = m \cdot n$ เพราะทุกสมาชิกใน $A$ สามารถจับคู่กับทุกสมาชิกใน $B$ ได้ จึงมี $m \times n$ คู่ และ $\mathbb{R} \times \mathbb{R}$ มี cardinality เท่ากับ $|\mathbb{R}|^2$ ซึ่งเป็น uncountable เช่นเดียวกับ $\mathbb{R}$
+\end{thrm}
+
+\begin{thrm}
+สมบัติของ Cartesian Product:
+\begin{enumerate}
+    \item $A \times (B \cup C) = (A \times B) \cup (A \times C)$
+    \item $A \times (B \cap C) = (A \times B) \cap (A \times C)$
+    \item $(A \cup B) \times C = (A \times C) \cup (B \times C)$
+    \item $(A \cap B) \times C = (A \times C) \cap (B \times C)$
+\end{enumerate}
+สังเกตว่า Cartesian Product กระจายเหนือ union และ intersection ในทางที่คล้ายกับการกระจายการคูณเหนือการบวก
+\end{thrm}
+
+\section{การนับจำนวนสมาชิกของเซต (Cardinality)}
+
+\begin{thrm}
+\textbf{คาร์ดินัลลิตี้ (Cardinality)} ของเซต $A$ เขียนแทนด้วย $|A|$ หมายถึงจำนวนสมาชิกในเซต $A$
+
+สำหรับเซตจำกัด คาร์ดินัลลิตี้คือจำนวนสมาชิกที่นับได้ สำหรับเซตอนันต์จะต้องใช้แนวคิดที่ซับซ้อนกว่านี้ (Cantor's diagonal argument) ซึ่งเราจะศึกษาในบทต่อไป
+\end{thrm}
+
+การนับจำนวนสมาชิกเป็นพื้นฐานของการนับ (combinatorics) และมีการประยุกต์ใช้มากในการนับโอกาสทั้งหมดที่เป็นไปได้
+
+\begin{thrm}[หลักการรวม-การแยก (Inclusion-Exclusion Principle)]
+สำหรับเซตจำกัด $A$ และ $B$:
+\begin{enumerate}
+    \item $|A \cup B| = |A| + |B| - |A \cap B|$
+    \item ถ้า $A$ และ $B$ แยกกัน (disjoint, คือ $A \cap B = \emptyset$) แล้ว $|A \cup B| = |A| + |B|$
+\end{enumerate}
+\end{thrm}
+
+หลักการรวม-การแยกใช้เมื่อต้องการนับจำนวนสมาชิกของ union ถ้านับ $|A| + |B|$ โดยตรง สมาชิกที่อยู่ทั้งสองเซต (intersection) จะถูกนับซ้ำ จึงต้องลบออก
+
+\begin{ex}
+ถ้า $A = \{1, 2, 3, 4\}$, $B = \{3, 4, 5, 6\}$ แล้ว $|A| = 4$, $|B| = 4$, $|A \cap B| = 2$ (คือ $\{3, 4\}$)
+
+$|A \cup B| = |\{1, 2, 3, 4, 5, 6\}| = 6 = 4 + 4 - 2$
+
+นี่แสดงให้เห็นว่าถ้านับ $4 + 4 = 8$ โดยไม่หัก intersection จะได้ 8 ซึ่งมากกว่าความจริง (6) เพราะ 3 และ 4 ถูกนับซ้ำ
+\end{ex}
+
+การประยุกต์ใช้ในชีวิตจริง:
+\begin{enumerate}
+    \item นักศึกษา 30 คน 15 คนเรียนภาษาอังกฤษ 20 คนเรียนคณิตศาสตร์ มีนักศึกษากี่คนที่เรียนอย่างน้อยหนึ่งวิชา? ถ้าไม่มีนักศึกษาคนใดเรียนทั้งสองวิชา (disjoint) ก็ $15 + 20 = 35$ ซึ่งมากกว่า 30 แสดงว่าต้องมีนักศึกษาที่เรียนทั้งสองวิชา
+\end{enumerate}
+
+\begin{thrm}
+สำหรับเซต 3 เซต:
+\[
+|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|
+\]
+
+สูตรนี้ขยายจาก 2 เซต โดยลบ intersection ของทุกคู่ แล้วบวก intersection ของทั้งสามกลับ (เพราะถูกลบเกินไป)
+\end{thrm}
+
+\begin{ex}
+ในห้องเรียน 20 คน มี 12 คนเรียนคณิตศาสตร์ 15 คนเรียนฟิสิกส์ และ 10 คนเรียนเคมี นอกจากนี้ 6 คนเรียนคณิตศาสตร์และฟิสิกส์ 5 คนเรียนคณิตศาสตร์และเคมี 4 คนเรียนฟิสิกส์และเคมี และ 2 คนเรียนทั้งสามวิชา มีกี่คนที่เรียนอย่างน้อยหนึ่งวิชา?
+
+ใช้สูตร:
+\[
+|M \cup P \cup C| = 12 + 15 + 10 - 6 - 5 - 4 + 2 = 24
+\]
+
+ตรวจสอบ: $24 \leq 20$ เป็นไปไม่ได้! นี่บอกว่าข้อมูลขัดแย้งกัน หรืออาจมีนักเรียนที่ไม่ได้เรียนวิชาใดเลย 24 คนเรียนอย่างน้อย 1 วิชา แต่มีนักเรียนทั้งหมด 20 คน แสดงว่าต้องมีคนซ้ำซ้อนในการนับ หรือข้อมูลผิด
+\end{ex}
+
+\begin{thrm}
+สำหรับ Cartesian Product:
+$|A \times B| = |A| \cdot |B|$
+\end{thrm}
+
+\begin{thrm}
+$|\mathcal{P}(A)| = 2^{|A|}$ สำหรับเซตจำกัด $A$
+\end{thrm}
+
+นี่เป็นเหตุผลว่าทำไมเพาเวอร์เซตเติบโตเร็วมาก เมื่อ $|A|$ เพิ่มขึ้น 1 $|\mathcal{P}(A)|$ จะเพิ่มเป็น 2 เท่า
+
+\section{การประยุกต์ในวิทยาการคอมพิวเตอร์}
+
+ทฤษฎีเซตไม่ได้เป็นเพียงนามธรรมทางคณิตศาสตร์ แต่เป็นรากฐานของวิทยาการคอมพิวเตอร์หลายด้าน ในส่วนนี้เราจะศึกษาการประยุกต์ใช้ที่สำคัญโดยเน้นความเชื่อมโยงทางคณิตศาสตร์
+
+\subsection{การแทนเซตในโครงสร้างข้อมูล}
+
+ในการเขียนโปรแกรม มีหลายวิธีในการแทนเซต แต่ละวิธีมีข้อดีและข้อเสียต่างกัน
+
+\begin{ex}[Bit Vector Representation]
+ในการแทนเซตด้วย bit vector เราใช้ bit ที่ position ที่ $i$ แทนว่าสมาชิกที่ $i$ อยู่ในเซตหรือไม่
+
+ถ้า Universal Set $U = \{1, 2, 3, 4, 5, 6, 7, 8, 9\}$ เราสามารถแทนเซต $A = \{2, 5, 7\}$ ด้วย bit vector:
+
+\begin{center}
+$U$:   \texttt{1 2 3 4 5 6 7 8 9}
+
+$A$:   \texttt{0 1 0 0 1 0 1 0 0}
+\end{center}
+
+ซึ่งแทนด้วย integer คือ $010010100_2 = 148$ ในฐาน 10
+
+ประโยชน์ของ bit vector:
+\begin{enumerate}
+    \item Union = bitwise OR ($\lor$)
+    \item Intersection = bitwise AND ($\land$)
+    \item Complement = bitwise NOT ($\neg$)
+    \item Membership test = ตรวจสอบ bit ที่ position ที่เกี่ยวข้อง
+\end{enumerate}
+
+การแทนแบบนี้มีประสิทธิภาพมากในหน่วยความจำและเวลา เพราะทุก operation ทำได้ใน $O(1)$ บน hardware
+\end{ex}
+
+\begin{thrm}[Set Operations as Boolean Algebra]
+เซตบน universal set ที่มีขนาด $n$ สามารถแทนด้วย bit vector ความยาว $n$ ซึ่งทำให้การดำเนินการระหว่างเซตสอดคล้องกับ Boolean algebra:
+
+\begin{enumerate}
+    \item $A \cup B$ $\Leftrightarrow$ bitwise OR ของ bit vectors
+    \item $A \cap B$ $\Leftrightarrow$ bitwise AND ของ bit vectors  
+    \item $A^c$ $\Leftrightarrow$ bitwise NOT ของ bit vector
+    \item $A \subseteq B$ $\Leftrightarrow$ $(A \cap B^c) = \emptyset$ หรือ $(A \land \neg B) = 0$ ทุก bit
+\end{enumerate}
+
+นี่คือความเชื่อมโยงระหว่าง set theory และ Boolean algebra ซึ่งมีพื้นฐานมาจาก propositional logic
+\label{theo:set-boolean-algebra}
+\end{thrm}
+
+\subsection{การประยุกต์ในฐานข้อมูล}
+
+ในระบบฐานข้อมูลเชิงสัมพันธ์ (Relational Database) ตารางแต่ละตารางเป็นเซตของ tuples (แถว) การ query ด้วย SQL ก็คือการดำเนินการระหว่างเซตอย่างเป็นทางการ
+
+\begin{thrm}[Relational Algebra as Set Operations]
+การดำเนินการบนตารางใน relational database มีความสัมพันธ์โดยตรงกับ set operations:
+
+\begin{table}[H]
+\centering
+\caption{ความสัมพันธ์ระหว่าง Relational Algebra และ Set Theory}
+\label{tab:relalg-sets}
+\begin{tabular}{|c|c|}
+\hline
+Relational Algebra & Set Theory \\
+\hline
+Union ($\cup$) & Union \\
+Selection ($\sigma$) & Filtering / Subset \\
+Projection ($\pi$) & Domain restriction \\
+Cartesian Product ($\times$) & Cartesian Product \\
+Join ($\Join$) & Complex combination \\
+\hline
+\end{tabular}
+\end{table}
+\end{thrm}
+
+\begin{ex}[Database Relations as Mathematical Sets]
+ในทฤษฎีฐานข้อมูลเชิงสัมพันธ์ การเข้าใจความสัมพันธ์ระหว่าง relational algebra และ set theory ช่วยให้เขียน SQL ที่มีประสิทธิภาพและเข้าใจการทำงานภายในของ query optimizer
+
+ตัวอย่าง:
+\begin{enumerate}
+    \item \textbf{ตาราง (Relation)} $R$ เป็นเซตของ tuples นั่นคือ $R \subseteq D_1 \times D_2 \times \cdots \times D_n$ โดยที่ $D_i$ คือ domain ของ attribute ที่ $i$
+    \item \textbf{Primary Key} คือ subset ของ attributes ที่ uniquely identify tuples ใน relation
+    \item \textbf{Foreign Key} คือ subset ของ attributes ที่อ้างอิงไปยัง primary key ของอีก relation หนึ่ง (เป็น subset relationship ระหว่าง schemas)
+\end{enumerate}
+
+ถ้ากำหนดให้ $S$ แทนเซตของนักศึกษา และ $C$ แทนเซตของรายวิชา และ $E \subseteq S \times C$ แทนเซตของการลงทะเบียน
+
+แล้ว $E$ คือเซตของ tuples $(s, c)$ โดยที่ $s \in S$ และ $c \in C$ ซึ่งแสดงว่านักศึกษา $s$ ลงทะเบียนเรียนวิชา $c$ — นี่คือ Cartesian Product ในทางคณิตศาสตร์
+\end{ex}
+
+\subsection{Hash Tables และ Functions}
+
+Hash Table เป็นโครงสร้างข้อมูลที่ใช้ฟังก์ชันแฮช (hash function) ซึ่งมีความเชื่อมโยงกับทฤษฎีเซตอย่างลึกซึ้ง
+
+\begin{thrm}[Hash Function as Mathematical Function]
+Hash Function $h: U \rightarrow \{0, 1, \ldots, m-1\}$ เป็นฟังก์ชันจาก universe of keys $U$ ไปยัง set of addresses $\{0, 1, \ldots, m-1\}$
+
+สมบัติที่พึงประสงค์:
+\begin{enumerate}
+    \item \textbf{Deterministic:} ถ้า $k_1 = k_2$ แล้ว $h(k_1) = h(k_2)$
+    \item \textbf{Uniformly Distributed:} สำหรับ keys ที่สุ่มมา $h(k)$ ควรกระจาย uniformly ใน $\{0, 1, \ldots, m-1\}$
+    \item \textbf{Efficiently Computable:} คำนวณได้ใน $O(1)$ time
+\end{enumerate}
+
+เมื่อเกิด collision $h(k_1) = h(k_2)$ สำหรับ $k_1 \neq k_2$ มีวิธีการแก้ได้แก่:
+\begin{enumerate}
+    \item \textbf{Chaining:} $T[i] = \{k \in K \mid h(k) = i\}$ — แต่ละ slot เก็บเซตของ keys ที่ collide
+    \item \textbf{Open Addressing:} ใช้ probe sequence $h(k, i) = (h'(k) + i) \mod m$ สำหรับ $i = 0, 1, 2, \ldots$
+\end{enumerate}
+\label{theo:hash-function}
+\end{thrm}
+
+\begin{thrm}[Complexity of Set Operations]
+ประสิทธิภาพของ set operations บน hash-based structures:
+
+\begin{table}[H]
+\centering
+\caption{ประสิทธิภาพของ Hash Set Operations}
+\label{tab:hash-complexity}
+\begin{tabular}{|c|c|}
+\hline
+Operation & Time Complexity \\
+\hline
+Membership Test ($x \in A$) & $O(1)$ \\
+Add ($A \cup \{x\}$) & $O(1)$ \\
+Remove ($A \setminus \{x\}$) & $O(1)$ \\
+Union ($A \cup B$) & $O(|A| + |B|)$ \\
+Intersection ($A \cap B$) & $O(\min(|A|, |B|))$ \\
+Subset Test ($A \subseteq B$) & $O(|A|)$ \\
+\hline
+\end{tabular}
+\end{table}
+\end{thrm}
+
+\section{แบบฝึกหัด}
+
+\subsection{ส่วนที่ 1: นิยามพื้นฐาน}
+\begin{enumerate}
+    \item เขียนเซตต่อไปนี้โดยใช้ทั้ง roster method และ set-builder notation:
+    \begin{enumerate}
+        \item เซตของจำนวนเต็มบวกที่น้อยกว่า 10
+        \item เซตของจำนวนเฉพาะที่น้อยกว่า 20
+        \item เซตของสระในภาษาอังกฤษ
+        \item เซตของจำนวนเต็ม $x$ ที่ $x^2 - 4 = 0$
+        \item เซตของจำนวนเต็ม $x$ ที่ $x^2 - 5x + 6 = 0$
+    \end{enumerate}
+
+    \item กำหนดให้ $A = \{1, 2, 3\}$, $B = \{3, 4, 5\}$, $C = \{5, 6\}$ จงหา:
+    \begin{enumerate}
+        \item $A \cup B$
+        \item $A \cap B$
+        \item $A - B$
+        \item $B - A$
+        \item $(A \cup B) - C$
+        \item $A \cap (B \cup C)$
+        \item $(A - B) \cup (B - A)$
+        \item $A \cap B \cap C$
+        \item $(A \cup B) \cap (B \cup C)$
+    \end{enumerate}
+
+    \item พิจารณาว่าข้อความต่อไปนี้จริงหรือเท็จ พร้อมอธิบายเหตุผล:
+    \begin{enumerate}
+        \item $\emptyset \in \{\emptyset\}$
+        \item $\emptyset \subseteq \{\emptyset\}$
+        \item $\{\emptyset\} \in \{\emptyset, \{\emptyset\}\}$
+        \item $\{1, 2\} \subseteq \{\{1\}, \{2\}\}$
+        \item $\{1, 2\} \in \{\{1, 2\}\}$
+        \item $|\mathcal{P}(\{1, 2, 3\})| = 8$
+        \item $\mathcal{P}(\emptyset) = \emptyset$
+        \item $\{1, 2\} \times \{3, 4\} = \{3, 4\} \times \{1, 2\}$
+    \end{enumerate}
+
+    \item อธิบายความแตกต่างระหว่าง $\in$ และ $\subseteq$ พร้อมยกตัวอย่างที่แสดงความแตกต่างนั้น
+\end{enumerate}
+
+\subsection{ส่วนที่ 2: การพิสูจน์}
+\begin{enumerate}
+    \item พิสูจน์โดยตรง (Direct Proof):
+    \begin{enumerate}
+        \item ถ้า $A \subseteq B$ และ $B \subseteq C$ แล้ว $A \subseteq C$ (Transitivity ของ $\subseteq$)
+        \item ถ้า $A \subseteq B$ แล้ว $A \cup C \subseteq B \cup C$
+        \item ถ้า $A \subseteq B$ แล้ว $A \cap C \subseteq B \cap C$
+        \item $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$ (Distributive Law ข้อ 2)
+    \end{enumerate}
+
+    \item พิสูจน์โดย contraposition:
+    \begin{enumerate}
+        \item ถ้า $A \cup B \neq A$ แล้ว $B \not\subseteq A$
+        \item ถ้า $A \cap B = \emptyset$ แล้ว $A \subseteq B^c$
+        \item ถ้า $A \not\subseteq B \cup C$ แล้ว $A \not\subseteq B$ และ $A \not\subseteq C$
+    \end{enumerate}
+
+    \item พิสูจน์โดยขัดแย้ง (Proof by Contradiction):
+    \begin{enumerate}
+        \item ถ้า $A \subseteq B$ แล้ว $B^c \subseteq A^c$
+        \item ถ้า $A \cup B = A \cap B$ แล้ว $A = B$
+        \item ไม่มีเซต $A$ ที่ทำให้ $A \subsetneq \mathcal{P}(A)$
+    \end{enumerate}
+
+    \item พิสูจน์ว่าเซตต่อไปนี้เท่ากัน:
+    \begin{enumerate}
+        \item $A - (B \cup C) = (A - B) \cap (A - C)$
+        \item $A \Delta B = (A \cup B) - (A \cap B)$ (Symmetric Difference)
+        \item $(A - B) \cap C = (A \cap C) - B$
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{ส่วนที่ 3: กฎของเดมอร์แกนและการดำเนินการ}
+\begin{enumerate}
+    \item พิสูจน์ De Morgan's Laws:
+    \begin{enumerate}
+        \item $(A \cap B)^c = A^c \cup B^c$
+        \item $(A \cup B)^c = A^c \cap B^c$
+    \end{enumerate}
+
+    \item ลดรูปเซตต่อไปนี้ (แสดงว่าเท่ากับเซตที่ง่ายกว่า):
+    \begin{enumerate}
+        \item $(A \cup B) \cap (A \cup B^c)$
+        \item $(A - B) \cup (A \cap B)$
+        \item $A \cup (B - A)$
+        \item $(A \cap B) \cup (A - B)$
+        \item $A \cap (A \cup B)$
+        \item $(A^c)^c$
+    \end{enumerate}
+
+    \item กำหนดให้ $A$, $B$, $C$ เป็นเซตย่อยของ universal set $U$ พิจารณาว่าข้อความต่อไปนี้จริงหรือเท็จ พร้อมพิสูจน์หรือหักล้าง:
+    \begin{enumerate}
+        \item $A - B = B - A$
+        \item $A \cup B = A \cap B$ แก้สมการนี้
+        \item $(A - B) - C = A - (B - C)$
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{ส่วนที่ 4: เพาเวอร์เซตและคาร์ทีเซียน}
+\begin{enumerate}
+    \item จงหา:
+    \begin{enumerate}
+        \item $\mathcal{P}(\{a, b, c\})$
+        \item $|\mathcal{P}(\mathcal{P}(\emptyset))|$
+        \item $\{1, 2\} \times \{3, 4, 5\}$
+        \item $|\{1, 2\} \times \{3, 4\} \times \{5, 6\}|$
+        \item $\mathcal{P}(\{1, 2\}) \cap \mathcal{P}(\{2, 3\})$
+        \item $\mathcal{P}(\{1, 2\}) \cup \mathcal{P}(\{2, 3\})$
+    \end{enumerate}
+
+    \item พิสูจน์:
+    \begin{enumerate}
+        \item $\mathcal{P}(A) \cup \mathcal{P}(B) \subseteq \mathcal{P}(A \cup B)$
+        \item พิสูจน์หรือหักล้าง: $\mathcal{P}(A \cup B) \subseteq \mathcal{P}(A) \cup \mathcal{P}(B)$
+        \item $(A \times B) \cap (C \times D) = (A \cap C) \times (B \cap D)$
+    \end{enumerate}
+
+    \item ถ้า $|A| = 3$ และ $|B| = 4$ จงหา:
+    \begin{enumerate}
+        \item $|A \times B|$
+        \item $|\mathcal{P}(A)|$
+        \item $|\mathcal{P}(A \times B)|$
+        \item $|\mathcal{P}(A) \times \mathcal{P}(B)|$
+    \end{enumerate}
+
+    \item อธิบายว่าทำไม $|\mathcal{P}(A)| > |A|$ สำหรับทุกเซต $A$ ที่ไม่ใช่เซตว่าง (Cantor's Theorem)
+\end{enumerate}
+
+\subsection{ส่วนที่ 5: การประยุกต์และการเชื่อมโยงทางคณิตศาสตร์}
+\begin{enumerate}
+    \item กำหนดให้ $A = \{10, 20, 30, 40\}$ และ $B = \{25, 30, 35, 40\}$ ในฐานข้อมูล จงเขียนในรูปแบบคณิตศาสตร์:
+    \begin{enumerate}
+        \item จงหา $A \cup B$, $A \cap B$, $A \setminus B$, $A \Delta B$ (Symmetric Difference)
+        \item แสดงว่า $A \Delta B = (A \cup B) \setminus (A \cap B)$
+    \end{enumerate}
+
+    \item กำหนดให้ $U = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}$ และ $A = \{1, 2, 3, 4, 5\}$, $B = \{4, 5, 6, 7\}$
+    \begin{enumerate}
+        \item เขียน bit vector ของ $A$, $B$, $A \cup B$, $A \cap B$, $A^c$
+        \item แสดงว่า bitwise operations บน bit vectors ให้ผลลัพธ์ที่ถูกต้องสำหรับ set operations
+    \end{enumerate}
+
+    \item อธิบายความสัมพันธ์ระหว่าง:
+    \begin{enumerate}
+        \item De Morgan's Laws ในทฤษฎีเซต และ De Morgan's Laws ในตรรกศาสตร์ (Propositional Logic)
+        \item Cartesian Product $A \times B$ และ relations ระหว่างเซต
+        \item Power Set $\mathcal{P}(A)$ และ cardinality $|\mathcal{P}(A)| = 2^{|A|}$
+    \end{enumerate}
+
+    \item พิสูจน์โดยใช้ทฤษฎีเซต:
+    \begin{enumerate}
+        \item ถ้า $A \subseteq B$ แล้ว $\mathcal{P}(A) \subseteq \mathcal{P}(B)$
+        \item ถ้า $A \times B = A \times C$ และ $A \neq \emptyset$ แล้ว $B = C$
+    \end{enumerate}
+\end{enumerate}
+
+\section{เฉลยแบบฝึกหัด}
+\subsection{เฉลยส่วนที่ 1}
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item $\{1, 2, 3, 4, 5, 6, 7, 8, 9\} = \{x \in \mathbb{N} \mid x < 10\}$
+        \item $\{2, 3, 5, 7, 11, 13, 17, 19\} = \{p \in \mathbb{N} \mid p \text{ เป็นจำนวนเฉพาะ และ } p < 20\}$
+        \item $\{a, e, i, o, u\}$
+        \item $\{-2, 2\} = \{x \in \mathbb{Z} \mid x^2 = 4\}$
+        \item $\{2, 3\} = \{x \in \mathbb{Z} \mid x^2 - 5x + 6 = 0\}$
+    \end{enumerate}
+
+    \item
+    \begin{enumerate}
+        \item $\{1, 2, 3, 4, 5\}$
+        \item $\{3\}$
+        \item $\{1, 2\}$
+        \item $\{4, 5\}$
+        \item $\{1, 2, 3, 4\}$
+        \item $\{3, 5\}$
+        \item $\{1, 2, 4, 5\}$
+        \item $\{5\}$
+        \item $\{3, 4, 5\}$
+    \end{enumerate}
+
+    \item
+    \begin{enumerate}
+        \item จริง ($\emptyset$ เป็นสมาชิกของ $\{\emptyset\}$ เพราะ $\emptyset$ อยู่ในนั้น)
+        \item จริง (เซตว่างเป็นเซตย่อยของทุกเซต)
+        \item จริง ($\{\emptyset\}$ เป็นสมาชิกของ $\{\emptyset, \{\emptyset\}\}$)
+        \item เท็จ ($\{1\}$ ไม่เท่ากับ $\{1, 2\}$ ดังนั้น $\{1, 2\}$ ไม่เป็นเซตย่อย)
+        \item เท็จ ($\{1, 2\}$ ไม่เท่ากับ $\{\{1, 2\}\}$ สมาชิกของ $\{\{1, 2\}\}$ คือ $\{1, 2\}$ ไม่ใช่ 1 หรือ 2
+        \item จริง ($|\{1, 2, 3\}| = 3$, $|\mathcal{P}(A)| = 2^3 = 8$)
+        \item เท็จ ($\mathcal{P}(\emptyset) = \{\emptyset\} \neq \emptyset$)
+        \item เท็จ ($(1, 3) \neq (3, 1)$ ดังนั้น Cartesian Product ไม่มีสมบัติสลับที่)
+    \end{enumerate}
+\end{enumerate}
+
+% ===================== SECTION 10: เชตที่นับได้และเชตที่นับไม่ได้ =====================
+\section{เชตที่นับได้และเชตที่นับไม่ได้}
+\label{sec:countable-uncountable}
+
+\beginlearningObjectives
+\item เข้าใจความแตกต่างระหว่างเชตนับได้และเชตนับไม่ได้
+\item รู้จักภาวะเชิงการนับ $\aleph_0$ และ $\mathfrak{c}$
+\item เข้าใจการพิสูจน์ว่าเชตจำนวนจริงนับไม่ได้
+\endlearningObjectives
+
+ในการจำแนกประเภทของเชตอนันต์ เราแบ่งออกเป็น "เชตนับได้" (Countable) และ "เชตนับไม่ได้" (Uncountable) เชตนับได้คือเชตที่สามารถจับคู่สมาชิกกับจำนวนนับได้ทุกตัว กล่าวคือมีฟังก์ชันหนึ่งต่อหนึ่งจากเชตไปยัง $\mathbb{N}$
+
+\index{เชตนับได้}\index{countable set}
+\index{เชตนับไม่ได้}\index{uncountable set}
+\index{$\aleph_0$}
+\index{$\mathfrak{c}$}
+\begin{definition}[เชตนับได้และเชตนับไม่ได้]
+เชต $A$ เป็น \textbf{เชตนับได้} (countable) ก็ต่อเมื่อ $|A| \leq |\mathbb{N}|$ หรือกล่าวอีกนัยหนึ่งคือมีฟังก์ชันหนึ่งต่อหนึ่งจาก $A$ ไปยังเซตย่อยของ $\mathbb{N}$ ถ้า $A$ ไม่นับได้ เราเรียกว่า $A$ เป็น \textbf{เชตนับไม่ได้} (uncountable)
+\end{definition}
+
+Cantor ได้พิสูจน์ว่าเชตนับได้มีขนาดเล็กกว่าเชตจำนวนจริงอย่างเด็ดขาด โดยใช้วิธีการที่เรียกว่า "การให้เหตุผลแบบ diagonal" (Diagonal Argument) พิสูจน์นี้แสดงให้เห็นว่าแม้แต่ช่วง $(0, 1)$ ของจำนวนจริงก็นับไม่ได้
+
+\begin{thrm}[Cantor]
+\index{ทฤษฎีบทของ Cantor}
+ช่วงเปิด $(0, 1)$ ของจำนวนจริงเป็นเชตนับไม่ได้
+\end{thrm}
+
+\begin{ex}
+ตัวอย่างเชตนับได้และเชตนับไม่ได้:
+
+\begin{enumerate}
+    \item[(ก)] $\mathbb{N}$ นับได้ เพราะ $| \mathbb{N} | = \aleph_0$
+    \item[(ข)] $\mathbb{Z}$ นับได้ เพราะสามารถจับคู่กับ $\mathbb{N}$ ได้ เช่น $0 \leftrightarrow 1, 1 \leftrightarrow 2, -1 \leftrightarrow 3, 2 \leftrightarrow 4, -2 \leftrightarrow 5, \ldots$
+    \item[(ค)] $\mathbb{Q}$ (จำนวนตรรกยะ) นับได้ แม้ว่าจะ dense อยู่ระหว่างจำนวนจริงทุกตัว
+    \item[(ง)] $\mathbb{R}$ นับไม่ได้ เพราะ $|\mathbb{R}| = \mathfrak{c} > \aleph_0$
+\end{enumerate}
+\end{ex}
+
+\section{สรุป}
+ในบทนี้เราได้ศึกษาพื้นฐานของทฤษฎีเซตอย่างครอบคลุม ซึ่งประกอบด้วย:
+
+\begin{enumerate}
+    \item \textbf{นิยามของเซต} --- เซต สมาชิก วิธีเขียนเซต (roster method, set-builder notation) เซตพิเศษ (empty set, universal set)
+    \item \textbf{ความสัมพันธ์ระหว่างเซต} --- เซตย่อย (subset), เซตย่อยแท้ (proper subset), ความเท่ากันของเซต, การพิสูจน์โดย double inclusion
+    \item \textbf{การดำเนินการระหว่างเซต} --- Union, Intersection, Difference, Complement และสมบัติต่างๆ
+    \item \textbf{กฎของเดมอร์แกน} --- ความสัมพันธ์ระหว่าง complement กับ union/intersection
+    \item \textbf{เพาเวอร์เซตและคาร์ทีเซียน} --- $\mathcal{P}(A)$, $A \times B$, ความสัมพันธ์กับ functions
+    \item \textbf{หลักการรวม-การแยก (Inclusion-Exclusion)} --- $|A \cup B| = |A| + |B| - |A \cap B|$
+    \item \textbf{การประยุกต์ในวิทยาการคอมพิวเตอร์} --- โครงสร้างข้อมูล, ฐานข้อมูล, Hash Tables
+\end{enumerate}
+
+ทฤษฎีเซตเป็นเครื่องมือที่จำเป็นสำหรับการศึกษาบทต่อไป โดยเฉพาะ \textbf{ความสัมพันธ์ (Relations)} ซึ่งใช้ Cartesian Product เป็นพื้นฐาน และ \textbf{ฟังก์ชัน (Functions)} ซึ่งเป็น special case ของ relations
+
+ความเข้าใจที่ลึกซึ้งในทฤษฎีเซตจะช่วยให้เข้าใจแนวคิดขั้นสูงในคณิตศาสตร์และวิทยาการคอมพิวเตอร์ได้ดียิ่งขึ้น เพราะภาษาของเซตเป็นภาษาพื้นฐานที่ใช้ในทุกสาขาของคณิตศาสตร์ทั้งด้านบริสุทธิ์และประยุกต์
+
+\begin{thebibliography}{99}
+    \bibitem{Rosen} Rosen, Kenneth H. \textit{Discrete Mathematics and Its Applications}. 8th ed., McGraw-Hill, 2019.
+    \bibitem{Epp} Epp, Susanna S. \textit{Discrete Mathematics with Applications}. 5th ed., Cengage Learning, 2019.
+    \bibitem{Halmos} Halmos, Paul R. \textit{Naive Set Theory}. Springer, 1974.
+    \bibitem{Devlin} Devlin, Keith. \textit{Fundamentals of Contemporary Set Theory}. Springer, 1979.
+    \bibitem{Enderton} Enderton, Herbert B. \textit{Elements of Set Theory}. Academic Press, 1977.
+    \bibitem{Cormen} Cormen, Thomas H., et al. \textit{Introduction to Algorithms}. 3rd ed., MIT Press, 2009.
+    \bibitem{Elmasri} Elmasri, Ramez, and Shamkant B. Navathe. \textit{Fundamentals of Database Systems}. 7th ed., Pearson, 2016.
+    \bibitem{Cardinality} Grimaldi, Ralph P. \textit{Discrete and Combinatorial Mathematics: An Applied Introduction}. 5th ed., Pearson, 2003.
+    \bibitem{Cantu} Cantini, Andrea, and Erik W. Baruser. \textit{Paradoxes, Self-Reference and Truth}. Springer, 1999.
+\end{thebibliography}

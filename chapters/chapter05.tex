@@ -1,0 +1,881 @@
+\chapter{เมทริกซ์และดีเทอร์มิแนนต์ (Matrices \& Determinants)}
+
+\section{วัตถุประสงค์การเรียนรู้}
+หลังจากศึกษาจบบทนี้ ผู้เรียนจะสามารถ:
+\begin{enumerate}
+    \item อธิบายความหมายและความสำคัญของเมทริกซ์ รวมถึงประเภทต่างๆ ของเมทริกซ์ได้
+    \item ดำเนินการระหว่างเมทริกซ์ (บวก ลบ คูณ สลับเปลี่ยน) และอธิบายความหมายของผลลัพธ์ได้
+    \item คำนวณดีเทอร์มิแนนต์ของเมทริกซ์ขนาดต่างๆ โดยวิธีการต่างๆ ได้
+    \item หาอินเวอร์สของเมทริกซ์และประยุกต์ใช้ในการแก้ระบบสมการเชิงเส้นได้
+    \item พิสูจน์และประยุกต์ใช้สมบัติของดีเทอร์มิแนนต์ได้
+    \item อธิบายการประยุกต์ของเมทริกซ์ในวิทยาการคอมพิวเตอร์ เช่น คอมพิวเตอร์กราฟิกส์ และการเรียนรู้ของเครื่องได้
+\end{enumerate}
+
+\section{บทนำ}
+เมทริกซ์ (Matrix) เป็นโครงสร้างข้อมูลทางคณิตศาสตร์ที่ใช้จัดระเบียบข้อมูลในรูปแบบตารางสองมิติ เมทริกซ์ประกอบด้วยแถว (rows) และคอลัมน์ (columns) โดยแต่ละช่องเก็บค่าที่เรียกว่า \textbf{สมาชิก} (element) หรือ \textbf{ค่าประจำตำแหน่ง} (entry) ของเมทริกซ์
+
+เมทริกซ์มีความสำคัญอย่างยิ่งในวิทยาการคอมพิวเตอร์และคณิตศาสตร์ประยุกต์ เนื่องจากเป็นพื้นฐานของ คอมพิวเตอร์กราฟิกส์ (การแปลงภาพ 2D และ 3D) การเรียนรู้ของเครื่อง (Neural Networks) การเข้ารหัส (Hill Cipher) และการแก้ระบบสมการเชิงเส้น
+
+ประวัติศาสตร์ของเมทริกซ์เริ่มต้นในช่วงต้นศตวรรษที่ 19 โดย Arthur Cayley และ William Rowan Hamilton ถึงแม้ว่าแนวคิดเรื่องดีเทอร์มิแนนต์จะมีมาก่อนหน้านี้โดย mathematicians ชาวญี่ปุ่นและยุโรป เช่น Seki Kowa และ Gottfried Leibniz
+\label{sec:matrix-intro}
+
+
+\section{นิยามพื้นฐานของเมทริกซ์}
+
+\subsection{นิยามของเมทริกซ์}
+\begin{thrm}
+\textbf{เมทริกซ์ (Matrix)} คือ การจัดเรียงข้อมูลในรูปแบบตารางสี่เหลี่ยมผืนผ้า ซึ่งประกอบด้วย $m$ แถว และ $n$ คอลัมน์ เมทริกซ์ขนาด $m \times n$ จะมีสมาชิกทั้งหมด $m \cdot n$ ตัว เรียกว่า \textbf{เมทริกซ์ขนาด $m \times n$} เขียนแทนด้วย $A_{m \times n}$ หรือ $A = [a_{ij}]$ โดยที่ $a_{ij}$ คือสมาชิกที่อยู่ในแถวที่ $i$ และคอลัมน์ที่ $j$
+\end{thrm}
+
+\begin{ex}
+เมทริกซ์ $A = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix}$ มีขนาด $2 \times 3$ (2 แถว 3 คอลัมน์)
+
+สมาชิก $a_{11} = 1$, $a_{12} = 2$, $a_{13} = 3$, $a_{21} = 4$, $a_{22} = 5$, $a_{23} = 6$
+\end{ex}
+
+\begin{ex}
+เมทริกซ์ $B = \begin{bmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{bmatrix}$ มีขนาด $3 \times 2$ (3 แถว 2 คอลัมน์)
+\end{ex}
+
+เมทริกซ์ขนาด $m \times n$ สามารถเขียนในรูปทั่วไปได้ดังนี้:
+
+\[
+A = \begin{bmatrix}
+a_{11} & a_{12} & a_{13} & \cdots & a_{1n} \\
+a_{21} & a_{22} & a_{23} & \cdots & a_{2n} \\
+a_{31} & a_{32} & a_{33} & \cdots & a_{3n} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}
+\end{bmatrix}
+\]
+
+\subsection{ประเภทของเมทริกซ์}
+\begin{thrm}
+เมทริกซ์มีหลายประเภทที่สำคัญ:
+\begin{enumerate}
+    \item \textbf{เมทริกซ์ศูนย์ (Zero Matrix)} $O_{m \times n}$ คือเมทริกซ์ที่ทุกสมาชิกเป็น 0
+    
+    $O = \begin{bmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}$
+
+    \item \textbf{เมทริกซ์แถว (Row Matrix)} คือเมทริกซ์ที่มีเพียง 1 แถว ($1 \times n$)
+    
+    $R = \begin{bmatrix} 1 & 2 & 3 & 4 \end{bmatrix}$
+
+    \item \textbf{เมทริกซ์คอลัมน์ (Column Matrix)} คือเมทริกซ์ที่มีเพียง 1 คอลัมน์ ($m \times 1$)
+    
+    $C = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$
+
+    \item \textbf{เมทริกซ์จตุรัส (Square Matrix)} คือเมทริกซ์ที่มีจำนวนแถวเท่ากับจำนวนคอลัมน์ ($n \times n$) เรียก $n$ ว่า \textbf{ขนาด} (order) ของเมทริกซ์
+    
+    $S = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$ มีขนาด $2 \times 2$
+
+    \item \textbf{เมทริกซ์ทแยงมุม (Diagonal Matrix)} คือเมทริกซ์จตุรัสที่สมาชิกนอกเส้นทแยงมุมหลักเป็น 0 ทั้งหมด
+    
+    $D = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{bmatrix}$
+
+    \item \textbf{เมทริกซ์เอกลักษณ์ (Identity Matrix)} $I_n$ คือเมทริกซ์ทแยงมุมที่สมาชิกบนเส้นทแยงมุมหลักเป็น 1 ทั้งหมด
+    
+    $I_3 = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$
+
+    \item \textbf{เมทริกซ์สามเหลี่ยมบน (Upper Triangular Matrix)} คือเมทริกซ์จตุรัสที่สมาชิกใต้เส้นทแยงมุมหลักเป็น 0
+    
+    $U = \begin{bmatrix} 1 & 2 & 3 \\ 0 & 4 & 5 \\ 0 & 0 & 6 \end{bmatrix}$
+
+    \item \textbf{เมทริกซ์สามเหลี่ยมล่าง (Lower Triangular Matrix)} คือเมทริกซ์จตุรัสที่สมาชิกเหนือเส้นทแยงมุมหลักเป็น 0
+    
+    $L = \begin{bmatrix} 1 & 0 & 0 \\ 2 & 3 & 0 \\ 4 & 5 & 6 \end{bmatrix}$
+
+    \item \textbf{เมทริกซ์สมมาตร (Symmetric Matrix)} คือเมทริกซ์จตุรัสที่มีคุณสมบัติ $a_{ij} = a_{ji}$ สำหรับทุก $i, j$
+    
+    $S = \begin{bmatrix} 1 & 2 & 3 \\ 2 & 4 & 5 \\ 3 & 5 & 6 \end{bmatrix}$
+
+    \item \textbf{เมทริกซ์เส้นทแยงมุมเฉียง (Skew-Symmetric / Antisymmetric Matrix)} คือเมทริกซ์จตุรัสที่มีคุณสมบัติ $a_{ij} = -a_{ji}$ สำหรับทุก $i, j$ และ $a_{ii} = 0$
+    
+    $K = \begin{bmatrix} 0 & 2 & -3 \\ -2 & 0 & 4 \\ 3 & -4 & 0 \end{bmatrix}$
+\end{enumerate}
+\end{thrm}
+
+\begin{rem}
+เมทริกซ์สมมาตรและเมทริกซ์เส้นทแยงมุมเฉียงมีความสำคัญในการประยุกต์ เช่น ในทฤษฎีสถิติ เมทริกซ์ความแปรปรวน (covariance matrix) เป็นเมทริกซ์สมมาตร และในฟิสิกส์ เมทริกซ์เส้นทแยงมุมเฉียงใช้ในการแสดงปริมาณเวกเตอร์
+\end{rem}
+
+\section{การดำเนินการระหว่างเมทริกซ์}
+
+\subsection{ความเท่ากันของเมทริกซ์}
+\begin{thrm}
+เมทริกซ์ $A = [a_{ij}]$ และ $B = [b_{ij}]$ มีขนาด $m \times n$ เท่ากัน ก็ต่อเมื่อ $a_{ij} = b_{ij}$ สำหรับทุก $i = 1, 2, \ldots, m$ และ $j = 1, 2, \ldots, n$
+\end{thrm}
+
+\begin{ex}
+ถ้า $\begin{bmatrix} x & 2 \\ 3 & y \end{bmatrix} = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$ แล้ว $x = 1$ และ $y = 4$
+\end{ex}
+
+\subsection{การบวกและการลบเมทริกซ์}
+\begin{thrm}
+กำหนดเมทริกซ์ $A = [a_{ij}]$ และ $B = [b_{ij}]$ ขนาด $m \times n$:
+\begin{itemize}
+    \item \textbf{การบวกเมทริกซ์} $A + B = [a_{ij} + b_{ij}]$
+    \item \textbf{การลบเมทริกซ์} $A - B = [a_{ij} - b_{ij}]$
+\end{itemize}
+\end{thrm}
+
+หมายเหตุ: เมทริกซ์สองเมทริกซ์จะบวกหรือลบกันได้ก็ต่อเมื่อมีขนาดเท่ากัน
+
+\begin{ex}
+\[
+\begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix} + \begin{bmatrix} 1 & 1 & 1 \\ 2 & 2 & 2 \end{bmatrix} = \begin{bmatrix} 2 & 3 & 4 \\ 6 & 7 & 8 \end{bmatrix}
+\]
+
+\[
+\begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix} - \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} = \begin{bmatrix} 4 & 4 \\ 4 & 4 \end{bmatrix}
+\]
+\end{ex}
+
+\begin{thrm}[สมบัติของการบวกเมทริกซ์]
+สำหรับเมทริกซ์ $A, B, C$ ขนาด $m \times n$:
+\begin{enumerate}
+    \item $A + B = B + A$ \hfill (Commutative Law)
+    \item $(A + B) + C = A + (B + C)$ \hfill (Associative Law)
+    \item $A + O = A$ \hfill (Identity Law, $O$ คือเมทริกซ์ศูนย์)
+    \item $A + (-A) = O$ \hfill (Inverse Law)
+    \item $A - B = A + (-B)$
+\end{enumerate}
+\end{thrm}
+
+\begin{rem}
+การลบเมทริกซ์ไม่มีสมบัติการสลับที่ กล่าวคือ $A - B \neq B - A$ โดยทั่วไป
+\end{rem}
+
+\subsection{การคูณเมทริกซ์ด้วยสเกลาร์}
+\begin{thrm}
+กำหนดเมทริกซ์ $A = [a_{ij}]$ ขนาด $m \times n$ และสเกลาร์ $c$ (ค่าคงที่จำนวนจริง) การคูณสเกลาร์ $cA$ คือเมทริกซ์ $[c \cdot a_{ij}]$
+\end{thrm}
+
+\begin{ex}
+\[
+3 \cdot \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} = \begin{bmatrix} 3 & 6 \\ 9 & 12 \end{bmatrix}
+\]
+\end{ex}
+
+\begin{thrm}[สมบัติของการคูณสเกลาร์]
+สำหรับเมทริกซ์ $A, B$ และสเกลาร์ $c, d$:
+\begin{enumerate}
+    \item $c(A + B) = cA + cB$ \hfill (Distributive Law)
+    \item $(c + d)A = cA + dA$ \hfill (Distributive Law)
+    \item $c(dA) = (cd)A$ \hfill (Associative Law)
+    \item $1A = A$ \hfill (Identity Law)
+    \item $0A = O$ \hfill (Zero Law)
+\end{enumerate}
+\end{thrm}
+
+\subsection{การคูณเมทริกซ์ด้วยเมทริกซ์}
+การคูณเมทริกซ์เป็นการดำเนินการที่ซับซ้อนกว่าการบวกและการคูณสเกลาร์ สมาชิกของเมทริกซ์ผลคูณคำนวณจากผลรวมของผลคูณ
+
+\begin{thrm}
+กำหนดเมทริกซ์ $A = [a_{ij}]$ ขนาด $m \times n$ และเมทริกซ์ $B = [b_{jk}]$ ขนาด $n \times p$ การคูณ $AB$ จะได้เมทริกซ์ $C = [c_{ik}]$ ขนาด $m \times p$ โดยที่:
+
+\[
+c_{ik} = a_{i1}b_{1k} + a_{i2}b_{2k} + a_{i3}b_{3k} + \cdots + a_{in}b_{nk} = \sum_{j=1}^{n} a_{ij}b_{jk}
+\]
+\end{thrm}
+
+หมายเหตุ: การคูณ $AB$ กระทำได้ก็ต่อเมื่อจำนวนคอลัมน์ของ $A$ เท่ากับจำนวนแถวของ $B$ (เรียกว่า \textbf{conformable})
+
+\begin{ex}
+\[
+A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}, \quad B = \begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}
+\]
+
+\[
+AB = \begin{bmatrix} (1)(5)+(2)(7) & (1)(6)+(2)(8) \\ (3)(5)+(4)(7) & (3)(6)+(4)(8) \end{bmatrix} = \begin{bmatrix} 5+14 & 6+16 \\ 15+28 & 18+32 \end{bmatrix} = \begin{bmatrix} 19 & 22 \\ 43 & 50 \end{bmatrix}
+\]
+\end{ex}
+
+\begin{ex}
+\[
+\begin{bmatrix} 1 & 2 & 3 \end{bmatrix} \begin{bmatrix} 4 \\ 5 \\ 6 \end{bmatrix} = [1(4) + 2(5) + 3(6)] = [32]
+\]
+
+\[
+\begin{bmatrix} 4 \\ 5 \\ 6 \end{bmatrix} \begin{bmatrix} 1 & 2 & 3 \end{bmatrix} = \begin{bmatrix} 4 & 8 & 12 \\ 5 & 10 & 15 \\ 6 & 12 & 18 \end{bmatrix}
+\]
+
+สังเกตว่า $AB \neq BA$ ในกรณีทั่วไป!
+\end{ex}
+
+\begin{rem}
+การคูณเมทริกซ์ไม่มีสมบัติการสลับที่ กล่าวคือ $AB \neq BA$ โดยทั่วไป นอกจากนี้ $AB = O$ ไม่ได้หมายความว่า $A = O$ หรือ $B = O$
+\end{rem}
+
+\begin{thrm}[สมบัติของการคูณเมทริกซ์]
+สำหรับเมทริกซ์ $A, B, C$ ที่ขนาดเหมาะสม และสเกลาร์ $c$:
+\begin{enumerate}
+    \item $(AB)C = A(BC)$ \hfill (Associative Law)
+    \item $A(B + C) = AB + AC$ \hfill (Left Distributive Law)
+    \item $(A + B)C = AC + BC$ \hfill (Right Distributive Law)
+    \item $AI = IA = A$ \hfill (Identity Law, $I$ คือเมทริกซ์เอกลักษณ์)
+    \item $c(AB) = (cA)B = A(cB)$ \hfill (Scalar Multiplication)
+    \item $(AB)^T = B^T A^T$ \hfill (Transpose of Product)
+\end{enumerate}
+\end{thrm}
+
+\begin{ex}
+พิสูจน์ $(AB)^T = B^T A^T$
+
+ให้ $A = [a_{ij}]$, $B = [b_{jk}]$, และ $(AB)^T = [c_{ki}]$ โดย $c_{ki} = (AB)_{ik} = \sum_{j} a_{ij}b_{jk}$
+
+แต่ $(AB)^T$ ที่ตำแหน่ง $(k,i)$ คือ $c_{ki} = \sum_{j} a_{ij}b_{jk}$
+
+ในขณะที่ $B^T A^T$ ที่ตำแหน่ง $(k,i)$ คือ $\sum_{j} b^T_{kj} \cdot a^T_{ji} = \sum_{j} b_{jk} \cdot a_{ij}$
+
+ดังนั้น $(AB)^T = B^T A^T$
+\end{ex}
+
+\subsection{เมทริกซ์สลับเปลี่ยน (Transpose)}
+\begin{thrm}
+\textbf{เมทริกซ์สลับเปลี่ยน (Transpose)} ของเมทริกซ์ $A = [a_{ij}]$ ขนาด $m \times n$ คือเมทริกซ์ $A^T = [a_{ji}]$ ขนาด $n \times m$ โดยการสลับแถวเป็นคอลัมน์
+\end{thrm}
+
+\begin{ex}
+\[
+A = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix}, \quad A^T = \begin{bmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{bmatrix}
+\]
+\end{ex}
+
+\begin{thrm}[สมบัติของ Transpose]
+สำหรับเมทริกซ์ $A, B$:
+\begin{enumerate}
+    \item $(A^T)^T = A$
+    \item $(A + B)^T = A^T + B^T$
+    \item $(cA)^T = cA^T$
+    \item $(AB)^T = B^T A^T$
+\end{enumerate}
+\end{thrm}
+
+\begin{thrm}
+เมทริกซ์จตุรัส $A$ เป็น:
+\begin{itemize}
+    \item \textbf{สมมาตร (Symmetric)} ก็ต่อเมื่อ $A^T = A$
+    \item \textbf{เส้นทแยงมุมเฉียง (Skew-Symmetric)} ก็ต่อเมื่อ $A^T = -A$
+\end{itemize}
+\end{thrm}
+
+\begin{ex}
+เมทริกซ์สมมาตร: $A = \begin{bmatrix} 1 & 2 & 3 \\ 2 & 4 & 5 \\ 3 & 5 & 6 \end{bmatrix}$ เพราะ $A^T = A$
+
+เมทริกซ์เส้นทแยงมุมเฉียง: $A = \begin{bmatrix} 0 & 2 & -3 \\ -2 & 0 & 4 \\ 3 & -4 & 0 \end{bmatrix}$ เพราะ $A^T = -A$
+\end{ex}
+
+\begin{thrm}
+ทุกเมทริกซ์จตุรัส $A$ สามารถเขียนได้ในรูปผลบวกของเมทริกซ์สมมาตรและเมทริกซ์เส้นทแยงมุมเฉียง:
+\[
+A = \frac{1}{2}(A + A^T) + \frac{1}{2}(A - A^T)
+\]
+โดย $\frac{1}{2}(A + A^T)$ เป็นเมทริกซ์สมมาตร และ $\frac{1}{2}(A - A^T)$ เป็นเมทริกซ์เส้นทแยงมุมเฉียง
+\end{thrm}
+
+\section{ดีเทอร์มิแนนต์ (Determinants)}
+
+ดีเทอร์มิแนนต์เป็นค่าจำเพาะ (scalar value) ที่คำนวณได้จากเมทริกซ์จตุรัส ดีเทอร์มิแนนต์มีความสำคัญในการกำหนดคุณสมบัติต่างๆ ของเมทริกซ์ เช่น การหาอินเวอร์ส และการแก้ระบบสมการเชิงเส้น
+
+\subsection{นิยามของดีเทอร์มิแนนต์}
+
+\begin{thrm}
+\textbf{ดีเทอร์มิแนนต์ (Determinant)} ของเมทริกซ์จตุรัส $A$ ขนาด $n \times n$ เขียนแทนด้วย $\det(A)$ หรือ $|A|$
+\end{thrm}
+
+\begin{thrm}
+สำหรับเมทริกซ์ขนาด $1 \times 1$: $\det([a]) = a$
+\end{thrm}
+
+\begin{thrm}
+สำหรับเมทริกซ์ขนาด $2 \times 2$:
+\[
+\det\begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc
+\]
+\end{thrm}
+
+\begin{ex}
+\[
+\det\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} = (1)(4) - (2)(3) = 4 - 6 = -2
+\]
+\end{ex}
+
+\begin{thrm}
+สำหรับเมทริกซ์ขนาด $3 \times 3$ สามารถคำนวณได้โดย \textbf{กฎของ Sarrus}:
+\[
+\det\begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix} = aei + bfg + cdh - ceg - bdi - afh
+\]
+\end{thrm}
+
+\begin{ex}
+\[
+\det\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}
+= (1)(5)(9) + (2)(6)(7) + (3)(4)(8) - (3)(5)(7) - (2)(4)(9) - (1)(6)(8)
+\]
+\[
+= 45 + 84 + 96 - 105 - 72 - 48 = 0
+\]
+\end{ex}
+
+\begin{rem}
+กฎของ Sarrus ใช้ได้เฉพาะกับเมทริกซ์ขนาด $3 \times 3$ เท่านั้น สำหรับเมทริกซ์ขนาดใหญ่กว่า ต้องใช้วิธีการอื่น เช่น cofactor expansion หรือการลดรูป (row reduction)
+\end{rem}
+
+\subsection{Cofactor Expansion}
+สำหรับเมทริกซ์ขนาด $n \times n$ สามารถคำนวณดีเทอร์มิแนนต์ได้โดยใช้การกระจาย cofactor ตามแถวหรือคอลัมน์ใดก็ได้
+
+\begin{thrm}
+กำหนดเมทริกซ์ $A = [a_{ij}]$ ขนาด $n \times n$ \textbf{minor} ของ $a_{ij}$ คือดีเทอร์มิแนนต์ของเมทริกซ์ย่อยที่ได้จากการลบแถว $i$ และคอลัมน์ $j$ เขียนแทนด้วย $M_{ij}$
+
+\textbf{Cofactor} ของ $a_{ij}$ คือ $C_{ij} = (-1)^{i+j} M_{ij}$
+
+ดีเทอร์มิแนนต์ของ $A$ สามารถคำนวณได้โดยการกระจายตามแถวที่ $i$:
+\[
+\det(A) = a_{i1}C_{i1} + a_{i2}C_{i2} + \cdots + a_{in}C_{in}
+\]
+
+หรือการกระจายตามคอลัมน์ที่ $j$:
+\[
+\det(A) = a_{1j}C_{1j} + a_{2j}C_{2j} + \cdots + a_{nj}C_{nj}
+\]
+\end{thrm}
+
+\begin{ex}
+คำนวณ $\det\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}$ โดยการกระจายตามแถวแรก
+
+$M_{11} = \det\begin{pmatrix} 5 & 6 \\ 8 & 9 \end{pmatrix} = 45 - 48 = -3$, $C_{11} = (-1)^{1+1}(-3) = -3$
+
+$M_{12} = \det\begin{pmatrix} 4 & 6 \\ 7 & 9 \end{pmatrix} = 36 - 42 = -6$, $C_{12} = (-1)^{1+2}(-6) = 6$
+
+$M_{13} = \det\begin{pmatrix} 4 & 5 \\ 7 & 8 \end{pmatrix} = 32 - 35 = -3$, $C_{13} = (-1)^{1+3}(-3) = -3$
+
+$\det(A) = 1(-3) + 2(6) + 3(-3) = -3 + 12 - 9 = 0$
+\end{ex}
+
+\begin{ex}
+คำนวณ $\det\begin{pmatrix} 2 & 1 & 3 \\ 0 & 4 & 1 \\ 5 & 6 & 0 \end{pmatrix}$ โดยการกระจายตามคอลัมน์ที่ 3
+
+$M_{13} = \det\begin{pmatrix} 0 & 4 \\ 5 & 6 \end{pmatrix} = 0 - 20 = -20$, $C_{13} = (-1)^{1+3}(-20) = -20$
+
+$M_{23} = \det\begin{pmatrix} 2 & 1 \\ 5 & 6 \end{pmatrix} = 12 - 5 = 7$, $C_{23} = (-1)^{2+3}(7) = -7$
+
+$M_{33} = \det\begin{pmatrix} 2 & 1 \\ 0 & 4 \end{pmatrix} = 8 - 0 = 8$, $C_{33} = (-1)^{3+3}(8) = 8$
+
+$\det(A) = 3(-20) + 1(-7) + 0(8) = -60 - 7 + 0 = -67$
+\end{ex}
+
+\begin{rem}
+ในการคำนวณดีเทอร์มิแนนต์ ควรเลือกแถวหรือคอลัมน์ที่มีศูนย์มากที่สุด เพื่อลดจำนวนการคำนวณ ในตัวอย่างข้างต้น การกระจายตามคอลัมน์ที่ 3 มีสมาชิก $a_{33} = 0$ ทำให้มีเพียง 2 cofactor ที่ต้องคำนวณ
+\end{rem}
+
+\subsection{สมบัติของดีเทอร์มิแนนต์}
+\begin{thrm}
+สมบัติสำคัญของดีเทอร์มิแนนต์:
+\begin{enumerate}
+    \item $\det(I) = 1$ โดยที่ $I$ คือเมทริกซ์เอกลักษณ์
+    \item ถ้ามีแถวหรือคอลัมน์เป็นศูนย์ทั้งหมด $\Rightarrow \det(A) = 0$
+    \item ถ้าสลับแถวสองแถว $\Rightarrow$ ดีเทอร์มิแนนต์เปลี่ยนเครื่องหมาย
+    \item ถ้าคูณแถวด้วยสเกลาร์ $c$ $\Rightarrow \det(cA) = c^n \det(A)$ สำหรับเมทริกซ์ $n \times n$
+    \item ถ้าแถวหนึ่งเป็นผลรวมของสองแถว $\Rightarrow$ ดีเทอร์มิแนนต์แยกได้
+    \item $\det(AB) = \det(A)\det(B)$ \hfill (Multiplicative Property)
+    \item $\det(A^T) = \det(A)$
+    \item เมทริกซ์สามเหลี่ยม: $\det(A) = a_{11} \cdot a_{22} \cdot \cdots \cdot a_{nn}$ (ผลคูณของสมาชิกบนเส้นทแยงมุมหลัก)
+\end{enumerate}
+\end{thrm}
+
+\begin{ex}
+\[
+\det\begin{pmatrix} 2 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 5 \end{pmatrix} = 2 \times 3 \times 5 = 30
+\]
+\end{ex}
+
+\begin{ex}
+พิสูจน์ $\det(AB) = \det(A)\det(B)$ สำหรับเมทริกซ์ $2 \times 2$
+
+ให้ $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$, $B = \begin{pmatrix} e & f \\ g & h \end{pmatrix}$
+
+$AB = \begin{pmatrix} ae+bg & af+bh \\ ce+dg & cf+dh \end{pmatrix}$
+
+$\det(AB) = (ae+bg)(cf+dh) - (af+bh)(ce+dg)$
+$= ae \cdot cf + ae \cdot dh + bg \cdot cf + bg \cdot dh - af \cdot ce - af \cdot dg - bh \cdot ce - bh \cdot dg$
+$= ae \cdot cf - af \cdot ce + ae \cdot dh - bh \cdot ce + bg \cdot cf - af \cdot dg + bg \cdot dh - bh \cdot dg$
+$= a \cdot e \cdot (cf-dh) - b \cdot g \cdot (af-ce) + \cdots$
+
+ใช้ความจริงที่ว่าทุกพจน์จัดรูปได้เป็น $(ad-bc)(eh-fg) = \det(A)\det(B)$
+\end{ex}
+
+\begin{rem}
+$\det(A + B) \neq \det(A) + \det(B)$ โดยทั่วไป
+\end{rem}
+
+\begin{thrm}
+เมทริกซ์จตุรัส $A$ จะมีอินเวอร์สก็ต่อเมื่อ $\det(A) \neq 0$ (เรียกว่า \textbf{nonsingular} หรือ \textbf{invertible})
+\end{thrm}
+
+\section{อินเวอร์สของเมทริกซ์ (Matrix Inverse)}
+
+อินเวอร์สของเมทริกซ์เปรียบเสมือนตัวผกผันการคูณในระบบจำนวน กล่าวคือ $A \cdot A^{-1} = A^{-1} \cdot A = I$
+
+\subsection{นิยามของอินเวอร์ส}
+\begin{thrm}
+กำหนดเมทริกซ์จตุรัส $A$ ขนาด $n \times n$ ถ้ามีเมทริกซ์ $B$ ที่ทำให้ $AB = BA = I_n$ แล้ว $B$ คือ \textbf{อินเวอร์ส} (inverse) ของ $A$ เขียนแทนด้วย $A^{-1}$ และเรียก $A$ ว่าเป็น \textbf{เมทริกซ์ที่มีอินเวอร์ส} (invertible หรือ nonsingular)
+\end{thrm}
+
+\begin{thrm}
+เมทริกซ์จตุรัส $A$ มีอินเวอร์สก็ต่อเมื่อ $\det(A) \neq 0$
+\end{thrm}
+
+\begin{ex}
+สำหรับเมทริกซ์ $2 \times 2$:
+\[
+\begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1} = \frac{1}{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix} \quad \text{เมื่อ } ad-bc \neq 0
+\]
+
+ตรวจสอบ: $\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}^{-1} = \frac{1}{1(4)-2(3)} \begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix} = \frac{1}{-2} \begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix} = \begin{pmatrix} -2 & 1 \\ 1.5 & -0.5 \end{pmatrix}$
+
+ตรวจสอบ: $\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \begin{pmatrix} -2 & 1 \\ 1.5 & -0.5 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I$
+\end{ex}
+
+\begin{ex}
+หาอินเวอร์สของ $A = \begin{pmatrix} 2 & 1 & 1 \\ 0 & 1 & 1 \\ 1 & 0 & 1 \end{pmatrix}$
+
+ใช้สูตร $A^{-1} = \frac{1}{\det(A)} \operatorname{adj}(A)$
+
+$\det(A) = 2(1-0) - 1(0-1) + 1(0-1) = 2 + 1 - 1 = 2$
+
+$C_{ij}$ (cofactor):
+$C_{11} = + \det\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = 1$
+$C_{12} = - \det\begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix} = -(-1) = 1$
+$C_{13} = + \det\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = -1$
+
+$C_{21} = - \det\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = -1$
+$C_{22} = + \det\begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix} = 1$
+$C_{23} = - \det\begin{pmatrix} 2 & 1 \\ 1 & 0 \end{pmatrix} = -(-1) = 1$
+
+$C_{31} = + \det\begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix} = 0$
+$C_{32} = - \det\begin{pmatrix} 2 & 1 \\ 0 & 1 \end{pmatrix} = -2$
+$C_{33} = + \det\begin{pmatrix} 2 & 1 \\ 0 & 1 \end{pmatrix} = 2$
+
+$\operatorname{adj}(A) = \begin{pmatrix} 1 & 1 & -1 \\ -1 & 1 & -2 \\ 0 & 1 & 2 \end{pmatrix}^T = \begin{pmatrix} 1 & -1 & 0 \\ 1 & 1 & 1 \\ -1 & -2 & 2 \end{pmatrix}$
+
+$A^{-1} = \frac{1}{2} \begin{pmatrix} 1 & -1 & 0 \\ 1 & 1 & 1 \\ -1 & -2 & 2 \end{pmatrix} = \begin{pmatrix} 0.5 & -0.5 & 0 \\ 0.5 & 0.5 & 0.5 \\ -0.5 & -1 & 1 \end{pmatrix}$
+\end{ex}
+
+\begin{thrm}[สมบัติของอินเวอร์ส]
+สำหรับเมทริกซ์ invertible $A, B$:
+\begin{enumerate}
+    \item $(A^{-1})^{-1} = A$
+    \item $(AB)^{-1} = B^{-1} A^{-1}$ \hfill (สังเกตการสลับที่)
+    \item $(A^T)^{-1} = (A^{-1})^T$
+    \item $\det(A^{-1}) = \frac{1}{\det(A)}$
+\end{enumerate}
+\end{thrm}
+
+\begin{rem}
+$(AB)^{-1} = B^{-1} A^{-1}$ ไม่ใช่ $A^{-1} B^{-1}$ ต้องระวังลำดับการคูณ!
+\end{rem}
+
+\begin{ex}
+พิสูจน์ $(AB)^{-1} = B^{-1} A^{-1}$
+
+ต้องแสดงว่า $(AB)(B^{-1} A^{-1}) = I$ และ $(B^{-1} A^{-1})(AB) = I$
+
+$(AB)(B^{-1} A^{-1}) = A(BB^{-1})A^{-1} = AIA^{-1} = AA^{-1} = I$
+
+$(B^{-1} A^{-1})(AB) = B^{-1}(A^{-1}A)B = B^{-1}IB = B^{-1}B = I$
+
+ดังนั้น $B^{-1} A^{-1}$ เป็นอินเวอร์สของ $AB$
+\end{ex}
+
+\section{ระบบสมการเชิงเส้น (Systems of Linear Equations)}
+
+ระบบสมการเชิงเส้นเป็นเครื่องมือพื้นฐานในคณิตศาสตร์ประยุกต์ เมทริกซ์ช่วยให้การแก้ระบบสมการเชิงเส้นมีประสิทธิภาพมากขึ้น
+
+\subsection{การเขียนระบบสมการในรูปเมทริกซ์}
+\begin{thrm}
+ระบบสมการเชิงเส้น $n$ ตัวแปร $m$ สมการ สามารถเขียนในรูปเมทริกซ์ได้ดังนี้:
+\[
+\begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{pmatrix}
+\begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix}
+=
+\begin{pmatrix} b_1 \\ b_2 \\ \vdots \\ b_m \end{pmatrix}
+\]
+
+หรือเขียนย่อว่า $Ax = b$ โดยที่ $A$ คือเมทริกซ์สัมประสิทธิ์, $x$ คือเวกเตอร์ตัวแปร, และ $b$ คือเวกเตอร์ค่าคงที่
+\end{thrm}
+
+\begin{ex}
+ระบบสมการ:
+\[
+\begin{cases}
+x + 2y + 3z = 14 \\
+2x + 3y + z = 10 \\
+3x + y + 2z = 14
+\end{cases}
+\]
+
+เขียนในรูปเมทริกซ์ได้เป็น:
+\[
+\begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 1 \\ 3 & 1 & 2 \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 14 \\ 10 \\ 14 \end{pmatrix}
+\]
+\end{ex}
+
+\subsection{การแก้ระบบสมการโดยใช้อินเวอร์สเมทริกซ์}
+\begin{thrm}
+ถ้า $A$ มีอินเวอร์ส ($Ax = b$) แล้ว $x = A^{-1}b$
+\end{thrm}
+
+\begin{ex}
+แก้ระบบสมการโดยใช้อินเวอร์ส:
+\[
+\begin{cases}
+x + 2y = 5 \\
+3x + 4y = 11
+\end{cases}
+\]
+
+$A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$, $b = \begin{pmatrix} 5 \\ 11 \end{pmatrix}$
+
+$A^{-1} = \frac{1}{1(4)-2(3)} \begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix} = \frac{1}{-2} \begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix} = \begin{pmatrix} -2 & 1 \\ 1.5 & -0.5 \end{pmatrix}$
+
+$x = A^{-1}b = \begin{pmatrix} -2 & 1 \\ 1.5 & -0.5 \end{pmatrix} \begin{pmatrix} 5 \\ 11 \end{pmatrix} = \begin{pmatrix} -10+11 \\ 7.5-5.5 \end{pmatrix} = \begin{pmatrix} 1 \\ 2 \end{pmatrix}$
+
+ดังนั้น $x = 1$, $y = 2$
+\end{ex}
+
+\subsection{การแก้ระบบสมการโดยใช้กฎของคราเมอร์ (Cramer's Rule)}
+\begin{thrm}[กฎของคราเมอร์]
+สำหรับระบบสมการเชิงเส้น $Ax = b$ โดยที่ $A$ ขนาด $n \times n$ และ $\det(A) \neq 0$ คำตอบคือ:
+\[
+x_i = \frac{\det(A_i)}{\det(A)}
+\]
+โดยที่ $A_i$ คือเมทริกซ์ที่ได้จากการแทนคอลัมน์ที่ $i$ ของ $A$ ด้วยเวกเตอร์ $b$
+\end{thrm}
+
+\begin{ex}
+แก้ระบบโดยใช้กฎของคราเมอร์:
+\[
+\begin{cases}
+x + 2y = 5 \\
+3x + 4y = 11
+\end{cases}
+\]
+
+$A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$, $b = \begin{pmatrix} 5 \\ 11 \end{pmatrix}$
+
+$\det(A) = 1(4) - 2(3) = -2$
+
+$A_1 = \begin{pmatrix} 5 & 2 \\ 11 & 4 \end{pmatrix}$, $x_1 = \frac{\det(A_1)}{\det(A)} = \frac{5(4)-2(11)}{-2} = \frac{20-22}{-2} = \frac{-2}{-2} = 1$
+
+$A_2 = \begin{pmatrix} 1 & 5 \\ 3 & 11 \end{pmatrix}$, $x_2 = \frac{\det(A_2)}{\det(A)} = \frac{1(11)-5(3)}{-2} = \frac{11-15}{-2} = \frac{-4}{-2} = 2$
+
+ดังนั้น $x = 1$, $y = 2$
+\end{ex}
+
+\begin{rem}
+กฎของคราเมอร์มีประสิทธิภาพในการแสดงทฤษฎี แต่ในทางปฏิบัติการคำนวณมีความซับซ้อน $O(n!)$ สำหรับระบบขนาดใหญ่ วิธี Gaussian elimination มีประสิทธิภาพมากกว่าคือ $O(n^3)$
+\end{rem}
+
+\subsection{การแก้ระบบสมการโดยวิธีการกำจัดแบบเกาส์ (Gaussian Elimination)}
+วิธีการกำจัดแบบเกาส์ใช้การแปลงเมทริกซ์ขยาย (augmented matrix) ให้เป็นรูปแบบ row echelon form
+
+\begin{thrm}
+\textbf{Augmented Matrix} ของระบบ $Ax = b$ คือ $[A|b]$ ขนาด $n \times (n+1)$
+
+การดำเนินการแถว (Row Operations):
+\begin{enumerate}
+    \item สลับแถว ($R_i \leftrightarrow R_j$)
+    \item คูณแถวด้วยสเกลาร์ไม่เป็นศูนย์ ($cR_i$)
+    \item แทน $R_i$ ด้วย $R_i + cR_j$ ($i \neq j$)
+\end{enumerate}
+
+การดำเนินการเหล่านี้ไม่เปลี่ยนคำตอบของระบบสมการ
+\end{thrm}
+
+\begin{ex}
+แก้ระบบสมการโดยวิธี Gaussian elimination:
+\[
+\begin{cases}
+x + 2y + z = 9 \\
+2x + 5y + 3z = 23 \\
+x + 3z = 7
+\end{cases}
+\]
+
+Augmented matrix:
+\[
+\begin{bmatrix} 1 & 2 & 1 & | & 9 \\ 2 & 5 & 3 & | & 23 \\ 1 & 0 & 3 & | & 7 \end{bmatrix}
+\]
+
+$R_2 \leftarrow R_2 - 2R_1$: $\begin{bmatrix} 1 & 2 & 1 & | & 9 \\ 0 & 1 & 1 & | & 5 \\ 1 & 0 & 3 & | & 7 \end{bmatrix}$
+
+$R_3 \leftarrow R_3 - R_1$: $\begin{bmatrix} 1 & 2 & 1 & | & 9 \\ 0 & 1 & 1 & | & 5 \\ 0 & -2 & 2 & | & -2 \end{bmatrix}$
+
+$R_3 \leftarrow R_3 + 2R_2$: $\begin{bmatrix} 1 & 2 & 1 & | & 9 \\ 0 & 1 & 1 & | & 5 \\ 0 & 0 & 4 & | & 8 \end{bmatrix}$
+
+จาก $4z = 8 \Rightarrow z = 2$
+
+จาก $y + z = 5 \Rightarrow y + 2 = 5 \Rightarrow y = 3$
+
+จาก $x + 2y + z = 9 \Rightarrow x + 6 + 2 = 9 \Rightarrow x = 1$
+
+ดังนั้น $x = 1$, $y = 3$, $z = 2$
+\end{ex}
+
+\begin{thrm}
+ระบบสมการ $Ax = b$ มี:
+\begin{itemize}
+    \item \textbf{คำตอบเดียว} ก็ต่อเมื่อ $\det(A) \neq 0$ (เมทริกซ์ $A$ invertible)
+    \item \textbf{ไม่มีคำตอบ} หรือ \textbf{มีคำตอบไม่จำกัด} ก็ต่อเมื่อ $\det(A) = 0$ (เมทริกซ์ $A$ singular)
+\end{itemize}
+\end{thrm}
+
+\begin{thrm}
+ถ้า $\det(A) = 0$:
+\begin{itemize}
+    \item ถ้า $b$ อยู่ใน column space ของ $A$ $\Rightarrow$ มีคำตอบไม่จำกัด
+    \item ถ้า $b$ ไม่อยู่ใน column space ของ $A$ $\Rightarrow$ ไม่มีคำตอบ
+\end{itemize}
+\end{thrm}
+
+\section{การประยุกต์ในวิทยาการคอมพิวเตอร์}
+
+\subsection{การแปลงในคอมพิวเตอร์กราฟิกส์ (Computer Graphics)}
+เมทริกซ์ใช้ในการแปลงภาพกราฟิก 2 มิติ และ 3 มิติ อย่างมีประสิทธิภาพ
+
+\begin{ex}[การแปลง 2 มิติ]
+การแปลงจุด $(x, y)$ ในระบบ 2 มิติ สามารถเขียนในรูปเมทริกซ์ได้ดังนี้:
+
+\[
+\begin{pmatrix} x' \\ y' \\ 1 \end{pmatrix} = T \begin{pmatrix} x \\ y \\ 1 \end{pmatrix}
+\]
+
+โดยใช้ homogeneous coordinates
+
+\textbf{การเลื่อน (Translation):}
+$T = \begin{pmatrix} 1 & 0 & t_x \\ 0 & 1 & t_y \\ 0 & 0 & 1 \end{pmatrix}$
+
+\textbf{การขยาย/หด (Scaling):}
+$S = \begin{pmatrix} s_x & 0 & 0 \\ 0 & s_y & 0 \\ 0 & 0 & 1 \end{pmatrix}$
+
+\textbf{การหมุน (Rotation):}
+$R = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}$
+
+การแปลงผสมสามารถทำได้โดยการคูณเมทริกซ์: $P' = T \cdot R \cdot S \cdot P$
+\end{ex}
+
+\begin{ex}
+หมุนจุด $(1, 0)$ รอบจุดกำเนิด $90^\circ$:
+
+$P = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}$, $R = \begin{pmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}$
+
+$P' = R \cdot P = \begin{pmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}$
+
+จุดใหม่คือ $(0, 1)$
+\end{ex}
+
+\subsection{การเข้ารหัส Hill Cipher}
+\begin{thrm}
+Hill Cipher เป็นระบบเข้ารหัสแบบบล็อกที่ใช้เมทริกซ์ ข้อความธรรมดาถูกแปลงเป็นเวกเตอร์ตัวเลข แล้วคูณด้วยเมทริกซ์กุญแจ $K$ ผลลัพธ์คือข้อความเข้ารหัส
+
+การเข้ารหัส: $C = K \cdot P \pmod{26}$
+
+การถอดรหัส: $P = K^{-1} \cdot C \pmod{26}$
+\end{thrm}
+
+\begin{ex}
+ใช้เมทริกซ์กุญแจ $K = \begin{pmatrix} 3 & 2 \\ 1 & 1 \end{pmatrix}$ เข้ารหัสข้อความ "HI"
+
+$H = 7$, $I = 8$ (A=0, B=1, ..., Z=25)
+
+$P = \begin{pmatrix} 7 \\ 8 \end{pmatrix}$, $C = K \cdot P = \begin{pmatrix} 3 & 2 \\ 1 & 1 \end{pmatrix} \begin{pmatrix} 7 \\ 8 \end{pmatrix} = \begin{pmatrix} 37 \\ 15 \end{pmatrix} \pmod{26} = \begin{pmatrix} 11 \\ 15 \end{pmatrix}$
+
+$C = 11 = L$, $C = 15 = P$
+
+ดังนั้น "HI" เข้ารหัสเป็น "LP"
+\end{ex}
+
+หมายเหตุ: การถอดรหัสต้องใช้ $K^{-1}$ ซึ่งมีอยู่ก็ต่อเมื่อ $\det(K) \neq 0 \pmod{26}$ นั่นคือ $\gcd(\det(K), 26) = 1$
+
+\subsection{เมทริกซ์ในการเรียนรู้ของเครื่อง}
+\begin{thrm}
+โมเดล Linear Regression สามารถเขียนในรูปเมทริกซ์ได้:
+
+$y = X\beta + \epsilon$
+
+โดยที่:
+\begin{itemize}
+    \item $X$ คือ design matrix ขนาด $n \times p$
+    \item $\beta$ คือเวกเตอร์ของ parameters ขนาด $p \times 1$
+    \item $y$ คือเวกเตอร์ของ target values ขนาด $n \times 1$
+    \item $\epsilon$ คือเวกเตอร์ของ errors ขนาด $n \times 1$
+\end{itemize}
+
+ค่า $\beta$ ที่เหมาะสมที่สุดคำนวณได้จาก:
+\[
+\beta = (X^T X)^{-1} X^T y
+\]
+\end{thrm}
+
+\begin{ex}
+สำหรับข้อมูล 3 ตัวอย่าง 2 features:
+$X = \begin{pmatrix} 1 & 2 \\ 1 & 4 \\ 1 & 6 \end{pmatrix}$, $y = \begin{pmatrix} 3 \\ 5 \\ 7 \end{pmatrix}$
+
+$X^T X = \begin{pmatrix} 3 & 12 \\ 12 & 56 \end{pmatrix}$, $\det(X^T X) = 3(56) - 12(12) = 168 - 144 = 24 \neq 0$
+
+$(X^T X)^{-1} = \frac{1}{24} \begin{pmatrix} 56 & -12 \\ -12 & 3 \end{pmatrix} = \begin{pmatrix} 2.33 & -0.5 \\ -0.5 & 0.125 \end{pmatrix}$
+
+$X^T y = \begin{pmatrix} 3+5+7 \\ 6+20+42 \end{pmatrix} = \begin{pmatrix} 15 \\ 68 \end{pmatrix}$
+
+$\beta = (X^T X)^{-1} X^T y = \begin{pmatrix} 2.33 & -0.5 \\ -0.5 & 0.125 \end{pmatrix} \begin{pmatrix} 15 \\ 68 \end{pmatrix} = \begin{pmatrix} 35-34 \\ -7.5+8.5 \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$
+
+ดังนั้น $y = 1 + 1x$
+\end{ex}
+
+\begin{thrm}
+Neural Networks ใช้เมทริกซ์ในการคำนวณ forward propagation:
+
+$A^{(l)} = f(Z^{(l)})$
+
+$Z^{(l)} = A^{(l-1)} W^{(l)} + b^{(l)}$
+
+โดยที่ $W^{(l)}$ คือเมทริกซ์น้ำหนัก (weight matrix) และ $b^{(l)}$ คือ bias vector
+\end{thrm}
+
+\subsection{เมทริกซ์ประชิดในทฤษฎีกราฟ}
+\begin{thrm}
+\textbf{Adjacency Matrix} ของกราฟ $G$ ที่มี $n$ โหนด คือเมทริกซ์ $A$ ขนาด $n \times n$ โดยที่ $a_{ij} = 1$ ถ้ามีเส้นเชื่อมระหว่างโหนด $i$ และ $j$ และ $a_{ij} = 0$ ในกรณีอื่น
+
+สมบัติที่สำคัญ:
+\begin{itemize}
+    \item $(A^k)_{ij}$ = จำนวนเส้นทางความยาว $k$ จากโหนด $i$ ไปยังโหนด $j$
+    \item ผลรวมของแถวที่ $i$ = degree ของโหนด $i$
+\end{itemize}
+\end{thrm}
+
+\begin{ex}
+กราฟรูปสามเหลี่ยม (3 โหนด เชื่อมกันทุกคู่):
+
+$A = \begin{pmatrix} 0 & 1 & 1 \\ 1 & 0 & 1 \\ 1 & 1 & 0 \end{pmatrix}$
+
+$A^2 = \begin{pmatrix} 2 & 1 & 1 \\ 1 & 2 & 1 \\ 1 & 1 & 2 \end{pmatrix}$
+
+$(A^2)_{ij}$ บอกจำนวนเส้นทาง 2 ขั้นจาก $i$ ไป $j$ เช่น $(A^2)_{12} = 1$ หมายความว่ามี 1 เส้นทาง 2 ขั้นจากโหนด 1 ไปโหนด 2 (คือ $1 \to 3 \to 2$)
+\end{ex}
+
+\subsection{PageRank Algorithm}
+\begin{thrm}
+\textbf{PageRank} เป็นอัลกอริทึมที่ใช้เมทริกซ์ในการจัดอันดับเว็บเพจ โดยพิจารณาจำนวนและคุณภาพของลิงก์ที่เชื่อมมายังหน้านั้น
+
+สมมติว่ามี $n$ เว็บเพจ กำหนดเมทริกซ์การเชื่อมโยง (Link Matrix) $L$ ขนาด $n \times n$ โดยที่:
+$$L_{ij} = \begin{cases}
+1 & \text{ถ้าหน้า } j \text{ มีลิงก์ไปหน้า } i \\
+0 & \text{ในกรณีอื่น}
+\end{cases}$$
+
+PageRank vector $\mathbf{r}$ หาได้จาก:
+$$\mathbf{r} = c \cdot L^T \cdot \mathbf{r} + \frac{1-c}{n} \cdot \mathbf{1}$$
+
+โดยที่ $c$ คือ damping factor (ปกติ $c = 0.85$) และ $\mathbf{1}$ คือเวกเตอร์ของ 1 ทั้งหมด
+\end{thrm}
+
+\begin{ex}
+พิจารณาเว็บ 3 หน้า A, B, C:
+\begin{itemize}
+    \item A มีลิงก์ไป B และ C
+    \item B มีลิงก์ไป C
+    \item C มีลิงก์ไป A
+\end{itemize}
+
+เมทริกซ์การเชื่อมโยง:
+$$L^T = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 1 & 1 & 0 \end{pmatrix}$$
+
+ค่า PageRank ของแต่ละหน้าคือ eigenvector ที่สำคัญที่สุดของ $L^T$
+\end{ex}
+
+\subsection{การประมวลผลภาพ (Image Processing)}
+\begin{thrm}
+ในการประมวลผลภาพ เมทริกซ์คอนโวลูชัน (Convolution Matrix) หรือ \textbf{Kernel} ใช้ในการทำ operations ต่างๆ เช่น blur, sharpen, edge detection
+
+สำหรับภาพขาวดำ ภาพถูกแทนด้วยเมทริกซ์ $I$ ของ pixel values
+
+การคอนโวลูชัน: $(I * K)_{ij} = \sum_m \sum_n I_{i+m, j+n} \cdot K_{m,n}$
+\end{thrm}
+
+\begin{ex}[Edge Detection Kernel]
+เมทริกซ์ Sobel สำหรับ edge detection ในแนวนอน:
+$$K_x = \begin{pmatrix} -1 & 0 & 1 \\ -2 & 0 & 2 \\ -1 & 0 & 1 \end{pmatrix}$$
+
+และในแนวตั้ง:
+$$K_y = \begin{pmatrix} -1 & -2 & -1 \\ 0 & 0 & 0 \\ 1 & 2 & 1 \end{pmatrix}$$
+
+Edge magnitude: $E = \sqrt{(K_x * I)^2 + (K_y * I)^2}$
+\end{ex}
+
+\begin{ex}[Gaussian Blur Kernel]
+เมทริกซ์ Gaussian blur ขนาด $3 \times 3$:
+$$K = \frac{1}{16} \begin{pmatrix} 1 & 2 & 1 \\ 2 & 4 & 2 \\ 1 & 2 & 1 \end{pmatrix}$$
+
+เมทริกซ์นี้ใช้ในการทำให้ภาพเบลอ โดยค่าในเมทริกซ์บวกกันได้ 1 เพื่อรักษาความสว่างรวมของภาพ
+\end{ex}
+
+\subsection{Principal Component Analysis (PCA)}
+\begin{thrm}
+\textbf{PCA} เป็นเทคนิคในการลดมิติของข้อมูลโดยใช้ค่าเฉพาะ (Eigenvalues) และเวกเตอร์เฉพาะ (Eigenvectors) ของเมทริกซ์ความแปรปรวนร่วม (Covariance Matrix)
+
+กำหนดข้อมูล $X$ ขนาด $n \times p$ (n ตัวอย่าง, p features):
+\begin{enumerate}
+    \item คำนวณ Covariance Matrix: $\Sigma = \frac{1}{n-1} X^T X$
+    \item หา eigenvectors และ eigenvalues ของ $\Sigma$
+    \item เรียง eigenvectors ตาม eigenvalues จากมากไปน้อย
+    \item เลือก k eigenvectors แรกเป็น principal components
+\end{enumerate}
+
+ข้อมูลที่ลดมิติแล้ว: $Y = X \cdot W_k$ โดยที่ $W_k$ คือเมทริกซ์ของ k eigenvectors
+\end{thrm}
+
+\begin{ex}
+สำหรับข้อมูล 2 มิติ:
+$$X = \begin{pmatrix} 2 & 3 \\ 3 & 4 \\ 4 & 5 \\ 5 & 6 \end{pmatrix}$$
+
+Covariance Matrix:
+$$\Sigma = \begin{pmatrix} 1.67 & 1.67 \\ 1.67 & 1.67 \end{pmatrix}$$
+
+Eigenvalues: $\lambda_1 = 3.33, \lambda_2 = 0$
+
+Eigenvector ที่สำคัญ: $\mathbf{v}_1 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}$
+
+ข้อมูลที่ลดมิติเป็น 1 มิติ: $Y = X \cdot \mathbf{v}_1$
+\end{ex}
+
+\section{สรุป}
+ในบทนี้เราได้ศึกษาเกี่ยวกับเมทริกซ์และดีเทอร์มิแนนต์ ซึ่งเป็นเครื่องมือพื้นฐานที่สำคัญในคณิตศาสตร์และวิทยาการคอมพิวเตอร์ สาระสำคัญที่ควรจำ:
+
+\begin{enumerate}
+    \item \textbf{เมทริกซ์} คือการจัดเรียงข้อมูลในรูปตารางสองมิติ มีหลายประเภท เช่น จตุรัส, เส้นทแยงมุม, สมมาตร, สามเหลี่ยม
+
+    \item \textbf{การดำเนินการระหว่างเมทริกซ์} ประกอบด้วย การบวก ลบ คูณด้วยสเกลาร์ คูณเมทริกซ์ และ transpose การคูณเมทริกซ์ไม่มีสมบัติสลับที่
+
+    \item \textbf{ดีเทอร์มิแนนต์} เป็นค่าจำเพาะของเมทริกซ์จตุรัส คำนวณได้โดย cofactor expansion หรือกฎของ Sarrus (สำหรับ $3 \times 3$) สมบัติสำคัญคือ $\det(AB) = \det(A)\det(B)$
+
+    \item \textbf{อินเวอร์สของเมทริกซ์} $A^{-1}$ ทำให้ $AA^{-1} = A^{-1}A = I$ มีอินเวอร์สก็ต่อเมื่อ $\det(A) \neq 0$
+
+    \item \textbf{การแก้ระบบสมการเชิงเส้น} สามารถทำได้โดยอินเวอร์สเมทริกซ์ ($x = A^{-1}b$), กฎของคราเมอร์, หรือ Gaussian elimination
+
+    \item \textbf{การประยุกต์} ในคอมพิวเตอร์กราฟิกส์, การเข้ารหัส, การเรียนรู้ของเครื่อง, และทฤษฎีกราฟ
+\end{enumerate}
+
+เมทริกซ์เป็นพื้นฐานที่จำเป็นสำหรับการศึกษาต่อในสาขาคณิตศาสตร์ขั้นสูง เช่น พีชคณิตเชิงเส้น (Linear Algebra) และการวิเคราะห์เชิงตัวเลข (Numerical Analysis)
+
+\begin{thebibliography}{99}
+    \bibitem{Rosen} Rosen, Kenneth H. \textit{Discrete Mathematics and Its Applications}. 8th ed., McGraw-Hill, 2019.
+    \bibitem{Anton} Anton, Howard. \textit{Elementary Linear Algebra}. 12th ed., Wiley, 2019.
+    \bibitem{Lay} Lay, David C., Lay, Steven R., and McDonald, Judi J. \textit{Linear Algebra and Its Applications}. 5th ed., Pearson, 2015.
+    \bibitem{Strang} Strang, Gilbert. \textit{Linear Algebra and Its Applications}. 4th ed., Cengage Learning, 2005.
+\end{thebibliography}

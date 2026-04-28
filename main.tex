@@ -99,8 +99,9 @@
 \renewcommand{\thesubsection}{\thechapter.\arabic{section}.\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\thechapter.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
 %% Restore titleformat to show the section number
-\titleformat{\section}{\large\bfseries\upshape}{\thesection}{1em}{}
-\titleformat{\subsection}{\bfseries\upshape}{\thesubsection}{1em}{}
+%% ใช้ shape [hang] และ sep 2em เพื่อป้องกันเลข section ทับชื่อ (ฟอนต์ไทย Scale=1.5 ทำให้เลขกว้างกว่าปกติ)
+\titleformat{\section}[hang]{\large\bfseries\upshape}{\thesection}{2em}{}
+\titleformat{\subsection}[hang]{\bfseries\upshape}{\thesubsection}{2em}{}
 
 \usepackage{biblatex}
 \addbibresource{references.bib}
@@ -187,13 +188,6 @@
 	\include{chapters/chapter06}
 	\RefChapter
 	
-	%% บทที่ 7
-	\cleartoleftpage
-	\include{chapters/chapter07_or}
-	\cleartoleftpage
-	\include{chapters/chapter07}
-	\RefChapter
-
 	\nocite{*}
 	\printbibliography[title=บรรณานุกรม]
 

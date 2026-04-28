@@ -14,12 +14,14 @@ A level-1 auxiliary file: chapters/chapter05_or.aux
 A level-1 auxiliary file: chapters/chapter05.aux
 A level-1 auxiliary file: chapters/chapter06_or.aux
 A level-1 auxiliary file: chapters/chapter06.aux
+A level-1 auxiliary file: chapters/chapter07_or.aux
+A level-1 auxiliary file: chapters/chapter07.aux
 I found no \citation commands---while reading file main.aux
 I found no \bibdata command---while reading file main.aux
 I found no \bibstyle command---while reading file main.aux
 You've used 0 entries,
             0 wiz_defined-function locations,
-            96 strings with 776 characters,
+            98 strings with 823 characters,
 and the built_in function-call counts, 0 in all, are:
 = -- 0
 > -- 0

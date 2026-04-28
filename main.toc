@@ -4,239 +4,200 @@
 \contentsline {chapter}{แผนบริหารการสอนประจำวิชา}{1}{chapter*.4}%
 \contentsline {chapter}{แผนการสอนประจำบทที่ 1}{7}{chapter*.6}%
 \contentsline {chapter}{\numberline {1}ตรรกศาสตร์ (Logic)}{9}{chapter.1}%
-\contentsline {section}{\numberline {1.1}บทนำ: ทำไมตรรกศาสตร์จึงสำคัญ}{9}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}ความเป็นมาของตรรกศาสตร์}{9}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}ความสำคัญของตรรกศาสตร์ในยุคปัจจุบัน}{9}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.1}ความหมายและความสำคัญของตรรกศาสตร์}{9}{section.1.1}%
 \contentsline {section}{\numberline {1.2}ประพจน์ (Propositions)}{9}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}นิยามและความหมายของประพจน์}{10}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}ตัวอย่างประพจน์ในชีวิตจริง}{10}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}ข้อความที่ไม่เป็นประพจน์}{10}{subsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.2.4}การประยุกต์ในวิทยาการคอมพิวเตอร์}{11}{subsection.1.2.4}%
-\contentsline {subsection}{\numberline {1.2.5}การจำแนกประพจน์: อะตอมิกและเชิงประกอบ}{12}{subsection.1.2.5}%
-\contentsline {section}{\numberline {1.3}ตัวเชื่อมทางตรรกศาสตร์ (Logical Connectives)}{13}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}บทนำ: ตัวเชื่อมทางตรรกศาสตร์คืออะไร}{13}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}นิเสธ (Negation): $\neg $}{13}{subsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.3.3}การเลือก (Conjunction): $\land $}{15}{subsection.1.3.3}%
-\contentsline {subsection}{\numberline {1.3.4}การแยก (Disjunction): $\lor $}{17}{subsection.1.3.4}%
-\contentsline {subsection}{\numberline {1.3.5}การแยกแบบเอกซ์คลูซีฟ (Exclusive OR): $\oplus $}{19}{subsection.1.3.5}%
-\contentsline {subsection}{\numberline {1.3.6}ประโยคบทนิเสธ (Implication): $\rightarrow $}{22}{subsection.1.3.6}%
-\contentsline {subsection}{\numberline {1.3.7}นิเสธสองทิศทาง (Biconditional): $\leftrightarrow $}{25}{subsection.1.3.7}%
-\contentsline {section}{\numberline {1.4}ตารางค่าความจริง (Truth Tables)}{28}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}บทนำ: ตารางค่าความจริงคืออะไร}{28}{subsection.1.4.1}%
-\contentsline {section}{\numberline {1.5}สมมูลทางตรรกศาสตร์ (Logical Equivalence)}{33}{section.1.5}%
-\contentsline {subsection}{\numberline {1.5.1}บทนำ: สมมูลทางตรรกศาสตร์คืออะไร}{33}{subsection.1.5.1}%
-\contentsline {section}{\numberline {1.6}ตรรกศาสตร์เชิงประพจน์ (Propositional Logic)}{40}{section.1.6}%
-\contentsline {subsection}{\numberline {1.6.1}บทนำ: ไวยากรณ์ของตรรกศาสตร์เชิงประพจน์}{40}{subsection.1.6.1}%
-\contentsline {section}{\numberline {1.7}ประโยคเปิดและตัวบ่งปริมาณ (Open Sentences and Quantifiers)}{44}{section.1.7}%
-\contentsline {subsection}{\numberline {1.7.1}บทนำ: ความต้องการตัวบ่งปริมาณ}{44}{subsection.1.7.1}%
-\contentsline {subsection}{\numberline {1.7.2}ตัวบ่งปริมาณอวกาศ (Universal Quantifier): $\forall $}{45}{subsection.1.7.2}%
-\contentsline {subsection}{\numberline {1.7.3}ตัวบ่งปริมาณนิเสธ (Existential Quantifier): $\exists $}{46}{subsection.1.7.3}%
-\contentsline {section}{\numberline {1.8}ประพจน์ที่มีค่าความจริงพิเศษ (Special Truth Values)}{50}{section.1.8}%
-\contentsline {subsection}{\numberline {1.8.1}บทนำ: ประพจน์พิเศษในทางตรรกศาสตร์}{50}{subsection.1.8.1}%
-\contentsline {section}{\numberline {1.9}การอ้างเหตุผลและกฎของการอนุมาน (Rules of Inference)}{53}{section.1.9}%
-\contentsline {subsection}{\numberline {1.9.1}บทนำ: การอ้างเหตุผลคืออะไร}{53}{subsection.1.9.1}%
-\contentsline {section}{\numberline {1.10}แบบฝึกหัดท้ายบท}{60}{section.1.10}%
-\contentsline {section}{\numberline {1.11}เฉลยแนวคิด (Hints and Answers)}{67}{section.1.11}%
-\contentsline {section}{เฉลยแนวคิด}{67}{section.1.11}%
-\contentsline {section}{บรรณานุกรมและอ่านเพิ่มเติม}{68}{exercise.1.30}%
-\contentsline {section}{\numberline {1.12}เอกสารอ้างอิง}{69}{section.1.12}%
-\contentsline {chapter}{แผนการสอนประจำบทที่ 2}{71}{chapter*.16}%
-\contentsline {chapter}{\numberline {2}ทฤษฎีเซต (Set Theory)}{73}{chapter.2}%
-\contentsline {section}{\numberline {2.1}วัตถุประสงค์การเรียนรู้}{73}{section.2.1}%
-\contentsline {section}{\numberline {2.2}บทนำ: ความเป็นมาและความสำคัญของทฤษฎีเซต}{73}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}ประวัติและที่มาของทฤษฎีเซต}{73}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}ทฤษฎีเซตกับวิทยาการคอมพิวเตอร์}{74}{subsection.2.2.2}%
-\contentsline {section}{\numberline {2.3}นิยามพื้นฐานของเซต}{74}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}นิยามของเซตและสมาชิก}{75}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}วิธีการเขียนเซต}{76}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}เซตพิเศษ}{77}{subsection.2.3.3}%
-\contentsline {section}{\numberline {2.4}ความสัมพันธ์ระหว่างเซต}{78}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}เซตย่อย (Subset) และเซตย่อยแท้ (Proper Subset)}{78}{subsection.2.4.1}%
-\contentsline {section}{\numberline {2.5}การดำเนินการระหว่างเซต (Set Operations)}{79}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}ยูเนียน (Union)}{80}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}อินเตอร์เซกชัน (Intersection)}{80}{subsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.5.3}ผลต่าง (Set Difference)}{81}{subsection.2.5.3}%
-\contentsline {subsection}{\numberline {2.5.4}คอมพลีเมนต์ (Complement)}{82}{subsection.2.5.4}%
-\contentsline {section}{\numberline {2.6}กฎของเดมอร์แกน (De Morgan's Laws)}{82}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}เพาเวอร์เซต (Power Set)}{84}{subsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.6.2}ผลคูณคาร์ทีเซียน (Cartesian Product)}{84}{subsection.2.6.2}%
-\contentsline {section}{\numberline {2.7}การนับจำนวนสมาชิกของเซต (Cardinality)}{85}{section.2.7}%
-\contentsline {section}{\numberline {2.8}การประยุกต์ในวิทยาการคอมพิวเตอร์}{87}{section.2.8}%
-\contentsline {subsection}{\numberline {2.8.1}การแทนเซตในโครงสร้างข้อมูล}{87}{subsection.2.8.1}%
-\contentsline {subsection}{\numberline {2.8.2}การประยุกต์ในฐานข้อมูล}{88}{subsection.2.8.2}%
-\contentsline {subsection}{\numberline {2.8.3}Hash Tables และ Functions}{89}{subsection.2.8.3}%
-\contentsline {section}{\numberline {2.9}แบบฝึกหัด}{90}{section.2.9}%
-\contentsline {subsection}{\numberline {2.9.1}ส่วนที่ 1: นิยามพื้นฐาน}{90}{subsection.2.9.1}%
-\contentsline {subsection}{\numberline {2.9.2}ส่วนที่ 2: การพิสูจน์}{91}{subsection.2.9.2}%
-\contentsline {subsection}{\numberline {2.9.3}ส่วนที่ 3: กฎของเดมอร์แกนและการดำเนินการ}{92}{subsection.2.9.3}%
-\contentsline {subsection}{\numberline {2.9.4}ส่วนที่ 4: เพาเวอร์เซตและคาร์ทีเซียน}{92}{subsection.2.9.4}%
-\contentsline {subsection}{\numberline {2.9.5}ส่วนที่ 5: การประยุกต์และการเชื่อมโยงทางคณิตศาสตร์}{93}{subsection.2.9.5}%
-\contentsline {section}{\numberline {2.10}เฉลยแบบฝึกหัด}{94}{section.2.10}%
-\contentsline {subsection}{\numberline {2.10.1}เฉลยส่วนที่ 1}{94}{subsection.2.10.1}%
-\contentsline {section}{\numberline {2.11}เชตที่นับได้และเชตที่นับไม่ได้}{95}{section.2.11}%
-\contentsline {section}{\numberline {2.12}สรุป}{96}{section.2.12}%
-\contentsline {section}{\numberline {2.13}เอกสารอ้างอิง}{98}{section.2.13}%
-\contentsline {chapter}{แผนการสอนประจำบทที่ 3}{99}{chapter*.19}%
-\contentsline {chapter}{\numberline {3}ความสัมพันธ์ (Relations)}{101}{chapter.3}%
-\contentsline {section}{\numberline {3.1}วัตถุประสงค์การเรียนรู้}{101}{section.3.1}%
-\contentsline {section}{\numberline {3.2}บทนำ}{101}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}ประวัติความเป็นมาของความสัมพันธ์}{101}{subsection.3.2.1}%
-\contentsline {section}{\numberline {3.3}นิยามพื้นฐานของความสัมพันธ์}{102}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}นิยามของความสัมพันธ์}{102}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}ความสัมพันธ์แบบทวิภาค}{103}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}โดเมนและเรนจ์ของความสัมพันธ์}{103}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}คุณสมบัติของความสัมพันธ์แบบทวิภาค}{104}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}คุณสมบัติสะท้อน (Reflexive Property)}{105}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}คุณสมบัติสมมาตร (Symmetric Property)}{105}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}คุณสมบัติเป็นผลาด (Antisymmetric Property)}{106}{subsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.4.4}คุณสมบัติถ่ายทอด (Transitive Property)}{107}{subsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.4.5}ตารางสรุปคุณสมบัติของความสัมพันธ์บางชนิด}{108}{subsection.3.4.5}%
-\contentsline {section}{\numberline {3.5}ความสัมพันธ์สมมูล (Equivalence Relations)}{110}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}นิยามของความสัมพันธ์สมมูล}{110}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}คลาสสมมูล (Equivalence Classes)}{112}{subsection.3.5.2}%
-\contentsline {section}{\numberline {3.6}ความสัมพันธ์สมมาตรเชิงส่วนย่อย (Partial Ordering Relations)}{113}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}นิยามของความสัมพันธ์สมมาตรเชิงส่วนย่อย}{113}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}สมาชิกพิเศษใน Poset}{115}{subsection.3.6.2}%
-\contentsline {section}{\numberline {3.7}การดำเนินการบนความสัมพันธ์}{116}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}การรวมความสัมพันธ์ (Composition of Relations)}{116}{subsection.3.7.1}%
-\contentsline {subsection}{\numberline {3.7.2}การย้อนกลับความสัมพันธ์ (Converse Relation)}{117}{subsection.3.7.2}%
-\contentsline {section}{\numberline {3.8}การปิดคุณสมบัติ (Closure Properties)}{118}{section.3.8}%
-\contentsline {subsection}{\numberline {3.8.1}การปิดสะท้อน (Reflexive Closure)}{119}{subsection.3.8.1}%
-\contentsline {subsection}{\numberline {3.8.2}การปิดสมมาตร (Symmetric Closure)}{119}{subsection.3.8.2}%
-\contentsline {subsection}{\numberline {3.8.3}การปิดถ่ายทอด (Transitive Closure)}{120}{subsection.3.8.3}%
-\contentsline {section}{\numberline {3.9}การประยุกต์ใช้ความสัมพันธ์ในวิทยาการคอมพิวเตอร์}{120}{section.3.9}%
-\contentsline {subsection}{\numberline {3.9.1}ฐานข้อมูลเชิงสัมพันธ์ (Relational Database)}{121}{subsection.3.9.1}%
-\contentsline {subsection}{\numberline {3.9.2}การตรวจสอบความสมดุลของวงเล็บ}{121}{subsection.3.9.2}%
-\contentsline {subsection}{\numberline {3.9.3}การจัดการเครือข่ายสังคม (Social Network Analysis)}{122}{subsection.3.9.3}%
-\contentsline {subsection}{\numberline {3.9.4}การวิเคราะห์การพึ่งพาของโปรแกรม (Program Dependency Analysis)}{122}{subsection.3.9.4}%
-\contentsline {section}{\numberline {3.10}ตัวอย่างและแบบฝึกหัดท้ายบท}{123}{section.3.10}%
-\contentsline {section}{\numberline {3.11}สรุป}{124}{section.3.11}%
-\contentsline {section}{\numberline {3.12}แบบฝึกหัดท้ายบท}{125}{section.3.12}%
-\contentsline {section}{\numberline {3.13}เอกสารอ้างอิง}{126}{section.3.13}%
-\contentsline {section}{\numberline {3.14}เอกสารอ้างอิง}{127}{section.3.14}%
-\contentsline {chapter}{แผนการสอนประจำบทที่ 4}{129}{chapter*.21}%
-\contentsline {chapter}{\numberline {4}ระบบเลขฐาน (Number Bases)}{131}{chapter.4}%
-\contentsline {section}{\numberline {4.1}วัตถุประสงค์การเรียนรู้}{131}{section.4.1}%
-\contentsline {section}{\numberline {4.2}บทนำ}{131}{section.4.2}%
-\contentsline {section}{\numberline {4.3}ระบบเลขฐานสิบ (Decimal System)}{131}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}ค่าประจำตำแหน่ง}{131}{subsection.4.3.1}%
-\contentsline {section}{\numberline {4.4}ระบบเลขฐานสอง (Binary System)}{132}{section.4.4}%
-\contentsline {section}{\numberline {4.5}ระบบเลขฐานแปด (Octal System)}{133}{section.4.5}%
-\contentsline {section}{\numberline {4.6}ระบบเลขฐานสิบหก (Hexadecimal System)}{134}{section.4.6}%
-\contentsline {section}{\numberline {4.7}การแปลงฐานทั่วไป}{135}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}การแปลงจากฐานใดๆ เป็นฐานสิบ}{135}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}การแปลงจากฐานสิบเป็นฐานใดๆ}{135}{subsection.4.7.2}%
-\contentsline {section}{\numberline {4.8}การแปลงจำนวนทศนิยมระหว่างฐาน}{137}{section.4.8}%
-\contentsline {subsection}{\numberline {4.8.1}การแปลงส่วนทศนิยมจากฐานสิบเป็นฐานอื่น}{137}{subsection.4.8.1}%
-\contentsline {section}{\numberline {4.9}การบวกและลบเลขฐานสอง}{138}{section.4.9}%
-\contentsline {subsection}{\numberline {4.9.1}การบวกเลขฐานสอง}{138}{subsection.4.9.1}%
-\contentsline {subsection}{\numberline {4.9.2}การลบเลขฐานสอง}{139}{subsection.4.9.2}%
-\contentsline {section}{\numberline {4.10}การคูณและการหารเลขฐานสอง}{140}{section.4.10}%
-\contentsline {subsection}{\numberline {4.10.1}การคูณเลขฐานสอง}{140}{subsection.4.10.1}%
-\contentsline {section}{\numberline {4.11}การแทนจำนวนเต็มลบในฐานสอง}{141}{section.4.11}%
-\contentsline {subsection}{\numberline {4.11.1}Signed Magnitude (Sign-Magnitude)}{141}{subsection.4.11.1}%
-\contentsline {subsection}{\numberline {4.11.2}1's Complement}{142}{subsection.4.11.2}%
-\contentsline {subsection}{\numberline {4.11.3}2's Complement}{142}{subsection.4.11.3}%
-\contentsline {section}{\numberline {4.12}การบวกและลบในฐานสิบหก}{143}{section.4.12}%
-\contentsline {section}{\numberline {4.13}IEEE 754: การแทนทศนิยมในคอมพิวเตอร์}{144}{section.4.13}%
-\contentsline {subsection}{\numberline {4.13.1}โครงสร้างของ IEEE 754 Single Precision (32 bits)}{144}{subsection.4.13.1}%
-\contentsline {subsection}{\numberline {4.13.2}Special Values ใน IEEE 754}{145}{subsection.4.13.2}%
-\contentsline {section}{\numberline {4.14}การแทนข้อมูลในคอมพิวเตอร์}{145}{section.4.14}%
-\contentsline {subsection}{\numberline {4.14.1}ASCII (American Standard Code for Information Interchange)}{145}{subsection.4.14.1}%
-\contentsline {subsection}{\numberline {4.14.2}Unicode}{146}{subsection.4.14.2}%
-\contentsline {section}{\numberline {4.15}แบบฝึกหัด}{147}{section.4.15}%
-\contentsline {subsection}{\numberline {4.15.1}ส่วนที่ 1: การแปลงฐาน}{147}{subsection.4.15.1}%
-\contentsline {subsection}{\numberline {4.15.2}ส่วนที่ 2: การดำเนินการฐานสอง}{148}{subsection.4.15.2}%
-\contentsline {subsection}{\numberline {4.15.3}ส่วนที่ 3: การดำเนินการฐานสิบหก}{148}{subsection.4.15.3}%
-\contentsline {subsection}{\numberline {4.15.4}ส่วนที่ 4: การแทนข้อมูลและ IEEE 754}{148}{subsection.4.15.4}%
-\contentsline {section}{\numberline {4.16}เฉลยแบบฝึกหัด}{149}{section.4.16}%
-\contentsline {subsection}{\numberline {4.16.1}เฉลยส่วนที่ 1}{149}{subsection.4.16.1}%
-\contentsline {section}{\numberline {4.17}สรุป}{149}{section.4.17}%
-\contentsline {section}{\numberline {4.18}เอกสารอ้างอิง}{151}{section.4.18}%
-\contentsline {chapter}{แผนการสอนประจำบทที่ 5}{153}{chapter*.24}%
-\contentsline {chapter}{\numberline {5}เมทริกซ์และดีเทอร์มิแนนต์ (Matrices \& Determinants)}{155}{chapter.5}%
-\contentsline {section}{\numberline {5.1}วัตถุประสงค์การเรียนรู้}{155}{section.5.1}%
-\contentsline {section}{\numberline {5.2}บทนำ}{155}{section.5.2}%
-\contentsline {section}{\numberline {5.3}นิยามพื้นฐานของเมทริกซ์}{156}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}นิยามของเมทริกซ์}{156}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}ประเภทของเมทริกซ์}{156}{subsection.5.3.2}%
-\contentsline {section}{\numberline {5.4}การดำเนินการระหว่างเมทริกซ์}{158}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}ความเท่ากันของเมทริกซ์}{158}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}การบวกและการลบเมทริกซ์}{159}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}การคูณเมทริกซ์ด้วยสเกลาร์}{159}{subsection.5.4.3}%
-\contentsline {subsection}{\numberline {5.4.4}การคูณเมทริกซ์ด้วยเมทริกซ์}{160}{subsection.5.4.4}%
-\contentsline {subsection}{\numberline {5.4.5}เมทริกซ์สลับเปลี่ยน (Transpose)}{161}{subsection.5.4.5}%
-\contentsline {section}{\numberline {5.5}ดีเทอร์มิแนนต์ (Determinants)}{163}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}นิยามของดีเทอร์มิแนนต์}{163}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}Cofactor Expansion}{164}{subsection.5.5.2}%
-\contentsline {subsection}{\numberline {5.5.3}สมบัติของดีเทอร์มิแนนต์}{165}{subsection.5.5.3}%
-\contentsline {section}{\numberline {5.6}อินเวอร์สของเมทริกซ์ (Matrix Inverse)}{166}{section.5.6}%
-\contentsline {subsection}{\numberline {5.6.1}นิยามของอินเวอร์ส}{166}{subsection.5.6.1}%
-\contentsline {section}{\numberline {5.7}ระบบสมการเชิงเส้น (Systems of Linear Equations)}{168}{section.5.7}%
-\contentsline {subsection}{\numberline {5.7.1}การเขียนระบบสมการในรูปเมทริกซ์}{168}{subsection.5.7.1}%
-\contentsline {subsection}{\numberline {5.7.2}การแก้ระบบสมการโดยใช้อินเวอร์สเมทริกซ์}{169}{subsection.5.7.2}%
-\contentsline {subsection}{\numberline {5.7.3}การแก้ระบบสมการโดยใช้กฎของคราเมอร์ (Cramer's Rule)}{169}{subsection.5.7.3}%
-\contentsline {subsection}{\numberline {5.7.4}การแก้ระบบสมการโดยวิธีการกำจัดแบบเกาส์ (Gaussian Elimination)}{170}{subsection.5.7.4}%
-\contentsline {section}{\numberline {5.8}การประยุกต์ในวิทยาการคอมพิวเตอร์}{171}{section.5.8}%
-\contentsline {subsection}{\numberline {5.8.1}การแปลงในคอมพิวเตอร์กราฟิกส์ (Computer Graphics)}{171}{subsection.5.8.1}%
-\contentsline {subsection}{\numberline {5.8.2}การเข้ารหัส Hill Cipher}{172}{subsection.5.8.2}%
-\contentsline {subsection}{\numberline {5.8.3}เมทริกซ์ในการเรียนรู้ของเครื่อง}{173}{subsection.5.8.3}%
-\contentsline {subsection}{\numberline {5.8.4}เมทริกซ์ประชิดในทฤษฎีกราฟ}{174}{subsection.5.8.4}%
-\contentsline {subsection}{\numberline {5.8.5}PageRank Algorithm}{175}{subsection.5.8.5}%
-\contentsline {subsection}{\numberline {5.8.6}การประมวลผลภาพ (Image Processing)}{175}{subsection.5.8.6}%
-\contentsline {subsection}{\numberline {5.8.7}Principal Component Analysis (PCA)}{176}{subsection.5.8.7}%
-\contentsline {section}{\numberline {5.9}สรุป}{177}{section.5.9}%
-\contentsline {section}{\numberline {5.10}เอกสารอ้างอิง}{179}{section.5.10}%
-\contentsline {chapter}{แผนการสอนประจำบทที่ 6}{181}{chapter*.25}%
-\contentsline {chapter}{\numberline {6}พีชคณิตบูลีน (Boolean Algebra)}{183}{chapter.6}%
-\contentsline {section}{\numberline {6.1}วัตถุประสงค์การเรียนรู้}{183}{section.6.1}%
-\contentsline {section}{\numberline {6.2}บทนำ}{183}{section.6.2}%
-\contentsline {section}{\numberline {6.3}นิยามพื้นฐานของพีชคณิตบูลีน}{184}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}นิยามของ Boolean Algebra}{184}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}ค่าคงที่บูลีน}{185}{subsection.6.3.2}%
-\contentsline {section}{\numberline {6.4}การดำเนินการทางบูลีน (Boolean Operations)}{185}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}การดำเนินการ OR (Disjunction)}{185}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}การดำเนินการ AND (Conjunction)}{186}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}การดำเนินการ NOT (Negation)}{187}{subsection.6.4.3}%
-\contentsline {section}{\numberline {6.5}กฎของพีชคณิตบูลีน (Boolean Identities)}{188}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Distributive Laws}{188}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}Absorption Laws}{189}{subsection.6.5.2}%
-\contentsline {section}{\numberline {6.6}กฎของเดมอร์แกน (De Morgan's Laws)}{190}{section.6.6}%
-\contentsline {section}{\numberline {6.7}นิพจน์บูลีนและฟังก์ชันบูลีน (Boolean Expressions and Functions)}{191}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}นิยามของนิพจน์บูลีน}{191}{subsection.6.7.1}%
-\contentsline {subsection}{\numberline {6.7.2}ฟังก์ชันบูลีน}{192}{subsection.6.7.2}%
-\contentsline {section}{\numberline {6.8}รูปแบบปกติ (Canonical Forms)}{193}{section.6.8}%
-\contentsline {subsection}{\numberline {6.8.1}Minterms และ Maxterms}{193}{subsection.6.8.1}%
-\contentsline {subsection}{\numberline {6.8.2}Sum of Products (SOP) — ผลบวกของผลคูณ}{194}{subsection.6.8.2}%
-\contentsline {subsection}{\numberline {6.8.3}Product of Sums (POS) — ผลคูณของผลบวก}{194}{subsection.6.8.3}%
-\contentsline {section}{\numberline {6.9}การลดรูปนิพจน์บูลีน (Boolean Expression Simplification)}{195}{section.6.9}%
-\contentsline {subsection}{\numberline {6.9.1}การใช้ Boolean Identities}{195}{subsection.6.9.1}%
-\contentsline {subsection}{\numberline {6.9.2}การใช้ Consensus Theorem}{196}{subsection.6.9.2}%
-\contentsline {section}{\numberline {6.10}แผนที่คาร์นอ (Karnaugh Map)}{197}{section.6.10}%
-\contentsline {subsection}{\numberline {6.10.1}K-map สำหรับ 2 ตัวแปร}{197}{subsection.6.10.1}%
-\contentsline {subsection}{\numberline {6.10.2}K-map สำหรับ 3 ตัวแปร}{198}{subsection.6.10.2}%
-\contentsline {subsection}{\numberline {6.10.3}K-map สำหรับ 4 ตัวแปร}{199}{subsection.6.10.3}%
-\contentsline {section}{\numberline {6.11}การประยุกต์ในวงจรดิจิทัล}{200}{section.6.11}%
-\contentsline {subsection}{\numberline {6.11.1}Logic Gates}{200}{subsection.6.11.1}%
-\contentsline {subsection}{\numberline {6.11.2}การออกแบบวงจร Combination}{201}{subsection.6.11.2}%
-\contentsline {section}{\numberline {6.12}Two-level Realization}{202}{section.6.12}%
-\contentsline {section}{\numberline {6.13}Half Adder และ Full Adder}{202}{section.6.13}%
-\contentsline {section}{\numberline {6.14}สมมูลของพีชคณิตบูลีน (Boolean Algebra Equivalence)}{203}{section.6.14}%
-\contentsline {section}{\numberline {6.15}แบบฝึกหัด}{204}{section.6.15}%
-\contentsline {subsection}{\numberline {6.15.1}ส่วนที่ 1: การดำเนินการพื้นฐาน}{204}{subsection.6.15.1}%
-\contentsline {subsection}{\numberline {6.15.2}ส่วนที่ 2: Boolean Identities}{205}{subsection.6.15.2}%
-\contentsline {subsection}{\numberline {6.15.3}ส่วนที่ 3: De Morgan's Laws}{205}{subsection.6.15.3}%
-\contentsline {subsection}{\numberline {6.15.4}ส่วนที่ 4: ฟังก์ชันบูลีนและ Canonical Forms}{206}{subsection.6.15.4}%
-\contentsline {subsection}{\numberline {6.15.5}ส่วนที่ 5: Karnaugh Maps}{206}{subsection.6.15.5}%
-\contentsline {section}{\numberline {6.16}เฉลยแบบฝึกหัด}{207}{section.6.16}%
-\contentsline {subsection}{\numberline {6.16.1}เฉลยส่วนที่ 1}{207}{subsection.6.16.1}%
-\contentsline {section}{\numberline {6.17}ตัวอย่างในวิทยาการคอมพิวเตอร์}{208}{section.6.17}%
-\contentsline {subsection}{\numberline {6.17.1}Karnaugh Maps สำหรับการออกแบบวงจร}{208}{subsection.6.17.1}%
-\contentsline {subsection}{\numberline {6.17.2}Boolean Logic ในการเขียนโปรแกรม}{208}{subsection.6.17.2}%
-\contentsline {subsection}{\numberline {6.17.3}Logic Gates และวงจรดิจิทัล}{209}{subsection.6.17.3}%
-\contentsline {subsection}{\numberline {6.17.4}Half Adder และ Full Adder}{210}{subsection.6.17.4}%
-\contentsline {subsection}{\numberline {6.17.5}Multiplexer และ Demultiplexer}{210}{subsection.6.17.5}%
-\contentsline {subsection}{\numberline {6.17.6}FSM Implementation ด้วย Boolean Logic}{211}{subsection.6.17.6}%
-\contentsline {section}{\numberline {6.18}สรุป}{211}{section.6.18}%
-\contentsline {section}{\numberline {6.19}เอกสารอ้างอิง}{213}{section.6.19}%
+\contentsline {subsection}{\numberline {1.2.1}ความหมายของประพจน์}{10}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}ตัวอย่างประพจน์}{10}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}ข้อความที่ไม่เป็นประพจน์}{11}{subsection.1.2.3}%
+\contentsline {section}{\numberline {1.3}ตัวเชื่อมประพจน์ (Logical Connectives)}{11}{section.1.3}%
+\contentsline {section}{\numberline {1.4}ตารางความจริง (Truth Tables)}{13}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}การเชื่อมด้วย AND ($\wedge $) — คอนจังก์ชัน (Conjunction)}{13}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}การเชื่อมด้วย OR ($\vee $) — ดิสจังก์ชัน (Disjunction)}{14}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}การเชื่อมด้วย NOT ($\neg $) — นิเสธ (Negation)}{14}{subsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.4.4}การเชื่อมด้วย IMPLIES ($\rightarrow $) — อิมพลิเคชัน (Conditional)}{15}{subsection.1.4.4}%
+\contentsline {subsection}{\numberline {1.4.5}การเชื่อมด้วย IFF ($\leftrightarrow $) — ไบคอนดิชันัล (Biconditional)}{16}{subsection.1.4.5}%
+\contentsline {section}{\numberline {1.5}สัจนิรันดร์และความขัดแย้ง}{16}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}สัจนิรันดร์ (Tautology)}{17}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}ปฏิเทง (Contradiction หรือ Self-Contradiction)}{18}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.3}ประพจน์กลาง (Contingency)}{19}{subsection.1.5.3}%
+\contentsline {section}{\numberline {1.6}การหักอนุมาน (Inference Rules)}{20}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Modus Ponens (การยืนยัน)}{20}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Modus Tollens (การปฏิเสธ)}{21}{subsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.6.3}Hypothetical Syllogism (ตรรกะแบบมีเงื่อนไข)}{22}{subsection.1.6.3}%
+\contentsline {subsection}{\numberline {1.6.4}Disjunctive Syllogism (ตรรกะแบบแยก)}{22}{subsection.1.6.4}%
+\contentsline {section}{\numberline {1.7}การพิสูจน์ด้วยตารางความจริง}{23}{section.1.7}%
+\contentsline {section}{\numberline {1.8}สรุปประเด็นสำคัญ}{24}{section.1.8}%
+\contentsline {chapter}{แบบฝึกหัดท้ายบท}{25}{chapter*.18}%
+\contentsline {chapter}{บรรณานุกรม}{27}{exercise.1.8}%
+\contentsline {section}{\numberline {1.9}เอกสารอ้างอิง}{28}{section.1.9}%
+\contentsline {chapter}{แผนการสอนประจำบทที่ 2}{29}{chapter*.19}%
+\contentsline {chapter}{\numberline {2}ระบบอ้างอิงเชิงพื้นที่ (Spatial Reference Systems)}{31}{chapter.2}%
+\contentsline {section}{\numberline {2.1}วัตถุประสงค์การเรียนรู้}{31}{section.2.1}%
+\contentsline {section}{\numberline {2.2}บทนำ: ความสำคัญของระบบอ้างอิงเชิงพื้นที่}{31}{section.2.2}%
+\contentsline {section}{\numberline {2.3}รูปทรงของโลก (Earth's Shape)}{32}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}จีออยด์ (Geoid)}{32}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}ทรงรี (Ellipsoid)}{33}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}ระบบพิกัดภูมิศาสตร์ (Geographic Coordinate System)}{34}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}ละติจูด (Latitude)}{34}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}ลองจิจูด (Longitude)}{35}{subsection.2.4.2}%
+\contentsline {section}{\numberline {2.5}ระบบพิกัดฉาย (Projected Coordinate System)}{36}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}หลักการฉายแผนที่ (Map Projection)}{36}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}ระบบพิกัดฉายสากล (Universal Transverse Mercator)}{37}{subsection.2.5.2}%
+\contentsline {section}{\numberline {2.6}ดาตัม (Datum)}{38}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}WGS84 และการใช้งานทั่วโลก}{39}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}ดาตัม Indian 1975 สำหรับประเทศไทย}{39}{subsection.2.6.2}%
+\contentsline {section}{\numberline {2.7}การแปลงระบบพิกัด (Coordinate Transformation)}{40}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}การแปลงระหว่าง GCS และ PCS}{41}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}การแปลงระหว่างดาตัม (Datum Transformation)}{42}{subsection.2.7.2}%
+\contentsline {section}{\numberline {2.8}การเลือกใช้ดาตัมให้เหมาะสมกับพื้นที่ศึกษา}{43}{section.2.8}%
+\contentsline {section}{\numberline {2.9}การจัดการปัญหาความคลาดเคลื่อนเชิงพื้นที่}{44}{section.2.9}%
+\contentsline {section}{\numberline {2.10}สรุป (Conclusion)}{45}{section.2.10}%
+\contentsline {section}{\numberline {2.11}ไฟล์โค้ดประกอบบท (Companion Code)}{45}{section.2.11}%
+\contentsline {section}{\numberline {2.12}แบบฝึกหัดท้ายบท (Exercises)}{46}{section.2.12}%
+\contentsline {section}{\numberline {2.13}เอกสารอ้างอิง}{49}{section.2.13}%
+\contentsline {chapter}{แผนการสอนประจำบทที่ 3}{51}{chapter*.22}%
+\contentsline {chapter}{\numberline {3}แบบจำลองข้อมูลและแหล่งที่มาของข้อมูล (Data Models and Data Acquisition)}{53}{chapter.3}%
+\contentsline {section}{\numberline {3.1}วัตถุประสงค์การเรียนรู้}{53}{section.3.1}%
+\contentsline {section}{\numberline {3.2}บทนำ}{53}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}ความเป็นมาของระบบสารสนเทศภูมิศาสตร์และข้อมูลเชิงพื้นที่}{54}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.3}แบบจำลองข้อมูลเวกเตอร์ (Vector Data Model)}{54}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}ข้อมูลจุด (Point)}{55}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}ข้อมูลเส้น (Line)}{56}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}ข้อมูลรูปหลายเหลี่ยม (Polygon)}{57}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}แบบจำลองข้อมูลราสเตอร์ (Raster Data Model)}{58}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}ข้อมูลแบบ Cell และ Pixel}{58}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}ความละเอียดเชิงพื้นที่ (Resolution)}{59}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.5}การแปลงข้อมูลระหว่าง Vector และ Raster (Data Conversion)}{60}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}การแปลง Vector เป็น Raster (Rasterization)}{60}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}การแปลง Raster เป็น Vector (Vectorization)}{61}{subsection.3.5.2}%
+\contentsline {section}{\numberline {3.6}วิธีการเก็บรวบรวมข้อมูล (Data Acquisition Methods)}{62}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}การสำรวจด้วย GPS (Global Positioning System)}{63}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}การสำรวจระยะไกล (Remote Sensing)}{64}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}การแปลงจากแผนที่กระดาษ (Digitizing)}{65}{subsection.3.6.3}%
+\contentsline {section}{\numberline {3.7}คุณภาพข้อมูลและความแม่นยำเชิงพื้นที่ (Data Quality and Spatial Accuracy)}{66}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}ความแม่นยำเชิงตำแหน่ง (Positional Accuracy)}{67}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}ความแม่นยำเชิงคุณลักษณะ (Attribute Accuracy)}{68}{subsection.3.7.2}%
+\contentsline {section}{\numberline {3.8}การประยุกต์ใช้ข้อมูลในงาน GIS}{69}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}การวิเคราะห์การซ้อนทับแผนที่ (Map Overlay Analysis)}{70}{subsection.3.8.1}%
+\contentsline {section}{\numberline {3.9}สรุป}{71}{section.3.9}%
+\contentsline {section}{\numberline {3.10}แบบฝึกหัดท้ายบท}{71}{section.3.10}%
+\contentsline {section}{\numberline {3.11}เอกสารอ้างอิง}{73}{section.3.11}%
+\contentsline {chapter}{แผนการสอนประจำบทที่ 4}{75}{chapter*.23}%
+\contentsline {chapter}{\numberline {4}การจัดการฐานข้อมูลเชิงพื้นที่ (Geodatabase Management)}{77}{chapter.4}%
+\contentsline {section}{\numberline {4.1}วัตถุประสงค์การเรียนรู้}{77}{section.4.1}%
+\contentsline {section}{\numberline {4.2}บทนำ}{77}{section.4.2}%
+\contentsline {section}{\numberline {4.3}โครงสร้างข้อมูลในฐานข้อมูล (Database Structure)}{77}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}ประเภทของ Geodatabase}{77}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}โครงสร้างระดับชั้นข้อมูล (Layer Structure)}{78}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}ความสัมพันธ์เชิงทอพอโลยี (Topology)}{78}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}กฎ Topology พื้นฐาน}{79}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}การตรวจสอบและแก้ไขข้อผิดพลาด Topology}{79}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}การจัดการตารางข้อมูลคุณลักษณะ (Attribute Data Management)}{80}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}ประเภทของข้อมูลในตาราง}{80}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}การสร้างความสัมพันธ์ระหว่างตาราง}{81}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}การทำ Queries เชิงพื้นที่และเชิงตาราง (Spatial and Attribute Queries)}{82}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}การ Query เชิงตารางด้วย SQL}{82}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}การ Query เชิงพื้นที่}{83}{subsection.4.6.2}%
+\contentsline {section}{\numberline {4.7}การออกแบบ Geodatabase}{84}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}หลักการออกแบบ Normalization}{85}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}การวางแผนความจุและประสิทธิภาพ}{86}{subsection.4.7.2}%
+\contentsline {section}{\numberline {4.8}ตัวอย่างและแบบฝึกหัดท้ายบท}{87}{section.4.8}%
+\contentsline {section}{\numberline {4.9}สรุป}{89}{section.4.9}%
+\contentsline {section}{\numberline {4.10}แบบฝึกหัดท้ายบท}{89}{section.4.10}%
+\contentsline {section}{\numberline {4.11}เอกสารอ้างอิง}{91}{section.4.11}%
+\contentsline {chapter}{แผนการสอนประจำบทที่ 5}{93}{chapter*.29}%
+\contentsline {chapter}{\numberline {5}เมทริกซ์และดีเทอร์มิแนนต์ (Matrices \& Determinants)}{95}{chapter.5}%
+\contentsline {section}{\numberline {5.1}วัตถุประสงค์การเรียนรู้}{95}{section.5.1}%
+\contentsline {section}{\numberline {5.2}บทนำ}{95}{section.5.2}%
+\contentsline {section}{\numberline {5.3}นิยามพื้นฐานของเมทริกซ์}{95}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}นิยามของเมทริกซ์}{95}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}ประเภทของเมทริกซ์}{96}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}การดำเนินการระหว่างเมทริกซ์}{98}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}ความเท่ากันของเมทริกซ์}{98}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}การบวกและการลบเมทริกซ์}{98}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}การคูณเมทริกซ์ด้วยสเกลาร์}{99}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.4.4}การคูณเมทริกซ์ด้วยเมทริกซ์}{99}{subsection.5.4.4}%
+\contentsline {subsection}{\numberline {5.4.5}เมทริกซ์สลับเปลี่ยน (Transpose)}{101}{subsection.5.4.5}%
+\contentsline {section}{\numberline {5.5}ดีเทอร์มิแนนต์ (Determinants)}{102}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}นิยามของดีเทอร์มิแนนต์}{102}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Cofactor Expansion}{103}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}สมบัติของดีเทอร์มิแนนต์}{104}{subsection.5.5.3}%
+\contentsline {section}{\numberline {5.6}อินเวอร์สของเมทริกซ์ (Matrix Inverse)}{105}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}นิยามของอินเวอร์ส}{105}{subsection.5.6.1}%
+\contentsline {section}{\numberline {5.7}ระบบสมการเชิงเส้น (Systems of Linear Equations)}{107}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}การเขียนระบบสมการในรูปเมทริกซ์}{107}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}การแก้ระบบสมการโดยใช้อินเวอร์สเมทริกซ์}{107}{subsection.5.7.2}%
+\contentsline {subsection}{\numberline {5.7.3}การแก้ระบบสมการโดยใช้กฎของคราเมอร์ (Cramer's Rule)}{108}{subsection.5.7.3}%
+\contentsline {subsection}{\numberline {5.7.4}การแก้ระบบสมการโดยวิธีการกำจัดแบบเกาส์ (Gaussian Elimination)}{109}{subsection.5.7.4}%
+\contentsline {section}{\numberline {5.8}การประยุกต์ในวิทยาการคอมพิวเตอร์}{110}{section.5.8}%
+\contentsline {subsection}{\numberline {5.8.1}การแปลงในคอมพิวเตอร์กราฟิกส์ (Computer Graphics)}{110}{subsection.5.8.1}%
+\contentsline {subsection}{\numberline {5.8.2}การเข้ารหัส Hill Cipher}{111}{subsection.5.8.2}%
+\contentsline {subsection}{\numberline {5.8.3}เมทริกซ์ในการเรียนรู้ของเครื่อง}{111}{subsection.5.8.3}%
+\contentsline {subsection}{\numberline {5.8.4}เมทริกซ์ประชิดในทฤษฎีกราฟ}{112}{subsection.5.8.4}%
+\contentsline {subsection}{\numberline {5.8.5}PageRank Algorithm}{113}{subsection.5.8.5}%
+\contentsline {subsection}{\numberline {5.8.6}การประมวลผลภาพ (Image Processing)}{113}{subsection.5.8.6}%
+\contentsline {subsection}{\numberline {5.8.7}Principal Component Analysis (PCA)}{114}{subsection.5.8.7}%
+\contentsline {section}{\numberline {5.9}ไฟล์โค้ดประกอบบท}{115}{section.5.9}%
+\contentsline {section}{\numberline {5.10}แบบฝึกหัด}{115}{section.5.10}%
+\contentsline {subsection}{\numberline {5.10.1}ส่วนที่ 1: พื้นฐานเมทริกซ์}{115}{subsection.5.10.1}%
+\contentsline {subsection}{\numberline {5.10.2}ส่วนที่ 2: การดำเนินการระหว่างเมทริกซ์}{116}{subsection.5.10.2}%
+\contentsline {subsection}{\numberline {5.10.3}ส่วนที่ 3: ดีเทอร์มิแนนต์}{116}{subsection.5.10.3}%
+\contentsline {subsection}{\numberline {5.10.4}ส่วนที่ 4: อินเวอร์สของเมทริกซ์}{117}{subsection.5.10.4}%
+\contentsline {subsection}{\numberline {5.10.5}ส่วนที่ 5: การแก้ระบบสมการเชิงเส้น}{117}{subsection.5.10.5}%
+\contentsline {section}{\numberline {5.11}สรุป}{117}{section.5.11}%
+\contentsline {section}{\numberline {5.12}เอกสารอ้างอิง}{119}{section.5.12}%
+\contentsline {chapter}{แผนการสอนประจำบทที่ 6}{121}{chapter*.30}%
+\contentsline {chapter}{\numberline {6}การวิเคราะห์ข้อมูลราสเตอร์ (Raster-based Spatial Analysis)}{123}{chapter.6}%
+\contentsline {section}{\numberline {6.1}วัตถุประสงค์การเรียนรู้}{123}{section.6.1}%
+\contentsline {section}{\numberline {6.2}บทนำ}{123}{section.6.2}%
+\contentsline {section}{\numberline {6.3}โครงสร้างข้อมูลราสเตอร์}{124}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}นิยามของข้อมูลราสเตอร์}{124}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}ประเภทของข้อมูลราสเตอร์}{124}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}พีชคณิตแผนที่ (Map Algebra)}{125}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}แนะนำ Map Algebra}{125}{subsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.4.2}การดำเนินการระดับพิกเซล (Local Operations)}{125}{subsection.6.4.2}%
+\contentsline {subsection}{\numberline {6.4.3}การดำเนินการระดับพื้นที่ใกล้เคียง (Neighborhood Operations)}{126}{subsection.6.4.3}%
+\contentsline {subsection}{\numberline {6.4.4}การดำเนินการระดับโซน (Zonal Operations)}{127}{subsection.6.4.4}%
+\contentsline {section}{\numberline {6.5}การวิเคราะห์พื้นผิว (Surface Analysis)}{128}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}แนะนำการวิเคราะห์พื้นผิว}{128}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}ความลาดชัน (Slope)}{129}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.3}ทิศทางของความลาด (Aspect)}{130}{subsection.6.5.3}%
+\contentsline {subsection}{\numberline {6.5.4}เงา (Hillshade)}{130}{subsection.6.5.4}%
+\contentsline {subsection}{\numberline {6.5.5}พื้นที่ที่มองเห็นได้ (Viewshed)}{131}{subsection.6.5.5}%
+\contentsline {section}{\numberline {6.6}การแปลงข้อมูล Vector-Raster}{132}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}ความสำคัญของการแปลงข้อมูล}{132}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}การแปลง Raster เป็น Vector (Raster to Vector Conversion)}{132}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.3}การแปลง Vector เป็น Raster (Vector to Raster Conversion)}{133}{subsection.6.6.3}%
+\contentsline {section}{\numberline {6.7}การประยุกต์ใช้ในงานด้านทรัพยากรธรรมชาติและสิ่งแวดล้อม}{133}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}การประเมินความเหมาะสมของที่ดิน (Land Suitability Analysis)}{134}{subsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.7.2}การวิเคราะห์ความเสี่ยงดินถล่ม (Landslide Risk Analysis)}{134}{subsection.6.7.2}%
+\contentsline {section}{\numberline {6.8}บทสรุป}{135}{section.6.8}%
+\contentsline {section}{\numberline {6.9}แบบฝึกหัดท้ายบท}{135}{section.6.9}%
+\contentsline {section}{\numberline {6.10}เอกสารอ้างอิงประจำบท}{136}{section.6.10}%
+\contentsline {section}{\numberline {6.11}เอกสารอ้างอิง}{138}{section.6.11}%
+\contentsline {chapter}{แผนการสอนประจำบทที่ 7}{139}{chapter*.33}%
+\contentsline {chapter}{\numberline {7}การนำเสนอผลลัพธ์และการทำแผนที่ (Cartography and Data Visualization)}{141}{chapter.7}%
+\contentsline {section}{\numberline {7.1}วัตถุประสงค์การเรียนรู้}{141}{section.7.1}%
+\contentsline {section}{\numberline {7.2}บทนำ}{141}{section.7.2}%
+\contentsline {section}{\numberline {7.3}หลักการออกแบบแผนที่และการจัดลำดับความสำคัญของข้อมูลภาพ}{142}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}องค์ประกอบหลักและองค์ประกอบรองบนแผนที่}{142}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}ความสมดุลและการจัดวางองค์ประกอบบนแผนที่}{142}{subsection.7.3.2}%
+\contentsline {section}{\numberline {7.4}การเลือกสัญลักษณ์สำหรับข้อมูลเชิงพื้นที่}{143}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}การใช้สีในการแสดงข้อมูล}{143}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}การใช้รูปร่างและขนาดในการแสดงข้อมูล}{144}{subsection.7.4.2}%
+\contentsline {section}{\numberline {7.5}การจำแนกข้อมูลสำหรับการแสดงบนแผนที่}{144}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}การจำแนกแบบ Equal Interval}{144}{subsection.7.5.1}%
+\contentsline {subsection}{\numberline {7.5.2}การจำแนกแบบ Quantile}{145}{subsection.7.5.2}%
+\contentsline {subsection}{\numberline {7.5.3}การจำแนกแบบ Natural Breaks}{145}{subsection.7.5.3}%
+\contentsline {section}{\numberline {7.6}การจัดทำเลย์เอาต์แผนที่}{146}{section.7.6}%
+\contentsline {subsection}{\numberline {7.6.1}มาตราส่วนและทิศทาง}{146}{subsection.7.6.1}%
+\contentsline {subsection}{\numberline {7.6.2}คำอธิบายสัญลักษณ์และชื่อแผนที่}{146}{subsection.7.6.2}%
+\contentsline {section}{\numberline {7.7}การสื่อสารข้อมูลเชิงพื้นที่ให้อ่านง่ายและถูกต้องตามหลักสากล}{147}{section.7.7}%
+\contentsline {subsection}{\numberline {7.7.1}การหลีกเลี่ยงข้อผิดพลาดที่พบบ่อย}{147}{subsection.7.7.1}%
+\contentsline {subsection}{\numberline {7.7.2}มาตรฐานสากลในการทำแผนที่}{147}{subsection.7.7.2}%
+\contentsline {section}{\numberline {7.8}สรุป}{148}{section.7.8}%
+\contentsline {section}{\numberline {7.9}ไฟล์โค้ดประกอบบท}{148}{section.7.9}%
+\contentsline {section}{\numberline {7.10}แบบฝึกหัดท้ายบท}{148}{section.7.10}%
+\contentsline {section}{\numberline {7.11}เอกสารอ้างอิง}{149}{section.7.11}%
+\contentsline {section}{\numberline {7.12}เอกสารอ้างอิง}{150}{section.7.12}%
 \contentsfinish 

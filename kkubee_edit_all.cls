@@ -514,17 +514,20 @@ eprint=false
 
 
 %section style setup
-\renewcommand\thesection{}
-\titleformat{\section}{\large\bfseries\upshape}{\makebox[0em][l]{\thesection}}{0em}{}
-\titlespacing{\section}{0ex}{\baselineskip}{\parskip}
+% Fix: Added proper label width (1.5em) to prevent section number overlap with title text
+% Also increased beforeskip from 0ex to 1ex for better spacing before section titles
+\providecommand\thesection{}
+\titleformat{\section}{\large\bfseries\upshape}{\thesection}{1.5em}{}
+\titlespacing{\section}{0ex}{1ex}{\parskip}
 % set indent of section
 \let\oldsection\section
 \def\section{\setlength{\parindent}{1.5cm}\oldsection}
 
 %%subsection setup 
-\renewcommand\thesubsection{}
-\titleformat{\subsection}{\bfseries\upshape}{\makebox[0em][l]{\thesubsection}}{0em}{}
-\titlespacing{\subsection}{1.5cm}{0ex}{\parskip}
+% Fix: Added proper label width (2em) to prevent subsection number overlap with title text
+\providecommand\thesubsection{}
+\titleformat{\subsection}{\bfseries\upshape}{\thesubsection}{2em}{}
+\titlespacing{\subsection}{1.5cm}{1ex}{\parskip}
 % set indent of subsection
 \let\oldsubsection\subsection
 \def\subsection{\setlength{\parindent}{1.5cm}\oldsubsection}

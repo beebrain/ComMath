@@ -1,12 +1,12 @@
 \noaddvspace 
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1}{\ignorespaces ตัวเชื่อมประพจน์พื้นฐานทั้ง 5 ตัว}}{12}{table.caption.7}%
-\contentsline {table}{\numberline {2}{\ignorespaces ตารางความจริงของการเชื่อมด้วย AND ($p \wedge q$)}}{13}{table.caption.8}%
-\contentsline {table}{\numberline {3}{\ignorespaces ตารางความจริงของการเชื่อมด้วย OR ($p \vee q$)}}{14}{table.caption.9}%
+\contentsline {table}{\numberline {1}{\ignorespaces ตัวเชื่อมประพจน์พื้นฐานทั้ง 5 ตัว}}{13}{table.caption.7}%
+\contentsline {table}{\numberline {2}{\ignorespaces ตารางความจริงของการเชื่อมด้วย AND ($p \wedge q$)}}{14}{table.caption.8}%
+\contentsline {table}{\numberline {3}{\ignorespaces ตารางความจริงของการเชื่อมด้วย OR ($p \vee q$)}}{15}{table.caption.9}%
 \contentsline {table}{\numberline {4}{\ignorespaces ตารางความจริงของนิเสธ ($\neg p$)}}{15}{table.caption.10}%
-\contentsline {table}{\numberline {5}{\ignorespaces ตารางความจริงของ IMPLIES ($p \rightarrow q$)}}{15}{table.caption.11}%
-\contentsline {table}{\numberline {6}{\ignorespaces ตารางความจริงของ IFF ($p \leftrightarrow q$)}}{16}{table.caption.12}%
-\contentsline {table}{\numberline {7}{\ignorespaces ตารางแสดงว่า $p \vee \neg p$ เป็นสัจนิรันดร์}}{17}{table.caption.13}%
+\contentsline {table}{\numberline {5}{\ignorespaces ตารางความจริงของ IMPLIES ($p \rightarrow q$)}}{16}{table.caption.11}%
+\contentsline {table}{\numberline {6}{\ignorespaces ตารางความจริงของ IFF ($p \leftrightarrow q$)}}{17}{table.caption.12}%
+\contentsline {table}{\numberline {7}{\ignorespaces ตารางแสดงว่า $p \vee \neg p$ เป็นสัจนิรันดร์}}{18}{table.caption.13}%
 \contentsline {table}{\numberline {8}{\ignorespaces ตารางแสดงว่า $(p \wedge q) \rightarrow p$ เป็นสัจนิรันดร์}}{18}{table.caption.14}%
 \contentsline {table}{\numberline {9}{\ignorespaces ตารางแสดงว่า $p \wedge \neg p$ เป็นปฏิเทง}}{19}{table.caption.15}%
 \contentsline {table}{\numberline {10}{\ignorespaces ตารางแสดงว่า $p \wedge q$ เป็นประพจน์กลาง}}{20}{table.caption.16}%

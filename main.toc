@@ -4,32 +4,33 @@
 \contentsline {chapter}{แผนบริหารการสอนประจำวิชา}{1}{chapter*.4}%
 \contentsline {chapter}{แผนการสอนประจำบทที่ 1}{7}{chapter*.6}%
 \contentsline {chapter}{\numberline {1}ตรรกศาสตร์ (Logic)}{9}{chapter.1}%
-\contentsline {section}{\numberline {1.1}ความหมายและความสำคัญของตรรกศาสตร์}{9}{section.1.1}%
-\contentsline {section}{\numberline {1.2}ประพจน์ (Propositions)}{9}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}ความหมายของประพจน์}{10}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}ตัวอย่างประพจน์}{10}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}ข้อความที่ไม่เป็นประพจน์}{11}{subsection.1.2.3}%
-\contentsline {section}{\numberline {1.3}ตัวเชื่อมประพจน์ (Logical Connectives)}{11}{section.1.3}%
-\contentsline {section}{\numberline {1.4}ตารางความจริง (Truth Tables)}{13}{section.1.4}%
-\contentsline {subsection}{\numberline {1.4.1}การเชื่อมด้วย AND ($\wedge $) — คอนจังก์ชัน (Conjunction)}{13}{subsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.4.2}การเชื่อมด้วย OR ($\vee $) — ดิสจังก์ชัน (Disjunction)}{14}{subsection.1.4.2}%
-\contentsline {subsection}{\numberline {1.4.3}การเชื่อมด้วย NOT ($\neg $) — นิเสธ (Negation)}{14}{subsection.1.4.3}%
-\contentsline {subsection}{\numberline {1.4.4}การเชื่อมด้วย IMPLIES ($\rightarrow $) — อิมพลิเคชัน (Conditional)}{15}{subsection.1.4.4}%
-\contentsline {subsection}{\numberline {1.4.5}การเชื่อมด้วย IFF ($\leftrightarrow $) — ไบคอนดิชันัล (Biconditional)}{16}{subsection.1.4.5}%
-\contentsline {section}{\numberline {1.5}สัจนิรันดร์และความขัดแย้ง}{16}{section.1.5}%
-\contentsline {subsection}{\numberline {1.5.1}สัจนิรันดร์ (Tautology)}{17}{subsection.1.5.1}%
-\contentsline {subsection}{\numberline {1.5.2}ปฏิเทง (Contradiction หรือ Self-Contradiction)}{18}{subsection.1.5.2}%
-\contentsline {subsection}{\numberline {1.5.3}ประพจน์กลาง (Contingency)}{19}{subsection.1.5.3}%
-\contentsline {section}{\numberline {1.6}การหักอนุมาน (Inference Rules)}{20}{section.1.6}%
-\contentsline {subsection}{\numberline {1.6.1}Modus Ponens (การยืนยัน)}{20}{subsection.1.6.1}%
-\contentsline {subsection}{\numberline {1.6.2}Modus Tollens (การปฏิเสธ)}{21}{subsection.1.6.2}%
-\contentsline {subsection}{\numberline {1.6.3}Hypothetical Syllogism (ตรรกะแบบมีเงื่อนไข)}{22}{subsection.1.6.3}%
-\contentsline {subsection}{\numberline {1.6.4}Disjunctive Syllogism (ตรรกะแบบแยก)}{22}{subsection.1.6.4}%
-\contentsline {section}{\numberline {1.7}การพิสูจน์ด้วยตารางความจริง}{23}{section.1.7}%
-\contentsline {section}{\numberline {1.8}สรุปประเด็นสำคัญ}{24}{section.1.8}%
-\contentsline {chapter}{แบบฝึกหัดท้ายบท}{25}{chapter*.18}%
-\contentsline {chapter}{บรรณานุกรม}{27}{exercise.1.8}%
-\contentsline {section}{\numberline {1.9}เอกสารอ้างอิง}{28}{section.1.9}%
+\contentsline {section}{\numberline {1.1}วัตถุประสงค์}{9}{section.1.1}%
+\contentsline {section}{\numberline {1.2}ความหมายและความสำคัญของตรรกศาสตร์}{9}{section.1.2}%
+\contentsline {section}{\numberline {1.3}ประพจน์ (Propositions)}{10}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}ความหมายของประพจน์}{10}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}ตัวอย่างประพจน์}{10}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}ข้อความที่ไม่เป็นประพจน์}{11}{subsection.1.3.3}%
+\contentsline {section}{\numberline {1.4}ตัวเชื่อมประพจน์ (Logical Connectives)}{12}{section.1.4}%
+\contentsline {section}{\numberline {1.5}ตารางความจริง (Truth Tables)}{13}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}การเชื่อมด้วย AND ($\wedge $) — คอนจังก์ชัน (Conjunction)}{14}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}การเชื่อมด้วย OR ($\vee $) — ดิสจังก์ชัน (Disjunction)}{14}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.3}การเชื่อมด้วย NOT ($\neg $) — นิเสธ (Negation)}{15}{subsection.1.5.3}%
+\contentsline {subsection}{\numberline {1.5.4}การเชื่อมด้วย IMPLIES ($\rightarrow $) — อิมพลิเคชัน (Conditional)}{15}{subsection.1.5.4}%
+\contentsline {subsection}{\numberline {1.5.5}การเชื่อมด้วย IFF ($\leftrightarrow $) — ไบคอนดิชันัล (Biconditional)}{16}{subsection.1.5.5}%
+\contentsline {section}{\numberline {1.6}สัจนิรันดร์และความขัดแย้ง}{17}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}สัจนิรันดร์ (Tautology)}{17}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}ปฏิเทง (Contradiction หรือ Self-Contradiction)}{19}{subsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.6.3}ประพจน์กลาง (Contingency)}{20}{subsection.1.6.3}%
+\contentsline {section}{\numberline {1.7}การหักอนุมาน (Inference Rules)}{20}{section.1.7}%
+\contentsline {subsection}{\numberline {1.7.1}Modus Ponens (การยืนยัน)}{21}{subsection.1.7.1}%
+\contentsline {subsection}{\numberline {1.7.2}Modus Tollens (การปฏิเสธ)}{22}{subsection.1.7.2}%
+\contentsline {subsection}{\numberline {1.7.3}Hypothetical Syllogism (ตรรกะแบบมีเงื่อนไข)}{22}{subsection.1.7.3}%
+\contentsline {subsection}{\numberline {1.7.4}Disjunctive Syllogism (ตรรกะแบบแยก)}{23}{subsection.1.7.4}%
+\contentsline {section}{\numberline {1.8}การพิสูจน์ด้วยตารางความจริง}{23}{section.1.8}%
+\contentsline {section}{\numberline {1.9}สรุปประเด็นสำคัญ}{24}{section.1.9}%
+\contentsline {section}{\numberline {1.10}ไฟล์โค้ดประกอบบท}{25}{section.1.10}%
+\contentsline {chapter}{แบบฝึกหัดท้ายบท}{26}{chapter*.18}%
+\contentsline {section}{\numberline {1.11}เอกสารอ้างอิง}{28}{section.1.11}%
 \contentsline {chapter}{แผนการสอนประจำบทที่ 2}{29}{chapter*.19}%
 \contentsline {chapter}{\numberline {2}ระบบอ้างอิงเชิงพื้นที่ (Spatial Reference Systems)}{31}{chapter.2}%
 \contentsline {section}{\numberline {2.1}วัตถุประสงค์การเรียนรู้}{31}{section.2.1}%

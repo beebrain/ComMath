@@ -672,7 +672,7 @@ eprint=false
 }
 
 \newcommand\regularsection{%
-	\titleformat{\section}{\large\bfseries\upshape}{\makebox[0em][l]{\thesection}}{0em}{}
+	\titleformat{\section}{\large\bfseries\upshape}{\thesection}{1.5em}{}
 }
 
 \newcommand\QAChapter{

@@ -36,7 +36,7 @@
 \label{sec:boolean-definitions}
 
 \subsection{นิยามของ Boolean Algebra}
-\begin{thrm}
+\begin{definition}
 \textbf{Boolean Algebra} คือ algebraic structure $(B, +, \cdot, ', 0, 1)$ โดยที่ $B$ เป็นเซตที่ประกอบด้วยสองค่า $\{0, 1\}$ และ $+$, $\cdot$ เป็น binary operations และ $'$ เป็น unary operation โดยมี axioms ดังนี้:
 
 \begin{enumerate}
@@ -71,16 +71,16 @@
         \item $a \cdot a' = 0$
     \end{enumerate}
 \end{enumerate}
-\end{thrm}
+\end{definition}
 
 \subsection{ค่าคงที่บูลีน}
-\begin{thrm}
+\begin{definition}
 ในพีชคณิตบูลีน มีค่าคงที่สองค่า:
 \begin{enumerate}
     \item \textbf{0 (False/ปลอม)} คือ แทนค่าความจริงว่างเปล่าหรือเท็จ
     \item \textbf{1 (True/จริง)} คือ แทนค่าความจริงว่าถูกต้องหรือจริง
 \end{enumerate}
-\end{thrm}
+\end{definition}
 
 \begin{ex}
 ในบริบทของวงจรดิจิทัล:
@@ -104,7 +104,7 @@
 ในการศึกษาพีชคณิตบูลีน เราจะใช้ truth table เป็นเครื่องมือสำคัญในการแสดงผลลัพธ์ของการดำเนินการสำหรับทุกการณ์ของค่าอินพุต สำหรับตัวแปร $n$ ตัวจะมี $2^n$ แถวใน truth table ดังนั้นสำหรับ 2 ตัวแปรจะมี 4 แถว และสำหรับ 3 ตัวแปรจะมี 8 แถว ความสามารถในการอ่านและเขียน truth table อย่างคล่องแคล่วจึงเป็นทักษะพื้นฐานที่จำเป็นสำหรับทุกผู้ศึกษาเกี่ยวกับวงจรดิจิทัล
 
 \subsection{การดำเนินการ OR (Disjunction)}
-\begin{thrm}
+\begin{definition}
 \textbf{การดำเนินการ OR} ของ $a$ และ $b$ เขียนแทนด้วย $a + b$ หรือ $a \lor b$ ให้ผลลัพธ์เป็น 1 ถ้าอย่างน้อยหนึ่งใน $a$ หรือ $b$ เป็น 1 และให้ผลลัพธ์เป็น 0 ก็ต่อเมื่อ $a = b = 0$
 
 \textbf{Truth Table ของ OR:}
@@ -123,7 +123,7 @@ $a$ & $b$ & $a + b$ \\
 \hline
 \end{tabular}
 \end{center}
-\end{thrm}
+\end{definition}
 
 \begin{ex}
 \begin{enumerate}
@@ -190,7 +190,7 @@ $a$ & $b$ & $a \cdot b$ \\
 \end{thrm}
 
 \subsection{การดำเนินการ NOT (Negation)}
-\begin{thrm}
+\begin{definition}
 \textbf{การดำเนินการ NOT} ของ $a$ เขียนแทนด้วย $a'$ หรือ $\overline{a}$ หรือ $\neg a$ ให้ผลลัพธ์ตรงข้ามกับ $a$ นั่นคือ ถ้า $a = 0$ แล้ว $a' = 1$ และถ้า $a = 1$ แล้ว $a' = 0$
 
 \textbf{Truth Table ของ NOT:}
@@ -205,7 +205,7 @@ $a$ & $a'$ \\
 \hline
 \end{tabular}
 \end{center}
-\end{thrm}
+\end{definition}
 
 \begin{ex}
 \begin{enumerate}
@@ -240,7 +240,7 @@ $a$ & $a'$ \\
 
 การดำเนินการ XOR หรือ Exclusive OR เป็นการดำเนินการที่สำคัญมากในวงจรดิจิทัลและการเข้ารหัส ต่างจาก OR ตรงที่ XOR ให้ผลลัพธ์เป็น 1 ก็ต่อเมื่อค่าอินพุตสองค่าแตกต่างกัน (หนึ่งเป็น 0 และอีกหนึ่งเป็น 1) คุณสมบัตินี้ทำให้ XOR เหมาะสำหรับการคำนวณ parity bit ในระบบตรวจจับข้อผิดพลาด และการเข้ารหัสแบบ symmetric encryption
 
-\begin{thrm}
+\begin{definition}
 \textbf{การดำเนินการ XOR} ของ $a$ และ $b$ เขียนแทนด้วย $a \oplus b$ ให้ผลลัพธ์เป็น 1 ก็ต่อเมื่อ $a$ และ $b$ มีค่าต่างกัน และให้ผลลัพธ์เป็น 0 เมื่อ $a$ และ $b$ มีค่าเท่ากัน
 
 \textbf{Truth Table ของ XOR:}
@@ -259,7 +259,7 @@ $a$ & $b$ & $a \oplus b$ \\
 \hline
 \end{tabular}
 \end{center}
-\end{thrm}
+\end{definition}
 
 \begin{thrm}[คุณสมบัติของ XOR]
 สำหรับทุก $a, b, c \in \{0, 1\}$:
@@ -581,7 +581,7 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 \subsection{นิยามของนิพจน์บูลีน}
 ในทางคณิตศาสตร์ นิพจน์ (expression) คือการรวมกันของตัวแปร ค่าคงที่ และการดำเนินการ เช่นเดียวกัน นิพจน์บูลีนก็คือการรวมกันของตัวแปรบูลีน ค่าคงที่ 0 และ 1 และการดำเนินการ OR, AND, NOT โดยใช้วงเล็บเพื่อกำหนดลำดับการดำเนินการ การเข้าใจโครงสร้างของนิพจน์บูลีนเป็นพื้นฐานสำคัญในการวิเคราะห์และออกแบบวงจรดิจิทัล
 
-\begin{thrm}
+\begin{definition}
 \textbf{นิพจน์บูลีน (Boolean Expression)} คือ การรวมกันของ:
 \begin{enumerate}
     \item ตัวแปรบูลีน (Boolean variables) เช่น $x, y, z$
@@ -589,7 +589,7 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
     \item การดำเนินการบูลีน ($+$, $\cdot$, $'$)
     \item วงเล็บ $($ และ $=$ เพื่อกำหนดลำดับการดำเนินการ
 \end{enumerate}
-\end{thrm}
+\end{definition}
 
 \begin{ex}
 นิพจน์บูลีนที่ถูกต้อง:
@@ -605,11 +605,11 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 \subsection{ฟังก์ชันบูลีน}
 
 
-\begin{thrm}
+\begin{definition}
 \textbf{ฟังก์ชันบูลีน (Boolean Function)} $f(x_1, x_2, \ldots, x_n)$ คือ ฟังก์ชันที่รับค่าบูลีน $n$ ตัวแปรและให้ผลลัพธ์เป็นค่าบูลีน
 
 ฟังก์ชันบูลีนสามารถแทนด้วย \textbf{truth table} ที่แสดงผลลัพธ์สำหรับทุกการผombinasi ของค่าอินพุต
-\end{thrm}
+\end{definition}
 
 \begin{ex}
 ฟังก์ชันบูลีน $f(x, y) = x \cdot y + x' \cdot y'$
@@ -669,7 +669,7 @@ $x$ & $y$ & $z$ & $y'$ & $x + y'$ & $(x + y') \cdot z$ & $x \cdot y$ & $f$ \\
 \subsection{Minterms และ Maxterms}
 เพื่อให้สามารถเขียนฟังก์ชันบูลีนในรูปแบบมาตรฐานที่ชัดเจน เราต้องเข้าใจแนวคิดของ Minterm และ Maxterm ก่อน Minterm คือ term ที่เกิดจากการ AND ตัวแปรทุกตัว โดยแต่ละตัวแปรจะปรากฏเพียงครั้งเดียวในรูปแบบปกติ (ถ้าตัวแปรมีค่า 1 ใช้ตัวแปรเดี่ยว ถ้ามีค่า 0 ใช้ complement) ในทางตรงข้าม Maxterm คือ term ที่เกิดจากการ OR ตัวแปรทุกตัว โดยใช้กฎเกณฑ์เดียวกันแต่กลับกัน การเข้าใจความสัมพันธ์ระหว่าง Minterm และ Maxterm จะช่วยให้สามารถแปลงฟังก์ชันบูลีนระหว่างรูปแบบ SOP และ POS ได้อย่างง่ายดาย
 
-\begin{thrm}
+\begin{definition}
 \textbf{Minterm} ของตัวแปร $n$ ตัวคือ AND term ที่มีตัวแปรทุกตัวปรากฏ exactly once ในรูปแบบปกติ (ถ้าตัวแปรเป็น 1 ใช้ตัวแปรเดี่ยว ถ้าตัวแปรเป็น 0 ใช้ complement)
 
 สำหรับ 2 ตัวแปร $x, y$:
@@ -679,9 +679,9 @@ $x$ & $y$ & $z$ & $y'$ & $x + y'$ & $(x + y') \cdot z$ & $x \cdot y$ & $f$ \\
     \item $m_2 = x \cdot y'$ (ทั้ง $x = 1, y = 0$)
     \item $m_3 = x \cdot y$ (ทั้ง $x = 1, y = 1$)
 \end{enumerate}
-\end{thrm}
+\end{definition}
 
-\begin{thrm}
+\begin{definition}
 \textbf{Maxterm} ของตัวแปร $n$ ตัวคือ OR term ที่มีตัวแปรทุกตัวปรากฏ exactly once ในรูปแบบปกติ (ถ้าตัวแปรเป็น 0 ใช้ตัวแปรเดี่ยว ถ้าตัวแปรเป็น 1 ใช้ complement)
 
 สำหรับ 2 ตัวแปร $x, y$:
@@ -691,7 +691,7 @@ $x$ & $y$ & $z$ & $y'$ & $x + y'$ & $(x + y') \cdot z$ & $x \cdot y$ & $f$ \\
     \item $M_2 = x' + y$ (ทั้ง $x = 1, y = 0$)
     \item $M_3 = x' + y'$ (ทั้ง $x = 1, y = 1$)
 \end{enumerate}
-\end{thrm}
+\end{definition}
 
 \begin{thrm}
 ความสัมพันธ์ระหว่าง Minterm และ Maxterm:
@@ -706,11 +706,11 @@ $x$ & $y$ & $z$ & $y'$ & $x + y'$ & $(x + y') \cdot z$ & $x \cdot y$ & $f$ \\
 \subsection{Sum of Products (SOP) — ผลบวกของผลคูณ}
 หลังจากเข้าใจ Minterm แล้ว ตอนนี้เราสามารถนำ Minterms มาประกอบกันเป็นรูปแบบ Sum of Products (SOP) ซึ่งเป็นรูปแบบมาตรฐานที่สำคัญในการออกแบบวงจรดิจิทัล SOP คือการนำผลคูณ (AND) ของตัวแปรหลายๆ พจน์มาบวก (OR) กัน รูปแบบนี้เรียกอีกอย่างว่า "ผลบวกของผลคูณ" เพราะเราเอาผลคูณหลายๆ อันมาบวกกัน การเขียนฟังก์ชันในรูปแบบ SOP ทำให้ง่ายต่อการแปลงเป็นวงจรที่ใช้ AND gate และ OR gate
 
-\begin{thrm}
+\begin{definition}
 \textbf{Sum of Products (SOP)} คือ รูปแบบของนิพจน์บูลีนที่เขียนเป็น OR ของ AND terms
 
 ฟังก์ชันบูลีนใดๆ สามารถเขียนเป็น SOP ได้โดยใช้ \textbf{minterm expansion} หรือ \textbf{canonical SOP form}
-\end{thrm}
+\end{definition}
 
 \begin{ex}
 เขียนฟังก์ชัน $f(x, y) = x \cdot y + x'$ ในรูปแบบ canonical SOP
@@ -746,11 +746,11 @@ $f(x, y, z) = x'y'z + x'y z' + x y' z + x y z' = \sum(1, 3, 5, 7)$
 \subsection{Product of Sums (POS) — ผลคูณของผลบวก}
 นอกจาก SOP แล้ว ยังมีอีกรูปแบบหนึ่งที่สำคัญคือ Product of Sums (POS) หรือ "ผลคูณของผลบวก" ซึ่งเป็นรูปแบบที่ใช้ Maxterms มาประกอบกัน รูปแบบ POS คือการนำผลบวก (OR) ของตัวแปรหลายๆ พจน์มาคูณ (AND) กัน รูปแบบนี้มีประโยชน์ในบางสถานการณ์ เช่น เมื่อต้องการวงจรที่ใช้ NOR gate เป็นหลัก หรือเมื่อฟังก์ชันถูกกำหนดในรูปแบบที่ง่ายต่อการเขียนเป็น POS การเข้าใจทั้ง SOP และ POS ทำให้สามารถเลือกใช้รูปแบบที่เหมาะสมกับการออกแบบวงจรได้
 
-\begin{thrm}
+\begin{definition}
 \textbf{Product of Sums (POS)} คือ รูปแบบของนิพจน์บูลีนที่เขียนเป็น AND ของ OR terms
 
 ฟังก์ชันบูลีนใดๆ สามารถเขียนเป็น POS ได้โดยใช้ \textbf{maxterm expansion} หรือ \textbf{canonical POS form}
-\end{thrm}
+\end{definition}
 
 \begin{ex}
 เขียนฟังก์ชัน $f(x, y) = (x + y) \cdot (x' + y')$ ในรูปแบบ canonical POS
@@ -1387,7 +1387,7 @@ De Morgan & $(x + y)' = x' y'$ & $(xy)' = x' + y'$ \\
 \section{แบบฝึกหัด}
 \label{sec:exercises}
 
-\subsection{ส่วนที่ 1: การดำเนินการพื้นฐาน}
+\subsection*{ส่วนที่ 1: การดำเนินการพื้นฐาน}
 \begin{enumerate}
     \item จงหาค่าของนิพจน์ต่อไปนี้:
     \begin{enumerate}
@@ -1420,7 +1420,7 @@ De Morgan & $(x + y)' = x' y'$ & $(xy)' = x' + y'$ \\
     \end{enumerate}
 \end{enumerate}
 
-\subsection{ส่วนที่ 2: Boolean Identities}
+\subsection*{ส่วนที่ 2: Boolean Identities}
 \begin{enumerate}
     \item พิสูจน์โดยใช้ truth table:
     \begin{enumerate}
@@ -1446,7 +1446,7 @@ De Morgan & $(x + y)' = x' y'$ & $(xy)' = x' + y'$ \\
     \end{enumerate}
 \end{enumerate}
 
-\subsection{ส่วนที่ 3: De Morgan's Laws}
+\subsection*{ส่วนที่ 3: De Morgan's Laws}
 \begin{enumerate}
     \item พิสูจน์ De Morgan's Laws:
     \begin{enumerate}
@@ -1463,7 +1463,7 @@ De Morgan & $(x + y)' = x' y'$ & $(xy)' = x' + y'$ \\
     \end{enumerate}
 \end{enumerate}
 
-\subsection{ส่วนที่ 4: ฟังก์ชันบูลีนและ Canonical Forms}
+\subsection*{ส่วนที่ 4: ฟังก์ชันบูลีนและ Canonical Forms}
 \begin{enumerate}
     \item เขียน truth table สำหรับ:
     \begin{enumerate}
@@ -1485,7 +1485,7 @@ De Morgan & $(x + y)' = x' y'$ & $(xy)' = x' + y'$ \\
     \end{enumerate}
 \end{enumerate}
 
-\subsection{ส่วนที่ 5: Karnaugh Maps}
+\subsection*{ส่วนที่ 5: Karnaugh Maps}
 \begin{enumerate}
     \item ใช้ K-map ลดรูป:
     \begin{enumerate}
@@ -1507,7 +1507,7 @@ De Morgan & $(x + y)' = x' y'$ & $(xy)' = x' + y'$ \\
 \section{เฉลยแบบฝึกหัด}
 \label{sec:exercises-solutions}
 
-\subsection{เฉลยส่วนที่ 1}
+\subsection*{เฉลยส่วนที่ 1}
 \begin{enumerate}
     \item
     \begin{enumerate}
@@ -1602,36 +1602,6 @@ $x=1$ & 0 & 1 & 1 & 0 \\
 ผลลัพธ์ที่ลดรูปแล้ว: $F = x' + yz$
 \end{ex}
 
-\subsection{Boolean Logic ในการเขียนโปรแกรม}
-ในภาษาโปรแกรมสมัยใหม่ Boolean operators มีความสำคัญในการควบคุมการทำงานของโปรแกรม
-
-\begin{ex}[Short-circuit Evaluation ในภาษา C/Java]
-\begin{verbatim}
-if (ptr != NULL && ptr->value > 0) {
-    // executes only when ptr is not NULL and value > 0
-}
-
-if (is_admin || has_permission) {
-    // grant access if is admin or has permission
-}
-\end{verbatim}
-
-AND ของเงื่อนไขทั้งสองทำให้เราตรวจสอบ NULL ก่อนเข้าถึง pointer
-\end{ex}
-
-\begin{ex}[Bitwise Operations ใน Python/C]
-\begin{verbatim}
-# checking flags
-if (flags & 0x01) != 0:  # if bit 0 is set
-    print("Option A enabled")
-
-# setting bit
-flags |= 0x02  # set bit 1
-
-# creating mask
-mask = (1 << n) - 1  # returns n bits as 1
-\end{verbatim}
-\end{ex}
 
 \subsection{Logic Gates และวงจรดิจิทัล}
 Logic gates เป็น building blocks ของวงจรดิจิทัล ซึ่งทำงานตาม Boolean algebra
@@ -1694,7 +1664,7 @@ $C_{out} = AB + C_{in}(A \oplus B)$
 \end{ex}
 
 \subsection{Multiplexer และ Demultiplexer}
-\begin{thrm}
+\begin{definition}
 \textbf{Multiplexer (MUX)} เป็นวงจรที่เลือก 1 จาก $n$ inputs ไปยัง 1 output โดยใช้ select lines
 
 สำหรับ 4-to-1 MUX:
@@ -1715,11 +1685,11 @@ $S_1$ & $S_0$ & Output \\
 \hline
 \end{tabular}
 \end{center}
-\end{thrm}
+\end{definition}
 
-\begin{thrm}
+\begin{definition}
 \textbf{Demultiplexer (DEMUX)} ทำงานตรงข้ามกับ MUX คือรับ 1 input และส่งไปยัง 1 จาก $n$ outputs
-\end{thrm}
+\end{definition}
 
 \subsection{FSM Implementation ด้วย Boolean Logic}
 Finite State Machine (FSM) สามารถ implement ได้โดยใช้ Boolean algebra

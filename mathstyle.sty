@@ -1,0 +1,182 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mathstyle}[2026/05/01 Modern Math Style (Muted Pastel, Rounded, Drop Shadow)]
+
+\RequirePackage{tikz}
+\RequirePackage[most]{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+%% ─────────────── Color Palette (Muted Pastel Theme) ───────────────
+\definecolor{thrmBar}{HTML}{5499C7}   % Muted Blue
+\definecolor{thrmBg}{HTML}{EBF5FB}
+\definecolor{thrmTitle}{HTML}{1A5276} % Darker Blue for text
+
+\definecolor{defBar}{HTML}{52BE80}    % Muted Green
+\definecolor{defBg}{HTML}{E8F8F5}
+\definecolor{defTitle}{HTML}{196F3D}  % Darker Green for text
+
+\definecolor{exBar}{HTML}{E59866}     % Muted Orange
+\definecolor{exBg}{HTML}{FEF5E7}
+\definecolor{exTitle}{HTML}{A04000}   % Darker Orange for text
+
+\definecolor{propBar}{HTML}{AF7AC5}   % Muted Purple
+\definecolor{propBg}{HTML}{F4ECF7}
+\definecolor{propTitle}{HTML}{512E5F} % Darker Purple for text
+
+\definecolor{remBar}{HTML}{A6ACAF}    % Muted Gray
+\definecolor{remBg}{HTML}{F2F3F4}
+\definecolor{remTitle}{HTML}{424949}  % Darker Gray for text
+
+\definecolor{corBar}{HTML}{48C9B0}    % Muted Teal
+\definecolor{corBg}{HTML}{E8F6F3}
+\definecolor{corTitle}{HTML}{117A65}  % Darker Teal for text
+
+\definecolor{exerBar}{HTML}{D68910}   % Muted Golden Brown
+\definecolor{exerBg}{HTML}{FDF2E9}
+\definecolor{exerTitle}{HTML}{7E5109} % Darker Brown for text
+
+\definecolor{warnBar}{HTML}{EC7063}   % Muted Red
+\definecolor{warnBg}{HTML}{FDEDEC}
+\definecolor{warnTitle}{HTML}{7B241C} % Darker Red for text
+
+\definecolor{proofBar}{HTML}{D5D8DC}  % Muted Light Gray
+\definecolor{proofBg}{HTML}{FAFAFA}
+
+%% ─────────────── Base Style Template ───────────────
+\tcbset{
+  mathstylebase/.style={
+    enhanced jigsaw,
+    breakable,
+    drop fuzzy shadow,
+    boxrule=0pt,          % Default no border
+    arc=4pt,              % Rounded corners
+    outer arc=4pt,
+    left=12pt, right=12pt, top=10pt, bottom=10pt,
+    before skip=14pt,
+    after skip=14pt,
+    fonttitle=\bfseries
+  }
+}
+
+%% ── ทฤษฎีบท (thrm) ──────────────────────────────
+\tcolorboxenvironment{thrm}{
+  mathstylebase,
+  colback=white,
+  coltitle=thrmTitle,
+  colframe=thrmBar,
+  toprule=4pt,
+  leftrule=4pt,
+  rightrule=0pt,
+  bottomrule=0pt
+}
+
+%% ── นิยาม (definition) ──────────────────────────
+\tcolorboxenvironment{definition}{
+  mathstylebase,
+  colback=white,
+  coltitle=defTitle,
+  colframe=defBar,
+  toprule=4pt,
+  leftrule=4pt,
+  rightrule=0pt,
+  bottomrule=0pt
+}
+
+%% ── ตัวอย่าง (ex) ───────────────────────────────
+\tcolorboxenvironment{ex}{
+  blanker,
+  breakable,
+  left=0pt,
+  before skip=14pt,
+  after skip=14pt
+}
+
+%% ── บทแทรก (prop) ───────────────────────────────
+\tcolorboxenvironment{prop}{
+  mathstylebase,
+  colback=white,
+  coltitle=propTitle,
+  colframe=propBar,
+  toprule=4pt,
+  leftrule=4pt,
+  rightrule=0pt,
+  bottomrule=0pt
+}
+
+%% ── หมายเหตุ (rem) ──────────────────────────────
+\tcolorboxenvironment{rem}{
+  mathstylebase,
+  colback=white,
+  coltitle=remTitle,
+  colframe=remBar,
+  toprule=4pt,
+  leftrule=4pt,
+  rightrule=0pt,
+  bottomrule=0pt
+}
+
+%% ── บทสรุป (cor) ────────────────────────────────
+\tcolorboxenvironment{cor}{
+  mathstylebase,
+  colback=white,
+  coltitle=corTitle,
+  colframe=corBar,
+  toprule=4pt,
+  leftrule=4pt,
+  rightrule=0pt,
+  bottomrule=0pt
+}
+
+%% ── คำเตือน (warning) ───────────────────────────
+\tcolorboxenvironment{warning}{
+  mathstylebase,
+  colback=warnBg,
+  coltitle=warnTitle,
+  colframe=warnBar,
+  toprule=4pt,
+  leftrule=4pt,
+  rightrule=0pt,
+  bottomrule=0pt
+}
+
+%% ── แบบฝึกหัด (exercise) ────────────────────────
+\tcolorboxenvironment{exercise}{
+  blanker,
+  breakable,
+  left=0pt,
+  before skip=14pt,
+  after skip=14pt
+}
+
+%% ─────────────── Proof Environment ───────────────
+\tcolorboxenvironment{proof}{
+  enhanced jigsaw,
+  breakable,
+  colback=proofBg,
+  colframe=proofBar,
+  boxrule=0pt,
+  leftrule=2pt,
+  arc=0pt,
+  outer arc=0pt,
+  left=10pt, right=10pt, top=6pt, bottom=6pt,
+  before skip=8pt,
+  after skip=8pt,
+}
+
+%% ─────────────── QED Symbol ───────────────
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+%% ─────────────── Solution Environment ───────────────
+\newenvironment{solution}{%
+  \par\vspace{0.5em}
+  \begin{list}{}{%
+    \setlength{\leftmargin}{1.5cm}
+    \setlength{\rightmargin}{0pt}
+  }
+  \item[] \textbf{\color{exTitle}วิธีทำ.}\quad\ignorespaces
+}{%
+  \hfill$\diamond$
+  \end{list}
+  \par\medskip
+}
+
+\endinput

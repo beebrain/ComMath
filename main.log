@@ -1,10 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.3)  1 MAY 2026 13:58
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.4.3)  1 MAY 2026 17:21
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**"f:/OneDrive - Uttaradit Rajabhat University/URU_Work/BookComputerMath/ComMath/main.tex"
-(f:/OneDrive - Uttaradit Rajabhat University/URU_Work/BookComputerMath/ComMath/main.tex
+**./main.tex
+(main.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
 (kkubee_edit_all.cls
@@ -14,47 +13,2741 @@ Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
 (C:\Program Files\MiKTeX\tex/latex/base\bk10.clo
 File: bk10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count275
-\c@chapter=\count276
-\c@section=\count277
-\c@subsection=\count278
-\c@subsubsection=\count279
-\c@paragraph=\count280
-\c@subparagraph=\count281
-\c@figure=\count282
-\c@table=\count283
+\c@part=\count271
+\c@chapter=\count272
+\c@section=\count273
+\c@subsection=\count274
+\c@subsubsection=\count275
+\c@paragraph=\count276
+\c@subparagraph=\count277
+\c@figure=\count278
+\c@table=\count279
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen148
-) (C:\Program Files\MiKTeX\tex/latex/xltxtra\xltxtra.sty
+)
+(C:\Program Files\MiKTeX\tex/latex/xltxtra\xltxtra.sty
 Package: xltxtra 2018/12/31 v0.7 Improvements for the "XeLaTeX" format
- (C:\Program Files\MiKTeX\tex/generic/iftex\ifluatex.sty
+
+(C:\Program Files\MiKTeX\tex/generic/iftex\ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
- (C:\Program Files\MiKTeX\tex/generic/iftex\iftex.sty
+
+(C:\Program Files\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
-)) (C:\Program Files\MiKTeX\tex/generic/iftex\ifxetex.sty
+))
+(C:\Program Files\MiKTeX\tex/generic/iftex\ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 )
+(C:\Program Files\MiKTeX\tex/latex/fontspec\fontspec.sty
+(C:\Program Files\MiKTeX\tex/latex/l3packages/xparse\xparse.sty
+(C:\Program Files\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2026-01-19 L3 programming layer (loader) 
 
- ********************************************
- * XeTeX is required to compile this document.
- * Sorry!
- ********************************************
+(C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-xetex.def
+File: l3backend-xetex.def 2025-10-09 L3 backend support: XeTeX
+\g__graphics_track_int=\count280
+\g__pdfannot_backend_int=\count281
+\g__pdfannot_backend_link_int=\count282
+))
+Package: xparse 2025-10-09 L3 Experimental document command parser
+)
+Package: fontspec 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
 
-C:\Program Files\MiKTeX\tex/latex/xltxtra\xltxtra.sty:43: Emergency stop.
-<read *> 
-         
-l.43 \RequireXeTeX
-                  
-*** (cannot \read from terminal in nonstop modes)
+(C:\Program Files\MiKTeX\tex/latex/fontspec\fontspec-xetex.sty
+Package: fontspec-xetex 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTe
+X
+\l__fontspec_script_int=\count283
+\l__fontspec_language_int=\count284
+\l__fontspec_strnum_int=\count285
+\l__fontspec_tmp_int=\count286
+\l__fontspec_tmpa_int=\count287
+\l__fontspec_tmpb_int=\count288
+\l__fontspec_tmpc_int=\count289
+\l__fontspec_em_int=\count290
+\l__fontspec_emdef_int=\count291
+\l__fontspec_strong_int=\count292
+\l__fontspec_strongdef_int=\count293
+\l__fontspec_tmpa_dim=\dimen149
+\l__fontspec_tmpb_dim=\dimen150
+\l__fontspec_tmpc_dim=\dimen151
 
- 
+(C:\Program Files\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+)
+(C:\Program Files\MiKTeX\tex/latex/fontspec\fontspec.cfg)))
+(C:\Program Files\MiKTeX\tex/latex/realscripts\realscripts.sty
+Package: realscripts 2016/02/13 v0.3d Access OpenType subscripts and superscrip
+ts
+\subsupersep=\dimen152
+)
+(C:\Program Files\MiKTeX\tex/latex/metalogo\metalogo.sty
+Package: metalogo 2010/05/29 v0.12 Extended TeX logo macros
+
+(C:\Program Files\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Program Files\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(C:\Program Files\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Program Files\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Program Files\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 106.
+
+(C:\Program Files\MiKTeX\tex/latex/graphics-def\xetex.def
+File: xetex.def 2025/11/01 v5.0p Graphics/color driver for xetex
+))
+\Gin@req@height=\dimen153
+\Gin@req@width=\dimen154
+)
+\xl@everylogo=\toks18
+\xl@@everylogo=\toks19
+LaTeX Info: Redefining \TeX on input line 193.
+LaTeX Info: Redefining \LaTeX on input line 202.
+LaTeX Info: Redefining \LaTeXe on input line 219.
+)
+\l__xetex_show_hyphens_wrapping_box=\box53
+\l__xetex_show_hyphens_temp_box=\box54
+\l__xetex_show_hyphens_final_box=\box55
+\g__xetex_show_hyphens_word_box=\box56
+)
+(C:\Program Files\MiKTeX\tex/xelatex/xunicode\xunicode.sty
+File: xunicode.sty 2011/09/09 v0.981 provides access to latin accents and many 
+other characters in Unicode lower plane
+
+(C:\Program Files\MiKTeX\tex/latex/tipa\t3enc.def
+File: t3enc.def 2001/12/31 T3 encoding
+)
+\tipaTiiicode=\count294
+\tipasavetokens=\toks20
+\tipachecktokens=\toks21
+LaTeX Encoding Info:    Redeclaring text command \nobreakspace (encoding TU) on
+ input line 1725.
+LaTeX Encoding Info:    Redeclaring text command \copyright (encoding TU) on in
+put line 1739.
+LaTeX Encoding Info:    Redeclaring text command \AA (encoding TU) on input lin
+e 1785.
+LaTeX Encoding Info:    Redeclaring text command \aa (encoding TU) on input lin
+e 1842.
+LaTeX Encoding Info:    Redeclaring text command \textrhookopeno (encoding TU) 
+on input line 3119.
+LaTeX Encoding Info:    Redeclaring text command \hbar (encoding TU) on input l
+ine 3636.
+LaTeX Encoding Info:    Redeclaring text command \textaolig (encoding TU) on in
+put line 3729.
+)
+(C:\Program Files\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count295
+)
+(C:\Program Files\MiKTeX\tex/latex/amscls\amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks22
+\thm@bodyfont=\toks23
+\thm@headfont=\toks24
+\thm@notefont=\toks25
+\thm@headpunct=\toks26
+\thm@preskip=\skip51
+\thm@postskip=\skip52
+\thm@headsep=\skip53
+\dth@everypar=\toks27
+)
+(C:\Program Files\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
+
+(C:\Program Files\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(C:\Program Files\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:\Program Files\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(C:\Program Files\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(C:\Program Files\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(C:\Program Files\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+))
+(C:\Program Files\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(C:\Program Files\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
+
+(C:\Program Files\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(C:\Program Files\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(C:\Program Files\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count296
+)
+(C:\Program Files\MiKTeX\tex/generic/stringenc\stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\@linkdim=\dimen155
+\Hy@linkcounter=\count297
+\Hy@pagecounter=\count298
+
+(C:\Program Files\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2026-01-29 v7.01p Hyperref: PDFDocEncoding definition (HO)
+)
+(C:\Program Files\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count299
+
+(C:\Program Files\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2026-01-29 v7.01p Hyperref: PDF Unicode definition (HO)
+
+(C:\Program Files\MiKTeX\tex/latex/greek-fontenc\puenc-greek.def
+File: puenc-greek.def 2023-09-12 2.5 Greek LICRs for PDF strings
+
+(C:\Program Files\MiKTeX\tex/latex/greek-fontenc\greek-fontenc.def
+File: greek-fontenc.def 2023-09-12 2.5 Common Greek font encoding definitions
+)
+LaTeX Encoding Info:    Redeclaring text command \textmu (encoding PU) on input
+ line 179.
+)
+LaTeX Encoding Info:    Redeclaring text command \textohm (encoding PU) on inpu
+t line 1176.
+)
+Package hyperref Info: Hyper figures OFF on input line 4201.
+Package hyperref Info: Link nesting OFF on input line 4206.
+Package hyperref Info: Hyper index ON on input line 4209.
+Package hyperref Info: Plain pages OFF on input line 4216.
+Package hyperref Info: Backreferencing OFF on input line 4221.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4468.
+\c@Hy@tempcnt=\count300
+
+(C:\Program Files\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4807.
+\XeTeXLinkMargin=\dimen156
+
+(C:\Program Files\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(C:\Program Files\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count301
+\Field@Width=\dimen157
+\Fld@charsize=\dimen158
+Package hyperref Info: Hyper figures OFF on input line 6084.
+Package hyperref Info: Link nesting OFF on input line 6089.
+Package hyperref Info: Hyper index ON on input line 6092.
+Package hyperref Info: backreferencing OFF on input line 6099.
+Package hyperref Info: Link coloring OFF on input line 6104.
+Package hyperref Info: Link coloring with OCG OFF on input line 6109.
+Package hyperref Info: PDF/A mode OFF on input line 6114.
+\Hy@abspage=\count302
+\c@Item=\count303
+\c@Hfootnote=\count304
+)
+Package hyperref Info: Driver (autodetected): hxetex.
+
+(C:\Program Files\MiKTeX\tex/latex/hyperref\hxetex.def
+File: hxetex.def 2026-01-29 v7.01p Hyperref driver for XeTeX
+\pdfm@box=\box57
+\c@Hy@AnnotLevel=\count305
+\HyField@AnnotCount=\count306
+\Fld@listcount=\count307
+\c@bookmark@seq@number=\count308
+
+(C:\Program Files\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+
+(C:\Program Files\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+84.
+)
+\Hy@SectionHShift=\skip54
+)
+(C:\Program Files\MiKTeX\tex/latex/emptypage\emptypage.sty
+Package: emptypage 2010/05/30 v1.2 Suppress page numbers and headings on empty 
+pages
+)
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip55
+
+For additional information on amsmath, use the `?' option.
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks28
+\ex@=\dimen159
+))
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen160
+)
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count309
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count310
+\leftroot@=\count311
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count312
+\DOTSCASE@=\count313
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box58
+\strutbox@=\box59
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen161
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count314
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count315
+\dotsspace@=\muskip18
+\c@parentequation=\count316
+\dspbrk@lvl=\count317
+\tag@help=\toks29
+\row@=\count318
+\column@=\count319
+\maxfields@=\count320
+\andhelp@=\toks30
+\eqnshift@=\dimen162
+\alignsep@=\dimen163
+\tagshift@=\dimen164
+\tagwidth@=\dimen165
+\totwidth@=\dimen166
+\lineht@=\dimen167
+\@envbody=\toks31
+\multlinegap=\skip56
+\multlinetaggap=\skip57
+\mathdisplay@stack=\toks32
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+)
+\c@thm=\count321
+\c@defn=\count322
+
+(C:\Program Files\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks33
+\inpenc@posthook=\toks34
+
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+) (C:\Program Files\MiKTeX\tex/latex/enumitem\enumitem.sty
+Package: enumitem 2025/02/06 v3.11 Customized lists
+\labelindent=\skip58
+\enit@outerparindent=\dimen168
+\enit@toks=\toks35
+\enit@inbox=\box60
+\enit@count@id=\count323
+\enitdp@description=\count324
+)
+(C:\Program Files\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip59
+\multirow@cntb=\count325
+\multirow@dima=\skip60
+\bigstrutjot=\dimen169
+)
+(C:\Program Files\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+
+(C:\Program Files\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(C:\Program Files\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen170
+\captionmargin=\dimen171
+\caption@leftmargin=\dimen172
+\caption@rightmargin=\dimen173
+\caption@width=\dimen174
+\caption@indent=\dimen175
+\caption@parindent=\dimen176
+\caption@hangindent=\dimen177
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count326
+\c@continuedfloat=\count327
+Package caption Info: hyperref package is loaded.
+)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count328
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count329
+)
+(C:\Program Files\MiKTeX\tex/latex/adjustbox\adjustbox.sty
+Package: adjustbox 2025/02/26 v1.3c Adjusting TeX boxes (trim, clip, ...)
+
+(C:\Program Files\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+
+(C:\Program Files\MiKTeX\tex/generic/xkeyval\xkeyval.tex
+(C:\Program Files\MiKTeX\tex/generic/xkeyval\xkvutils.tex
+\XKV@toks=\toks36
+\XKV@tempa@toks=\toks37
+)
+\XKV@depth=\count330
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(C:\Program Files\MiKTeX\tex/latex/adjustbox\adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(C:\Program Files\MiKTeX\tex/latex/adjustbox\trimclip.sty
+Package: trimclip 2025/02/21 v1.2a Trim and clip general TeX material
+
+(C:\Program Files\MiKTeX\tex/latex/collectbox\collectbox.sty
+Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
+\collectedbox=\box61
+)
+\tc@llx=\dimen178
+\tc@lly=\dimen179
+\tc@urx=\dimen180
+\tc@ury=\dimen181
+Package trimclip Info: Using driver 'tc-xetex.def'.
+
+(C:\Program Files\MiKTeX\tex/latex/adjustbox\tc-xetex.def
+File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
+))
+\adjbox@Width=\dimen182
+\adjbox@Height=\dimen183
+\adjbox@Depth=\dimen184
+\adjbox@Totalheight=\dimen185
+\adjbox@pwidth=\dimen186
+\adjbox@pheight=\dimen187
+\adjbox@pdepth=\dimen188
+\adjbox@ptotalheight=\dimen189
+
+(C:\Program Files\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count331
+)
+(C:\Program Files\MiKTeX\tex/latex/varwidth\varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box62
+\sift@deathcycles=\count332
+\@vwid@loff=\dimen190
+\@vwid@roff=\dimen191
+)
+==> First Aid for varwidth.sty applied!
+) (C:\Program Files\MiKTeX\tex/latex/biblatex\biblatex.sty
+Package: biblatex 2025/07/10 v3.21 programmable bibliographies (PK/MW)
+
+(C:\Program Files\MiKTeX\tex/latex/logreq\logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count333
+
+(C:\Program Files\MiKTeX\tex/latex/logreq\logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+))
+(C:\Program Files\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\c@tabx@nest=\count334
+\c@listtotal=\count335
+\c@listcount=\count336
+\c@liststart=\count337
+\c@liststop=\count338
+\c@citecount=\count339
+\c@citetotal=\count340
+\c@multicitecount=\count341
+\c@multicitetotal=\count342
+\c@instcount=\count343
+\c@maxnames=\count344
+\c@minnames=\count345
+\c@maxitems=\count346
+\c@minitems=\count347
+\c@citecounter=\count348
+\c@maxcitecounter=\count349
+\c@savedcitecounter=\count350
+\c@uniquelist=\count351
+\c@uniquename=\count352
+\c@refsection=\count353
+\c@refsegment=\count354
+\c@maxextratitle=\count355
+\c@maxextratitleyear=\count356
+\c@maxextraname=\count357
+\c@maxextradate=\count358
+\c@maxextraalpha=\count359
+\c@abbrvpenalty=\count360
+\c@highnamepenalty=\count361
+\c@lownamepenalty=\count362
+\c@maxparens=\count363
+\c@parenlevel=\count364
+\blx@tempcnta=\count365
+\blx@tempcntb=\count366
+\blx@tempcntc=\count367
+\c@blx@maxsection=\count368
+\blx@maxsegment@0=\count369
+\blx@notetype=\count370
+\blx@parenlevel@text=\count371
+\blx@parenlevel@foot=\count372
+\blx@sectionciteorder@0=\count373
+\blx@sectionciteorderinternal@0=\count374
+\blx@entrysetcounter=\count375
+\blx@biblioinstance=\count376
+\labelnumberwidth=\skip61
+\labelalphawidth=\skip62
+\biblabelsep=\skip63
+\bibitemsep=\skip64
+\bibnamesep=\skip65
+\bibinitsep=\skip66
+\bibparsep=\skip67
+\bibhang=\skip68
+\blx@bcfin=\read2
+\blx@bcfout=\write3
+\blx@langwohyphens=\language79
+\c@mincomprange=\count377
+\c@maxcomprange=\count378
+\c@mincompwidth=\count379
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+
+(C:\Program Files\MiKTeX\tex/latex/biblatex\blx-dm.def
+File: blx-dm.def 2025/07/10 v3.21 biblatex datamodel (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'apa6.dbx' found.
+
+(C:\Program Files\MiKTeX\tex/latex/biblatex-apa6\apa6.dbx
+File: apa6.dbx 2020/08/28 v8.5 APA 6th ed. biblatex style data model
+)
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count380
+\c@savedafterword=\count381
+\c@annotator=\count382
+\c@savedannotator=\count383
+\c@author=\count384
+\c@savedauthor=\count385
+\c@bookauthor=\count386
+\c@savedbookauthor=\count387
+\c@commentator=\count388
+\c@savedcommentator=\count389
+\c@editor=\count390
+\c@savededitor=\count391
+\c@editora=\count392
+\c@savededitora=\count393
+\c@editorb=\count394
+\c@savededitorb=\count395
+\c@editorc=\count396
+\c@savededitorc=\count397
+\c@foreword=\count398
+\c@savedforeword=\count399
+\c@holder=\count400
+\c@savedholder=\count401
+\c@introduction=\count402
+\c@savedintroduction=\count403
+\c@namea=\count404
+\c@savednamea=\count405
+\c@nameb=\count406
+\c@savednameb=\count407
+\c@namec=\count408
+\c@savednamec=\count409
+\c@translator=\count410
+\c@savedtranslator=\count411
+\c@shortauthor=\count412
+\c@savedshortauthor=\count413
+\c@shorteditor=\count414
+\c@savedshorteditor=\count415
+\c@with=\count416
+\c@savedwith=\count417
+\c@writer=\count418
+\c@savedwriter=\count419
+\c@producer=\count420
+\c@savedproducer=\count421
+\c@execproducer=\count422
+\c@savedexecproducer=\count423
+\c@director=\count424
+\c@saveddirector=\count425
+\c@labelname=\count426
+\c@savedlabelname=\count427
+\c@institution=\count428
+\c@savedinstitution=\count429
+\c@lista=\count430
+\c@savedlista=\count431
+\c@listb=\count432
+\c@savedlistb=\count433
+\c@listc=\count434
+\c@savedlistc=\count435
+\c@listd=\count436
+\c@savedlistd=\count437
+\c@liste=\count438
+\c@savedliste=\count439
+\c@listf=\count440
+\c@savedlistf=\count441
+\c@location=\count442
+\c@savedlocation=\count443
+\c@organization=\count444
+\c@savedorganization=\count445
+\c@origlocation=\count446
+\c@savedoriglocation=\count447
+\c@origpublisher=\count448
+\c@savedorigpublisher=\count449
+\c@publisher=\count450
+\c@savedpublisher=\count451
+\c@language=\count452
+\c@savedlanguage=\count453
+\c@origlanguage=\count454
+\c@savedoriglanguage=\count455
+\c@pageref=\count456
+\c@savedpageref=\count457
+\shorthandwidth=\skip69
+\shortjournalwidth=\skip70
+\shortserieswidth=\skip71
+\shorttitlewidth=\skip72
+\shortauthorwidth=\skip73
+\shorteditorwidth=\skip74
+\locallabelnumberwidth=\skip75
+\locallabelalphawidth=\skip76
+\localshorthandwidth=\skip77
+\localshortjournalwidth=\skip78
+\localshortserieswidth=\skip79
+\localshorttitlewidth=\skip80
+\localshortauthorwidth=\skip81
+\localshorteditorwidth=\skip82
+Package biblatex Info: Trying to load enhanced support for Unicode engines...
+Package biblatex Info: ... file 'blx-unicode.def' found.
+
+(C:\Program Files\MiKTeX\tex/latex/biblatex\blx-unicode.def)
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+
+(C:\Program Files\MiKTeX\tex/latex/biblatex\blx-compat.def
+File: blx-compat.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+
+(C:\Program Files\MiKTeX\tex/latex/biblatex\biblatex.def
+File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
+\c@textcitecount=\count458
+\c@textcitetotal=\count459
+\c@textcitemaxnames=\count460
+\c@biburlbigbreakpenalty=\count461
+\c@biburlbreakpenalty=\count462
+\c@biburlnumpenalty=\count463
+\c@biburlucpenalty=\count464
+\c@biburllcpenalty=\count465
+\biburlbigskip=\muskip19
+\biburlnumskip=\muskip20
+\biburlucskip=\muskip21
+\biburllcskip=\muskip22
+\c@smartand=\count466
+)
+Package biblatex Info: Trying to load natbib compatibility...
+Package biblatex Info: ... file 'blx-natbib.def' found.
+
+(C:\Program Files\MiKTeX\tex/latex/biblatex\blx-natbib.def
+File: blx-natbib.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
+Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined,
+ overwriting.
+)
+Package biblatex Info: Trying to load bibliography style 'apa6'...
+Package biblatex Info: ... file 'apa6.bbx' found.
+
+(C:\Program Files\MiKTeX\tex/latex/biblatex-apa6\apa6.bbx
+File: apa6.bbx 2020/08/28 v8.5 APA 6th ed. biblatex references style
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+
+(C:\Program Files\MiKTeX\tex/latex/biblatex/bbx\standard.bbx
+File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count467
+\c@bbx:relatedtotal=\count468
+)
+Package biblatex Info: Delimiter 'nameyeardelim' in context 'bib' already defin
+ed, overwriting.
+Package biblatex Info: Delimiter 'nameyeardelim' in context 'biblist' already d
+efined, overwriting.
+
+
+Package biblatex Warning: The starred command '\DeclareDelimAlias*' is
+(biblatex)                deprecated.
+(biblatex)                Use the unstarred version '\DeclareDelimAlias'
+(biblatex)                instead.
+
+Package biblatex Info: Delimiter 'nonameyeardelim' in context 'bib' already def
+ined, overwriting.
+Package biblatex Info: Delimiter 'nonameyeardelim' in context 'biblist' already
+ defined, overwriting.
+)
+Package biblatex Info: Trying to load citation style 'authoryear'...
+Package biblatex Info: ... file 'authoryear.cbx' found.
+ (C:\Program Files\MiKTeX\tex/latex/biblatex/cbx\authoryear.cbx
+File: authoryear.cbx 2025/07/10 v3.21 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+
+(C:\Program Files\MiKTeX\tex/latex/biblatex\biblatex.cfg
+File: biblatex.cfg 
+)
+
+Package biblatex Warning: 'firstinits' option is deprecated.
+(biblatex)                Please use 'giveninits' instead.
+
+Package biblatex Info: XeTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
+Package biblatex Info: Document encoding is UTF8 ....
+Package biblatex Info: ... and expl3
+(biblatex)             2026-01-19 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+(C:\Program Files\MiKTeX\tex/latex/biblatex\blx-case-expl3.sty
+Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
+))
+
+Package fontspec Info: 
+(fontspec)             TH Sarabun New scale = 1.35.
+
+
+Package fontspec Info: 
+(fontspec)             TH Sarabun New scale = 1.5.
+
+
+Package fontspec Info: 
+(fontspec)             TH Sarabun New scale = 1.35.
+
+
+Package fontspec Info: 
+(fontspec)             TH Sarabun New scale = 1.5.
+
+
+Package fontspec Info: 
+(fontspec)             TH Sarabun New/B scale = 1.35.
+
+
+Package fontspec Info: 
+(fontspec)             TH Sarabun New/B scale = 1.5.
+
+
+Package fontspec Info: 
+(fontspec)             TH Sarabun New/I scale = 1.35.
+
+
+Package fontspec Info: 
+(fontspec)             TH Sarabun New/I scale = 1.5.
+
+
+Package fontspec Info: 
+(fontspec)             TH Sarabun New/BI scale = 1.35.
+
+
+Package fontspec Info: 
+(fontspec)             TH Sarabun New/BI scale = 1.5.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'THSarabunNew(0)' created for font 'TH
+(fontspec)             Sarabun New' with options
+(fontspec)             [Scale=1.35,Ligatures=TeX,Script=Thai,WordSpace=1,Scale=
+1.5].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->s*[1.5]"TH Sarabun
+(fontspec)             New/OT:script=thai;language=dflt;mapping=tex-text;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->s*[1.5]"TH Sarabun
+(fontspec)             New/B/OT:script=thai;language=dflt;mapping=tex-text;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.: <->s*[1.5]"TH
+(fontspec)             Sarabun
+(fontspec)             New/I/OT:script=thai;language=dflt;mapping=tex-text;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->s*[1.5]"TH
+(fontspec)             Sarabun
+(fontspec)             New/BI/OT:script=thai;language=dflt;mapping=tex-text;"
+
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
+(Font)              scaled to size 15.0pt on input line 255.
+
+(C:\Program Files\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2026/03/07 v6.0 Page Geometry
+
+(C:\Program Files\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count469
+\Gm@cntv=\count470
+\c@Gm@tempcnt=\count471
+\Gm@bindingoffset=\dimen192
+\Gm@wd@mp=\dimen193
+\Gm@odd@mp=\dimen194
+\Gm@even@mp=\dimen195
+\Gm@layoutwidth=\dimen196
+\Gm@layoutheight=\dimen197
+\Gm@layouthoffset=\dimen198
+\Gm@layoutvoffset=\dimen199
+\Gm@dimlist=\toks38
+
+(C:\Program Files\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Program Files\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip83
+\f@nch@offset@elh=\skip84
+\f@nch@offset@erh=\skip85
+\f@nch@offset@olh=\skip86
+\f@nch@offset@orh=\skip87
+\f@nch@offset@elf=\skip88
+\f@nch@offset@erf=\skip89
+\f@nch@offset@olf=\skip90
+\f@nch@offset@orf=\skip91
+\f@nch@height=\skip92
+\f@nch@footalignment=\skip93
+\f@nch@widthL=\skip94
+\f@nch@widthC=\skip95
+\f@nch@widthR=\skip96
+\@temptokenb=\toks39
+)
+(C:\Program Files\MiKTeX\tex/latex/tools\calc.sty
+Package: calc 2025/03/01 v4.3b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count472
+\calc@Bcount=\count473
+\calc@Adimen=\dimen256
+\calc@Bdimen=\dimen257
+\calc@Askip=\skip97
+\calc@Bskip=\skip98
+LaTeX Info: Redefining \setlength on input line 86.
+LaTeX Info: Redefining \addtolength on input line 87.
+\calc@Ccount=\count474
+\calc@Cskip=\skip99
+)
+(C:\Program Files\MiKTeX\tex/latex/tools\indentfirst.sty
+Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
+)
+(C:\Program Files\MiKTeX\tex/latex/titlesec\titlesec.sty
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
+\ttl@box=\box63
+\beforetitleunit=\skip100
+\aftertitleunit=\skip101
+\ttl@plus=\dimen258
+\ttl@minus=\dimen259
+\ttl@toksa=\toks40
+\titlewidth=\dimen260
+\titlewidthlast=\dimen261
+\titlewidthfirst=\dimen262
+)
+(C:\Program Files\MiKTeX\tex/latex/titlesec\titletoc.sty
+Package: titletoc 2025/01/04 v2.17 TOC entries
+\ttl@leftsep=\dimen263
+)
+(C:\Program Files\MiKTeX\tex/latex/lineno\lineno.sty
+Package: lineno 2026/03/08 line numbers on paragraphs v5.9
+\linenopenalty=\count475
+\output=\toks41
+\linenoprevgraf=\count476
+\linenumbersep=\dimen264
+\linenumberwidth=\dimen265
+\c@linenumber=\count477
+\c@pagewiselinenumber=\count478
+\c@LN@truepage=\count479
+\c@internallinenumber=\count480
+\c@internallinenumbers=\count481
+\quotelinenumbersep=\dimen266
+\bframerule=\dimen267
+\bframesep=\dimen268
+\bframebox=\box64
+\@LN@amsmath@ams@eqpen=\count482
+)
+(C:\Users\brand\AppData\Roaming\MiKTeX\tex/latex/carlisle\remreset.sty
+
+Package remreset Warning: The remreset package is obsolete:
+(remreset)                \@removefromreset is defined.
+
+) (C:\Program Files\MiKTeX\tex/latex/textpos\textpos.sty
+Package: textpos 2022/07/23 v1.10.1
+Package textpos Info: choosing support for LaTeX3 on input line 60.
+\TP@textbox=\box65
+\TP@holdbox=\box66
+\TPHorizModule=\dimen269
+\TPVertModule=\dimen270
+\TP@margin=\dimen271
+\TP@absmargin=\dimen272
+
+Grid set 16 x 16 = 37.34424pt x 52.81541pt
+\TPboxrulesize=\dimen273
+\TP@ox=\dimen274
+\TP@oy=\dimen275
+\TP@tbargs=\toks42
+TextBlockOrigin set to 0pt x 0pt
+)
+\c@introChapter=\count483
+\c@sheetChapter=\count484
+ (C:\Program Files\MiKTeX\tex/latex/multido\multido.sty
+Package: multido 2004/05/17 package wrapper for PSTricks `multido.tex', (HV/RN)
+
+
+(C:\Program Files\MiKTeX\tex/generic/multido\multido.tex
+ v1.42, 2010/05/14 <tvz>
+\multido@count=\count485
+\multidocount=\count486
+\multido@stuff=\toks43
+)
+File: multido.tex 2010/05/14 v1.42 `multido' (tvz,hv)
+)) (C:\Program Files\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count487
+\float@exts=\toks44
+\float@box=\box67
+\@float@everytoks=\toks45
+\@floatcapt=\box68
+) (C:\Program Files\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count488
+\lst@gtempboxa=\box69
+\lst@token=\toks46
+\lst@length=\count489
+\lst@currlwidth=\dimen276
+\lst@column=\count490
+\lst@pos=\count491
+\lst@lostspace=\dimen277
+\lst@width=\dimen278
+\lst@newlines=\count492
+\lst@lineno=\count493
+\lst@maxwidth=\dimen279
+
+(C:\Program Files\MiKTeX\tex/latex/listings\lstpatch.sty
+File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
+)
+(C:\Program Files\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+\c@lstnumber=\count494
+\lst@skipnumbers=\count495
+\lst@framebox=\box70
+)
+(C:\Program Files\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2025/11/14 1.11b listings configuration
+))
+Package: listings 2025/11/14 1.11b (Carsten Heinz)
+
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
+(C:\Program Files\MiKTeX\tex/latex/diagbox\diagbox.sty
+Package: diagbox 2020/02/09 v2.3 Making table heads with diagonal lines
+
+(C:\Program Files\MiKTeX\tex/latex/pict2e\pict2e.sty
+Package: pict2e 2020/09/30 v0.4b Improved picture commands (HjG,RN,JT)
+
+(C:\Program Files\MiKTeX\tex/latex/pict2e\pict2e.cfg
+File: pict2e.cfg 2016/02/05 v0.1u pict2e configuration for teTeX/TeXLive
+)
+Package pict2e Info: Driver file: xetex.def on input line 112.
+Package pict2e Info: Driver file for pict2e: p2e-xetex.def on input line 114.
+
+(C:\Program Files\MiKTeX\tex/latex/pict2e\p2e-xetex.def
+File: p2e-xetex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
+)
+\pIIe@GRAPH=\toks47
+\@arclen=\dimen280
+\@arcrad=\dimen281
+\pIIe@tempdima=\dimen282
+\pIIe@tempdimb=\dimen283
+\pIIe@tempdimc=\dimen284
+\pIIe@tempdimd=\dimen285
+\pIIe@tempdime=\dimen286
+\pIIe@tempdimf=\dimen287
+)
+(C:\Program Files\MiKTeX\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen288
+\ar@mcellbox=\box71
+\extrarowheight=\dimen289
+\NC@list=\toks48
+\extratabsurround=\skip102
+\backup@length=\skip103
+\ar@cellbox=\box72
+)
+\diagbox@boxa=\box73
+\diagbox@boxb=\box74
+\diagbox@boxm=\box75
+\diagbox@wd=\dimen290
+\diagbox@ht=\dimen291
+\diagbox@insepl=\dimen292
+\diagbox@insepr=\dimen293
+\diagbox@outsepl=\dimen294
+\diagbox@outsepr=\dimen295
+)
+\bigleftbox=\box76
+
+(C:\Program Files\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+\TX@col@width=\dimen296
+\TX@old@table=\dimen297
+\TX@old@col=\dimen298
+\TX@target=\dimen299
+\TX@delta=\dimen300
+\TX@cols=\count496
+\TX@ftn=\toks49
+)
+(C:\Program Files\MiKTeX\tex/latex/karnaugh-map\karnaugh-map.sty
+Package: karnaugh-map 2022/01/15 v2.0 Draw Karnaugh Maps
+
+(C:\Program Files\MiKTeX\tex/latex/xstring\xstring.sty
+(C:\Program Files\MiKTeX\tex/generic/xstring\xstring.tex
+\xs_counta=\count497
+\xs_countb=\count498
+)
+Package: xstring 2023/08/22 v1.86 String manipulations (CT)
+)
+(C:\Program Files\MiKTeX\tex/latex/pgf/frontendlayer\tikz.sty
+(C:\Program Files\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+(C:\Program Files\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty
+(C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex
+\pgfutil@everybye=\toks50
+\pgfutil@tempdima=\dimen301
+\pgfutil@tempdimb=\dimen302
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfutil-latex.def
+\pgfutil@abb=\box77
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfrcs.code.tex
+(C:\Program Files\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
+))
+Package: pgf 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Program Files\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.sty
+(C:\Program Files\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.sty
+(C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgfsys.code.tex
+Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks51
+\pgfkeys@temptoks=\toks52
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfkeyslibraryfiltered.code.
+tex
+\pgfkeys@tmptoks=\toks53
+))
+\pgf@x=\dimen303
+\pgf@y=\dimen304
+\pgf@xa=\dimen305
+\pgf@ya=\dimen306
+\pgf@xb=\dimen307
+\pgf@yb=\dimen308
+\pgf@xc=\dimen309
+\pgf@yc=\dimen310
+\pgf@xd=\dimen311
+\pgf@yd=\dimen312
+\w@pgf@writea=\write4
+\r@pgf@reada=\read3
+\c@pgf@counta=\count499
+\c@pgf@countb=\count500
+\c@pgf@countc=\count501
+\c@pgf@countd=\count502
+\t@pgf@toka=\toks54
+\t@pgf@tokb=\toks55
+\t@pgf@tokc=\toks56
+\pgf@sys@id@count=\count503
+ (C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgf.cfg
+File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
+)
+Driver file for pgf: pgfsys-xetex.def
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-xetex.def
+File: pgfsys-xetex.def 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-dvipdfmx.def
+File: pgfsys-dvipdfmx.def 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
+)
+\pgfsys@objnum=\count504
+)))
+(C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfsyssoftpath@smallbuffer@items=\count505
+\pgfsyssoftpath@bigbuffer@items=\count506
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/systemlayer\pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))
+(C:\Program Files\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+
+(C:\Program Files\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: xetex.def on input line 274.
+
+(C:\Program Files\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcore.code.tex
+Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathutil.code.tex)
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathparser.code.tex
+\pgfmath@dimen=\dimen313
+\pgfmath@count=\count507
+\pgfmath@box=\box78
+\pgfmath@toks=\toks57
+\pgfmath@stack@operand=\toks58
+\pgfmath@stack@operation=\toks59
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.code.tex)
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex)
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.trigonometric.co
+de.tex)
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.random.code.tex)
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.comparison.code.
+tex)
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.base.code.tex)
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.round.code.tex)
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.misc.code.tex)
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.integerarithmeti
+cs.code.tex) (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathcalc.code.tex
+) (C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count508
+))
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfint.code.tex)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@picminx=\dimen314
+\pgf@picmaxx=\dimen315
+\pgf@picminy=\dimen316
+\pgf@picmaxy=\dimen317
+\pgf@pathminx=\dimen318
+\pgf@pathmaxx=\dimen319
+\pgf@pathminy=\dimen320
+\pgf@pathmaxy=\dimen321
+\pgf@xx=\dimen322
+\pgf@xy=\dimen323
+\pgf@yx=\dimen324
+\pgf@yy=\dimen325
+\pgf@zx=\dimen326
+\pgf@zy=\dimen327
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathconstruct.code.t
+ex
+File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@path@lastx=\dimen328
+\pgf@path@lasty=\dimen329
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@shorten@end@additional=\dimen330
+\pgf@shorten@start@additional=\dimen331
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfpic=\box79
+\pgf@hbox=\box80
+\pgf@layerbox@main=\box81
+\pgf@picture@serial@count=\count509
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoregraphicstate.code.te
+x
+File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgflinewidth=\dimen332
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransformations.code
+.tex
+File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@pt@x=\dimen333
+\pgf@pt@y=\dimen334
+\pgf@pt@temp=\dimen335
+) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathprocessing.code.
+tex
+File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowsep=\dimen336
+) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@max=\dimen337
+\pgf@sys@shading@range@num=\count510
+\pgf@shadingcount=\count511
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfexternal@startupbox=\box82
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransparency.code.te
+x
+File: pgfcoretransparency.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (C:\Program Files\MiKTeX\tex/generic/pgf/basiclayer\pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)))
+(C:\Program Files\MiKTeX\tex/generic/pgf/modules\pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfnodeparttextbox=\box83
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/modules\pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Program Files\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@nodesepstart=\dimen338
+\pgf@nodesepend=\dimen339
+)
+(C:\Program Files\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
+)) (C:\Program Files\MiKTeX\tex/latex/pgf/utilities\pgffor.sty
+(C:\Program Files\MiKTeX\tex/latex/pgf/utilities\pgfkeys.sty
+(C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex))
+(C:\Program Files\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+(C:\Program Files\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex))
+(C:\Program Files\MiKTeX\tex/generic/pgf/utilities\pgffor.code.tex
+Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
+\pgffor@iter=\dimen340
+\pgffor@skip=\dimen341
+\pgffor@stack=\toks60
+\pgffor@toks=\toks61
+))
+(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz\tikz.code.tex
+Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryplothandlers.code.
+tex
+File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@plot@mark@count=\count512
+\pgfplotmarksize=\dimen342
+)
+\tikz@lastx=\dimen343
+\tikz@lasty=\dimen344
+\tikz@lastxsaved=\dimen345
+\tikz@lastysaved=\dimen346
+\tikz@lastmovetox=\dimen347
+\tikz@lastmovetoy=\dimen348
+\tikzleveldistance=\dimen349
+\tikzsiblingdistance=\dimen350
+\tikz@figbox=\box84
+\tikz@figbox@bg=\box85
+\tikz@tempbox=\box86
+\tikz@tempbox@bg=\box87
+\tikztreelevel=\count513
+\tikznumberofchildren=\count514
+\tikznumberofcurrentchild=\count515
+\tikz@fig@count=\count516
+ (C:\Program Files\MiKTeX\tex/generic/pgf/modules\pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfmatrixcurrentrow=\count517
+\pgfmatrixcurrentcolumn=\count518
+\pgf@matrix@numberofcolumns=\count519
+)
+\tikz@expandcount=\count520
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibra
+rytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)))
+(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibra
+rycalc.code.tex
+File: tikzlibrarycalc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibra
+rymatrix.code.tex
+File: tikzlibrarymatrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+\@karnaughmap@var@colorindex@=\count521
+\@karnaughmap@var@colorindexnext@=\count522
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibra
+ryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\arrowsize=\dimen351
+))
+(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibra
+ryshapes.gates.logic.US.code.tex
+File: tikzlibraryshapes.gates.logic.US.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/libraries/shapes/circuits\pgflibrarysh
+apes.gates.logic.US.code.tex
+(C:\Program Files\MiKTeX\tex/generic/pgf/libraries/shapes/circuits\pgflibrarysh
+apes.gates.logic.code.tex)))
+(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibra
+ryshapes.gates.logic.IEC.code.tex
+File: tikzlibraryshapes.gates.logic.IEC.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/libraries/shapes/circuits\pgflibrarysh
+apes.gates.logic.IEC.code.tex))
+(C:\Program Files\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+(C:\Program Files\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+(C:\Program Files\MiKTeX\tex/latex/tools\afterpage.sty
+Package: afterpage 2023/07/04 v1.08 After-Page Package (DPC)
+\AP@output=\toks62
+\AP@partial=\box88
+\AP@footins=\box89
+)
+(C:\Program Files\MiKTeX\tex/latex/tools\longtable.sty
+Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
+\LTleft=\skip104
+\LTright=\skip105
+\LTpre=\skip106
+\LTpost=\skip107
+\LTchunksize=\count523
+\LTcapwidth=\dimen352
+\LT@head=\box90
+\LT@firsthead=\box91
+\LT@foot=\box92
+\LT@lastfoot=\box93
+\LT@gbox=\box94
+\LT@cols=\count524
+\LT@rows=\count525
+\c@LT@tables=\count526
+\c@LT@chunks=\count527
+\LT@p@ftn=\toks63
+)
+(C:\Program Files\MiKTeX\tex/latex/zref\zref.sty
+Package: zref 2026-03-07 v2.37 A new reference scheme for LaTeX (HO)
+
+(C:\Program Files\MiKTeX\tex/latex/zref\zref-base.sty
+Package: zref-base 2026-03-07 v2.37 Module base for zref (HO)
+
+(C:\Program Files\MiKTeX\tex/generic/etexcmds\etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+(C:\Program Files\MiKTeX\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+Package zref Info: New property list: main on input line 767.
+Package zref Info: New property: default on input line 768.
+Package zref Info: New property: page on input line 769.
+))
+(C:\Program Files\MiKTeX\tex/latex/zref\zref-titleref.sty
+Package: zref-titleref 2026-03-07 v2.37 Module titleref for zref (HO)
+Package zref Info: New property: title on input line 58.
+)
+(C:\Program Files\MiKTeX\tex/latex/zref\zref-user.sty
+Package: zref-user 2026-03-07 v2.37 Module user for zref (HO)
+)
+(C:\Program Files\MiKTeX\tex/latex/circuitikz\circuitikz.sty
+Package: circuitikz 2026/02/04{} The CircuiTikz circuit drawing package version
+ 1.8.5
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.t
+ex
+File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowinset=\dimen353
+\pgfarrowlength=\dimen354
+\pgfarrowwidth=\dimen355
+\pgfarrowlinewidth=\dimen356
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibra
+rybending.code.tex
+File: tikzlibrarybending.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/modules\pgfmodulebending.code.tex
+File: pgfmodulebending.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/modules\pgfmodulenonlineartransformati
+ons.code.tex
+File: pgfmodulenonlineartransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgftransformnonlinearflatness=\dimen357
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibrarycurvilinear.code.t
+ex
+File: pgflibrarycurvilinear.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@curvilinear@time@a=\dimen358
+\pgf@curvilinear@length@a=\dimen359
+\pgf@curvilinear@length@b=\dimen360
+\pgf@curvilinear@length@c=\dimen361
+\pgf@curvilinear@length@d=\dimen362
+)
+\pgf@arrows@the@rigidity=\dimen363
+))
+(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibra
+ryfpu.code.tex
+(C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryfpu.code.tex))
+(C:\Program Files\MiKTeX\tex/generic/circuitikz\pgfcirc.defines.tex
+\pgf@circ@count@a=\count528
+\pgf@circ@count@b=\count529
+\pgf@circ@count@c=\count530
+\pgf@circ@res@up=\dimen364
+\pgf@circ@res@down=\dimen365
+\pgf@circ@res@zero=\dimen366
+\pgf@circ@res@left=\dimen367
+\pgf@circ@res@right=\dimen368
+\pgf@circ@res@other=\dimen369
+\pgf@circ@res@step=\dimen370
+\pgf@circ@res@temp=\dimen371
+\pgf@circ@Rlen=\dimen372
+\pgf@circ@scaled@Rlen=\dimen373
+\pgfstartlinewidth=\dimen374
+)
+(C:\Program Files\MiKTeX\tex/generic/circuitikz\pgfcircutils.tex
+\ctikz@scratchbox=\box95
+)
+(C:\Program Files\MiKTeX\tex/generic/circuitikz\pgfcircpath.tex
+\ctikz@vif@count=\count531
+)
+(C:\Program Files\MiKTeX\tex/generic/circuitikz\pgfcircshapes.tex)
+(C:\Program Files\MiKTeX\tex/generic/circuitikz\pgfcircmonopoles.tex)
+(C:\Program Files\MiKTeX\tex/generic/circuitikz\pgfcircbipoles.tex)
+(C:\Program Files\MiKTeX\tex/generic/circuitikz\pgfcirctripoles.tex
+\pgf@circ@res@count=\count532
+)
+(C:\Program Files\MiKTeX\tex/generic/circuitikz\pgfcircquadpoles.tex)
+(C:\Program Files\MiKTeX\tex/generic/circuitikz\pgfcircmultipoles.tex)
+(C:\Program Files\MiKTeX\tex/generic/circuitikz\pgfcirclabel.tex)
+(C:\Program Files\MiKTeX\tex/generic/circuitikz\pgfcircvoltage.tex
+\pgfcirc@labelshift=\dimen375
+)
+(C:\Program Files\MiKTeX\tex/generic/circuitikz\pgfcirccurrent.tex)
+(C:\Program Files\MiKTeX\tex/generic/circuitikz\pgfcircflow.tex))
+(C:\Program Files\MiKTeX\tex/latex/tikz-timing\tikz-timing.sty
+Package: tikz-timing 2017/12/20 v0.7f Digital Timing Diagrams using TikZ
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibra
+rybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@layerbox@background=\box96
+\pgf@layerboxsaved@background=\box97
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibra
+rydecorations.pathmorphing.code.tex
+(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibra
+rydecorations.code.tex
+(C:\Program Files\MiKTeX\tex/generic/pgf/modules\pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen376
+\pgfdecoratedremainingdistance=\dimen377
+\pgfdecoratedinputsegmentcompleteddistance=\dimen378
+\pgfdecoratedinputsegmentremainingdistance=\dimen379
+\pgf@decorate@distancetomove=\dimen380
+\pgf@decorate@repeatstate=\count533
+\pgfdecorationsegmentamplitude=\dimen381
+\pgfdecorationsegmentlength=\dimen382
+)
+\tikz@lib@dec@box=\box98
+)
+(C:\Program Files\MiKTeX\tex/generic/pgf/libraries/decorations\pgflibrarydecora
+tions.pathmorphing.code.tex))
+\tikztiming@numint=\count534
+\tikztiming@numfrac=\count535
+\tikztiming@xunit=\skip108
+\tikztiming@yunit=\skip109
+\tikztiming@debug=\count536
+\c@tikztiming@nrows=\count537
+\c@tikztimingrows=\count538
+\c@tikztimingtrans=\count539
+\c@tikztimingtranspos=\count540
+)
+(C:\Program Files\MiKTeX\tex/latex/tools\multicol.sty
+Package: multicol 2025/10/21 v2.0b multicolumn formatting (FMi)
+\c@tracingmulticols=\count541
+\mult@box=\box99
+\multicol@leftmargin=\dimen383
+\c@unbalance=\count542
+\c@collectmore=\count543
+\doublecol@number=\count544
+\multicoltolerance=\count545
+\multicolpretolerance=\count546
+\full@width=\dimen384
+\page@free=\dimen385
+\premulticols=\dimen386
+\postmulticols=\dimen387
+\multicolsep=\skip110
+\multicolbaselineskip=\skip111
+\partial@page=\box100
+\last@line=\box101
+\mc@boxedresult=\box102
+\maxbalancingoverflow=\dimen388
+\mult@rightbox=\box103
+\mult@grightbox=\box104
+\mult@firstbox=\box105
+\mult@gfirstbox=\box106
+\@tempa=\box107
+\@tempa=\box108
+\@tempa=\box109
+\@tempa=\box110
+\@tempa=\box111
+\@tempa=\box112
+\@tempa=\box113
+\@tempa=\box114
+\@tempa=\box115
+\@tempa=\box116
+\@tempa=\box117
+\@tempa=\box118
+\@tempa=\box119
+\@tempa=\box120
+\@tempa=\box121
+\@tempa=\box122
+\@tempa=\box123
+\@tempa=\box124
+\@tempa=\box125
+\@tempa=\box126
+\@tempa=\box127
+\@tempa=\box128
+\@tempa=\box129
+\@tempa=\box130
+\@tempa=\box131
+\@tempa=\box132
+\@tempa=\box133
+\@tempa=\box134
+\@tempa=\box135
+\@tempa=\box136
+\@tempa=\box137
+\@tempa=\box138
+\@tempa=\box139
+\@tempa=\box140
+\@tempa=\box141
+\@tempa=\box142
+\c@minrows=\count547
+\c@columnbadness=\count548
+\c@finalcolumnbadness=\count549
+\last@try=\dimen389
+\multicolovershoot=\dimen390
+\multicolundershoot=\dimen391
+\mult@nat@firstbox=\box143
+\colbreak@box=\box144
+\mc@col@check@num=\count550
+\g__mc_curr_col_int=\count551
+)
+(C:\Program Files\MiKTeX\tex/latex/mathtools\mathtools.sty
+Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
+
+(C:\Program Files\MiKTeX\tex/latex/mathtools\mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+\g_MT_multlinerow_int=\count552
+\l_MT_multwidth_dim=\dimen392
+\origjot=\skip112
+\l_MT_shortvdotswithinadjustabove_dim=\dimen393
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen394
+\l_MT_above_intertext_sep=\dimen395
+\l_MT_below_intertext_sep=\dimen396
+\l_MT_above_shortintertext_sep=\dimen397
+\l_MT_below_shortintertext_sep=\dimen398
+\xmathstrut@box=\box145
+\xmathstrut@dim=\dimen399
+)
+\c@thrm=\count553
+
+(C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcolorbox.sty
+Package: tcolorbox 2025/11/28 version 6.9.0 text color boxes
+
+(C:\Program Files\MiKTeX\tex/latex/tools\verbatim.sty
+Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks64
+\verbatim@line=\toks65
+\verbatim@in@stream=\read4
+)
+(C:\Program Files\MiKTeX\tex/latex/environ\environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(C:\Program Files\MiKTeX\tex/latex/trimspaces\trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\tcb@titlebox=\box146
+\tcb@upperbox=\box147
+\tcb@lowerbox=\box148
+\tcb@phantombox=\box149
+\c@tcbbreakpart=\count554
+\c@tcblayer=\count555
+\c@tcolorbox@number=\count556
+\l__tcobox_tmpa_box=\box150
+\l__tcobox_tmpa_dim=\dimen400
+\tcb@temp=\box151
+\tcb@temp=\box152
+\tcb@temp=\box153
+\tcb@temp=\box154
+
+(C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbraster.code.tex
+Library (tcolorbox): 'tcbraster.code.tex' version '6.9.0'
+\c@tcbrastercolumn=\count557
+\c@tcbrasterrow=\count558
+\c@tcbrasternum=\count559
+\c@tcbraster=\count560
+) (C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbskins.code.tex
+Library (tcolorbox): 'tcbskins.code.tex' version '6.9.0'
+(C:\Program Files\MiKTeX\tex/latex/tikzfill\tikzfill.image.sty
+Package: tikzfill.image 2026/03/26 v1.1.0 Image filling library for TikZ
+
+(C:\Program Files\MiKTeX\tex/latex/tikzfill\tikzlibraryfill.image.code.tex
+File: tikzlibraryfill.image.code.tex 2026/03/26 v1.1.0 Image filling library
+\l__tikzfill_tmpa_dim=\dimen401
+\l__tikzfill_tmpb_dim=\dimen402
+\l__tikzfill_img_box=\box155
+))
+(C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbskinsjigsaw.code.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.9.0'
+)) (C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbbreakable.code.tex
+Library (tcolorbox): 'tcbbreakable.code.tex' version '6.9.0'
+(C:\Program Files\MiKTeX\tex/latex/pdfcol\pdfcol.sty
+Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
+Package pdfcol Info: Interface disabled because of missing PDF mode of pdfTeX.
+)
+Package pdfcol Info: pdfTeX's color stacks are not available.
+\tcb@testbox=\box156
+\tcb@totalupperbox=\box157
+\tcb@totallowerbox=\box158
+)
+(C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbhooks.code.tex
+Library (tcolorbox): 'tcbhooks.code.tex' version '6.9.0'
+) (C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbtheorems.code.tex
+Library (tcolorbox): 'tcbtheorems.code.tex' version '6.9.0'
+) (C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbfitting.code.tex
+Library (tcolorbox): 'tcbfitting.code.tex' version '6.9.0'
+\tcbfitdim=\dimen403
+\tcb@lowerfitdim=\dimen404
+\tcb@upperfitdim=\dimen405
+\tcb@cur@hbadness=\count561
+) (C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcblistingsutf8.code.tex
+Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.9.0'
+(C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcblistings.code.tex
+Library (tcolorbox): 'tcblistings.code.tex' version '6.9.0'
+(C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcblistingscore.code.tex
+Library (tcolorbox): 'tcblistingscore.code.tex' version '6.9.0'
+(C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbprocessing.code.tex
+Library (tcolorbox): 'tcbprocessing.code.tex' version '6.9.0'
+)
+\c@tcblisting=\count562
+))
+Package tcolorbox Info: Library `listingsutf8' is compatible with pdftex only. 
+Library `listings` is loaded instead. on input line 29.
+) (C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbexternal.code.tex
+Library (tcolorbox): 'tcbexternal.code.tex' version '6.9.0'
+) (C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbmagazine.code.tex
+Library (tcolorbox): 'tcbmagazine.code.tex' version '6.9.0'
+) (C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbvignette.code.tex
+Library (tcolorbox): 'tcbvignette.code.tex' version '6.9.0'
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibra
+ryfadings.code.tex
+File: tikzlibraryfadings.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryfadings.code.tex
+File: pgflibraryfadings.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))) (C:\Program Files\MiKTeX\tex/latex/tcolorbox\tcbposter.code.tex
+Library (tcolorbox): 'tcbposter.code.tex' version '6.9.0'
+)) (mathstyle.sty
+Package: mathstyle 2026/05/01 Modern Math Style (Muted Pastel, Rounded, Drop Sh
+adow)
+)
+\c@exercise=\count563
+\@quotelevel=\count564
+\@quotereset=\count565
+
+
+Package biblatex Warning: Conflicting options.
+(biblatex)                '<namepart>inits' conflicts with 'uniquename=full'.
+(biblatex)                Setting 'uniquename=init' on input line 101.
+
+
+LaTeX Warning: Unused global option(s):
+    [fontsize].
+
+(main.aux (organize.aux) (chapters/chapter01_or.aux) (chapters/chapter01.aux)
+(chapters/chapter02_or.aux) (chapters/chapter02.aux) (chapters/chapter03_or.aux
+) (chapters/chapter03.aux) (chapters/chapter04_or.aux) (chapters/chapter04.aux)
+(chapters/chapter05_or.aux) (chapters/chapter05.aux) (chapters/chapter06_or.aux
+) (chapters/chapter06.aux))
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 101.
+LaTeX Font Info:    Trying to load font information for T3+cmr on input line 10
+1.
+ (C:\Program Files\MiKTeX\tex/latex/tipa\t3cmr.fd
+File: t3cmr.fd 2001/12/31 TIPA font definitions
+)
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 101.
+LaTeX Font Info:    ... okay on input line 101.
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
+(Font)              scaled to size 16.5pt on input line 101.
+
+Package fontspec Info: 
+(fontspec)             Adjusting the maths setup (use [no-math] to avoid
+(fontspec)             this).
+
+\symlegacymaths=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 101.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 101.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 101.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 101.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 101.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 101.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 101.
+LaTeX Font Info:    Redeclaring math accent \check on input line 101.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 101.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 101.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 101.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 101.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 101.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 101.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 101.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 101.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 101.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 101.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 101.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 101.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 101.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 101.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 101.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 101.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 101.
+
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> TU/THSarabunNew(0)/m/n on input line 10
+1.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 101.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> TU/THSarabunNew(0)/m/n on input line 1
+01.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  TU/THSarabunNew(0)/m/n --> TU/THSarabunNew(0)/m/n on in
+put line 101.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> TU/THSarabunNew(0)/m/it on input line 
+101.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> TU/THSarabunNew(0)/b/n on input line 1
+01.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 101.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 101.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  TU/THSarabunNew(0)/m/n --> TU/THSarabunNew(0)/b/n on in
+put line 101.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> TU/THSarabunNew(0)/b/it on input line
+ 101.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 101.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 101.
+
+*** you should *not* be loading the inputenc package
+*** XeTeX expects the source to be in UTF8 encoding
+*** some features of other encodings may conflict, resulting in poor output.
+Package hyperref Info: Link coloring OFF on input line 101.
+(main.out) (main.out)
+\@outlinefile=\write5
+\openout5 = `main.out'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: longtable package is loaded.
+ (C:\Program Files\MiKTeX\tex/latex/caption\ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)
+Package caption Info: End \AtBeginDocument code.
+Package biblatex Info: Trying to load language 'english' -> 'english-apa6'...
+Package biblatex Info: ... file 'english-apa6.lbx' found.
+(C:\Program Files\MiKTeX\tex/latex/biblatex-apa6\english-apa6.lbx
+File: english-apa6.lbx 2020/08/28 v8.5 APA 6th ed. biblatex localisation
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+
+(C:\Program Files\MiKTeX\tex/latex/biblatex/lbx\english.lbx
+File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load language 'american' -> 'american-apa6'...
+
+Package biblatex Info: ... file 'american-apa6.lbx' found.
+
+(C:\Program Files\MiKTeX\tex/latex/biblatex-apa6\american-apa6.lbx
+File: american-apa6.lbx 2020/08/28 v8.5 APA 6th ed. biblatex localisation
+Package biblatex Info: Trying to load language 'american'...
+Package biblatex Info: ... file 'american.lbx' found.
+
+(C:\Program Files\MiKTeX\tex/latex/biblatex/lbx\american.lbx
+File: american.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+
+(C:\Program Files\MiKTeX\tex/latex/biblatex/lbx\english.lbx
+File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+))))
+Package biblatex Info: XeTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
+Package biblatex Info: Data encoding 'utf8' specified.
+(biblatex)             No need to reencode data.
+\openout3 = `main.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'main.bbl' found.
+ (main.bbl)
+Package biblatex Info: Reference section=0 on input line 101.
+Package biblatex Info: Reference segment=0 on input line 101.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+*geometry* verbose mode - [ preamble ] result:
+* driver: xetex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(85.35826pt, 688.5567pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=688.5567pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-16.97922pt
+* \headheight=12.0pt
+* \headsep=18.06749pt
+* \topskip=10.0pt
+* \footskip=25.29494pt
+* \marginparwidth=61.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\c@lstlisting=\count566
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
+(Font)              scaled to size 21.0pt on input line 102.
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
+(Font)              scaled to size 21.0pt on input line 102.
+[1
+
+
+]
+
+Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less.
+(fancyhdr)                Please consider using the `twoside' option on input l
+ine 103.
+
+[1
+
+]
+Package biblatex Info: Reference segment=1 on input line 109.
+Package biblatex Info: Setting label 'refsegment:01' on input line 109.
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
+(Font)              scaled to size 18.0pt on input line 109.
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
+(Font)              scaled to size 16.5pt on input line 109.
+\c@tocitem=\count567
+ (main.toc
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
+(Font)              scaled to size 7.5pt on input line 1.
+ [2
+
+]
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
+(Font)              scaled to size 18.0pt on input line 41.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.07803pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.07803pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.07803pt}.
+
+[3]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.07803pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.07803pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.07803pt}.
+
+[4]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.07803pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.07803pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.07803pt}.
+
+[5])
+\tf@toc=\write6
+\openout6 = `main.toc'.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.07803pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.07803pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.07803pt}.
+
+[6]
+Package biblatex Info: Reference segment=2 on input line 110.
+Package biblatex Info: Setting label 'refsegment:02' on input line 110.
+ (main.lot
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 6.
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
+(Font)              scaled to size 11.54994pt on input line 6.
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
+(Font)              scaled to size 8.25pt on input line 6.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
+(Font)              size <5> substituted on input line 6.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 6.
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 6.
+(C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 6.
+
+(C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 6.
+
+)
+\tf@lot=\write7
+\openout7 = `main.lot'.
+
+ [7
+
+
+]
+Package biblatex Info: Reference segment=3 on input line 111.
+Package biblatex Info: Setting label 'refsegment:03' on input line 111.
+ (main.lof
+Missing character: There is no ₂ in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+[8
+
+
+]
+Missing character: There is no ₂ in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+)
+\tf@lof=\write8
+\openout8 = `main.lof'.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.07803pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.07803pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-0.07803pt}.
+
+[9]
+
+Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less.
+(fancyhdr)                Please consider using the `twoside' option on input l
+ine 115.
+
+
+Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less.
+(fancyhdr)                Please consider using the `twoside' option on input l
+ine 118.
+
+
+Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less.
+(fancyhdr)                Please consider using the `twoside' option on input l
+ine 121.
+
+\openout2 = `organize.aux'.
+
+(organize.tex
+Package biblatex Info: Reference segment=4 on input line 1.
+Package biblatex Info: Setting label 'refsegment:04' on input line 1.
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--20
+
+ []
+
+[1
+
+
+
+
+]
+Overfull \hbox (58.49771pt too wide) in alignment at lines 34--42
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (58.49771pt too wide) in alignment at lines 42--49
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (58.49771pt too wide) in alignment at lines 49--91
+ [] [] [] [] [] 
+ []
+
+
+ignored: Infinite glue shrinkage found in box being split [2] [3]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/it' will be
+(Font)              scaled to size 16.5pt on input line 156.
+[4]) [5] [6
+
+
+
+]
+\openout2 = `chapters/chapter01_or.aux'.
+
+ (chapters/chapter01_or.tex
+Package biblatex Info: Reference segment=5 on input line 1.
+Package biblatex Info: Setting label 'refsegment:05' on input line 1.
+ [7
+
+
+]) [8]
+\openout2 = `chapters/chapter01.aux'.
+
+ (chapters/chapter01.tex
+ 1.
+Package biblatex Info: Reference segment=6 on input line 1.
+Package biblatex Info: Setting label 'refsegment:06' on input line 1.
+[9
+
+
+
+
+
+] [10]
+Underfull \hbox (badness 6876) in paragraph at lines 44--45
+[]\TU/THSarabunNew(0)/m/n/11 กรุงเทพมหานคร เป็น เมือง หลวง ของ ประเทศไทย ซึ่ง ป
+ระพจน์ นี้ เป็น จริง เนื่องจาก
+ []
+
+[11]
+Underfull \hbox (badness 1668) in paragraph at lines 67--68
+[]\TU/THSarabunNew(0)/m/n/11 ข้อความ เหล่า นี้ ไม่ สามารถ ระบุ ค่า ความ จริง ได
+้ อย่าง เป็น สากล จึง ไม่ เป็น ประพจน์ ใน ทาง
+ []
+
+[12]
+File: Figures/06-de-morgan-laws.jpg Graphic file (type bmp)
+<Figures/06-de-morgan-laws.jpg>
+
+
+LaTeX Font Warning: Font shape `TU/THSarabunNew(0)/m/sc' undefined
+(Font)              using `TU/THSarabunNew(0)/m/n' instead on input line 97.
+
+[13]
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/sc' will be
+(Font)              scaled to size 16.5pt on input line 122.
+ [14]
+File: Figures/01-truth-table-basic.jpg Graphic file (type bmp)
+<Figures/01-truth-table-basic.jpg>
+ [15]
+File: Figures/02-and-gate-circuit.jpg Graphic file (type bmp)
+<Figures/02-and-gate-circuit.jpg>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[16]
+File: Figures/05-venn-proposition.jpg Graphic file (type bmp)
+<Figures/05-venn-proposition.jpg>
+ [17]
+File: Figures/03-or-gate-circuit.jpg Graphic file (type bmp)
+<Figures/03-or-gate-circuit.jpg>
+ [18]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: Figures/04-implication-truth.jpg Graphic file (type bmp)
+<Figures/04-implication-truth.jpg>
+[19] [20]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[21]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[22] [23] [24] [25] [26]
+File: Figures/07-modus-ponens.jpg Graphic file (type bmp)
+<Figures/07-modus-ponens.jpg>
+ [27]
+File: Figures/08-modus-tollens.jpg Graphic file (type bmp)
+<Figures/08-modus-tollens.jpg>
+ [28] [29] [30] [31] [32]
+Package biblatex Info: Reference segment=7 on input line 729.
+Package biblatex Info: Setting label 'refsegment:07' on input line 729.
+ [33
+
+]
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/sc' will be
+(Font)              scaled to size 18.0pt on input line 808.
+
+
+LaTeX Font Warning: Font shape `TU/THSarabunNew(0)/b/sc' undefined
+(Font)              using `TU/THSarabunNew(0)/b/n' instead on input line 808.
+
+[34] [35]
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/sc' will be
+(Font)              scaled to size 18.0pt on input line 821.
+
+Underfull \hbox (badness 1337) in paragraph at lines 831--832
+[]\TU/THSarabunNew(0)/m/sc/11 จง อธิบาย ความ แตก ต่าง ระหว่าง ประพจน์ เชิงเดี่ย
+ว และ ประพจน์ เชิง ประกอบ พร้อม ยก
+ []
+
+[36] [37]
+Underfull \hbox (badness 7796) in paragraph at lines 845--845
+[][]\TU/THSarabunNew(0)/m/sc/11 Grimaldi, R. P. (2004).  \TU/THSarabunNew(0)/m/
+it/11 Discrete and combinatorial mathematics: An applied
+ []
+
+) [38
+
+]
+
+Package biblatex Warning: Keyword 'Thai' not found on input line 134.
+
+
+LaTeX Warning: Empty bibliography on input line 134.
+
+
+Package biblatex Warning: Keyword 'English' not found on input line 134.
+
+
+LaTeX Warning: Empty bibliography on input line 134.
+
+[39
+
+
+] [40
+
+]
+\openout2 = `chapters/chapter02_or.aux'.
+
+ (chapters/chapter02_or.tex
+Package biblatex Info: Reference segment=8 on input line 1.
+Package biblatex Info: Setting label 'refsegment:08' on input line 1.
+ [41
+
+
+]) [42]
+\openout2 = `chapters/chapter02.aux'.
+
+ (chapters/chapter02.tex
+ 2.
+Package biblatex Info: Reference segment=9 on input line 1.
+Package biblatex Info: Setting label 'refsegment:09' on input line 1.
+
+Underfull \hbox (badness 2213) in paragraph at lines 21--22
+[]\TU/THSarabunNew(0)/b/n/11 การ พิสูจน์ ความ ถูก ต้อง ของ โปรแกรม (Program Ver
+ification) \TU/THSarabunNew(0)/m/sc/11 คือ การ พิสูจน์ ว่า
+ []
+
+[43
+
+
+
+
+
+] [44] [45] [46] [47] [48]
+Missing character: There is no ، in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+Missing character: There is no ، in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+Missing character: There is no ، in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+[49]
+File: Figures/10-venn-union.jpg Graphic file (type bmp)
+<Figures/10-venn-union.jpg>
+ [50]
+File: Figures/11-venn-intersection.jpg Graphic file (type bmp)
+<Figures/11-venn-intersection.jpg>
+ [51]
+File: Figures/16-distributive-law-sets.jpg Graphic file (type bmp)
+<Figures/16-distributive-law-sets.jpg>
+ [52]
+File: Figures/13-venn-set-difference.jpg Graphic file (type bmp)
+<Figures/13-venn-set-difference.jpg>
+ [53]
+File: Figures/14-venn-complement.jpg Graphic file (type bmp)
+<Figures/14-venn-complement.jpg>
+ [54]
+File: Figures/15-de-morgan-laws.jpg Graphic file (type bmp)
+<Figures/15-de-morgan-laws.jpg>
+ [55] [56] [57] [58] [59] [60]
+Underfull \hbox (badness 1874) in paragraph at lines 512--513
+[][]\TU/THSarabunNew(0)/m/sc/11 ทฤษฎีบท 2.46 (Relational Algebra as Set Operati
+ons) []การ ดำเนิน การ บน ตาราง ใน
+ []
+
+[61] [62] [63] [64] [65]
+Underfull \hbox (badness 1092) in paragraph at lines 736--737
+[]\TU/THSarabunNew(0)/m/sc/11 De Morgan’s Laws ใน ทฤษฎี เซต และ De Morgan’s Law
+s ใน ตรรกศาสตร์
+ []
+
+[66] [67]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 814
+.
+ (C:\Program Files\MiKTeX\tex/latex/amsfonts\ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+) [68]
+Underfull \hbox (badness 2932) in paragraph at lines 831--832
+[]\TU/THSarabunNew(0)/m/sc/11 ทฤษฎี เซต เป็น เครื่อง มือ ที่ จำเป็น สำหรับ การ 
+ศึกษา บท ต่อ ไป โดย เฉพาะ \TU/THSarabunNew(0)/b/n/11 ความ สัมพันธ์
+ []
+
+[69]
+Underfull \hbox (badness 3612) in paragraph at lines 846--847
+[]\TU/THSarabunNew(0)/m/sc/11 จง อธิบาย ความ สัมพันธ์ ระหว่าง การ ดำเนิน การ เซ
+ต กับ SQL operations (UNION,
+ []
+
+[70] [71]) [72]
+
+Package biblatex Warning: Keyword 'Thai' not found on input line 141.
+
+
+LaTeX Warning: Empty bibliography on input line 141.
+
+
+Package biblatex Warning: Keyword 'English' not found on input line 141.
+
+
+LaTeX Warning: Empty bibliography on input line 141.
+
+[73
+
+
+] [74
+
+]
+\openout2 = `chapters/chapter03_or.aux'.
+
+ (chapters/chapter03_or.tex
+Package biblatex Info: Reference segment=10 on input line 1.
+Package biblatex Info: Setting label 'refsegment:010' on input line 1.
+ [75
+
+
+]) [76]
+\openout2 = `chapters/chapter03.aux'.
+
+ (chapters/chapter03.tex
+ 3.
+Package biblatex Info: Reference segment=11 on input line 1.
+Package biblatex Info: Setting label 'refsegment:011' on input line 1.
+[77
+
+
+
+
+
+] [78]
+File: Figures/18-relation-directed-graph.jpg Graphic file (type bmp)
+<Figures/18-relation-directed-graph.jpg>
+ [79] [80]
+File: Figures/19-reflexive-relation.jpg Graphic file (type bmp)
+<Figures/19-reflexive-relation.jpg>
+ [81] [82]
+File: Figures/20-symmetric-relation.jpg Graphic file (type bmp)
+<Figures/20-symmetric-relation.jpg>
+ [83]
+File: Figures/21-antisymmetric-relation.jpg Graphic file (type bmp)
+<Figures/21-antisymmetric-relation.jpg>
+ [84] [85]
+File: Figures/22-transitive-relation.jpg Graphic file (type bmp)
+<Figures/22-transitive-relation.jpg>
+ [86] [87]
+Missing character: There is no ✗ in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+Missing character: There is no ✗ in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+Missing character: There is no ✗ in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+Missing character: There is no ✗ in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+Missing character: There is no ✗ in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+Missing character: There is no ✗ in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+Missing character: There is no ✗ in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+Missing character: There is no ✗ in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+Missing character: There is no ✗ in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+Missing character: There is no ✗ in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+Missing character: There is no ✗ in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+Missing character: There is no ✗ in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+[88]
+File: Figures/23-equivalence-relation.jpg Graphic file (type bmp)
+<Figures/23-equivalence-relation.jpg>
+
+Missing character: There is no 抽 in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+Missing character: There is no 象 in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+[89] [90] [91] [92]
+File: Figures/24-partial-order-hasse.jpg Graphic file (type bmp)
+<Figures/24-partial-order-hasse.jpg>
+ [93] [94] [95]
+Underfull \hbox (badness 10000) in paragraph at lines 356--357
+[][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่าง 3.40 []พิจารณา Poset $\OT1/cmr/m/n/10.
+95 (\OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n
+/10.95 2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 3\OML/cmm/m/it/10.95 ; \OT1/cm
+r/m/n/10.95 4\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 6\OML/cmm/m/it/10.95 ; \O
+T1/cmr/m/n/10.95 12\OMS/cmsy/m/n/10.95 g\OML/cmm/m/it/10.95 ; \OMS/cmsy/m/n/10.
+95 j\OT1/cmr/m/n/10.95 )$ \TU/THSarabunNew(0)/m/sc/11 โดย
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 356--357
+\OML/cmm/m/it/10.95 a \OMS/cmsy/m/n/10.95 j \OML/cmm/m/it/10.95 b$ \TU/THSarabu
+nNew(0)/m/sc/11 ก็ ต่อ เมื่อ $\OML/cmm/m/it/10.95 a$ \TU/THSarabunNew(0)/m/sc/1
+1 หาร $\OML/cmm/m/it/10.95 b$ \TU/THSarabunNew(0)/m/sc/11 ลงตัว ความ สัมพันธ์ ค
+ือ $\OML/cmm/m/it/10.95 R \OT1/cmr/m/n/10.95 =
+ []
+
+
+Overfull \hbox (114.76398pt too wide) in paragraph at lines 356--357
+\OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10
+.95 1)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; \OT1/cmr
+/m/n/10.95 2)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; \
+OT1/cmr/m/n/10.95 3)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10
+.95 ; \OT1/cmr/m/n/10.95 4)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cmm/
+m/it/10.95 ; \OT1/cmr/m/n/10.95 6)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\O
+ML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 12)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10
+.95 (2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 2)\OML/cmm/m/it/10.95 ; \OT1/cmr
+/m/n/10.95 (2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 4)\OML/cmm/m/it/10.95 ; \
+OT1/cmr/m/n/10.95 (2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 6)\OML/cmm/m/it/10
+.95 ; \OT1/cmr/m/n/10.95 (2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 12)\OML/cmm
+/m/it/10.95 ; \OT1/cmr/m/n/10.95 (3\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 3)\
+OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (3\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10
+.95 6)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (3\OML/cmm/m/it/10.95 ; \OT1/cmr
+/m/n/10.95 12)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (4\OML/cmm/m/it/10.95 ; 
+\OT1/cmr/m/n/10.95 4)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (4\OML/cmm/m/it/1
+0.95 ; \OT1/cmr/m/n/10.95 12)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (6\OML/cm
+m/m/it/10.95 ; \OT1/cmr/m/n/10.95 6)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (6
+\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 12)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/
+10.95 (12\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 12)\OMS/cmsy/m/n/10.95 g$
+ []
+
+[96]
+Underfull \hbox (badness 1117) in paragraph at lines 377--378
+[][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่าง 3.42 []กำหนด $\OML/cmm/m/it/10.95 A \O
+T1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95
+ ; \OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 3\OMS/cmsy/m/n/
+10.95 g$\TU/THSarabunNew(0)/m/sc/11 , $\OML/cmm/m/it/10.95 B \OT1/cmr/m/n/10.95
+ = \OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 a; b; c\OMS/cmsy/m/n/10.95 g$\TU/TH
+SarabunNew(0)/m/sc/11 , $\OML/cmm/m/it/10.95 C \OT1/cmr/m/n/10.95 = \OMS/cmsy/m
+/n/10.95 f\OML/cmm/m/it/10.95 x; y; z\OMS/cmsy/m/n/10.95 g$ \TU/THSarabunNew(0)
+/m/sc/11 ความ สัมพันธ์ $\OML/cmm/m/it/10.95 R \OT1/cmr/m/n/10.95 =
+ []
+
+[97] [98] [99] [100] [101] [102] [103]
+Underfull \hbox (badness 10000) in paragraph at lines 526--527
+[][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่าง 3.60 []จง พิจารณา ความ สัมพันธ์ ต่อ ไป
+ นี้ บน เซต $\OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ; \OT
+1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 3\OML/cmm/m/it/10.95 
+; \OT1/cmr/m/n/10.95 4\OMS/cmsy/m/n/10.95 g$ \TU/THSarabunNew(0)/m/sc/11 โดย $\
+OML/cmm/m/it/10.95 R \OT1/cmr/m/n/10.95 =
+ []
+
+
+Underfull \hbox (badness 3108) in paragraph at lines 526--527
+\OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10
+.95 1)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; \OT1/cmr
+/m/n/10.95 3)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (2\OML/cmm/m/it/10.95 ; \
+OT1/cmr/m/n/10.95 2)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (2\OML/cmm/m/it/10
+.95 ; \OT1/cmr/m/n/10.95 4)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (3\OML/cmm/
+m/it/10.95 ; \OT1/cmr/m/n/10.95 1)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (3\O
+ML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 3)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.
+95 (4\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 2)\OML/cmm/m/it/10.95 ; \OT1/cmr/
+m/n/10.95 (4\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 4)\OMS/cmsy/m/n/10.95 g$ \
+TU/THSarabunNew(0)/m/sc/11 จง ตรวจ สอบ ว่า $\OML/cmm/m/it/10.95 R$ \TU/THSarabu
+nNew(0)/m/sc/11 มี คุณสมบัติ ใด ต่อ ไป นี้
+ []
+
+[104] [105]
+Underfull \hbox (badness 1867) in paragraph at lines 576--577
+[][]\TU/THSarabunNew(0)/m/sc/11 หมายเหตุ 3.64 []\TU/THSarabunNew(0)/b/n/11 Rema
+rk 3.3: \TU/THSarabunNew(0)/m/sc/11 ความ สัมพันธ์ เป็น รากฐาน ของ แนวคิด ที่ สำ
+คัญ มากมาย ใน
+ []
+
+[106] [107] [108] [109]) [110]
+
+Package biblatex Warning: Keyword 'Thai' not found on input line 148.
+
+
+LaTeX Warning: Empty bibliography on input line 148.
+
+
+Package biblatex Warning: Keyword 'English' not found on input line 148.
+
+
+LaTeX Warning: Empty bibliography on input line 148.
+
+[111
+
+
+] [112
+
+]
+\openout2 = `chapters/chapter04_or.aux'.
+
+ (chapters/chapter04_or.tex
+Package biblatex Info: Reference segment=12 on input line 1.
+Package biblatex Info: Setting label 'refsegment:012' on input line 1.
+ [113
+
+
+]) [114]
+\openout2 = `chapters/chapter04.aux'.
+
+ (chapters/chapter04.tex
+ 4.
+Package biblatex Info: Reference segment=13 on input line 1.
+Package biblatex Info: Setting label 'refsegment:013' on input line 1.
+File: Figures/25-decimal-place-value.jpg Graphic file (type bmp)
+<Figures/25-decimal-place-value.jpg>
+[115
+
+
+
+
+
+] [116]
+File: Figures/26-binary-place-value.jpg Graphic file (type bmp)
+<Figures/26-binary-place-value.jpg>
+
+Missing character: There is no ₂ in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+[117] [118]
+File: Figures/27-hex-grouping.jpg Graphic file (type bmp)
+<Figures/27-hex-grouping.jpg>
+ [119] [120] [121] [122] [123] [124] [125]
+Missing character: There is no ท in font cmmi10!
+Missing character: There is no ด in font cmmi10!
+Missing character: There is no ท in font cmmi10!
+Missing character: There is no ด in font cmmi10!
+Missing character: There is no ท in font cmmi10!
+Missing character: There is no ด in font cmmi10!
+[126] [127] [128] [129]
+File: Figures/28-2s-complement.jpg Graphic file (type bmp)
+<Figures/28-2s-complement.jpg>
+ [130] [131]
+Missing character: There is no ท in font cmmi10!
+Missing character: There is no ด in font cmmi10!
+[132]
+File: Figures/29-ieee754.jpg Graphic file (type bmp)
+<Figures/29-ieee754.jpg>
+ [133]
+Underfull \hbox (badness 1609) in paragraph at lines 733--734
+[]\TU/THSarabunNew(0)/m/sc/11 ดัง นั้น $\OMS/cmsy/m/n/10.95 ^^@\OT1/cmr/m/n/10.
+95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 5$ \TU/THSarabunNew(0)/m/sc/11 ใน I
+EEE 754 single precision คือ $\OT1/cmr/m/n/10.95 101111110000000000000000000000
+00[]$ \TU/THSarabunNew(0)/m/sc/11 หรือ
+ []
+
+[134] [135] [136] [137] [138] [139] [140] [141]) [142]
+
+Package biblatex Warning: Keyword 'Thai' not found on input line 155.
+
+
+LaTeX Warning: Empty bibliography on input line 155.
+
+
+Package biblatex Warning: Keyword 'English' not found on input line 155.
+
+
+LaTeX Warning: Empty bibliography on input line 155.
+
+[143
+
+
+] [144
+
+]
+\openout2 = `chapters/chapter05_or.aux'.
+
+ (chapters/chapter05_or.tex
+Package biblatex Info: Reference segment=14 on input line 1.
+Package biblatex Info: Setting label 'refsegment:014' on input line 1.
+ [145
+
+
+]) [146]
+\openout2 = `chapters/chapter05.aux'.
+
+ (chapters/chapter05.tex
+ 5.
+Package biblatex Info: Reference segment=15 on input line 1.
+Package biblatex Info: Setting label 'refsegment:015' on input line 1.
+File: Figures/30-matrix-dimensions.jpg Graphic file (type bmp)
+<Figures/30-matrix-dimensions.jpg>
+[147
+
+
+
+
+
+] [148]
+File: Figures/31-matrix-types.jpg Graphic file (type bmp)
+<Figures/31-matrix-types.jpg>
+ [149] [150] [151] [152]
+File: Figures/32-matrix-multiplication.jpg Graphic file (type bmp)
+<Figures/32-matrix-multiplication.jpg>
+ [153] [154] [155] [156]
+File: Figures/33-determinant-2x2.jpg Graphic file (type bmp)
+<Figures/33-determinant-2x2.jpg>
+ [157] [158]
+[159] [160] [161]
+Overfull \hbox (45.2539pt too wide) detected at line 544
+[] [] \OT1/cmr/m/n/10.95 = [] = [] = [] = \OML/cmm/m/it/10.95 I
+ []
+
+[162] [163] [164] [165] [166] [167] [168]
+File: Figures/34-matrix-transformation.jpg Graphic file (type bmp)
+<Figures/34-matrix-transformation.jpg>
+ [169] [170] [171] [172]
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
+(Font)              scaled to size 11.54994pt on input line 958.
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
+(Font)              scaled to size 8.25pt on input line 958.
+ [173]
+[174] [175] [176] [177] [178] [179] [180] [181]) [182]
+
+Package biblatex Warning: Keyword 'Thai' not found on input line 162.
+
+
+LaTeX Warning: Empty bibliography on input line 162.
+
+
+Package biblatex Warning: Keyword 'English' not found on input line 162.
+
+
+LaTeX Warning: Empty bibliography on input line 162.
+
+[183
+
+
+] [184
+
+]
+\openout2 = `chapters/chapter06_or.aux'.
+
+ (chapters/chapter06_or.tex
+Package biblatex Info: Reference segment=16 on input line 1.
+Package biblatex Info: Setting label 'refsegment:016' on input line 1.
+ [185
+
+
+]) [186]
+\openout2 = `chapters/chapter06.aux'.
+
+ (chapters/chapter06.tex
+ 6.
+Package biblatex Info: Reference segment=17 on input line 1.
+Package biblatex Info: Setting label 'refsegment:017' on input line 1.
+[187
+
+
+
+
+
+] [188] [189] [190] [191] [192] [193] [194] [195] [196] [197] [198]
+File: Figures/35-function-mapping.jpg Graphic file (type bmp)
+<Figures/35-function-mapping.jpg>
+
+[199] [200] [201] [202] [203] [204] [205] [206] [207] [208] [209] [210]
+Missing character: There is no 对 in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+Missing character: There is no 应 in font TH Sarabun New/OT:script=thai;language
+=dflt;mapping=tex-text;!
+[211] [212] [213] [214] [215] [216] [217] [218] [219] [220] [221] [222]
+Underfull \hbox (badness 2671) in paragraph at lines 1726--1727
+[]\TU/THSarabunNew(0)/b/n/11 Boolean Identities \TU/THSarabunNew(0)/m/sc/11 คือ
+ Idempotent, Identity, Domination, Complement,
+ []
+
+[223]
+Underfull \hbox (badness 2600) in paragraph at lines 1741--1742
+[]\TU/THSarabunNew(0)/m/sc/11 จง อธิบาย ความ หมาย ของ พีช คณิต บู ลีน และ ยก ตั
+วอย่าง การ ประยุกต์ ใช้ ใน วิทยาการ
+ []
+
+[224] [225]) [226]
+
+Package biblatex Warning: Keyword 'Thai' not found on input line 169.
+
+
+LaTeX Warning: Empty bibliography on input line 169.
+
+
+Package biblatex Warning: Keyword 'English' not found on input line 169.
+
+
+LaTeX Warning: Empty bibliography on input line 169.
+
+[227
+
+
+]
+Underfull \hbox (badness 7796) in paragraph at lines 172--172
+[][]\TU/THSarabunNew(0)/m/sc/11 Grimaldi, R. P. (2004).  \TU/THSarabunNew(0)/m/
+it/11 Discrete and combinatorial mathematics: An applied
+ []
+
+
+Package caption Warning: Unused \captionsetup[sub] on input line 12.
+See the caption package documentation for explanation.
+
+[228
+
+] (main.aux (organize.aux) (chapters/chapter01_or.aux)
+(chapters/chapter01.aux) (chapters/chapter02_or.aux) (chapters/chapter02.aux)
+(chapters/chapter03_or.aux) (chapters/chapter03.aux) (chapters/chapter04_or.aux
+) (chapters/chapter04.aux) (chapters/chapter05_or.aux) (chapters/chapter05.aux)
+(chapters/chapter06_or.aux) (chapters/chapter06.aux))
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-01-19>
+ ***********
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 2.25pt have occurred.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: C22E070C2B46E210A9B1C50CC9C8D59E;23995.
+Package logreq Info: Writing requests to 'main.run.xml'.
+\openout1 = `main.run.xml'.
+
+ ) 
 Here is how much of TeX's memory you used:
- 407 strings out of 467867
- 6291 string characters out of 5428402
- 433759 words of memory out of 5000000
- 29365 multiletter control sequences out of 15000+600000
- 627721 words of font info for 40 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 72i,0n,79p,256b,36s stack positions out of 10000i,1000n,20000p,200000b,200000s
-C:\Program Files\MiKTeX\tex/latex/xltxtra\xltxtra.sty:43:  ==> Fatal error occurred, no output PDF file produced!
+ 69745 strings out of 402983
+ 1618624 string characters out of 5452830
+ 2944138 words of memory out of 5000000
+ 97549 multiletter control sequences out of 15000+600000
+ 635451 words of font info for 105 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 103i,14n,118p,1342b,5298s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on main.xdv (238 pages, 4710724 bytes).

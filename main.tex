@@ -49,21 +49,9 @@
 \usepackage[most]{tcolorbox}
 \tcbuselibrary{skins,breakable}
 
-%% ทฤษฎีบท — กรอบสีเทา ไม่มี background
-\tcolorboxenvironment{thrm}{
-  enhanced jigsaw, breakable,
-  colback=white, colframe=gray!60!black,
-  boxrule=1.5pt, arc=4pt,
-  left=8pt, right=8pt, top=6pt, bottom=6pt,
-}
-
-%% นิยาม — กรอบสีเทา ไม่มี background
-\tcolorboxenvironment{definition}{
-  enhanced jigsaw, breakable,
-  colback=white, colframe=gray!60!black,
-  boxrule=1.5pt, arc=4pt,
-  left=8pt, right=8pt, top=6pt, bottom=6pt,
-}
+%% ── Modern International Textbook Style ──
+%% Style 1: Left Accent Bar (Springer / MIT Press)
+\input{mathstyle}
 
 %% ============ Learning Objectives Environment (Fixed Group Nesting) ============
 % Use simple macros to avoid LaTeX environment stack issues
@@ -79,14 +67,6 @@
 
 %% ============ Exercise and Hint Environments ============
 \newtheorem{exercise}{แบบฝึกหัด}[chapter]
-
-%% แบบฝึกหัด — น้ำตาล (Brown)
-\tcolorboxenvironment{exercise}{
-  enhanced jigsaw, breakable,
-  colback=brown!5!white, colframe=brown!55!black,
-  boxrule=1.5pt, arc=4pt,
-  left=8pt, right=8pt, top=6pt, bottom=6pt,
-}
 
 \newenvironment{hint}{\small\itshape\noindent\textbf{คำใบ้: }}{}
 

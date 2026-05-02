@@ -83,18 +83,14 @@
 \end{definition}
 
 \begin{ex}
-ในบริบทของวงจรดิจิทัล:
-\begin{enumerate}
-    \item 0 อาจแทนแรงดัน 0V หรือสัญญาณปิด (off)
-    \item 1 อาจแทนแรงดัน 5V หรือสัญญาณเปิด (on)
-\end{enumerate}
-
-ในบริบทของตรรกศาสตร์:
-\begin{enumerate}
-    \item 0 อาจแทน ``ไม่จริง'' หรือ ``เท็จ''
-    \item 1 อาจแทน ``จริง'' หรือ ``ถูกต้อง''
-\end{enumerate}
+ถ้า 0 แทนค่าความจริงว่างเปล่าหรือเท็จ และ 1 แทนค่าความจริงว่าถูกต้องหรือจริง จงอธิบายความหมายของ 0 และ 1 ในบริบทต่างๆ
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item ในบริบทของวงจรดิจิทัล: 0 อาจแทนแรงดัน 0V หรือสัญญาณปิด (off) และ 1 อาจแทนแรงดัน 5V หรือสัญญาณเปิด (on)
+  \item ในบริบทของตรรกศาสตร์: 0 อาจแทน ``ไม่จริง'' หรือ ``เท็จ'' และ 1 อาจแทน ``จริง'' หรือ ``ถูกต้อง''
+\end{solsteps}
+\end{solution}
 
 \section{การดำเนินการทางบูลีน (Boolean Operations)}
 \label{sec:boolean-operations}
@@ -126,13 +122,16 @@ $a$ & $b$ & $a + b$ \\
 \end{definition}
 
 \begin{ex}
-\begin{enumerate}
-    \item $0 + 0 = 0$
-    \item $0 + 1 = 1$
-    \item $1 + 0 = 1$
-    \item $1 + 1 = 1$
-\end{enumerate}
+Truth table ของการดำเนินการ OR
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item $0 + 0 = 0$
+  \item $0 + 1 = 1$
+  \item $1 + 0 = 1$
+  \item $1 + 1 = 1$
+\end{solsteps}
+\end{solution}
 
 \begin{thrm}[Properties ของ OR]
 สำหรับทุก $a, b, c \in \{0, 1\}$ โดยที่ $a, b, c$ แทนค่าบูลีนใดๆ:
@@ -169,13 +168,16 @@ $a$ & $b$ & $a \cdot b$ \\
 \end{thrm}
 
 \begin{ex}
-\begin{enumerate}
-    \item $0 \cdot 0 = 0$
-    \item $0 \cdot 1 = 0$
-    \item $1 \cdot 0 = 0$
-    \item $1 \cdot 1 = 1$
-\end{enumerate}
+Truth table ของการดำเนินการ AND
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item $0 \cdot 0 = 0$
+  \item $0 \cdot 1 = 0$
+  \item $1 \cdot 0 = 0$
+  \item $1 \cdot 1 = 1$
+\end{solsteps}
+\end{solution}
 
 \begin{thrm}[Properties ของ AND]
 สำหรับทุก $a, b, c \in \{0, 1\}$ โดยที่ $a, b, c$ แทนค่าบูลีนใดๆ:
@@ -208,13 +210,16 @@ $a$ & $a'$ \\
 \end{definition}
 
 \begin{ex}
-\begin{enumerate}
-    \item $0' = 1$
-    \item $1' = 0$
-    \item $(0')' = 0$
-    \item $(1')' = 1$
-\end{enumerate}
+Truth table ของการดำเนินการ NOT
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item $0' = 1$
+  \item $1' = 0$
+  \item $(0')' = 0$
+  \item $(1')' = 1$
+\end{solsteps}
+\end{solution}
 
 \begin{thrm}[Properties ของ NOT]
 สำหรับทุก $a \in \{0, 1\}$ โดยที่ $a$ แทนค่าบูลีนใดๆ:
@@ -277,17 +282,28 @@ $a$ & $b$ & $a \oplus b$ \\
 
 \begin{ex}
 คำนวณ $1 \oplus 0 \oplus 1$:
-
+\end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item $(1 \oplus 0) \oplus 1$ \quad (Associate property)
+  \item $= 1 \oplus 1$ \quad (จาก $1 \oplus 0 = 1$)
+  \item $= 0$ \quad (จาก $a \oplus a = 0$)
+\end{solsteps}
 \begin{align*}
 1 \oplus 0 \oplus 1 &= (1 \oplus 0) \oplus 1 \\
                    &= 1 \oplus 1 \quad \text{(จาก } 1 \oplus 0 = 1 \text{)} \\
                    &= 0 \quad \text{(จาก } a \oplus a = 0 \text{)}
 \end{align*}
-\end{ex}
+\end{solution}
 
 \begin{ex}
-พิสูจน์ $a \oplus b = a \cdot b' + a' \cdot b$ โดยใช้ truth table:
-
+พิสูจน์ $a \oplus b = a \cdot b' + a' \cdot b$ โดยใช้ truth table
+\end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item สร้าง truth table สำหรับการพิสูจน์:
+\end{solsteps}
+\end{solution}
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
@@ -303,9 +319,11 @@ $a$ & $b$ & $a'$ & $b'$ & $a \cdot b'$ & $a' \cdot b$ & $a \cdot b' + a' \cdot b
 \hline
 \end{tabular}
 \end{center}
-
-เนื่องจากคอลัมน์ $a \oplus b$ และ $a \cdot b' + a' \cdot b$ มีค่าเท่ากันทุกแถว ดังนั้น $a \oplus b = a \cdot b' + a' \cdot b$
-\end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item เนื่องจากคอลัมน์ $a \oplus b$ และ $a \cdot b' + a' \cdot b$ มีค่าเท่ากันทุกแถว ดังนั้น $a \oplus b = a \cdot b' + a' \cdot b$
+\end{solsteps}
+\end{solution}
 
 \section{กฎของพีชคณิตบูลีน (Boolean Identities)}
 \label{sec:boolean-identities}
@@ -382,64 +400,70 @@ $a$ & $b$ & $c$ & $b \cdot c$ & $a + (b \cdot c)$ & $a + b$ & $a + c$ & $(a + b)
 \end{proof}
 
 \begin{ex}
-พิสูจน์ $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$ โดยใช้ truth table:
-
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|c|}
-\hline
-$a$ & $b$ & $c$ & $b + c$ & $a \cdot (b + c)$ & $a \cdot b$ & $a \cdot c$ & $(a \cdot b) + (a \cdot c)$ \\
-\hline
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\
-\hline
-0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 \\
-\hline
-0 & 1 & 1 & 1 & 0 & 0 & 0 & 0 \\
-\hline
-1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-1 & 0 & 1 & 1 & 1 & 0 & 1 & 1 \\
-\hline
-1 & 1 & 0 & 1 & 1 & 1 & 0 & 1 \\
-\hline
-1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
-\hline
-\end{tabular}
-\end{center}
-
-เนื่องจากคอลัมน์ $a \cdot (b + c)$ และ $(a \cdot b) + (a \cdot c)$ มีค่าเท่ากันทุกแถว ดังนั้น $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$
+พิสูจน์ $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$ โดยใช้ truth table
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item สร้างตาราง truth table สำหรับตัวแปร $a, b, c$:
+  \begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|}
+  \hline
+  $a$ & $b$ & $c$ & $b + c$ & $a \cdot (b + c)$ & $a \cdot b$ & $a \cdot c$ & $(a \cdot b) + (a \cdot c)$ \\
+  \hline
+  0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+  \hline
+  0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\
+  \hline
+  0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 \\
+  \hline
+  0 & 1 & 1 & 1 & 0 & 0 & 0 & 0 \\
+  \hline
+  1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+  \hline
+  1 & 0 & 1 & 1 & 1 & 0 & 1 & 1 \\
+  \hline
+  1 & 1 & 0 & 1 & 1 & 1 & 0 & 1 \\
+  \hline
+  1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+  \hline
+  \end{tabular}
+  \end{center}
+  \item เนื่องจากคอลัมน์ $a \cdot (b + c)$ และ $(a \cdot b) + (a \cdot c)$ มีค่าเท่ากันทุกแถว ดังนั้น $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$
+\end{solsteps}
+\end{solution}
 
 \begin{ex}
-พิสูจน์ $a + (b \cdot c) = (a + b) \cdot (a + c)$ โดยใช้ truth table:
-
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|c|}
-\hline
-$a$ & $b$ & $c$ & $b \cdot c$ & $a + (b \cdot c)$ & $a + b$ & $a + c$ & $(a + b) \cdot (a + c)$ \\
-\hline
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 \\
-\hline
-0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 \\
-\hline
-0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
-\hline
-1 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\
-\hline
-1 & 0 & 1 & 0 & 1 & 1 & 1 & 1 \\
-\hline
-1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 \\
-\hline
-1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
-\hline
-\end{tabular}
-\end{center}
-
-เนื่องจากคอลัมน์ $a + (b \cdot c)$ และ $(a + b) \cdot (a + c)$ มีค่าเท่ากันทุกแถว ดังนั้น $a + (b \cdot c) = (a + b) \cdot (a + c)$
+พิสูจน์ $a + (b \cdot c) = (a + b) \cdot (a + c)$ โดยใช้ truth table
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item สร้างตาราง truth table สำหรับตัวแปร $a, b, c$:
+  \begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+  \hline
+  $a$ & $b$ & $c$ & $b \cdot c$ & $a + (b \cdot c)$ & $a + b$ & $a + c$ & $(a + b) \cdot (a + c)$ \\
+  \hline
+  0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+  \hline
+  0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 \\
+  \hline
+  0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 \\
+  \hline
+  0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+  \hline
+  1 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\
+  \hline
+  1 & 0 & 1 & 0 & 1 & 1 & 1 & 1 \\
+  \hline
+  1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 \\
+  \hline
+  1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+  \hline
+  \end{tabular}
+  \end{center}
+  \item เนื่องจากคอลัมน์ $a + (b \cdot c)$ และ $(a + b) \cdot (a + c)$ มีค่าเท่ากันทุกแถว ดังนั้น $a + (b \cdot c) = (a + b) \cdot (a + c)$
+\end{solsteps}
+\end{solution}
 
 \subsection{Absorption Laws}
 การดูดกลืน (Absorption) เป็นคุณสมบัติที่แสดงให้เห็นว่าการดำเนินการ OR และ AND มีความสัมพันธ์กันอย่างลึกซึ้ง คุณสมบัตินี้บอกเราว่าเมื่อนำผลลัพธ์ของการดำเนินการหนึ่งไปดำเนินการกับอีกตัวแปรหนึ่ง ผลลัพธ์จะ "ถูกดูดกลืน" กลับมาเป็นตัวแปรเดิม เช่นเดียวกับการนำน้ำไปเติมลงในแก้วที่มีน้ำอยู่แล้ว น้ำใหม่จะผสานเป็นเนื้อเดียวกับน้ำเดิม คุณสมบัตินี้มีประโยชน์มากในการทำให้นิพจน์บูลีนง่ายขึ้น เพราะช่วยตัดพจน์ที่ซ้ำซ้อนออกไปได้
@@ -453,48 +477,54 @@ $a$ & $b$ & $c$ & $b \cdot c$ & $a + (b \cdot c)$ & $a + b$ & $a + c$ & $(a + b)
 \end{thrm}
 
 \begin{ex}
-พิสูจน์ $a + (a \cdot b) = a$ โดยใช้ truth table:
-
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-$a$ & $b$ & $a \cdot b$ & $a + (a \cdot b)$ & $a$ \\
-\hline
-0 & 0 & 0 & 0 & 0 \\
-\hline
-0 & 1 & 0 & 0 & 0 \\
-\hline
-1 & 0 & 0 & 1 & 1 \\
-\hline
-1 & 1 & 1 & 1 & 1 \\
-\hline
-\end{tabular}
-\end{center}
-
-ดังนั้น $a + (a \cdot b) = a$
+พิสูจน์ $a + (a \cdot b) = a$ โดยใช้ truth table
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item สร้างตาราง truth table สำหรับตัวแปร $a, b$:
+  \begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|}
+  \hline
+  $a$ & $b$ & $a \cdot b$ & $a + (a \cdot b)$ & $a$ \\
+  \hline
+  0 & 0 & 0 & 0 & 0 \\
+  \hline
+  0 & 1 & 0 & 0 & 0 \\
+  \hline
+  1 & 0 & 0 & 1 & 1 \\
+  \hline
+  1 & 1 & 1 & 1 & 1 \\
+  \hline
+  \end{tabular}
+  \end{center}
+  \item ดังนั้น $a + (a \cdot b) = a$
+\end{solsteps}
+\end{solution}
 
 \begin{ex}
-พิสูจน์ $a \cdot (a + b) = a$ โดยใช้ truth table:
-
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-$a$ & $b$ & $a + b$ & $a \cdot (a + b)$ & $a$ \\
-\hline
-0 & 0 & 0 & 0 & 0 \\
-\hline
-0 & 1 & 1 & 0 & 0 \\
-\hline
-1 & 0 & 1 & 1 & 1 \\
-\hline
-1 & 1 & 1 & 1 & 1 \\
-\hline
-\end{tabular}
-\end{center}
-
-ดังนั้น $a \cdot (a + b) = a$
+พิสูจน์ $a \cdot (a + b) = a$ โดยใช้ truth table
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item สร้างตาราง truth table สำหรับตัวแปร $a, b$:
+  \begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|}
+  \hline
+  $a$ & $b$ & $a + b$ & $a \cdot (a + b)$ & $a$ \\
+  \hline
+  0 & 0 & 0 & 0 & 0 \\
+  \hline
+  0 & 1 & 1 & 0 & 0 \\
+  \hline
+  1 & 0 & 1 & 1 & 1 \\
+  \hline
+  1 & 1 & 1 & 1 & 1 \\
+  \hline
+  \end{tabular}
+  \end{center}
+  \item ดังนั้น $a \cdot (a + b) = a$
+\end{solsteps}
+\end{solution}
 
 \section{กฎของ De Morgan (De Morgan's Laws)}
 
@@ -601,6 +631,15 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
     \item $(a + b) \cdot (a' + c) + (a \cdot b \cdot c)'$
 \end{enumerate}
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item $x + y$ — ตัวแปรสองตัวขึ้นไปด้วยการดำเนินการ $+$ เป็นนิพจน์บูลีนที่ถูกต้อง
+  \item $x \cdot y'$ — การใช้ตัวดำเนินการ $\cdot$ และ $'$ กับตัวแปรเป็นนิพจน์บูลีนที่ถูกต้อง
+  \item $(x + y) \cdot z$ — วงเล็บกำหนดลำดับการดำเนินการ และการรวมตัวดำเนินการหลายตัวเป็นนิพจน์ที่ถูกต้อง
+  \item $x' + y \cdot z$ — ตัวดำเนินการ $'$ มีลำดับสูงสุด จากนั้น $\cdot$ และ $+$ ตามลำดับ
+  \item $(a + b) \cdot (a' + c) + (a \cdot b \cdot c)'$ — นิพจน์ซับซ้อนที่รวมการดำเนินการทุกรูปแบบ
+\end{solsteps}
+\end{solution}
 
 \subsection{ฟังก์ชันบูลีน}
 
@@ -613,53 +652,60 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 
 \begin{ex}
 ฟังก์ชันบูลีน $f(x, y) = x \cdot y + x' \cdot y'$
-
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-$x$ & $y$ & $x'$ & $y'$ & $x \cdot y$ & $x \cdot y + x' \cdot y'$ \\
-\hline
-0 & 0 & 1 & 1 & 0 & 1 \\
-\hline
-0 & 1 & 1 & 0 & 0 & 0 \\
-\hline
-1 & 0 & 0 & 1 & 0 & 0 \\
-\hline
-1 & 1 & 0 & 0 & 1 & 1 \\
-\hline
-\end{tabular}
-\end{center}
-
-ฟังก์ชันนี้เรียกว่า \textbf{XNOR} ซึ่งให้ผลลัพธ์เป็น 1 เมื่อ $x = y$ และให้ผลลัพธ์เป็น 0 เมื่อ $x \neq y$
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item พิจารณา truth table ของฟังก์ชัน:
+  \begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+  \hline
+  $x$ & $y$ & $x'$ & $y'$ & $x \cdot y$ & $x \cdot y + x' \cdot y'$ \\
+  \hline
+  0 & 0 & 1 & 1 & 0 & 1 \\
+  \hline
+  0 & 1 & 1 & 0 & 0 & 0 \\
+  \hline
+  1 & 0 & 0 & 1 & 0 & 0 \\
+  \hline
+  1 & 1 & 0 & 0 & 1 & 1 \\
+  \hline
+  \end{tabular}
+  \end{center}
+  \item ฟังก์ชันนี้เรียกว่า \textbf{XNOR} ซึ่งให้ผลลัพธ์เป็น 1 เมื่อ $x = y$ และให้ผลลัพธ์เป็น 0 เมื่อ $x \neq y$
+\end{solsteps}
+\end{solution}
 
 \begin{ex}
 ฟังก์ชันบูลีน $f(x, y, z) = (x + y') \cdot z + x \cdot y$
-
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-\hline
-$x$ & $y$ & $z$ & $y'$ & $x + y'$ & $(x + y') \cdot z$ & $x \cdot y$ & $f$ \\
-\hline
-0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 \\
-\hline
-0 & 0 & 1 & 1 & 1 & 1 & 0 & 1 \\
-\hline
-0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-1 & 0 & 0 & 1 & 1 & 0 & 0 & 0 \\
-\hline
-1 & 0 & 1 & 1 & 1 & 1 & 0 & 1 \\
-\hline
-1 & 1 & 0 & 0 & 1 & 0 & 1 & 1 \\
-\hline
-1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 \\
-\hline
-\end{tabular}
-\end{center}
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item พิจารณา truth table ของฟังก์ชัน:
+  \begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+  \hline
+  $x$ & $y$ & $z$ & $y'$ & $x + y'$ & $(x + y') \cdot z$ & $x \cdot y$ & $f$ \\
+  \hline
+  0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 \\
+  \hline
+  0 & 0 & 1 & 1 & 1 & 1 & 0 & 1 \\
+  \hline
+  0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+  \hline
+  0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\
+  \hline
+  1 & 0 & 0 & 1 & 1 & 0 & 0 & 0 \\
+  \hline
+  1 & 0 & 1 & 1 & 1 & 1 & 0 & 1 \\
+  \hline
+  1 & 1 & 0 & 0 & 1 & 0 & 1 & 1 \\
+  \hline
+  1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 \\
+  \hline
+  \end{tabular}
+  \end{center}
+\end{solsteps}
+\end{solution}
 
 \section{รูปแบบปกติ (Canonical Forms)}
 \label{sec:canonical-forms}
@@ -714,34 +760,47 @@ $x$ & $y$ & $z$ & $y'$ & $x + y'$ & $(x + y') \cdot z$ & $x \cdot y$ & $f$ \\
 
 \begin{ex}
 เขียนฟังก์ชัน $f(x, y) = x \cdot y + x'$ ในรูปแบบ canonical SOP
-
-จาก truth table:
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-$x$ & $y$ & $x \cdot y$ & $x'$ & $f$ \\
-\hline
-0 & 0 & 0 & 1 & 1 \\
-\hline
-0 & 1 & 0 & 1 & 1 \\
-\hline
-1 & 0 & 0 & 0 & 0 \\
-\hline
-1 & 1 & 1 & 0 & 1 \\
-\hline
-\end{tabular}
-\end{center}
-
-$f = 1$ เมื่อ $(x, y) = (0, 0)$ หรือ $(0, 1)$ หรือ $(1, 1)$
-
-ดังนั้น $f(x, y) = x'y' + x'y + xy = \sum(0, 1, 3)$
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item สร้าง truth table ของฟังก์ชัน:
+  \begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|}
+  \hline
+  $x$ & $y$ & $x \cdot y$ & $x'$ & $f$ \\
+  \hline
+  0 & 0 & 0 & 1 & 1 \\
+  \hline
+  0 & 1 & 0 & 1 & 1 \\
+  \hline
+  1 & 0 & 0 & 0 & 0 \\
+  \hline
+  1 & 1 & 1 & 0 & 1 \\
+  \hline
+  \end{tabular}
+  \end{center}
+  \item หาแถวที่ $f = 1$ พบว่า $(x, y) = (0, 0)$ หรือ $(0, 1)$ หรือ $(1, 1)$
+  \item เขียน minterm สำหรับแต่ละแถว: $m_0 = x'y'$, $m_1 = x'y$, $m_3 = xy$
+  \item ดังนั้น $f(x, y) = x'y' + x'y + xy = \sum(0, 1, 3)$
+\end{solsteps}
+\end{solution}
 
 \begin{ex}
 จาก truth table ของ $f(x, y, z)$ ที่ $f = 1$ สำหรับ minterms $m_1, m_3, m_5, m_7$:
-
-$f(x, y, z) = x'y'z + x'y z' + x y' z + x y z' = \sum(1, 3, 5, 7)$
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item แปลง minterm indices เป็น binary: $m_1 = 001$, $m_3 = 011$, $m_5 = 101$, $m_7 = 111$
+  \item เขียน minterm แต่ละตัวในรูป product form:
+  \begin{itemize}
+    \item $m_1 = x'y'z$
+    \item $m_3 = x'y z'$
+    \item $m_5 = x y' z$
+    \item $m_7 = x y z'$
+  \end{itemize}
+  \item นำ minterms มาบวกกัน: $f(x, y, z) = x'y'z + x'y z' + x y' z + x y z' = \sum(1, 3, 5, 7)$
+\end{solsteps}
+\end{solution}
 
 \subsection{Product of Sums (POS) — ผลคูณของผลบวก}
 นอกจาก SOP แล้ว ยังมีอีกรูปแบบหนึ่งที่สำคัญคือ Product of Sums (POS) หรือ "ผลคูณของผลบวก" ซึ่งเป็นรูปแบบที่ใช้ Maxterms มาประกอบกัน รูปแบบ POS คือการนำผลบวก (OR) ของตัวแปรหลายๆ พจน์มาคูณ (AND) กัน รูปแบบนี้มีประโยชน์ในบางสถานการณ์ เช่น เมื่อต้องการวงจรที่ใช้ NOR gate เป็นหลัก หรือเมื่อฟังก์ชันถูกกำหนดในรูปแบบที่ง่ายต่อการเขียนเป็น POS การเข้าใจทั้ง SOP และ POS ทำให้สามารถเลือกใช้รูปแบบที่เหมาะสมกับการออกแบบวงจรได้
@@ -754,30 +813,30 @@ $f(x, y, z) = x'y'z + x'y z' + x y' z + x y z' = \sum(1, 3, 5, 7)$
 
 \begin{ex}
 เขียนฟังก์ชัน $f(x, y) = (x + y) \cdot (x' + y')$ ในรูปแบบ canonical POS
-
-จาก truth table:
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-$x$ & $y$ & $x + y$ & $x' + y'$ & $f$ \\
-\hline
-0 & 0 & 0 & 1 & 0 \\
-\hline
-0 & 1 & 1 & 0 & 0 \\
-\hline
-1 & 0 & 1 & 0 & 0 \\
-\hline
-1 & 1 & 1 & 1 & 1 \\
-\hline
-\end{tabular}
-\end{center}
-
-$f = 0$ เมื่อ $(x, y) = (0, 0)$ หรือ $(0, 1)$ หรือ $(1, 0)$
-
-ดังนั้น $f(x, y) = M_0 \cdot M_1 \cdot M_2 = \prod(0, 1, 2)$
-
-หรือ $f(x, y) = (x + y) \cdot (x + y') \cdot (x' + y)$
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item สร้าง truth table ของฟังก์ชัน:
+  \begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|}
+  \hline
+  $x$ & $y$ & $x + y$ & $x' + y'$ & $f$ \\
+  \hline
+  0 & 0 & 0 & 1 & 0 \\
+  \hline
+  0 & 1 & 1 & 0 & 0 \\
+  \hline
+  1 & 0 & 1 & 0 & 0 \\
+  \hline
+  1 & 1 & 1 & 1 & 1 \\
+  \hline
+  \end{tabular}
+  \end{center}
+  \item หาแถวที่ $f = 0$ พบว่า $(x, y) = (0, 0)$ หรือ $(0, 1)$ หรือ $(1, 0)$
+  \item เขียน maxterm สำหรับแต่ละแถว: $M_0 = x + y$, $M_1 = x + y'$, $M_2 = x' + y$
+  \item ดังนั้น $f(x, y) = M_0 \cdot M_1 \cdot M_2 = \prod(0, 1, 2) = (x + y) \cdot (x + y') \cdot (x' + y)$
+\end{solsteps}
+\end{solution}
 
 \begin{thrm}
 ความสัมพันธ์ระหว่าง SOP และ POS โดยที่ $\sum$ แทนผลบวกของ minterms และ $\prod$ แทนผลคูณของ maxterms:
@@ -796,7 +855,17 @@ $f = 0$ เมื่อ $(x, y) = (0, 0)$ หรือ $(0, 1)$ หรือ $(1
 
 \begin{ex}
 ลดรูป $f(x, y, z) = x y + x' y + x y'$
-
+\end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item $f = x y + x' y + x y'$
+  \item $= y(x + x') + x y'$ \quad (Distributive ย้อนกลับ)
+  \item $= y \cdot 1 + x y'$ \quad (Complement: $x + x' = 1$)
+  \item $= y + x y'$
+  \item $= (y + x)(y + y')$ \quad (Distributive)
+  \item $= (y + x) \cdot 1$ \quad (Complement)
+  \item $= x + y$
+\end{solsteps}
 \begin{align*}
 f &= x y + x' y + x y' \\
   &= y(x + x') + x y' \quad \text{(Distributive ย้อนกลับ)} \\
@@ -807,11 +876,23 @@ f &= x y + x' y + x y' \\
   &= x + y
 \end{align*}
 ดังนั้น $f = x + y$
-\end{ex}
+\end{solution}
 
 \begin{ex}
 ลดรูป $f(a, b, c) = a b c + a b c' + a' b + a b' c$
-
+\end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item $f = a b c + a b c' + a' b + a b' c$
+  \item $= a b(c + c') + a' b + a b' c$ \quad (Distributive)
+  \item $= a b \cdot 1 + a' b + a b' c$ \quad (Complement)
+  \item $= a b + a' b + a b' c$
+  \item $= b(a + a') + a b' c$
+  \item $= b + a b' c$ \quad (Consensus หรือ Distribution ย้อนกลับ)
+  \item $= (b + a)(b + b')(b + c)$
+  \item $= (b + a) \cdot 1 \cdot (b + c)$
+  \item $= b + a c$ \quad (Consensus หรือ Distribution ย้อนกลับ)
+\end{solsteps}
 \begin{align*}
 f &= a b c + a b c' + a' b + a b' c \\
   &= a b(c + c') + a' b + a b' c \quad \text{(Distributive)} \\
@@ -824,11 +905,18 @@ f &= a b c + a b c' + a' b + a b' c \\
   &= b + a c \quad \text{(Consensus หรือ Distribution ย้อนกลับ)}
 \end{align*}
 ดังนั้น $f = b + a c$
-\end{ex}
+\end{solution}
 
 \begin{ex}
 ลดรูป $f(x, y) = (x + y) \cdot (x + y')$
-
+\end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item $f = (x + y) \cdot (x + y')$
+  \item $= x + y \cdot y'$ \quad (Distribution: $x + yz = (x+y)(x+z)$)
+  \item $= x + 0$ \quad (Complement: $y \cdot y' = 0$)
+  \item $= x$
+\end{solsteps}
 \begin{align*}
 f &= (x + y) \cdot (x + y') \\
   &= x + y \cdot y' \quad \text{(Distribution: } x + yz = (x+y)(x+z)) \\
@@ -836,40 +924,29 @@ f &= (x + y) \cdot (x + y') \\
   &= x
 \end{align*}
 ดังนั้น $f = x$
-\end{ex}
+\end{solution}
 
 \begin{ex}
 ลดรูปนิพจน์บูลีน $f(a, b, c) = (a + b) \cdot (a' + c) + (b + c)$ อย่างละเอียดทีละขั้นตอน
+\end{ex}
 
-วิธีทำ: เราจะใช้ทฤษฎีบทต่างๆ ที่เรียนมาข้างต้นในการลดรูปอย่างเป็นระบบ โดยจะอธิบายเหตุผลในแต่ละขั้นตอนอย่างชัดเจน
-
-\begin{align*}
-f &= (a + b) \cdot (a' + c) + (b + c) \\
-  &= \underbrace{(a + b) \cdot a'}_{\text{พจน์ที่ 1}} + \underbrace{(a + b) \cdot c}_{\text{พจน์ที่ 2}} + (b + c) \quad \text{(Distributive: } x \cdot (y + z) = x \cdot y + x \cdot z \text{)} \\
-  &= \underbrace{a \cdot a'}_{\text{พจน์ที่ 1}} + \underbrace{b \cdot a'}_{\text{พจน์ที่ 2}} + \underbrace{a \cdot c}_{\text{พจน์ที่ 3}} + \underbrace{b \cdot c}_{\text{พจน์ที่ 4}} + b + c \quad \text{(Distributive อีกครั้ง)} \\
-  &= 0 + b \cdot a' + a \cdot c + b \cdot c + b + c \quad \text{(Complement: } a \cdot a' = 0 \text{)} \\
-  &= b \cdot a' + a \cdot c + \underbrace{b \cdot c + b}_{\text{พจน์ที่ 5}} + c \\
-  &= b \cdot a' + a \cdot c + b \cdot (1 + c) + c \quad \text{(Distributive ย้อนกลับ)} \\
-  &= b \cdot a' + a \cdot c + b \cdot 1 + c \quad \text{(Domination: } 1 + c = 1 \text{)} \\
-  &= b \cdot a' + a \cdot c + b + c \\
-  &= \underbrace{b \cdot a' + b}_{\text{พจน์ที่ 6}} + a \cdot c + c \\
-  &= b \cdot (a' + 1) + a \cdot c + c \quad \text{(Distributive ย้อนกลับ)} \\
-  &= b \cdot 1 + a \cdot c + c \quad \text{(Domination: } a' + 1 = 1 \text{)} \\
-  &= b + a \cdot c + c \\
-  &= b + \underbrace{a \cdot c + c}_{\text{พจน์ที่ 7}} \\
-  &= b + c \cdot (a + 1) \quad \text{(Distributive ย้อนกลับ)} \\
-  &= b + c \cdot 1 \quad \text{(Domination: } a + 1 = 1 \text{)} \\
-  &= b + c
-\end{align*}
-
-ดังนั้น $f = b + c$ ซึ่งเป็นรูปแบบที่ง่ายกว่านิพจน์เดิมมาก
-
-ตรวจสอบความถูกต้องโดยใช้ truth table สำหรับทุกกรณีของ $a, b, c$:
+\begin{solution}
+\begin{solsteps}
+    \item จากนิพจน์ $f = (a + b) \cdot (a' + c) + (b + c)$
+    \item ใช้ Distributive Law กับพจน์แรก จะได้ $f = (a + b) \cdot a' + (a + b) \cdot c + (b + c)$
+    \item กระจายต่อ จะได้ $f = a \cdot a' + b \cdot a' + a \cdot c + b \cdot c + b + c$
+    \item ใช้ Complement Law กับ $a \cdot a' = 0$ จะได้ $f = 0 + b \cdot a' + a \cdot c + b \cdot c + b + c$
+    \item จัดกลุ่มพจน์ที่ 4 กับ $b$ จะได้ $f = b \cdot a' + a \cdot c + b \cdot (1 + c) + c$
+    \item ใช้ Domination Law กับ $1 + c = 1$ จะได้ $f = b \cdot a' + a \cdot c + b + c$
+    \item จัดกลุ่ม $b \cdot a' + b = b \cdot (a' + 1)$ แล้วใช้ Domination Law อีกครั้ง จะได้ $f = b + a \cdot c + c$
+    \item จัดกลุ่ม $a \cdot c + c = c \cdot (a + 1)$ แล้วใช้ Domination Law จะได้ $f = b + c$
+\end{solsteps}
+\end{solution}
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
-$a$ & $b$ & $c$ & $(a + b) \cdot (a' + c)$ & $+(b + c)$ & $f$ (เดิม) & $b + c$ \\
+$a$ & $b$ & $c$ & $(a + b) \cdot (a' + c)$ & $b + c$ & $f$ (เดิม) & $b + c$ \\
 \hline
 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 \hline
@@ -891,7 +968,8 @@ $a$ & $b$ & $c$ & $(a + b) \cdot (a' + c)$ & $+(b + c)$ & $f$ (เดิม) & $
 \end{center}
 
 เนื่องจากคอลัมน์ $f$ (เดิม) และ $b + c$ มีค่าเท่ากันทุกแถว ดังนั้นการลดรูปถูกต้อง
-\end{ex}
+
+ดังนั้น $f = b + c$ ซึ่งเป็นรูปแบบที่ง่ายกว่านิพจน์เดิมมาก
 
 \subsection{การใช้ Consensus Theorem}
 Consensus Theorem เป็นทฤษฎีที่ได้รับการพิสูจน์แล้วว่ามีประโยชน์อย่างยิ่งในการลดรูปนิพจน์บูลีน ทฤษฎีนี้กล่าวว่าในนิพจน์ที่ประกอบด้วยพจน์สามพจน์ ถ้าพจน์หนึ่งเป็น consensus (ตัวแปรตัวหนึ่งเป็น complement ของอีกตัวแปรหนึ่งในสองพจน์แรก) แล้ว พจน์ consensus นั้นสามารถตัดออกได้โดยไม่เปลี่ยนค่าของนิพจน์ การตัดพจน์ที่ไม่จำเป็นออกจะช่วยลดความซับซ้อนของวงจรได้อย่างมาก
@@ -949,14 +1027,18 @@ $a$ & $b$ & $c$ & $ab$ & $a'c$ & $bc$ & $ab+a'c+bc$ & $ab+a'c$ \\
 
 \begin{ex}
 ลดรูป $f(x, y, z) = x y + x' z + y z$
-
+\end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item $f = x y + x' z + y z$
+  \item $= x y + x' z$ \quad (Consensus: $yz$ ถูกละทิ้ง)
+\end{solsteps}
 \begin{align*}
 f &= x y + x' z + y z \\
   &= x y + x' z \quad \text{(Consensus: } yz \text{ ถูกละทิ้ง)}
 \end{align*}
-
 ดังนั้น $f = x y + x' z$
-\end{ex}
+\end{solution}
 
 \section{แผนที่คาร์นอ (Karnaugh Map)}
 \label{sec:karnaugh-map}
@@ -1003,15 +1085,14 @@ $x = 1$ & 1 & 1 \\
 \hline
 \end{tabular}
 \end{center}
-
-Grouping:
-\begin{enumerate}
-    \item ครอบคลุม $m_1$ และ $m_3$ (คอลัมน์ $y = 1$) $\Rightarrow$ ให้ $x$
-    \item ครอบคลุม $m_2$ และ $m_3$ (แถว $x = 1$) $\Rightarrow$ ให้ $y'$
-\end{enumerate}
-
-ดังนั้น $f = x + y'$
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item ครอบคลุม $m_1$ และ $m_3$ (คอลัมน์ $y = 1$) $\Rightarrow$ ให้ $x$
+  \item ครอบคลุม $m_2$ และ $m_3$ (แถว $x = 1$) $\Rightarrow$ ให้ $y'$
+\end{solsteps}
+ดังนั้น $f = x + y'$
+\end{solution}
 
 \begin{ex}
 ใช้ K-map ลดรูป $f(x, y) = x y + x y' + x' y'$
@@ -1029,15 +1110,14 @@ $x = 1$ & 1 & 1 \\
 \hline
 \end{tabular}
 \end{center}
-
-Grouping:
-\begin{enumerate}
-    \item ครอบคลุม $m_0, m_2$ (คอลัมน์ $y = 0$) $\Rightarrow$ ให้ $x'$
-    \item ครอบคลุม $m_2, m_3$ (แถว $x = 1$) $\Rightarrow$ ให้ $x$
-\end{enumerate}
-
-ดังนั้น $f = x' + x = 1$ (ตรรกะที่เป็นจริงเสมอ)
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item ครอบคลุม $m_0, m_2$ (คอลัมน์ $y = 0$) $\Rightarrow$ ให้ $x'$
+  \item ครอบคลุม $m_2, m_3$ (แถว $x = 1$) $\Rightarrow$ ให้ $x$
+\end{solsteps}
+ดังนั้น $f = x' + x = 1$ (ตรรกะที่เป็นจริงเสมอ)
+\end{solution}
 
 \subsection{K-map สำหรับ 3 ตัวแปร}
 
@@ -1076,22 +1156,23 @@ $x = 1$ & 1 & 1 & 0 & 1 \\
 \hline
 \end{tabular}
 \end{center}
-
-Grouping:
-\begin{enumerate}
-    \item ครอบคลุม $m_0, m_1, m_4, m_5$ (2x2 block มุมซ้าย) $\Rightarrow$ ให้ $y'$
-    \item ครอบคลุม $m_0, m_2$ (wrapping ด้านขวา) $\Rightarrow$ ให้ $x'z'$
-\end{enumerate}
-
+\end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item ครอบคลุม $m_0, m_1, m_4, m_5$ (2x2 block มุมซ้าย) $\Rightarrow$ ให้ $y'$
+  \item ครอบคลุม $m_0, m_2$ (wrapping ด้านขวา) $\Rightarrow$ ให้ $x'z'$
+\end{solsteps}
 ตรวจสอบ: $f = y' + x'z'$
 
 จริงๆ แล้ว:
-\begin{enumerate}
-    \item ครอบคลุม $m_0, m_1, m_4, m_5$ ทั้งแถวบนและแถวล่างของคอลัมน์แรกสองคอลัมน์ $\Rightarrow y'$
-    \item ครอบคลุม $m_6$ กับ $m_4$ หรือ $m_2$ กับ $m_6$ (wrapping) $\Rightarrow xz'$ หรือ $xy'$
-\end{enumerate}
-
+\end{solution}
+\begin{solution}
+\begin{solsteps}
+  \item ครอบคลุม $m_0, m_1, m_4, m_5$ ทั้งแถวบนและแถวล่างของคอลัมน์แรกสองคอลัมน์ $\Rightarrow y'$
+  \item ครอบคลุม $m_6$ กับ $m_4$ หรือ $m_2$ กับ $m_6$ (wrapping) $\Rightarrow xz'$ หรือ $xy'$
+\end{solsteps}
 ดังนั้น $f = y' + x z'$
+\end{solution}
 \end{ex}
 
 \subsection{K-map สำหรับ 4 ตัวแปร}
@@ -1137,18 +1218,17 @@ $wx = 10$ & 1 & 1 & 0 & 1 \\
 \hline
 \end{tabular}
 \end{center}
-
-Grouping:
-\begin{enumerate}
-    \item ครอบคลุม $m_0, m_1, m_8, m_9$ (8-cell vertical) $\Rightarrow w'z'$
-    \item ครอบคลุม $m_0, m_2, m_8, m_{10}$ (wrapping) $\Rightarrow y'z'$
-    \item ครอบคลุม $m_4, m_6$ $\Rightarrow w x' y'$
-    \item ครอบคลุม $m_0, m_1, m_2, m_3$ $\Rightarrow w' y'$
-    \item ครอบคลุม $m_8, m_9, m_{12}, m_{14}$ $\Rightarrow x' z' + w x' y'$
-\end{enumerate}
-
-ดังนั้น $f = w' z' + w x' y'$
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item ครอบคลุม $m_0, m_1, m_8, m_9$ (8-cell vertical) $\Rightarrow w'z'$
+  \item ครอบคลุม $m_0, m_2, m_8, m_{10}$ (wrapping) $\Rightarrow y'z'$
+  \item ครอบคลุม $m_4, m_6$ $\Rightarrow w x' y'$
+  \item ครอบคลุม $m_0, m_1, m_2, m_3$ $\Rightarrow w' y'$
+  \item ครอบคลุม $m_8, m_9, m_{12}, m_{14}$ $\Rightarrow x' z' + w x' y'$
+\end{solsteps}
+ดังนั้น $f = w' z' + w x' y'$
+\end{solution}
 
 \begin{thrm}[ขั้นตอนการใช้ K-map]
 \begin{enumerate}
@@ -1240,61 +1320,42 @@ $a$ & $b$ & $(a + b)'$ \\
 
 \begin{ex}
 วงจรสำหรับ $f(x, y, z) = x y + x' z$:
-
-\begin{enumerate}
-    \item NOT gate สำหรับ $x$ ให้ $x'$
-    \item AND gate สำหรับ $x$ และ $y$ ให้ $x y$
-    \item AND gate สำหรับ $x'$ และ $z$ ให้ $x' z$
-    \item OR gate สำหรับ $x y$ และ $x' z$ ให้ $x y + x' z$
-\end{enumerate}
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item NOT gate สำหรับ $x$ ให้ $x'$
+  \item AND gate สำหรับ $x$ และ $y$ ให้ $x y$
+  \item AND gate สำหรับ $x'$ และ $z$ ให้ $x' z$
+  \item OR gate สำหรับ $x y$ และ $x' z$ ให้ $x y + x' z$
+\end{solsteps}
+\end{solution}
 
 \begin{ex}
 ลดรูปและวาดวงจรสำหรับ $f(a, b, c) = (a + b) \cdot (a + c)$
-
-ใช้ Distributive Law: $(a + b)(a + c) = a + b c$
-
-ดังนั้นวงจรที่ลดรูปแล้ว:
-\begin{enumerate}
-    \item AND gate สำหรับ $b$ และ $c$ ให้ $b c$
-    \item OR gate สำหรับ $a$ และ $b c$ ให้ $a + b c$
-\end{enumerate}
-
-วงจรที่ลดรูปใช้ 1 AND gate และ 1 OR gate (ลดจาก 2 OR gates และ 1 AND gate)
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item ใช้ Distributive Law: $(a + b)(a + c) = a + b c$
+  \item วงจรที่ลดรูปแล้ว: AND gate สำหรับ $b$ และ $c$ ให้ $b c$
+  \item OR gate สำหรับ $a$ และ $b c$ ให้ $a + b c$
+  \item วงจรที่ลดรูปใช้ 1 AND gate และ 1 OR gate (ลดจาก 2 OR gates และ 1 AND gate)
+\end{solsteps}
+\end{solution}
 
 \subsection{การออกแบบวงจร Combination}
 
 \begin{ex}
 ออกแบบวงจรที่ตรวจสอบว่าจำนวน 3-bit เป็นเลขคู่ (even)
-
-ถ้า input เป็น $x, y, z$ และผลลัพธ์เป็น 1 เมื่อจำนวนเป็นเลขคู่:
-
-$f(x, y, z) = 1$ เมื่อมีจำนวน 1 ที่เป็นคู่ (0, 2)
-
-Minterms: $m_0$ (000), $m_3$ (011), $m_5$ (101), $m_6$ (110)
-
-$f(x, y, z) = x' y' z' + x' y z + x y' z + x y z'$
-
-ลดรูปโดยใช้ K-map:
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|}
-\hline
- & $yz = 00$ & $yz = 01$ & $yz = 11$ & $yz = 10$ \\
-\hline
-$x = 0$ & 1 & 0 & 1 & 0 \\
-\hline
-$x = 1$ & 0 & 1 & 0 & 1 \\
-\hline
-\end{tabular}
-\end{center}
-
-$f = x' y' z' + x' y z + x y' z + x y z'$
-
-สังเกตว่า $f = (x \oplus y) \oplus z$ หรือ parity function
-
-ลดรูปเป็น $f = x \oplus y \oplus z$
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item ถ้า input เป็น $x, y, z$ และผลลัพธ์เป็น 1 เมื่อจำนวนเป็นเลขคู่
+  \item $f(x, y, z) = 1$ เมื่อมีจำนวน 1 ที่เป็นคู่ (0, 2)
+  \item Minterms: $m_0$ (000), $m_3$ (011), $m_5$ (101), $m_6$ (110)
+  \item $f(x, y, z) = x' y' z' + x' y z + x y' z + x y z'$
+  \item ลดรูปโดยใช้ K-map ได้ $f = x \oplus y \oplus z$ (parity function)
+\end{solsteps}
+\end{solution}
 
 \section{Two-level Realization}
 \label{sec:two-level}
@@ -1311,84 +1372,40 @@ $f = x' y' z' + x' y z + x y' z + x y z'$
 
 \begin{ex}
 realization SOP สำหรับ $f(x, y, z) = y' + x y + x' y' z$
-
-วงจรประกอบด้วย:
-\begin{enumerate}
-    \item NOT gate สำหรับ $y$ ให้ $y'$
-    \item AND gate สำหรับ $x$ และ $y$ ให้ $x y$
-    \item AND gate สำหรับ $x', y', z$ ให้ $x' y' z$
-    \item OR gate สำหรับ $y', x y, x' y' z$ ให้ $f$
-\end{enumerate}
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item วงจรประกอบด้วย NOT gate สำหรับ $y$ ให้ $y'$
+  \item AND gate สำหรับ $x$ และ $y$ ให้ $x y$
+  \item AND gate สำหรับ $x', y', z$ ให้ $x' y' z$
+  \item OR gate สำหรับ $y', x y, x' y' z$ ให้ $f$
+\end{solsteps}
+\end{solution}
 
 \section{Half Adder และ Full Adder}
 \label{sec:adders}
 
 \begin{ex}
 ออกแบบ Half Adder
-
-Half Adder รับ input 2 bits $x, y$ และให้ผลลัพธ์:
-\begin{enumerate}
-    \item Sum $S = x \oplus y = x y' + x' y$
-    \item Carry $C = x \cdot y$
-\end{enumerate}
-
-Truth Table:
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-$x$ & $y$ & $S$ & $C$ \\
-\hline
-0 & 0 & 0 & 0 \\
-\hline
-0 & 1 & 1 & 0 \\
-\hline
-1 & 0 & 1 & 0 \\
-\hline
-1 & 1 & 0 & 1 \\
-\hline
-\end{tabular}
-\end{center}
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item Half Adder รับ input 2 bits $x, y$ และให้ผลลัพธ์ Sum $S = x \oplus y = x y' + x' y$
+  \item Carry $C = x \cdot y$
+  \item Truth Table แสดงผลลัพธ์ของทุกกรณี
+\end{solsteps}
+\end{solution}
 
 \begin{ex}
 ออกแบบ Full Adder
-
-Full Adder รับ input 3 bits $x, y, z_{in}$ และให้ผลลัพธ์:
-\begin{enumerate}
-    \item Sum $S = x \oplus y \oplus z_{in}$
-    \item Carry $C_{out} = x y + x z_{in} + y z_{in}$
-\end{enumerate}
-
-Truth Table:
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-$x$ & $y$ & $z_{in}$ & $S$ & $C_{out}$ \\
-\hline
-0 & 0 & 0 & 0 & 0 \\
-\hline
-0 & 0 & 1 & 1 & 0 \\
-\hline
-0 & 1 & 0 & 1 & 0 \\
-\hline
-0 & 1 & 1 & 0 & 1 \\
-\hline
-1 & 0 & 0 & 1 & 0 \\
-\hline
-1 & 0 & 1 & 0 & 1 \\
-\hline
-1 & 1 & 0 & 0 & 1 \\
-\hline
-1 & 1 & 1 & 1 & 1 \\
-\hline
-\end{tabular}
-\end{center}
-
-สำหรับ $S$ ใช้ K-map ลดรูปเป็น $S = x \oplus y \oplus z_{in}$
-
-สำหรับ $C_{out}$ ใช้ K-map ลดรูปเป็น $C_{out} = xy + xz_{in} + yz_{in}$
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item Full Adder รับ input 3 bits $x, y, z_{in}$ และให้ผลลัพธ์ Sum $S = x \oplus y \oplus z_{in}$
+  \item Carry $C_{out} = x y + x z_{in} + y z_{in}$
+  \item Truth Table แสดงผลลัพธ์ของทุกกรณี
+\end{solsteps}
+\end{solution}
 
 \section{สมมูลของพีชคณิตบูลีน (Boolean Algebra Equivalence)}
 \label{sec:boolean-equivalence}
@@ -1647,15 +1664,14 @@ $x=1$ & 0 & 1 & 1 & 0 \\
 \hline
 \end{tabular}
 \end{center}
-
-จัดกลุ่ม:
-\begin{enumerate}
-    \item กลุ่มที่ 1: ครอบคลุม cells 0, 1, 2, 3 (ทั้งแถวบน) $\rightarrow$ $x'$
-    \item กลุ่มที่ 2: ครอบคลุม cells 1, 5 $\rightarrow$ $yz$
-\end{enumerate}
-
-ผลลัพธ์ที่ลดรูปแล้ว: $F = x' + yz$
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item จัดกลุ่มที่ 1: ครอบคลุม cells 0, 1, 2, 3 (ทั้งแถวบน) $\rightarrow$ $x'$
+  \item จัดกลุ่มที่ 2: ครอบคลุม cells 1, 5 $\rightarrow$ $yz$
+  \item ผลลัพธ์ที่ลดรูปแล้ว: $F = x' + yz$
+\end{solsteps}
+\end{solution}
 
 
 \subsection{Logic Gates และวงจรดิจิทัล}
@@ -1688,6 +1704,12 @@ NOR & $Y = (A + B)'$ \\
 $$Y = ((AB)')' = AB$$
 นำ output ของ NAND gate มาเข้า NOT gate (ซึ่งก็คือ NAND gate ที่ input ทั้งสองเท่ากัน)
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item ใช้ NAND gate สร้าง NOT gate โดยต่อ input ทั้งสองขาเข้าด้วยกัน: $Y = (A \cdot A)' = A'$
+  \item นำ NAND gate output มาเข้า NOT gate อีกที: $Y = ((AB)')' = AB$
+\end{solsteps}
+\end{solution}
 
 \subsection{Half Adder และ Full Adder}
 Adder circuits เป็นพื้นฐานของ arithmetic logic unit (ALU) ใน CPU
@@ -1717,6 +1739,13 @@ $C_{out} = AB + C_{in}(A \oplus B)$
 
 สามารถสร้างได้จาก 2 Half Adders + 1 OR gate
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item Half Adder ตัวที่ 1: รับ A, B ได้ $S_1 = A \oplus B$, $C_1 = AB$
+  \item Half Adder ตัวที่ 2: รับ $S_1$, $C_{in}$ ได้ $S = S_1 \oplus C_{in} = A \oplus B \oplus C_{in}$
+  \item OR gate: รับ $C_1$ และ $C_{in} \cdot S_1$ ได้ $C_{out} = C_1 + C_{in} \cdot S_1 = AB + C_{in}(A \oplus B)$
+\end{solsteps}
+\end{solution}
 
 \subsection{Multiplexer และ Demultiplexer}
 \begin{definition}
@@ -1770,6 +1799,13 @@ S2 (saw 10) & S0 & S1 & 1 \\
 
 State transitions และ outputs สามารถเขียนเป็น Boolean expressions ได้
 \end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item กำหนด state variables: $Q_1, Q_0$ (2 bits แทน 3 states)
+  \item เขียน state table สำหรับ next state และ output เป็น Boolean functions
+  \item ใช้ K-map หรือ Boolean algebra ลดรูป expressions สำหรับแต่ละ flip-flop input
+\end{solsteps}
+\end{solution}
 
 \section{สรุป}
 \label{sec:chapter-summary}

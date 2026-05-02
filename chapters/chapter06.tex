@@ -135,7 +135,7 @@ $a$ & $b$ & $a + b$ \\
 \end{ex}
 
 \begin{thrm}[Properties ของ OR]
-สำหรับทุก $a, b, c \in \{0, 1\}$:
+สำหรับทุก $a, b, c \in \{0, 1\}$ โดยที่ $a, b, c$ แทนค่าบูลีนใดๆ:
 \begin{enumerate}
     \item $a + a = a$ \hfill (Idempotent Law)
     \item $a + 0 = a$ \hfill (Identity Law)
@@ -178,7 +178,7 @@ $a$ & $b$ & $a \cdot b$ \\
 \end{ex}
 
 \begin{thrm}[Properties ของ AND]
-สำหรับทุก $a, b, c \in \{0, 1\}$:
+สำหรับทุก $a, b, c \in \{0, 1\}$ โดยที่ $a, b, c$ แทนค่าบูลีนใดๆ:
 \begin{enumerate}
     \item $a \cdot a = a$ \hfill (Idempotent Law)
     \item $a \cdot 0 = 0$ \hfill (Domination Law)
@@ -217,7 +217,7 @@ $a$ & $a'$ \\
 \end{ex}
 
 \begin{thrm}[Properties ของ NOT]
-สำหรับทุก $a \in \{0, 1\}$:
+สำหรับทุก $a \in \{0, 1\}$ โดยที่ $a$ แทนค่าบูลีนใดๆ:
 \begin{enumerate}
     \item $a + a' = 1$ \hfill (Complement Law ข้อ 1)
     \item $a \cdot a' = 0$ \hfill (Complement Law ข้อ 2)
@@ -262,7 +262,7 @@ $a$ & $b$ & $a \oplus b$ \\
 \end{definition}
 
 \begin{thrm}[คุณสมบัติของ XOR]
-สำหรับทุก $a, b, c \in \{0, 1\}$:
+สำหรับทุก $a, b, c \in \{0, 1\}$ โดยที่ $a, b, c$ แทนค่าบูลีนใดๆ:
 \begin{enumerate}
     \item $a \oplus 0 = a$ \hfill (Identity)
     \item $a \oplus 1 = a'$ \hfill (Complement)
@@ -316,7 +316,7 @@ $a$ & $b$ & $a'$ & $b'$ & $a \cdot b'$ & $a' \cdot b$ & $a \cdot b' + a' \cdot b
 
 \subsection{Distributive Laws}
 \begin{thrm}[Distributive Laws]
-สำหรับทุก $a, b, c \in \{0, 1\}$:
+สำหรับทุก $a, b, c \in \{0, 1\}$ โดยที่ $a, b, c$ แทนค่าบูลีนใดๆ:
 \begin{enumerate}
     \item $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$ \hfill (AND กระจายเหนือ OR)
     \item $a + (b \cdot c) = (a + b) \cdot (a + c)$ \hfill (OR กระจายเหนือ AND)
@@ -445,7 +445,7 @@ $a$ & $b$ & $c$ & $b \cdot c$ & $a + (b \cdot c)$ & $a + b$ & $a + c$ & $(a + b)
 การดูดกลืน (Absorption) เป็นคุณสมบัติที่แสดงให้เห็นว่าการดำเนินการ OR และ AND มีความสัมพันธ์กันอย่างลึกซึ้ง คุณสมบัตินี้บอกเราว่าเมื่อนำผลลัพธ์ของการดำเนินการหนึ่งไปดำเนินการกับอีกตัวแปรหนึ่ง ผลลัพธ์จะ "ถูกดูดกลืน" กลับมาเป็นตัวแปรเดิม เช่นเดียวกับการนำน้ำไปเติมลงในแก้วที่มีน้ำอยู่แล้ว น้ำใหม่จะผสานเป็นเนื้อเดียวกับน้ำเดิม คุณสมบัตินี้มีประโยชน์มากในการทำให้นิพจน์บูลีนง่ายขึ้น เพราะช่วยตัดพจน์ที่ซ้ำซ้อนออกไปได้
 
 \begin{thrm}[Absorption Laws]
-สำหรับทุก $a, b \in \{0, 1\}$:
+สำหรับทุก $a, b \in \{0, 1\}$ โดยที่ $a$ และ $b$ แทนค่าบูลีนใดๆ:
 \begin{enumerate}
     \item $a + (a \cdot b) = a$ \hfill (Absorption Law ข้อ 1)
     \item $a \cdot (a + b) = a$ \hfill (Absorption Law ข้อ 2)
@@ -504,7 +504,7 @@ $a$ & $b$ & $a + b$ & $a \cdot (a + b)$ & $a$ \\
 กฎของ De Morganตั้งชื่อตาม Augustus De Morgan (1806--1871) นักคณิตศาสตร์ชาวอังกฤษ เช่นเดียวกับในทฤษฎีเซต กฎของ De Morgan เป็นหนึ่งในกฎที่สำคัญที่สุดของพีชคณิตบูลีน เนื่องจากเป็นเครื่องมือในการหา complement ของนิพจน์บูลีนที่ซับซ้อน หลักการพื้นฐานของกฎของ De Morgan คือ complement ของผลลัพธ์จะเท่ากับผลลัพธ์ของ complements แต่ต้องสลับเครื่องหมายการดำเนินการด้วย
 
 \begin{thrm}[De Morgan's Laws สำหรับพีชคณิตบูลีน]
-สำหรับทุก $a, b \in \{0, 1\}$:
+สำหรับทุก $a, b \in \{0, 1\}$ โดยที่ $a$ และ $b$ แทนค่าบูลีนใดๆ:
 \begin{enumerate}
     \item $(a + b)' = a' \cdot b'$ \hfill (Complement ของ OR = AND ของ Complements)
     \item $(a \cdot b)' = a' + b'$ \hfill (Complement ของ AND = OR ของ Complements)
@@ -694,7 +694,7 @@ $x$ & $y$ & $z$ & $y'$ & $x + y'$ & $(x + y') \cdot z$ & $x \cdot y$ & $f$ \\
 \end{definition}
 
 \begin{thrm}
-ความสัมพันธ์ระหว่าง Minterm และ Maxterm:
+ความสัมพันธ์ระหว่าง Minterm และ Maxterm โดยที่ $m_i$ และ $M_i$ แทน minterm และ maxterm ลำดับที่ $i$:
 \begin{enumerate}
     \item $m_i = M_i'$
     \item $M_i = m_i'$
@@ -780,7 +780,7 @@ $f = 0$ เมื่อ $(x, y) = (0, 0)$ หรือ $(0, 1)$ หรือ $(1
 \end{ex}
 
 \begin{thrm}
-ความสัมพันธ์ระหว่าง SOP และ POS:
+ความสัมพันธ์ระหว่าง SOP และ POS โดยที่ $\sum$ แทนผลบวกของ minterms และ $\prod$ แทนผลคูณของ maxterms:
 ถ้า $f(x_1, \ldots, x_n) = \sum(m_{i_1}, m_{i_2}, \ldots)$ แล้ว $f(x_1, \ldots, x_n) = \prod(M_{j_1}, M_{j_2}, \ldots)$
 
 โดยที่ $\{j_1, j_2, \ldots\}$ คือ maxterms ที่ไม่อยู่ใน minterm list
@@ -836,6 +836,61 @@ f &= (x + y) \cdot (x + y') \\
   &= x
 \end{align*}
 ดังนั้น $f = x$
+\end{ex}
+
+\begin{ex}
+ลดรูปนิพจน์บูลีน $f(a, b, c) = (a + b) \cdot (a' + c) + (b + c)$ อย่างละเอียดทีละขั้นตอน
+
+วิธีทำ: เราจะใช้ทฤษฎีบทต่างๆ ที่เรียนมาข้างต้นในการลดรูปอย่างเป็นระบบ โดยจะอธิบายเหตุผลในแต่ละขั้นตอนอย่างชัดเจน
+
+\begin{align*}
+f &= (a + b) \cdot (a' + c) + (b + c) \\
+  &= \underbrace{(a + b) \cdot a'}_{พจน์ที่ 1} + \underbrace{(a + b) \cdot c}_{พจน์ที่ 2} + (b + c) \quad \text{(Distributive: } x \cdot (y + z) = x \cdot y + x \cdot z \text{)} \\
+  &= \underbrace{a \cdot a'}_{พจน์ที่ 1} + \underbrace{b \cdot a'}_{พจน์ที่ 2} + \underbrace{a \cdot c}_{พจน์ที่ 3} + \underbrace{b \cdot c}_{พจน์ที่ 4} + b + c \quad \text{(Distributive อีกครั้ง)} \\
+  &= 0 + b \cdot a' + a \cdot c + b \cdot c + b + c \quad \text{(Complement: } a \cdot a' = 0 \text{)} \\
+  &= b \cdot a' + a \cdot c + \underbrace{b \cdot c + b}_{พจน์ที่ 5} + c \\
+  &= b \cdot a' + a \cdot c + b \cdot (1 + c) + c \quad \text{(Distributive ย้อนกลับ)} \\
+  &= b \cdot a' + a \cdot c + b \cdot 1 + c \quad \text{(Domination: } 1 + c = 1 \text{)} \\
+  &= b \cdot a' + a \cdot c + b + c \\
+  &= \underbrace{b \cdot a' + b}_{พจน์ที่ 6} + a \cdot c + c \\
+  &= b \cdot (a' + 1) + a \cdot c + c \quad \text{(Distributive ย้อนกลับ)} \\
+  &= b \cdot 1 + a \cdot c + c \quad \text{(Domination: } a' + 1 = 1 \text{)} \\
+  &= b + a \cdot c + c \\
+  &= b + \underbrace{a \cdot c + c}_{พจน์ที่ 7} \\
+  &= b + c \cdot (a + 1) \quad \text{(Distributive ย้อนกลับ)} \\
+  &= b + c \cdot 1 \quad \text{(Domination: } a + 1 = 1 \text{)} \\
+  &= b + c
+\end{align*}
+
+ดังนั้น $f = b + c$ ซึ่งเป็นรูปแบบที่ง่ายกว่านิพจน์เดิมมาก
+
+ตรวจสอบความถูกต้องโดยใช้ truth table สำหรับทุกกรณีของ $a, b, c$:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$a$ & $b$ & $c$ & $(a + b) \cdot (a' + c)$ & $+(b + c)$ & $f$ (เดิม) & $b + c$ \\
+\hline
+0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+0 & 0 & 1 & 1 & 1 & 1 & 1 \\
+\hline
+0 & 1 & 0 & 1 & 1 & 1 & 1 \\
+\hline
+0 & 1 & 1 & 1 & 1 & 1 & 1 \\
+\hline
+1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+1 & 0 & 1 & 1 & 1 & 1 & 1 \\
+\hline
+1 & 1 & 0 & 1 & 1 & 1 & 1 \\
+\hline
+1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+
+เนื่องจากคอลัมน์ $f$ (เดิม) และ $b + c$ มีค่าเท่ากันทุกแถว ดังนั้นการลดรูปถูกต้อง
 \end{ex}
 
 \subsection{การใช้ Consensus Theorem}

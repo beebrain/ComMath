@@ -1,0 +1,84 @@
+% !TeX program = xelatex
+\documentclass{kkubee_edit_all}
+
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+%% ============ Theorem Environments ============
+\newtheorem{thrm}{ทฤษฎีบท}[chapter]
+\newtheorem{ex}[thrm]{ตัวอย่างที่}
+\newtheorem{rem}[thrm]{หมายเหตุ}
+\newtheorem{warning}[thrm]{คำเตือน}
+\newtheorem{prop}[thrm]{บทแทรก}
+\newtheorem{cor}[thrm]{บทสรุป}
+\newtheorem{definition}[thrm]{นิยาม}
+\newtheorem{exercise}{แบบฝึกหัด}[chapter]
+
+%% โหลด mathstyle ที่เราสร้างไว้
+\usepackage{mathstyle}
+
+\begin{document}
+\chapter*{สาธิตรูปแบบกล่องคณิตศาสตร์ (Modern Math Style Demo)}
+\addcontentsline{toc}{chapter}{สาธิตรูปแบบกล่องคณิตศาสตร์}
+
+เอกสารนี้แสดงตัวอย่างรูปแบบกล่องข้อความคณิตศาสตร์ต่างๆ ที่กำหนดไว้ใน \texttt{mathstyle.sty} ซึ่งได้รับการปรับปรุงให้มีสีสันโทน Pastel ดูทันสมัย ขอบมน และมีเงา (Drop shadow) เพื่อให้ผู้เรียนอ่านง่ายและสบายตา
+
+\vspace{1cm}
+
+\begin{definition}[นิพจน์ (Expression)]
+ในทางคณิตศาสตร์ นิพจน์คือการรวมกันของตัวเลข ตัวแปร และตัวดำเนินการ ที่สามารถหาค่าได้ ตัวอย่างเช่น $3x + 5$ หรือ $y^2 - 2y + 1$
+\end{definition}
+
+\begin{thrm}[ทฤษฎีบทพีทาโกรัส]
+สำหรับรูปสามเหลี่ยมมุมฉากใดๆ พื้นที่ของรูปสี่เหลี่ยมจัตุรัสบนด้านตรงข้ามมุมฉาก เท่ากับผลรวมของพื้นที่ของรูปสี่เหลี่ยมจัตุรัสบนด้านประกอบมุมฉากทั้งสอง
+\[ c^2 = a^2 + b^2 \]
+\end{thrm}
+
+\begin{prop}[สมบัติการสลับที่]
+การบวกและการคูณมีสมบัติการสลับที่ ดังนี้
+\begin{itemize}
+    \item $a + b = b + a$
+    \item $a \cdot b = b \cdot a$
+\end{itemize}
+\end{prop}
+
+\begin{cor}
+จากทฤษฎีบทก่อนหน้า สามารถสรุปได้ว่าสมการเชิงเส้นตัวแปรเดียวมีเพียงคำตอบเดียวเสมอ
+\end{cor}
+
+\begin{rem}
+\text{หมายเหตุ:} ตัวแปรที่ใช้ในสมการนี้ต้องเป็นจำนวนจริง (\text{Real Numbers}) เท่านั้น
+\end{rem}
+
+\begin{warning}[ข้อควรระวัง]
+ห้ามหารด้วยศูนย์ ($0$) ในทุกกรณี เนื่องจากไม่มีนิยามในทางคณิตศาสตร์ และจะทำให้เกิดข้อผิดพลาดในการคำนวณ
+\end{warning}
+
+\begin{ex}[การแก้สมการเชิงเส้น]
+จงหาค่าของ $x$ จากสมการ $2x + 5 = 15$
+\end{ex}
+
+\begin{solution}
+\begin{solsteps}
+    \item จากสมการ $2x + 5 = 15$
+    \item นำ $5$ ไปลบทั้งสองข้าง: $2x = 15 - 5$
+    \item จะได้ $2x = 10$
+    \item นำ $2$ ไปหารทั้งสองข้าง: $x = \frac{10}{2}$
+    \item ดังนั้นคำตอบคือ \mathoval{x = 5}
+\end{solsteps}
+\end{solution}
+
+\begin{exercise}
+จงพิสูจน์ว่าหาก $x^2$ เป็นจำนวนคู่ แล้ว $x$ จะต้องเป็นจำนวนคู่
+\end{exercise}
+
+\begin{proof}
+สมมติให้ $x$ เป็นจำนวนคู่ ดังนั้น $x = 2k$ สำหรับจำนวนเต็ม $k$ บางตัว
+เมื่อนำมาพิจารณา $x^2$:
+\[ x^2 = (2k)^2 = 4k^2 = 2(2k^2) \]
+เนื่องจาก $2k^2$ เป็นจำนวนเต็ม จะได้ว่า $x^2$ เป็นจำนวนคู่ \qedhere
+\end{proof}
+
+\end{document}

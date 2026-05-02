@@ -3,7 +3,29 @@
 
 \RequirePackage{tikz}
 \RequirePackage[most]{tcolorbox}
-\tcbuselibrary{skins,breakable}
+\tcbuselibrary{skins,breakable,theorems}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{fancybox} % ใช้สำหรับวาดกรอบวงรีโดยไม่พึ่ง tikz
+
+%% ─────────────── New Macros for Examples ───────────────
+%% Macro สำหรับวงรีล้อมรอบสมการแบบไม่ใช้ tikz (ใช้ ovalbox แทน)
+\newcommand{\mathoval}[1]{%
+  \ovalbox{\ensuremath{\displaystyle #1}}%
+}
+
+%% Environment สำหรับขั้นตอนวิธีทำ
+\newenvironment{solsteps}{%
+  \vspace{0.1em}
+  \begin{list}{}{%
+    \setlength{\topsep}{0.1em}
+    \setlength{\itemsep}{0.1em}
+    \setlength{\leftmargin}{1em}
+    \setlength{\labelwidth}{0em}
+    \setlength{\labelsep}{0em}
+  }
+}{%
+  \end{list}
+}
 
 %% ─────────────── Color Palette (Muted Pastel Theme) ───────────────
 \definecolor{thrmBar}{HTML}{5499C7}   % Muted Blue
@@ -167,16 +189,14 @@
 
 %% ─────────────── Solution Environment ───────────────
 \newenvironment{solution}{%
-  \par\vspace{0.5em}
-  \begin{list}{}{%
-    \setlength{\leftmargin}{1.5cm}
-    \setlength{\rightmargin}{0pt}
-  }
-  \item[] \textbf{\color{exTitle}วิธีทำ.}\quad\ignorespaces
+  \par\vspace{0.8em}
+  \noindent\textbf{\color{black}วิธีทำ}\quad
+  \begin{minipage}[t]{\dimexpr\textwidth-1.5cm\relax}
 }{%
-  \hfill$\diamond$
-  \end{list}
-  \par\medskip
+  \end{minipage}
+  \par\vspace{1em}
+  \noindent\textcolor{gray!40}{\rule{\textwidth}{0.5pt}}
+  \par\vspace{1.5em}
 }
 
 \endinput

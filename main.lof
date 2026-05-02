@@ -1,40 +1,40 @@
 \noaddvspace 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1}{\ignorespaces แผนภาพเวนน์แสดงกฎของ De Morgan ทั้งสองข้อ}}{13}{figure.caption.7}%
-\contentsline {figure}{\numberline {2}{\ignorespaces ภาพรวมตารางความจริงของตัวเชื่อมประพจน์ทั้ง 5 ตัว}}{15}{figure.caption.11}%
-\contentsline {figure}{\numberline {3}{\ignorespaces วงจรลอจิกเกต AND แสดงการทำงานของ $p \land q$}}{16}{figure.caption.12}%
-\contentsline {figure}{\numberline {4}{\ignorespaces แผนภาพเวนน์แสดงประพจน์ $p$ และ $q$ กับบริเวณที่แสดง $p \land q$, $p \lor q$, และ $\neg p$}}{17}{figure.caption.14}%
-\contentsline {figure}{\numberline {5}{\ignorespaces วงจรลอจิกเกต OR แสดงการทำงานของ $p \vee q$}}{18}{figure.caption.16}%
-\contentsline {figure}{\numberline {6}{\ignorespaces ตารางความจริงของ Implication $p \rightarrow q$ แสดงกรณีที่เป็นเท็จเพียงเมื่อ $p=T$ แต่ $q=F$}}{20}{figure.caption.19}%
-\contentsline {figure}{\numberline {7}{\ignorespaces แผนผังแสดงกฎการอนุมานแบบ Modus Ponens}}{27}{figure.caption.28}%
-\contentsline {figure}{\numberline {8}{\ignorespaces แผนผังแสดงกฎการอนุมานแบบ Modus Tollens}}{28}{figure.caption.29}%
+\contentsline {figure}{\numberline {1}{\ignorespaces แผนภาพเวนน์แสดงกฎของ De Morgan ทั้งสองข้อ}}{15}{figure.caption.7}%
+\contentsline {figure}{\numberline {2}{\ignorespaces ภาพรวมตารางความจริงของตัวเชื่อมประพจน์ทั้ง 5 ตัว}}{18}{figure.caption.11}%
+\contentsline {figure}{\numberline {3}{\ignorespaces วงจรลอจิกเกต AND แสดงการทำงานของ $p \land q$}}{19}{figure.caption.12}%
+\contentsline {figure}{\numberline {4}{\ignorespaces แผนภาพเวนน์แสดงประพจน์ $p$ และ $q$ กับบริเวณที่แสดง $p \land q$, $p \lor q$, และ $\neg p$}}{20}{figure.caption.14}%
+\contentsline {figure}{\numberline {5}{\ignorespaces วงจรลอจิกเกต OR แสดงการทำงานของ $p \vee q$}}{21}{figure.caption.16}%
+\contentsline {figure}{\numberline {6}{\ignorespaces ตารางความจริงของ Implication $p \rightarrow q$ แสดงกรณีที่เป็นเท็จเพียงเมื่อ $p=T$ แต่ $q=F$}}{23}{figure.caption.19}%
+\contentsline {figure}{\numberline {7}{\ignorespaces แผนผังแสดงกฎการอนุมานแบบ Modus Ponens}}{30}{figure.caption.28}%
+\contentsline {figure}{\numberline {8}{\ignorespaces แผนผังแสดงกฎการอนุมานแบบ Modus Tollens}}{31}{figure.caption.29}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {9}{\ignorespaces แผนภาพเวนน์แสดงการดำเนินการยูเนียน $A \cup B$}}{50}{figure.caption.34}%
-\contentsline {figure}{\numberline {10}{\ignorespaces แผนภาพเวนน์แสดงการดำเนินการอินเตอร์เซกชัน $A \cap B$}}{51}{figure.caption.35}%
-\contentsline {figure}{\numberline {11}{\ignorespaces แผนภาพเวนน์แสดง Distributive Law $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$}}{52}{figure.caption.36}%
-\contentsline {figure}{\numberline {12}{\ignorespaces แผนภาพเวนน์แสดงผลต่างของเซต $A \setminus B$}}{53}{figure.caption.37}%
-\contentsline {figure}{\numberline {13}{\ignorespaces แผนภาพเวนน์แสดงส่วนเติมเต็ม (Complement) $A^c$ ของเซต $A$}}{54}{figure.caption.38}%
-\contentsline {figure}{\numberline {14}{\ignorespaces กฎของเดมอร์แกน: แผนภาพเวนน์แสดง $(A \cup B)^c = A^c \cap B^c$ และ $(A \cap B)^c = A^c \cup B^c$}}{55}{figure.caption.39}%
+\contentsline {figure}{\numberline {9}{\ignorespaces แผนภาพเวนน์แสดงการดำเนินการยูเนียน $A \cup B$}}{53}{figure.caption.34}%
+\contentsline {figure}{\numberline {10}{\ignorespaces แผนภาพเวนน์แสดงการดำเนินการอินเตอร์เซกชัน $A \cap B$}}{54}{figure.caption.35}%
+\contentsline {figure}{\numberline {11}{\ignorespaces แผนภาพเวนน์แสดง Distributive Law $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$}}{56}{figure.caption.36}%
+\contentsline {figure}{\numberline {12}{\ignorespaces แผนภาพเวนน์แสดงผลต่างของเซต $A \setminus B$}}{57}{figure.caption.37}%
+\contentsline {figure}{\numberline {13}{\ignorespaces แผนภาพเวนน์แสดงส่วนเติมเต็ม (Complement) $A^c$ ของเซต $A$}}{59}{figure.caption.38}%
+\contentsline {figure}{\numberline {14}{\ignorespaces กฎของเดมอร์แกน: แผนภาพเวนน์แสดง $(A \cup B)^c = A^c \cap B^c$ และ $(A \cap B)^c = A^c \cup B^c$}}{60}{figure.caption.39}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {15}{\ignorespaces ความสัมพันธ์เป็นกราฟชี้ทิศทาง (Directed Graph) จากเซต $A=\{1,2,3\}$ ไปยังเซต $B=\{a,b,c\}$}}{79}{figure.caption.43}%
-\contentsline {figure}{\numberline {16}{\ignorespaces ความสัมพันธ์สะท้อน (Reflexive Relation) พร้อมลูกศรวน (loops) แสดง $(a,a)$}}{82}{figure.caption.44}%
-\contentsline {figure}{\numberline {17}{\ignorespaces ความสัมพันธ์สมมาตร (Symmetric Relation) พร้อมลูกศรสองทิศทาง}}{83}{figure.caption.45}%
-\contentsline {figure}{\numberline {18}{\ignorespaces ความสัมพันธ์เป็นผลาด (Antisymmetric Relation) พร้อมลูกศรทิศทางเดียว}}{85}{figure.caption.46}%
-\contentsline {figure}{\numberline {19}{\ignorespaces ความสัมพันธ์ถ่ายทอด (Transitive Relation) แสดงลูกโซ่ $a\to b\to c$}}{86}{figure.caption.47}%
-\contentsline {figure}{\numberline {20}{\ignorespaces ความสัมพันธ์สมมูล (Equivalence Relation) แบ่งเซตออกเป็นคลาสเชิงสมมูล}}{89}{figure.caption.49}%
-\contentsline {figure}{\numberline {21}{\ignorespaces ไดอะแกรมฮาสเซ (Hasse Diagram) แสดง Partial Order จากความสัมพันธ์หารลงตัว}}{93}{figure.caption.50}%
+\contentsline {figure}{\numberline {15}{\ignorespaces ความสัมพันธ์เป็นกราฟชี้ทิศทาง (Directed Graph) จากเซต $A=\{1,2,3\}$ ไปยังเซต $B=\{a,b,c\}$}}{84}{figure.caption.43}%
+\contentsline {figure}{\numberline {16}{\ignorespaces ความสัมพันธ์สะท้อน (Reflexive Relation) พร้อมลูกศรวน (loops) แสดง $(a,a)$}}{86}{figure.caption.44}%
+\contentsline {figure}{\numberline {17}{\ignorespaces ความสัมพันธ์สมมาตร (Symmetric Relation) พร้อมลูกศรสองทิศทาง}}{88}{figure.caption.45}%
+\contentsline {figure}{\numberline {18}{\ignorespaces ความสัมพันธ์เป็นผลาด (Antisymmetric Relation) พร้อมลูกศรทิศทางเดียว}}{89}{figure.caption.46}%
+\contentsline {figure}{\numberline {19}{\ignorespaces ความสัมพันธ์ถ่ายทอด (Transitive Relation) แสดงลูกโซ่ $a\to b\to c$}}{91}{figure.caption.47}%
+\contentsline {figure}{\numberline {20}{\ignorespaces ความสัมพันธ์สมมูล (Equivalence Relation) แบ่งเซตออกเป็นคลาสเชิงสมมูล}}{94}{figure.caption.49}%
+\contentsline {figure}{\numberline {21}{\ignorespaces ไดอะแกรมฮาสเซ (Hasse Diagram) แสดง Partial Order จากความสัมพันธ์หารลงตัว}}{98}{figure.caption.50}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {22}{\ignorespaces ค่าประจำตำแหน่งของเลขฐานสิบ (Decimal Place Value) แสดงการแยกตัวเลข 4729}}{116}{figure.caption.52}%
-\contentsline {figure}{\numberline {23}{\ignorespaces ค่าประจำตำแหน่งของเลขฐานสอง (Binary Place Value) แสดงการแปลง 1101₂}}{117}{figure.caption.53}%
-\contentsline {figure}{\numberline {24}{\ignorespaces การจัดกลุ่มเลขฐานสองเป็นฐานสิบหก (Hexadecimal Grouping)}}{120}{figure.caption.54}%
-\contentsline {figure}{\numberline {25}{\ignorespaces การหา 2's Complement ของจำนวนเต็มลบในฐานสอง}}{130}{figure.caption.56}%
-\contentsline {figure}{\numberline {26}{\ignorespaces โครงสร้าง IEEE 754 Single Precision 32 bits แสดง Sign, Exponent, Mantissa}}{133}{figure.caption.57}%
+\contentsline {figure}{\numberline {22}{\ignorespaces ค่าประจำตำแหน่งของเลขฐานสิบ (Decimal Place Value) แสดงการแยกตัวเลข 4729}}{120}{figure.caption.52}%
+\contentsline {figure}{\numberline {23}{\ignorespaces ค่าประจำตำแหน่งของเลขฐานสอง (Binary Place Value) แสดงการแปลง 1101₂}}{121}{figure.caption.53}%
+\contentsline {figure}{\numberline {24}{\ignorespaces การจัดกลุ่มเลขฐานสองเป็นฐานสิบหก (Hexadecimal Grouping)}}{124}{figure.caption.54}%
+\contentsline {figure}{\numberline {25}{\ignorespaces การหา 2's Complement ของจำนวนเต็มลบในฐานสอง}}{135}{figure.caption.56}%
+\contentsline {figure}{\numberline {26}{\ignorespaces โครงสร้าง IEEE 754 Single Precision 32 bits แสดง Sign, Exponent, Mantissa}}{138}{figure.caption.57}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {27}{\ignorespaces มิติของเมทริกซ์ (Matrix Dimensions) แสดงเมทริกซ์ $m \times n$ พร้อมตำแหน่งแถวและคอลัมน์}}{148}{figure.caption.60}%
-\contentsline {figure}{\numberline {28}{\ignorespaces ประเภทของเมทริกซ์ (Types of Matrices) ได้แก่ เมทริกซ์สี่เหลี่ยมจัตุรัส สมมาตร เอกลักษณ์ และเมทริกซ์เป็นศูนย์}}{149}{figure.caption.61}%
-\contentsline {figure}{\numberline {29}{\ignorespaces การคูณเมทริกซ์ด้วยเมทริกซ์ (Matrix Multiplication) แสดงขั้นตอนการคูณแถวด้วยคอลัมน์}}{153}{figure.caption.62}%
-\contentsline {figure}{\numberline {30}{\ignorespaces ดีเทอร์มิแนนต์ของเมทริกซ์ $2 \times 2$ พร้อมสูตรและตัวอย่างการคำนวณ}}{157}{figure.caption.63}%
-\contentsline {figure}{\numberline {31}{\ignorespaces การแปลงเมทริกซ์ในคอมพิวเตอร์กราฟิกส์ (Matrix Transformations) แสดงการหมุน ขยาย และเลื่อน}}{169}{figure.caption.64}%
+\contentsline {figure}{\numberline {27}{\ignorespaces มิติของเมทริกซ์ (Matrix Dimensions) แสดงเมทริกซ์ $m \times n$ พร้อมตำแหน่งแถวและคอลัมน์}}{152}{figure.caption.60}%
+\contentsline {figure}{\numberline {28}{\ignorespaces ประเภทของเมทริกซ์ (Types of Matrices) ได้แก่ เมทริกซ์สี่เหลี่ยมจัตุรัส สมมาตร เอกลักษณ์ และเมทริกซ์เป็นศูนย์}}{153}{figure.caption.61}%
+\contentsline {figure}{\numberline {29}{\ignorespaces การคูณเมทริกซ์ด้วยเมทริกซ์ (Matrix Multiplication) แสดงขั้นตอนการคูณแถวด้วยคอลัมน์}}{157}{figure.caption.62}%
+\contentsline {figure}{\numberline {30}{\ignorespaces ดีเทอร์มิแนนต์ของเมทริกซ์ $2 \times 2$ พร้อมสูตรและตัวอย่างการคำนวณ}}{162}{figure.caption.63}%
+\contentsline {figure}{\numberline {31}{\ignorespaces การแปลงเมทริกซ์ในคอมพิวเตอร์กราฟิกส์ (Matrix Transformations) แสดงการหมุน ขยาย และเลื่อน}}{174}{figure.caption.64}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {32}{\ignorespaces การแมปแบบหนึ่งต่อหนึ่ง (One-to-One) และแบบทั่วถึง (Onto) ของฟังก์ชัน}}{199}{figure.caption.67}%
+\contentsline {figure}{\numberline {32}{\ignorespaces การแมปแบบหนึ่งต่อหนึ่ง (One-to-One) และแบบทั่วถึง (Onto) ของฟังก์ชัน}}{204}{figure.caption.67}%
 \contentsfinish 

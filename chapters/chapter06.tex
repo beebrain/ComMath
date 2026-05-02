@@ -845,18 +845,18 @@ f &= (x + y) \cdot (x + y') \\
 
 \begin{align*}
 f &= (a + b) \cdot (a' + c) + (b + c) \\
-  &= \underbrace{(a + b) \cdot a'}_{พจน์ที่ 1} + \underbrace{(a + b) \cdot c}_{พจน์ที่ 2} + (b + c) \quad \text{(Distributive: } x \cdot (y + z) = x \cdot y + x \cdot z \text{)} \\
-  &= \underbrace{a \cdot a'}_{พจน์ที่ 1} + \underbrace{b \cdot a'}_{พจน์ที่ 2} + \underbrace{a \cdot c}_{พจน์ที่ 3} + \underbrace{b \cdot c}_{พจน์ที่ 4} + b + c \quad \text{(Distributive อีกครั้ง)} \\
+  &= \underbrace{(a + b) \cdot a'}_{\text{พจน์ที่ 1}} + \underbrace{(a + b) \cdot c}_{\text{พจน์ที่ 2}} + (b + c) \quad \text{(Distributive: } x \cdot (y + z) = x \cdot y + x \cdot z \text{)} \\
+  &= \underbrace{a \cdot a'}_{\text{พจน์ที่ 1}} + \underbrace{b \cdot a'}_{\text{พจน์ที่ 2}} + \underbrace{a \cdot c}_{\text{พจน์ที่ 3}} + \underbrace{b \cdot c}_{\text{พจน์ที่ 4}} + b + c \quad \text{(Distributive อีกครั้ง)} \\
   &= 0 + b \cdot a' + a \cdot c + b \cdot c + b + c \quad \text{(Complement: } a \cdot a' = 0 \text{)} \\
-  &= b \cdot a' + a \cdot c + \underbrace{b \cdot c + b}_{พจน์ที่ 5} + c \\
+  &= b \cdot a' + a \cdot c + \underbrace{b \cdot c + b}_{\text{พจน์ที่ 5}} + c \\
   &= b \cdot a' + a \cdot c + b \cdot (1 + c) + c \quad \text{(Distributive ย้อนกลับ)} \\
   &= b \cdot a' + a \cdot c + b \cdot 1 + c \quad \text{(Domination: } 1 + c = 1 \text{)} \\
   &= b \cdot a' + a \cdot c + b + c \\
-  &= \underbrace{b \cdot a' + b}_{พจน์ที่ 6} + a \cdot c + c \\
+  &= \underbrace{b \cdot a' + b}_{\text{พจน์ที่ 6}} + a \cdot c + c \\
   &= b \cdot (a' + 1) + a \cdot c + c \quad \text{(Distributive ย้อนกลับ)} \\
   &= b \cdot 1 + a \cdot c + c \quad \text{(Domination: } a' + 1 = 1 \text{)} \\
   &= b + a \cdot c + c \\
-  &= b + \underbrace{a \cdot c + c}_{พจน์ที่ 7} \\
+  &= b + \underbrace{a \cdot c + c}_{\text{พจน์ที่ 7}} \\
   &= b + c \cdot (a + 1) \quad \text{(Distributive ย้อนกลับ)} \\
   &= b + c \cdot 1 \quad \text{(Domination: } a + 1 = 1 \text{)} \\
   &= b + c
@@ -1153,7 +1153,7 @@ Grouping:
 \begin{thrm}[ขั้นตอนการใช้ K-map]
 \begin{enumerate}
     \item เขียน K-map ตามจำนวนตัวแปร
-    \item ใส่ 1 ในเซลล์ที่对应 minterm ที่อยู่ใน function
+    \item ใส่ 1 ในเซลล์ที่สอดคล้องกับ minterm ที่อยู่ใน function
     \item จัดกลุ่ม (group) เซลล์ที่มี 1 ร่วมกันเป็นกลุ่มขนาด $2^n$ ($n = 0, 1, 2, 3, \ldots$)
     \item กลุ่มควรมีขนาดใหญ่ที่สุดเท่าที่เป็นไปได้
     \item กลุ่มสามารถ overlap ได้และสามารถ wrap around ได้

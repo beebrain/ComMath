@@ -1040,6 +1040,45 @@ f &= x y + x' z + y z \\
 ดังนั้น $f = x y + x' z$
 \end{solution}
 
+\subsection*{ตัวอย่างที่ 4: พีชคณิตบูลีนกับ Perceptron ใน Machine Learning}
+\label{ex:boolean-perceptron}
+Perceptron คือโมเดลพื้นฐานที่สุดของ Neural Network ซึ่งทำงานโดยใช้หลักการเดียวกับวงจรดิจิทัล กล่าวคือ Perceptron รับ input หลายตัว คูณด้วย weight ของแต่ละ input แล้วรวมกัน (weighted sum) จากนั้นผ่าน activation function ที่ทำหน้าที่เหมือน threshold gate เพื่อตัดสินใจว่า output ควรเป็น 0 หรือ 1
+
+\begin{ex}
+จงคำนวณ output ของ Perceptron ที่มี 2 inputs $x_1, x_2$ โดยมี weights $w_1 = 0.5$, $w_2 = 0.5$ และ bias $b = -0.7$ และใช้ step function เป็น activation:
+$$f(z) = \begin{cases} 1 & \text{ถ้า } z \geq 0 \\ 0 & \text{ถ้า } z < 0 \end{cases}$$
+โดยที่ $z = x_1 w_1 + x_2 w_2 + b$ จงทดสอบกับ input $(0, 0)$, $(0, 1)$, $(1, 0)$, $(1, 1)$
+\end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item กำหนดสูตรการคำนวณ: $z = x_1 w_1 + x_2 w_2 + b$ และ $y = f(z)$
+  \item ทดสอบ $(x_1, x_2) = (0, 0)$:
+        $$z = (0)(0.5) + (0)(0.5) + (-0.7) = -0.7 < 0 \implies y = 0$$
+  \item ทดสอบ $(x_1, x_2) = (0, 1)$:
+        $$z = (0)(0.5) + (1)(0.5) + (-0.7) = -0.2 < 0 \implies y = 0$$
+  \item ทดสอบ $(x_1, x_2) = (1, 0)$:
+        $$z = (1)(0.5) + (0)(0.5) + (-0.7) = -0.2 < 0 \implies y = 0$$
+  \item ทดสอบ $(x_1, x_2) = (1, 1)$:
+        $$z = (1)(0.5) + (1)(0.5) + (-0.7) = 0.3 > 0 \implies y = 1$$
+\end{solsteps}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+$x_1$ & $x_2$ & $y$ \\
+\hline
+0 & 0 & 0 \\
+0 & 1 & 0 \\
+1 & 0 & 0 \\
+1 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{solsteps}
+  \item ดังนั้น \mathoval{y = x_1 \land x_2} ซึ่งคือ AND gate — แสดงว่า Perceptron ตัวนี้ทำงานเหมือน AND gate ทางดิจิทัล
+  \item หมายเหตุ: Perceptron สามารถเรียนรู้ weight และ bias ที่เหมาะสมได้จากข้อมูล โดยใช้อัลกอริทึม learning rule: $w_i \leftarrow w_i + \eta (t - y) x_i$ เมื่อ $t$ คือ target output และ $\eta$ คือ learning rate
+\end{solsteps}
+\end{solution}
+
 \section{แผนที่คาร์นอ (Karnaugh Map)}
 \label{sec:karnaugh-map}
 

@@ -1396,7 +1396,7 @@ $a$ & $b$ & $(a + b)'$ \\
 \end{solsteps}
 \end{solution}
 
-\section{Two-level Realization}
+\subsection{Two-level Realization}
 \label{sec:two-level}
 
 ในการ realization วงจรดิจิทัล รูปแบบ two-level เป็นที่นิยมเนื่องจากให้ความเร็วในการทำงานสูงสุด
@@ -1421,7 +1421,7 @@ realization SOP สำหรับ $f(x, y, z) = y' + x y + x' y' z$
 \end{solsteps}
 \end{solution}
 
-\section{Half Adder และ Full Adder}
+\subsection{Half Adder และ Full Adder}
 \label{sec:adders}
 
 \begin{ex}
@@ -1446,7 +1446,7 @@ realization SOP สำหรับ $f(x, y, z) = y' + x y + x' y' z$
 \end{solsteps}
 \end{solution}
 
-\section{สมมูลของพีชคณิตบูลีน (Boolean Algebra Equivalence)}
+\subsection{สมมูลของพีชคณิตบูลีน (Boolean Algebra Equivalence)}
 \label{sec:boolean-equivalence}
 
 \begin{thrm}
@@ -1494,6 +1494,173 @@ De Morgan & $(x + y)' = x' y'$ & $(xy)' = x' + y'$ \\
 \end{tabular}
 \end{center}
 \end{thrm}
+
+\section{ตัวอย่างในวิทยาการคอมพิวเตอร์}
+\label{sec:computer-science-examples}
+
+พีชคณิตบูลีนมีการประยุกต์ใช้อย่างกว้างขวางในวิทยาการคอมพิวเตอร์ นอกเหนือจากการออกแบบวงจรดิจิทัลที่กล่าวมาแล้ว หลักการบูลีนยังปรากฏในภาษาโปรแกรม ฐานข้อมูล การเข้ารหัสข้อมูล และระบบดิจิทัลทุกระดับ การเข้าใจการประยุกต์ใช้เหล่านี้ช่วยให้ผู้ศึกษาเห็นความเชื่อมโยงระหว่างทฤษฎีและการปฏิบัติ และสามารถนำหลักการบูลีนไปประยุกต์ใช้ในสถานการณ์ที่หลากหลาย
+
+\subsection{Karnaugh Maps สำหรับการออกแบบวงจร}
+Karnaugh Map (K-map) เป็นเครื่องมือในการลดรูป (simplify) ฟังก์ชันบูลีน ซึ่งมีความสำคัญในการออกแบบวงจรดิจิทัลที่ใช้ทรัพยากรน้อยที่สุด
+
+\begin{ex}
+ลดรูปฟังก์ชันบูลีน $F(x,y,z) = \sum(0,1,2,3,5,7)$ โดยใช้ K-map
+
+K-map สำหรับ 3 ตัวแปร:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ & $yz=00$ & $yz=01$ & $yz=11$ & $yz=10$ \\
+\hline
+$x=0$ & 1 & 1 & 0 & 1 \\
+\hline
+$x=1$ & 0 & 1 & 1 & 0 \\
+\hline
+\end{tabular}
+\end{center}
+\end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item จัดกลุ่มที่ 1: ครอบคลุม cells 0, 1, 2, 3 (ทั้งแถวบน) $\rightarrow$ $x'$
+  \item จัดกลุ่มที่ 2: ครอบคลุม cells 1, 5 $\rightarrow$ $yz$
+  \item ผลลัพธ์ที่ลดรูปแล้ว: $F = x' + yz$
+\end{solsteps}
+\end{solution}
+
+
+\subsection{Logic Gates และวงจรดิจิทัล}
+Logic gates เป็น building blocks ของวงจรดิจิทัล ซึ่งทำงานตาม Boolean algebra
+
+\begin{thrm}
+Logic gates พื้นฐาน:
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Gate & Boolean Expression \\
+\hline
+NOT & $Y = A'$ \\
+\hline
+AND & $Y = A \cdot B$ \\
+\hline
+OR & $Y = A + B$ \\
+\hline
+XOR & $Y = A \oplus B = A'B + AB'$ \\
+\hline
+NAND & $Y = (AB)'$ \\
+\hline
+NOR & $Y = (A + B)'$ \\
+\hline
+\end{tabular}
+\end{center}
+\end{thrm}
+
+\begin{ex}[การสร้าง AND จาก NAND gates]
+$$Y = ((AB)')' = AB$$
+นำ output ของ NAND gate มาเข้า NOT gate (ซึ่งก็คือ NAND gate ที่ input ทั้งสองเท่ากัน)
+\end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item ใช้ NAND gate สร้าง NOT gate โดยต่อ input ทั้งสองขาเข้าด้วยกัน: $Y = (A \cdot A)' = A'$
+  \item นำ NAND gate output มาเข้า NOT gate อีกที: $Y = ((AB)')' = AB$
+\end{solsteps}
+\end{solution}
+
+\subsection{Half Adder และ Full Adder}
+Adder circuits เป็นพื้นฐานของ arithmetic logic unit (ALU) ใน CPU
+
+\begin{thrm}[Half Adder]
+Half Adder รับ input 2 bits (A, B) และให้ output:
+\begin{enumerate}
+    \item Sum: $S = A \oplus B$
+    \item Carry: $C = A \cdot B$
+\end{enumerate}
+\end{thrm}
+
+\begin{thrm}[Full Adder]
+Full Adder รับ input 3 bits (A, B, Cin) และให้ output:
+\begin{enumerate}
+    \item Sum: $S = A \oplus B \oplus C_{in}$
+    \item Carry: $C_{out} = AB + C_{in}(A \oplus B)$
+\end{enumerate}
+\end{thrm}
+
+\begin{ex}
+Full Adder จาก Half Adders:
+
+$S = A \oplus B \oplus C_{in}$
+
+$C_{out} = AB + C_{in}(A \oplus B)$
+
+สามารถสร้างได้จาก 2 Half Adders + 1 OR gate
+\end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item Half Adder ตัวที่ 1: รับ A, B ได้ $S_1 = A \oplus B$, $C_1 = AB$
+  \item Half Adder ตัวที่ 2: รับ $S_1$, $C_{in}$ ได้ $S = S_1 \oplus C_{in} = A \oplus B \oplus C_{in}$
+  \item OR gate: รับ $C_1$ และ $C_{in} \cdot S_1$ ได้ $C_{out} = C_1 + C_{in} \cdot S_1 = AB + C_{in}(A \oplus B)$
+\end{solsteps}
+\end{solution}
+
+\subsection{Multiplexer และ Demultiplexer}
+\begin{definition}
+\textbf{Multiplexer (MUX)} เป็นวงจรที่เลือก 1 จาก $n$ inputs ไปยัง 1 output โดยใช้ select lines
+
+สำหรับ 4-to-1 MUX:
+$$Y = I_0 \cdot S_0' \cdot S_1' + I_1 \cdot S_0 \cdot S_1' + I_2 \cdot S_0' \cdot S_1 + I_3 \cdot S_0 \cdot S_1$$
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+$S_1$ & $S_0$ & Output \\
+\hline
+0 & 0 & $I_0$ \\
+\hline
+0 & 1 & $I_1$ \\
+\hline
+1 & 0 & $I_2$ \\
+\hline
+1 & 1 & $I_3$ \\
+\hline
+\end{tabular}
+\end{center}
+\end{definition}
+
+\begin{definition}
+\textbf{Demultiplexer (DEMUX)} ทำงานตรงข้ามกับ MUX คือรับ 1 input และส่งไปยัง 1 จาก $n$ outputs
+\end{definition}
+
+\subsection{FSM Implementation ด้วย Boolean Logic}
+Finite State Machine (FSM) สามารถ implement ได้โดยใช้ Boolean algebra
+
+\begin{ex}
+พิจารณา FSM ที่ตรวจสอบลำดับบิต "10":
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+State & Input=0 & Input=1 & Output \\
+\hline
+S0 (initial) & S0 & S1 & 0 \\
+\hline
+S1 (saw 1) & S0 & S1 & 0 \\
+\hline
+S2 (saw 10) & S0 & S1 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+
+กำหนด state encoding: S0=00, S1=01, S2=10
+
+State transitions และ outputs สามารถเขียนเป็น Boolean expressions ได้
+\end{ex}
+\begin{solution}
+\begin{solsteps}
+  \item กำหนด state variables: $Q_1, Q_0$ (2 bits แทน 3 states)
+  \item เขียน state table สำหรับ next state และ output เป็น Boolean functions
+  \item ใช้ K-map หรือ Boolean algebra ลดรูป expressions สำหรับแต่ละ flip-flop input
+\end{solsteps}
+\end{solution}
 
 \section{แบบฝึกหัด}
 \label{sec:exercises}
@@ -1678,173 +1845,6 @@ $x$ & $y$ & $x + y$ & $f$ \\
         \item เท็จ ($x \cdot 0 = 0$)
     \end{enumerate}
 \end{enumerate}
-
-\section{ตัวอย่างในวิทยาการคอมพิวเตอร์}
-\label{sec:computer-science-examples}
-
-พีชคณิตบูลีนมีการประยุกต์ใช้อย่างกว้างขวางในวิทยาการคอมพิวเตอร์ นอกเหนือจากการออกแบบวงจรดิจิทัลที่กล่าวมาแล้ว หลักการบูลีนยังปรากฏในภาษาโปรแกรม ฐานข้อมูล การเข้ารหัสข้อมูล และระบบดิจิทัลทุกระดับ การเข้าใจการประยุกต์ใช้เหล่านี้ช่วยให้ผู้ศึกษาเห็นความเชื่อมโยงระหว่างทฤษฎีและการปฏิบัติ และสามารถนำหลักการบูลีนไปประยุกต์ใช้ในสถานการณ์ที่หลากหลาย
-
-\subsection{Karnaugh Maps สำหรับการออกแบบวงจร}
-Karnaugh Map (K-map) เป็นเครื่องมือในการลดรูป (simplify) ฟังก์ชันบูลีน ซึ่งมีความสำคัญในการออกแบบวงจรดิจิทัลที่ใช้ทรัพยากรน้อยที่สุด
-
-\begin{ex}
-ลดรูปฟังก์ชันบูลีน $F(x,y,z) = \sum(0,1,2,3,5,7)$ โดยใช้ K-map
-
-K-map สำหรับ 3 ตัวแปร:
-
-\begin{center}
-\begin{tabular}{|c|c|c|c|c|}
-\hline
- & $yz=00$ & $yz=01$ & $yz=11$ & $yz=10$ \\
-\hline
-$x=0$ & 1 & 1 & 0 & 1 \\
-\hline
-$x=1$ & 0 & 1 & 1 & 0 \\
-\hline
-\end{tabular}
-\end{center}
-\end{ex}
-\begin{solution}
-\begin{solsteps}
-  \item จัดกลุ่มที่ 1: ครอบคลุม cells 0, 1, 2, 3 (ทั้งแถวบน) $\rightarrow$ $x'$
-  \item จัดกลุ่มที่ 2: ครอบคลุม cells 1, 5 $\rightarrow$ $yz$
-  \item ผลลัพธ์ที่ลดรูปแล้ว: $F = x' + yz$
-\end{solsteps}
-\end{solution}
-
-
-\subsection{Logic Gates และวงจรดิจิทัล}
-Logic gates เป็น building blocks ของวงจรดิจิทัล ซึ่งทำงานตาม Boolean algebra
-
-\begin{thrm}
-Logic gates พื้นฐาน:
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-Gate & Boolean Expression \\
-\hline
-NOT & $Y = A'$ \\
-\hline
-AND & $Y = A \cdot B$ \\
-\hline
-OR & $Y = A + B$ \\
-\hline
-XOR & $Y = A \oplus B = A'B + AB'$ \\
-\hline
-NAND & $Y = (AB)'$ \\
-\hline
-NOR & $Y = (A + B)'$ \\
-\hline
-\end{tabular}
-\end{center}
-\end{thrm}
-
-\begin{ex}[การสร้าง AND จาก NAND gates]
-$$Y = ((AB)')' = AB$$
-นำ output ของ NAND gate มาเข้า NOT gate (ซึ่งก็คือ NAND gate ที่ input ทั้งสองเท่ากัน)
-\end{ex}
-\begin{solution}
-\begin{solsteps}
-  \item ใช้ NAND gate สร้าง NOT gate โดยต่อ input ทั้งสองขาเข้าด้วยกัน: $Y = (A \cdot A)' = A'$
-  \item นำ NAND gate output มาเข้า NOT gate อีกที: $Y = ((AB)')' = AB$
-\end{solsteps}
-\end{solution}
-
-\subsection{Half Adder และ Full Adder}
-Adder circuits เป็นพื้นฐานของ arithmetic logic unit (ALU) ใน CPU
-
-\begin{thrm}[Half Adder]
-Half Adder รับ input 2 bits (A, B) และให้ output:
-\begin{enumerate}
-    \item Sum: $S = A \oplus B$
-    \item Carry: $C = A \cdot B$
-\end{enumerate}
-\end{thrm}
-
-\begin{thrm}[Full Adder]
-Full Adder รับ input 3 bits (A, B, Cin) และให้ output:
-\begin{enumerate}
-    \item Sum: $S = A \oplus B \oplus C_{in}$
-    \item Carry: $C_{out} = AB + C_{in}(A \oplus B)$
-\end{enumerate}
-\end{thrm}
-
-\begin{ex}
-Full Adder จาก Half Adders:
-
-$S = A \oplus B \oplus C_{in}$
-
-$C_{out} = AB + C_{in}(A \oplus B)$
-
-สามารถสร้างได้จาก 2 Half Adders + 1 OR gate
-\end{ex}
-\begin{solution}
-\begin{solsteps}
-  \item Half Adder ตัวที่ 1: รับ A, B ได้ $S_1 = A \oplus B$, $C_1 = AB$
-  \item Half Adder ตัวที่ 2: รับ $S_1$, $C_{in}$ ได้ $S = S_1 \oplus C_{in} = A \oplus B \oplus C_{in}$
-  \item OR gate: รับ $C_1$ และ $C_{in} \cdot S_1$ ได้ $C_{out} = C_1 + C_{in} \cdot S_1 = AB + C_{in}(A \oplus B)$
-\end{solsteps}
-\end{solution}
-
-\subsection{Multiplexer และ Demultiplexer}
-\begin{definition}
-\textbf{Multiplexer (MUX)} เป็นวงจรที่เลือก 1 จาก $n$ inputs ไปยัง 1 output โดยใช้ select lines
-
-สำหรับ 4-to-1 MUX:
-$$Y = I_0 \cdot S_0' \cdot S_1' + I_1 \cdot S_0 \cdot S_1' + I_2 \cdot S_0' \cdot S_1 + I_3 \cdot S_0 \cdot S_1$$
-
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-$S_1$ & $S_0$ & Output \\
-\hline
-0 & 0 & $I_0$ \\
-\hline
-0 & 1 & $I_1$ \\
-\hline
-1 & 0 & $I_2$ \\
-\hline
-1 & 1 & $I_3$ \\
-\hline
-\end{tabular}
-\end{center}
-\end{definition}
-
-\begin{definition}
-\textbf{Demultiplexer (DEMUX)} ทำงานตรงข้ามกับ MUX คือรับ 1 input และส่งไปยัง 1 จาก $n$ outputs
-\end{definition}
-
-\subsection{FSM Implementation ด้วย Boolean Logic}
-Finite State Machine (FSM) สามารถ implement ได้โดยใช้ Boolean algebra
-
-\begin{ex}
-พิจารณา FSM ที่ตรวจสอบลำดับบิต "10":
-
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-State & Input=0 & Input=1 & Output \\
-\hline
-S0 (initial) & S0 & S1 & 0 \\
-\hline
-S1 (saw 1) & S0 & S1 & 0 \\
-\hline
-S2 (saw 10) & S0 & S1 & 1 \\
-\hline
-\end{tabular}
-\end{center}
-
-กำหนด state encoding: S0=00, S1=01, S2=10
-
-State transitions และ outputs สามารถเขียนเป็น Boolean expressions ได้
-\end{ex}
-\begin{solution}
-\begin{solsteps}
-  \item กำหนด state variables: $Q_1, Q_0$ (2 bits แทน 3 states)
-  \item เขียน state table สำหรับ next state และ output เป็น Boolean functions
-  \item ใช้ K-map หรือ Boolean algebra ลดรูป expressions สำหรับแต่ละ flip-flop input
-\end{solsteps}
-\end{solution}
 
 \section{สรุป}
 \label{sec:chapter-summary}

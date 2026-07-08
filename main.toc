@@ -160,27 +160,27 @@
 \contentsline {subsection}{\numberline {5.3.3}การคูณเมทริกซ์ด้วยสเกลาร์}{207}{subsection.5.3.3}%
 \contentsline {subsection}{\numberline {5.3.4}การคูณเมทริกซ์ด้วยเมทริกซ์}{209}{subsection.5.3.4}%
 \contentsline {subsection}{\numberline {5.3.5}เมทริกซ์สลับเปลี่ยน (Transpose)}{215}{subsection.5.3.5}%
-\contentsline {section}{\numberline {5.4}ดีเทอร์มิแนนต์ (Determinants)}{217}{section.5.4}%
+\contentsline {section}{\numberline {5.4}ดีเทอร์มิแนนต์ (Determinants)}{216}{section.5.4}%
 \contentsline {subsection}{\numberline {5.4.1}นิยามของดีเทอร์มิแนนต์}{217}{subsection.5.4.1}%
 \contentsline {subsection}{\numberline {5.4.2}การกระจายโคแฟกเตอร์ (Cofactor Expansion)}{219}{subsection.5.4.2}%
 \contentsline {subsection}{\numberline {5.4.3}สมบัติของดีเทอร์มิแนนต์}{221}{subsection.5.4.3}%
-\contentsline {section}{\numberline {5.5}ตัวผกผันของเมทริกซ์ (Matrix Inverse)}{225}{section.5.5}%
-\contentsline {section}{\numberline {5.6}ระบบสมการเชิงเส้น (Systems of Linear Equations)}{231}{section.5.6}%
-\contentsline {subsection}{\numberline {5.6.1}การเขียนระบบสมการในรูปเมทริกซ์}{231}{subsection.5.6.1}%
+\contentsline {section}{\numberline {5.5}ตัวผกผันของเมทริกซ์ (Matrix Inverse)}{224}{section.5.5}%
+\contentsline {section}{\numberline {5.6}ระบบสมการเชิงเส้น (Systems of Linear Equations)}{230}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}การเขียนระบบสมการในรูปเมทริกซ์}{230}{subsection.5.6.1}%
 \contentsline {subsection}{\numberline {5.6.2}การแก้ระบบสมการโดยใช้ตัวผกผันเมทริกซ์}{232}{subsection.5.6.2}%
-\contentsline {subsection}{\numberline {5.6.3}การแก้ระบบสมการโดยใช้กฎของคราเมอร์ (Cramer's Rule)}{234}{subsection.5.6.3}%
+\contentsline {subsection}{\numberline {5.6.3}การแก้ระบบสมการโดยใช้กฎของคราเมอร์ (Cramer's Rule)}{233}{subsection.5.6.3}%
 \contentsline {subsection}{\numberline {5.6.4}การแก้ระบบสมการโดยวิธีการกำจัดแบบเกาส์ (Gaussian Elimination)}{235}{subsection.5.6.4}%
 \contentsline {section}{\numberline {5.7}การประยุกต์ในวิทยาการคอมพิวเตอร์}{237}{section.5.7}%
 \contentsline {subsection}{\numberline {5.7.1}การแปลงในคอมพิวเตอร์กราฟิกส์ (Computer Graphics)}{238}{subsection.5.7.1}%
-\contentsline {subsection}{\numberline {5.7.2}การเข้ารหัส Hill Cipher}{240}{subsection.5.7.2}%
+\contentsline {subsection}{\numberline {5.7.2}การเข้ารหัส Hill Cipher}{239}{subsection.5.7.2}%
 \contentsline {subsection}{\numberline {5.7.3}เมทริกซ์ประชิดในทฤษฎีกราฟ}{241}{subsection.5.7.3}%
 \contentsline {subsection}{\numberline {5.7.4}เมทริกซ์ในการเรียนรู้ของเครื่อง}{242}{subsection.5.7.4}%
-\contentsline {section}{\numberline {5.8}สรุป}{244}{section.5.8}%
+\contentsline {section}{\numberline {5.8}สรุป}{243}{section.5.8}%
 \contentsline {section}{\numberline {5.9}แบบฝึกหัด}{245}{section.5.9}%
 \contentsline {section}{\numberline {5.10}เฉลยแบบฝึกหัด}{247}{section.5.10}%
-\contentsline {section}{คำถามท้ายบทที่ 5}{248}{Item.1374}%
-\contentsline {section}{ใบงานที่ 5}{249}{Item.1390}%
-\contentsline {section}{เอกสารอ้างอิง}{251}{Item.1400}%
+\contentsline {section}{คำถามท้ายบทที่ 5}{248}{Item.1376}%
+\contentsline {section}{ใบงานที่ 5}{249}{Item.1392}%
+\contentsline {section}{เอกสารอ้างอิง}{251}{Item.1402}%
 \contentsline {chapter}{แผนการสอนประจำบทที่ 6}{253}{chapter*.63}%
 \contentsline {chapter}{\numberline {6}พีชคณิตบูลีน (Boolean Algebra)}{255}{chapter.6}%
 \contentsline {section}{\numberline {6.1}นิยามพื้นฐานของพีชคณิตบูลีน}{256}{section.6.1}%
@@ -222,9 +222,9 @@
 \contentsline {subsection}{\numberline {6.10.4}Multiplexer และ Demultiplexer}{296}{subsection.6.10.4}%
 \contentsline {subsection}{\numberline {6.10.5}FSM Implementation ด้วย Boolean Logic}{296}{subsection.6.10.5}%
 \contentsline {section}{\numberline {6.11}แบบฝึกหัด}{297}{section.6.11}%
-\contentsline {section}{\numberline {6.12}เฉลยแบบฝึกหัด}{299}{section.6.12}%
-\contentsline {section}{\numberline {6.13}สรุป}{300}{section.6.13}%
-\contentsline {section}{คำถามท้ายบทที่ 6}{302}{Item.1728}%
-\contentsline {section}{ใบงานที่ 6}{303}{Item.1736}%
-\contentsline {section}{เอกสารอ้างอิง}{305}{Item.1747}%
+\contentsline {section}{\numberline {6.12}เฉลยแบบฝึกหัด}{300}{section.6.12}%
+\contentsline {section}{\numberline {6.13}สรุป}{301}{section.6.13}%
+\contentsline {section}{คำถามท้ายบทที่ 6}{302}{Item.1730}%
+\contentsline {section}{ใบงานที่ 6}{303}{Item.1738}%
+\contentsline {section}{เอกสารอ้างอิง}{305}{Item.1749}%
 \contentsfinish 

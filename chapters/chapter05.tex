@@ -38,7 +38,9 @@
 \end{ex}
 \begin{solution}
 \begin{solsteps}
-  \item (ข้อมูลเพียงพอ — ไม่ต้องแก้ไขเพิ่มเติม)
+  \item เมทริกซ์ $B$ มี 3 แถว คือ $\begin{pmatrix}1 & 2\end{pmatrix}$, $\begin{pmatrix}3 & 4\end{pmatrix}$ และ $\begin{pmatrix}5 & 6\end{pmatrix}$
+  \item เมทริกซ์ $B$ มี 2 คอลัมน์ คือ $\begin{pmatrix}1 \\ 3 \\ 5\end{pmatrix}$ และ $\begin{pmatrix}2 \\ 4 \\ 6\end{pmatrix}$
+  \item ดังนั้นขนาดของ $B$ คือ $3 \times 2$ และมีสมาชิกทั้งหมด $3 \cdot 2 = 6$ ตัว
 \end{solsteps}
 \end{solution}
 
@@ -277,11 +279,11 @@ c_{ik} = a_{i1}b_{1k} + a_{i2}b_{2k} + a_{i3}b_{3k} + \cdots + a_{in}b_{nk} = \s
 \begin{proof}
 ให้ $A = [a_{ij}]$ และ $B = [b_{jk}]$ กำหนดให้ $C = AB$ โดยมีสมาชิก $c_{ik} = \sum_{j} a_{ij}b_{jk}$
 
-พิจารณาตำแหน่ง $(k,i)$ ของเมทริกซ์ $C^T$ จะได้ว่า $c_{ki} = \sum_{j} a_{ij}b_{jk}$ โดยที่ $c_{ki}$ คือสมาชิกที่แถว $k$ คอลัมน์ $i$ ของ $C^T$
+พิจารณาตำแหน่ง $(k,i)$ ของเมทริกซ์ $C^T$ จะได้ว่า $(C^T)_{ki} = C_{ik} = c_{ik} = \sum_{j} a_{ij}b_{jk}$
 
 ในอีกด้านหนึ่ง พิจารณา $B^T A^T$ ที่ตำแหน่ง $(k,i)$ จะได้ว่า $\sum_{j} b^T_{kj} \cdot a^T_{ji} = \sum_{j} b_{jk} \cdot a_{ij}$
 
-เนื่องจาก $\sum_{j} a_{ij}b_{jk} = \sum_{j} b_{jk}a_{ij}$ (การคูณจำนวนเป็นการสลับที่ได้) จึงได้ว่า $c_{ki} = \sum_{j} b_{jk}a_{ij}$
+เนื่องจาก $\sum_{j} a_{ij}b_{jk} = \sum_{j} b_{jk}a_{ij}$ (การคูณจำนวนเป็นการสลับที่ได้) จึงได้ว่า $(C^T)_{ki} = (B^T A^T)_{ki}$
 
 ดังนั้น $C^T = B^T A^T$ ซึ่งพิสูจน์ว่า $(AB)^T = B^T A^T$
 \end{proof}
@@ -397,9 +399,9 @@ A = \begin{pmatrix} 1 & 2 & 3 \end{pmatrix}, \quad B = \begin{pmatrix} 4 \\ 5 \\
 \end{ex}
 \begin{solution}
 \begin{solsteps}
-  \item กำหนด $A = [a_{ij}]$, $B = [b_{jk}]$, และ $(AB)^T = [c_{ki}]$
-  \item โดยนิยาม $c_{ki} = (AB)_{ik} = \sum_{j} a_{ij}b_{jk}$ คือสมาชิกที่ตำแหน่ง $(i,k)$ ของ $AB$
-  \item เนื่องจาก $(AB)^T$ สลับตำแหน่งแถว-คอลัมน์ สมาชิกที่ตำแหน่ง $(k,i)$ ของ $(AB)^T$ คือ $c_{ki} = \sum_{j} a_{ij}b_{jk}$
+  \item กำหนด $A = [a_{ij}]$, $B = [b_{jk}]$, และ $C = AB$
+  \item โดยนิยาม $C_{ik} = \sum_{j} a_{ij}b_{jk}$ คือสมาชิกที่ตำแหน่ง $(i,k)$ ของ $AB$
+  \item เนื่องจาก $(AB)^T$ สลับตำแหน่งแถว-คอลัมน์ สมาชิกที่ตำแหน่ง $(k,i)$ ของ $(AB)^T$ คือ $(C^T)_{ki} = C_{ik} = \sum_{j} a_{ij}b_{jk}$
   \item พิจารณา $B^T A^T$ ที่ตำแหน่ง $(k,i)$: $\sum_{j} b^T_{kj} \cdot a^T_{ji} = \sum_{j} b_{jk} \cdot a_{ij}$
   \item เปรียบเทียบผลลัพธ์: $\sum_{j} a_{ij}b_{jk} = \sum_{j} b_{jk} \cdot a_{ij}$ (การสลับที่ของผลคูณ)
   \item ดังนั้น $(AB)^T = B^T A^T$ $\blacksquare$
@@ -709,21 +711,21 @@ A^{-1} = \frac{1}{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}
 \begin{solsteps}
     \item คำนวณ $\det(A) = (1)(4) - (2)(3) = 4 - 6 = -2 \neq 0$ ดังนั้น $A$ มีตัวผกผัน
     \item ใช้สูตร $A^{-1} = \frac{1}{-2} \begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix}$
-    \item คูณสเกลาร์ $\frac{1}{-2} = -\frac{1}{2}$ กับทุกสมาชิกได้ $A^{-1} = \begin{pmatrix} -2 & 1 \\ 1.5 & -0.5 \end{pmatrix}$
+    \item คูณสเกลาร์ $\frac{1}{-2} = -\frac{1}{2}$ กับทุกสมาชิกได้ $A^{-1} = \begin{pmatrix} -2 & 1 \\ \frac{3}{2} & -\frac{1}{2} \end{pmatrix}$
     \item ตรวจสอบโดยการคูณ $A \cdot A^{-1}$ ดังนี้
     \begin{align*}
-    \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \begin{pmatrix} -2 & 1 \\ 1.5 & -0.5 \end{pmatrix}
-        &= \begin{pmatrix} (1)(-2)+(2)(1.5) & (1)(1)+(2)(-0.5) \\ (3)(-2)+(4)(1.5) & (3)(1)+(4)(-0.5) \end{pmatrix} \\
+    \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \begin{pmatrix} -2 & 1 \\ \frac{3}{2} & -\frac{1}{2} \end{pmatrix}
+        &= \begin{pmatrix} (1)(-2)+(2)(\frac{3}{2}) & (1)(1)+(2)(-\frac{1}{2}) \\ (3)(-2)+(4)(\frac{3}{2}) & (3)(1)+(4)(-\frac{1}{2}) \end{pmatrix} \\
         &= \begin{pmatrix} -2+3 & 1-1 \\ -6+6 & 3-2 \end{pmatrix}
          = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I
     \end{align*}
     \item ตรวจสอบ $A^{-1} \cdot A$ ด้วย
     \begin{align*}
-    \begin{pmatrix} -2 & 1 \\ 1.5 & -0.5 \end{pmatrix} \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}
-        &= \begin{pmatrix} (-2)(1)+(1)(3) & (-2)(2)+(1)(4) \\ (1.5)(1)+(-0.5)(3) & (1.5)(2)+(-0.5)(4) \end{pmatrix} \\
+    \begin{pmatrix} -2 & 1 \\ \frac{3}{2} & -\frac{1}{2} \end{pmatrix} \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}
+        &= \begin{pmatrix} (-2)(1)+(1)(3) & (-2)(2)+(1)(4) \\ (\frac{3}{2})(1)+(-\frac{1}{2})(3) & (\frac{3}{2})(2)+(-\frac{1}{2})(4) \end{pmatrix} \\
         &= \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I
     \end{align*}
-    \item ทั้งสองผลลัพธ์ได้เมทริกซ์เอกลักษณ์ ดังนั้น $A^{-1} = \begin{pmatrix} -2 & 1 \\ 1.5 & -0.5 \end{pmatrix}$ ถูกต้อง
+    \item ทั้งสองผลลัพธ์ได้เมทริกซ์เอกลักษณ์ ดังนั้น $A^{-1} = \begin{pmatrix} -2 & 1 \\ \frac{3}{2} & -\frac{1}{2} \end{pmatrix}$ ถูกต้อง
 \end{solsteps}
 \end{solution}
 
@@ -763,7 +765,7 @@ A^{-1} = \frac{1}{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}
   \item คำนวณ $\det(A) = 2(1-0) - 1(0-1) + 1(0-1) = 2 + 1 - 1 = 2$
   \item คำนวณ cofactor ทุกตำแหน่ง:
   \[C_{11} = + \det\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = 1\]  \[C_{12} = - \det\begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix} = -(-1) = 1\]  \[C_{13} = + \det\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = -1\]  \[C_{21} = - \det\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = -1\]  \[C_{22} = + \det\begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix} = 1\]  \[C_{23} = - \det\begin{pmatrix} 2 & 1 \\ 1 & 0 \end{pmatrix} = -(-1) = 1\]  \[C_{31} = + \det\begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix} = 0\]  \[C_{32} = - \det\begin{pmatrix} 2 & 1 \\ 0 & 1 \end{pmatrix} = -2\]  \[C_{33} = + \det\begin{pmatrix} 2 & 1 \\ 0 & 1 \end{pmatrix} = 2\]  \item $\operatorname{adj}(A) = \begin{pmatrix} 1 & 1 & -1 \\ -1 & 1 & -2 \\ 0 & 1 & 2 \end{pmatrix}^T = \begin{pmatrix} 1 & -1 & 0 \\ 1 & 1 & 1 \\ -1 & -2 & 2 \end{pmatrix}$
-  \item $A^{-1} = \frac{1}{2} \begin{pmatrix} 1 & -1 & 0 \\ 1 & 1 & 1 \\ -1 & -2 & 2 \end{pmatrix} = \begin{pmatrix} 0.5 & -0.5 & 0 \\ 0.5 & 0.5 & 0.5 \\ -0.5 & -1 & 1 \end{pmatrix}$
+  \item $A^{-1} = \frac{1}{2} \begin{pmatrix} 1 & -1 & 0 \\ 1 & 1 & 1 \\ -1 & -2 & 2 \end{pmatrix} = \begin{pmatrix} \frac{1}{2} & -\frac{1}{2} & 0 \\ \frac{1}{2} & \frac{1}{2} & \frac{1}{2} \\ -\frac{1}{2} & -1 & 1 \end{pmatrix}$
 \end{solsteps}
 \end{solution}
 
@@ -828,7 +830,7 @@ $(AB)^{-1} = B^{-1} A^{-1}$ ไม่ใช่ $A^{-1} B^{-1}$ ต้องร�
   \item คำนวณ cofactor ทุกตำแหน่ง:
   \[C_{11} = + \det\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = 1\]  \[C_{12} = - \det\begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix} = -(-1) = 1\]  \[C_{13} = + \det\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = -1\]  \[C_{21} = - \det\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = -1\]  \[C_{22} = + \det\begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix} = 1\]  \[C_{23} = - \det\begin{pmatrix} 2 & 1 \\ 1 & 0 \end{pmatrix} = -(-1) = 1\]  \[C_{31} = + \det\begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix} = 0\]  \[C_{32} = - \det\begin{pmatrix} 2 & 1 \\ 0 & 1 \end{pmatrix} = -2\]  \[C_{33} = + \det\begin{pmatrix} 2 & 1 \\ 0 & 1 \end{pmatrix} = 2\]  \item สร้างเมทริกซ์ cofactor แล้ว transpose ได้ $\operatorname{adj}(A)$:
   \[\operatorname{adj}(A) = \begin{pmatrix} 1 & 1 & -1 \\ -1 & 1 & -2 \\ 0 & 1 & 2 \end{pmatrix}^T = \begin{pmatrix} 1 & -1 & 0 \\ 1 & 1 & 1 \\ -1 & -2 & 2 \end{pmatrix}\]  \item คูณด้วย $\frac{1}{\det(A)} = \frac{1}{2}$ ได้:
-  \[A^{-1} = \frac{1}{2} \begin{pmatrix} 1 & -1 & 0 \\ 1 & 1 & 1 \\ -1 & -2 & 2 \end{pmatrix} = \begin{pmatrix} 0.5 & -0.5 & 0 \\ 0.5 & 0.5 & 0.5 \\ -0.5 & -1 & 1 \end{pmatrix}\]  \item ตรวจสอบโดยการคูณ $A \cdot A^{-1}$ จะได้เมทริกซ์เอกลักษณ์ $I$
+  \[A^{-1} = \frac{1}{2} \begin{pmatrix} 1 & -1 & 0 \\ 1 & 1 & 1 \\ -1 & -2 & 2 \end{pmatrix} = \begin{pmatrix} \frac{1}{2} & -\frac{1}{2} & 0 \\ \frac{1}{2} & \frac{1}{2} & \frac{1}{2} \\ -\frac{1}{2} & -1 & 1 \end{pmatrix}\]  \item ตรวจสอบโดยการคูณ $A \cdot A^{-1}$ จะได้เมทริกซ์เอกลักษณ์ $I$
 \end{solsteps}
 \end{solution}
 
@@ -915,8 +917,8 @@ x + 2y &= 5 \\
 \begin{solsteps}
   \item เขียนระบบสมการในรูปเมทริกซ์ $Ax = b$ โดยที่ $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$, $x = \begin{pmatrix} x \\ y \end{pmatrix}$, $b = \begin{pmatrix} 5 \\ 11 \end{pmatrix}$
   \item คำนวณ $\det(A) = 1(4) - 2(3) = 4 - 6 = -2 \neq 0$ ดังนั้น $A$ มีตัวผกผัน
-  \item หาตัวผกผัน $A^{-1} = \frac{1}{\det(A)} \begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix} = \frac{1}{-2} \begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix} = \begin{pmatrix} -2 & 1 \\ 1.5 & -0.5 \end{pmatrix}$
-  \item คูณ $x = A^{-1}b = \begin{pmatrix} -2 & 1 \\ 1.5 & -0.5 \end{pmatrix} \begin{pmatrix} 5 \\ 11 \end{pmatrix} = \begin{pmatrix} -10+11 \\ 7.5-5.5 \end{pmatrix} = \begin{pmatrix} 1 \\ 2 \end{pmatrix}$
+  \item หาตัวผกผัน $A^{-1} = \frac{1}{\det(A)} \begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix} = \frac{1}{-2} \begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix} = \begin{pmatrix} -2 & 1 \\ \frac{3}{2} & -\frac{1}{2} \end{pmatrix}$
+  \item คูณ $x = A^{-1}b = \begin{pmatrix} -2 & 1 \\ \frac{3}{2} & -\frac{1}{2} \end{pmatrix} \begin{pmatrix} 5 \\ 11 \end{pmatrix} = \begin{pmatrix} -10+11 \\ \frac{15}{2}-\frac{11}{2} \end{pmatrix} = \begin{pmatrix} 1 \\ 2 \end{pmatrix}$
   \item ดังนั้น $x = 1$, $y = 2$
 \end{solsteps}
 \end{solution}
@@ -961,12 +963,12 @@ x + 2y &= 5 \\
 \end{solution}
 
 \begin{ex}
-กฎของคราเมอร์มีประสิทธิภาพในการแสดงทฤษฎี แต่ในทางปฏิบัติการคำนวณมีความซับซ้อน $O(n!)$ สำหรับระบบขนาดใหญ่ วิธี Gaussian elimination มีประสิทธิภาพมากกว่าคือ $O(n^3)$
+กฎของคราเมอร์มีประสิทธิภาพในการแสดงทฤษฎี แต่ในทางปฏิบัติ หากคำนวณดีเทอร์มิแนนต์ด้วย cofactor expansion แบบตรงไปตรงมา ความซับซ้อนอาจสูงถึงระดับ $O(n!)$ สำหรับระบบขนาดใหญ่ วิธี Gaussian elimination ซึ่งคำนวณได้ระดับ $O(n^3)$ จึงเหมาะกับการคำนวณจริงมากกว่า
 \end{ex}
 \begin{solution}
 \begin{solsteps}
   \item กฎของคราเมอร์เหมาะสำหรับการพิสูจน์ทฤษฎีและแสดงสูตร เพราะให้สูตรตรงไปตรงมา
-  \item ข้อเสีย: ต้องคำนวณ $\det(A)$ และ $\det(A_i)$ สำหรับทุกตัวแปร ซึ่งมีความซับซ้อน $O(n!)$
+  \item ข้อเสีย: ต้องคำนวณ $\det(A)$ และ $\det(A_i)$ สำหรับทุกตัวแปร หากใช้ cofactor expansion โดยตรงจะมีความซับซ้อนระดับ $O(n!)$
   \item วิธี Gaussian elimination มีความซับซ้อนเพียง $O(n^3)$ จึงเหมาะสำหรับการคำนวณจริง
 \end{solsteps}
 \end{solution}
@@ -1311,13 +1313,13 @@ W = \begin{pmatrix} 0.8 & 0.2 \\ 0.3 & 0.7 \end{pmatrix}, \qquad
 
 \subsection*{ส่วนที่ 4: ตัวผกผันของเมทริกซ์}
 \begin{enumerate}
-    \item (ก) $\det(A) = -2 \neq 0$, $A^{-1} = -\frac{1}{2}\begin{pmatrix}4 & -2\\ -3 & 1\end{pmatrix} = \begin{pmatrix}-2 & 1\\ 1.5 & -0.5\end{pmatrix}$; (ข) $\det(B) = 0$ จึงไม่มีตัวผกผัน; (ค) $I^{-1} = I$
-    \item $A\cdot A^{-1} = \begin{pmatrix}1 & 2\\ 3 & 4\end{pmatrix}\begin{pmatrix}-2 & 1\\ 1.5 & -0.5\end{pmatrix} = \begin{pmatrix}1 & 0\\ 0 & 1\end{pmatrix} = I$ และตรวจ $A^{-1}\cdot A = I$ เช่นกัน
+    \item (ก) $\det(A) = -2 \neq 0$, $A^{-1} = -\frac{1}{2}\begin{pmatrix}4 & -2\\ -3 & 1\end{pmatrix} = \begin{pmatrix}-2 & 1\\ \frac{3}{2} & -\frac{1}{2}\end{pmatrix}$; (ข) $\det(B) = 0$ จึงไม่มีตัวผกผัน; (ค) $I^{-1} = I$
+    \item $A\cdot A^{-1} = \begin{pmatrix}1 & 2\\ 3 & 4\end{pmatrix}\begin{pmatrix}-2 & 1\\ \frac{3}{2} & -\frac{1}{2}\end{pmatrix} = \begin{pmatrix}1 & 0\\ 0 & 1\end{pmatrix} = I$ และตรวจ $A^{-1}\cdot A = I$ เช่นกัน
 \end{enumerate}
 
 \subsection*{ส่วนที่ 5: การแก้ระบบสมการเชิงเส้น}
 \begin{enumerate}
-    \item (ก) $A^{-1}b = \begin{pmatrix}-2 & 1\\ 1.5 & -0.5\end{pmatrix}\begin{pmatrix}5\\ 6\end{pmatrix} = \begin{pmatrix}-4\\ 4.5\end{pmatrix}$ ดังนั้น $x=-4, y=4.5$; (ข) $\det(A) = -3$, $A^{-1} = -\frac{1}{3}\begin{pmatrix}-1 & -1\\ -1 & 2\end{pmatrix} = \begin{pmatrix}1/3 & 1/3\\ 1/3 & -2/3\end{pmatrix}$ ดังนั้น $\begin{pmatrix}x\\y\end{pmatrix} = A^{-1}b = \begin{pmatrix}1/3 & 1/3\\ 1/3 & -2/3\end{pmatrix}\begin{pmatrix}3\\1\end{pmatrix} = \begin{pmatrix}4/3\\ 1/3\end{pmatrix}$ ตรวจคำตอบ: $2(4/3)+1/3 = 8/3+1/3 = 3$ และ $4/3-1/3 = 1$ ถูกต้อง
+    \item (ก) $A^{-1}b = \begin{pmatrix}-2 & 1\\ \frac{3}{2} & -\frac{1}{2}\end{pmatrix}\begin{pmatrix}5\\ 6\end{pmatrix} = \begin{pmatrix}-4\\ \frac{9}{2}\end{pmatrix}$ ดังนั้น $x=-4, y=\frac{9}{2}$; (ข) $\det(A) = -3$, $A^{-1} = -\frac{1}{3}\begin{pmatrix}-1 & -1\\ -1 & 2\end{pmatrix} = \begin{pmatrix}\frac{1}{3} & \frac{1}{3}\\ \frac{1}{3} & -\frac{2}{3}\end{pmatrix}$ ดังนั้น $\begin{pmatrix}x\\y\end{pmatrix} = A^{-1}b = \begin{pmatrix}\frac{1}{3} & \frac{1}{3}\\ \frac{1}{3} & -\frac{2}{3}\end{pmatrix}\begin{pmatrix}3\\1\end{pmatrix} = \begin{pmatrix}\frac{4}{3}\\ \frac{1}{3}\end{pmatrix}$ ตรวจคำตอบ: $2(\frac{4}{3})+\frac{1}{3} = \frac{8}{3}+\frac{1}{3} = 3$ และ $\frac{4}{3}-\frac{1}{3} = 1$ ถูกต้อง
     \item กฎคราเมอร์: $\det A = 1$, $\det A_x = \begin{vmatrix}2 & 1\\ 5 & 3\end{vmatrix} = 1$, $\det A_y = \begin{vmatrix}1 & 2\\ 2 & 5\end{vmatrix} = 1$ ดังนั้น $x = 1, y = 1$
 \end{enumerate}
 

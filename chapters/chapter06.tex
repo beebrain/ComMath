@@ -1598,7 +1598,7 @@ $C_{out} = AB + C_{in}(A \oplus B)$
 \textbf{Multiplexer (MUX)} เป็นวงจรที่เลือก 1 จาก $n$ inputs ไปยัง 1 output โดยใช้ select lines
 
 สำหรับ 4-to-1 MUX:
-$$Y = I_0 \cdot S_0' \cdot S_1' + I_1 \cdot S_0 \cdot S_1' + I_2 \cdot S_0' \cdot S_1 + I_3 \cdot S_0 \cdot S_1$$
+$$Y = I_0 \cdot S_1' \cdot S_0' + I_1 \cdot S_1' \cdot S_0 + I_2 \cdot S_1 \cdot S_0' + I_3 \cdot S_1 \cdot S_0$$
 
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -1622,10 +1622,10 @@ $S_1$ & $S_0$ & Output \\
 \end{definition}
 
 \subsection{FSM Implementation ด้วย Boolean Logic}
-Finite State Machine (FSM) สามารถ implement ได้โดยใช้ Boolean algebra
+Finite State Machine (FSM) สามารถ implement ได้โดยใช้ Boolean algebra ในตัวอย่างนี้ใช้ Moore machine ซึ่ง output ขึ้นกับ state ปัจจุบันเท่านั้น
 
 \begin{ex}
-พิจารณา FSM ที่ตรวจสอบลำดับบิต "10":
+พิจารณา Moore FSM ที่ตรวจสอบลำดับบิต "10" โดย output เป็น 1 หลังจากอ่านบิต 0 ที่ต่อจากบิต 1 แล้ว:
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
@@ -1644,6 +1644,8 @@ S2 (saw 10) & S0 & S1 & 1 \\
 กำหนด state encoding: S0=00, S1=01, S2=10
 
 State transitions และ outputs สามารถเขียนเป็น Boolean expressions ได้
+
+ตัวอย่างเช่น input $11010$ จะเดินสถานะเป็น $S0 \rightarrow S1 \rightarrow S1 \rightarrow S2 \rightarrow S1 \rightarrow S2$ ดังนั้น output หลังอ่านแต่ละบิตคือ $0,0,1,0,1$ โดยค่า 1 เกิดเมื่อเครื่องเข้าสู่ state $S2$
 \end{ex}
 \begin{solution}
 \begin{solsteps}

@@ -67,7 +67,7 @@
 \contentsline {subsection}{\numberline {2.7.3}Hash Tables และ Functions}{84}{subsection.2.7.3}%
 \contentsline {section}{\numberline {2.8}แบบฝึกหัด}{85}{section.2.8}%
 \contentsline {section}{\numberline {2.9}เฉลยแบบฝึกหัด}{89}{section.2.9}%
-\contentsline {section}{\numberline {2.10}เชตที่นับได้และเชตที่นับไม่ได้}{90}{section.2.10}%
+\contentsline {section}{\numberline {2.10}เซตที่นับได้และเซตที่นับไม่ได้}{90}{section.2.10}%
 \contentsline {section}{\numberline {2.11}สรุป}{91}{section.2.11}%
 \contentsline {section}{คำถามท้ายบทที่ 2}{92}{Item.480}%
 \contentsline {section}{ใบงานที่ 2}{93}{Item.488}%

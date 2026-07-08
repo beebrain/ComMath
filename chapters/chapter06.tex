@@ -3,7 +3,7 @@
 
 พีชคณิตบูลีน (Boolean Algebra) เป็นสาขาของคณิตศาสตร์ที่ศึกษาเกี่ยวกับค่าตรรกะ (logical values) และการดำเนินการทางตรรกะ (logical operations) พีชคณิตบูลีนถูกพัฒนาขึ้นโดย George Boole (1815--1864) นักคณิตศาสตร์ชาวอังกฤษในปี ค.ศ. 1854 ผ่านงานวิจัยเรื่อง ``An Investigation of the Laws of Thought'' ซึ่งวางรากฐานของตรรกศาสตร์เชิงสัญลักษณ์ที่กลายเป็นเครื่องมือสำคัญในการคำนวณและการออกแบบระบบดิจิทัล
 
-พีชคณิตบูลีนมีความสำคัญอย่างยิ่งในวิทยาการคอมพิวเตอร์ เนื่องจากเป็นพื้นฐานของวงจรดิจิทัล (การออกแบบ logic gates) ตรรกศาสตร์ในการเขียนโปรแกรม (เงื่อนไข if-else, loops) ฐานข้อมูล (boolean queries ใน SQL) และทฤษฎีการคำนวณ (boolean circuits) การเข้าใจหลักการของพีชคณิตบูลีนอย่างแท้จริงจึงเป็นสิ่งจำเป็นสำหรับนักศึกษาทุกสาขาที่เกี่ยวข้องกับเทคโนโลยีสารสนเทศ~\cite{mano2018digital, roth2021logic}
+พีชคณิตบูลีนมีความสำคัญอย่างยิ่งในวิทยาการคอมพิวเตอร์ เนื่องจากเป็นพื้นฐานของวงจรดิจิทัล (การออกแบบ logic gates) ตรรกศาสตร์ในการเขียนโปรแกรม (เงื่อนไข if-else, loops) ฐานข้อมูล (boolean queries ใน SQL) และทฤษฎีการคำนวณ (boolean circuits) การเข้าใจหลักการของพีชคณิตบูลีนอย่างแท้จริงจึงเป็นสิ่งจำเป็นสำหรับนักศึกษาทุกสาขาที่เกี่ยวข้องกับเทคโนโลยีสารสนเทศ
 
 ความเชื่อมโยงระหว่างพีชคณิตบูลีนกับทฤษฎีเซตและตรรกศาสตร์เป็นสิ่งสำคัญ โดยมีความสัมพันธ์ดังนี้: ค่า 0 (False) สอดคล้องกับเซตว่าง ($\emptyset$) และประพจน์เท็จ ($\bot$) ส่วนค่า 1 (True) สอดคล้องกับเอกภพสัมพัทธ์ ($U$) และประพจน์จริง ($\top$) การดำเนินการ OR ($+$) มีความสัมพันธ์กับ union ($\cup$) และ OR ($\lor$) การดำเนินการ AND ($\cdot$) มีความสัมพันธ์กับ intersection ($\cap$) และ AND ($\land$) และการดำเนินการ NOT ($\overline{x}$) มีความสัมพันธ์กับ complement ($A^c$) และ NOT ($\neg$) ดังแสดงในตารางที่ \ref{tab:boolean-set-logic}
 
@@ -30,32 +30,6 @@
     \end{tabular}
     \caption{ความสัมพันธ์ระหว่างพีชคณิตบูลีน ทฤษฎีเซต และตรรกศาสตร์}
     \label{tab:boolean-set-logic}
-\end{table}
-
-ก่อนจะนิยามพีชคณิตบูลีนอย่างเป็นทางการ ขอให้นักศึกษาทบทวนสิ่งที่ได้พิสูจน์มาแล้วใน\autoref{ch:logic} (ตรรกศาสตร์ ดูตารางกฎพีชคณิตของประพจน์ ตารางที่ \ref{tab:propositional-laws}) และ\autoref{ch:set} (ทฤษฎีเซต เช่น กฎของเดอมอร์แกนและกฎการแจกแจง) จะสังเกตได้ว่ากฎเอกลักษณ์ กฎการแจกแจง และกฎของเดอมอร์แกนในทั้งสองบทนั้นมี \emph{รูปแบบเหมือนกันทุกประการ} ต่างกันเพียงสัญลักษณ์ที่ใช้ ความเหมือนนี้ไม่ใช่เรื่องบังเอิญ แต่เป็นเพราะทั้งตรรกศาสตร์และทฤษฎีเซตต่างเป็น \emph{ตัวอย่างรูปธรรม} ของโครงสร้างนามธรรมเดียวกันคือ \textbf{พีชคณิตบูลีน} ตารางที่ \ref{tab:boolean-laws-correspondence} เปรียบเทียบกฎเหล่านี้แบบเคียงข้างกัน และเมื่อเรานิยามสัจพจน์ของพีชคณิตบูลีนในหัวข้อถัดไป สัจพจน์เหล่านั้นก็คือการสกัดเอา \emph{แก่น} ที่ทั้งสองระบบมีร่วมกันออกมานั่นเอง
-
-\begin{table}[!htb]
-    \centering
-    \footnotesize
-    \setlength{\tabcolsep}{4pt}
-    \renewcommand{\arraystretch}{1.3}
-    \resizebox{\textwidth}{!}{%
-    \begin{tabular}{|l|l|l|l|}
-        \hline
-        \textbf{ชื่อกฎ} & \textbf{ตรรกศาสตร์ (\autoref{ch:logic})} & \textbf{ทฤษฎีเซต (\autoref{ch:set})} & \textbf{พีชคณิตบูลีน (บทนี้)} \\ \hline
-        เอกลักษณ์ (Identity)   & $p \lor F \equiv p$            & $A \cup \emptyset = A$              & $a + 0 = a$ \\
-                               & $p \land T \equiv p$           & $A \cap U = A$                      & $a \cdot 1 = a$ \\ \hline
-        ครอบงำ (Domination)    & $p \lor T \equiv T$            & $A \cup U = U$                      & $a + 1 = 1$ \\
-                               & $p \land F \equiv F$           & $A \cap \emptyset = \emptyset$      & $a \cdot 0 = 0$ \\ \hline
-        สลับที่ (Commutative)  & $p \lor q \equiv q \lor p$     & $A \cup B = B \cup A$               & $a + b = b + a$ \\ \hline
-        แจกแจง (Distributive)  & $p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$ & $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ & $a \cdot (b + c) = a \cdot b + a \cdot c$ \\ \hline
-        เดอมอร์แกน (De Morgan) & $\neg(p \land q) \equiv \neg p \lor \neg q$ & $(A \cap B)^c = A^c \cup B^c$ & $(a \cdot b)' = a' + b'$ \\ \hline
-        ส่วนเติมเต็ม (Complement) & $p \lor \neg p \equiv T$    & $A \cup A^c = U$                    & $a + a' = 1$ \\
-                               & $p \land \neg p \equiv F$      & $A \cap A^c = \emptyset$            & $a \cdot a' = 0$ \\ \hline
-    \end{tabular}%
-    }
-    \caption{ตารางสมสัณฐานของกฎ: กฎชุดเดียวกันเมื่อปรากฏในตรรกศาสตร์ (\protect\autoref{ch:logic}) ทฤษฎีเซต (\protect\autoref{ch:set}) และพีชคณิตบูลีน}
-    \label{tab:boolean-laws-correspondence}
 \end{table}
 
 \section{นิยามพื้นฐานของพีชคณิตบูลีน}
@@ -99,9 +73,9 @@
 \end{enumerate}
 \end{definition}
 
-\subsection{ค่าคงตัวบูลีน}
+\subsection{ค่าคงที่บูลีน}
 \begin{definition}
-ในพีชคณิตบูลีน มีค่าคงตัวสองค่า:
+ในพีชคณิตบูลีน มีค่าคงที่สองค่า:
 \begin{enumerate}
     \item \textbf{0 (False/ปลอม)} คือ แทนค่าความจริงว่างเปล่าหรือเท็จ
     \item \textbf{1 (True/จริง)} คือ แทนค่าความจริงว่าถูกต้องหรือจริง
@@ -172,7 +146,7 @@ Truth table ของการดำเนินการ OR
 \end{thrm}
 
 \subsection{การดำเนินการ AND (Conjunction)}
-\begin{definition}
+\begin{thrm}
 \textbf{การดำเนินการ AND} ของ $a$ และ $b$ เขียนแทนด้วย $a \cdot b$ หรือ $ab$ หรือ $a \land b$ ให้ผลลัพธ์เป็น 1 ก็ต่อเมื่อ $a = b = 1$ และให้ผลลัพธ์เป็น 0 ถ้าอย่างน้อยหนึ่งใน $a$ หรือ $b$ เป็น 0
 
 \textbf{Truth Table ของ AND:}
@@ -191,7 +165,7 @@ $a$ & $b$ & $a \cdot b$ \\
 \hline
 \end{tabular}
 \end{center}
-\end{definition}
+\end{thrm}
 
 \begin{ex}
 Truth table ของการดำเนินการ AND
@@ -358,7 +332,7 @@ $a$ & $b$ & $a'$ & $b'$ & $a \cdot b'$ & $a' \cdot b$ & $a \cdot b' + a' \cdot b
 
 กฎพื้นฐานของพีชคณิตบูลีนประกอบด้วยหลายกลุ่ม ได้แก่ กฎเอกลักษณ์ (Identity laws) กฎปกครอง (Domination laws) กฎเอกลักษณ์ (Idempotent laws) กฎเติมเต็ม (Complement laws) กฎสลับที่ (Commutative laws) กฎเชื่อมโยง (Associative laws) กฎแจกแจง (Distributive laws) และกฎดูดกลืน (Absorption laws) ในบทนี้เราจะศึกษากฎเหล่านี้พร้อมทั้งพิสูจน์และยกตัวอย่างการประยุกต์ใช้
 
-\subsection{กฎการแจกแจง (Distributive Laws)}
+\subsection{Distributive Laws}
 \begin{thrm}[Distributive Laws]
 สำหรับทุก $a, b, c \in \{0, 1\}$ โดยที่ $a, b, c$ แทนค่าบูลีนใดๆ:
 \begin{enumerate}
@@ -491,7 +465,7 @@ $a$ & $b$ & $c$ & $b \cdot c$ & $a + (b \cdot c)$ & $a + b$ & $a + c$ & $(a + b)
 \end{solsteps}
 \end{solution}
 
-\subsection{กฎการดูดกลืน (Absorption Laws)}
+\subsection{Absorption Laws}
 การดูดกลืน (Absorption) เป็นคุณสมบัติที่แสดงให้เห็นว่าการดำเนินการ OR และ AND มีความสัมพันธ์กันอย่างลึกซึ้ง คุณสมบัตินี้บอกเราว่าเมื่อนำผลลัพธ์ของการดำเนินการหนึ่งไปดำเนินการกับอีกตัวแปรหนึ่ง ผลลัพธ์จะ "ถูกดูดกลืน" กลับมาเป็นตัวแปรเดิม เช่นเดียวกับการนำน้ำไปเติมลงในแก้วที่มีน้ำอยู่แล้ว น้ำใหม่จะผสานเป็นเนื้อเดียวกับน้ำเดิม คุณสมบัตินี้มีประโยชน์มากในการทำให้นิพจน์บูลีนง่ายขึ้น เพราะช่วยตัดพจน์ที่ซ้ำซ้อนออกไปได้
 
 \begin{thrm}[Absorption Laws]
@@ -557,7 +531,7 @@ $a$ & $b$ & $c$ & $b \cdot c$ & $a + (b \cdot c)$ & $a + b$ & $a + c$ & $(a + b)
 
 \label{sec:demorgans-laws}
 
-กฎของ De Morgan ตั้งชื่อตาม Augustus De Morgan (1806--1871) นักคณิตศาสตร์ชาวอังกฤษ เช่นเดียวกับในทฤษฎีเซต กฎของ De Morgan เป็นหนึ่งในกฎที่สำคัญที่สุดของพีชคณิตบูลีน เนื่องจากเป็นเครื่องมือในการหา complement ของนิพจน์บูลีนที่ซับซ้อน หลักการพื้นฐานของกฎของ De Morgan คือ complement ของผลลัพธ์จะเท่ากับผลลัพธ์ของ complements แต่ต้องสลับเครื่องหมายการดำเนินการด้วย
+กฎของ De Morganตั้งชื่อตาม Augustus De Morgan (1806--1871) นักคณิตศาสตร์ชาวอังกฤษ เช่นเดียวกับในทฤษฎีเซต กฎของ De Morgan เป็นหนึ่งในกฎที่สำคัญที่สุดของพีชคณิตบูลีน เนื่องจากเป็นเครื่องมือในการหา complement ของนิพจน์บูลีนที่ซับซ้อน หลักการพื้นฐานของกฎของ De Morgan คือ complement ของผลลัพธ์จะเท่ากับผลลัพธ์ของ complements แต่ต้องสลับเครื่องหมายการดำเนินการด้วย
 
 \begin{thrm}[De Morgan's Laws สำหรับพีชคณิตบูลีน]
 สำหรับทุก $a, b \in \{0, 1\}$ โดยที่ $a$ และ $b$ แทนค่าบูลีนใดๆ:
@@ -623,25 +597,25 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 \section{นิพจน์บูลีนและฟังก์ชันบูลีน (Boolean Expressions and Functions)}
 \begin{figure}[H]
     \centering
-    \resizebox{0.8\textwidth}{!}{\input{Figures/tikz/35-function-mapping}}
-    \caption{การจับคู่ของฟังก์ชัน $f : A \to B$ แสดงโดเมน (Domain) โคโดเมน (Codomain) และเรนจ์ (Range)}
+    \includegraphics[width=0.8\textwidth]{Figures/35-function-mapping.jpg}
+    \caption{การแมปแบบหนึ่งต่อหนึ่ง (One-to-One) และแบบทั่วถึง (Onto) ของฟังก์ชัน}
     \label{fig:function-mapping}
 \end{figure}
 
 \label{sec:boolean-expressions}
 
-นิพจน์บูลีนและฟังก์ชันบูลีนเป็นเครื่องมือสำคัญในการนำเสนอและวิเคราะห์ปัญหาทางตรรกะ นิพจน์บูลีนสร้างจากตัวแปรบูลีน ค่าคงตัว 0 และ 1 และการดำเนินการ OR, AND และ NOT โดยใช้วงเล็บเพื่อกำหนดลำดับการดำเนินการ ฟังก์ชันบูลีน $f$ คือฟังก์ชัน $f: \{0,1\}^n \to \{0,1\}$ ซึ่งจับคู่ค่าบูลีน $n$ ตัวแปรไปยังค่าบูลีนหนึ่งค่า ฟังก์ชันบูลีนสามารถนำเสนอได้หลายรูปแบบ ได้แก่ truth table, นิพจน์บูลีน, และแผนที่คาร์นอ (Karnaugh map)
+นิพจน์บูลีนและฟังก์ชันบูลีนเป็นเครื่องมือสำคัญในการนำเสนอและวิเคราะห์ปัญหาทางตรรกะ นิพจน์บูลีนสร้างจากตัวแปรบูลีน ค่าคงที่ 0 และ 1 และการดำเนินการ OR, AND และ NOT โดยใช้วงเล็บเพื่อกำหนดลำดับการดำเนินการ ฟังก์ชันบูลีนเป็นการแมปจากเซตของค่าบูลีน $n$ ตัวแปรไปยังค่าบูลีนหนึ่งค่า ฟังก์ชันบูลีนสามารถนำเสนอได้หลายรูปแบบ ได้แก่ truth table, นิพจน์บูลีน, และแผนที่คาร์นอ (Karnaugh map)
 
 ในการออกแบบวงจรดิจิทัล ฟังก์ชันบูลีนเป็นจุดเริ่มต้นของการออกแบบ วิศวกรจะนำข้อกำหนดของปัญหามาเขียนเป็นฟังก์ชันบูลีน จากนั้นจึงลดรูปฟังก์ชันให้เป็นรูปแบบที่ง่ายที่สุดก่อนที่จะแปลงเป็นวงจร การลดรูปที่ดีสามารถลดจำนวนอุปกรณ์อิเล็กทรอนิกส์ที่ต้องใช้ได้อย่างมาก ทำให้วงจรมีความซับซ้อนน้อยลงและประหยัดต้นทุนการผลิต
 
 \subsection{นิยามของนิพจน์บูลีน}
-ในทางคณิตศาสตร์ นิพจน์ (expression) คือการรวมกันของตัวแปร ค่าคงตัว และการดำเนินการ เช่นเดียวกัน นิพจน์บูลีนก็คือการรวมกันของตัวแปรบูลีน ค่าคงตัว 0 และ 1 และการดำเนินการ OR, AND, NOT โดยใช้วงเล็บเพื่อกำหนดลำดับการดำเนินการ การเข้าใจโครงสร้างของนิพจน์บูลีนเป็นพื้นฐานสำคัญในการวิเคราะห์และออกแบบวงจรดิจิทัล
+ในทางคณิตศาสตร์ นิพจน์ (expression) คือการรวมกันของตัวแปร ค่าคงที่ และการดำเนินการ เช่นเดียวกัน นิพจน์บูลีนก็คือการรวมกันของตัวแปรบูลีน ค่าคงที่ 0 และ 1 และการดำเนินการ OR, AND, NOT โดยใช้วงเล็บเพื่อกำหนดลำดับการดำเนินการ การเข้าใจโครงสร้างของนิพจน์บูลีนเป็นพื้นฐานสำคัญในการวิเคราะห์และออกแบบวงจรดิจิทัล
 
 \begin{definition}
 \textbf{นิพจน์บูลีน (Boolean Expression)} คือ การรวมกันของ:
 \begin{enumerate}
     \item ตัวแปรบูลีน (Boolean variables) เช่น $x, y, z$
-    \item ค่าคงตัวบูลีน 0 และ 1
+    \item ค่าคงที่บูลีน 0 และ 1
     \item การดำเนินการบูลีน ($+$, $\cdot$, $'$)
     \item วงเล็บ $($ และ $=$ เพื่อกำหนดลำดับการดำเนินการ
 \end{enumerate}
@@ -673,7 +647,7 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 \begin{definition}
 \textbf{ฟังก์ชันบูลีน (Boolean Function)} $f(x_1, x_2, \ldots, x_n)$ คือ ฟังก์ชันที่รับค่าบูลีน $n$ ตัวแปรและให้ผลลัพธ์เป็นค่าบูลีน
 
-ฟังก์ชันบูลีนสามารถแทนด้วย \textbf{ตารางค่าความจริง (truth table)} ที่แสดงผลลัพธ์สำหรับทุกการจัดหมู่ (combination) ของค่าอินพุต
+ฟังก์ชันบูลีนสามารถแทนด้วย \textbf{truth table} ที่แสดงผลลัพธ์สำหรับทุกการผombinasi ของค่าอินพุต
 \end{definition}
 
 \begin{ex}
@@ -738,7 +712,7 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 
 รูปแบบปกติ (Canonical Forms) เป็นวิธีมาตรฐานในการเขียนฟังก์ชันบูลีนให้อยู่ในรูปแบบที่ชัดเจนและเป็นระบบ ฟังก์ชันบูลีนใดๆ สามารถเขียนได้สองแบบหลัก คือ Sum of Products (SOP) ซึ่งเป็นผลบวกของผลคูณ และ Product of Sums (POS) ซึ่งเป็นผลคูณของผลบวก การเขียนฟังก์ชันในรูปแบบปกติทำให้ง่ายต่อการเปรียบเทียบฟังก์ชันสองฟังก์ชัน และเป็นจุดเริ่มต้นสำหรับการลดรูปโดยใช้ Karnaugh Map
 
-\subsection{มินเทอมและแมกซ์เทอม (Minterms and Maxterms)}
+\subsection{Minterms และ Maxterms}
 เพื่อให้สามารถเขียนฟังก์ชันบูลีนในรูปแบบมาตรฐานที่ชัดเจน เราต้องเข้าใจแนวคิดของ Minterm และ Maxterm ก่อน Minterm คือ term ที่เกิดจากการ AND ตัวแปรทุกตัว โดยแต่ละตัวแปรจะปรากฏเพียงครั้งเดียวในรูปแบบปกติ (ถ้าตัวแปรมีค่า 1 ใช้ตัวแปรเดี่ยว ถ้ามีค่า 0 ใช้ complement) ในทางตรงข้าม Maxterm คือ term ที่เกิดจากการ OR ตัวแปรทุกตัว โดยใช้กฎเกณฑ์เดียวกันแต่กลับกัน การเข้าใจความสัมพันธ์ระหว่าง Minterm และ Maxterm จะช่วยให้สามารถแปลงฟังก์ชันบูลีนระหว่างรูปแบบ SOP และ POS ได้อย่างง่ายดาย
 
 \begin{definition}
@@ -775,7 +749,7 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 \end{enumerate}
 \end{thrm}
 
-\subsection{ผลบวกของผลคูณ (Sum of Products, SOP)}
+\subsection{Sum of Products (SOP) — ผลบวกของผลคูณ}
 หลังจากเข้าใจ Minterm แล้ว ตอนนี้เราสามารถนำ Minterms มาประกอบกันเป็นรูปแบบ Sum of Products (SOP) ซึ่งเป็นรูปแบบมาตรฐานที่สำคัญในการออกแบบวงจรดิจิทัล SOP คือการนำผลคูณ (AND) ของตัวแปรหลายๆ พจน์มาบวก (OR) กัน รูปแบบนี้เรียกอีกอย่างว่า "ผลบวกของผลคูณ" เพราะเราเอาผลคูณหลายๆ อันมาบวกกัน การเขียนฟังก์ชันในรูปแบบ SOP ทำให้ง่ายต่อการแปลงเป็นวงจรที่ใช้ AND gate และ OR gate
 
 \begin{definition}
@@ -828,7 +802,7 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 \end{solsteps}
 \end{solution}
 
-\subsection{ผลคูณของผลบวก (Product of Sums, POS)}
+\subsection{Product of Sums (POS) — ผลคูณของผลบวก}
 นอกจาก SOP แล้ว ยังมีอีกรูปแบบหนึ่งที่สำคัญคือ Product of Sums (POS) หรือ "ผลคูณของผลบวก" ซึ่งเป็นรูปแบบที่ใช้ Maxterms มาประกอบกัน รูปแบบ POS คือการนำผลบวก (OR) ของตัวแปรหลายๆ พจน์มาคูณ (AND) กัน รูปแบบนี้มีประโยชน์ในบางสถานการณ์ เช่น เมื่อต้องการวงจรที่ใช้ NOR gate เป็นหลัก หรือเมื่อฟังก์ชันถูกกำหนดในรูปแบบที่ง่ายต่อการเขียนเป็น POS การเข้าใจทั้ง SOP และ POS ทำให้สามารถเลือกใช้รูปแบบที่เหมาะสมกับการออกแบบวงจรได้
 
 \begin{definition}
@@ -1068,24 +1042,24 @@ f &= x y + x' z + y z \\
 
 \subsection*{ตัวอย่างที่ 4: พีชคณิตบูลีนกับ Perceptron ใน Machine Learning}
 \label{ex:boolean-perceptron}
-Perceptron คือโมเดลพื้นฐานที่สุดของ Neural Network ซึ่งทำงานโดยใช้หลักการเดียวกับวงจรดิจิทัล กล่าวคือ Perceptron รับ input หลายตัว คูณด้วย weight ของแต่ละ input แล้วรวมกัน (weighted sum) จากนั้นผ่าน activation function ที่ทำหน้าที่เหมือน threshold gate เพื่อตัดสินใจว่า output ควรเป็น 0 หรือ 1 แนวคิดการตัดสินใจแบบ threshold นี้เป็นพื้นฐานของการรู้จำรูปแบบ (pattern recognition) ในการเรียนรู้ของเครื่อง ซึ่งมีงานวิจัยที่ศึกษากลไกการตัดสินใจและสิ่งที่แบบจำลองเรียนรู้จริง เช่น แนวคิด latent cognizance~\cite{nakjai2018latent} และการเพิ่มความตระหนักรู้ให้กระบวนการรู้จำรูปแบบ~\cite{katanyukul2022awareness}
+Perceptron คือโมเดลพื้นฐานที่สุดของ Neural Network ซึ่งทำงานโดยใช้หลักการเดียวกับวงจรดิจิทัล กล่าวคือ Perceptron รับ input หลายตัว คูณด้วย weight ของแต่ละ input แล้วรวมกัน (weighted sum) จากนั้นผ่าน activation function ที่ทำหน้าที่เหมือน threshold gate เพื่อตัดสินใจว่า output ควรเป็น 0 หรือ 1
 
 \begin{ex}
 จงคำนวณ output ของ Perceptron ที่มี 2 inputs $x_1, x_2$ โดยมี weights $w_1 = 0.5$, $w_2 = 0.5$ และ bias $b = -0.7$ และใช้ step function เป็น activation:
-\[f(z) = \begin{cases} 1 & \text{ถ้า } z \geq 0 \\ 0 & \text{ถ้า } z < 0 \end{cases}\]
+$$f(z) = \begin{cases} 1 & \text{ถ้า } z \geq 0 \\ 0 & \text{ถ้า } z < 0 \end{cases}$$
 โดยที่ $z = x_1 w_1 + x_2 w_2 + b$ จงทดสอบกับ input $(0, 0)$, $(0, 1)$, $(1, 0)$, $(1, 1)$
 \end{ex}
 \begin{solution}
 \begin{solsteps}
   \item กำหนดสูตรการคำนวณ: $z = x_1 w_1 + x_2 w_2 + b$ และ $y = f(z)$
   \item ทดสอบ $(x_1, x_2) = (0, 0)$:
-        \[z = (0)(0.5) + (0)(0.5) + (-0.7) = -0.7 < 0 \implies y = 0\]
+        $$z = (0)(0.5) + (0)(0.5) + (-0.7) = -0.7 < 0 \implies y = 0$$
   \item ทดสอบ $(x_1, x_2) = (0, 1)$:
-        \[z = (0)(0.5) + (1)(0.5) + (-0.7) = -0.2 < 0 \implies y = 0\]
+        $$z = (0)(0.5) + (1)(0.5) + (-0.7) = -0.2 < 0 \implies y = 0$$
   \item ทดสอบ $(x_1, x_2) = (1, 0)$:
-        \[z = (1)(0.5) + (0)(0.5) + (-0.7) = -0.2 < 0 \implies y = 0\]
+        $$z = (1)(0.5) + (0)(0.5) + (-0.7) = -0.2 < 0 \implies y = 0$$
   \item ทดสอบ $(x_1, x_2) = (1, 1)$:
-        \[z = (1)(0.5) + (1)(0.5) + (-0.7) = 0.3 > 0 \implies y = 1\]
+        $$z = (1)(0.5) + (1)(0.5) + (-0.7) = 0.3 > 0 \implies y = 1$$
 \end{solsteps}
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -1101,7 +1075,7 @@ $x_1$ & $x_2$ & $y$ \\
 \end{center}
 \begin{solsteps}
   \item ดังนั้น \mathoval{y = x_1 \land x_2} ซึ่งคือ AND gate — แสดงว่า Perceptron ตัวนี้ทำงานเหมือน AND gate ทางดิจิทัล
-  \item หมายเหตุ: Perceptron สามารถเรียนรู้ weight และ bias ที่เหมาะสมได้จากข้อมูล โดยใช้ขั้นตอนวิธี learning rule: $w_i \leftarrow w_i + \eta (t - y) x_i$ เมื่อ $t$ คือ target output และ $\eta$ คือ learning rate
+  \item หมายเหตุ: Perceptron สามารถเรียนรู้ weight และ bias ที่เหมาะสมได้จากข้อมูล โดยใช้อัลกอริทึม learning rule: $w_i \leftarrow w_i + \eta (t - y) x_i$ เมื่อ $t$ คือ target output และ $\eta$ คือ learning rate
 \end{solsteps}
 \end{solution}
 
@@ -1110,9 +1084,9 @@ $x_1$ & $x_2$ & $y$ \\
 
 แผนที่คาร์นอ หรือ K-map เป็นเครื่องมือในการลดรูปฟังก์ชันบูลีนอย่างเป็นระบบ K-map แสดงค่าของฟังก์ชันในรูปแบบ grid โดยการจัดเรียงเซลล์ทำให้ minterms ที่อยู่ติดกัน (adjacent) อยู่ใกล้กัน หลักการสำคัญของ K-map คือการจัดกลุ่มเซลล์ที่มีค่า 1 ร่วมกันเป็นกลุ่มขนาด $2^n$ (n = 0, 1, 2, 3, ...) เพื่อหาตัวแปรที่ไม่เปลี่ยนแปลงในกลุ่ม ซึ่งจะถูกนำมาสร้าง term ที่ง่ายขึ้นในนิพจน์บูลีนที่ลดรูปแล้ว การใช้ K-map สำหรับฟังก์ชัน 2-4 ตัวแปรเป็นวิธีที่มีประสิทธิภาพและเป็นที่นิยมในการออกแบบวงจรดิจิทัล
 
-การใช้ K-map มีข้อได้เปรียบเหนือการใช้ Boolean identities โดยตรง กล่าวคือ K-map เป็นวิธีที่เป็นระบบและลดความผิดพลาดในการลดรูป ในขณะที่การใช้ identities ต้องอาศัยประสบการณ์และความชำนาญในการเลือกใช้กฎที่ถูกต้อง อย่างไรก็ตาม สำหรับฟังก์ชันที่มีตัวแปรมากกว่า 4 ตัว วิธี Quine-McCluskey ซึ่งเป็นวิธีที่เป็นขั้นตอนวิธีมากขึ้นจะเหมาะสมกว่า
+การใช้ K-map มีข้อได้เปรียบเหนือการใช้ Boolean identities โดยตรง กล่าวคือ K-map เป็นวิธีที่เป็นระบบและลดความผิดพลาดในการลดรูป ในขณะที่การใช้ identities ต้องอาศัยประสบการณ์และความชำนาญในการเลือกใช้กฎที่ถูกต้อง อย่างไรก็ตาม สำหรับฟังก์ชันที่มีตัวแปรมากกว่า 4 ตัว วิธี Quine-McCluskey ซึ่งเป็นวิธีที่เป็นอัลกอริทึมมากขึ้นจะเหมาะสมกว่า
 
-\subsection{แผนที่คาร์นอสำหรับ 2 ตัวแปร (K-map)}
+\subsection{K-map สำหรับ 2 ตัวแปร}
 
 \begin{thrm}
 K-map สำหรับ 2 ตัวแปร $x, y$:
@@ -1184,7 +1158,7 @@ $x = 1$ & 1 & 1 \\
 ดังนั้น $f = x' + x = 1$ (ตรรกะที่เป็นจริงเสมอ)
 \end{solution}
 
-\subsection{แผนที่คาร์นอสำหรับ 3 ตัวแปร (K-map)}
+\subsection{K-map สำหรับ 3 ตัวแปร}
 
 \begin{thrm}
 K-map สำหรับ 3 ตัวแปร $x, y, z$:
@@ -1238,8 +1212,9 @@ $x = 1$ & 1 & 1 & 0 & 1 \\
 \end{solsteps}
 ดังนั้น $f = y' + x z'$
 \end{solution}
+\end{ex}
 
-\subsection{แผนที่คาร์นอสำหรับ 4 ตัวแปร (K-map)}
+\subsection{K-map สำหรับ 4 ตัวแปร}
 
 \begin{thrm}
 K-map สำหรับ 4 ตัวแปร $w, x, y, z$:
@@ -1309,9 +1284,9 @@ $wx = 10$ & 1 & 1 & 0 & 1 \\
 \section{การประยุกต์ในวงจรดิจิทัล}
 \label{sec:boolean-applications}
 
-พีชคณิตบูลีนเป็นรากฐานทางทฤษฎีของการออกแบบวงจรดิจิทัล ทุกการคำนวณในคอมพิวเตอร์สมัยใหม่ล้วนถูกแปลงเป็นการดำเนินการบูลีนบนสัญญาณดิจิทัลสองระดับ (0 และ 1) การเข้าใจความสัมพันธ์ระหว่างนิพจน์บูลีนและวงจรจริงจึงเป็นสิ่งจำเป็นสำหรับวิศวกรดิจิทัลและผู้ที่ต้องการเข้าใจการทำงานของคอมพิวเตอร์ในระดับต่ำ การออกแบบวงจรดิจิทัลเริ่มจากการระบุข้อกำหนดของปัญหา เขียนเป็นฟังก์ชันบูลีน ลดรูป และแปลงเป็นวงจรที่ประกอบด้วย logic gates~\cite{wakerly2018digital}
+พีชคณิตบูลีนเป็นรากฐานทางทฤษฎีของการออกแบบวงจรดิจิทัล ทุกการคำนวณในคอมพิวเตอร์สมัยใหม่ล้วนถูกแปลงเป็นการดำเนินการบูลีนบนสัญญาณดิจิทัลสองระดับ (0 และ 1) การเข้าใจความสัมพันธ์ระหว่างนิพจน์บูลีนและวงจรจริงจึงเป็นสิ่งจำเป็นสำหรับวิศวกรดิจิทัลและผู้ที่ต้องการเข้าใจการทำงานของคอมพิวเตอร์ในระดับต่ำ การออกแบบวงจรดิจิทัลเริ่มจากการระบุข้อกำหนดของปัญหา เขียนเป็นฟังก์ชันบูลีน ลดรูป และแปลงเป็นวงจรที่ประกอบด้วย logic gates
 
-\subsection{ลอจิกเกต (Logic Gates)}
+\subsection{Logic Gates}
 
 Logic gates เป็น building blocks ของวงจรดิจิทัล:
 
@@ -1421,7 +1396,7 @@ $a$ & $b$ & $(a + b)'$ \\
 \end{solsteps}
 \end{solution}
 
-\section{การสร้างวงจรสองระดับ (Two-level Realization)}
+\subsection{Two-level Realization}
 \label{sec:two-level}
 
 ในการ realization วงจรดิจิทัล รูปแบบ two-level เป็นที่นิยมเนื่องจากให้ความเร็วในการทำงานสูงสุด
@@ -1446,7 +1421,7 @@ realization SOP สำหรับ $f(x, y, z) = y' + x y + x' y' z$
 \end{solsteps}
 \end{solution}
 
-\section{วงจรบวกครึ่งอัตราและวงจรบวกเต็มอัตรา (Half Adder, Full Adder)}
+\subsection{Half Adder และ Full Adder}
 \label{sec:adders}
 
 \begin{ex}
@@ -1471,7 +1446,7 @@ realization SOP สำหรับ $f(x, y, z) = y' + x y + x' y' z$
 \end{solsteps}
 \end{solution}
 
-\section{สมมูลของพีชคณิตบูลีน (Boolean Algebra Equivalence)}
+\subsection{สมมูลของพีชคณิตบูลีน (Boolean Algebra Equivalence)}
 \label{sec:boolean-equivalence}
 
 \begin{thrm}
@@ -1525,7 +1500,7 @@ De Morgan & $(x + y)' = x' y'$ & $(xy)' = x' + y'$ \\
 
 พีชคณิตบูลีนมีการประยุกต์ใช้อย่างกว้างขวางในวิทยาการคอมพิวเตอร์ นอกเหนือจากการออกแบบวงจรดิจิทัลที่กล่าวมาแล้ว หลักการบูลีนยังปรากฏในภาษาโปรแกรม ฐานข้อมูล การเข้ารหัสข้อมูล และระบบดิจิทัลทุกระดับ การเข้าใจการประยุกต์ใช้เหล่านี้ช่วยให้ผู้ศึกษาเห็นความเชื่อมโยงระหว่างทฤษฎีและการปฏิบัติ และสามารถนำหลักการบูลีนไปประยุกต์ใช้ในสถานการณ์ที่หลากหลาย
 
-\subsection{แผนที่คาร์นอสำหรับการออกแบบวงจร (Karnaugh Maps)}
+\subsection{Karnaugh Maps สำหรับการออกแบบวงจร}
 Karnaugh Map (K-map) เป็นเครื่องมือในการลดรูป (simplify) ฟังก์ชันบูลีน ซึ่งมีความสำคัญในการออกแบบวงจรดิจิทัลที่ใช้ทรัพยากรน้อยที่สุด
 
 \begin{ex}
@@ -1554,7 +1529,7 @@ $x=1$ & 0 & 1 & 1 & 0 \\
 \end{solution}
 
 
-\subsection{ลอจิกเกตและวงจรดิจิทัล (Logic Gates)}
+\subsection{Logic Gates และวงจรดิจิทัล}
 Logic gates เป็น building blocks ของวงจรดิจิทัล ซึ่งทำงานตาม Boolean algebra
 
 \begin{thrm}
@@ -1581,7 +1556,7 @@ NOR & $Y = (A + B)'$ \\
 \end{thrm}
 
 \begin{ex}[การสร้าง AND จาก NAND gates]
-\[Y = ((AB)')' = AB\]
+$$Y = ((AB)')' = AB$$
 นำ output ของ NAND gate มาเข้า NOT gate (ซึ่งก็คือ NAND gate ที่ input ทั้งสองเท่ากัน)
 \end{ex}
 \begin{solution}
@@ -1591,7 +1566,7 @@ NOR & $Y = (A + B)'$ \\
 \end{solsteps}
 \end{solution}
 
-\subsection{วงจรบวกครึ่งอัตราและวงจรบวกเต็มอัตรา (Half Adder, Full Adder)}
+\subsection{Half Adder และ Full Adder}
 Adder circuits เป็นพื้นฐานของ arithmetic logic unit (ALU) ใน CPU
 
 \begin{thrm}[Half Adder]
@@ -1627,12 +1602,12 @@ $C_{out} = AB + C_{in}(A \oplus B)$
 \end{solsteps}
 \end{solution}
 
-\subsection{มัลติเพล็กเซอร์และดีมัลติเพล็กเซอร์ (Multiplexer, Demultiplexer)}
+\subsection{Multiplexer และ Demultiplexer}
 \begin{definition}
 \textbf{Multiplexer (MUX)} เป็นวงจรที่เลือก 1 จาก $n$ inputs ไปยัง 1 output โดยใช้ select lines
 
 สำหรับ 4-to-1 MUX:
-\[Y = I_0 \cdot S_0' \cdot S_1' + I_1 \cdot S_0 \cdot S_1' + I_2 \cdot S_0' \cdot S_1 + I_3 \cdot S_0 \cdot S_1\]
+$$Y = I_0 \cdot S_0' \cdot S_1' + I_1 \cdot S_0 \cdot S_1' + I_2 \cdot S_0' \cdot S_1 + I_3 \cdot S_0 \cdot S_1$$
 
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -1655,7 +1630,7 @@ $S_1$ & $S_0$ & Output \\
 \textbf{Demultiplexer (DEMUX)} ทำงานตรงข้ามกับ MUX คือรับ 1 input และส่งไปยัง 1 จาก $n$ outputs
 \end{definition}
 
-\subsection{การสร้างเครื่องสถานะจำกัด (FSM) ด้วยพีชคณิตบูลีน}
+\subsection{FSM Implementation ด้วย Boolean Logic}
 Finite State Machine (FSM) สามารถ implement ได้โดยใช้ Boolean algebra
 
 \begin{ex}
@@ -1687,65 +1662,6 @@ State transitions และ outputs สามารถเขียนเป็�
 \end{solsteps}
 \end{solution}
 
-\section{สรุป}
-\label{sec:chapter-summary}
-ในบทนี้เราได้ศึกษาพีชคณิตบูลีนอย่างครอบคลุม ซึ่งประกอบด้วย:
-
-\begin{enumerate}
-    \item \textbf{นิยามของพีชคณิตบูลีน} คือ Boolean algebra $(B, +, \cdot, ', 0, 1)$ พร้อม axioms
-    \item \textbf{การดำเนินการทางบูลีน} คือ OR ($+$), AND ($\cdot$), NOT ($'$) พร้อม truth tables
-    \item \textbf{Boolean Identities} คือ Idempotent, Identity, Domination, Complement, Commutative, Associative, Distributive, Absorption
-    \item \textbf{กฎของ De Morgan} คือ $(a + b)' = a' \cdot b'$ และ $(a \cdot b)' = a' + b'$
-    \item \textbf{ฟังก์ชันบูลีน} คือ นิพจน์บูลีนและ truth tables
-    \item \textbf{Canonical Forms} คือ Sum of Products (SOP) และ Product of Sums (POS)
-    \item \textbf{Karnaugh Maps} คือ เครื่องมือในการลดรูปฟังก์ชันบูลีน
-    \item \textbf{การประยุกต์ในวิทยาการคอมพิวเตอร์} คือ K-map, Boolean logic, Logic gates, Adders, MUX/DEMUX, FSM
-\end{enumerate}
-
-พีชคณิตบูลีนเป็นเครื่องมือที่จำเป็นสำหรับการศึกษาบทต่อไป โดยเฉพาะ \textbf{ทฤษฎีการคำนวณ (Theory of Computation)} ซึ่งใช้ Boolean circuits เป็นพื้นฐาน และ \textbf{การออกแบบวงจรดิจิทัล (Digital Circuit Design)} ซึ่งใช้หลักการของ Boolean algebra โดยตรง
-
-ความเชื่อมโยงระหว่างพีชคณิตบูลีน ตรรกศาสตร์ และทฤษฎีเซตเป็นสิ่งสำคัญที่แสดงให้เห็นว่าโครงสร้างทางคณิตศาสตร์ต่างๆ มีความสัมพันธ์กันอย่างลึกซึ้ง
-
-\newpage
-\QAChapter
-\begin{enumerate}
-    \item จงอธิบายความหมายของพีชคณิตบูลีนและยกตัวอย่างการประยุกต์ใช้ในวิทยาการคอมพิวเตอร์
-    \item จงเขียน truth table ของการดำเนินการ OR, AND และ NOT
-    \item จงพิสูจน์ De Morgan's Laws โดยใช้ truth table
-    \item จงลดรูปนิพจน์บูลีนต่อไปนี้: $f(x,y,z) = xy + x'y + xyz'$
-    \item จงเขียนฟังก์ชันบูลีน $f(x,y) = x + y'$ ในรูปแบบ canonical SOP และ POS
-    \item จงใช้ K-map ลดรูปฟังก์ชัน $f(w,x,y,z) = \sum(0,2,4,6,8,10,12,14)$
-    \item จงออกแบบวงจรสำหรับ Half Adder และ Full Adder
-    \item จงอธิบายความสัมพันธ์ระหว่างพีชคณิตบูลีน ทฤษฎีเซต และตรรกศาสตร์
-\end{enumerate}
-
-\newpage
-\sheetChapter{พีชคณิตบูลีน (Boolean Algebra)}
-\section*{วัตถุประสงค์}
-\begin{enumerate}
-    \item เพื่อให้นักศึกษาสามารถอธิบายความหมายและความสำคัญของพีชคณิตบูลีนได้
-    \item เพื่อให้นักศึกษาสามารถดำเนินการทางบูลีน (AND, OR, NOT) และอธิบายความหมายของผลลัพธ์ได้
-    \item เพื่อให้นักศึกษาสามารถพิสูจน์และประยุกต์ใช้กฎของ De Morgan ได้
-    \item เพื่อให้นักศึกษาสามารถลดรูปนิพจน์บูลีนโดยใช้กฎและทฤษฎีบทต่างๆ ได้
-    \item เพื่อให้นักศึกษาสามารถใช้แผนที่คาร์นอในการลดรูปฟังก์ชันบูลีนได้
-\end{enumerate}
-\section*{คำชี้แจง} ให้นักศึกษาศึกษาเนื้อหาเรื่องพีชคณิตบูลีนและตอบคำถามต่อไปนี้
-\begin{enumerate}
-    \item จงอธิบายความเชื่อมโยงระหว่าง Boolean Algebra, Set Theory และ Propositional Logic พร้อมยกตัวอย่าง
-    \Pointilles{3}
-    \item จงเขียน truth table สำหรับการดำเนินการ AND, OR, NOT และ XOR
-    \Pointilles{3}
-    \item จงพิสูจน์ $(a + b)' = a' \cdot b'$ โดยใช้ truth table
-    \Pointilles{3}
-    \item จงลดรูปนิพจน์ $f(x,y) = (x + y)(x + y')$ และอธิบายขั้นตอนการลดรูป
-    \Pointilles{3}
-    \item จงใช้ K-map ลดรูปฟังก์ชัน $f(x,y,z) = \sum(0, 1, 3, 5, 7)$
-    \Pointilles{3}
-    \item จงออกแบบวงจรสำหรับ Full Adder พร้อมเขียน Boolean expressions
-    \Pointilles{3}
-\end{enumerate}
-
-\clearpage
 \section{แบบฝึกหัด}
 \label{sec:exercises}
 
@@ -1866,13 +1782,13 @@ State transitions และ outputs สามารถเขียนเป็�
     \end{enumerate}
 \end{enumerate}
 
-\clearpage
 \section{เฉลยแบบฝึกหัด}
 \label{sec:exercises-solutions}
 
 \subsection*{เฉลยส่วนที่ 1}
-\begin{enumerate}[label=1.\arabic*.]
-
+\begin{enumerate}
+    \item
+    \begin{enumerate}
         \item $1 + 0 = 1$
         \item $1 \cdot 1 = 1$
         \item $0' = 1$
@@ -1881,9 +1797,10 @@ State transitions และ outputs สามารถเขียนเป็�
         \item $(1 + 0) \cdot 1 = 1 \cdot 1 = 1$
         \item $(1')' = 1$
         \item $1 \cdot 1 + 0 \cdot 1 = 1 + 0 = 1$
-\end{enumerate}
-\begin{enumerate}[label=2.\arabic*.]
+    \end{enumerate}
 
+    \item
+    \begin{enumerate}
         \item $f(x, y) = x + y'$
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
@@ -1916,14 +1833,74 @@ $x$ & $y$ & $x + y$ & $f$ \\
 \hline
 \end{tabular}
 \end{center}
-\end{enumerate}
-\begin{enumerate}[label=3.\arabic*.]
+    \end{enumerate}
 
+    \item
+    \begin{enumerate}
         \item เท็จ (ใน Boolean: $1+1=1$)
         \item จริง
         \item เท็จ ($0' = 1$)
         \item จริง
         \item จริง
         \item เท็จ ($x \cdot 0 = 0$)
+    \end{enumerate}
+\end{enumerate}
+
+\section{สรุป}
+\label{sec:chapter-summary}
+ในบทนี้เราได้ศึกษาพีชคณิตบูลีนอย่างครอบคลุม ซึ่งประกอบด้วย:
+
+\begin{enumerate}
+    \item \textbf{นิยามของพีชคณิตบูลีน} คือ Boolean algebra $(B, +, \cdot, ', 0, 1)$ พร้อม axioms
+    \item \textbf{การดำเนินการทางบูลีน} คือ OR ($+$), AND ($\cdot$), NOT ($'$) พร้อม truth tables
+    \item \textbf{Boolean Identities} คือ Idempotent, Identity, Domination, Complement, Commutative, Associative, Distributive, Absorption
+    \item \textbf{กฎของ De Morgan} คือ $(a + b)' = a' \cdot b'$ และ $(a \cdot b)' = a' + b'$
+    \item \textbf{ฟังก์ชันบูลีน} คือ นิพจน์บูลีนและ truth tables
+    \item \textbf{Canonical Forms} คือ Sum of Products (SOP) และ Product of Sums (POS)
+    \item \textbf{Karnaugh Maps} คือ เครื่องมือในการลดรูปฟังก์ชันบูลีน
+    \item \textbf{การประยุกต์ในวิทยาการคอมพิวเตอร์} คือ K-map, Boolean logic, Logic gates, Adders, MUX/DEMUX, FSM
+\end{enumerate}
+
+พีชคณิตบูลีนเป็นเครื่องมือที่จำเป็นสำหรับการศึกษาบทต่อไป โดยเฉพาะ \textbf{ทฤษฎีการคำนวณ (Theory of Computation)} ซึ่งใช้ Boolean circuits เป็นพื้นฐาน และ \textbf{การออกแบบวงจรดิจิทัล (Digital Circuit Design)} ซึ่งใช้หลักการของ Boolean algebra โดยตรง
+
+ความเชื่อมโยงระหว่างพีชคณิตบูลีน ตรรกศาสตร์ และทฤษฎีเซตเป็นสิ่งสำคัญที่แสดงให้เห็นว่าโครงสร้างทางคณิตศาสตร์ต่างๆ มีความสัมพันธ์กันอย่างลึกซึ้ง
+
+\newpage
+\QAChapter
+\begin{enumerate}
+    \item จงอธิบายความหมายของพีชคณิตบูลีนและยกตัวอย่างการประยุกต์ใช้ในวิทยาการคอมพิวเตอร์
+    \item จงเขียน truth table ของการดำเนินการ OR, AND และ NOT
+    \item จงพิสูจน์ De Morgan's Laws โดยใช้ truth table
+    \item จงลดรูปนิพจน์บูลีนต่อไปนี้: $f(x,y,z) = xy + x'y + xyz'$
+    \item จงเขียนฟังก์ชันบูลีน $f(x,y) = x + y'$ ในรูปแบบ canonical SOP และ POS
+    \item จงใช้ K-map ลดรูปฟังก์ชัน $f(w,x,y,z) = \sum(0,2,4,6,8,10,12,14)$
+    \item จงออกแบบวงจรสำหรับ Half Adder และ Full Adder
+    \item จงอธิบายความสัมพันธ์ระหว่างพีชคณิตบูลีน ทฤษฎีเซต และตรรกศาสตร์
+\end{enumerate}
+
+\newpage
+\sheetChapter{พีชคณิตบูลีน (Boolean Algebra)}
+\section*{วัตถุประสงค์}
+\begin{enumerate}
+    \item เพื่อให้นักศึกษาสามารถอธิบายความหมายและความสำคัญของพีชคณิตบูลีนได้
+    \item เพื่อให้นักศึกษาสามารถดำเนินการทางบูลีน (AND, OR, NOT) และอธิบายความหมายของผลลัพธ์ได้
+    \item เพื่อให้นักศึกษาสามารถพิสูจน์และประยุกต์ใช้กฎของ De Morgan ได้
+    \item เพื่อให้นักศึกษาสามารถลดรูปนิพจน์บูลีนโดยใช้กฎและทฤษฎีบทต่างๆ ได้
+    \item เพื่อให้นักศึกษาสามารถใช้แผนที่คาร์นอในการลดรูปฟังก์ชันบูลีนได้
+\end{enumerate}
+\section*{คำชี้แจง} ให้นักศึกษาศึกษาเนื้อหาเรื่องพีชคณิตบูลีนและตอบคำถามต่อไปนี้
+\begin{enumerate}
+    \item จงอธิบายความเชื่อมโยงระหว่าง Boolean Algebra, Set Theory และ Propositional Logic พร้อมยกตัวอย่าง
+    \Pointilles{3}
+    \item จงเขียน truth table สำหรับการดำเนินการ AND, OR, NOT และ XOR
+    \Pointilles{3}
+    \item จงพิสูจน์ $(a + b)' = a' \cdot b'$ โดยใช้ truth table
+    \Pointilles{3}
+    \item จงลดรูปนิพจน์ $f(x,y) = (x + y)(x + y')$ และอธิบายขั้นตอนการลดรูป
+    \Pointilles{3}
+    \item จงใช้ K-map ลดรูปฟังก์ชัน $f(x,y,z) = \sum(0, 1, 3, 5, 7)$
+    \Pointilles{3}
+    \item จงออกแบบวงจรสำหรับ Full Adder พร้อมเขียน Boolean expressions
+    \Pointilles{3}
 \end{enumerate}
 

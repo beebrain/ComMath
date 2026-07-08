@@ -35,12 +35,12 @@
 \contentsline {subsection}{\numberline {1.10.3}การอ้างเหตุผลแบบมีเงื่อนไข (Hypothetical Syllogism)}{40}{subsection.1.10.3}%
 \contentsline {subsection}{\numberline {1.10.4}การอ้างเหตุผลแบบแยก (Disjunctive Syllogism)}{41}{subsection.1.10.4}%
 \contentsline {section}{\numberline {1.11}การพิสูจน์ด้วยตารางค่าความจริง}{42}{section.1.11}%
-\contentsline {section}{\numberline {1.12}สรุป}{44}{section.1.12}%
+\contentsline {section}{\numberline {1.12}สรุป}{45}{section.1.12}%
 \contentsline {section}{\numberline {1.13}แบบฝึกหัดท้ายบท}{46}{section.1.13}%
 \contentsline {section}{\numberline {1.14}เฉลยแบบฝึกหัด}{48}{section.1.14}%
-\contentsline {section}{คำถามท้ายบทที่ 1}{49}{Item.168}%
-\contentsline {section}{ใบงานที่ 1}{50}{Item.176}%
-\contentsline {section}{เอกสารอ้างอิง}{52}{Item.186}%
+\contentsline {section}{คำถามท้ายบทที่ 1}{49}{Item.172}%
+\contentsline {section}{ใบงานที่ 1}{50}{Item.180}%
+\contentsline {section}{เอกสารอ้างอิง}{52}{Item.190}%
 \contentsline {chapter}{แผนการสอนประจำบทที่ 2}{53}{chapter*.31}%
 \contentsline {chapter}{\numberline {2}ทฤษฎีเซต (Set Theory)}{55}{chapter.2}%
 \contentsline {section}{\numberline {2.1}บทนำ: ความเป็นมาและความสำคัญของทฤษฎีเซต}{55}{section.2.1}%
@@ -69,9 +69,9 @@
 \contentsline {section}{\numberline {2.9}เฉลยแบบฝึกหัด}{89}{section.2.9}%
 \contentsline {section}{\numberline {2.10}เซตที่นับได้และเซตที่นับไม่ได้}{90}{section.2.10}%
 \contentsline {section}{\numberline {2.11}สรุป}{91}{section.2.11}%
-\contentsline {section}{คำถามท้ายบทที่ 2}{92}{Item.480}%
-\contentsline {section}{ใบงานที่ 2}{93}{Item.488}%
-\contentsline {section}{เอกสารอ้างอิง}{95}{Item.498}%
+\contentsline {section}{คำถามท้ายบทที่ 2}{92}{Item.484}%
+\contentsline {section}{ใบงานที่ 2}{93}{Item.492}%
+\contentsline {section}{เอกสารอ้างอิง}{95}{Item.502}%
 \contentsline {chapter}{แผนการสอนประจำบทที่ 3}{97}{chapter*.40}%
 \contentsline {chapter}{\numberline {3}ความสัมพันธ์และฟังก์ชัน (Relations and Functions)}{99}{chapter.3}%
 \contentsline {section}{\numberline {3.1}บทนำ}{99}{section.3.1}%
@@ -110,9 +110,9 @@
 \contentsline {section}{\numberline {3.10}ตัวอย่างและแบบฝึกหัดท้ายบท}{146}{section.3.10}%
 \contentsline {section}{\numberline {3.11}สรุป}{148}{section.3.11}%
 \contentsline {section}{\numberline {3.12}แบบฝึกหัดท้ายบท}{149}{section.3.12}%
-\contentsline {section}{คำถามท้ายบทที่ 3}{151}{Item.747}%
-\contentsline {section}{ใบงานที่ 3}{152}{Item.757}%
-\contentsline {section}{เอกสารอ้างอิง}{155}{Item.769}%
+\contentsline {section}{คำถามท้ายบทที่ 3}{151}{Item.754}%
+\contentsline {section}{ใบงานที่ 3}{152}{Item.764}%
+\contentsline {section}{เอกสารอ้างอิง}{155}{Item.776}%
 \contentsline {chapter}{แผนการสอนประจำบทที่ 4}{157}{chapter*.49}%
 \contentsline {chapter}{\numberline {4}ระบบเลขฐาน (Number Bases)}{159}{chapter.4}%
 \contentsline {section}{\numberline {4.1}บทนำ}{159}{section.4.1}%
@@ -145,9 +145,9 @@
 \contentsline {section}{\numberline {4.14}แบบฝึกหัดท้ายบท}{190}{section.4.14}%
 \contentsline {section}{\numberline {4.15}เฉลยแบบฝึกหัด}{191}{section.4.15}%
 \contentsline {section}{\numberline {4.16}สรุป}{192}{section.4.16}%
-\contentsline {section}{คำถามท้ายบทที่ 4}{193}{Item.1033}%
-\contentsline {section}{ใบงานที่ 4}{194}{Item.1041}%
-\contentsline {section}{เอกสารอ้างอิง}{196}{Item.1051}%
+\contentsline {section}{คำถามท้ายบทที่ 4}{193}{Item.1040}%
+\contentsline {section}{ใบงานที่ 4}{194}{Item.1048}%
+\contentsline {section}{เอกสารอ้างอิง}{196}{Item.1058}%
 \contentsline {chapter}{แผนการสอนประจำบทที่ 5}{197}{chapter*.57}%
 \contentsline {chapter}{\numberline {5}เมทริกซ์และดีเทอร์มิแนนต์ (Matrices \& Determinants)}{199}{chapter.5}%
 \contentsline {section}{\numberline {5.1}บทนำ}{199}{section.5.1}%
@@ -178,9 +178,9 @@
 \contentsline {section}{\numberline {5.8}สรุป}{243}{section.5.8}%
 \contentsline {section}{\numberline {5.9}แบบฝึกหัด}{245}{section.5.9}%
 \contentsline {section}{\numberline {5.10}เฉลยแบบฝึกหัด}{247}{section.5.10}%
-\contentsline {section}{คำถามท้ายบทที่ 5}{248}{Item.1376}%
-\contentsline {section}{ใบงานที่ 5}{249}{Item.1392}%
-\contentsline {section}{เอกสารอ้างอิง}{251}{Item.1402}%
+\contentsline {section}{คำถามท้ายบทที่ 5}{248}{Item.1383}%
+\contentsline {section}{ใบงานที่ 5}{249}{Item.1399}%
+\contentsline {section}{เอกสารอ้างอิง}{251}{Item.1409}%
 \contentsline {chapter}{แผนการสอนประจำบทที่ 6}{253}{chapter*.63}%
 \contentsline {chapter}{\numberline {6}พีชคณิตบูลีน (Boolean Algebra)}{255}{chapter.6}%
 \contentsline {section}{\numberline {6.1}นิยามพื้นฐานของพีชคณิตบูลีน}{256}{section.6.1}%
@@ -224,7 +224,7 @@
 \contentsline {section}{\numberline {6.11}แบบฝึกหัด}{297}{section.6.11}%
 \contentsline {section}{\numberline {6.12}เฉลยแบบฝึกหัด}{300}{section.6.12}%
 \contentsline {section}{\numberline {6.13}สรุป}{301}{section.6.13}%
-\contentsline {section}{คำถามท้ายบทที่ 6}{302}{Item.1730}%
-\contentsline {section}{ใบงานที่ 6}{303}{Item.1738}%
-\contentsline {section}{เอกสารอ้างอิง}{305}{Item.1749}%
+\contentsline {section}{คำถามท้ายบทที่ 6}{302}{Item.1737}%
+\contentsline {section}{ใบงานที่ 6}{303}{Item.1745}%
+\contentsline {section}{เอกสารอ้างอิง}{305}{Item.1756}%
 \contentsfinish 

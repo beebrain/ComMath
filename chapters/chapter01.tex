@@ -949,24 +949,28 @@ Disjunctive Syllogism หรือ การอ้างเหตุผลแบ
     \item $I \equiv \text{ผู้สมัครมีรายได้สูงกว่า 50,000 บาทต่อเดือน}$
     \item $D \equiv \text{ผู้สมัครมีหนี้ค้างชำระ}$
     \item $A \equiv \text{ผู้สมัครได้รับอนุมัติสินเชื่อ}$
+    \item $P \equiv \text{ต้องพิจารณาเพิ่มเติม}$
+    \item $N \equiv \text{ไม่ได้รับอนุมัติสินเชื่อ}$
     \item $A \equiv I \land \neg D$ \quad (จากเงื่อนไขที่ 1)
+    \item $P \equiv I \land D$ \quad (จากเงื่อนไขที่ 2)
+    \item $N \equiv \neg I$ \quad (จากเงื่อนไขที่ 3)
 \end{solsteps}
 
 \begin{center}
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|}
 \hline
-$I$ & $D$ & $\neg D$ & $A \equiv I \land \neg D$ \\
+$I$ & $D$ & $A$ & $P$ & $N$ & ผลการตัดสินใจ \\
 \hline
-\text{T} & \text{T} & \text{F} & \text{F} \\
-\text{T} & \text{F} & \text{T} & \text{T} \\
-\text{F} & \text{T} & \text{F} & \text{F} \\
-\text{F} & \text{F} & \text{T} & \text{F} \\
+\text{T} & \text{T} & \text{F} & \text{T} & \text{F} & พิจารณาเพิ่มเติม \\
+\text{T} & \text{F} & \text{T} & \text{F} & \text{F} & อนุมัติ \\
+\text{F} & \text{T} & \text{F} & \text{F} & \text{T} & ไม่อนุมัติ \\
+\text{F} & \text{F} & \text{F} & \text{F} & \text{T} & ไม่อนุมัติ \\
 \hline
 \end{tabular}
 \end{center}
 
 \begin{solsteps}
-    \item \mathoval{A \equiv I \land \neg D}
+    \item \mathoval{A \equiv I \land \neg D,\quad P \equiv I \land D,\quad N \equiv \neg I}
 \end{solsteps}
 \end{solution}
 

@@ -1,0 +1,349 @@
+
+%% ====================== ปก ======================
+\begin{frame}[plain]
+  \maketitle
+\end{frame}
+
+%% ====================== ทบทวน ======================
+\begin{frame}{ทบทวนสัปดาห์ที่ 1}
+  \begin{itemize}
+    \item \textbf{ประพจน์} = ข้อความที่ระบุค่าความจริง (T/F) ได้แน่นอน
+    \item \textbf{ตัวเชื่อม 5 ตัว}: $\neg,\ \land,\ \lor,\ \rightarrow,\ \leftrightarrow$
+  \end{itemize}
+  \begin{center}\small
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+    \textbf{$p$} & \textbf{$q$} & \textbf{$\neg p$} & \textbf{$p \land q$} & \textbf{$p \lor q$} & \textbf{$p \rightarrow q$} & \textbf{$p \leftrightarrow q$} \\ \hline
+    \TT & \TT & \FF & \TT & \TT & \TT & \TT \\ \hline
+    \TT & \FF & \FF & \FF & \TT & \FF & \FF \\ \hline
+    \FF & \TT & \TT & \FF & \TT & \TT & \FF \\ \hline
+    \FF & \FF & \TT & \FF & \FF & \TT & \TT \\ \hline
+  \end{tabular}
+  \end{center}
+  \footnotesize สัปดาห์นี้: นำตารางค่าความจริงไป \textbf{จำแนกประเภทประพจน์ และตรวจสอบความสมมูล}
+\end{frame}
+
+%% ====================== วัตถุประสงค์ ======================
+\begin{frame}{วัตถุประสงค์การเรียนรู้ (สัปดาห์ที่ 2)}
+  เมื่อเรียนจบสัปดาห์นี้ นักศึกษาจะสามารถ
+  \begin{enumerate}
+    \item จำแนก \textbf{สัจนิรันดร์ ข้อขัดแย้ง และประพจน์กลาง} ได้
+    \item ตรวจสอบ \textbf{สมมูลทางตรรกศาสตร์} และใช้ \textbf{กฎพีชคณิตของประพจน์} ได้
+  \end{enumerate}
+\end{frame}
+
+%% ====================== หัวข้อ ======================
+\begin{frame}{หัวข้อที่จะศึกษาในสัปดาห์นี้}
+  \tableofcontents
+\end{frame}
+
+
+%% =====================================================================
+\section{สัจนิรันดร์ ข้อขัดแย้ง และประพจน์กลาง}
+%% =====================================================================
+
+\begin{frame}{จำแนกประพจน์เชิงประกอบ 3 ประเภท}
+  \begin{block}{}
+  \begin{tabular}{@{}p{0.32\textwidth} p{0.62\textwidth}@{}}
+    \textbf{\textcolor{Tgreen}{สัจนิรันดร์}} (Tautology) & จริงทุกกรณี \\[0.4em]
+    \textbf{\textcolor{Fred}{ข้อขัดแย้ง}} (Contradiction) & เท็จทุกกรณี \\[0.4em]
+    \textbf{\textcolor{navy}{ประพจน์กลาง}} (Contingency) & จริงบ้างเท็จบ้าง ขึ้นกับค่าตัวแปร \\
+  \end{tabular}
+  \end{block}
+  \vspace{0.5em}
+  \begin{itemize}
+    \item ความสัมพันธ์: นิเสธของสัจนิรันดร์ = ข้อขัดแย้ง และในทางกลับกัน
+    \item ประพจน์ส่วนใหญ่ในชีวิตจริงเป็น \textbf{ประพจน์กลาง}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{สัจนิรันดร์ (Tautology)}
+  \begin{block}{นิยาม}
+    ประพจน์เชิงประกอบที่มีค่าความจริงเป็น \textbf{จริงในทุกกรณี}
+  \end{block}
+  \vspace{0.3em}
+  ตัวอย่างคลาสสิก $p \lor \neg p$ (กฎกีดกันกลาง, Law of Excluded Middle)
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      \begin{center}
+      \begin{tabular}{|c|c|c|}
+        \hline \textbf{$p$} & \textbf{$\neg p$} & \textbf{$p\lor\neg p$} \\ \hline
+        \TT & \FF & \TT \\ \hline
+        \FF & \TT & \TT \\ \hline
+      \end{tabular}
+      \end{center}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      ตัวอย่างสัจนิรันดร์อื่น ๆ
+      \begin{itemize}
+        \item $p \rightarrow p$
+        \item $p \leftrightarrow p$
+        \item $(p \land q) \rightarrow p$
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  \vspace{0.4em}
+  คอลัมน์ผลลัพธ์เป็น \TT\ ทุกแถว $\Rightarrow$ เป็นสัจนิรันดร์
+\end{frame}
+
+\begin{frame}{$(p\land q)\rightarrow p$ เป็นสัจนิรันดร์}
+  \begin{center}
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    \textbf{$p$} & \textbf{$q$} & \textbf{$p\land q$} & \textbf{$(p\land q)\rightarrow p$} \\ \hline
+    \TT & \TT & \TT & \TT \\ \hline
+    \TT & \FF & \FF & \TT \\ \hline
+    \FF & \TT & \FF & \TT \\ \hline
+    \FF & \FF & \FF & \TT \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.8em}
+  คอลัมน์สุดท้ายเป็น \TT\ ทุกแถว จึงเป็นสัจนิรันดร์
+  \par\medskip
+  \begin{exampleblock}{การประยุกต์}
+    หากต้องการพิสูจน์ว่า $P$ จริง อาจแสดงว่า $\neg P$ นำไปสู่ข้อขัดแย้ง
+    $\Rightarrow$ $\neg P$ เท็จ $\Rightarrow$ $P$ จริง (\textbf{Proof by Contradiction})
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{ตัวอย่าง: พิสูจน์ว่าไม่มีจำนวนเต็มที่ใหญ่ที่สุด}
+  \textbf{วิธีพิสูจน์โดยข้อขัดแย้ง}
+  \begin{enumerate}
+    \item สมมติในทางตรงกันข้ามให้ \textbf{มีจำนวนเต็มที่ใหญ่ที่สุดจริง} สมมติให้เป็น $N$
+    \item สร้างจำนวนใหม่ขึ้นมา: $M = N + 1$
+    \item เนื่องจาก $N$ เป็นจำนวนเต็ม ดังนั้น $M$ ก็ต้องเป็นจำนวนเต็มด้วย
+    \item เนื่องจาก $1 > 0$ ทำให้เราได้ว่า $M > N$
+    \item จะเห็นว่า $M$ เป็นจำนวนเต็มที่มีค่ามากกว่า $N$
+    \item เกิดข้อขัดแย้ง: มีจำนวนเต็ม $M$ ที่ใหญ่กว่า $N$ ซึ่ง \textcolor{Fred}{ขัดแย้งกับที่สมมติว่า $N$ ใหญ่ที่สุด}
+  \end{enumerate}
+  \begin{exampleblock}{สรุป}
+    เกิดข้อขัดแย้ง $\Rightarrow$ ข้อสมมติที่ว่ามีจำนวนเต็มที่ใหญ่ที่สุดเป็นเท็จ $\Rightarrow$ \textbf{ไม่มีจำนวนเต็มที่ใหญ่ที่สุด}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{ข้อขัดแย้ง (Contradiction)}
+  \begin{block}{นิยาม}
+    ประพจน์เชิงประกอบที่ \textbf{เป็นเท็จทุกกรณี} ไม่ว่าตัวแปรจะมีค่าใด
+  \end{block}
+  \vspace{0.3em}
+  ตัวอย่างคลาสสิก $p \land \neg p$ (กฎแห่งการไม่ขัดแย้ง)
+  \begin{center}
+  \begin{tabular}{|c|c|c|}
+    \hline \textbf{$p$} & \textbf{$\neg p$} & \textbf{$p\land\neg p$} \\ \hline
+    \TT & \FF & \FF \\ \hline
+    \FF & \TT & \FF \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.4em}
+  ตัวอย่างอื่น: $\neg(p\lor\neg p)$ \quad และ \quad $(p\rightarrow q)\land(p\land\neg q)$ \\
+  \textcolor{gray}{ประพจน์เดียวกันเป็นทั้งจริงและเท็จพร้อมกันไม่ได้}
+\end{frame}
+
+\begin{frame}{ประพจน์กลาง (Contingency)}
+  \begin{block}{นิยาม}
+    ประพจน์เชิงประกอบที่ \textbf{จริงบ้าง เท็จบ้าง} ขึ้นกับค่าของตัวแปรย่อย \\
+    (ไม่เป็นทั้งสัจนิรันดร์และข้อขัดแย้ง)
+  \end{block}
+  \vspace{0.3em}
+  ตัวอย่าง $p \land q$
+  \begin{center}
+  \begin{tabular}{|c|c|c|}
+    \hline \textbf{$p$} & \textbf{$q$} & \textbf{$p\land q$} \\ \hline
+    \TT & \TT & \TT \\ \hline
+    \TT & \FF & \FF \\ \hline
+    \FF & \TT & \FF \\ \hline
+    \FF & \FF & \FF \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  มีทั้ง \TT\ และ \FF\ $\Rightarrow$ เป็นประพจน์กลาง \quad (เช่น ``วันนี้ฝนตก'')
+\end{frame}
+
+
+%% =====================================================================
+\section{ความสมมูลและกฎพีชคณิตของประพจน์}
+%% =====================================================================
+
+\begin{frame}{ความสมมูลเชิงตรรกะ (Logical Equivalence)}
+  \begin{block}{นิยาม}
+    ประพจน์ $P$ และ $Q$ \textbf{สมมูลกัน} เขียนแทนด้วย $P \equiv Q$ ก็ต่อเมื่อ
+    มีค่าความจริงเหมือนกันทุกกรณี \\
+    (หรือกล่าวคือ $P \leftrightarrow Q$เป็นสัจนิรันดร์)
+  \end{block}
+  \vspace{0.6em}
+  วิธีตรวจสอบความสมมูลมี 2 วิธีหลัก
+  \begin{enumerate}
+    \item สร้าง \textbf{ตารางค่าความจริง} เปรียบเทียบทีละแถว
+    \item ใช้ \textbf{กฎพีชคณิตของประพจน์} แปลงรูปจากด้านหนึ่งให้เป็นอีกด้าน
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{กฎพีชคณิตของประพจน์ (1/2)}
+  \begin{center}\small
+  \begin{tabular}{|l|l|}
+    \hline
+    \textbf{ชื่อกฎ} & \textbf{รูปสมมูล} \\ \hline
+    เอกลักษณ์ (Identity) & $p \land T \equiv p$, \quad $p \lor F \equiv p$ \\ \hline
+    ครอบงำ (Domination) & $p \lor T \equiv T$, \quad $p \land F \equiv F$ \\ \hline
+    นิจพล (Idempotent) & $p \lor p \equiv p$, \quad $p \land p \equiv p$ \\ \hline
+    นิเสธซ้อน (Double Negation) & $\neg(\neg p) \equiv p$ \\ \hline
+    สลับที่ (Commutative) & $p \lor q \equiv q \lor p$, \quad $p \land q \equiv q \land p$ \\ \hline
+    เปลี่ยนกลุ่ม (Associative) & $(p \lor q)\lor r \equiv p \lor (q \lor r)$ \\ \hline
+    แจกแจง (Distributive) & $p \lor (q \land r) \equiv (p\lor q)\land(p\lor r)$ \\ \hline
+  \end{tabular}
+  \end{center}
+\end{frame}
+
+\begin{frame}{กฎพีชคณิตของประพจน์ (2/2)}
+  \begin{center}\small
+  \begin{tabular}{|l|l|}
+    \hline
+    \textbf{ชื่อกฎ} & \textbf{รูปสมมูล} \\ \hline
+    เดอมอร์แกน (De Morgan) & $\neg(p \land q) \equiv \neg p \lor \neg q$ \\ \hline
+                            & $\neg(p \lor q) \equiv \neg p \land \neg q$ \\ \hline
+    ดูดกลืน (Absorption) & $p \lor (p \land q) \equiv p$, \quad $p \land (p \lor q) \equiv p$ \\ \hline
+    นิเสธ (Negation) & $p \lor \neg p \equiv T$, \quad $p \land \neg p \equiv F$ \\ \hline
+    เงื่อนไข (Implication) & $p \rightarrow q \equiv \neg p \lor q$ \\ \hline
+    กระจายเงื่อนไข (Exportation) & $(p\land q)\rightarrow r \equiv p \rightarrow (q \rightarrow r)$ \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.4em}
+  \begin{exampleblock}{สำคัญ}
+    กฎเหล่านี้คือ ``กรณีรูปธรรม'' ของกฎพีชคณิตบูลีน ที่จะใช้ออกแบบและลดรูปวงจรดิจิทัล
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{ตัวอย่าง: การลดรูปด้วยกฎพีชคณิต}
+  \begin{block}{โจทย์}
+    จงพิสูจน์ว่า $\neg(p \lor q) \lor (\neg p \land q) \equiv \neg p$
+  \end{block}
+  \vspace{0.3em}
+  \textbf{วิธีทำ}
+  \begin{align*}
+    \neg(p \lor q) \lor (\neg p \land q)
+      &\equiv (\neg p \land \neg q) \lor (\neg p \land q) && \text{(เดอมอร์แกน)} \\
+      &\equiv \neg p \land (\neg q \lor q) && \text{(แจกแจง)} \\
+      &\equiv \neg p \land T && \text{(นิเสธ)} \\
+      &\equiv \neg p && \text{(เอกลักษณ์)}
+  \end{align*}
+  \begin{exampleblock}{คำตอบ}
+    $\neg(p \lor q) \lor (\neg p \land q) \equiv \neg p$
+  \end{exampleblock}
+\end{frame}
+
+
+
+
+%% =====================================================================
+\section{กิจกรรมในชั้นเรียน (แบบฝึกหัดทำในห้อง)}
+%% =====================================================================
+
+\begin{frame}{วิธีทำกิจกรรม}
+  \begin{block}{คำชี้แจง}
+    ให้นักศึกษาทำกิจกรรมต่อไปนี้ \textbf{ในชั้นเรียน} ลงในสมุด/กระดาษ
+    ภายในเวลาที่กำหนด แล้วร่วมเฉลยและอภิปรายพร้อมกัน
+  \end{block}
+  \vspace{0.5em}
+  \begin{itemize}
+    \item ทำเดี่ยวหรือจับคู่ก็ได้ (ตามที่อาจารย์กำหนด)
+    \item เมื่อหมดเวลา อาจารย์จะคลิกเพื่อ \textbf{เฉลย} ทีละข้อ
+    \item อาสาสมัครออกมาอธิบายวิธีคิดหน้าชั้น
+  \end{itemize}
+  \vspace{0.5em}
+  \begin{exampleblock}{เกณฑ์}
+    เน้นกระบวนการคิดและการให้เหตุผล ไม่ใช่แค่คำตอบสุดท้าย
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 1: จำแนกประเภทประพจน์ \eng{6 นาที}}
+  จงจำแนกว่าแต่ละประพจน์เป็น \textbf{สัจนิรันดร์ / ข้อขัดแย้ง / ประพจน์กลาง}
+  \begin{enumerate}
+    \item $p \lor \neg p$
+    \item $p \land \neg p$
+    \item $(p \rightarrow q) \rightarrow (\neg q \rightarrow \neg p)$
+    \item $p \rightarrow q$
+  \end{enumerate}
+  \pause
+  \begin{exampleblock}{เฉลย}
+    \footnotesize
+    1) \textcolor{Tgreen}{สัจนิรันดร์} \quad 2) \textcolor{Fred}{ข้อขัดแย้ง} \quad
+    3) \textcolor{Tgreen}{สัจนิรันดร์} (เพราะ $p\rightarrow q \equiv \neg q\rightarrow\neg p$ จึงเป็น $X\rightarrow X$) \quad
+    4) \textcolor{navy}{ประพจน์กลาง}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 2: กฎเดอมอร์แกน \eng{6 นาที}}
+  จงเขียนนิเสธของประพจน์ต่อไปนี้ให้อยู่ในรูปที่ ``นิเสธอยู่ติดตัวแปร'' โดยใช้กฎเดอมอร์แกน
+  \begin{enumerate}
+    \item $\neg(p \land \neg q)$
+    \item $\neg(\neg p \lor q)$
+    \item $\neg(p \lor (q \land r))$
+  \end{enumerate}
+  \pause
+  \begin{exampleblock}{เฉลย}
+    \footnotesize
+    1) $\neg p \lor q$ \qquad
+    2) $p \land \neg q$ \qquad
+    3) $\neg p \land (\neg q \lor \neg r)$
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 3: ตรวจสอบความสมมูล \eng{8 นาที}}
+  จงสร้างตารางค่าความจริงเพื่อตรวจว่า \quad
+  $p \rightarrow (q \land r)$ \quad สมมูลกับ \quad $(p\rightarrow q)\land(p\rightarrow r)$ \quad หรือไม่
+  \pause
+  \begin{center}\scriptsize
+  \begin{tabular}{|c|c|c|c|c|c|c|c|}
+    \hline
+    $p$ & $q$ & $r$ & $q\land r$ & $p\rightarrow(q\land r)$ & $p\rightarrow q$ & $p\rightarrow r$ & $(p\rightarrow q)\land(p\rightarrow r)$ \\ \hline
+    \TT & \TT & \TT & \TT & \TT & \TT & \TT & \TT \\ \hline
+    \TT & \TT & \FF & \FF & \FF & \TT & \FF & \FF \\ \hline
+    \TT & \FF & \TT & \FF & \FF & \FF & \TT & \FF \\ \hline
+    \TT & \FF & \FF & \FF & \FF & \FF & \FF & \FF \\ \hline
+    \FF & \TT & \TT & \TT & \TT & \TT & \TT & \TT \\ \hline
+    \FF & \TT & \FF & \FF & \TT & \TT & \TT & \TT \\ \hline
+    \FF & \FF & \TT & \FF & \TT & \TT & \TT & \TT \\ \hline
+    \FF & \FF & \FF & \FF & \TT & \TT & \TT & \TT \\ \hline
+  \end{tabular}
+  \end{center}
+  \footnotesize สองคอลัมน์สุดท้ายเท่ากันทุกแถว $\Rightarrow$ \textbf{\textcolor{Tgreen}{สมมูลกัน}}
+\end{frame}
+
+
+%% ====================== สรุป + แบบฝึกหัด ======================
+\begin{frame}{สรุปสัปดาห์ที่ 2}
+  \begin{itemize}
+    \item \textbf{สัจนิรันดร์ (Tautology)}: จริงทุกกรณี (เช่น $p \lor \neg p$, $(p \land q) \rightarrow p$)
+    \item \textbf{ข้อขัดแย้ง (Contradiction)}: เท็จทุกกรณี (เช่น $p \land \neg p$)
+    \item \textbf{ประพจน์กลาง (Contingency)}: จริงบ้างเท็จบ้าง (เช่น $p \rightarrow q$)
+    \item \textbf{ความสมมูล ($P \equiv Q$)}: ค่าความจริงเหมือนกันกรณีต่อกรณี
+    \item \textbf{กฎพีชคณิตของประพจน์}: กฎสลับที่ เปลี่ยนกลุ่ม แจกแจง ดูดกลืน และเดอมอร์แกน
+  \end{itemize}
+  \begin{exampleblock}{}
+    \centering สัปดาห์ถัดไป: ตัวเชื่อมพิเศษ (XOR, NAND, NOR) ตัวบ่งปริมาณ และกฎการอนุมาน
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{แบบฝึกหัดมอบหมาย (สัปดาห์ที่ 2)}
+  \begin{enumerate}\small
+    \item จำแนกประพจน์เป็นสัจนิรันดร์/ข้อขัดแย้ง/ประพจน์กลาง:
+          \begin{itemize}
+            \item $(p\rightarrow q)\lor(q\rightarrow p)$
+            \item $\neg(p\lor\neg p)$
+            \item $(p\land q)\rightarrow p$
+          \end{itemize}
+    \item ตรวจสอบความสมมูลเชิงตรรกะด้วยกฎพีชคณิตประพจน์:
+          \begin{itemize}
+            \item $\neg(p\land q)$ กับ $\neg p\lor\neg q$
+          \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[plain]
+  \vfill
+  \centering
+  {\Large\color{navy}\textbf{จบสัปดาห์ที่ 2}}\par
+  \vspace{0.8em}
+  {\color{gray} สัปดาห์ถัดไป: สัปดาห์ที่ 3 · ตัวเชื่อมเสริม ตัวบ่งปริมาณ และการอนุมาน}
+  \vfill
+\end{frame}

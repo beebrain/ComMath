@@ -1,0 +1,39 @@
+% 34 — Three basic 2D linear transformations
+\begin{tikzpicture}[font=\itshape,>={Stealth[length=2mm]}]
+  % PANEL 1 — rotation 90
+  \begin{scope}[shift={(-5,0)}]
+    \draw[gray,line width=1pt,rounded corners=2pt] (-2.1,-2.1) rectangle (2.1,2.5);
+    \node[font=\small\upshape] at (0,2.15) {การหมุน (Rotation)};
+    \begin{scope}[shift={(0.35,-0.35)},scale=0.55]
+      \draw[gray,->] (-2.3,0)--(2.3,0); \draw[gray,->] (0,-1)--(0,2.3);
+      \draw[navy,line width=1pt] (0,0)--(1,0)--(1,1)--(0,1)--cycle;
+      \fill[Fred,opacity=0.25] (0,0)--(0,1)--(-1,1)--(-1,0)--cycle;
+      \draw[Fred,line width=1pt] (0,0)--(0,1)--(-1,1)--(-1,0)--cycle;
+    \end{scope}
+    \node[font=\footnotesize\upshape] at (0,-1.65) {$R=\begin{psmallmatrix}0&-1\\1&0\end{psmallmatrix}$};
+  \end{scope}
+  % PANEL 2 — scaling 2x
+  \begin{scope}[shift={(0,0)}]
+    \draw[gray,line width=1pt,rounded corners=2pt] (-2.1,-2.1) rectangle (2.1,2.5);
+    \node[font=\small\upshape] at (0,2.15) {การขยาย (Scaling)};
+    \begin{scope}[shift={(-0.9,-0.9)},scale=0.45]
+      \draw[gray,->] (-0.6,0)--(2.6,0); \draw[gray,->] (0,-0.6)--(0,2.6);
+      \fill[Tgreen,opacity=0.2] (0,0)--(2,0)--(2,2)--(0,2)--cycle;
+      \draw[Tgreen,line width=1pt] (0,0)--(2,0)--(2,2)--(0,2)--cycle;
+      \draw[navy,line width=1pt] (0,0)--(1,0)--(1,1)--(0,1)--cycle;
+    \end{scope}
+    \node[font=\footnotesize\upshape] at (0,-1.65) {$S=\begin{psmallmatrix}2&0\\0&2\end{psmallmatrix}$};
+  \end{scope}
+  % PANEL 3 — shear k=1
+  \begin{scope}[shift={(5,0)}]
+    \draw[gray,line width=1pt,rounded corners=2pt] (-2.1,-2.1) rectangle (2.1,2.5);
+    \node[font=\small\upshape] at (0,2.15) {การเฉือน (Shear)};
+    \begin{scope}[shift={(-0.7,-0.5)},scale=0.55]
+      \draw[gray,->] (-0.6,0)--(2.8,0); \draw[gray,->] (0,-0.6)--(0,2.0);
+      \fill[purple,opacity=0.2] (0,0)--(1,0)--(2,1)--(1,1)--cycle;
+      \draw[purple,line width=1pt] (0,0)--(1,0)--(2,1)--(1,1)--cycle;
+      \draw[navy,line width=1pt] (0,0)--(1,0)--(1,1)--(0,1)--cycle;
+    \end{scope}
+    \node[font=\footnotesize\upshape] at (0,-1.65) {$Sh=\begin{psmallmatrix}1&1\\0&1\end{psmallmatrix}$};
+  \end{scope}
+\end{tikzpicture}

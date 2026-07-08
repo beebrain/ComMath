@@ -1,0 +1,23 @@
+% 35 — Function mapping f : A -> B (domain, codomain, range)
+\begin{tikzpicture}[font=\itshape,>={Stealth[length=2.6mm]}]
+  \node[font=\itshape] at (0,3) {$f : A \rightarrow B$};
+  \node[setoval,draw=navy,fill=sblue!18,minimum height=52mm] (OA) at (-3,0) {};
+  \node[setoval,draw=Fred,fill=sred!18,minimum height=58mm] (OB) at (3,0) {};
+  \node[navy,font=\itshape\bfseries,above] at (OA.north) {$A$};
+  \node[Fred,font=\itshape\bfseries,above] at (OB.north) {$B$};
+  \foreach \y/\n in {1.2/1,0/2,-1.2/3}
+    \node[circle,fill=black,inner sep=1.6pt,label={[black,font=\itshape]left:\n}] (L\n) at (-3,\y) {};
+  \foreach \y/\n in {1.7/a,0.55/b,-0.6/c}
+    \node[circle,fill=black,inner sep=1.6pt,label={[black,font=\itshape]right:\n}] (R\n) at (3,\y) {};
+  \node[circle,fill=gray,inner sep=1.6pt,label={[gray,font=\itshape]right:d}] (Rd) at (3,-1.75) {};
+  \draw[diredge,Tgreen] (L1) -- (Ra);
+  \draw[diredge,Tgreen] (L2) -- (Rb);
+  \draw[diredge,Tgreen] (L3) -- (Rc);
+  % range outline
+  \draw[gold,dashed,line width=1.2pt,rounded corners=4pt] (2.55,-1.15) rectangle (3.95,2.25);
+  \node[gold,font=\itshape\small,anchor=west] at (4.5,1.7) {เรนจ์ (Range)};
+  \draw[gold,->,line width=.8pt] (4.45,1.7) -- (3.95,1.7);
+  % domain / codomain labels
+  \node[navy,font=\itshape\small,below=10mm] at (OA.south) {โดเมน (Domain)};
+  \node[Fred,font=\itshape\small,below=7mm] at (OB.south) {โคโดเมน (Codomain)};
+\end{tikzpicture}

@@ -1,0 +1,48 @@
+%% Fast standalone driver to validate TikZ figures (xelatex tikztest.tex)
+%% Mirrors the relevant bits of main.tex preamble; NOT part of the book.
+\documentclass[11pt]{article}
+\usepackage{fontspec}
+\setmainfont[Script=Thai,WordSpace=1]{TH Sarabun New}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{float}
+\usepackage[margin=1.5cm]{geometry}
+\input{Figures/tikz/_styles}
+\begin{document}
+\thispagestyle{empty}
+\def\fig#1#2{\par\bigskip\noindent\texttt{#1}\par\medskip
+  \begin{center}\input{Figures/tikz/#2}\end{center}\hrule}
+
+%% --- list figures to test here ---
+\fig{02-and-gate}{02-and-gate-circuit}
+\fig{03-or-gate}{03-or-gate-circuit}
+\fig{04-implication}{04-implication-truth}
+\fig{09-xor}{09-xor-logic}
+\fig{07-modus-ponens}{07-modus-ponens}
+\fig{08-modus-tollens}{08-modus-tollens}
+\fig{10-union}{10-venn-union}
+\fig{11-intersection}{11-venn-intersection}
+\fig{13-difference}{13-venn-set-difference}
+\fig{14-complement}{14-venn-complement}
+\fig{15-demorgan-sets}{15-de-morgan-laws}
+\fig{16-distributive}{16-distributive-law-sets}
+\fig{18-relation-graph}{18-relation-directed-graph}
+\fig{19-reflexive}{19-reflexive-relation}
+\fig{20-symmetric}{20-symmetric-relation}
+\fig{21-antisymmetric}{21-antisymmetric-relation}
+\fig{22-transitive}{22-transitive-relation}
+\fig{23-equivalence}{23-equivalence-relation}
+\fig{24-hasse}{24-partial-order-hasse}
+\fig{25-decimal-pv}{25-decimal-place-value}
+\fig{26-binary-pv}{26-binary-place-value}
+\fig{27-hex}{27-hex-grouping}
+\fig{28-2s-comp}{28-2s-complement}
+\fig{29-ieee754}{29-ieee754}
+\fig{30-dimensions}{30-matrix-dimensions}
+\fig{31-types}{31-matrix-types}
+\fig{32-multiplication}{32-matrix-multiplication}
+\fig{33-determinant}{33-determinant-2x2}
+\fig{34-transformation}{34-matrix-transformation}
+\fig{35-function-map}{35-function-mapping}
+\end{document}

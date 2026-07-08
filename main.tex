@@ -10,6 +10,11 @@
 
 \usepackage{subcaption}
 \usepackage{caption}
+\captionsetup{belowskip=8pt, aboveskip=10pt}
+%% เพิ่มช่องว่างก่อน/หลังภาพประกอบ (figure) เพื่อกันภาพชนกับหัวข้อ/ตัวอย่าง
+\setlength{\textfloatsep}{14pt plus 2pt minus 2pt}
+\setlength{\intextsep}{14pt plus 2pt minus 2pt}
+\setlength{\floatsep}{14pt plus 2pt minus 2pt}
 \newsavebox{\bigleftbox}
 \usepackage{varwidth}
 \usepackage{tabularx}
@@ -35,6 +40,46 @@
 
 \usepackage{multicol}
 \usepackage{mathtools}
+
+%% Shared styles for native TikZ figures (replaces AI-generated Figures/*.jpg)
+\input{Figures/tikz/_styles}
+
+%% ==============================================================================
+%% แก้ปัญหา: คลาสตั้ง \linespread{2.25}/\baselinestretch{2.2} ทำให้ strut ของแต่ละแถว
+%% ใน matrix/pmatrix/vmatrix และ cases สูงผิดปกติ (แถวห่าง + ปีกกา/วงเล็บถูกยืดสูง)
+%% จึงรีเซ็ตระยะบรรทัดให้เป็น 1 เฉพาะภายใน environment คณิตเหล่านี้ (ไม่กระทบ tabular)
+%% ==============================================================================
+\makeatletter
+\AtBeginDocument{%
+  \@ifundefined{env@matrix}{}{\pretocmd{\env@matrix}{\linespread{1}\selectfont}{}{}}%
+  \@ifundefined{env@cases}{}{\pretocmd{\env@cases}{\linespread{1}\selectfont}{}{}}%
+  %% คืนระยะช่องว่างรอบสมการแบบ display ให้เป็นมาตรฐาน LaTeX
+  %% (ของเดิมตั้งติดลบ/ศูนย์ ทำให้สมการอัดชิดข้อความด้านบน) — ตั้งใน hook นี้
+  %% เพื่อไม่ให้ \normalsize ตอน \begin{document} เขียนทับ
+  \setlength{\abovedisplayskip}{12pt plus 3pt minus 7pt}%
+  \setlength{\belowdisplayskip}{12pt plus 3pt minus 7pt}%
+  \setlength{\abovedisplayshortskip}{0pt plus 3pt}%
+  \setlength{\belowdisplayshortskip}{7pt plus 3pt minus 4pt}%
+  %% ตั้งชื่อภาษาไทยให้ \autoref (ของเดิม hyperref ใช้ "Chapter" ภาษาอังกฤษ)
+  %% ทำใน hook นี้เพื่อเขียนทับค่าที่ hyperref ตั้งตอน \begin{document}
+  \renewcommand{\chapterautorefname}{บทที่}%
+}
+\makeatother
+
+%% ==============================================================================
+%% การขึ้นหน้า/อ่านง่าย: กันหัวข้อ "ตัวอย่างที่ X" ตกค้างท้ายหน้า (orphan heading)
+%% และลดบรรทัดเดี่ยวค้างหัว/ท้ายหน้า (widow/orphan lines)
+%% ==============================================================================
+\usepackage{needspace}
+\AtBeginEnvironment{ex}{\needspace{2\baselineskip}}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\brokenpenalty=10000
+
+%% สมการแบบ display จัดชิดซ้าย (fleqn ตั้งที่คลาส) ด้วยระยะเยื้องคงที่ทั้งเล่ม
+%% เพื่อให้ "วิธีทำ" ทุกข้อมีระยะย่อหน้าของสมการเท่ากัน
+\setlength{\mathindent}{1.5em}
 
 %% ==============================================================================
 %% กฎสำคัญ (CRITICAL RULE): ห้ามพิมพ์ข้อความภาษาไทยในโหมดคณิตศาสตร์ (Math Mode) โดยตรง
@@ -66,7 +111,8 @@
 \def\beginlearningObjectives{
     \vspace{1em}
     \noindent\textbf{วัตถุประสงค์การเรียนรู้:}
-    \begin{itemize}[label=\checkmark, leftmargin=2em]
+    \vspace{0.6em}
+    \begin{itemize}[label=\checkmark, leftmargin=2em, topsep=0.4em, itemsep=0.3em]
 }
 \def\endlearningObjectives{
     \end{itemize}
@@ -87,12 +133,13 @@
 \renewcommand{\thesubsection}{\thechapter.\arabic{section}.\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\thechapter.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
 %% Restore titleformat to show the section number
-%% ใช้ shape [hang] และ sep 2em เพื่อป้องกันเลข section ทับชื่อ (ฟอนต์ไทย Scale=1.5 ทำให้เลขกว้างกว่าปกติ)
-\titleformat{\section}[hang]{\large\bfseries\upshape}{\thesection}{2em}{}
-\titleformat{\subsection}[hang]{\bfseries\upshape}{\thesubsection}{2em}{}
+%% ใช้ shape [hang] กันเลข section ทับชื่อ (ฟอนต์ไทย Scale=1.5 ทำให้เลขกว้าง) และตั้ง sep = 0.5em (≈ 2 เคาะ)
+\titleformat{\section}[hang]{\large\bfseries\upshape}{\thesection}{0.5em}{}
+\titleformat{\subsection}[hang]{\bfseries\upshape}{\thesubsection}{0.5em}{}
 
 \usepackage{biblatex}
 \addbibresource{references.bib}
+\addbibresource{author_pubs.bib}  %% ผลงานผู้เขียน (Google Scholar) — แยกด้วย keyword ownpub
 
 %%%%%%%%%%%%%%%%%%% infomation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -127,7 +174,9 @@
 	
 	\thispagestyle{empty}
 	\setkkupagestyle
-	\emergencystretch=3em
+	\emergencystretch=6em
+\tolerance=2000
+\hbadness=2000
 	
 	\cleartoleftpage
 	\include{organize}

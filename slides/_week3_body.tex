@@ -1,0 +1,602 @@
+
+%% ====================== ปก ======================
+\begin{frame}[plain]
+  \maketitle
+\end{frame}
+
+%% ====================== ทบทวน ======================
+\begin{frame}{ทบทวนสัปดาห์ที่ 2}
+  \begin{itemize}
+    \item \textbf{ประเภทประพจน์}:
+          \begin{itemize}
+            \item \textbf{สัจนิรันดร์} (Tautology) — จริงทุกกรณี เช่น $p \lor \neg p$
+            \item \textbf{ข้อขัดแย้ง} (Contradiction) — เท็จทุกกรณี เช่น $p \land \neg p$
+            \item \textbf{ประพจน์กลาง} (Contingency) — จริงบ้างเท็จบ้าง เช่น $p \rightarrow q$
+          \end{itemize}
+    \item \textbf{ความสมมูลทางตรรกศาสตร์ ($P \equiv Q$)}: มีค่าความจริงเหมือนกันทุกกรณี
+    \item \textbf{กฎพีชคณิตของประพจน์}: กฎเอกลักษณ์ กฎการสลับที่ กฎการแจกแจง และกฎเดอมอร์แกน
+    \item \textbf{ประพจน์เงื่อนไข $p \rightarrow q$}: สมมูลกับ $\neg q \rightarrow \neg p$
+  \end{itemize}
+\end{frame}
+
+%% ====================== วัตถุประสงค์ ======================
+\begin{frame}{วัตถุประสงค์การเรียนรู้ (สัปดาห์ที่ 3)}
+  เมื่อเรียนจบสัปดาห์นี้ นักศึกษาจะสามารถ
+  \begin{enumerate}
+    \item เข้าใจและใช้ตัวเชื่อมพิเศษ \textbf{XOR ($\oplus$), NAND ($\uparrow$), NOR ($\downarrow$)} ได้
+    \item หาค่าความจริงและเขียนนิเสธของประพจน์ที่มี \textbf{ตัวบ่งปริมาณ} ($\forall, \exists$) ได้
+    \item ประยุกต์ใช้ \textbf{กฎการอนุมาน (Rules of Inference)} เพื่อหาผลสรุปที่สมเหตุสมผลได้
+    \item ตรวจสอบความ \textbf{สมเหตุสมผลของการอ้างเหตุผล} ด้วยตารางค่าความจริงได้
+  \end{enumerate}
+\end{frame}
+
+%% ====================== หัวข้อ ======================
+\begin{frame}{หัวข้อที่จะศึกษาในสัปดาห์นี้}
+  \tableofcontents
+\end{frame}
+
+
+%% =====================================================================
+\section{ตัวเชื่อมเพิ่มเติม: XOR, NAND, NOR}
+%% =====================================================================
+
+\begin{frame}{ประพจน์เลือกเฉพาะ (XOR, $\oplus$)}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      $p \oplus q$ จริง \textbf{ก็ต่อเมื่อค่าต่างกัน} \\
+      \medskip
+      \begin{center}
+      \begin{tabular}{|c|c|c|}
+        \hline \textbf{$p$} & \textbf{$q$} & \textbf{$p\oplus q$} \\ \hline
+        \TT & \TT & \FF \\ \hline
+        \TT & \FF & \TT \\ \hline
+        \FF & \TT & \TT \\ \hline
+        \FF & \FF & \FF \\ \hline
+      \end{tabular}
+      \end{center}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \centering
+      \begin{tikzpicture}[scale=0.8]
+        \node[xor gate US, draw, logic gate inputs=nn, fill=lightnavy, minimum height=1.2cm] (X) at (0,0) {};
+        \draw (X.input 1) -- ++(-0.8,0) node[left]{$p$};
+        \draw (X.input 2) -- ++(-0.8,0) node[left]{$q$};
+        \draw (X.output) -- ++(0.8,0) node[right]{$p\oplus q$};
+      \end{tikzpicture}
+      \par\medskip
+      \footnotesize $p\oplus q \equiv (p\land\neg q)\lor(\neg p\land q)$
+    \end{column}
+  \end{columns}
+  \vspace{0.4em}
+  \begin{exampleblock}{การประยุกต์ในวิทยาการคอมพิวเตอร์}
+    Half-Adder (บิตผลรวม), การเข้ารหัสลับ (One-Time Pad: $M=C\oplus K$),
+    Parity Check, และการสลับค่าตัวแปรโดยไม่ใช้ตัวแปรชั่วคราว
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{แนนด์และนอร์ (NAND $\uparrow$, NOR $\downarrow$)}
+  \begin{block}{นิยาม}
+    $p \uparrow q \equiv \neg(p \land q)$ \quad (NAND, Sheffer stroke) \\
+    $p \downarrow q \equiv \neg(p \lor q)$ \quad (NOR, Peirce arrow)
+  \end{block}
+  \begin{center}\small
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    \textbf{$p$} & \textbf{$q$} & \textbf{$p\uparrow q$ (NAND)} & \textbf{$p\downarrow q$ (NOR)} \\ \hline
+    \TT & \TT & \FF & \FF \\ \hline
+    \TT & \FF & \TT & \FF \\ \hline
+    \FF & \TT & \TT & \FF \\ \hline
+    \FF & \FF & \TT & \TT \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \begin{exampleblock}{ตัวเชื่อมสากล (Universal Gate)}
+    ใช้ NAND อย่างเดียว (หรือ NOR อย่างเดียว) สร้าง NOT, AND, OR ได้ทั้งหมด \\
+    เช่น $\neg p \equiv p \uparrow p$ \quad ; \quad $p \land q \equiv (p\uparrow q)\uparrow(p\uparrow q)$
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{ตัวเชื่อมสากล (Universal Gate) -- สร้างทุกตัวเชื่อมจาก NAND}
+  \begin{block}{ทฤษฎีบท}
+    NAND ($\uparrow$) อย่างเดียว (หรือ NOR อย่างเดียว) สามารถสร้าง \textbf{ทุกตัวเชื่อม} ได้
+    จึงเรียกว่า \textbf{ตัวเชื่อมสากล (Universal Gate)} -- เป็นพื้นฐานของวงจรดิจิทัล
+  \end{block}
+  \vspace{0.3em}
+  \begin{center}
+  \begin{tabular}{|l|l|}
+    \hline
+    \textbf{ตัวเชื่อม} & \textbf{เขียนด้วย NAND อย่างเดียว} \\ \hline
+    $\neg p$ & $p \uparrow p$ \\ \hline
+    $p \land q$ & $(p \uparrow q) \uparrow (p \uparrow q)$ \\ \hline
+    $p \lor q$ & $(p \uparrow p) \uparrow (q \uparrow q)$ \\ \hline
+    $p \rightarrow q$ & $p \uparrow (q \uparrow q)$ \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.4em}
+  \begin{exampleblock}{ตัวอย่างการพิสูจน์: $p \lor q \equiv (p \uparrow p) \uparrow (q \uparrow q)$}
+    \footnotesize
+    $p \lor q \equiv \neg(\neg p \land \neg q)$ \quad (กฎเดอมอร์แกน) \\
+    $\equiv \neg(p \uparrow p) \land (q \uparrow q)$ \quad (เพราะ $\neg p \equiv p \uparrow p$) \\
+    $\equiv (p \uparrow p) \uparrow (q \uparrow q)$ \quad (นิยาม NAND)
+  \end{exampleblock}
+\end{frame}
+
+
+%% =====================================================================
+\section{ประพจน์เปิดและตัวบ่งปริมาณ}
+%% =====================================================================
+
+\begin{frame}{ตัวบ่งปริมาณ (Quantifiers)}
+  ประพจน์เปิด เช่น $P(x): ``x > 5''$ ระบุค่าความจริงไม่ได้จนกว่าจะแทนค่า \\
+  ทำให้ ``ปิด'' ได้ด้วย \textbf{ตัวบ่งปริมาณ} 2 ชนิด
+  \begin{block}{}
+    \begin{itemize}
+      \item $\forall x\,P(x)$ -- ตัวบ่งปริมาณ \textbf{สำหรับทั้งหมด} (Universal, ``สำหรับทุก'') \\
+            หมายถึง $P(x)$ จริงสำหรับ $x$ \emph{ทุกตัว} ในเอกภพสัมพัทธ์
+      \item $\exists x\,P(x)$ -- ตัวบ่งปริมาณ \textbf{สำหรับบางตัว} (Existential, ``มีบางตัว'') \\
+            หมายถึง มี $x$ \emph{อย่างน้อยหนึ่งตัว} ที่ทำให้ $P(x)$ จริง
+    \end{itemize}
+  \end{block}
+  \begin{alertblock}{เทคนิค}
+    แสดงว่า $\forall x\,P(x)$ เท็จ $\Rightarrow$ ยก \textbf{ตัวอย่างค้าน} เพียงตัวเดียว \\
+    แสดงว่า $\exists x\,P(x)$ จริง $\Rightarrow$ ยกตัวอย่างที่ใช้ได้เพียงตัวเดียว
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{ตัวอย่าง: การตีความตัวบ่งปริมาณ}
+  กำหนดเอกภพสัมพัทธ์เป็นจำนวนจริง $\mathbb{R}$
+  \begin{enumerate}
+    \item $\forall x\,(x^2 \geq 0)$ \hfill \textcolor{Tgreen}{\textbf{จริง}} -- กำลังสองของจำนวนจริงใด ๆ ไม่ติดลบ
+    \item $\exists x\,(x^2 = 4)$ \hfill \textcolor{Tgreen}{\textbf{จริง}} -- มี $x=2$ (หรือ $x=-2$)
+    \item $\forall x\,(x^2 = 4)$ \hfill \textcolor{Fred}{\textbf{เท็จ}} -- ตัวอย่างค้าน $x=0$ ได้ $x^2=0\neq4$
+  \end{enumerate}
+  \vspace{0.8em}
+  \begin{block}{นิเสธของตัวบ่งปริมาณ}
+    \[
+      \neg(\forall x\,P(x)) \equiv \exists x\,\neg P(x), \qquad
+      \neg(\exists x\,P(x)) \equiv \forall x\,\neg P(x)
+    \]
+    เช่น นิเสธของ ``นักศึกษาทุกคนสอบผ่าน'' คือ ``มีนักศึกษาอย่างน้อยหนึ่งคนสอบไม่ผ่าน''
+  \end{block}
+\end{frame}
+
+\begin{frame}{การยกตัวอย่างค้าน (Counterexample)}
+  \begin{alertblock}{หลักการสำคัญ}
+    \begin{itemize}
+      \item แสดงว่า $\forall x\,P(x)$ \textbf{เท็จ} $\Rightarrow$ หา \textbf{ตัวอย่างค้าน} เพียง \textbf{ตัวเดียว} ที่ทำให้ $P(x)$ เป็นเท็จ
+      \item แสดงว่า $\exists x\,P(x)$ \textbf{จริง} $\Rightarrow$ หาตัวอย่างเพียง \textbf{ตัวเดียว} ที่ทำให้ $P(x)$ เป็นจริง
+    \end{itemize}
+  \end{alertblock}
+  \vspace{0.4em}
+  \begin{exampleblock}{ตัวอย่าง: หาตัวอย่างค้าน}
+    เอกภพ $U = \{1, 2, 3, 4, 5\}$, ประพจน์ $\forall x\,(x > 3)$
+    \begin{itemize}
+      \item ตรวจ: $1>3$ = \FF, $2>3$ = \FF, \ldots\ $\Rightarrow$ เท็จ
+      \item \textbf{ตัวอย่างค้าน: $x = 1$} (เพราะ $1 \not> 3$)
+    \end{itemize}
+  \end{exampleblock}
+  \begin{exampleblock}{ตัวอย่าง: หาตัวอย่างยืนยัน}
+    เอกภพ $U = \{1, 2, 3, 4, 5\}$, ประพจน์ $\exists x\,(x \text{ เป็นจำนวนคู่})$ \\
+    \textbf{ตัวอย่างยืนยัน: $x = 2$} (เพราะ 2 เป็นจำนวนคู่)
+  \end{exampleblock}
+\end{frame}
+
+
+%% =====================================================================
+\section{การอนุมาน (Rules of Inference)}
+%% =====================================================================
+
+\begin{frame}{การอนุมานคืออะไร}
+  \begin{block}{นิยาม}
+    \textbf{การอนุมาน (Inference Rules)} คือ กฎสำหรับสรุปผลที่สมเหตุสมผลจากเหตุที่กำหนด
+    เป็นเครื่องมือพื้นฐานของ \textbf{การให้เหตุผลแบบนิรนัย (Deductive Reasoning)}
+  \end{block}
+  \vspace{0.4em}
+  \begin{itemize}
+    \item เขียนในรูป \textbf{ข้อตั้งต้น (Premises)} และ \textbf{ผลสรุป (Conclusion)}
+    \item รูปแบบที่ ``สมเหตุสมผล'' = ประพจน์ (ข้อตั้งต้นทั้งหมด $\land$) $\rightarrow$ ผลสรุป เป็น \textbf{สัจนิรันดร์}
+  \end{itemize}
+  \vspace{0.4em}
+  รูปแบบที่จะศึกษา: Modus Ponens, Modus Tollens, Hypothetical Syllogism, Disjunctive Syllogism
+\end{frame}
+
+\begin{frame}{กฎการยืนยัน (Modus Ponens)}
+  \begin{columns}[T]
+    \begin{column}{0.42\textwidth}
+      \begin{block}{รูปแบบ}
+        \begin{tabular}{l l}
+          เหตุ 1: & $p \rightarrow q$ \\
+          เหตุ 2: & $p$ \\ \hline
+          ผล: & $\therefore q$ \\
+        \end{tabular}
+      \end{block}
+      ``ถ้า $p$ แล้ว $q$ และ $p$ จริง \\ ดังนั้น $q$ จริง''
+    \end{column}
+    \begin{column}{0.56\textwidth}
+      พิสูจน์ว่า $((p\rightarrow q)\land p)\rightarrow q$ เป็นสัจนิรันดร์
+      \begin{center}\scriptsize
+      \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        $p$ & $q$ & $p\rightarrow q$ & $(p\rightarrow q)\land p$ & ผล$\rightarrow q$ \\ \hline
+        \TT & \TT & \TT & \TT & \TT \\ \hline
+        \TT & \FF & \FF & \FF & \TT \\ \hline
+        \FF & \TT & \TT & \FF & \TT \\ \hline
+        \FF & \FF & \TT & \FF & \TT \\ \hline
+      \end{tabular}
+      \end{center}
+    \end{column}
+  \end{columns}
+  \vspace{0.4em}
+  \begin{exampleblock}{ตัวอย่าง}
+    เหตุ: ถ้าฝนตกแล้วพื้นถนนเปียก ; ฝนตก \quad
+    $\Rightarrow$ \textbf{$\therefore$ พื้นถนนเปียก}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Modus Ponens: ตัวอย่างเพิ่มเติมและการเขียนโปรแกรม}
+  \begin{exampleblock}{ตัวอย่าง}
+    เหตุ 1: ถ้าคนรักษาสัญญา แล้วคนนั้นจะได้รับความเชื่อถือ \\
+    เหตุ 2: นาย ก รักษาสัญญา \\
+    \textbf{$\therefore$ นาย ก ได้รับความเชื่อถือ}
+  \end{exampleblock}
+  \vspace{0.6em}
+  \begin{block}{เชื่อมโยงกับการเขียนโปรแกรม}
+    คำสั่ง \texttt{if (condition) \{ execute\_action(); \}} \\
+    ทำงานบนหลักเดียวกับ Modus Ponens: ถ้าเงื่อนไขจริง แล้วกระทำการที่กำหนด
+  \end{block}
+\end{frame}
+
+\begin{frame}{กฎการปฏิเสธ (Modus Tollens)}
+  \begin{columns}[T]
+    \begin{column}{0.42\textwidth}
+      \begin{block}{รูปแบบ}
+        \begin{tabular}{l l}
+          เหตุ 1: & $p \rightarrow q$ \\
+          เหตุ 2: & $\neg q$ \\ \hline
+          ผล: & $\therefore \neg p$ \\
+        \end{tabular}
+      \end{block}
+      ``ถ้า $p$ แล้ว $q$ และ $q$ เท็จ \\ ดังนั้น $p$ เท็จ''
+    \end{column}
+    \begin{column}{0.56\textwidth}
+      พิสูจน์ว่า $((p\rightarrow q)\land\neg q)\rightarrow\neg p$ เป็นสัจนิรันดร์
+      \begin{center}\scriptsize
+      \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        $p$ & $q$ & $\neg q$ & $(p\rightarrow q)\land\neg q$ & ผล$\rightarrow\neg p$ \\ \hline
+        \TT & \TT & \FF & \FF & \TT \\ \hline
+        \TT & \FF & \TT & \FF & \TT \\ \hline
+        \FF & \TT & \FF & \FF & \TT \\ \hline
+        \FF & \FF & \TT & \TT & \TT \\ \hline
+      \end{tabular}
+      \end{center}
+    \end{column}
+  \end{columns}
+  \vspace{0.4em}
+  \begin{exampleblock}{ตัวอย่าง}
+    เหตุ: ถ้าฝนตกแล้วพื้นถนนเปียก ; พื้นถนนไม่เปียก \quad
+    $\Rightarrow$ \textbf{$\therefore$ ฝนไม่ตก}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Modus Tollens: ตัวอย่างเพิ่มเติม}
+  \begin{exampleblock}{ตัวอย่าง}
+    เหตุ 1: ถ้าสัตว์เป็นสุนัข แล้วสัตว์นั้นเป็นสัตว์เลี้ยงลูกด้วยนม \\
+    เหตุ 2: สัตว์ตัวนี้ไม่เป็นสัตว์เลี้ยงลูกด้วยนม \\
+    \textbf{$\therefore$ สัตว์ตัวนี้ไม่ใช่สุนัข}
+  \end{exampleblock}
+  \vspace{0.6em}
+  \begin{alertblock}{ข้อควรระวังเชิงวิทยาศาสตร์}
+    การสรุปว่า $p$ เท็จนั้น \emph{สมเหตุสมผลทางตรรกะ} \\
+    แต่ในโลกจริงต้องระวังว่าอาจมีสาเหตุอื่นที่ทำให้ $q$ ไม่เกิด
+    (เช่น พื้นเปียกเพราะรดน้ำต้นไม้)
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Hypothetical Syllogism: พิสูจน์ด้วยตารางค่าความจริง}
+  \begin{block}{รูปแบบ}
+    \begin{tabular}{l l}
+      เหตุ 1: & $p \rightarrow q$ \\
+      เหตุ 2: & $q \rightarrow r$ \\ \hline
+      ผล: & $\therefore p \rightarrow r$ \\
+    \end{tabular}
+  \end{block}
+  พิสูจน์ว่า $[(p\rightarrow q) \land (q\rightarrow r)] \rightarrow (p\rightarrow r)$ เป็นสัจนิรันดร์
+  \begin{center}\footnotesize
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+    $p$ & $q$ & $r$ & $p\rightarrow q$ & $q\rightarrow r$ & $(p\rightarrow q)\land(q\rightarrow r)$ & $p\rightarrow r$ \\ \hline
+    \TT & \TT & \TT & \TT & \TT & \TT & \TT \\ \hline
+    \TT & \TT & \FF & \TT & \FF & \FF & \FF \\ \hline
+    \TT & \FF & \TT & \FF & \TT & \FF & \TT \\ \hline
+    \TT & \FF & \FF & \FF & \TT & \FF & \FF \\ \hline
+    \FF & \TT & \TT & \TT & \TT & \TT & \TT \\ \hline
+    \FF & \TT & \FF & \TT & \FF & \FF & \TT \\ \hline
+    \FF & \FF & \TT & \TT & \TT & \TT & \TT \\ \hline
+    \FF & \FF & \FF & \TT & \TT & \TT & \TT \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \begin{exampleblock}{ผลลัพธ์}
+    คอลัมน์สุดท้ายเป็น \TT\ ทุกแถว $\Rightarrow$ \textbf{สัจนิรันดร์} $\Rightarrow$ กฎ \textbf{HS สมเหตุสมผล}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Hypothetical Syllogism: ตัวอย่าง}
+  หลักการ \textbf{การถ่ายโอนเงื่อนไข (Transitivity)}: ถ้า $p$ นำสู่ $q$ และ $q$ นำสู่ $r$ แล้ว $p$ นำสู่ $r$
+  \vspace{0.4em}
+  \begin{exampleblock}{ตัวอย่าง}
+    เหตุ 1: ถ้าฝนตก แล้วถนนจะเปียก \\
+    เหตุ 2: ถ้าถนนเปียก แล้วรถจะลื่น \\
+    \textbf{$\therefore$ ถ้าฝนตก แล้วรถจะลื่น}
+  \end{exampleblock}
+  \begin{exampleblock}{ตัวอย่างในการเขียนโปรแกรม}
+    input ถูกต้อง $\rightarrow$ process ทำงาน $\rightarrow$ output ถูกสร้าง \\
+    ถ้า input ถูกต้อง $\rightarrow$ output ถูกสร้าง (HS)
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Disjunctive Syllogism: พิสูจน์ด้วยตารางค่าความจริง}
+  \begin{block}{รูปแบบ}
+    \begin{tabular}{l l}
+      เหตุ 1: & $p \lor q$ \\
+      เหตุ 2: & $\neg p$ \\ \hline
+      ผล: & $\therefore q$ \\
+    \end{tabular}
+  \end{block}
+  พิสูจน์ว่า $[(p \lor q) \land \neg p] \rightarrow q$ เป็นสัจนิรันดร์
+  \begin{center}\footnotesize
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    $p$ & $q$ & $p \lor q$ & $\neg p$ & $(p \lor q) \land \neg p$ \\ \hline
+    \TT & \TT & \TT & \FF & \FF \\ \hline
+    \TT & \FF & \TT & \FF & \FF \\ \hline
+    \FF & \TT & \TT & \TT & \TT \\ \hline
+    \FF & \FF & \FF & \TT & \FF \\ \hline
+  \end{tabular}
+  \end{center}
+  \begin{center}\footnotesize
+  \begin{tabular}{|c|c|}
+    \hline
+    $(p \lor q) \land \neg p$ & $[(p \lor q) \land \neg p] \rightarrow q$ \\ \hline
+    \FF & \TT \\ \hline
+    \FF & \TT \\ \hline
+    \TT & \TT \\ \hline
+    \FF & \TT \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \begin{exampleblock}{ผลลัพธ์}
+    คอลัมน์สุดท้ายเป็น \TT\ ทุกแถว $\Rightarrow$ \textbf{สัจนิรันดร์} $\Rightarrow$ กฎ \textbf{DS สมเหตุสมผล}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Disjunctive Syllogism: ตัวอย่าง}
+  หลักการ: รู้ว่าอย่างน้อยหนึ่งตัวจริง และตัวหนึ่งเท็จ $\Rightarrow$ อีกตัวต้องจริง
+  \vspace{0.4em}
+  \begin{exampleblock}{ตัวอย่าง}
+    เหตุ 1: นาย ก อยู่บ้านหรืออยู่ที่ทำงาน \\
+    เหตุ 2: นาย ก ไม่ได้อยู่ที่ทำงาน \\
+    \textbf{$\therefore$ นาย ก อยู่บ้าน}
+  \end{exampleblock}
+  \begin{exampleblock}{ตัวอย่างในการเขียนโปรแกรม}
+    error เป็น E1 หรือ E2 ; ไม่ใช่ E1 \\
+    $\therefore$ error เป็น E2 (DS)
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{ข้อผิดพลาดที่พบบ่อย: Fallacies}
+  \begin{alertblock}{Affirming the Consequent (ยอมรับผลที่ตามมา)}
+    \begin{tabular}{l l}
+      เหตุ 1: & $p \rightarrow q$ \\
+      เหตุ 2: & $q$ \\ \hline
+      ผลที่ผิด: & $\therefore p$ \quad (ผิด!)
+    \end{tabular} \\
+    ``ถ้าฝนตกแล้วดินเปียก ; ดินเปียก $\Rightarrow$ ฝนตก'' (อาจจะรดน้ำต้นไม้!)
+  \end{alertblock}
+  \vspace{0.4em}
+  \begin{alertblock}{Denying the Antecedent (ปฏิเสธเหตุ)}
+    \begin{tabular}{l l}
+      เหตุ 1: & $p \rightarrow q$ \\
+      เหตุ 2: & $\neg p$ \\ \hline
+      ผลที่ผิด: & $\therefore \neg q$ \quad (ผิด!)
+    \end{tabular} \\
+    ``ถ้าเป็นนกแล้วบินได้ ; ไม่ใช่นก $\Rightarrow$ บินไม่ได้'' (เครื่องบินบินได้!)
+  \end{alertblock}
+  \vspace{0.4em}
+  \begin{block}{ข้อสังเกต}
+    ทั้งสองแบบ \textbf{ไม่ใช่สัจนิรันดร์} เมื่อตรวจด้วย truth table -- ห้ามสรุปผลดังกล่าว
+  \end{block}
+\end{frame}
+
+
+%% =====================================================================
+\section{กรณีศึกษาและการพิสูจน์ด้วยตาราง}
+%% =====================================================================
+
+\begin{frame}{ตัวอย่าง: ระบบการตัดสินใจอนุมัติสินเชื่อ}
+  \begin{block}{เงื่อนไข}
+    \footnotesize
+    1) รายได้ $>$ 50,000 และไม่มีหนี้ค้าง $\Rightarrow$ อนุมัติ \quad
+    2) รายได้ $>$ 50,000 แต่มีหนี้ค้าง $\Rightarrow$ พิจารณาเพิ่ม \quad
+    3) รายได้ $\leq$ 50,000 $\Rightarrow$ ไม่อนุมัติ
+  \end{block}
+  ให้ $I=$ รายได้สูง, \ $D=$ มีหนี้ค้าง, \ $A=$ ได้รับอนุมัติ \quad $\Rightarrow$ \quad $A \equiv I \land \neg D$
+  \begin{center}\small
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    $I$ & $D$ & $\neg D$ & $A \equiv I \land \neg D$ \\ \hline
+    \TT & \TT & \FF & \FF \\ \hline
+    \TT & \FF & \TT & \TT \\ \hline
+    \FF & \TT & \FF & \FF \\ \hline
+    \FF & \FF & \TT & \FF \\ \hline
+  \end{tabular}
+  \end{center}
+  \footnotesize อนุมัติเฉพาะกรณีรายได้สูงและไม่มีหนี้ค้างเท่านั้น ($I=$T, $D=$F)
+\end{frame}
+
+\begin{frame}{ทฤษฎีบท: $p \rightarrow q \equiv \neg p \lor q$}
+  พิสูจน์ด้วยตารางค่าความจริง
+  \begin{center}\small
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \textbf{$p$} & \textbf{$q$} & \textbf{$p\rightarrow q$} & \textbf{$\neg p$} & \textbf{$\neg p \lor q$} & \textbf{สมมูล?} \\ \hline
+    \TT & \TT & \TT & \FF & \TT & \checkmark \\ \hline
+    \TT & \FF & \FF & \FF & \FF & \checkmark \\ \hline
+    \FF & \TT & \TT & \TT & \TT & \checkmark \\ \hline
+    \FF & \FF & \TT & \TT & \TT & \checkmark \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.5em}
+  คอลัมน์ $p\rightarrow q$ และ $\neg p\lor q$ เหมือนกันทุกแถว $\Rightarrow$ สมมูลกัน
+  \begin{exampleblock}{ความสำคัญ}
+    ใช้แปลงประพจน์เงื่อนไขให้อยู่ในรูปที่ใช้เฉพาะ AND, OR, NOT
+    ซึ่งจำเป็นต่อการออกแบบวงจรดิจิทัลและการเขียนโปรแกรม
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{การใช้ตารางค่าความจริงในการพิสูจน์}
+  ตารางค่าความจริงใช้ตรวจสอบได้ 3 วัตถุประสงค์หลัก
+  \begin{enumerate}
+    \item ประพจน์เป็น \textbf{สัจนิรันดร์} หรือไม่ -- ดูว่าคอลัมน์ผลลัพธ์เป็น \TT\ ทุกแถวหรือไม่
+    \item ประพจน์สองประพจน์ \textbf{สมมูลกัน} หรือไม่ -- เปรียบเทียบคอลัมน์ผลลัพธ์
+    \item การให้เหตุผล \textbf{สมเหตุสมผล} หรือไม่ -- เขียน (เหตุทั้งหมด $\land$) $\rightarrow$ ผล
+          แล้วตรวจว่าเป็นสัจนิรันดร์หรือไม่
+  \end{enumerate}
+  \vspace{0.6em}
+  \begin{block}{ข้อดี--ข้อจำกัด}
+    ให้ผลแน่นอนและตรวจสอบได้เสมอ แต่จำนวนแถว $2^n$ โตเร็วเมื่อตัวแปรเพิ่มขึ้น
+  \end{block}
+\end{frame}
+
+
+%% =====================================================================
+\section{กิจกรรมในชั้นเรียน (แบบฝึกหัดทำในห้อง)}
+%% =====================================================================
+
+\begin{frame}{วิธีทำกิจกรรม}
+  \begin{block}{คำชี้แจง}
+    ให้นักศึกษาทำกิจกรรมต่อไปนี้ \textbf{ในชั้นเรียน} ลงในสมุด/กระดาษ
+    ภายในเวลาที่กำหนด แล้วร่วมเฉลยและอภิปรายพร้อมกัน
+  \end{block}
+  \vspace{0.5em}
+  \begin{itemize}
+    \item ทำเดี่ยวหรือจับคู่ก็ได้ (ตามที่อาจารย์กำหนด)
+    \item เมื่อหมดเวลา อาจารย์จะคลิกเพื่อ \textbf{เฉลย} ทีละข้อ
+    \item อาสาสมัครออกมาอธิบายวิธีคิดหน้าชั้น
+  \end{itemize}
+  \vspace{0.5em}
+  \begin{exampleblock}{เกณฑ์}
+    เน้นกระบวนการคิดและการให้เหตุผล ไม่ใช่แค่คำตอบสุดท้าย
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 1: การอนุมาน \eng{6 นาที}}
+  จงระบุว่าใช้กฎอนุมานใด และหาผลสรุป
+  \begin{enumerate}
+    \item ถ้าวันนี้ฝนตก แล้วฉันจะไม่ออกไปข้างนอก ; วันนี้ฝนตก \quad $\dots$ ?
+    \item ถ้าข้าพเจ้าสอบผ่าน แล้วข้าพเจ้าจะดีใจ ; ข้าพเจ้าไม่ดีใจ \quad $\dots$ ?
+    \item ถ้า A แล้ว B ; ถ้า B แล้ว C \quad $\dots$ ?
+    \item ระบบจะแจ้งเตือนทางอีเมลหรือ SMS ; ไม่ได้แจ้งทางอีเมล \quad $\dots$ ?
+  \end{enumerate}
+  \pause
+  \begin{exampleblock}{เฉลย}
+    \footnotesize
+    1) Modus Ponens $\rightarrow$ ``ฉันจะไม่ออกไปข้างนอก'' \quad
+    2) Modus Tollens $\rightarrow$ ``ข้าพเจ้าสอบไม่ผ่าน'' \\
+    3) Hypothetical Syllogism $\rightarrow$ ``ถ้า A แล้ว C'' \quad
+    4) Disjunctive Syllogism $\rightarrow$ ``แจ้งทาง SMS''
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 2: ตรวจความสมเหตุสมผล \eng{8 นาที}}
+  \begin{block}{โจทย์}
+    จงตรวจว่าการให้เหตุผลต่อไปนี้สมเหตุสมผลหรือไม่ ด้วยตารางค่าความจริง \\
+    ``จากสมมติฐาน $p \rightarrow q$ และ $q$ สรุปว่า $p$''
+  \end{block}
+  \pause
+  \begin{center}\scriptsize
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    $p$ & $q$ & $p\rightarrow q$ & $(p\rightarrow q)\land q$ & $[(p\rightarrow q)\land q]\rightarrow p$ \\ \hline
+    \TT & \TT & \TT & \TT & \TT \\ \hline
+    \TT & \FF & \FF & \FF & \TT \\ \hline
+    \rowcolor{lpink}\FF & \TT & \TT & \TT & \FF \\ \hline
+    \FF & \FF & \TT & \FF & \TT \\ \hline
+  \end{tabular}
+  \end{center}
+  \begin{alertblock}{สรุป}
+    มีแถวที่ผลลัพธ์เป็น \FF\ (แถวที่ 3) $\Rightarrow$ \textbf{ไม่เป็นสัจนิรันดร์ จึงไม่สมเหตุสมผล} \\
+    นี่คือข้อผิดพลาด \emph{Affirming the Consequent} (การยอมรับผล)
+  \end{alertblock}
+\end{frame}
+
+
+%% ====================== สรุป + แบบฝึกหัด ======================
+\begin{frame}{สรุปสัปดาห์ที่ 3}
+  \begin{exampleblock}{1. ตัวเชื่อมเพิ่มเติม}
+    XOR ($\oplus$), NAND ($\uparrow$), NOR ($\downarrow$) -- ใช้ NAND อย่างเดียวสร้างทุกตัวเชื่อมได้ (Universal Gate)
+  \end{exampleblock}
+  \begin{exampleblock}{2. ประพจน์เปิดและตัวบ่งปริมาณ}
+    $\forall x\,P(x)$ (ทุกตัว), $\exists x\,P(x)$ (มีบางตัว) -- แสดง $\forall$ เท็จ ใช้ \textbf{ตัวอย่างค้าน} 1 ตัว
+  \end{exampleblock}
+  \begin{exampleblock}{3. กฎการอนุมาน (Rules of Inference)}
+    Modus Ponens, Modus Tollens, Hypothetical Syllogism, Disjunctive Syllogism \\
+    -- \textbf{พิสูจน์ด้วยตารางค่าความจริงว่าเป็นสัจนิรันดร์}
+  \end{exampleblock}
+  \begin{exampleblock}{4. Fallacy (ข้อผิดพลาด)}
+    \textbf{อย่า} สรุปแบบ Affirming the Consequent / Denying the Antecedent (ตรวจด้วยตารางก็ไม่เป็นสัจนิรันดร์)
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{สรุปบทที่ 1 (ภาพรวมตรรกศาสตร์)}
+  \begin{itemize}
+    \item \textbf{ประพจน์} + \textbf{ตัวเชื่อม} $\neg,\land,\lor,\rightarrow,\leftrightarrow$ (+ XOR, NAND, NOR)
+    \item \textbf{ตารางค่าความจริง} = เครื่องมือวิเคราะห์ขั้นพื้นฐาน ($2^n$ กรณี)
+    \item \textbf{ประเภท}: สัจนิรันดร์ (จริงเสมอ), ข้อขัดแย้ง (เท็จเสมอ), ประพจน์กลาง
+    \item \textbf{ความสมมูล} + กฎพีชคณิตของประพจน์ (เดอมอร์แกน ฯลฯ)
+    \item \textbf{ตัวบ่งปริมาณ} $\forall,\exists$ และนิเสธของตัวบ่งปริมาณ
+    \item \textbf{การอนุมาน}: Modus Ponens, Modus Tollens, Hypothetical \& Disjunctive Syllogism
+    \item \textbf{การประยุกต์}: เงื่อนไขในโปรแกรมคอมพิวเตอร์, วงจรอิเล็กทรอนิกส์ (Logic Gate)
+  \end{itemize}
+  \begin{exampleblock}{}
+    \centering ตรรกศาสตร์เป็น \textbf{รากฐานสำคัญ} ของการออกแบบระบบคอมพิวเตอร์และระบบตัดสินใจ
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{แบบฝึกหัดมอบหมาย -- สัปดาห์ที่ 3 (ส่งสัปดาห์หน้า)}
+  \begin{block}{คำชี้แจง}
+    ทำลงใน \textbf{กระดาษ A4} แสดงวิธีทำให้ชัดเจน -- รวม 5 ข้อ คะแนนรวม \textbf{10 คะแนน}
+  \end{block}
+  \vspace{0.3em}
+  \begin{enumerate}\small
+    \item \textbf{[2 คะแนน]} จงพิสูจน์ว่า Hypothetical Syllogism เป็นสัจนิรันดร์
+          ด้วยตารางค่าความจริง: $[(p\rightarrow q)\land(q\rightarrow r)]\rightarrow(p\rightarrow r)$
+    \item \textbf{[2 คะแนน]} จงพิสูจน์ว่า Disjunctive Syllogism เป็นสัจนิรันดร์
+          ด้วยตารางค่าความจริง: $[(p\lor q)\land \neg p]\rightarrow q$
+    \item \textbf{[2 คะแนน]} จงเขียน $p \lor q$ และ $p \rightarrow q$ โดยใช้ NAND ($\uparrow$) อย่างเดียว
+          พร้อมแสดงการพิสูจน์ด้วยตารางค่าความจริงว่าสมมูลกัน
+    \item \textbf{[2 คะแนน]} กำหนดเอกภพ $U=\{1,2,3,4,5\}$ และประพจน์ $P(x)$: ``$x$ หารด้วย 2 ลงตัว''
+          \begin{itemize}\small
+            \item จงหาค่าความจริงของ $\forall x\,P(x)$ และ $\exists x\,P(x)$
+            \item จงเขียนนิเสธของประพจน์ทั้งสอง
+            \item ถ้า $\forall x\,P(x)$ เป็นเท็จ ให้ยกตัวอย่างค้าน
+          \end{itemize}
+    \item \textbf{[2 คะแนน -- บังคับ]} ระบบรับสมัครงาน: ผู้สมัครผ่านการคัดเลือกถ้า
+          \textbf{(อายุ $\geq$ 22 และ GPA $\geq$ 3.0) หรือ (ประสบการณ์ $\geq$ 2 ปี)}
+          \begin{itemize}\small
+            \item กำหนดสัญลักษณ์: $A=$ อายุ$\geq$22, $G=$ GPA$\geq$3.0, $E=$ ประสบการณ์$\geq$2
+            \item เขียนเงื่อนไขการผ่านคัดเลือกเป็นสูตรตรรกศาสตร์
+            \item สร้างตารางค่าความจริงของเงื่อนไขดังกล่าว
+          \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[plain]
+  \vfill
+  \centering
+  {\Large\color{navy}\textbf{จบบทที่ 1 : ตรรกศาสตร์ (Logic)}}\par
+  \vspace{0.8em}
+  {\color{gray} สัปดาห์ถัดไป: บทที่ 2 : เซต (Set Theory)}
+  \vfill
+\end{frame}

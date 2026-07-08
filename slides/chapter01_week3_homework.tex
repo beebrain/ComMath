@@ -1,0 +1,213 @@
+% !TeX program = xelatex
+%% =====================================================================
+%%  แบบฝึกหัดท้ายบทที่ 1 — ตัวบ่งปริมาณ (Quantifiers)
+%%  รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์
+%%  มหาวิทยาลัยราชภัฏอุตรดิตถ์
+%% =====================================================================
+\documentclass[a4paper,14pt]{article}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+\XeTeXlinebreaklocale "th_TH"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\setmainfont[Script=Thai,Scale=1.0]{TH Sarabun New}
+
+% Colors
+\definecolor{navy}{HTML}{1F3A93}
+\definecolor{Tgreen}{HTML}{2E8B57}
+\definecolor{Fred}{HTML}{C0392B}
+\definecolor{gold}{HTML}{B7950B}
+\definecolor{lightnavy}{HTML}{E7ECF8}
+\definecolor{mint}{HTML}{E6F4EA}
+\definecolor{cream}{HTML}{FFF7DD}
+\definecolor{lyellow}{HTML}{FFF6D5}
+\definecolor{pink}{HTML}{FBE7E4}
+
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+% Custom commands
+\newcommand{\TT}{\textcolor{Tgreen}{\textbf{T}}}
+\newcommand{\FF}{\textcolor{Fred}{\textbf{F}}}
+\newcommand{\A}{\textcolor{navy}{$\forall$}}
+\newcommand{\E}{\textcolor{gold}{$\exists$}}
+\newcommand{\notset}{\(\forall\,x\)}
+
+\begin{document}
+
+%% ===== Header =====
+\begin{tcolorbox}[colback=navy,colframe=navy,coltext=white,
+  arc=4mm,boxrule=0pt,left=10pt,right=10pt,top=8pt,bottom=8pt]
+\begin{center}
+{\Large\bfseries บทที่ 1 — ตัวบ่งปริมาณ (Quantifiers)}\\[2pt]
+{\large แบบฝึกหัดท้ายบทเรียน · ส่งสัปดาห์ถัดไป}\\[2pt]
+{\normalsize รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์ · มหาวิทยาลัยราชภัฏอุตรดิตถ์}
+\end{center}
+\end{tcolorbox}
+
+\vspace{0.4em}
+
+%% ===== Student info =====
+\noindent
+\begin{tabularx}{\textwidth}{@{}l X l X@{}}
+ชื่อ-สกุล: & \dotfill & รหัส: & \dotfill \\
+กลุ่ม: & \dotfill & วันที่ส่ง: & \dotfill \\
+\end{tabularx}
+
+\vspace{0.3em}
+
+%% ===== Instructions =====
+\begin{tcolorbox}[colback=cream,colframe=gold,arc=3mm,boxrule=0.5pt,
+  left=10pt,right=10pt,top=6pt,bottom=6pt]
+\textbf{คำชี้แจง:}
+\begin{itemize}[leftmargin=*,topsep=2pt,itemsep=1pt]
+  \item ทำลงในกระดาษ A4 แสดงวิธีทำให้ชัดเจน
+  \item แบบฝึกหัดแบ่งเป็น \textbf{3 ส่วน} (Part A, B, C) รวม 10 ข้อ
+  \item คะแนนรวม \textbf{20 คะแนน} (Part A: 6 + Part B: 9 + Part C: 7 + โบนัส: 2)
+\end{itemize}
+\end{tcolorbox}
+
+\vspace{0.5em}
+
+%% ===== Part A =====
+\begin{tcolorbox}[colback=lightnavy,colframe=navy,arc=3mm,boxrule=0.5pt,
+  left=10pt,right=10pt,top=6pt,bottom=6pt]
+\textbf{\textcolor{navy}{Part A · พื้นฐาน}} \hfill \textbf{2 คะแนน/ข้อ} · \textbf{6 คะแนน}
+\end{tcolorbox}
+
+\begin{enumerate}[label=\textbf{A\arabic*.},leftmargin=2em,itemsep=10pt]
+  \item เขียนประโยคต่อไปนี้ให้อยู่ในรูปสัญลักษณ์ตรรกศาสตร์\\
+        ``\textbf{ทุกจังหวัด}ในประเทศไทยมีผู้ว่าราชการจังหวัด''
+        \vspace{1.5em}
+
+  \item เขียนประโยคต่อไปนี้ให้อยู่ในรูปสัญลักษณ์ตรรกศาสตร์\\
+        ``\textbf{มีนักเรียนบางคน}ในชั้นเรียนที่\textbf{ไม่ชอบ}วิชาคณิตศาสตร์''
+        \vspace{1.5em}
+
+  \item เขียนประโยคต่อไปนี้ให้อยู่ในรูปสัญลักษณ์ตรรกศาสตร์\\
+        ``\textbf{ไม่มี}นักเรียนคนใดในห้อง\textbf{เกิดเดือนกุมภาพันธ์}''
+
+        \emph{คำแนะนำ: ใช้ \(\forall\) ได้ เพราะ ``ไม่มี'' = ``ทุกตัวไม่เป็น''}
+        \vspace{1.5em}
+\end{enumerate}
+
+\vspace{0.5em}
+
+%% ===== Part B =====
+\begin{tcolorbox}[colback=mint,colframe=Tgreen,arc=3mm,boxrule=0.5pt,
+  left=10pt,right=10pt,top=6pt,bottom=6pt]
+\textbf{\textcolor{Tgreen}{Part B · ตรวจสอบค่าความจริง}} \hfill \textbf{3 คะแนน/ข้อ} · \textbf{9 คะแนน}
+\end{tcolorbox}
+
+\begin{enumerate}[label=\textbf{B\arabic*.},leftmargin=2em,itemsep=10pt]
+  \item จงหาค่าความจริงของ
+        \(\A x \in \{1, 2, 3\}\; [x^2 \le 9]\)
+
+        \emph{แสดงการตรวจสอบทีละค่า}
+        \vspace{2em}
+
+  \item จงหาค่าความจริงของ
+        \(\E x \in \{0, 5, 10\}\; [x \text{ เป็นจำนวนคี่}]\)
+
+        \emph{ระบุตัวอย่างยืนยัน หรือ ตัวอย่างค้าน}
+        \vspace{2em}
+
+  \item ตรวจสอบว่า
+        \(\A x \in \mathbb{N}\; [x + 1 > x]\)
+        เป็นจริงหรือเท็จ พร้อมให้เหตุผล
+
+        \vspace{2em}
+\end{enumerate}
+
+\vspace{0.5em}
+
+%% ===== Part C =====
+\begin{tcolorbox}[colback=lyellow,colframe=gold,arc=3mm,boxrule=0.5pt,
+  left=10pt,right=10pt,top=6pt,bottom=6pt]
+\textbf{\textcolor{gold}{Part C · ประยุกต์}} \hfill \textbf{2.33 คะแนน/ข้อ} · \textbf{7 คะแนน} · \textbf{โบนัส +2}
+\end{tcolorbox}
+
+\begin{enumerate}[label=\textbf{C\arabic*.},leftmargin=2em,itemsep=10pt]
+  \item เขียนประโยคต่อไปนี้ให้อยู่ในรูปสัญลักษณ์ตรรกศาสตร์ โดยใช้ทั้งตัวบ่งปริมาณและตัวเชื่อม:
+        \begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+          \item ให้ \(A\) = นักศึกษาเรียนวิชา CS101
+          \item ให้ \(S\) = นักศึกษาส่งงาน
+          \item ให้ \(G\) = นักศึกษาได้เกรด A
+        \end{itemize}
+        ประโยค: ``\textbf{นักศึกษาทุกคนที่เรียน CS101 และส่งงาน จะได้เกรด A}''
+        \vspace{2em}
+
+  \item เขียนประโยคต่อไปนี้ให้อยู่ในรูปสัญลักษณ์ตรรกศาสตร์ โดยใช้ตัวบ่งปริมาณซ้อน:
+        \begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+          \item ให้ \(M(x,y)\) = นักศึกษา \(x\) ชอบวิชา \(y\)
+        \end{itemize}
+        ประโยค: ``\textbf{มีนักศึกษาบางคน}ที่ชอบทั้ง\textbf{คณิตศาสตร์และเขียนโปรแกรม}''
+        \vspace{2em}
+
+  \item เขียนประโยคต่อไปนี้ให้อยู่ในรูปสัญลักษณ์ตรรกศาสตร์:
+        \begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+          \item ให้ \(C(x)\) = คอมพิวเตอร์เครื่องที่ \(x\) ใช้งานได้
+        \end{itemize}
+        ประโยค: ``\textbf{ห้องสมุดทุกเครื่อง}คอมพิวเตอร์\textbf{ใช้งานได้}''
+
+        \textbf{คำถามเพิ่ม:} ประโยคนี้ควรใช้ \(\A\) หรือ \(\E\) จึงเหมาะสมที่สุด เพราะเหตุใด
+        \vspace{1.5em}
+
+  \item[$\bigstar$] \textbf{โจทย์ท้าทาย (โบนัส +2 คะแนน)}: เขียนประโยคต่อไปนี้ให้อยู่ในรูปสัญลักษณ์ตรรกศาสตร์ โดยใช้ตัวบ่งปริมาณซ้อน:
+        \begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+          \item ให้ \(F(x,y)\) = นักเรียน \(x\) เป็นเพื่อนกับ \(y\)
+        \end{itemize}
+        ประโยค: ``\textbf{นักเรียนทุกคน}ในชั้นเรียนนี้ \textbf{มีเพื่อนอย่างน้อย 1 คน}''
+        \vspace{2em}
+\end{enumerate}
+
+\vspace{1em}
+
+%% ===== Score table =====
+\begin{center}
+\begin{tcolorbox}[colback=lightnavy,colframe=navy,arc=3mm,boxrule=0.5pt,
+  width=0.7\textwidth,left=10pt,right=10pt,top=6pt,bottom=6pt]
+\begin{center}
+\textbf{\large ตารางคะแนน}\\[4pt]
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{ส่วน} & \textbf{ข้อ} & \textbf{คะแนน/ข้อ} & \textbf{รวม} \\ \hline
+Part A · พื้นฐาน & 3 & 2 & 6 \\ \hline
+Part B · ตรวจสอบ & 3 & 3 & 9 \\ \hline
+Part C · ประยุกต์ & 3 & 2.33 & 7 \\ \hline
+\textbf{รวม (ข้อบังคับ)} & \textbf{9} & --- & \textbf{20} \\ \hline
+โบนัส (ท้าทาย) & 1 & 2 & 2 \\ \hline
+\textbf{รวมทั้งหมด (เต็ม)} & \textbf{10} & --- & \textbf{22} \\ \hline
+\end{tabular}
+\end{center}
+\end{tcolorbox}
+\end{center}
+
+\vspace{1em}
+
+%% ===== Reference =====
+\begin{tcolorbox}[colback=white,colframe=line,arc=2mm,boxrule=0.3pt,
+  left=8pt,right=8pt,top=4pt,bottom=4pt]
+\begin{center}
+\textbf{อ้างอิงสัญลักษณ์}\\
+\(\A x\,P(x)\) = ``สำหรับทุก \(x\), \(P(x)\) เป็นจริง'' \quad
+\(\E x\,P(x)\) = ``มี \(x\) บางตัวที่ทำให้ \(P(x)\) เป็นจริง''
+\end{center}
+\end{tcolorbox}
+
+\vfill
+
+\begin{center}
+\small\itshape\color{gray}
+``คณิตศาสตร์สำหรับคอมพิวเตอร์'' · บทที่ 1 ตรรกศาสตร์ · สัปดาห์ที่ 3
+\end{center}
+
+\end{document}

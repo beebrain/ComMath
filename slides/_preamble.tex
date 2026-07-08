@@ -1,0 +1,101 @@
+% !TeX program = xelatex
+%% =====================================================================
+%%  พรีแอมเบิลร่วม สำหรับสไลด์ประกอบการสอน บทที่ 1 : ตรรกศาสตร์ (Logic)
+%%  รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์
+%%  เรียงพิมพ์ด้วย XeLaTeX + ฟอนต์ TH Sarabun New
+%%  ใช้ร่วมกันด้วย \input{_preamble} ที่บรรทัดแรกของไฟล์สไลด์แต่ละสัปดาห์
+%% =====================================================================
+%% โหมด handout: ไฟล์ไดรเวอร์ที่ \def\HANDOUTMODE{} ก่อน \input{_preamble}
+%% จะรวมเลเยอร์ overlay (\pause) ให้แสดงเฉลยครบในหน้าเดียว (ไม่มีหน้าซ้ำ)
+\ifdefined\HANDOUTMODE\PassOptionsToClass{handout}{beamer}\fi
+\documentclass[aspectratio=169,11pt,xcolor=dvipsnames]{beamer}
+
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,shapes.gates.logic.US}
+
+%% ---------- ภาษาไทย ----------
+%% beamer ใช้แบบอักษร sans-serif เป็นค่าตั้งต้น จึงต้องตั้งทั้ง main และ sans
+%% ให้เป็น TH Sarabun New และใช้ professionalfonts กันไม่ให้ beamer แทนที่ฟอนต์
+\usefonttheme{professionalfonts}
+\XeTeXlinebreaklocale "th_TH"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\setmainfont[Script=Thai,Scale=1.25]{TH Sarabun New}
+\setsansfont[Script=Thai,Scale=1.25]{TH Sarabun New}
+\newfontfamily\thaifont[Script=Thai,Scale=1.25]{TH Sarabun New}
+
+%% ---------- จานสี (ยึดตามตำรา) ----------
+\definecolor{navy}{HTML}{1F3A93}
+\definecolor{Tgreen}{HTML}{2E8B57}
+\definecolor{Fred}{HTML}{C0392B}
+\definecolor{gold}{HTML}{B7950B}
+\definecolor{lightnavy}{HTML}{EAEEF7}
+\definecolor{mint}{HTML}{E8F5E9}
+\definecolor{lyellow}{HTML}{FFF6D5}
+\definecolor{cream}{HTML}{FFF8E1}
+\definecolor{lpink}{HTML}{FDEDEC}
+
+%% ---------- ธีม / รูปลักษณ์ ----------
+\usetheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{frametitle}{fg=white,bg=navy}
+\setbeamercolor{title}{fg=navy}
+\setbeamercolor{structure}{fg=navy}
+\setbeamercolor{itemize item}{fg=navy}
+\setbeamercolor{itemize subitem}{fg=gold}
+\setbeamercolor{enumerate item}{fg=navy}
+\setbeamercolor{section in toc}{fg=navy}
+\setbeamercolor{block title}{bg=navy,fg=white}
+\setbeamercolor{block body}{bg=lightnavy,fg=black}
+\setbeamercolor{block title example}{bg=Tgreen,fg=white}
+\setbeamercolor{block body example}{bg=mint,fg=black}
+\setbeamercolor{block title alerted}{bg=Fred,fg=white}
+\setbeamercolor{block body alerted}{bg=lpink,fg=black}
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamerfont{title}{series=\bfseries}
+\setbeamertemplate{itemize item}{\textbullet}
+\setbeamertemplate{itemize subitem}{\textendash}
+
+%% เส้นใต้หัวสไลด์
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.6ex,dp=1.2ex,leftskip=0.3cm,rightskip=0.3cm]{frametitle}%
+    \usebeamerfont{frametitle}\insertframetitle%
+  \end{beamercolorbox}%
+}
+
+%% footline (กำหนดชื่อหัวเรื่องท้ายสไลด์ผ่าน \footchaptertitle)
+\newcommand{\footchaptertitle}{บทที่ 1 ตรรกศาสตร์}
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.4ex,dp=1ex,leftskip=0.3cm]{author in head/foot}%
+      \color{navy}\footnotesize คณิตศาสตร์สำหรับคอมพิวเตอร์ \,|\, \footchaptertitle%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.4ex,dp=1ex,rightskip=0.3cm]{author in head/foot}%
+      \hfill\color{navy}\footnotesize \insertframenumber\,/\,\inserttotalframenumber%
+    \end{beamercolorbox}%
+  }%
+}
+
+%% ---------- มาโครช่วย ----------
+\newcommand{\TT}{\textcolor{Tgreen}{\textbf{T}}}
+\newcommand{\FF}{\textcolor{Fred}{\textbf{F}}}
+\newcommand{\eng}[1]{\textcolor{gray}{\small (#1)}}
+\renewcommand{\arraystretch}{1.25}
+
+%% หน้าแบ่งหัวข้อ (section)
+\AtBeginSection[]{%
+  \begin{frame}[plain]
+    \vfill
+    \centering
+    \begin{beamercolorbox}[sep=10pt,center,rounded=true,shadow=true]{title}
+      \usebeamerfont{title}\Large\insertsectionhead
+    \end{beamercolorbox}
+    \vfill
+  \end{frame}%
+}

@@ -1,0 +1,184 @@
+% !TeX program = xelatex
+%% =====================================================================
+%%  แบบฝึกหัดท้ายบทที่ 1 — ตรรกศาสตร์ (Logic) ครอบคลุมสัปดาห์ที่ 1-3
+%%  รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์
+%%  มหาวิทยาลัยราชภัฏอุตรดิตถ์
+%% =====================================================================
+\documentclass[a4paper,14pt]{article}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+
+\XeTeXlinebreaklocale "th_TH"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\setmainfont[Script=Thai,Scale=1.0]{TH Sarabun New}
+
+% Colors
+\definecolor{navy}{HTML}{1F3A93}
+\definecolor{Tgreen}{HTML}{2E8B57}
+\definecolor{Fred}{HTML}{C0392B}
+\definecolor{gold}{HTML}{B7950B}
+\definecolor{lightnavy}{HTML}{E7ECF8}
+\definecolor{mint}{HTML}{E6F4EA}
+\definecolor{cream}{HTML}{FFF7DD}
+\definecolor{lyellow}{HTML}{FFF6D5}
+\definecolor{pink}{HTML}{FBE7E4}
+\definecolor{line}{HTML}{C9D3EA}
+
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+% Custom commands
+\newcommand{\A}{\textcolor{navy}{$\forall$}}
+\newcommand{\E}{\textcolor{gold}{$\exists$}}
+
+\begin{document}
+
+%% ===== Header =====
+\begin{tcolorbox}[colback=navy,colframe=navy,coltext=white,
+  arc=4mm,boxrule=0pt,left=10pt,right=10pt,top=8pt,bottom=8pt]
+\begin{center}
+{\Large\bfseries แบบฝึกหัดท้ายบทที่ 1 — ตรรกศาสตร์ (Logic)}\\[2pt]
+{\large ครอบคลุมเนื้อหา สัปดาห์ที่ 1--3 · ส่งท้ายบท}\\[2pt]
+{\normalsize รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์ · มหาวิทยาลัยราชภัฏอุตรดิตถ์}
+\end{center}
+\end{tcolorbox}
+
+\vspace{0.3em}
+
+%% ===== Student info =====
+\noindent
+\begin{tabularx}{\textwidth}{@{}l X l X@{}}
+ชื่อ-สกุล: & \dotfill & รหัส: & \dotfill \\
+กลุ่ม: & \dotfill & วันที่ส่ง: & \dotfill \\
+\end{tabularx}
+
+\vspace{0.2em}
+
+%% ===== Instructions =====
+\begin{tcolorbox}[colback=cream,colframe=gold,arc=3mm,boxrule=0.5pt,
+  left=10pt,right=10pt,top=5pt,bottom=5pt]
+\textbf{คำชี้แจง:} ทำลงในกระดาษ A4 แสดงวิธีทำให้ชัดเจน · แบ่งเป็น \textbf{3 ส่วน} ตามสัปดาห์ · รวม 10 ข้อ · คะแนนเต็ม \textbf{30 คะแนน} (+โบนัส 2)
+\end{tcolorbox}
+
+\vspace{0.4em}
+
+%% ===== PART A : WEEK 1 =====
+\begin{tcolorbox}[colback=lightnavy,colframe=navy,arc=3mm,boxrule=0.5pt,
+  left=10pt,right=10pt,top=5pt,bottom=5pt]
+\textbf{\textcolor{navy}{Part A · สัปดาห์ที่ 1 : ประพจน์และตัวเชื่อม}} \hfill \textbf{3 ข้อ · 9 คะแนน}
+\end{tcolorbox}
+
+\begin{enumerate}[label=\textbf{A\arabic*.},leftmargin=2.2em,itemsep=8pt]
+  \item \textbf{(3 คะแนน)} จงพิจารณาว่าข้อความต่อไปนี้ \textbf{เป็นประพจน์หรือไม่} พร้อมให้เหตุผล
+        \begin{enumerate}[label=\arabic*),leftmargin=1.5em,itemsep=1pt,topsep=2pt]
+          \item ``กรุงเทพฯ เป็นเมืองหลวงของประเทศไทย''
+          \item ``จงปิดประตูด้วย''
+          \item ``$x + 5 = 12$''
+        \end{enumerate}
+        \vspace{1.2em}
+
+  \item \textbf{(3 คะแนน)} กำหนดให้ $p$ แทน ``วันนี้ฝนตก'' และ $q$ แทน ``ฉันพกร่ม''
+        จงเขียนประโยคต่อไปนี้เป็นสัญลักษณ์
+        \begin{enumerate}[label=\arabic*),leftmargin=1.5em,itemsep=1pt,topsep=2pt]
+          \item ถ้าวันนี้ฝนตก แล้วฉันพกร่ม
+          \item วันนี้ฝนตก และ ฉันไม่พกร่ม
+          \item ฉันพกร่ม ก็ต่อเมื่อ วันนี้ฝนตก
+        \end{enumerate}
+        \vspace{1.2em}
+
+  \item \textbf{(3 คะแนน)} จงสร้าง \textbf{ตารางค่าความจริง} ของประพจน์ $(p \land q) \rightarrow \neg p$
+        \vspace{5em}
+\end{enumerate}
+
+%% ===== PART B : WEEK 2 =====
+\begin{tcolorbox}[colback=mint,colframe=Tgreen,arc=3mm,boxrule=0.5pt,
+  left=10pt,right=10pt,top=5pt,bottom=5pt]
+\textbf{\textcolor{Tgreen}{Part B · สัปดาห์ที่ 2 : สัจนิรันดร์ ความสมมูล และกฎพีชคณิต}} \hfill \textbf{4 ข้อ · 12 คะแนน}
+\end{tcolorbox}
+
+\begin{enumerate}[label=\textbf{B\arabic*.},leftmargin=2.2em,itemsep=8pt]
+  \item \textbf{(3 คะแนน)} จงตรวจสอบว่าประพจน์ $(p \rightarrow q) \lor (q \rightarrow p)$ เป็น
+        \textbf{สัจนิรันดร์ / ข้อขัดแย้ง / ประพจน์กลาง} ด้วยตารางค่าความจริง
+        \vspace{4.5em}
+
+  \item \textbf{(3 คะแนน)} จงพิสูจน์ด้วยตารางค่าความจริงว่า $p \rightarrow q \equiv \neg q \rightarrow \neg p$
+        (กฎแย้งสลับที่ / Contrapositive)
+        \vspace{4.5em}
+
+  \item \textbf{(3 คะแนน)} จงใช้ \textbf{กฎของเดอมอร์แกน} เขียนนิเสธของประพจน์ต่อไปนี้ให้อยู่ในรูปที่ง่ายที่สุด
+        \begin{enumerate}[label=\arabic*),leftmargin=1.5em,itemsep=1pt,topsep=2pt]
+          \item $\neg(p \land \neg q)$
+          \item $\neg(\neg p \lor q)$
+        \end{enumerate}
+        \vspace{2em}
+
+  \item \textbf{(3 คะแนน)} จงลดรูปประพจน์ $(p \land q) \lor (p \land \neg q)$ โดยใช้กฎพีชคณิตของประพจน์
+        (ระบุชื่อกฎที่ใช้ในแต่ละขั้น)
+        \vspace{3em}
+\end{enumerate}
+
+\newpage
+
+%% ===== PART C : WEEK 3 =====
+\begin{tcolorbox}[colback=lyellow,colframe=gold,arc=3mm,boxrule=0.5pt,
+  left=10pt,right=10pt,top=5pt,bottom=5pt]
+\textbf{\textcolor{gold}{Part C · สัปดาห์ที่ 3 : ตัวบ่งปริมาณ}} \hfill \textbf{3 ข้อ · 9 คะแนน · โบนัส +2}
+\end{tcolorbox}
+
+\begin{enumerate}[label=\textbf{C\arabic*.},leftmargin=2.2em,itemsep=8pt]
+  \item \textbf{(3 คะแนน)} จงเขียนประโยคต่อไปนี้ให้อยู่ในรูปสัญลักษณ์ตัวบ่งปริมาณ
+        \begin{enumerate}[label=\arabic*),leftmargin=1.5em,itemsep=1pt,topsep=2pt]
+          \item ``นักศึกษา\textbf{ทุกคน}ในห้องสอบผ่านวิชานี้''
+          \item ``\textbf{มี}จำนวนเต็ม\textbf{บางจำนวน}ที่เป็นจำนวนเฉพาะ''
+          \item ``\textbf{ไม่มี}จำนวนจริงใดที่ยกกำลังสองแล้วได้ค่าติดลบ''
+        \end{enumerate}
+        \vspace{2em}
+
+  \item \textbf{(3 คะแนน)} กำหนดเอกภพ $U = \{1, 2, 3, 4, 5\}$ จงหาค่าความจริง
+        พร้อมเหตุผล/ตัวอย่างค้าน
+        \begin{enumerate}[label=\arabic*),leftmargin=1.5em,itemsep=1pt,topsep=2pt]
+          \item \(\A x \in U\; [x + 2 \le 7]\)
+          \item \(\E x \in U\; [x^2 = 16]\)
+        \end{enumerate}
+        \vspace{2.5em}
+
+  \item \textbf{(3 คะแนน)} จงเขียน \textbf{นิเสธ} ของประพจน์ต่อไปนี้ (ทั้งรูปสัญลักษณ์และภาษาไทย)
+        \begin{enumerate}[label=\arabic*),leftmargin=1.5em,itemsep=1pt,topsep=2pt]
+          \item \(\A x\; [\text{P}(x)]\) เมื่อ P(x): ``$x$ สอบผ่าน''
+          \item \(\E x\; [\text{Q}(x)]\) เมื่อ Q(x): ``$x$ มาสาย''
+        \end{enumerate}
+        \vspace{2.5em}
+
+  \item[$\bigstar$] \textbf{โจทย์ท้าทาย (โบนัส +2 คะแนน)} จงเขียน ``นักเรียน\textbf{ทุกคน}
+        มี\textbf{เพื่อน}อย่างน้อย 1 คน'' เป็นสัญลักษณ์ตัวบ่งปริมาณ\textbf{ซ้อน}
+        (กำหนด $F(x,y)$ = ``$x$ เป็นเพื่อนกับ $y$'')
+        \vspace{2.5em}
+\end{enumerate}
+
+\vspace{0.5em}
+
+%% ===== Reference =====
+\begin{tcolorbox}[colback=white,colframe=line,arc=2mm,boxrule=0.3pt,
+  left=8pt,right=8pt,top=4pt,bottom=4pt]
+\begin{center}
+\textbf{อ้างอิงสัญลักษณ์} \quad
+$\neg$ นิเสธ \quad $\land$ และ \quad $\lor$ หรือ \quad $\rightarrow$ ถ้า-แล้ว \quad $\leftrightarrow$ ก็ต่อเมื่อ \quad
+\A\ ทุกตัว \quad \E\ มีบางตัว
+\end{center}
+\end{tcolorbox}
+
+\vfill
+
+\begin{center}
+\small\itshape\color{gray}
+``คณิตศาสตร์สำหรับคอมพิวเตอร์'' · บทที่ 1 ตรรกศาสตร์ · แบบฝึกหัดท้ายบท (สัปดาห์ 1--3)
+\end{center}
+
+\end{document}

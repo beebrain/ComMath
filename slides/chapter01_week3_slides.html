@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 1 ตรรกศาสตร์ — สัปดาห์ที่ 3 · ตัวบ่งปริมาณ (Quantifiers)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   LOGIC BLUEPRINT — Chapter 1 Logic, Week 3
+   เน้นเรื่อง ตัวบ่งปริมาณ (Quantifiers)
+   คณิตศาสตร์สำหรับคอมพิวเตอร์ (4091606) · มหาวิทยาลัยราชภัฏอุตรดิตถ์
+   ===================================================================== */
+:root{
+  --paper:#F4EEDF; --paper2:#FCFAF3; --ink:#15203a; --ink-soft:#42506e;
+  --navy:#1F3A93; --navy2:#16265e; --navy3:#0e1a44;
+  --green:#2E8B57; --green2:#1f6b41;
+  --red:#C0392B; --red2:#962b20;
+  --gold:#B7950B; --gold2:#8a7008;
+  --lnavy:#E7ECF8; --mint:#E6F4EA; --pink:#FBE7E4; --cream:#FFF7DD; --lyellow:#FFF6D5;
+  --line:rgba(31,58,147,.16);
+  --line2:rgba(31,58,147,.30);
+  --f-head:'IBM Plex Sans Thai',sans-serif;
+  --f-body:'Sarabun',sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:var(--f-body);
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  overflow:hidden;
+}
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(120% 90% at 12% 0%, #FAF5E7 0%, var(--paper) 55%, #ECE3CC 100%);
+}
+.bg::before{content:"";position:absolute;inset:0;opacity:.5;
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:46px 46px,46px 46px;
+  -webkit-mask-image:radial-gradient(120% 120% at 50% 40%,#000 55%,transparent 100%);
+          mask-image:radial-gradient(120% 120% at 50% 40%,#000 55%,transparent 100%);
+}
+.bg::after{content:"";position:absolute;inset:0;opacity:.045;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+#app{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100vh;width:100vw}
+.stage{position:relative;width:min(95.5vw,169vh);aspect-ratio:16/9;
+  background:var(--paper2);
+  border-radius:14px;
+  box-shadow:0 30px 70px -28px rgba(14,26,68,.55),0 2px 0 rgba(255,255,255,.6) inset,0 0 0 1px rgba(31,58,147,.10);
+  overflow:hidden;
+}
+.deck{position:absolute;inset:0}
+.slide{position:absolute;inset:0;display:none;container-type:size;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,0) 22%),
+    var(--paper2);
+}
+.slide.is-active{display:block}
+
+.head{display:flex;align-items:flex-end;gap:2cqw;
+  background:linear-gradient(100deg,var(--navy2),var(--navy));
+  color:#fff;padding:3.3cqh 5cqw 2.6cqh;position:relative}
+.head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:.65cqh;
+  background:linear-gradient(90deg,var(--gold) 0 16%,rgba(255,255,255,.25) 16% 100%)}
+.head .kick{font-family:var(--f-mono);font-size:1.75cqh;letter-spacing:.28em;
+  text-transform:uppercase;color:#cdd8f4;font-weight:500;display:block;margin-bottom:.5cqh}
+.head h2{font-family:var(--f-head);font-weight:700;font-size:4.7cqh;line-height:1.12;
+  letter-spacing:-.01em}
+.head h2 .en{font-weight:500;color:#b9c6ee;font-size:.74em}
+
+.body{position:absolute;top:0;left:0;right:0;bottom:0;
+  padding:14cqh 5.4cqw 6cqh;display:flex;flex-direction:column;justify-content:center;gap:2.7cqh;
+  font-size:3.05cqh;line-height:1.45;overflow:hidden}
+.body.tight{gap:1.75cqh}
+.body.top{justify-content:flex-start;padding-top:15cqh}
+.lead{color:var(--ink)}
+.muted{color:#6a7796}
+.tiny{font-size:2.35cqh;line-height:1.4}
+
+.foot{position:absolute;left:0;right:0;bottom:0;height:5cqh;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5.4cqw;font-size:1.95cqh;color:var(--navy);
+  font-family:var(--f-head);border-top:1px solid var(--line)}
+.foot .right{font-family:var(--f-mono);letter-spacing:.05em;color:#7884a4}
+.foot .dot{color:var(--gold);margin:0 .5em}
+
+b,strong{font-weight:700;color:var(--navy2)}
+.hl{color:var(--navy);font-weight:700}
+.gn{color:var(--green2);font-weight:700}
+.rd{color:var(--red2);font-weight:700}
+.gd{color:var(--gold2);font-weight:700}
+code,.mono{font-family:var(--f-mono);font-size:.9em}
+.code{font-family:var(--f-mono);background:var(--lnavy);color:var(--navy2);
+  padding:.05em .45em;border-radius:.3em;font-size:.82em;font-weight:500}
+
+.op{font-family:var(--f-mono);font-weight:700;color:var(--navy)}
+.expr{font-family:var(--f-mono);font-weight:500;color:var(--ink);white-space:nowrap}
+.expr .v{font-style:italic;color:var(--navy2)}
+.vt{font-family:var(--f-mono);font-weight:700;color:var(--green2)}
+.vf{font-family:var(--f-mono);font-weight:700;color:var(--red2)}
+
+.chip{display:inline-flex;align-items:center;justify-content:center;min-width:1.7em;
+  height:1.7em;padding:0 .5em;border-radius:.45em;font-family:var(--f-mono);
+  font-weight:700;color:#fff;font-size:.92em;vertical-align:middle;line-height:1}
+.chip.t{background:var(--green);box-shadow:0 .3cqh 0 var(--green2)}
+.chip.f{background:var(--red);box-shadow:0 .3cqh 0 var(--red2)}
+.arrow{color:#8b97b6;font-family:var(--f-mono);margin:0 .35em}
+
+ul.bul,ol.num{list-style:none;display:flex;flex-direction:column;gap:1.85cqh}
+ul.bul li{position:relative;padding-left:2.6cqw}
+ul.bul li::before{content:"";position:absolute;left:0;top:.62em;width:1.05cqh;height:1.05cqh;
+  background:var(--navy);transform:rotate(45deg)}
+ul.sub{list-style:none;margin:.8cqh 0 0 2.6cqw;display:flex;flex-direction:column;gap:.7cqh;font-size:.92em}
+ul.sub li{position:relative;padding-left:2.4cqw;color:#41506f}
+ul.sub li::before{content:"–";position:absolute;left:0;color:var(--gold2);font-weight:700}
+ol.num{counter-reset:n}
+ol.num>li{position:relative;padding-left:4.4cqw;counter-increment:n}
+ol.num>li::before{content:counter(n);position:absolute;left:0;top:.05em;
+  width:3.1cqh;height:3.1cqh;border-radius:50%;background:var(--lnavy);color:var(--navy);
+  font-family:var(--f-mono);font-weight:700;font-size:.78em;
+  display:flex;align-items:center;justify-content:center;border:1px solid var(--line2)}
+.spread{justify-content:space-between !important}
+li .res{float:right;color:#8b97b6;font-family:var(--f-mono)}
+
+.block{border-radius:11px;padding:2.3cqh 2.7cqw;background:var(--lnavy);
+  border-left:.85cqh solid var(--navy);position:relative;
+  box-shadow:0 8px 20px -16px rgba(31,58,147,.6)}
+.block .lab{display:inline-flex;align-items:center;gap:.5em;font-family:var(--f-head);
+  font-weight:700;color:var(--navy);font-size:.82em;letter-spacing:.01em;margin-bottom:.7cqh;
+  text-transform:none}
+.block .lab .pin{font-family:var(--f-mono);font-size:.8em;background:var(--navy);color:#fff;
+  padding:.1em .55em;border-radius:.4em;letter-spacing:.12em}
+.block.ex{background:var(--mint);border-color:var(--green)}
+.block.ex .lab{color:var(--green2)} .block.ex .lab .pin{background:var(--green)}
+.block.al{background:var(--pink);border-color:var(--red)}
+.block.al .lab{color:var(--red2)} .block.al .lab .pin{background:var(--red)}
+.block.gold{background:var(--lyellow);border-color:var(--gold)}
+.block.gold .lab{color:var(--gold2)} .block.gold .lab .pin{background:var(--gold)}
+
+.cols{display:grid;grid-template-columns:1.05fr .95fr;gap:3cqw;align-items:start}
+.cols.even{grid-template-columns:1fr 1fr}
+.col{display:flex;flex-direction:column;gap:1.6cqh}
+.center{align-items:center;text-align:center}
+
+/* truth tables */
+.tt-wrap{border-radius:12px;overflow:hidden;align-self:flex-start;background:#fff;
+  box-shadow:0 16px 32px -18px rgba(14,26,68,.5),0 0 0 1px var(--line2)}
+table.tt{border-collapse:collapse;font-family:var(--f-mono);width:100%}
+table.tt th,table.tt td{border:1px solid var(--line);padding:.8cqh 1.5cqw;text-align:center;
+  font-size:.92em;white-space:nowrap}
+table.tt thead th{background:linear-gradient(180deg,#2b4bb0,var(--navy2));color:#fff;
+  font-weight:700;border-color:rgba(255,255,255,.16);letter-spacing:.02em}
+table.tt thead th .op,table.tt thead th .v{color:#fff}
+table.tt tbody td{background:#fff;transition:background .2s}
+table.tt tbody tr:nth-child(even) td{background:#F6F8FE}
+table.tt tbody tr:hover td{background:var(--lnavy)}
+table.tt td .vt,table.tt td .vf{display:inline-flex;align-items:center;justify-content:center;
+  min-width:1.75em;height:1.75em;border-radius:.5em;font-size:1em;font-weight:700;line-height:1;
+  transition:transform .2s}
+table.tt td .vt{background:var(--mint);color:var(--green2);box-shadow:inset 0 0 0 1.3px rgba(46,139,87,.32)}
+table.tt td .vf{background:var(--pink);color:var(--red2);box-shadow:inset 0 0 0 1.3px rgba(192,57,43,.32)}
+table.tt tbody tr:hover td .vt,table.tt tbody tr:hover td .vf{transform:scale(1.1)}
+table.tt tr.hi td{background:var(--lyellow) !important}
+table.tt.wide th,table.tt.wide td{padding:.62cqh 1.05cqw;font-size:.82em}
+.slide.is-active .tt tbody tr{animation:rowin .5s both}
+.slide.is-active .tt tbody tr:nth-child(1){animation-delay:.18s}
+.slide.is-active .tt tbody tr:nth-child(2){animation-delay:.28s}
+.slide.is-active .tt tbody tr:nth-child(3){animation-delay:.38s}
+.slide.is-active .tt tbody tr:nth-child(4){animation-delay:.48s}
+.slide.is-active .tt tbody tr:nth-child(5){animation-delay:.58s}
+@keyframes rowin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.tt-cap{font-size:2.2cqh;color:#6a7796;margin-top:.4cqh;font-family:var(--f-head)}
+
+.cover{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+  padding:0 8cqw;background:
+    radial-gradient(130% 120% at 88% 8%,rgba(31,58,147,.10),transparent 46%),
+    linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0) 30%),var(--paper2)}
+.cover .tag{font-family:var(--f-mono);font-size:2.1cqh;letter-spacing:.34em;color:var(--navy);
+  text-transform:uppercase;display:flex;align-items:center;gap:1.4cqw;margin-bottom:2.4cqh}
+.cover .tag::before{content:"";width:7cqw;height:2px;background:var(--gold)}
+.cover h1{font-family:var(--f-head);font-weight:700;font-size:8.6cqh;line-height:1.04;
+  color:var(--navy2);letter-spacing:-.02em}
+.cover h1 .en{display:block;font-size:.42em;letter-spacing:.04em;color:var(--gold2);
+  font-weight:600;margin-top:.6cqh}
+.cover .sub{font-size:3.5cqh;color:var(--ink);margin-top:2.6cqh;max-width:74%;line-height:1.4}
+.cover .sub b{color:var(--navy)}
+.cover .meta{position:absolute;bottom:8cqh;left:8cqw;font-size:2.5cqh;color:#56638a;line-height:1.5}
+.cover .meta b{color:var(--navy2)}
+.cover .course{display:inline-block;font-family:var(--f-mono);font-weight:700;background:var(--navy);
+  color:#fff;padding:.3em .7em;border-radius:.4em;font-size:.85em;letter-spacing:.05em}
+.glyphs{position:absolute;right:7cqw;bottom:8cqh;display:flex;gap:1.2cqw}
+.glyphs .g{width:8.5cqh;height:8.5cqh;border-radius:12px;background:#fff;border:1px solid var(--line2);
+  box-shadow:0 12px 26px -16px rgba(31,58,147,.6);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:.2cqh}
+.glyphs .g .s{font-family:var(--f-mono);font-weight:700;font-size:3.6cqh;color:var(--navy)}
+.glyphs .g .n{font-family:var(--f-mono);font-size:1.5cqh;color:#8b97b6;letter-spacing:.1em}
+.glyphs .g:nth-child(3) .s{color:var(--green2)}
+.glyphs .g:nth-child(4) .s{color:var(--gold2)}
+
+.divider{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+  padding:0 9cqw;background:linear-gradient(115deg,var(--navy3),var(--navy) 60%,var(--navy2));color:#fff;overflow:hidden}
+.divider .ghost{position:absolute;right:-2cqw;top:50%;transform:translateY(-50%);
+  font-family:var(--f-mono);font-weight:700;font-size:62cqh;line-height:.8;color:rgba(255,255,255,.06)}
+.divider .no{font-family:var(--f-mono);font-weight:700;font-size:4cqh;color:var(--gold);
+  letter-spacing:.2em;margin-bottom:1.5cqh}
+.divider .no::before{content:"";display:inline-block;width:6cqw;height:2px;background:var(--gold);
+  vertical-align:middle;margin-right:1.4cqw}
+.divider h2{font-family:var(--f-head);font-weight:700;font-size:7.4cqh;line-height:1.08;
+  max-width:80%;position:relative}
+.divider h2 .en{display:block;font-size:.5em;color:#aebbe6;font-weight:500;margin-top:1cqh;letter-spacing:.02em}
+.divider .note{font-size:2.6cqh;color:#cfd8ee;max-width:80%;margin-top:1.5cqh;line-height:1.5}
+
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:2cqh 3cqw;margin-top:.5cqh}
+.toc .it{display:flex;gap:2cqw;align-items:flex-start;background:#fff;border:1px solid var(--line2);
+  border-radius:12px;padding:2.2cqh 2.4cqw;box-shadow:0 10px 24px -20px rgba(31,58,147,.7)}
+.toc .it .n{font-family:var(--f-mono);font-weight:700;font-size:4cqh;color:var(--navy);
+  background:var(--lnavy);width:7.4cqh;min-width:7.4cqh;height:7.4cqh;border-radius:10px;
+  display:flex;align-items:center;justify-content:center}
+.toc .it .tx{display:flex;flex-direction:column;gap:.4cqh}
+.toc .it .tx .t{font-family:var(--f-head);font-weight:700;font-size:2.95cqh;color:var(--navy2);line-height:1.2}
+.toc .it .tx .d{font-size:2.25cqh;color:#6a7796}
+
+.reveal{position:relative;cursor:pointer}
+.reveal .inner{transition:filter .45s ease,opacity .45s ease;filter:blur(7px);opacity:.32}
+.reveal.on .inner{filter:none;opacity:1}
+.reveal.on{cursor:default}
+.reveal .hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:.7em;
+  font-family:var(--f-head);font-weight:700;color:var(--navy);font-size:2.6cqh;
+  transition:opacity .3s;letter-spacing:.02em}
+.reveal .hint .k{font-family:var(--f-mono);background:var(--navy);color:#fff;border-radius:.4em;
+  padding:.15em .55em;font-size:.8em;box-shadow:0 .4cqh 0 var(--navy2)}
+.reveal.on .hint{opacity:0;pointer-events:none}
+
+/* step indicator */
+.steps{display:flex;flex-direction:column;gap:1cqh;font-size:2.55cqh}
+.steps .s{display:grid;grid-template-columns:5cqh 1fr;gap:1.4cqw;align-items:start}
+.steps .s .n{font-family:var(--f-mono);font-weight:700;font-size:2.3cqh;color:var(--navy);
+  background:var(--lnavy);width:4.2cqh;height:4.2cqh;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin-top:.1cqh}
+.steps .s .tx{line-height:1.4}
+
+/* example box for everyday life */
+.ex-life{background:#fff;border:1px solid var(--line2);border-radius:12px;
+  padding:1.6cqh 2.4cqw;box-shadow:0 8px 20px -16px rgba(31,58,147,.5);align-self:flex-start}
+.ex-life .q{font-size:2.8cqh;color:var(--navy);font-weight:700;margin-bottom:.5cqh;font-style:normal}
+.ex-life .q::before{content:"“"}.ex-life .q::after{content:"”"}
+.ex-life .ans{font-size:2.5cqh;color:#42506e;line-height:1.5}
+
+/* big quantifier display */
+.qbig{font-family:var(--f-mono);font-weight:700;font-size:11cqh;line-height:1;
+  color:var(--navy);text-align:center;letter-spacing:.04em;margin:1cqh 0}
+.qbig .q{color:var(--green2)}
+.qbig .q2{color:var(--gold2)}
+
+/* eval table for quantifier */
+table.eval{border-collapse:collapse;width:100%;font-family:var(--f-mono);margin-top:1cqh}
+table.eval th,table.eval td{border:1px solid var(--line);padding:.7cqh 1cqw;text-align:center;font-size:2.1cqh}
+table.eval thead th{background:linear-gradient(180deg,#2b4bb0,var(--navy2));color:#fff;font-weight:700}
+table.eval tbody td{background:#fff}
+table.eval tbody tr:nth-child(even) td{background:#F6F8FE}
+table.eval td.ok{background:var(--mint) !important;color:var(--green2);font-weight:700}
+table.eval td.no{background:var(--pink) !important;color:var(--red2);font-weight:700}
+
+/* summary card */
+.summary-card{background:#fff;border:1px solid var(--line2);border-radius:14px;
+  padding:1.8cqh 2.4cqw;box-shadow:0 12px 28px -18px rgba(31,58,147,.6);
+  display:flex;flex-direction:column;gap:.7cqh}
+.summary-card .t{font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:2.8cqh}
+.summary-card .d{font-size:2.4cqh;color:#42506e;line-height:1.5}
+
+.closing{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2.4cqh;background:linear-gradient(160deg,var(--navy3),var(--navy));color:#fff;text-align:center}
+.closing .big{font-family:var(--f-head);font-weight:700;font-size:8cqh;letter-spacing:-.01em}
+.closing .nx{font-size:3cqh;color:#b9c6ee;max-width:70%}
+.closing .nx b{color:var(--gold)}
+.closing .rule{width:9cqw;height:3px;background:var(--gold);border-radius:2px}
+
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.slide.is-active .anim{animation:rise .56s cubic-bezier(.2,.75,.25,1) both;
+  animation-delay:calc(var(--i,0)*.085s + .08s)}
+.slide.is-active .head .kick,.slide.is-active .head h2{animation:fadein .6s both}
+.divider.is-anim .no,.divider.is-anim h2{animation:rise .6s both}
+
+.progress{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(31,58,147,.12);z-index:30}
+.progress .bar{height:100%;width:0;background:linear-gradient(90deg,var(--navy),var(--gold));
+  transition:width .4s cubic-bezier(.4,0,.1,1)}
+
+.dock{position:fixed;bottom:2.4vh;left:50%;transform:translateX(-50%);z-index:30;
+  display:flex;align-items:center;gap:.4rem;padding:.4rem .55rem;border-radius:999px;
+  background:rgba(252,250,243,.92);backdrop-filter:blur(8px);
+  border:1px solid var(--line2);box-shadow:0 14px 34px -18px rgba(14,26,68,.6);
+  opacity:.4;transition:opacity .3s}
+.dock:hover{opacity:1}
+.dock button{font:inherit;border:0;background:transparent;color:var(--navy);cursor:pointer;
+  width:2.5rem;height:2.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:1.15rem;transition:background .2s}
+.dock button:hover{background:var(--lnavy)}
+.dock .count{font-family:var(--f-mono);font-weight:700;color:var(--navy2);font-size:.92rem;
+  min-width:5.2rem;text-align:center;letter-spacing:.04em}
+.dock .sep{width:1px;height:1.5rem;background:var(--line2)}
+
+body.overview{overflow:auto}
+body.overview #app{display:block;height:auto;min-height:100vh;padding:5vh 4vw 12vh}
+body.overview .stage{width:100%;aspect-ratio:auto;background:transparent;box-shadow:none;border-radius:0;overflow:visible}
+body.overview .deck{position:static;display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:22px}
+body.overview .slide{position:relative;inset:auto;display:block;aspect-ratio:16/9;
+  border-radius:10px;overflow:hidden;cursor:pointer;border:1px solid var(--line2);
+  box-shadow:0 14px 30px -22px rgba(14,26,68,.7);transition:transform .2s,box-shadow .2s}
+body.overview .slide:hover{transform:translateY(-4px);box-shadow:0 22px 40px -22px rgba(14,26,68,.8)}
+body.overview .slide.is-active{outline:3px solid var(--gold);outline-offset:2px}
+body.overview .slide .anim{animation:none !important}
+body.overview .slide *{pointer-events:none}
+body.overview .reveal .inner{filter:none;opacity:1}
+body.overview .reveal .hint{display:none}
+body.overview .ov-title{position:fixed;top:0;left:0;right:0;z-index:25;
+  background:var(--navy);color:#fff;padding:1rem 4vw;font-family:var(--f-head);font-weight:700;
+  display:flex;justify-content:space-between;align-items:center}
+.ov-title{display:none}
+body.overview .ov-title{display:flex}
+.ov-title small{font-weight:400;color:#b9c6ee;font-family:var(--f-mono);font-size:.85rem}
+
+.help{position:fixed;inset:0;z-index:40;background:rgba(14,26,68,.62);backdrop-filter:blur(4px);
+  display:none;align-items:center;justify-content:center}
+.help.show{display:flex;animation:fadein .25s both}
+.help .card{background:var(--paper2);border-radius:16px;padding:2.4rem 2.8rem;max-width:520px;width:90%;
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.5);border:1px solid var(--line2)}
+.help h3{font-family:var(--f-head);color:var(--navy2);font-size:1.5rem;margin-bottom:1.2rem}
+.help dl{display:grid;grid-template-columns:auto 1fr;gap:.7rem 1.2rem;align-items:center}
+.help kbd{font-family:var(--f-mono);background:#fff;border:1px solid var(--line2);
+  border-bottom-width:3px;border-radius:.4em;padding:.2em .6em;font-size:.85rem;color:var(--navy2);
+  font-weight:700;justify-self:start}
+.help dd{color:var(--ink)}
+.help .close{margin-top:1.6rem;font-family:var(--f-head);color:#6a7796;font-size:.9rem;text-align:center}
+
+.toast{position:fixed;bottom:9vh;left:50%;transform:translateX(-50%);z-index:35;
+  background:var(--navy2);color:#fff;padding:.7rem 1.3rem;border-radius:999px;font-family:var(--f-head);
+  font-size:.9rem;box-shadow:0 16px 34px -16px rgba(0,0,0,.5);transition:opacity .5s,transform .5s;
+  display:flex;align-items:center;gap:.7rem}
+.toast kbd{font-family:var(--f-mono);background:rgba(255,255,255,.16);padding:.1em .5em;border-radius:.35em;font-size:.85em}
+.toast.hide{opacity:0;transform:translate(-50%,12px);pointer-events:none}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+  .reveal .inner{filter:none;opacity:1}
+}
+@media print{
+  @page{size:landscape;margin:0}
+  body{overflow:visible;background:#fff}
+  .bg,.dock,.progress,.toast,.help,.ov-title{display:none !important}
+  #app{display:block;height:auto;width:auto}
+  .stage{width:100%;box-shadow:none;border-radius:0;aspect-ratio:auto}
+  .deck{position:static}
+  .slide{position:relative;display:block;inset:auto;aspect-ratio:16/9;
+    page-break-after:always;break-after:page;border-bottom:1px solid #ddd}
+  .slide .anim{animation:none !important}
+  .reveal .inner{filter:none;opacity:1}.reveal .hint{display:none}
+}
+</style>
+</head>
+
+<body>
+<div class="bg"></div>
+<div class="progress"><div class="bar"></div></div>
+<div id="app">
+<div class="stage"><div class="deck">
+
+<!-- ============================== 1 · COVER ============================== -->
+<section class="slide">
+  <div class="cover">
+    <div class="tag">บทที่ 1 · LOGIC · WEEK 03</div>
+    <h1>ตัวบ่งปริมาณ<span class="en">Quantifiers · ∀ and ∃</span></h1>
+    <div class="sub"><b>สัปดาห์ที่ 3</b> — เรียนรู้จากพื้นฐาน สู่ระดับสูง<br>
+      <span class="muted" style="font-size:.8em">Open Propositions · Universal · Existential · Counterexample · Negation · Application</span></div>
+    <div class="meta">
+      <span class="course">4091606</span> คณิตศาสตร์สำหรับคอมพิวเตอร์<br>
+      <b>คณะวิทยาศาสตร์และเทคโนโลยี</b><br>
+      มหาวิทยาลัยราชภัฏอุตรดิตถ์
+    </div>
+    <div class="glyphs">
+      <div class="g"><span class="s">∀</span><span class="n">ALL</span></div>
+      <div class="g"><span class="s">∃</span><span class="n">EXISTS</span></div>
+      <div class="g"><span class="s">∈</span><span class="n">IN</span></div>
+      <div class="g"><span class="s">⊆</span><span class="n">SUBSET</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 2 · TOC ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">Outline</span>
+    <h2>เส้นทางการเรียนรู้ (เรียงจากง่ายไปยาก)</h2></div></div>
+  <div class="body">
+    <div class="toc">
+      <div class="it anim" style="--i:0"><div class="n">01</div><div class="tx">
+        <div class="t">ประพจน์เปิด · พื้นฐาน</div>
+        <div class="d">ทำไมต้องมี "ตัวบ่งปริมาณ"</div></div></div>
+      <div class="it anim" style="--i:1"><div class="n">02</div><div class="tx">
+        <div class="t">ตัวบ่งปริมาณ · พื้นฐาน</div>
+        <div class="d">∀ (Universal) และ ∃ (Existential)</div></div></div>
+      <div class="it anim" style="--i:2"><div class="n">03</div><div class="tx">
+        <div class="t">การหาค่าความจริง · กลาง</div>
+        <div class="d">ตรวจทีละตัว + ตัวอย่างจริง</div></div></div>
+      <div class="it anim" style="--i:3"><div class="n">04</div><div class="tx">
+        <div class="t">ตัวอย่างค้าน · กลาง-สูง</div>
+        <div class="d">∀ เท็จ ต้องมี "ตัวอย่างค้าน" 1 ตัว</div></div></div>
+      <div class="it anim" style="--i:4"><div class="n">05</div><div class="tx">
+        <div class="t">นิเสธ · สูง</div>
+        <div class="d">¬(∀x [P(x)]) ≡ ∃x [¬P(x)]</div></div></div>
+      <div class="it anim" style="--i:5"><div class="n">06</div><div class="tx">
+        <div class="t">ประยุกต์ · สูงมาก</div>
+        <div class="d">∀x ∃y · SQL · เขียนโปรแกรม</div></div></div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 3 · DIVIDER 01 ============================== -->
+<section class="slide">
+  <div class="divider">
+    <div class="ghost">P(x)</div>
+    <div class="no">PART 01</div>
+    <h2>ประพจน์เปิด<span class="en">Open Propositions — ปูพื้นฐานก่อนเข้าเรื่องตัวบ่งปริมาณ</span></h2>
+    <div class="note">เนื้อหาระดับมัธยมปลาย — เริ่มจากสิ่งที่คุ้นเคย</div>
+  </div>
+</section>
+
+<!-- ============================== 4 · OPEN PROPOSITION ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">พื้นฐาน · Concept 1</span>
+    <h2>ประพจน์เปิด (Open Proposition) คืออะไร?</h2></div></div>
+  <div class="body tight">
+    <div class="block ex anim" style="--i:0">
+      <span class="lab"><span class="pin">นิยาม</span></span>
+      <b>ประพจน์เปิด</b> คือประโยคที่มี <b>ตัวแปร</b> (เช่น <span class="expr"><span class="v">x</span></span>) ยังไม่ระบุค่า
+      ทำให้<b>ไม่สามารถระบุค่าความจริง</b>ได้ จนกว่าจะแทนค่าตัวแปร
+    </div>
+    <div class="lead anim" style="--i:1" style="font-size:2.4cqh">ตัวอย่างจากชีวิตประจำวัน:</div>
+    <ul class="bul" style="font-size:2.5cqh">
+      <li class="anim" style="--i:2"><span class="expr"><span class="v">x</span></span> เป็นเลขคู่</li>
+      <li class="anim" style="--i:3"><span class="expr"><span class="v">x</span>² = 4</span></li>
+      <li class="anim" style="--i:4"><span class="expr"><span class="v">x</span></span> อายุมากกว่า 18 ปี</li>
+      <li class="anim" style="--i:5"><span class="expr"><span class="v">x</span></span> เป็นนักศึกษามหาวิทยาลัย</li>
+    </ul>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 5 · PROBLEM OF OPEN ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">พื้นฐาน · Concept 2</span>
+    <h2>ปัญหาของประพจน์เปิด: จริงหรือเท็จ?</h2></div></div>
+  <div class="body tight">
+    <div class="block al anim" style="--i:0">
+      <span class="lab"><span class="pin">ปัญหา</span></span>
+      ประพจน์ "<span class="expr"><span class="v">x</span></span> เป็นเลขคู่" — <b>จริงหรือเท็จ?</b>
+      <br>คำตอบ: <b>ขึ้นอยู่กับค่า</b> <span class="expr"><span class="v">x</span></span>
+    </div>
+    <div class="cols even" style="font-size:2.4cqh">
+      <div class="col">
+        <div class="block ex anim" style="--i:1">
+          <span class="lab"><span class="pin">กรณี A</span></span>
+          <b>ถ้า <span class="expr"><span class="v">x</span> = 2</span></b><br>
+          "2 เป็นเลขคู่" &rArr; <span class="chip t">T</span> จริง
+        </div>
+      </div>
+      <div class="col">
+        <div class="block gold anim" style="--i:2">
+          <span class="lab"><span class="pin">กรณี B</span></span>
+          <b>ถ้า <span class="expr"><span class="v">x</span> = 3</span></b><br>
+          "3 เป็นเลขคู่" &rArr; <span class="chip f">F</span> เท็จ
+        </div>
+      </div>
+    </div>
+    <div class="block anim" style="--i:3">
+      <span class="lab"><span class="pin">ทางออก</span></span>
+      เราต้องมี <b>"ตัวบ่งปริมาณ"</b> (Quantifier) มาช่วยปิดประพจน์เปิด ให้กลายเป็นประพจน์ที่ตัดสินค่าความจริงได้
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 6 · DIVIDER 02 ============================== -->
+<section class="slide">
+  <div class="divider">
+    <div class="ghost">∀ ∃</div>
+    <div class="no">PART 02</div>
+    <h2>ตัวบ่งปริมาณ (∀, ∃)<span class="en">Universal & Existential Quantifiers — ระดับมัธยมปลาย</span></h2>
+    <div class="note">เครื่องมือพื้นฐานที่ใช้ปิดประพจน์เปิด</div>
+  </div>
+</section>
+
+<!-- ============================== 7 · UNIVERSAL ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">Concept 3 · ∀</span>
+    <h2>∀ (Universal) — "สำหรับทุกตัว"</h2></div></div>
+  <div class="body tight">
+    <div class="block ex anim" style="--i:0">
+      <span class="lab"><span class="pin">นิยาม</span></span>
+      <div class="qbig"><span class="q">∀</span>x [P(x)]</div>
+      อ่านว่า "<b>สำหรับทุก</b> <span class="expr"><span class="v">x</span></span> <b>ในเอกภพ</b> ประพจน์ <span class="expr">P(<span class="v">x</span>)</span> เป็นจริง"
+      <br>จริง ⇔ <b>ทุก</b>ค่า <span class="expr"><span class="v">x</span></span> ในเอกภพ ทำให้ <span class="expr">P(<span class="v">x</span>)</span> เป็นจริง
+    </div>
+    <div class="lead anim" style="--i:1" style="font-size:2.4cqh">ตัวอย่าง:</div>
+    <ul class="bul" style="font-size:2.4cqh">
+      <li class="anim" style="--i:2"><span class="expr"><span class="q">∀</span><span class="v">x</span> ∈ ℕ [<span class="v">x</span> ≥ 0]</span> — "จำนวนธรรมชาติทุกตัว ≥ 0" (จริง)</li>
+      <li class="anim" style="--i:3"><span class="expr"><span class="q">∀</span><span class="v">x</span> ∈ {1,2,3} [<span class="v">x</span> > 0]</span> — "ทุกตัวใน {1,2,3} มากกว่า 0" (จริง)</li>
+      <li class="anim" style="--i:4"><span class="expr"><span class="q">∀</span><span class="v">x</span> ∈ {1,2,3} [<span class="v">x</span> > 2]</span> — "ทุกตัวใน {1,2,3} มากกว่า 2" (เท็จ เพราะ 1 ≯ 2)</li>
+    </ul>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 8 · EXISTENTIAL ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">Concept 4 · ∃</span>
+    <h2>∃ (Existential) — "มีบางตัว"</h2></div></div>
+  <div class="body tight">
+    <div class="block gold anim" style="--i:0">
+      <span class="lab"><span class="pin">นิยาม</span></span>
+      <div class="qbig"><span class="q2">∃</span>x [P(x)]</div>
+      อ่านว่า "<b>มี</b> <span class="expr"><span class="v">x</span></span> <b>อย่างน้อยหนึ่งตัว</b>ในเอกภพ ที่ทำให้ <span class="expr">P(<span class="v">x</span>)</span> เป็นจริง"
+      <br>จริง ⇔ มีค่า <span class="expr"><span class="v">x</span></span> สักตัวในเอกภพ ที่ทำให้ <span class="expr">P(<span class="v">x</span>)</span> เป็นจริง
+    </div>
+    <div class="lead anim" style="--i:1" style="font-size:2.4cqh">ตัวอย่าง:</div>
+    <ul class="bul" style="font-size:2.4cqh">
+      <li class="anim" style="--i:2"><span class="expr"><span class="q2">∃</span><span class="v">x</span> ∈ {1,2,3} [<span class="v">x</span> เป็นคู่]</span> — "ใน {1,2,3} มีเลขคู่" (จริง เพราะ x=2)</li>
+      <li class="anim" style="--i:3"><span class="expr"><span class="q2">∃</span><span class="v">x</span> ∈ ℝ [<span class="v">x</span>² = 4]</span> — "มีจำนวนจริงที่ยกกำลังสองได้ 4" (จริง เพราะ x=2)</li>
+      <li class="anim" style="--i:4"><span class="expr"><span class="q2">∃</span><span class="v">x</span> ∈ {1,3,5} [<span class="v">x</span> เป็นคู่]</span> — "ใน {1,3,5} มีเลขคู่" (เท็จ)</li>
+    </ul>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 9 · UNIVERSE OF DISCOURSE ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">Concept 5</span>
+    <h2>เอกภพสัมพัทธ์ (Universe of Discourse)</h2></div></div>
+  <div class="body tight">
+    <div class="block anim" style="--i:0">
+      <span class="lab"><span class="pin">นิยาม</span></span>
+      <b>เอกภพสัมพัทธ์</b> (Universe, U) คือ <b>เซตของค่าทั้งหมด</b> ที่ตัวแปร <span class="expr"><span class="v">x</span></span> สามารถแทนค่าได้
+      <br>เขียนในรูป <span class="expr"><span class="q">∀</span><span class="v">x</span> ∈ U</span> หรือ <span class="expr"><span class="q2">∃</span><span class="v">x</span> ∈ U</span>
+    </div>
+    <div class="lead anim" style="--i:1" style="font-size:2.4cqh">ตัวอย่างเอกภพที่พบบ่อย:</div>
+    <table class="eval">
+      <thead><tr><th>สัญลักษณ์</th><th>ความหมาย</th><th>ตัวอย่างสมาชิก</th></tr></thead>
+      <tbody>
+        <tr><td>ℕ</td><td>จำนวนธรรมชาติ</td><td>0, 1, 2, 3, ...</td></tr>
+        <tr><td>ℤ</td><td>จำนวนเต็ม</td><td>..., -2, -1, 0, 1, 2, ...</td></tr>
+        <tr><td>ℚ</td><td>จำนวนตรรกยะ</td><td>1/2, -3/4, 0.5, ...</td></tr>
+        <tr><td>ℝ</td><td>จำนวนจริง</td><td>-1.5, 0, √2, π, ...</td></tr>
+        <tr><td>{1,2,3}</td><td>เซตจำกัด</td><td>1, 2, 3</td></tr>
+      </tbody>
+    </table>
+    <div class="block al anim" style="--i:2" style="padding:1.2cqh 1.8cqw; font-size:2.3cqh">
+      <b>⚠ สำคัญ:</b> <span class="expr"><span class="q">∀</span><span class="v">x</span> (<span class="v">x</span> &gt; 0)</span> บน <span class="expr">ℕ</span> ≠ บน <span class="expr">ℤ</span>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 10 · COMPARE FORALL EXISTS ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">Concept 6</span>
+    <h2>เปรียบเทียบ ∀ vs ∃ ในชีวิตจริง</h2></div></div>
+  <div class="body tight">
+    <div class="cols even" style="font-size:2.5cqh">
+      <div class="col">
+        <div class="block ex center anim" style="--i:0">
+          <div class="qbig" style="font-size:9cqh"><span class="q">∀</span>x [P(x)]</div>
+          <div style="font-family:var(--f-head); font-weight:700; color:var(--green2); font-size:3cqh; margin-top:.5cqh">"ทุกตัว" · "ทั้งหมด"</div>
+          <ul class="bul tiny" style="margin-top:1.2cqh; gap:.7cqh">
+            <li>"นักศึกษา<b>ทุกคน</b>สอบผ่าน"</li>
+            <li>"<b>ทุก</b>จังหวัดมีโรงพยาบาล"</li>
+            <li>"<b>ทุก</b>เลขคู่หาร 2 ลงตัว"</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="block gold center anim" style="--i:1">
+          <div class="qbig" style="font-size:9cqh"><span class="q2">∃</span>x [P(x)]</div>
+          <div style="font-family:var(--f-head); font-weight:700; color:var(--gold2); font-size:3cqh; margin-top:.5cqh">"บางตัว" · "อย่างน้อยหนึ่ง"</div>
+          <ul class="bul tiny" style="margin-top:1.2cqh; gap:.7cqh">
+            <li>"<b>มี</b>นักศึกษา<b>บางคน</b>ได้ A"</li>
+            <li>"<b>มี</b>จังหวัด<b>บางจังหวัด</b>ติดทะเล"</li>
+            <li>"<b>มี</b>เลขคี่<b>บางตัว</b>ที่หาร 5 ลงตัว"</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 11 · DIVIDER 03 ============================== -->
+<section class="slide">
+  <div class="divider">
+    <div class="ghost">T · F</div>
+    <div class="no">PART 03</div>
+    <h2>การหาค่าความจริง<span class="en">Evaluation — ระดับกลาง</span></h2>
+    <div class="note">ลงมือตรวจสอบจริง: ∀x [P(x)] จริงเมื่อไร? ∃x [P(x)] จริงเมื่อไร?</div>
+  </div>
+</section>
+
+<!-- ============================== 12 · EVAL FORALL ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตรวจสอบ · ∀x [P(x)]</span>
+    <h2>วิธีหาค่า ∀x [P(x)] (Step-by-Step)</h2></div></div>
+  <div class="body tight">
+    <div class="block anim" style="--i:0">
+      <span class="lab"><span class="pin">สูตร</span></span>
+      <div class="qbig" style="font-size:6cqh"><span class="q">∀</span>x ∈ U [P(x)]</div>
+      จริง ⇔ <b>ทุก</b>ค่า <span class="expr"><span class="v">x</span></span> ใน U ให้ <span class="expr">P(<span class="v">x</span>)</span> = T<br>
+      เท็จ ⇔ <b>มี</b>ค่า <span class="expr"><span class="v">x</span></span> แค่ตัวเดียวใน U ที่ให้ <span class="expr">P(<span class="v">x</span>)</span> = F
+    </div>
+    <div class="lead anim" style="--i:1" style="font-size:2.4cqh">ขั้นตอน:</div>
+    <div class="steps">
+      <div class="s anim" style="--i:2"><div class="n">1</div><div class="tx">ระบุ<b>เอกภพ</b> U และสมาชิกทั้งหมด</div></div>
+      <div class="s anim" style="--i:3"><div class="n">2</div><div class="tx">ตรวจ <span class="expr">P(<span class="v">x</span>)</span> ทีละตัวใน U (เริ่มจากตัวแรก)</div></div>
+      <div class="s anim" style="--i:4"><div class="n">3</div><div class="tx">ถ้า<b>ทุกตัว</b>เป็น T &rArr; ∀x [P(x)] = <span class="chip t">T</span></div></div>
+      <div class="s anim" style="--i:5"><div class="n">4</div><div class="tx">ถ้ามี<b>ตัวเดียว</b>เป็น F &rArr; ∀x [P(x)] = <span class="chip f">F</span> (จบทันที)</div></div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 13 · EX FORALL TRUE ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวอย่าง · ∀x [x² ≥ 0]</span>
+    <h2>∀x ∈ ℝ [x² ≥ 0] — จริงหรือเท็จ?</h2></div></div>
+  <div class="body tight">
+    <div class="block ex anim" style="--i:0">
+      <span class="lab"><span class="pin">โจทย์</span></span>
+      เอกภพ: <span class="expr">U = ℝ</span> (จำนวนจริง) &nbsp;|&nbsp; ประพจน์: <span class="expr">P(<span class="v">x</span>) = <span class="v">x</span>² ≥ 0</span>
+    </div>
+    <div class="lead anim" style="--i:1" style="font-size:2.4cqh">ตรวจทีละค่า:</div>
+    <table class="eval">
+      <thead><tr><th>x</th><th>x²</th><th>x² ≥ 0</th></tr></thead>
+      <tbody>
+        <tr><td>-2</td><td>4</td><td class="ok">T</td></tr>
+        <tr><td>-1</td><td>1</td><td class="ok">T</td></tr>
+        <tr><td>0</td><td>0</td><td class="ok">T</td></tr>
+        <tr><td>1</td><td>1</td><td class="ok">T</td></tr>
+        <tr><td>2</td><td>4</td><td class="ok">T</td></tr>
+        <tr><td>3.5</td><td>12.25</td><td class="ok">T</td></tr>
+      </tbody>
+    </table>
+    <div class="block gold center anim" style="--i:2" style="padding:1.2cqh 2cqw">
+      <b>สรุป:</b> <span class="expr"><span class="q">∀</span><span class="v">x</span> ∈ ℝ [<span class="v">x</span>² ≥ 0]</span> เป็น <span class="chip t">T</span> (จริง)
+      <br><span class="tiny" style="color:#42506e">เพราะ x² ของจำนวนจริงใดๆ ไม่ติดลบเสมอ</span>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 14 · EX FORALL FALSE ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวอย่าง · ∀x [x > 3]</span>
+    <h2>∀x ∈ {1,2,3,4,5} [x &gt; 3] — จริงหรือเท็จ?</h2></div></div>
+  <div class="body tight">
+    <div class="block ex anim" style="--i:0">
+      <span class="lab"><span class="pin">โจทย์</span></span>
+      เอกภพ: <span class="expr">U = {1, 2, 3, 4, 5}</span> &nbsp;|&nbsp; ประพจน์: <span class="expr">P(<span class="v">x</span>) = <span class="v">x</span> &gt; 3</span>
+    </div>
+    <div class="lead anim" style="--i:1" style="font-size:2.4cqh">ตรวจทีละค่า:</div>
+    <table class="eval">
+      <thead><tr><th>x</th><th>x &gt; 3</th><th>ผล</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>1 &gt; 3 = เท็จ</td><td class="no">F ❌</td></tr>
+        <tr><td>2</td><td>2 &gt; 3 = เท็จ</td><td>(ไม่ต้องตรวจต่อ)</td></tr>
+        <tr><td>3</td><td>3 &gt; 3 = เท็จ</td><td>(ไม่ต้องตรวจต่อ)</td></tr>
+        <tr><td>4</td><td>4 &gt; 3 = จริง</td><td>—</td></tr>
+        <tr><td>5</td><td>5 &gt; 3 = จริง</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <div class="block al center anim" style="--i:2" style="padding:1.2cqh 2cqw">
+      <b>สรุป:</b> <span class="expr"><span class="q">∀</span><span class="v">x</span> ∈ {1..5} [<span class="v">x</span> > 3]</span> เป็น <span class="chip f">F</span> (เท็จ)
+      <br><span class="tiny" style="color:#42506e"><b>ตัวอย่างค้าน:</b> x = 1 (เพราะ 1 ≯ 3) — เจอตัวเดียวพอ จบ</span>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 15 · EX EXISTS ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวอย่าง · ∃x [x² = 4]</span>
+    <h2>∃x ∈ ℤ [x² = 4] — จริงหรือเท็จ?</h2></div></div>
+  <div class="body tight">
+    <div class="block gold anim" style="--i:0">
+      <span class="lab"><span class="pin">โจทย์</span></span>
+      เอกภพ: <span class="expr">U = ℤ</span> (จำนวนเต็ม) &nbsp;|&nbsp; ประพจน์: <span class="expr">P(<span class="v">x</span>) = <span class="v">x</span>² = 4</span>
+    </div>
+    <div class="lead anim" style="--i:1" style="font-size:2.4cqh">หาตัวอย่างยืนยัน (ต้องเจอสักตัวเดียวก็พอ):</div>
+    <div class="cols even" style="font-size:2.4cqh">
+      <div class="col">
+        <div class="block ex anim" style="--i:2">
+          <span class="lab"><span class="pin">ลอง x = 2</span></span>
+          <span class="expr">2² = 4</span> &nbsp;&rArr;&nbsp; <span class="chip t">T</span> ✓
+        </div>
+      </div>
+      <div class="col">
+        <div class="block anim" style="--i:3">
+          <span class="lab"><span class="pin">ลอง x = -2</span></span>
+          <span class="expr">(-2)² = 4</span> &nbsp;&rArr;&nbsp; <span class="chip t">T</span> ✓
+        </div>
+      </div>
+    </div>
+    <div class="block gold center anim" style="--i:4" style="padding:1.2cqh 2cqw">
+      <b>สรุป:</b> <span class="expr"><span class="q2">∃</span><span class="v">x</span> ∈ ℤ [<span class="v">x</span>² = 4]</span> เป็น <span class="chip t">T</span> (จริง)
+      <br><span class="tiny" style="color:#42506e"><b>ตัวอย่างยืนยัน:</b> x = 2 เพียงตัวเดียวก็พิสูจน์ได้ว่าประพจน์นี้จริง</span>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 16 · DIVIDER 04 ============================== -->
+<section class="slide">
+  <div class="divider">
+    <div class="ghost">∃x [¬P(x)]</div>
+    <div class="no">PART 04</div>
+    <h2>ตัวอย่างค้าน (Counterexample)<span class="en">กลาง-สูง</span></h2>
+    <div class="note">∀ เท็จไม่จำเป็นต้องตรวจทุกตัว — หาตัวอย่างค้านตัวเดียวก็พอ</div>
+  </div>
+</section>
+
+<!-- ============================== 17 · COUNTEREXAMPLE RULE ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">หลักการ</span>
+    <h2>ตัวอย่างค้าน (Counterexample) ใช้เมื่อไร?</h2></div></div>
+  <div class="body tight">
+    <div class="block ex anim" style="--i:0">
+      <span class="lab"><span class="pin">หลักการ ∀</span></span>
+      <div class="qbig" style="font-size:5cqh"><span class="q">∀</span>x [P(x)] เป็น <span class="vf">F</span> ⟺ ∃x [¬P(x)]</div>
+      <b>แสดงว่า ∀x [P(x)] เป็นเท็จ</b> &rArr; หา <b>ตัวอย่างค้าน</b> เพียง <b>1 ตัว</b> ที่ทำให้ P(x) เป็นเท็จ
+    </div>
+    <div class="block gold anim" style="--i:1">
+      <span class="lab"><span class="pin">หลักการ ∃</span></span>
+      <div class="qbig" style="font-size:5cqh"><span class="q2">∃</span>x [P(x)] เป็น <span class="vt">T</span> ⟺ หาตัวอย่างยืนยัน 1 ตัว</div>
+      <b>แสดงว่า ∃x [P(x)] เป็นจริง</b> &rArr; หา <b>ตัวอย่างยืนยัน</b> เพียง <b>1 ตัว</b> ที่ทำให้ P(x) เป็นจริง
+    </div>
+    <div class="block al anim" style="--i:2" style="padding:1.2cqh 1.8cqw; font-size:2.4cqh">
+      <b>⚠ ใช้ "ตัวอย่างเดียว" พอ</b> — ไม่ต้องตรวจสมาชิกทั้งหมดในเอกภพ
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 18 · COUNTEREXAMPLE APPLY ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวอย่าง · ∀x [x > 0] บน ℤ</span>
+    <h2>∀x ∈ ℤ [x &gt; 0] — เท็จ! หาตัวอย่างค้าน</h2></div></div>
+  <div class="body tight">
+    <div class="block ex anim" style="--i:0">
+      <span class="lab"><span class="pin">โจทย์</span></span>
+      เอกภพ: <span class="expr">U = ℤ</span> (จำนวนเต็ม) &nbsp;|&nbsp; ประพจน์: <span class="expr">P(<span class="v">x</span>) = <span class="v">x</span> &gt; 0</span>
+    </div>
+    <div class="lead anim" style="--i:1" style="font-size:2.4cqh">ลองหาตัวอย่างค้าน (ตัวที่ทำให้ P(x) = F):</div>
+    <table class="eval">
+      <thead><tr><th>ลอง x</th><th>x &gt; 0</th><th>เป็นตัวอย่างค้าน?</th></tr></thead>
+      <tbody>
+        <tr><td>x = 5</td><td>5 &gt; 0 = จริง</td><td>ไม่ใช่ (ยังจริงอยู่)</td></tr>
+        <tr><td>x = 0</td><td>0 &gt; 0 = เท็จ</td><td>เป็น! ✓</td></tr>
+        <tr><td>x = -5</td><td>-5 &gt; 0 = เท็จ</td><td>เป็น! ✓</td></tr>
+        <tr><td>x = -100</td><td>-100 &gt; 0 = เท็จ</td><td>เป็น! ✓</td></tr>
+      </tbody>
+    </table>
+    <div class="block gold center anim" style="--i:2" style="padding:1.2cqh 2cqw">
+      <b>สรุป:</b> <span class="expr"><span class="q">∀</span><span class="v">x</span> ∈ ℤ [<span class="v">x</span> > 0]</span> เป็น <span class="chip f">F</span>
+      <br><span class="tiny" style="color:#42506e"><b>ตัวอย่างค้าน:</b> x = 0 (หรือ x = -5, -100, ... — เจอตัวเดียวก็พอ)</span>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 19 · DIVIDER 05 ============================== -->
+<section class="slide">
+  <div class="divider">
+    <div class="ghost">¬∀</div>
+    <div class="no">PART 05</div>
+    <h2>นิเสธของตัวบ่งปริมาณ<span class="en">Negation — ระดับสูง</span></h2>
+    <div class="note">สลับตัวบ่งปริมาณ + กลับประพจน์ย่อย — เคล็ดลับเดียวจำได้ทั้งชีวิต</div>
+  </div>
+</section>
+
+<!-- ============================== 20 · NEGATION FORMULA ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">สูตรนิเสธ</span>
+    <h2>นิเสธของ ∀ และ ∃ (สูตรสำคัญ)</h2></div></div>
+  <div class="body tight">
+    <div class="lead anim" style="--i:0" style="font-size:2.4cqh">
+      <b>ทำไมต้องเรียนนิเสธ?</b> — เมื่อต้องการแสดงว่าประพจน์เป็น<b>เท็จ</b> หรือ<b>โต้แย้ง</b>ข้อความที่มีตัวบ่งปริมาณ
+    </div>
+    <div class="cols even" style="font-size:2.3cqh">
+      <div class="col">
+        <div class="block ex anim" style="--i:1" style="padding:1.6cqh 2cqw">
+          <span class="lab"><span class="pin">สูตรที่ 1 · นิเสธของ ∀</span></span>
+          <div style="text-align:center; font-family:var(--f-mono); font-weight:700; font-size:3.4cqh; color:var(--navy); margin:.6cqh 0">
+            ¬(<span style="color:var(--green2)">∀</span>x [P(x)]) ≡ <span style="color:var(--gold2)">∃</span>x [¬P(x)]
+          </div>
+          <div style="font-size:2.2cqh; color:#42506e">
+            อ่านว่า "ไม่ใช่ว่า<b>ทุกตัว</b>เป็นจริง" = "<b>มีบางตัว</b>ที่เป็นเท็จ"
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="block gold anim" style="--i:2" style="padding:1.6cqh 2cqw">
+          <span class="lab"><span class="pin">สูตรที่ 2 · นิเสธของ ∃</span></span>
+          <div style="text-align:center; font-family:var(--f-mono); font-weight:700; font-size:3.4cqh; color:var(--navy); margin:.6cqh 0">
+            ¬(<span style="color:var(--gold2)">∃</span>x [P(x)]) ≡ <span style="color:var(--green2)">∀</span>x [¬P(x)]
+          </div>
+          <div style="font-size:2.2cqh; color:#42506e">
+            อ่านว่า "<b>ไม่มี</b>สักตัวที่เป็นจริง" = "<b>ทุกตัว</b>เป็นเท็จ"
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="block al anim" style="--i:3" style="padding:1.3cqh 2cqw; font-size:2.3cqh">
+      <b>เคล็ดลับจำ 2 ขั้น:</b>
+      <span style="margin-left:.5em">①</span> <b>สลับตัวบ่งปริมาณ</b> ∀ ↔ ∃
+      <span style="margin-left:1em">②</span> <b>ใส่นิเสธ</b>ให้ประพจน์ข้างใน: P(x) → ¬P(x)
+    </div>
+    <div class="block anim" style="--i:4" style="padding:1.3cqh 2cqw; font-size:2.2cqh">
+      <span class="lab"><span class="pin">ตัวอย่างเร็ว</span></span>
+      "<b>ทุกคน</b>มาเรียน" &nbsp;<span class="arrow">→ นิเสธ →</span>&nbsp; "<b>มีบางคน</b>ไม่มาเรียน" &nbsp;&nbsp;|&nbsp;&nbsp;
+      "<b>มีคน</b>ทำข้อสอบเต็ม" &nbsp;<span class="arrow">→ นิเสธ →</span>&nbsp; "<b>ทุกคน</b>ทำข้อสอบไม่เต็ม"
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 21 · NEGATION EXAMPLE ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวอย่าง · นิเสธ</span>
+    <h2>เขียนนิเสธในภาษาไทย (Step-by-Step)</h2></div></div>
+  <div class="body tight">
+    <div class="cols even" style="font-size:2.3cqh">
+      <div class="col">
+        <div class="block ex anim" style="--i:0" style="padding:1.5cqh 2cqw">
+          <span class="lab"><span class="pin">ตัวอย่างที่ 1 · นิเสธ ∀</span></span>
+          <div style="font-size:2.4cqh; line-height:1.6">
+            <b>ประโยค:</b> "นักศึกษา<span style="color:var(--green)"><b>ทุกคน</b></span>สอบผ่าน"
+            <br><span class="expr"><span class="q">∀</span><span class="v">x</span> ∈ นักศึกษา [สอบผ่าน]</span>
+            <br><b style="color:var(--red)">นิเสธ:</b> "<span style="color:var(--red)"><b>มี</b></span>นักศึกษา<span style="color:var(--red)"><b>บางคน</b></span>สอบ<span style="color:var(--red)"><b>ไม่ผ่าน</b></span>"
+            <br><span class="expr"><span class="q2">∃</span><span class="v">x</span> ∈ นักศึกษา [¬สอบผ่าน]</span>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="block gold anim" style="--i:1" style="padding:1.5cqh 2cqw">
+          <span class="lab"><span class="pin">ตัวอย่างที่ 2 · นิเสธ ∃</span></span>
+          <div style="font-size:2.4cqh; line-height:1.6">
+            <b>ประโยค:</b> "<span style="color:var(--gold2)"><b>มี</b></span>นกที่บิน<span style="color:var(--gold2)"><b>ไม่ได้</b></span>"
+            <br><span class="expr"><span class="q2">∃</span><span class="v">x</span> ∈ นก [¬บินได้]</span>
+            <br><b style="color:var(--navy)">นิเสธ:</b> "นก<span style="color:var(--navy)"><b>ทุกตัว</b></span>บิน<span style="color:var(--navy)"><b>ได้</b></span>"
+            <br><span class="expr"><span class="q">∀</span><span class="v">x</span> ∈ นก [บินได้]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="block anim" style="--i:2" style="padding:1.3cqh 2cqw; font-size:2.2cqh">
+      <span class="lab"><span class="pin">ตัวอย่างที่ 3 · ระวังนิเสธซ้อน</span></span>
+      <b>ประโยค:</b> "<b>ไม่มี</b>จำนวนจริงที่ยกกำลังสองแล้วติดลบ" &nbsp;&rArr;&nbsp;
+      <span class="expr">¬(<span class="q2">∃</span><span class="v">x</span> ∈ ℝ [<span class="v">x</span>² &lt; 0])</span>
+      <br><b style="color:var(--green2)">นิเสธ (เขียนใหม่):</b> "จำนวนจริง<b>ทุกตัว</b>ยกกำลังสองแล้ว<b>ไม่ติดลบ</b>" &nbsp;&rArr;&nbsp;
+      <span class="expr"><span class="q">∀</span><span class="v">x</span> ∈ ℝ [<span class="v">x</span>² ≥ 0]</span>
+    </div>
+    <div class="block al anim" style="--i:3" style="padding:1.2cqh 2cqw; font-size:2.15cqh">
+      <b>⚠ ข้อควรระวัง:</b> นิเสธของ "ไม่ผ่าน" คือ "ผ่าน" (นิเสธซ้อนหักล้างกัน) · เมื่อกลับตัวบ่งปริมาณ ต้อง<b>กลับประพจน์ข้างในด้วยเสมอ</b>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 22 · DIVIDER 06 ============================== -->
+<section class="slide">
+  <div class="divider">
+    <div class="ghost">∀x, ∃y</div>
+    <div class="no">PART 06</div>
+    <h2>ประยุกต์: ตัวบ่งปริมาณซ้อน<span class="en">Application — ระดับสูงมาก</span></h2>
+    <div class="note">เมื่อมีตัวบ่งปริมาณมากกว่า 1 ตัว — ลำดับสำคัญมาก</div>
+  </div>
+</section>
+
+<!-- ============================== 23 · NESTED QUANTIFIER ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวบ่งปริมาณซ้อน · ∀x, ∃y</span>
+    <h2>ตัวบ่งปริมาณซ้อน (Nested) — ลำดับสำคัญ!</h2></div></div>
+  <div class="body tight">
+    <div class="lead anim" style="--i:0" style="font-size:2.3cqh">
+      เมื่อมีตัวแปร 2 ตัว (<span class="v">x</span>, <span class="v">y</span>) ใช้ตัวบ่งปริมาณคั่นด้วย<b>เครื่องหมายจุลภาค (,)</b> — <b>ลำดับ</b>ที่วางมีความหมายต่างกัน
+    </div>
+    <div class="cols even" style="font-size:2.3cqh">
+      <div class="col">
+        <div class="block ex anim" style="--i:1" style="padding:1.5cqh 2cqw">
+          <span class="lab"><span class="pin">แบบที่ 1 · ∀ ก่อน ∃</span></span>
+          <div style="text-align:center; font-family:var(--f-mono); font-weight:700; font-size:4cqh; color:var(--navy); margin:.5cqh 0">
+            <span style="color:var(--green2)">∀</span>x, <span style="color:var(--gold2)">∃</span>y [P(x,y)]
+          </div>
+          "<b>ทุก</b>คน<b>มี</b>คนรู้จัก" — สำหรับทุก <span class="v">x</span> มี <span class="v">y</span> ที่รู้จัก <span class="v">x</span>
+          <br><span class="tiny" style="color:#42506e"><span class="v">y</span> อาจ<b>ขึ้นกับ</b> <span class="v">x</span> (แต่ละคนเลือก <span class="v">y</span> คนละคนได้)</span>
+        </div>
+      </div>
+      <div class="col">
+        <div class="block gold anim" style="--i:2" style="padding:1.5cqh 2cqw">
+          <span class="lab"><span class="pin">แบบที่ 2 · ∃ ก่อน ∀</span></span>
+          <div style="text-align:center; font-family:var(--f-mono); font-weight:700; font-size:4cqh; color:var(--navy); margin:.5cqh 0">
+            <span style="color:var(--gold2)">∃</span>x, <span style="color:var(--green2)">∀</span>y [P(x,y)]
+          </div>
+          "<b>มี</b>คนที่รู้จัก<b>ทุกคน</b>" — มี <span class="v">x</span> ตัวเดียวที่รู้จัก <span class="v">y</span> ทุกตัว
+          <br><span class="tiny" style="color:#42506e"><span class="v">x</span> <b>เป็นตัวเดียว</b>ตายตัว (คนเดียวที่รู้จักทุกคน)</span>
+        </div>
+      </div>
+    </div>
+    <div class="block al anim" style="--i:3" style="padding:1.2cqh 2cqw; font-size:2.2cqh">
+      <b>⚠ ลำดับสำคัญมาก!</b> &nbsp;<span class="expr"><span class="q">∀</span>x, <span class="q2">∃</span>y</span> <b>≠</b> <span class="expr"><span class="q2">∃</span>y, <span class="q">∀</span>x</span>
+      &nbsp;— สลับลำดับแล้วความหมายเปลี่ยนโดยสิ้นเชิง
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 23b · APPLICATION ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">การประยุกต์ใช้งาน</span>
+    <h2>ตัวบ่งปริมาณในงานวิทยาการคอมพิวเตอร์</h2></div></div>
+  <div class="body tight">
+    <div class="cols even" style="font-size:2.1cqh">
+      <div class="col">
+        <div class="block ex anim" style="--i:0" style="padding:1.3cqh 1.8cqw">
+          <span class="lab"><span class="pin">1. ฐานข้อมูล (SQL)</span></span>
+          <div style="font-size:2.05cqh; line-height:1.5">
+            <span class="expr"><span class="q2">∃</span></span> &rArr; <code>EXISTS</code> &nbsp;|&nbsp; <span class="expr"><span class="q">∀</span></span> &rArr; <code>NOT EXISTS</code>
+            <br><span class="tiny" style="color:#42506e">"มีลูกค้าที่สั่งซื้อ &gt; 1000 บาท":</span>
+            <br><code style="font-size:.82em">SELECT * FROM cust c WHERE EXISTS</code>
+            <br><code style="font-size:.82em">(SELECT 1 FROM ord WHERE cid=c.id</code>
+            <br><code style="font-size:.82em">&nbsp;AND amt&gt;1000)</code>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="block gold anim" style="--i:1" style="padding:1.3cqh 1.8cqw">
+          <span class="lab"><span class="pin">2. การเขียนโปรแกรม</span></span>
+          <div style="font-size:2.05cqh; line-height:1.5">
+            <span class="expr"><span class="q">∀</span></span> &rArr; <code>all()</code> ตรวจทุกตัว &nbsp;|&nbsp; <span class="expr"><span class="q2">∃</span></span> &rArr; <code>any()</code> เจอตัวแรกหยุด
+            <br><span class="tiny" style="color:#42506e">Python:</span>
+            <br><code style="font-size:.82em">all(x &gt; 0 for x in nums)&nbsp;&nbsp;# ∀</code>
+            <br><code style="font-size:.82em">any(x == 0 for x in nums)&nbsp;# ∃</code>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cols even" style="font-size:2.1cqh; margin-top:.3cqh">
+      <div class="col">
+        <div class="block anim" style="--i:2" style="padding:1.3cqh 1.8cqw">
+          <span class="lab"><span class="pin">3. ตรวจสอบข้อมูล (Validation)</span></span>
+          <div style="font-size:2.05cqh; line-height:1.5">
+            "<b>ทุก</b>ฟิลด์ต้องกรอกครบ" = <span class="expr"><span class="q">∀</span>f [กรอกแล้ว]</span>
+            <br>"<b>มี</b>อย่างน้อย 1 อีเมลยืนยันแล้ว" = <span class="expr"><span class="q2">∃</span>e [ยืนยัน]</span>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="block anim" style="--i:3" style="padding:1.3cqh 1.8cqw">
+          <span class="lab"><span class="pin">4. ปัญญาประดิษฐ์ (AI Logic)</span></span>
+          <div style="font-size:2.05cqh; line-height:1.5">
+            First-Order Logic ใช้ <span class="expr"><span class="q">∀</span>, <span class="q2">∃</span></span> แทนความรู้
+            <br><span class="tiny" style="color:#42506e">"มนุษย์ทุกคนต้องตาย":</span>
+            <br><span class="expr"><span class="q">∀</span>x [มนุษย์(x) → ตาย(x)]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="block ex anim" style="--i:4" style="padding:1.1cqh 2cqw; font-size:2.1cqh">
+      <b>สรุป:</b> ตัวบ่งปริมาณเป็น<b>สะพาน</b>เชื่อม ภาษามนุษย์ &rarr; ตรรกศาสตร์ &rarr; โค้ดคอมพิวเตอร์ · ใช้ในทุกระบบที่ตรวจสอบเงื่อนไข "ทุก/บาง"
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 24 · CLASSROOM EXAMPLES ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวอย่าง · ในห้องเรียน</span>
+    <h2>ตัวอย่างจริงจากห้องเรียน (Classroom Examples)</h2></div></div>
+  <div class="body tight">
+    <div class="lead anim" style="--i:0">ลองแปลง<b>ประโยคในชีวิตนักศึกษา</b>เป็นสัญลักษณ์ ∀ และ ∃</div>
+    <div class="cols even" style="font-size:2.4cqh">
+      <div class="col">
+        <div class="ex-life anim" style="--i:1">
+          <div class="q">นักศึกษา<span style="color:var(--green)"><b>ทุกคน</b></span>ในห้องนี้มีสมุดจด</div>
+          <div class="ans"><span class="expr"><span class="q">∀</span><span class="v">x</span> ∈ นักศึกษาในห้อง [มีสมุด]</span></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="ex-life anim" style="--i:2">
+          <div class="q"><span style="color:var(--gold2)"><b>มี</b></span>นักศึกษา<span style="color:var(--gold2)"><b>บางคน</b></span>ในห้องตื่นสาย</div>
+          <div class="ans"><span class="expr"><span class="q2">∃</span><span class="v">x</span> ∈ นักศึกษาในห้อง [ตื่นสาย]</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="cols even" style="font-size:2.4cqh; margin-top:0.3cqh">
+      <div class="col">
+        <div class="ex-life anim" style="--i:3">
+          <div class="q">หนังสือ<span style="color:var(--green)"><b>ทุกเล่ม</b></span>ในห้องสมุดมีรหัส ISBN</div>
+          <div class="ans"><span class="expr"><span class="q">∀</span><span class="v">x</span> ∈ หนังสือในห้องสมุด [มี ISBN]</span></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="ex-life anim" style="--i:4">
+          <div class="q"><span style="color:var(--gold2)"><b>มี</b></span>คอมพิวเตอร์<span style="color:var(--gold2)"><b>บางเครื่อง</b></span>ที่เสียในห้องปฏิบัติการ</div>
+          <div class="ans"><span class="expr"><span class="q2">∃</span><span class="v">x</span> ∈ คอมพิวเตอร์ [เสีย]</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="block ex anim" style="--i:5" style="padding:1.2cqh 2cqw; font-size:2.4cqh">
+      <b>💡 เคล็ดลับ:</b> เจอคำว่า "ทุก/ทั้งหมด/ทุกตัว" ใช้ <span class="expr"><span class="q">∀</span></span> · เจอคำว่า "มี/บาง/อย่างน้อยหนึ่ง" ใช้ <span class="expr"><span class="q2">∃</span></span> · เจอคำว่า "ไม่มี" ใช้ <span class="expr"><span class="q">∀</span></span> + นิเสธ
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 24b · WORKED EXAMPLES (เตรียมทำใบงาน) ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวอย่างมีวิธีทำ · เตรียมทำใบงาน</span>
+    <h2>ตัวอย่างการทำโจทย์ (Worked Examples)</h2></div></div>
+  <div class="body tight">
+    <div class="cols even" style="font-size:2.1cqh">
+      <div class="col">
+        <div class="block anim" style="--i:0" style="padding:1.2cqh 1.6cqw">
+          <span class="lab"><span class="pin">แบบที่ 1 · แปลง "ไม่มี"</span></span>
+          <b>โจทย์:</b> "<b>ไม่มี</b>นักศึกษาคนใดขาดสอบ"
+          <br><b style="color:var(--green2)">วิธีคิด:</b> "ไม่มีใคร..." = "ทุกคน<b>ไม่</b>..."
+          <br><b>คำตอบ:</b> <span class="expr"><span class="q">∀</span><span class="v">x</span> [¬ขาดสอบ(<span class="v">x</span>)]</span>
+          <br><span class="tiny" style="color:#42506e">(หรือ <span class="expr">¬(<span class="q2">∃</span><span class="v">x</span> [ขาดสอบ(<span class="v">x</span>)])</span> ก็ได้)</span>
+        </div>
+      </div>
+      <div class="col">
+        <div class="block ex anim" style="--i:1" style="padding:1.2cqh 1.6cqw">
+          <span class="lab"><span class="pin">แบบที่ 2 · หาค่าความจริง + วิธีตรวจ</span></span>
+          <b>โจทย์:</b> <span class="expr"><span class="q">∀</span><span class="v">x</span> ∈ {1,2,3,4} [<span class="v">x</span>+1 ≤ 5]</span>
+          <br><b style="color:var(--green2)">วิธีตรวจ:</b> 1+1=2✓, 2+1=3✓, 3+1=4✓, 4+1=5✓
+          <br><b>คำตอบ:</b> <span class="chip t">T</span> จริง (ทุกตัวสอดคล้อง)
+        </div>
+      </div>
+    </div>
+    <div class="cols even" style="font-size:2.1cqh; margin-top:.3cqh">
+      <div class="col">
+        <div class="block gold anim" style="--i:2" style="padding:1.2cqh 1.6cqw">
+          <span class="lab"><span class="pin">แบบที่ 3 · ตัวอย่างค้าน</span></span>
+          <b>โจทย์:</b> <span class="expr"><span class="q">∀</span><span class="v">x</span> ∈ {1..10} [<span class="v">x</span> &gt; 5]</span>
+          <br><b style="color:var(--gold2)">วิธีคิด:</b> หาตัวที่ทำให้เป็นเท็จ 1 ตัว
+          <br><b>คำตอบ:</b> <span class="chip f">F</span> เท็จ · ตัวอย่างค้าน = <b>1</b> (เพราะ 1≯5)
+        </div>
+      </div>
+      <div class="col">
+        <div class="block al anim" style="--i:3" style="padding:1.2cqh 1.6cqw">
+          <span class="lab"><span class="pin">แบบที่ 4 · เขียนนิเสธ</span></span>
+          <b>โจทย์:</b> นิเสธของ "ทุกคนมาเรียนตรงเวลา"
+          <br><b style="color:var(--red2)">วิธีคิด:</b> สลับ ∀→∃ + ใส่นิเสธข้างใน
+          <br><b>คำตอบ:</b> <span class="expr"><span class="q2">∃</span><span class="v">x</span> [¬มาตรงเวลา(<span class="v">x</span>)]</span> = "มีบางคนมาสาย"
+        </div>
+      </div>
+    </div>
+    <div class="block ex anim" style="--i:4" style="padding:1.1cqh 2cqw; font-size:2.1cqh">
+      <b>✏ พร้อมทำใบงานแล้ว!</b> — ใช้ 4 แบบข้างต้นเป็นแนวทาง แล้วลงมือทำใบกิจกรรม 6 ข้อในหน้าถัดไป
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 25 · IN-CLASS EXERCISE ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">แบบฝึกหัด · ในห้องเรียน</span>
+    <h2>แบบฝึกหัดในห้องเรียน (In-class Exercise)</h2></div></div>
+  <div class="body tight">
+    <div class="block al anim" style="--i:0" style="padding:1cqh 1.8cqw; font-size:2.2cqh">
+      <span class="lab"><span class="pin">คำชี้แจง</span></span>
+      จงทำ <b>4 ข้อ</b> ต่อไปนี้ลงในสมุด — เวลา <b>~10 นาที</b> · เอกภพคือ<b>นักศึกษาในห้องเรียน</b> · กด <b>Space</b> ดูเฉลย
+    </div>
+    <div class="cols even" style="font-size:2.1cqh">
+      <div class="col">
+        <div class="block anim" style="--i:1" style="padding:1.2cqh 1.6cqw">
+          <b>ข้อ 1.</b> เขียน "<b>นักศึกษาทุกคน</b>ส่งงานครบ" เป็นสัญลักษณ์
+          <div class="reveal" style="margin-top:.6cqh">
+            <div class="inner" style="background:var(--mint); border-radius:8px; padding:.8cqh 1.4cqw; font-size:2cqh">
+              <b style="color:var(--green2)">เฉลย:</b> <span class="expr"><span class="q">∀</span><span class="v">x</span> [ส่งงานครบ(<span class="v">x</span>)]</span>
+            </div>
+            <span class="hint" style="font-size:2cqh"><span class="k">SPACE</span> ดูเฉลย</span>
+          </div>
+        </div>
+        <div class="block anim" style="--i:2" style="padding:1.2cqh 1.6cqw">
+          <b>ข้อ 3.</b> หาค่าความจริง <span class="expr"><span class="q">∀</span><span class="v">x</span> ∈ {2,4,6,8} [<span class="v">x</span> เป็นคู่]</span>
+          <div class="reveal" style="margin-top:.6cqh">
+            <div class="inner" style="background:var(--mint); border-radius:8px; padding:.8cqh 1.4cqw; font-size:2cqh">
+              <b style="color:var(--green2)">เฉลย:</b> <span class="chip t">T</span> จริง — 2,4,6,8 เป็นเลขคู่ทุกตัว
+            </div>
+            <span class="hint" style="font-size:2cqh"><span class="k">SPACE</span> ดูเฉลย</span>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="block anim" style="--i:3" style="padding:1.2cqh 1.6cqw">
+          <b>ข้อ 2.</b> เขียน "<b>มีนักศึกษาบางคน</b>ได้เกรด A" เป็นสัญลักษณ์
+          <div class="reveal" style="margin-top:.6cqh">
+            <div class="inner" style="background:var(--lyellow); border-radius:8px; padding:.8cqh 1.4cqw; font-size:2cqh">
+              <b style="color:var(--gold2)">เฉลย:</b> <span class="expr"><span class="q2">∃</span><span class="v">x</span> [ได้เกรด A(<span class="v">x</span>)]</span>
+            </div>
+            <span class="hint" style="font-size:2cqh"><span class="k">SPACE</span> ดูเฉลย</span>
+          </div>
+        </div>
+        <div class="block anim" style="--i:4" style="padding:1.2cqh 1.6cqw">
+          <b>ข้อ 4.</b> หาค่าความจริง <span class="expr"><span class="q2">∃</span><span class="v">x</span> ∈ {1,3,5,7} [<span class="v">x</span> = 4]</span>
+          <div class="reveal" style="margin-top:.6cqh">
+            <div class="inner" style="background:var(--pink); border-radius:8px; padding:.8cqh 1.4cqw; font-size:2cqh">
+              <b style="color:var(--red2)">เฉลย:</b> <span class="chip f">F</span> เท็จ — ไม่มีตัวไหนใน {1,3,5,7} เท่ากับ 4
+            </div>
+            <span class="hint" style="font-size:2cqh"><span class="k">SPACE</span> ดูเฉลย</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 26 · SUMMARY ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">Recap · สรุป</span>
+    <h2>สรุป: ตัวบ่งปริมาณ (Quantifiers)</h2></div></div>
+  <div class="body tight">
+    <div class="summary-card anim" style="--i:0">
+      <div class="t">1. ∀ (Universal) — "สำหรับทุกตัว"</div>
+      <div class="d">∀x [P(x)] จริง ⇔ <b>ทุก</b>ค่า x ในเอกภพให้ P(x) = T</div>
+    </div>
+    <div class="summary-card anim" style="--i:1">
+      <div class="t">2. ∃ (Existential) — "มีบางตัว"</div>
+      <div class="d">∃x [P(x)] จริง ⇔ มีค่า x สักตัวในเอกภพที่ให้ P(x) = T</div>
+    </div>
+    <div class="summary-card anim" style="--i:2">
+      <div class="t">3. เอกภพสัมพัทธ์ (U) — สำคัญมาก</div>
+      <div class="d">∀x [P(x)] บน ℕ ≠ ∀x [P(x)] บน ℤ — เอกภพเปลี่ยน คำตอบเปลี่ยน</div>
+    </div>
+    <div class="summary-card anim" style="--i:3">
+      <div class="t">4. ตัวอย่างค้าน (Counterexample)</div>
+      <div class="d">∀x [P(x)] เท็จ ⟺ มีตัวอย่างค้าน 1 ตัว — ไม่ต้องตรวจทุกตัว</div>
+    </div>
+    <div class="summary-card anim" style="--i:4">
+      <div class="t">5. นิเสธ (Negation)</div>
+      <div class="d">¬(∀x [P(x)]) ≡ ∃x [¬P(x)] &nbsp;|&nbsp; ¬(∃x [P(x)]) ≡ ∀x [¬P(x)]</div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 27 · HOMEWORK ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">Homework · บทที่ 1</span>
+    <h2>การบ้านท้ายบทเรียน — บทที่ 1 (10 ข้อ)</h2></div></div>
+  <div class="body tight">
+    <div class="block al anim" style="--i:0" style="padding:1.2cqh 1.8cqw; font-size:2.3cqh">
+      <span class="lab"><span class="pin">คำชี้แจง</span></span>
+      ทำลงใน<b>กระดาษ A4</b> · แสดง<b>วิธีทำ</b>ให้ชัดเจน · ส่ง<b>สัปดาห์ถัดไป</b> · คะแนนรวม <b>20 คะแนน</b>
+    </div>
+    <div class="cols even" style="font-size:2.15cqh">
+      <div class="col">
+        <div class="block anim" style="--i:1; padding:1.2cqh 1.6cqw">
+          <span class="lab"><span class="pin">Part A · พื้นฐาน (2 คะแนน/ข้อ)</span></span>
+          <ol class="num" style="gap:.5cqh; font-size:2.1cqh; counter-reset:n">
+            <li>เขียน "<b>ทุกจังหวัด</b>ในไทยมีผู้ว่าฯ" เป็นสัญลักษณ์</li>
+            <li>เขียน "<b>มี</b>นักเรียน<b>บางคน</b>ไม่ชอบคณิตศาสตร์" เป็นสัญลักษณ์</li>
+            <li>เขียน "<b>ไม่มี</b>คนใดในห้อง<b>เกิดเดือนกุมภาพันธ์</b>" เป็นสัญลักษณ์ (ใช้ ∀ เพราะเป็น "ไม่มี")</li>
+          </ol>
+        </div>
+      </div>
+      <div class="col">
+        <div class="block ex anim" style="--i:2; padding:1.2cqh 1.6cqw">
+          <span class="lab"><span class="pin">Part B · ตรวจสอบ (3 คะแนน/ข้อ)</span></span>
+          <ol class="num" style="gap:.5cqh; font-size:2.1cqh; counter-reset:n">
+            <li>หาค่าความจริง <span class="expr"><span class="q">∀</span><span class="v">x</span> ∈ {1, 2, 3} [<span class="v">x</span>² ≤ 9]</span></li>
+            <li>หาค่าความจริง <span class="expr"><span class="q2">∃</span><span class="v">x</span> ∈ {0, 5, 10} [<span class="v">x</span> เป็นจำนวนคี่]</span></li>
+            <li>ตรวจสอบว่า <span class="expr"><span class="q">∀</span><span class="v">x</span> ∈ ℕ [<span class="v">x</span> + 1 > <span class="v">x</span>]</span> เป็นจริง/เท็จ</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="block gold anim" style="--i:3; padding:1.2cqh 1.6cqw; font-size:2.15cqh">
+      <span class="lab"><span class="pin">Part C · ประยุกต์ (2.33 คะแนน/ข้อ, ข้อสุดท้ายโบนัส +2)</span></span>
+      <ol class="num" style="gap:.5cqh; font-size:2.1cqh; counter-reset:n">
+        <li>เขียน "นักศึกษา<b>ทุกคน</b>ที่เรียน CS101 <b>และ</b>ส่งงาน จะได้เกรด A" เป็นสัญลักษณ์ (ใช้ตัวบ่งปริมาณ + ตัวเชื่อม)</li>
+        <li>เขียน "<b>มี</b>นักศึกษา<b>บางคน</b>ที่ชอบทั้ง<b>คณิตศาสตร์และ</b>เขียนโปรแกรม" เป็นสัญลักษณ์</li>
+        <li>เขียน "ห้องสมุด<b>ทุก</b>เครื่องคอมพิวเตอร์<b>ใช้งานได้</b>" เป็นสัญลักษณ์ + บอกว่า <span class="expr"><span class="q">∀</span></span> หรือ <span class="expr"><span class="q2">∃</span></span> เหมาะสมกว่ากัน เพราะเหตุใด</li>
+        <li>โจทย์ท้าทาย (โบนัส <b>+2 คะแนน</b>): เขียน "นักเรียน<b>ทุกคน</b>ในชั้นเรียนนี้ มี<b>เพื่อน</b>อย่างน้อย 1 คน" เป็นสัญลักษณ์</li>
+      </ol>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+</div></div></div>
+<div class="ov-title"><span>ภาพรวมสไลด์ · บทที่ 1 ตรรกศาสตร์ (สัปดาห์ที่ 3) · ตัวบ่งปริมาณ</span><small>คลิกสไลด์เพื่อไปยังหน้านั้น · กด O / Esc เพื่อปิด</small></div>
+<!-- dock -->
+<div class="dock">
+  <button id="bPrev" title="ก่อนหน้า (←)">‹</button>
+  <span class="count" id="count">01 / 29</span>
+  <button id="bNext" title="ถัดไป (→ / Space)">›</button>
+  <span class="sep"></span>
+  <button id="bOv" title="ภาพรวม (O)">⊞</button>
+  <button id="bHelp" title="แป้นพิมพ์ (?)">?</button>
+</div>
+
+<!-- onboarding toast -->
+<div class="toast" id="toast">
+  <span>ใช้ <kbd>←</kbd> <kbd>→</kbd> เปลี่ยนสไลด์ · <kbd>Space</kbd> เฉลย · <kbd>O</kbd> ภาพรวม</span>
+</div>
+
+<!-- help overlay -->
+<div class="help" id="help">
+  <div class="card">
+    <h3>แป้นพิมพ์ลัด</h3>
+    <dl>
+      <kbd>→ / Space</kbd><dd>สไลด์ถัดไป (และเปิดเฉลยทีละขั้น)</dd>
+      <kbd>←</kbd><dd>สไลด์ก่อนหน้า</dd>
+      <kbd>Home / End</kbd><dd>ไปสไลด์แรก / สุดท้าย</dd>
+      <kbd>R</kbd><dd>เปิดเฉลยทั้งหมดในสไลด์</dd>
+      <kbd>O / Esc</kbd><dd>เปิด/ปิดมุมมองภาพรวม</dd>
+      <kbd>F</kbd><dd>เต็มจอ</dd>
+      <kbd>?</kbd><dd>เปิด/ปิดหน้าต่างนี้</dd>
+    </dl>
+    <div class="close">คลิกที่ใดก็ได้เพื่อปิด</div>
+  </div>
+</div>
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const total=slides.length;
+  const bar=document.querySelector('.progress .bar');
+  const count=document.getElementById('count');
+  let cur=0;
+  const pad=n=>String(n).padStart(2,'0');
+
+  function render(){
+    slides.forEach((s,i)=>{
+      s.classList.toggle('is-active',i===cur);
+      const div=s.querySelector('.divider');
+      if(div){ div.classList.remove('is-anim'); if(i===cur){ void div.offsetWidth; div.classList.add('is-anim'); } }
+    });
+    bar.style.width=((cur+1)/total*100)+'%';
+    count.textContent=pad(cur+1)+' / '+total;
+    if(document.body.classList.contains('overview')){
+      slides[cur].scrollIntoView({block:'center',behavior:'smooth'});
+    }
+  }
+  function next(){
+    if(document.body.classList.contains('overview')) return;
+    const hidden=slides[cur].querySelector('.reveal:not(.on)');
+    if(hidden){ hidden.classList.add('on'); return; }
+    if(cur<total-1){ cur++; render(); }
+  }
+  function prev(){
+    if(document.body.classList.contains('overview')) return;
+    if(cur>0){ cur--; render(); }
+  }
+  function go(i){ cur=Math.max(0,Math.min(total-1,i)); render(); }
+  function revealAll(){ slides[cur].querySelectorAll('.reveal').forEach(r=>r.classList.add('on')); }
+  function toggleOverview(){
+    document.body.classList.toggle('overview');
+    if(!document.body.classList.contains('overview')) render(); else slides[cur].scrollIntoView({block:'center'});
+  }
+  function toggleHelp(){ document.getElementById('help').classList.toggle('show'); }
+  function fs(){ if(!document.fullscreenElement) document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen(); else document.exitFullscreen(); }
+
+  document.addEventListener('keydown', e=>{
+    if(document.getElementById('help').classList.contains('show') && e.key!=='?'){ document.getElementById('help').classList.remove('show'); }
+    switch(e.key){
+      case 'ArrowRight': case ' ': case 'PageDown': case 'l': e.preventDefault(); next(); break;
+      case 'ArrowLeft': case 'PageUp': case 'h': e.preventDefault(); prev(); break;
+      case 'ArrowDown': e.preventDefault(); next(); break;
+      case 'ArrowUp': e.preventDefault(); prev(); break;
+      case 'Home': go(0); break;
+      case 'End': go(total-1); break;
+      case 'r': case 'R': revealAll(); break;
+      case 'o': case 'O': toggleOverview(); break;
+      case 'Escape': if(document.body.classList.contains('overview')) toggleOverview(); break;
+      case 'f': case 'F': fs(); break;
+      case '?': toggleHelp(); break;
+    }
+    hideToast();
+  });
+
+  document.querySelectorAll('.reveal').forEach(r=>{
+    r.addEventListener('click', e=>{ e.stopPropagation(); r.classList.toggle('on'); });
+  });
+
+  document.addEventListener('click', e=>{
+    if(document.getElementById('help').classList.contains('show')){ document.getElementById('help').classList.remove('show'); return; }
+    if(document.body.classList.contains('overview')){
+      const s=e.target.closest('.slide');
+      if(s){ const i=slides.indexOf(s); if(i>=0){ cur=i; document.body.classList.remove('overview'); render(); } }
+      return;
+    }
+    if(e.target.closest('.reveal,.dock,.help,a,button,svg,.game')) return;
+    next();
+  });
+
+  document.getElementById('bPrev').onclick=e=>{e.stopPropagation();prev();hideToast();};
+  document.getElementById('bNext').onclick=e=>{e.stopPropagation();next();hideToast();};
+  document.getElementById('bOv').onclick=e=>{e.stopPropagation();toggleOverview();hideToast();};
+  document.getElementById('bHelp').onclick=e=>{e.stopPropagation();toggleHelp();};
+
+  let tx=0,ty=0;
+  document.addEventListener('touchstart',e=>{tx=e.changedTouches[0].clientX;ty=e.changedTouches[0].clientY;},{passive:true});
+  document.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty;
+    if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)){ dx<0?next():prev(); }
+  },{passive:true});
+
+  const toast=document.getElementById('toast');
+  let toastTimer=setTimeout(hideToast,6500);
+  function hideToast(){ clearTimeout(toastTimer); toast.classList.add('hide'); }
+
+  const fromHash=parseInt(location.hash.replace('#',''),10);
+  if(!isNaN(fromHash)) cur=Math.max(0,Math.min(total-1,fromHash-1));
+
+  render();
+})();
+</script>
+</body>
+</html>

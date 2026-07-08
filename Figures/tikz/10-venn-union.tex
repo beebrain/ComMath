@@ -1,0 +1,23 @@
+% 10 — Venn union A ∪ B (entire union shaded green)
+\begin{tikzpicture}[font=\itshape]
+  \def\rA{1.7}
+  \coordinate (A) at (-1.05,0);  \coordinate (B) at (1.05,0);
+  % universe
+  \draw[gray,line width=1pt,rounded corners=4pt] (-4,-2.5) rectangle (4,2.5);
+  \node[above left,black] at (4,2.5) {$U$};
+  % union shade (single fill = uniform green over the whole union)
+  \fill[sgreen,opacity=0.4] (A) circle (\rA) (B) circle (\rA);
+  % circle outlines (สี navy/red ใช้แยกวง A กับ B แทน tint ที่ทำให้สีขุ่น)
+  \draw[navy,line width=1pt] (A) circle (\rA);
+  \draw[Fred,line width=1pt] (B) circle (\rA);
+  \node[navy,font=\itshape\bfseries] at ($(A)+(0,1.95)$) {$A$};
+  \node[Fred,font=\itshape\bfseries] at ($(B)+(0,1.95)$) {$B$};
+  % elements
+  \node[black,font=\bfseries] at (-2.1,0.4) {1};
+  \node[black,font=\bfseries] at (-2.1,-0.4) {2};
+  \node[black,font=\bfseries] at (0,0) {3};
+  \node[black,font=\bfseries] at (2.1,0.4) {4};
+  \node[black,font=\bfseries] at (2.1,-0.4) {5};
+  % formula
+  \node[formula,font=\itshape\large] at (0,-3.1) {$A \cup B = \{1, 2, 3, 4, 5\}$};
+\end{tikzpicture}

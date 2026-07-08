@@ -1,0 +1,22 @@
+% 02 — AND gate: series switches p,q -> AND gate -> lamp, with truth table
+\begin{tikzpicture}[line width=1pt,>={Stealth[length=2.4mm]},font=\itshape]
+  \ctikzset{bipoles/length=0.9cm}
+  % input switches
+  \draw[navy] (0,1) node[left,black]{$p$} to[nos] (2.1,1);
+  \draw[navy] (0,-1) node[left,black]{$q$} to[nos] (2.1,-1);
+  % AND gate
+  \node[and gate US,draw,fill=cream,draw=gold,line width=1.4pt,scale=2.3] (G) at (3.6,0) {};
+  \node[font=\large\upshape] at ([xshift=-3pt]G.center) {$\land$};
+  \draw[navy] (2.1,1) |- (G.input 1);
+  \draw[navy] (2.1,-1) |- (G.input 2);
+  % output to lamp
+  \draw[navy] (G.output) -- ++(0.7,0) to[lamp,l_=\upshape output] ++(2.2,0);
+  % truth table below
+  \matrix[ttmatrix,below=9mm of G.south,anchor=north,xshift=4mm] {
+    |[tthead]| $p$ \& |[tthead]| $q$ \& |[tthead]| $p\land q$ \\
+    |[TvalY]| T \& |[TvalY]| T \& |[TvalY]| T \\
+    |[Tval]|  T \& |[Fval]|  F \& |[Fval]|  F \\
+    |[Fval]|  F \& |[Tval]|  T \& |[Fval]|  F \\
+    |[Fval]|  F \& |[Fval]|  F \& |[Fval]|  F \\
+  };
+\end{tikzpicture}

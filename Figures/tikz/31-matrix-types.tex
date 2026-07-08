@@ -1,0 +1,24 @@
+% 31 — Special matrix types (2x3 grid of example cards)
+\begin{tikzpicture}[font=\itshape,
+    card/.style={draw=navy,line width=1pt,rounded corners=3pt,inner sep=3mm,
+                 align=center,minimum width=4cm,minimum height=3.7cm}]
+  \def\g{\color{gray}}
+  \node[card] at (-4.8,2.2) {\itshape Zero\\[4pt]
+    $\begin{pmatrix}\g0&\g0&\g0\\\g0&\g0&\g0\\\g0&\g0&\g0\end{pmatrix}$\\[4pt]
+    {\upshape เมทริกซ์ศูนย์}};
+  \node[card] at (0,2.2) {\itshape Identity\\[4pt]
+    $\begin{pmatrix}\color{navy}1&\g0&\g0\\\g0&\color{navy}1&\g0\\\g0&\g0&\color{navy}1\end{pmatrix}$\\[4pt]
+    {\upshape เมทริกซ์เอกลักษณ์}};
+  \node[card] at (4.8,2.2) {\itshape Diagonal\\[4pt]
+    $\begin{pmatrix}\color{purple}2&\g0&\g0\\\g0&\color{purple}5&\g0\\\g0&\g0&\color{purple}7\end{pmatrix}$\\[4pt]
+    {\upshape เมทริกซ์ทแยงมุม}};
+  \node[card] at (-4.8,-2.2) {\itshape Upper Triangular\\[4pt]
+    $\begin{pmatrix}\color{Tgreen}1&\color{Tgreen}2&\color{Tgreen}3\\\g0&\color{Tgreen}4&\color{Tgreen}5\\\g0&\g0&\color{Tgreen}6\end{pmatrix}$\\[4pt]
+    {\upshape เมทริกซ์สามเหลี่ยมบน}};
+  \node[card] at (0,-2.2) {\itshape Lower Triangular\\[4pt]
+    $\begin{pmatrix}\color{orange}1&\g0&\g0\\\color{orange}2&\color{orange}3&\g0\\\color{orange}4&\color{orange}5&\color{orange}6\end{pmatrix}$\\[4pt]
+    {\upshape เมทริกซ์สามเหลี่ยมล่าง}};
+  \node[card] at (4.8,-2.2) {\itshape Symmetric\\[4pt]
+    $\begin{pmatrix}1&\color{sblue}2&\color{Fred}3\\\color{sblue}2&4&\color{Tgreen}5\\\color{Fred}3&\color{Tgreen}5&6\end{pmatrix}$\\[4pt]
+    {\upshape เมทริกซ์สมมาตร}};
+\end{tikzpicture}

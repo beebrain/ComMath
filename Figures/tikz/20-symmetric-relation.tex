@@ -1,0 +1,20 @@
+% 20 — Symmetric relation: each related pair drawn both ways
+\begin{tikzpicture}[font=\itshape,>={Stealth[length=2.4mm]}]
+  \node[vtx] (v1) at (0,1.7) {1};
+  \node[vtx] (v2) at (-1.9,-1) {2};
+  \node[vtx] (v3) at (1.9,-1) {3};
+  \draw[diredge] (v1) to[bend left=16] (v2);
+  \draw[diredge] (v2) to[bend left=16] (v1);
+  \draw[diredge] (v2) to[bend left=16] (v3);
+  \draw[diredge] (v3) to[bend left=16] (v2);
+  \node[draw=gray,line width=1pt,rounded corners=3pt,fill=cellgray,align=center,
+        right=12mm of v3,anchor=west,inner sep=3mm]
+    {$(a,b)\in R \implies (b,a)\in R$\\[3pt]{\upshape\small ถ้าสัมพันธ์ทางหนึ่ง ต้องสัมพันธ์อีกทาง}};
+  \begin{scope}[shift={(0,-3.6)},scale=0.6]
+    \node[vtx,draw=gray] (c1) at (-1,0) {1};
+    \node[vtx,draw=gray] (c2) at (1.6,0) {2};
+    \draw[diredge,gray] (c1) -- (c2);
+    \node[Fred,font=\Large\upshape] at (3.0,0) {\xmark};
+  \end{scope}
+  \node[Fred,font=\small\upshape] at (3.2,-4) {ไม่สมมาตร};
+\end{tikzpicture}

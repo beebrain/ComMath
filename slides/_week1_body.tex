@@ -1,0 +1,549 @@
+
+%% ====================== ปก ======================
+\begin{frame}[plain]
+  \maketitle
+\end{frame}
+
+%% ====================== วัตถุประสงค์ ======================
+\begin{frame}{วัตถุประสงค์การเรียนรู้ (สัปดาห์ที่ 1)}
+  เมื่อเรียนจบสัปดาห์นี้ นักศึกษาจะสามารถ
+  \begin{enumerate}
+    \item อธิบายความหมายและคุณสมบัติของ \textbf{ประพจน์} และค่าความจริงได้
+    \item แยกแยะข้อความที่เป็นประพจน์และไม่เป็นประพจน์ได้
+    \item ใช้ \textbf{ตัวเชื่อมทางตรรกศาสตร์} $\neg,\ \land,\ \lor,\ \rightarrow,\ \leftrightarrow$ ได้อย่างถูกต้อง
+    \item สร้างและวิเคราะห์ \textbf{ตารางค่าความจริง} ของประพจน์เชิงประกอบได้
+  \end{enumerate}
+  \vspace{0.6em}
+  \begin{exampleblock}{สัปดาห์ที่ 2 จะต่อด้วย}
+    สัจนิรันดร์/ข้อขัดแย้ง $\rightarrow$ ความสมมูลและกฎพีชคณิต $\rightarrow$ ตัวบ่งปริมาณ
+    $\rightarrow$ การอนุมาน (Modus Ponens/Tollens \ldots)
+  \end{exampleblock}
+\end{frame}
+
+%% ====================== หัวข้อ ======================
+\begin{frame}{หัวข้อที่จะศึกษาในสัปดาห์นี้}
+  \tableofcontents
+\end{frame}
+
+
+%% =====================================================================
+\section{บทนำ: ทำไมตรรกศาสตร์จึงสำคัญ}
+%% =====================================================================
+
+\begin{frame}{ตรรกศาสตร์คืออะไร}
+  \begin{block}{นิยาม}
+    \textbf{ตรรกศาสตร์ (Logic)} คือ ศาสตร์ที่ศึกษาการให้เหตุผล การคิดอย่างมีระบบ
+    และหลักการสรุปผลที่ถูกต้องตามหลักเหตุผล
+  \end{block}
+  \vspace{0.5em}
+  จุดมุ่งหมายสำคัญคือ แยกแยะระหว่าง
+  \begin{itemize}
+    \item การให้เหตุผลที่ \textbf{\textcolor{Tgreen}{สมเหตุสมผล}} \eng{Valid Reasoning}
+    \item การให้เหตุผลที่ \textbf{\textcolor{Fred}{มีข้อบกพร่อง}} \eng{Fallacy}
+  \end{itemize}
+  \vspace{0.5em}
+  เป็นรากฐานของทุกศาสตร์: คณิตศาสตร์ ปรัชญา วิทยาการคอมพิวเตอร์ และชีวิตประจำวัน
+\end{frame}
+
+\begin{frame}{ประวัติโดยสังเขป}
+  \begin{itemize}
+    \item \textbf{อริสโตเติล (Aristotle)} -- พัฒนาตรรกศาสตร์เชิงรูปนัย (Formal Logic) เป็นครั้งแรก
+          ผ่านหลักการที่เรียกว่า \textbf{ตรรกบท (Syllogism)}
+    \item \textbf{ศตวรรษที่ 19--20} -- เกิด \textbf{ตรรกศาสตร์สัญลักษณ์ (Symbolic Logic)} โดย
+      \begin{itemize}
+        \item George Boole -- พีชคณิตบูลีน
+        \item Gottlob Frege -- ตรรกศาสตร์เชิงภาคแสดง
+        \item Bertrand Russell -- รากฐานคณิตศาสตร์
+      \end{itemize}
+    \item กลายเป็น \textbf{พื้นฐานของวิทยาการคอมพิวเตอร์สมัยใหม่}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{ตรรกศาสตร์กับคอมพิวเตอร์}
+  ตรรกศาสตร์มีบทบาทสำคัญในงานคอมพิวเตอร์หลายด้าน
+  \begin{itemize}
+    \item \textbf{วงจรดิจิทัล} \eng{Digital Circuits} -- ใช้ลอจิกเกต (AND, OR, NOT, \ldots) ประมวลผลข้อมูล
+    \item \textbf{การเขียนโปรแกรม} -- การควบคุมเชิงตรรกะ เช่น \texttt{if-else}, \texttt{while}, \texttt{for}
+    \item \textbf{ปัญญาประดิษฐ์} \eng{AI} -- การแทนความรู้และการให้เหตุผลอัตโนมัติ
+    \item \textbf{การพิสูจน์ความถูกต้องของขั้นตอนวิธี} \eng{Algorithm Verification}
+  \end{itemize}
+  \vspace{0.6em}
+  \begin{exampleblock}{มุมมองสำคัญ}
+    การเรียนตรรกศาสตร์ = การฝึก ``คิดอย่างเป็นระบบ'' ซึ่งเป็นทักษะหลักของนักคอมพิวเตอร์
+  \end{exampleblock}
+\end{frame}
+
+
+%% =====================================================================
+\section{ประพจน์ (Propositions)}
+%% =====================================================================
+
+\begin{frame}{ประพจน์คืออะไร}
+  \begin{block}{นิยาม}
+    \textbf{ประพจน์ (Proposition)} คือ ข้อความบอกเล่าหรือปฏิเสธที่ตัดสินค่าความจริงได้แน่ชัดว่า
+    เป็น \textbf{จริง (True, T)} หรือ \textbf{เท็จ (False, F)} อย่างใดอย่างหนึ่งเท่านั้น
+  \end{block}
+  \vspace{0.4em}
+  ลักษณะสำคัญของประพจน์ 2 ประการ
+  \begin{enumerate}
+    \item เป็นประโยคบอกเล่า/ปฏิเสธที่สมบูรณ์
+    \item ระบุค่าความจริงได้โดยไม่กำกวม (ใครก็ตามต้องเห็นพ้องตรงกัน)
+  \end{enumerate}
+  \vspace{0.4em}
+  \begin{itemize}
+    \item \textbf{ค่าความจริง} \eng{Truth Value} มีได้เพียง 2 ค่า: \TT\ (หรือ 1) และ \FF\ (หรือ 0)
+    \item หลักการนี้เรียกว่า \textbf{กฎทวิภาวะ (Principle of Bivalence)} ของตรรกศาสตร์คลาสสิก
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{ตัวอย่างที่เป็นประพจน์}
+  \begin{enumerate}
+    \item กรุงเทพมหานครเป็นเมืองหลวงของประเทศไทย \hfill $\Rightarrow$ \TT
+    \item $2 + 2 = 5$ \hfill $\Rightarrow$ \FF
+    \item $7 > 3$ \hfill $\Rightarrow$ \TT
+    \item จำนวนเฉพาะที่มากที่สุดมีอยู่จำนวนจำกัด \hfill $\Rightarrow$ \FF
+    \item ข้าวเป็นอาหารหลักของคนไทย \hfill $\Rightarrow$ \TT
+  \end{enumerate}
+  \vspace{0.8em}
+  \begin{block}{ข้อสังเกต}
+    ประพจน์เป็นได้ทั้งข้อเท็จจริงทาง คณิตศาสตร์ ภูมิศาสตร์ วิทยาศาสตร์ หรือทั่วไป
+    ขอเพียง \textbf{ระบุค่าความจริงได้แน่นอน}
+  \end{block}
+\end{frame}
+
+\begin{frame}{ข้อความที่ \emph{ไม่} เป็นประพจน์}
+  ข้อความที่ระบุค่าความจริงไม่ได้ จะไม่เป็นประพจน์
+  \begin{enumerate}
+    \item \textbf{ประโยคคำถาม} -- ``ทำไมต้องเรียนคณิตศาสตร์?''
+    \item \textbf{ประโยคคำสั่ง} -- ``กรุณาปิดประตู''
+    \item \textbf{ประโยคอุทาน} -- ``ว้าว! สวยจัง!''
+    \item \textbf{ประโยคกำกวม} -- ``บุคคลนี้สูง'' (สูงเทียบกับอะไร?)
+    \item \textbf{ประโยคแสดงความเห็น} -- ``ดนตรีคลาสสิกเพราะกว่าเพลงป็อป''
+  \end{enumerate}
+  \vspace{0.4em}
+  \begin{alertblock}{ข้อควรระวัง}
+    คำถาม คำสั่ง อุทาน ความเห็น และข้อความกำกวม ``ไม่มีค่าความจริง'' จึงไม่ใช่ประพจน์
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{ประพจน์เปิด (Open Proposition)}
+  \begin{block}{นิยาม}
+    \textbf{ประพจน์เปิด} คือ ข้อความที่มีตัวแปร ทำให้ยังระบุค่าความจริงไม่ได้
+    จนกว่าจะแทนค่าตัวแปร
+  \end{block}
+  \vspace{0.6em}
+  ตัวอย่าง พิจารณา $x + 3 = 7$
+  \begin{itemize}
+    \item ถ้า $x = 4$ \hfill $\Rightarrow$ เป็นจริง (\TT)
+    \item ถ้า $x \neq 4$ \hfill $\Rightarrow$ เป็นเท็จ (\FF)
+  \end{itemize}
+  \vspace{0.6em}
+  เทียบกับ \textbf{ประพจน์คงที่} ที่มีค่าความจริงตายตัว ไม่ขึ้นกับตัวแปร
+  \par\medskip
+  \textcolor{gray}{(จะศึกษาวิธีทำให้ประพจน์เปิด ``ปิด'' ด้วยตัวบ่งปริมาณในสัปดาห์ที่ 2)}
+\end{frame}
+
+
+%% =====================================================================
+\section{ตัวเชื่อมประพจน์และตารางค่าความจริง}
+%% =====================================================================
+
+\begin{frame}{ตัวเชื่อมประพจน์พื้นฐาน 5 ตัว}
+  ข้อความจริงมักประกอบด้วยหลายประพจน์เชื่อมกันด้วย \textbf{ตัวเชื่อม (Connectives)}
+  \begin{center}\small
+  \begin{tabular}{|c|l|l|}
+    \hline
+    \textbf{สัญลักษณ์} & \textbf{ชื่อ} & \textbf{อ่านว่า} \\ \hline
+    $\neg p$ & นิเสธ (Negation) & ไม่ $p$ \\ \hline
+    $p \land q$ & ประพจน์เชื่อม (Conjunction, AND) & $p$ และ $q$ \\ \hline
+    $p \lor q$ & ประพจน์เลือก (Disjunction, OR) & $p$ หรือ $q$ \\ \hline
+    $p \rightarrow q$ & ประพจน์มีเงื่อนไข (Implication) & ถ้า $p$ แล้ว $q$ \\ \hline
+    $p \leftrightarrow q$ & เงื่อนไขสองทาง (Biconditional) & $p$ ก็ต่อเมื่อ $q$ \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item $\neg$ เป็นตัวเชื่อมเอกภาพ (ใช้กับประพจน์เดียว)
+    \item อีก 4 ตัวเป็นตัวเชื่อมทวิภาค (ใช้กับสองประพจน์)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{ตารางค่าความจริงรวมของตัวเชื่อมทั้ง 5}
+  \begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+    \textbf{$p$} & \textbf{$q$} & \textbf{$\neg p$} & \textbf{$p \land q$} & \textbf{$p \lor q$} & \textbf{$p \rightarrow q$} & \textbf{$p \leftrightarrow q$} \\ \hline
+    \TT & \TT & \FF & \TT & \TT & \TT & \TT \\ \hline
+    \TT & \FF & \FF & \FF & \TT & \FF & \FF \\ \hline
+    \FF & \TT & \TT & \FF & \TT & \TT & \FF \\ \hline
+    \FF & \FF & \TT & \FF & \FF & \TT & \TT \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.8em}
+  \begin{block}{หลักการสร้างตารางค่าความจริง}
+    ประพจน์ที่มี $n$ ตัวแปร ต้องพิจารณา $2^n$ กรณี \\
+    ($n=1 \Rightarrow 2$ แถว, $n=2 \Rightarrow 4$ แถว, $n=3 \Rightarrow 8$ แถว, \ldots)
+  \end{block}
+\end{frame}
+
+%% ----- AND -----
+\begin{frame}{ประพจน์เชื่อม (AND, $\land$)}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      $p \land q$ เป็นจริง \textbf{ก็ต่อเมื่อทั้งคู่จริง} \\
+      ถ้าตัวใดตัวหนึ่งเท็จ ผลลัพธ์เท็จทันที
+      \par\medskip
+      \begin{center}
+      \begin{tabular}{|c|c|c|}
+        \hline \textbf{$p$} & \textbf{$q$} & \textbf{$p\land q$} \\ \hline
+        \TT & \TT & \TT \\ \hline
+        \TT & \FF & \FF \\ \hline
+        \FF & \TT & \FF \\ \hline
+        \FF & \FF & \FF \\ \hline
+      \end{tabular}
+      \end{center}
+    \end{column}
+    \begin{column}{0.46\textwidth}
+      \centering
+      \begin{tikzpicture}[scale=0.8]
+        \node[and gate US, draw, logic gate inputs=nn, fill=cream, minimum height=1.2cm] (A) at (0,0) {AND};
+        \draw (A.input 1) -- ++(-0.8,0) node[left]{$p$};
+        \draw (A.input 2) -- ++(-0.8,0) node[left]{$q$};
+        \draw (A.output) -- ++(0.8,0) node[right]{$p\land q$};
+      \end{tikzpicture}
+      \par\medskip
+      \footnotesize เปรียบเหมือนสวิตช์ \textbf{อนุกรม}: ต้องปิดทั้งคู่ไฟจึงติด
+    \end{column}
+  \end{columns}
+  \vspace{0.5em}
+  \begin{exampleblock}{ตัวอย่าง}
+    ``วันนี้ฝนตก \textbf{และ} พื้นถนนเปียก'' จริงเมื่อ \emph{ทั้ง} ฝนตก \emph{และ} พื้นเปียก
+  \end{exampleblock}
+\end{frame}
+
+%% ----- OR -----
+\begin{frame}{ประพจน์เลือก (OR, $\lor$)}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      $p \lor q$ เป็นจริงเมื่อ \textbf{อย่างน้อยหนึ่งตัวจริง} \\
+      เป็นเท็จก็ต่อเมื่อทั้งคู่เท็จ
+      \par\medskip
+      \begin{center}
+      \begin{tabular}{|c|c|c|}
+        \hline \textbf{$p$} & \textbf{$q$} & \textbf{$p\lor q$} \\ \hline
+        \TT & \TT & \TT \\ \hline
+        \TT & \FF & \TT \\ \hline
+        \FF & \TT & \TT \\ \hline
+        \FF & \FF & \FF \\ \hline
+      \end{tabular}
+      \end{center}
+    \end{column}
+    \begin{column}{0.46\textwidth}
+      \centering
+      \begin{tikzpicture}[scale=0.8]
+        \node[or gate US, draw, logic gate inputs=nn, fill=mint, minimum height=1.2cm] (O) at (0,0) {OR};
+        \draw (O.input 1) -- ++(-0.8,0) node[left]{$p$};
+        \draw (O.input 2) -- ++(-0.8,0) node[left]{$q$};
+        \draw (O.output) -- ++(0.8,0) node[right]{$p\lor q$};
+      \end{tikzpicture}
+      \par\medskip
+      \footnotesize เปรียบเหมือนสวิตช์ \textbf{ขนาน}: ปิดตัวใดตัวหนึ่งไฟก็ติด
+    \end{column}
+  \end{columns}
+  \vspace{0.5em}
+  \begin{alertblock}{ข้อควรระวัง}
+    OR ในตรรกศาสตร์เป็น \textbf{Inclusive OR} (รวมกรณีทั้งคู่จริงด้วย)
+    ต่างจาก ``หรือ'' ในภาษาพูดที่บางครั้งหมายถึงเลือกอย่างเดียว (XOR)
+  \end{alertblock}
+\end{frame}
+
+%% ----- NOT -----
+\begin{frame}{นิเสธ (NOT, $\neg$)}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      นิเสธ \textbf{กลับค่าความจริง} ของประพจน์
+      \par\medskip
+      \begin{center}
+      \begin{tabular}{|c|c|}
+        \hline \textbf{$p$} & \textbf{$\neg p$} \\ \hline
+        \TT & \FF \\ \hline
+        \FF & \TT \\ \hline
+      \end{tabular}
+      \end{center}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \centering
+      \begin{tikzpicture}[scale=0.8]
+        \node[not gate US, draw, fill=lpink, minimum height=1cm] (N) at (0,0) {};
+        \draw (N.input) -- ++(-1,0) node[left]{$p$};
+        \draw (N.output) -- ++(0.8,0) node[right]{$\neg p$};
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
+  \vspace{0.8em}
+  \begin{exampleblock}{ตัวอย่าง}
+    ถ้า $p$ = ``วันนี้ฝนตก'' แล้ว $\neg p$ = ``วันนี้ฝนไม่ตก'' \\
+    ฝนตกจริง $\Rightarrow p$ จริง, $\neg p$ เท็จ \quad ; \quad ฝนไม่ตก $\Rightarrow p$ เท็จ, $\neg p$ จริง
+  \end{exampleblock}
+  \footnotesize นิเสธเป็นหัวใจของ \textbf{การพิสูจน์โดยข้อขัดแย้ง (Proof by Contradiction)}
+\end{frame}
+
+%% ----- IMPLIES -----
+\begin{frame}{ประพจน์มีเงื่อนไข (IMPLIES, $\rightarrow$)}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      $p \rightarrow q$ อ่านว่า ``ถ้า $p$ แล้ว $q$''
+      \begin{itemize}
+        \item $p$ = เงื่อนไขนำ (Antecedent)
+        \item $q$ = เงื่อนไขตาม (Consequent)
+      \end{itemize}
+      \textbf{เท็จเพียงกรณีเดียว}: $p$ จริง แต่ $q$ เท็จ
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+      \begin{tabular}{|c|c|c|}
+        \hline \textbf{$p$} & \textbf{$q$} & \textbf{$p\rightarrow q$} \\ \hline
+        \TT & \TT & \TT \\ \hline
+        \rowcolor{lpink}\TT & \FF & \FF \\ \hline
+        \FF & \TT & \TT \\ \hline
+        \FF & \FF & \TT \\ \hline
+      \end{tabular}
+      \end{center}
+    \end{column}
+  \end{columns}
+  \vspace{0.4em}
+  \begin{alertblock}{หลักการจำ}
+    $p \rightarrow q$ เท็จเฉพาะ ``\textbf{จริง $\rightarrow$ เท็จ}'' (T$\rightarrow$F) เท่านั้น \\
+    เมื่อเงื่อนไขนำเป็นเท็จ ($p=$F) ถือว่าเงื่อนไข ``ไม่ถูกละเมิด'' จึงเป็นจริงโดยปริยาย
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{IMPLIES: ตัวอย่าง ``ถ้าฝนตกแล้วพื้นถนนจะเปียก''}
+  \begin{enumerate}
+    \item ฝนตก (\TT) และพื้นเปียก (\TT) -- เป็นไปตามคาด \hfill $\Rightarrow$ \TT
+    \item ฝนตก (\TT) แต่พื้นไม่เปียก (\FF) -- ผิดคำสัญญา \hfill $\Rightarrow$ \FF
+    \item ฝนไม่ตก (\FF) แต่พื้นเปียก (\TT) -- เปียกจากสาเหตุอื่น เงื่อนไขไม่ถูกละเมิด \hfill $\Rightarrow$ \TT
+    \item ฝนไม่ตก (\FF) และพื้นไม่เปียก (\FF) -- ปกติ เงื่อนไขไม่ถูกละเมิด \hfill $\Rightarrow$ \TT
+  \end{enumerate}
+  \vspace{0.8em}
+  \begin{exampleblock}{เชื่อมโยงกับการเขียนโปรแกรม}
+    คำสั่ง \texttt{if (condition) \{ action(); \}} ทำงานบนหลักเดียวกับ $p \rightarrow q$
+  \end{exampleblock}
+\end{frame}
+
+%% ----- IFF -----
+\begin{frame}{ประพจน์เงื่อนไขสองทาง (IFF, $\leftrightarrow$)}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      $p \leftrightarrow q$ อ่านว่า ``$p$ ก็ต่อเมื่อ $q$'' \\
+      จริงเมื่อ $p$ และ $q$ \textbf{มีค่าความจริงเหมือนกัน}
+      (ทั้งคู่จริง หรือทั้งคู่เท็จ)
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+      \begin{tabular}{|c|c|c|}
+        \hline \textbf{$p$} & \textbf{$q$} & \textbf{$p\leftrightarrow q$} \\ \hline
+        \TT & \TT & \TT \\ \hline
+        \TT & \FF & \FF \\ \hline
+        \FF & \TT & \FF \\ \hline
+        \FF & \FF & \TT \\ \hline
+      \end{tabular}
+      \end{center}
+    \end{column}
+  \end{columns}
+  \vspace{0.6em}
+  \begin{exampleblock}{ตัวอย่าง}
+    ``ฉันจะไปงานเลี้ยง \textbf{ก็ต่อเมื่อ} คุณไปด้วย'' \\
+    จริงเมื่อไปทั้งคู่ หรือไม่ไปทั้งคู่; เท็จเมื่อไปคนเดียว
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{ความสมมูล: $p \leftrightarrow q \equiv (p\rightarrow q)\land(q\rightarrow p)$}
+  พิสูจน์ด้วยตารางค่าความจริง
+  \begin{center}\footnotesize
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \textbf{$p$} & \textbf{$q$} & \textbf{$p\rightarrow q$} & \textbf{$q\rightarrow p$} & \textbf{$(p\rightarrow q)\land(q\rightarrow p)$} & \textbf{$p\leftrightarrow q$} \\ \hline
+    \TT & \TT & \TT & \TT & \TT & \TT \\ \hline
+    \TT & \FF & \FF & \TT & \FF & \FF \\ \hline
+    \FF & \TT & \TT & \FF & \FF & \FF \\ \hline
+    \FF & \FF & \TT & \TT & \TT & \TT \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.6em}
+  สองคอลัมน์สุดท้ายมีค่าเหมือนกันทุกแถว $\Rightarrow$ \textbf{สมมูลกัน} \\
+  \textcolor{gray}{นั่นคือ IFF = การมีเงื่อนไขทั้งสองทิศทางพร้อมกัน}
+\end{frame}
+
+\begin{frame}{ตัวอย่าง: การหาค่าความจริง}
+  \begin{block}{โจทย์}
+    พิจารณาประพจน์ $(\neg p \land q) \rightarrow r$ \quad จงหาค่าความจริงเมื่อ
+    $p = \text{F},\ q = \text{T},\ r = \text{F}$
+  \end{block}
+  \vspace{0.4em}
+  \textbf{วิธีทำ} แทนค่าแล้วคำนวณจากในวงเล็บออกสู่ภายนอก
+  \begin{align*}
+    (\neg p \land q) \rightarrow r
+      &\equiv (\neg \text{F} \land \text{T}) \rightarrow \text{F} \\
+      &\equiv (\text{T} \land \text{T}) \rightarrow \text{F} \\
+      &\equiv \text{T} \rightarrow \text{F} \\
+      &\equiv \textcolor{Fred}{\textbf{F}}
+  \end{align*}
+  \begin{exampleblock}{คำตอบ}
+    ประพจน์มีค่าความจริงเป็น \textbf{เท็จ (F)}
+  \end{exampleblock}
+\end{frame}
+
+
+%% =====================================================================
+\section{กิจกรรมในชั้นเรียน (แบบฝึกหัดทำในห้อง)}
+%% =====================================================================
+
+\begin{frame}{วิธีทำกิจกรรม}
+  \begin{block}{คำชี้แจง}
+    ให้นักศึกษาทำกิจกรรมต่อไปนี้ \textbf{ในชั้นเรียน} ลงในสมุด/กระดาษ
+    ภายในเวลาที่กำหนด แล้วร่วมเฉลยและอภิปรายพร้อมกัน
+  \end{block}
+  \vspace{0.5em}
+  \begin{itemize}
+    \item ทำเดี่ยวหรือจับคู่ก็ได้ (ตามที่อาจารย์กำหนด)
+    \item เมื่อหมดเวลา อาจารย์จะคลิกเพื่อ \textbf{เฉลย} ทีละข้อ
+    \item อาสาสมัครออกมาอธิบายวิธีคิดหน้าชั้น
+  \end{itemize}
+  \vspace{0.5em}
+  \begin{exampleblock}{เกณฑ์}
+    เน้นกระบวนการคิดและการให้เหตุผล ไม่ใช่แค่คำตอบสุดท้าย
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 1: จำแนกประพจน์ \eng{5 นาที}}
+  ข้อความใดเป็น \textbf{ประพจน์}? ถ้าเป็น ให้ระบุค่าความจริง (T/F) ถ้าไม่เป็น บอกเหตุผล
+  \begin{enumerate}
+    \item ดวงอาทิตย์ขึ้นทางทิศตะวันออก
+    \item $5 + 7 = 13$
+    \item เธอหิวข้าวหรือยัง?
+    \item $x - 2 = 9$
+    \item ห้ามสูบบุหรี่ในอาคาร
+    \item จำนวนเต็มทุกจำนวนหารด้วย 2 ลงตัว
+  \end{enumerate}
+  \pause
+  \vspace{0.2em}
+  \begin{exampleblock}{เฉลย}
+    \footnotesize
+    1) ประพจน์ \TT \quad 2) ประพจน์ \FF \quad 3) ไม่เป็น (คำถาม) \quad
+    4) ไม่เป็น (ประพจน์เปิด มีตัวแปร $x$) \quad 5) ไม่เป็น (คำสั่ง) \quad
+    6) ประพจน์ \FF\ (เช่น $3$ หารด้วย 2 ไม่ลงตัว)
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 2: สร้างตารางค่าความจริง \eng{7 นาที}}
+  จงสร้างตารางค่าความจริงของ \quad $\neg p \land q$
+  \par\medskip
+  \footnotesize เติมคอลัมน์ $\neg p$ ก่อน แล้วจึงหา $\neg p \land q$
+  \pause
+  \begin{center}
+  \begin{tabular}{|c|c|c|c|}
+    \hline \textbf{$p$} & \textbf{$q$} & \textbf{$\neg p$} & \textbf{$\neg p \land q$} \\ \hline
+    \TT & \TT & \FF & \FF \\ \hline
+    \TT & \FF & \FF & \FF \\ \hline
+    \FF & \TT & \TT & \TT \\ \hline
+    \FF & \FF & \TT & \FF \\ \hline
+  \end{tabular}
+  \end{center}
+  \footnotesize เป็นจริงเพียงกรณีเดียว: $p=$F และ $q=$T
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 3: หาค่าความจริง \eng{5 นาที}}
+  จงหาค่าความจริงของ \quad $(p \rightarrow q) \land (\neg q \lor r)$ \quad
+  เมื่อ $p=\text{T},\ q=\text{F},\ r=\text{T}$
+  \pause
+  \par\medskip
+  \textbf{วิธีทำ} แทนค่าแล้วคำนวณจากในวงเล็บออกนอก
+  \begin{align*}
+    (p \rightarrow q) \land (\neg q \lor r)
+      &\equiv (\text{T} \rightarrow \text{F}) \land (\neg \text{F} \lor \text{T}) \\
+      &\equiv \text{F} \land (\text{T} \lor \text{T}) \\
+      &\equiv \text{F} \land \text{T} \;\equiv\; \textcolor{Fred}{\textbf{F}}
+  \end{align*}
+  \begin{exampleblock}{คำตอบ}
+    ประพจน์มีค่าความจริงเป็น \textbf{เท็จ (F)}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 4: แปลประโยคเป็นสัญลักษณ์ \eng{5 นาที}}
+  กำหนด $p=$ ``ฉันอ่านหนังสือ'', \quad $q=$ ``ฉันสอบผ่าน'' \\
+  จงเขียนประโยคต่อไปนี้ในรูปสัญลักษณ์
+  \begin{enumerate}
+    \item ถ้าฉันอ่านหนังสือ แล้วฉันจะสอบผ่าน
+    \item ฉันสอบผ่านก็ต่อเมื่อฉันอ่านหนังสือ
+    \item ฉันไม่อ่านหนังสือ และฉันสอบไม่ผ่าน
+    \item ฉันอ่านหนังสือ หรือ ฉันสอบไม่ผ่าน
+  \end{enumerate}
+  \pause
+  \begin{exampleblock}{เฉลย}
+    1) $p \rightarrow q$ \qquad 2) $q \leftrightarrow p$ \qquad
+    3) $\neg p \land \neg q$ \qquad 4) $p \lor \neg q$
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 5: อภิปรายกลุ่ม \eng{8 นาที}}
+  \begin{block}{โจทย์สถานการณ์}
+    ร้านกาแฟติดป้ายว่า ``ลูกค้าจะได้รับส่วนลด \textbf{ถ้า} เป็นสมาชิก \textbf{และ}
+    ซื้อครบ 100 บาท''
+  \end{block}
+  ให้ $M=$ เป็นสมาชิก, \ $B=$ ซื้อครบ 100 บาท, \ $D=$ ได้รับส่วนลด
+  \begin{enumerate}
+    \item เขียนเงื่อนไขการได้ส่วนลดเป็นสัญลักษณ์
+    \item ถ้าลูกค้าเป็นสมาชิกแต่ซื้อ 80 บาท จะได้ส่วนลดหรือไม่?
+    \item สร้างตารางค่าความจริงของเงื่อนไขนี้
+  \end{enumerate}
+  \pause
+  \begin{exampleblock}{แนวเฉลย}
+    \footnotesize
+    1) $D \equiv M \land B$ \quad 2) ไม่ได้ (เพราะ $B=$F ทำให้ $M\land B=$F) \quad
+    3) $D$ เป็นจริงเฉพาะเมื่อ $M=$T และ $B=$T
+  \end{exampleblock}
+\end{frame}
+
+
+%% ====================== สรุปสัปดาห์ ======================
+\begin{frame}{สรุปสัปดาห์ที่ 1}
+  \begin{itemize}
+    \item \textbf{ประพจน์} = ข้อความที่ระบุค่าความจริง (T/F) ได้แน่นอน \\
+          (คำถาม/คำสั่ง/อุทาน/ความเห็น/ข้อความกำกวม ไม่เป็นประพจน์)
+    \item \textbf{ประพจน์เปิด} ยังระบุค่าความจริงไม่ได้จนกว่าจะแทนค่าตัวแปร
+    \item \textbf{ตัวเชื่อม 5 ตัว}: $\neg,\ \land,\ \lor,\ \rightarrow,\ \leftrightarrow$
+    \item จำจุดสำคัญ: $\land$ จริงเมื่อทั้งคู่จริง, $\lor$ เท็จเมื่อทั้งคู่เท็จ,
+          $\rightarrow$ เท็จเฉพาะ T$\rightarrow$F, $\leftrightarrow$ จริงเมื่อค่าเท่ากัน
+    \item \textbf{ตารางค่าความจริง} = เครื่องมือวิเคราะห์ประพจน์เชิงประกอบ ($2^n$ กรณี)
+  \end{itemize}
+  \vspace{0.4em}
+  \begin{exampleblock}{สัปดาห์หน้า}
+    สัจนิรันดร์/ข้อขัดแย้ง $\rightarrow$ ความสมมูลและกฎพีชคณิต $\rightarrow$ XOR/NAND/NOR
+    $\rightarrow$ ตัวบ่งปริมาณ $\rightarrow$ การอนุมาน
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{แบบฝึกหัดมอบหมาย (ทำนอกห้อง)}
+  \begin{enumerate}\small
+    \item ข้อความต่อไปนี้เป็นประพจน์หรือไม่ ระบุค่าความจริง:
+          (ก) $3+5=8$ \ (ข) $x>10$ \ (ค) กรุณาปิดประตู \ (ง) $7$ เป็นจำนวนคู่ \ (จ) $2^2=4$
+    \item สร้างตารางค่าความจริงของ: \ $p\land\neg q$, \quad $\neg p\lor q$, \quad $(p\rightarrow q)\land(q\rightarrow p)$
+    \item หาค่าความจริงของ $(\neg p \lor q)\rightarrow r$ เมื่อ $p=$T, $q=$F, $r=$T
+    \item เขียนประพจน์เชิงสัญลักษณ์ (ให้ $p=$ฝนตก, $q=$พื้นเปียก, $r=$อยู่บ้าน):
+      \begin{itemize}
+        \item ถ้าฝนตก แล้วฉันจะอยู่บ้าน
+        \item ฉันจะอยู่บ้านก็ต่อเมื่อฝนตกหรือพื้นเปียก
+      \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[plain]
+  \vfill
+  \centering
+  {\Large\color{navy}\textbf{จบสัปดาห์ที่ 1}}\par
+  \vspace{0.8em}
+  {\color{gray} สัปดาห์ที่ 2: สัจนิรันดร์ ความสมมูล และการอนุมาน}
+  \vfill
+\end{frame}
+

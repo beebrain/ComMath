@@ -1,0 +1,22 @@
+% 14 — Venn complement  A^c = U \ A  (universe green shaded, A white)
+\begin{tikzpicture}[font=\itshape,>={Stealth[length=2.6mm]}]
+  % universe filled green
+  \fill[sgreen,opacity=0.3,rounded corners=4pt] (-4,-2.5) rectangle (4,2.5);
+  \draw[gray,line width=1pt,rounded corners=4pt] (-4,-2.5) rectangle (4,2.5);
+  \node[above left,black] at (4,2.5) {$U$};
+  % circle A (white)
+  \fill[white] (-1,0) circle (1.7);
+  \draw[navy,line width=1.4pt] (-1,0) circle (1.7);
+  \node[navy,font=\itshape\bfseries] at (-1,1.95) {$A$};
+  % elements
+  \node[navy,font=\bfseries] at (-1,0.5) {1};
+  \node[navy,font=\bfseries] at (-1.6,-0.4) {2};
+  \node[navy,font=\bfseries] at (-0.4,-0.4) {3};
+  \node[black,font=\bfseries] at (2.4,0.7) {7};
+  \node[black,font=\bfseries] at (2.9,-0.2) {8};
+  \node[black,font=\bfseries] at (2.2,-0.9) {9};
+  % label A^c with arrow into green region
+  \node[navy,font=\itshape\Large] (ac) at (2.6,1.8) {$A^{c}$};
+  \draw[navy,->,line width=1pt] (ac) to[bend right=20] (1.4,0.6);
+  \node[formula,font=\itshape\large] at (0,-3.1) {$A^{c} = U \setminus A$};
+\end{tikzpicture}

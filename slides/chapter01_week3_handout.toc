@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{ตัวเชื่อมเพิ่มเติม: XOR, NAND, NOR}{5}{0}{1}
+\beamer@sectionintoc {2}{ประพจน์เปิดและตัวบ่งปริมาณ}{9}{0}{2}
+\beamer@sectionintoc {3}{การอนุมาน (Rules of Inference)}{13}{0}{3}
+\beamer@sectionintoc {4}{กรณีศึกษาและการพิสูจน์ด้วยตาราง}{24}{0}{4}
+\beamer@sectionintoc {5}{กิจกรรมในชั้นเรียน (แบบฝึกหัดทำในห้อง)}{28}{0}{5}

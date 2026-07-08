@@ -19,6 +19,50 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global/global}
+    \entry{anton2019linear}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=a9468ec1d67f7ac3ff08cd5f7fa6d940}{%
+           family={Anton},
+           familyi={A\bibinitperiod},
+           given={Howard},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f46e2d98d112908202c5a67b5c9b6036}{%
+           family={Rorres},
+           familyi={R\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cd0612bdd1659aa98e55a8ace39b1af0}{%
+           family={Kaul},
+           familyi={K\bibinitperiod},
+           given={Anton},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{926f49e20a76cb1900739bd4d77d14dc}
+      \strng{fullhash}{926f49e20a76cb1900739bd4d77d14dc}
+      \strng{fullhashraw}{926f49e20a76cb1900739bd4d77d14dc}
+      \strng{bibnamehash}{926f49e20a76cb1900739bd4d77d14dc}
+      \strng{authorbibnamehash}{926f49e20a76cb1900739bd4d77d14dc}
+      \strng{authornamehash}{926f49e20a76cb1900739bd4d77d14dc}
+      \strng{authorfullhash}{926f49e20a76cb1900739bd4d77d14dc}
+      \strng{authorfullhashraw}{926f49e20a76cb1900739bd4d77d14dc}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{12}
+      \field{isbn}{9781119282365}
+      \field{title}{Elementary Linear Algebra: Applications Version}
+      \field{year}{2019}
+    \endentry
     \entry{aristotle_organon}{book}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=798a01f212a8e620a6940400717a56d9}{%
@@ -62,6 +106,7 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{note}{ฉบับแปลคลาสสิก (Loeb)}
       \field{series}{Loeb Classical Library}
       \field{title}{The Organon}
       \field{year}{1938}
@@ -97,8 +142,150 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{note}{หนังสือคลาสสิกก่อนยุค ISBN}
       \field{title}{An Investigation of the Laws of Thought}
       \field{year}{1854}
+    \endentry
+    \entry{copi2014logic}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=070d1afdab00000750ae4a5d761f04c5}{%
+           family={Copi},
+           familyi={C\bibinitperiod},
+           given={Irving\bibnamedelima M.},
+           giveni={I\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b616ab8ef21de12496e6a2c98d8c4765}{%
+           family={Cohen},
+           familyi={C\bibinitperiod},
+           given={Carl},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a2cd0db3b7fd326fb52dd1e81a7e28f4}{%
+           family={McMahon},
+           familyi={M\bibinitperiod},
+           given={Kenneth},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Routledge}%
+      }
+      \strng{namehash}{50554f28d01237041ae13f795ade2741}
+      \strng{fullhash}{50554f28d01237041ae13f795ade2741}
+      \strng{fullhashraw}{50554f28d01237041ae13f795ade2741}
+      \strng{bibnamehash}{50554f28d01237041ae13f795ade2741}
+      \strng{authorbibnamehash}{50554f28d01237041ae13f795ade2741}
+      \strng{authornamehash}{50554f28d01237041ae13f795ade2741}
+      \strng{authorfullhash}{50554f28d01237041ae13f795ade2741}
+      \strng{authorfullhashraw}{50554f28d01237041ae13f795ade2741}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{14}
+      \field{isbn}{9781292024820}
+      \field{title}{Introduction to Logic}
+      \field{year}{2014}
+    \endentry
+    \entry{enderton1977settheory}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b50c15602a78b51cbc6946ab32488502}{%
+           family={Enderton},
+           familyi={E\bibinitperiod},
+           given={Herbert\bibnamedelima B.},
+           giveni={H\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press}%
+      }
+      \strng{namehash}{b50c15602a78b51cbc6946ab32488502}
+      \strng{fullhash}{b50c15602a78b51cbc6946ab32488502}
+      \strng{fullhashraw}{b50c15602a78b51cbc6946ab32488502}
+      \strng{bibnamehash}{b50c15602a78b51cbc6946ab32488502}
+      \strng{authorbibnamehash}{b50c15602a78b51cbc6946ab32488502}
+      \strng{authornamehash}{b50c15602a78b51cbc6946ab32488502}
+      \strng{authorfullhash}{b50c15602a78b51cbc6946ab32488502}
+      \strng{authorfullhashraw}{b50c15602a78b51cbc6946ab32488502}
+      \field{extraname}{1}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780122384400}
+      \field{title}{Elements of Set Theory}
+      \field{year}{1977}
+    \endentry
+    \entry{enderton2001logic}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b50c15602a78b51cbc6946ab32488502}{%
+           family={Enderton},
+           familyi={E\bibinitperiod},
+           given={Herbert\bibnamedelima B.},
+           giveni={H\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press}%
+      }
+      \strng{namehash}{b50c15602a78b51cbc6946ab32488502}
+      \strng{fullhash}{b50c15602a78b51cbc6946ab32488502}
+      \strng{fullhashraw}{b50c15602a78b51cbc6946ab32488502}
+      \strng{bibnamehash}{b50c15602a78b51cbc6946ab32488502}
+      \strng{authorbibnamehash}{b50c15602a78b51cbc6946ab32488502}
+      \strng{authornamehash}{b50c15602a78b51cbc6946ab32488502}
+      \strng{authorfullhash}{b50c15602a78b51cbc6946ab32488502}
+      \strng{authorfullhashraw}{b50c15602a78b51cbc6946ab32488502}
+      \field{extraname}{2}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{isbn}{9780122384523}
+      \field{title}{A Mathematical Introduction to Logic}
+      \field{year}{2001}
+    \endentry
+    \entry{epp2019discrete}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3736764aac24f7b133984c841cec4fbb}{%
+           family={Epp},
+           familyi={E\bibinitperiod},
+           given={Susanna\bibnamedelima S.},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cengage Learning}%
+      }
+      \strng{namehash}{3736764aac24f7b133984c841cec4fbb}
+      \strng{fullhash}{3736764aac24f7b133984c841cec4fbb}
+      \strng{fullhashraw}{3736764aac24f7b133984c841cec4fbb}
+      \strng{bibnamehash}{3736764aac24f7b133984c841cec4fbb}
+      \strng{authorbibnamehash}{3736764aac24f7b133984c841cec4fbb}
+      \strng{authornamehash}{3736764aac24f7b133984c841cec4fbb}
+      \strng{authorfullhash}{3736764aac24f7b133984c841cec4fbb}
+      \strng{authorfullhashraw}{3736764aac24f7b133984c841cec4fbb}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{5}
+      \field{isbn}{9781337694193}
+      \field{title}{Discrete Mathematics with Applications}
+      \field{year}{2019}
     \endentry
     \entry{frege1879begriffsschrift}{book}{}{}
       \name{author}{1}{}{%
@@ -130,8 +317,41 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{note}{หนังสือคลาสสิกก่อนยุค ISBN}
       \field{title}{Begriffsschrift: Eine der arithmetischen nachgebildete Formelsprache des reinen Denkens}
       \field{year}{1879}
+    \endentry
+    \entry{gersting2014structures}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=86022c3394876e6af6c64e7f1a064718}{%
+           family={Gersting},
+           familyi={G\bibinitperiod},
+           given={Judith\bibnamedelima L.},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {W. H. Freeman}%
+      }
+      \strng{namehash}{86022c3394876e6af6c64e7f1a064718}
+      \strng{fullhash}{86022c3394876e6af6c64e7f1a064718}
+      \strng{fullhashraw}{86022c3394876e6af6c64e7f1a064718}
+      \strng{bibnamehash}{86022c3394876e6af6c64e7f1a064718}
+      \strng{authorbibnamehash}{86022c3394876e6af6c64e7f1a064718}
+      \strng{authornamehash}{86022c3394876e6af6c64e7f1a064718}
+      \strng{authorfullhash}{86022c3394876e6af6c64e7f1a064718}
+      \strng{authorfullhashraw}{86022c3394876e6af6c64e7f1a064718}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{7}
+      \field{isbn}{9781429215107}
+      \field{title}{Mathematical Structures for Computer Science}
+      \field{year}{2014}
     \endentry
     \entry{grimaldi2004discrete}{book}{}{}
       \name{author}{1}{}{%
@@ -164,7 +384,345 @@
       \field{isbn}{9780201726343}
       \field{title}{Discrete and Combinatorial Mathematics: An Applied Introduction}
       \field{year}{2004}
-      \true{nocite}
+    \endentry
+    \entry{halmos1974naive}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3e3b06fe668f747ab6cdfd2350c76385}{%
+           family={Halmos},
+           familyi={H\bibinitperiod},
+           given={Paul\bibnamedelima R.},
+           giveni={P\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{3e3b06fe668f747ab6cdfd2350c76385}
+      \strng{fullhash}{3e3b06fe668f747ab6cdfd2350c76385}
+      \strng{fullhashraw}{3e3b06fe668f747ab6cdfd2350c76385}
+      \strng{bibnamehash}{3e3b06fe668f747ab6cdfd2350c76385}
+      \strng{authorbibnamehash}{3e3b06fe668f747ab6cdfd2350c76385}
+      \strng{authornamehash}{3e3b06fe668f747ab6cdfd2350c76385}
+      \strng{authorfullhash}{3e3b06fe668f747ab6cdfd2350c76385}
+      \strng{authorfullhashraw}{3e3b06fe668f747ab6cdfd2350c76385}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780387900926}
+      \field{series}{Undergraduate Texts in Mathematics}
+      \field{title}{Naive Set Theory}
+      \field{year}{1974}
+    \endentry
+    \entry{hurley2024logic}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=70b9fae9898cae133bf8f2d59593f50c}{%
+           family={Hurley},
+           familyi={H\bibinitperiod},
+           given={Patrick\bibnamedelima J.},
+           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4b3bfe83d211e78983f368346308cd4d}{%
+           family={Watson},
+           familyi={W\bibinitperiod},
+           given={Lori},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cengage Learning}%
+      }
+      \strng{namehash}{291483502a0e25042ebfbd80a9725e40}
+      \strng{fullhash}{291483502a0e25042ebfbd80a9725e40}
+      \strng{fullhashraw}{291483502a0e25042ebfbd80a9725e40}
+      \strng{bibnamehash}{291483502a0e25042ebfbd80a9725e40}
+      \strng{authorbibnamehash}{291483502a0e25042ebfbd80a9725e40}
+      \strng{authornamehash}{291483502a0e25042ebfbd80a9725e40}
+      \strng{authorfullhash}{291483502a0e25042ebfbd80a9725e40}
+      \strng{authorfullhashraw}{291483502a0e25042ebfbd80a9725e40}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{14}
+      \field{isbn}{9780357798683}
+      \field{title}{A Concise Introduction to Logic}
+      \field{year}{2024}
+    \endentry
+    \entry{johnsonbaugh2016discrete}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=05ef8a5a954eeb09017f061c8c0a98ed}{%
+           family={Johnsonbaugh},
+           familyi={J\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson}%
+      }
+      \strng{namehash}{05ef8a5a954eeb09017f061c8c0a98ed}
+      \strng{fullhash}{05ef8a5a954eeb09017f061c8c0a98ed}
+      \strng{fullhashraw}{05ef8a5a954eeb09017f061c8c0a98ed}
+      \strng{bibnamehash}{05ef8a5a954eeb09017f061c8c0a98ed}
+      \strng{authorbibnamehash}{05ef8a5a954eeb09017f061c8c0a98ed}
+      \strng{authornamehash}{05ef8a5a954eeb09017f061c8c0a98ed}
+      \strng{authorfullhash}{05ef8a5a954eeb09017f061c8c0a98ed}
+      \strng{authorfullhashraw}{05ef8a5a954eeb09017f061c8c0a98ed}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{8}
+      \field{isbn}{9780321964687}
+      \field{title}{Discrete Mathematics}
+      \field{year}{2016}
+    \endentry
+    \entry{katanyukul2022awareness}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=ddecaf88fcf0d5c2fe87924eaa33fd0d}{%
+           family={Katanyukul},
+           familyi={K\bibinitperiod},
+           given={Tatpong},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9fd82f4b6c4a80d4a9ecf544062708e0}{%
+           family={Nakjai},
+           familyi={N\bibinitperiod},
+           given={Pisit},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8fcfa485afe5a27747d6f4866e83db5b}
+      \strng{fullhash}{8fcfa485afe5a27747d6f4866e83db5b}
+      \strng{fullhashraw}{8fcfa485afe5a27747d6f4866e83db5b}
+      \strng{bibnamehash}{8fcfa485afe5a27747d6f4866e83db5b}
+      \strng{authorbibnamehash}{8fcfa485afe5a27747d6f4866e83db5b}
+      \strng{authornamehash}{8fcfa485afe5a27747d6f4866e83db5b}
+      \strng{authorfullhash}{8fcfa485afe5a27747d6f4866e83db5b}
+      \strng{authorfullhashraw}{8fcfa485afe5a27747d6f4866e83db5b}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Heliyon}
+      \field{number}{4}
+      \field{title}{Recognition Awareness: Adding Awareness to Pattern Recognition Using Latent Cognizance}
+      \field{volume}{8}
+      \field{year}{2022}
+      \field{pages}{e09240}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1016/j.heliyon.2022.e09240
+      \endverb
+    \endentry
+    \entry{kolman2008discrete}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=6f8a36b19cd943453cc66a68921f9d10}{%
+           family={Kolman},
+           familyi={K\bibinitperiod},
+           given={Bernard},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=89a8bfdf3f0cc26dc071ea4309961e09}{%
+           family={Busby},
+           familyi={B\bibinitperiod},
+           given={Robert\bibnamedelima C.},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dcb4935fc79b5f87c4d343a650a0c2f0}{%
+           family={Ross},
+           familyi={R\bibinitperiod},
+           given={Sharon\bibnamedelima Cutler},
+           giveni={S\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson}%
+      }
+      \strng{namehash}{2ec9a08fa1c474142cb2405523453d7f}
+      \strng{fullhash}{2ec9a08fa1c474142cb2405523453d7f}
+      \strng{fullhashraw}{2ec9a08fa1c474142cb2405523453d7f}
+      \strng{bibnamehash}{2ec9a08fa1c474142cb2405523453d7f}
+      \strng{authorbibnamehash}{2ec9a08fa1c474142cb2405523453d7f}
+      \strng{authornamehash}{2ec9a08fa1c474142cb2405523453d7f}
+      \strng{authorfullhash}{2ec9a08fa1c474142cb2405523453d7f}
+      \strng{authorfullhashraw}{2ec9a08fa1c474142cb2405523453d7f}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{6}
+      \field{isbn}{9780132297516}
+      \field{title}{Discrete Mathematical Structures}
+      \field{year}{2008}
+    \endentry
+    \entry{lay2021linear}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=1,uniquepart=given,hash=812abe9ca02b74c73eeaa68f66c0a1cb}{%
+           family={Lay},
+           familyi={L\bibinitperiod},
+           given={David\bibnamedelima C.},
+           giveni={D\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=1}}%
+        {{un=1,uniquepart=given,hash=ed0b20b6deb4115de7fe20d2cd219114}{%
+           family={Lay},
+           familyi={L\bibinitperiod},
+           given={Steven\bibnamedelima R.},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=60ec90fead91f4236fe55fa0e89f9eb2}{%
+           family={McDonald},
+           familyi={M\bibinitperiod},
+           given={Judi\bibnamedelima J.},
+           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson}%
+      }
+      \strng{namehash}{31ae000fbbb50761ebe90ebcd9573965}
+      \strng{fullhash}{31ae000fbbb50761ebe90ebcd9573965}
+      \strng{fullhashraw}{31ae000fbbb50761ebe90ebcd9573965}
+      \strng{bibnamehash}{31ae000fbbb50761ebe90ebcd9573965}
+      \strng{authorbibnamehash}{31ae000fbbb50761ebe90ebcd9573965}
+      \strng{authornamehash}{31ae000fbbb50761ebe90ebcd9573965}
+      \strng{authorfullhash}{31ae000fbbb50761ebe90ebcd9573965}
+      \strng{authorfullhashraw}{31ae000fbbb50761ebe90ebcd9573965}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{6}
+      \field{isbn}{9780135851258}
+      \field{title}{Linear Algebra and Its Applications}
+      \field{year}{2021}
+    \endentry
+    \entry{lipschutz1998settheory}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e34b010c55f77baaac2ce9b6ffc890a7}{%
+           family={Lipschutz},
+           familyi={L\bibinitperiod},
+           given={Seymour},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {McGraw-Hill}%
+      }
+      \strng{namehash}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{fullhash}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{fullhashraw}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{bibnamehash}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{authorbibnamehash}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{authornamehash}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{authorfullhash}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \strng{authorfullhashraw}{e34b010c55f77baaac2ce9b6ffc890a7}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{isbn}{9780070381599}
+      \field{title}{Schaum's Outline of Theory and Problems of Set Theory and Related Topics}
+      \field{year}{1998}
+    \endentry
+    \entry{lipschutz2009discrete}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e34b010c55f77baaac2ce9b6ffc890a7}{%
+           family={Lipschutz},
+           familyi={L\bibinitperiod},
+           given={Seymour},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=211f52a6ca1a1afe6fa10f678e2becdd}{%
+           family={Lipson},
+           familyi={L\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {McGraw-Hill}%
+      }
+      \strng{namehash}{17212bacfcbf61057a2a763e210e348b}
+      \strng{fullhash}{17212bacfcbf61057a2a763e210e348b}
+      \strng{fullhashraw}{17212bacfcbf61057a2a763e210e348b}
+      \strng{bibnamehash}{17212bacfcbf61057a2a763e210e348b}
+      \strng{authorbibnamehash}{17212bacfcbf61057a2a763e210e348b}
+      \strng{authornamehash}{17212bacfcbf61057a2a763e210e348b}
+      \strng{authorfullhash}{17212bacfcbf61057a2a763e210e348b}
+      \strng{authorfullhashraw}{17212bacfcbf61057a2a763e210e348b}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{isbn}{9780071615860}
+      \field{title}{Schaum's Outline of Discrete Mathematics}
+      \field{year}{2009}
+    \endentry
+    \entry{mano2018digital}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=46fea9135c7ba6a32ff1307e9b6a4620}{%
+           family={Mano},
+           familyi={M\bibinitperiod},
+           given={M.\bibnamedelimi Morris},
+           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7f7353fbfe4d9380df334b415c59139b}{%
+           family={Ciletti},
+           familyi={C\bibinitperiod},
+           given={Michael\bibnamedelima D.},
+           giveni={M\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson}%
+      }
+      \strng{namehash}{add69a3d7687d7a97443134306b0e529}
+      \strng{fullhash}{add69a3d7687d7a97443134306b0e529}
+      \strng{fullhashraw}{add69a3d7687d7a97443134306b0e529}
+      \strng{bibnamehash}{add69a3d7687d7a97443134306b0e529}
+      \strng{authorbibnamehash}{add69a3d7687d7a97443134306b0e529}
+      \strng{authornamehash}{add69a3d7687d7a97443134306b0e529}
+      \strng{authorfullhash}{add69a3d7687d7a97443134306b0e529}
+      \strng{authorfullhashraw}{add69a3d7687d7a97443134306b0e529}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{6}
+      \field{isbn}{9780134549897}
+      \field{title}{Digital Design: With an Introduction to the Verilog HDL, VHDL, and SystemVerilog}
+      \field{year}{2018}
     \endentry
     \entry{mendelson2015introduction}{book}{}{}
       \name{author}{1}{}{%
@@ -194,11 +752,172 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{6}
+      \field{isbn}{9781482237726}
       \field{title}{Introduction to Mathematical Logic}
       \field{year}{2015}
       \verb{doi}
       \verb 10.1201/b18519
       \endverb
+    \endentry
+    \entry{nakjai2018latent}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=9fd82f4b6c4a80d4a9ecf544062708e0}{%
+           family={Nakjai},
+           familyi={N\bibinitperiod},
+           given={Pisit},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ddecaf88fcf0d5c2fe87924eaa33fd0d}{%
+           family={Katanyukul},
+           familyi={K\bibinitperiod},
+           given={Tatpong},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{fullhash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{fullhashraw}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{bibnamehash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{authorbibnamehash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{authornamehash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{authorfullhash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{authorfullhashraw}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \field{extraname}{1}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Artificial Neural Networks in Pattern Recognition (ANNPR 2018)}
+      \field{series}{Lecture Notes in Computer Science}
+      \field{title}{Automatic Hand Sign Recognition: Identify Unusuality through Latent Cognizance}
+      \field{volume}{11081}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.1007/978-3-319-99978-4_20
+      \endverb
+    \endentry
+    \entry{nakjai2019handsign}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=9fd82f4b6c4a80d4a9ecf544062708e0}{%
+           family={Nakjai},
+           familyi={N\bibinitperiod},
+           given={Pisit},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ddecaf88fcf0d5c2fe87924eaa33fd0d}{%
+           family={Katanyukul},
+           familyi={K\bibinitperiod},
+           given={Tatpong},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{fullhash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{fullhashraw}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{bibnamehash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{authorbibnamehash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{authornamehash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{authorfullhash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{authorfullhashraw}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \field{extraname}{2}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Signal Processing Systems}
+      \field{number}{2}
+      \field{title}{Hand Sign Recognition for {Thai} Finger Spelling: An Application of Convolution Neural Network}
+      \field{volume}{91}
+      \field{year}{2019}
+      \field{pages}{131\bibrangedash 146}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1007/s11265-018-1375-6
+      \endverb
+    \endentry
+    \entry{nakjai2019yolo}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=9fd82f4b6c4a80d4a9ecf544062708e0}{%
+           family={Nakjai},
+           familyi={N\bibinitperiod},
+           given={Pisit},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8dcf35a95a95d1a9c89ea3b1ce84cd93}{%
+           family={Maneerat},
+           familyi={M\bibinitperiod},
+           given={Patcharee},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ddecaf88fcf0d5c2fe87924eaa33fd0d}{%
+           family={Katanyukul},
+           familyi={K\bibinitperiod},
+           given={Tatpong},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{343214b8d44cd013af0ef2704d0b113a}
+      \strng{fullhash}{343214b8d44cd013af0ef2704d0b113a}
+      \strng{fullhashraw}{343214b8d44cd013af0ef2704d0b113a}
+      \strng{bibnamehash}{343214b8d44cd013af0ef2704d0b113a}
+      \strng{authorbibnamehash}{343214b8d44cd013af0ef2704d0b113a}
+      \strng{authornamehash}{343214b8d44cd013af0ef2704d0b113a}
+      \strng{authorfullhash}{343214b8d44cd013af0ef2704d0b113a}
+      \strng{authorfullhashraw}{343214b8d44cd013af0ef2704d0b113a}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 11th International Conference on Computer Modeling and Simulation (ICCMS)}
+      \field{title}{{Thai} Finger Spelling Localization and Classification under Complex Background Using a {YOLO}-based Deep Learning}
+      \field{year}{2019}
+    \endentry
+    \entry{patterson2020organization}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=95486d328725c1c6a933929c9442fe2a}{%
+           family={Patterson},
+           familyi={P\bibinitperiod},
+           given={David\bibnamedelima A.},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4a72d9e0de431dadafab463df2ea7b0f}{%
+           family={Hennessy},
+           familyi={H\bibinitperiod},
+           given={John\bibnamedelima L.},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Morgan Kaufmann}%
+      }
+      \strng{namehash}{80dcd96d4af78aec55cda074050a4718}
+      \strng{fullhash}{80dcd96d4af78aec55cda074050a4718}
+      \strng{fullhashraw}{80dcd96d4af78aec55cda074050a4718}
+      \strng{bibnamehash}{80dcd96d4af78aec55cda074050a4718}
+      \strng{authorbibnamehash}{80dcd96d4af78aec55cda074050a4718}
+      \strng{authornamehash}{80dcd96d4af78aec55cda074050a4718}
+      \strng{authorfullhash}{80dcd96d4af78aec55cda074050a4718}
+      \strng{authorfullhashraw}{80dcd96d4af78aec55cda074050a4718}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{isbn}{9780128203316}
+      \field{title}{Computer Organization and Design RISC-V Edition: The Hardware/Software Interface}
+      \field{year}{2020}
     \endentry
     \entry{rosen2019discrete}{book}{}{}
       \name{author}{1}{}{%
@@ -231,6 +950,184 @@
       \field{isbn}{9781259676512}
       \field{title}{Discrete Mathematics and Its Applications}
       \field{year}{2019}
+    \endentry
+    \entry{roth2021logic}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=96b5595218e5e4b83b0035573b317f12}{%
+           family={Roth},
+           familyi={R\bibinitperiod},
+           given={Charles\bibnamedelima H.},
+           giveni={C\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=41b8c983d565ef33c7041d90874e997c}{%
+           family={Kinney},
+           familyi={K\bibinitperiod},
+           given={Larry\bibnamedelima L.},
+           giveni={L\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bf5c75470f0632e4bb907c8a6c194b47}{%
+           family={John},
+           familyi={J\bibinitperiod},
+           given={Eugene\bibnamedelima B.},
+           giveni={E\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cengage Learning}%
+      }
+      \strng{namehash}{028b0085933e0b98ffef002a1a029934}
+      \strng{fullhash}{028b0085933e0b98ffef002a1a029934}
+      \strng{fullhashraw}{028b0085933e0b98ffef002a1a029934}
+      \strng{bibnamehash}{028b0085933e0b98ffef002a1a029934}
+      \strng{authorbibnamehash}{028b0085933e0b98ffef002a1a029934}
+      \strng{authornamehash}{028b0085933e0b98ffef002a1a029934}
+      \strng{authorfullhash}{028b0085933e0b98ffef002a1a029934}
+      \strng{authorfullhashraw}{028b0085933e0b98ffef002a1a029934}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{7}
+      \field{isbn}{9781337620352}
+      \field{note}{Enhanced Edition}
+      \field{title}{Fundamentals of Logic Design}
+      \field{year}{2021}
+    \endentry
+    \entry{strang2023linear}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=93733dfde0c47db226efad798ab3b662}{%
+           family={Strang},
+           familyi={S\bibinitperiod},
+           given={Gilbert},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wellesley-Cambridge Press}%
+      }
+      \strng{namehash}{93733dfde0c47db226efad798ab3b662}
+      \strng{fullhash}{93733dfde0c47db226efad798ab3b662}
+      \strng{fullhashraw}{93733dfde0c47db226efad798ab3b662}
+      \strng{bibnamehash}{93733dfde0c47db226efad798ab3b662}
+      \strng{authorbibnamehash}{93733dfde0c47db226efad798ab3b662}
+      \strng{authornamehash}{93733dfde0c47db226efad798ab3b662}
+      \strng{authorfullhash}{93733dfde0c47db226efad798ab3b662}
+      \strng{authorfullhashraw}{93733dfde0c47db226efad798ab3b662}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{6}
+      \field{isbn}{9781733146678}
+      \field{title}{Introduction to Linear Algebra}
+      \field{year}{2023}
+    \endentry
+    \entry{tremblay1975structures}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=6015c47a8c5ab449f3611d960c803716}{%
+           family={Tremblay},
+           familyi={T\bibinitperiod},
+           given={Jean-Paul},
+           giveni={J\bibinithyphendelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=88cdf5f61a2a06b5e4845ac310428c9f}{%
+           family={Manohar},
+           familyi={M\bibinitperiod},
+           given={Ramamurthy},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {McGraw-Hill}%
+      }
+      \strng{namehash}{657d7aec54aa80d071e4b93eafe9cb06}
+      \strng{fullhash}{657d7aec54aa80d071e4b93eafe9cb06}
+      \strng{fullhashraw}{657d7aec54aa80d071e4b93eafe9cb06}
+      \strng{bibnamehash}{657d7aec54aa80d071e4b93eafe9cb06}
+      \strng{authorbibnamehash}{657d7aec54aa80d071e4b93eafe9cb06}
+      \strng{authornamehash}{657d7aec54aa80d071e4b93eafe9cb06}
+      \strng{authorfullhash}{657d7aec54aa80d071e4b93eafe9cb06}
+      \strng{authorfullhashraw}{657d7aec54aa80d071e4b93eafe9cb06}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780070651425}
+      \field{title}{Discrete Mathematical Structures with Applications to Computer Science}
+      \field{year}{1975}
+    \endentry
+    \entry{velleman2019prove}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=bfd9636c06b16192354491d06d060888}{%
+           family={Velleman},
+           familyi={V\bibinitperiod},
+           given={Daniel\bibnamedelima J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{bfd9636c06b16192354491d06d060888}
+      \strng{fullhash}{bfd9636c06b16192354491d06d060888}
+      \strng{fullhashraw}{bfd9636c06b16192354491d06d060888}
+      \strng{bibnamehash}{bfd9636c06b16192354491d06d060888}
+      \strng{authorbibnamehash}{bfd9636c06b16192354491d06d060888}
+      \strng{authornamehash}{bfd9636c06b16192354491d06d060888}
+      \strng{authorfullhash}{bfd9636c06b16192354491d06d060888}
+      \strng{authorfullhashraw}{bfd9636c06b16192354491d06d060888}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{isbn}{9781108424189}
+      \field{title}{How to Prove It: A Structured Approach}
+      \field{year}{2019}
+    \endentry
+    \entry{wakerly2018digital}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=aafa4dabfc878fac13647a201480b304}{%
+           family={Wakerly},
+           familyi={W\bibinitperiod},
+           given={John\bibnamedelima F.},
+           giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson}%
+      }
+      \strng{namehash}{aafa4dabfc878fac13647a201480b304}
+      \strng{fullhash}{aafa4dabfc878fac13647a201480b304}
+      \strng{fullhashraw}{aafa4dabfc878fac13647a201480b304}
+      \strng{bibnamehash}{aafa4dabfc878fac13647a201480b304}
+      \strng{authorbibnamehash}{aafa4dabfc878fac13647a201480b304}
+      \strng{authornamehash}{aafa4dabfc878fac13647a201480b304}
+      \strng{authorfullhash}{aafa4dabfc878fac13647a201480b304}
+      \strng{authorfullhashraw}{aafa4dabfc878fac13647a201480b304}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{5}
+      \field{isbn}{9780134460093}
+      \field{title}{Digital Design: Principles and Practices}
+      \field{year}{2018}
     \endentry
     \entry{russell1910principia}{book}{}{}
       \name{author}{2}{}{%
@@ -268,8 +1165,107 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{note}{หนังสือคลาสสิกก่อนยุค ISBN}
       \field{title}{Principia Mathematica}
       \field{year}{1910}
+    \endentry
+    \entry{saovon2553compmath}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0fafd5fbd5850a40c72a0d9b32aa1276}{%
+           family={{คณะกรรมการโครงการตำราวิทยาศาสตร์และคณิตศาสตร์ มูลนิธิ สอวน.}},
+           familyi={ค\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {กรุงเทพฯ}%
+      }
+      \list{publisher}{1}{%
+        {บริษัท ด่านสุทธาการพิมพ์ จำกัด}%
+      }
+      \strng{namehash}{0fafd5fbd5850a40c72a0d9b32aa1276}
+      \strng{fullhash}{0fafd5fbd5850a40c72a0d9b32aa1276}
+      \strng{fullhashraw}{0fafd5fbd5850a40c72a0d9b32aa1276}
+      \strng{bibnamehash}{0fafd5fbd5850a40c72a0d9b32aa1276}
+      \strng{authorbibnamehash}{0fafd5fbd5850a40c72a0d9b32aa1276}
+      \strng{authornamehash}{0fafd5fbd5850a40c72a0d9b32aa1276}
+      \strng{authorfullhash}{0fafd5fbd5850a40c72a0d9b32aa1276}
+      \strng{authorfullhashraw}{0fafd5fbd5850a40c72a0d9b32aa1276}
+      \field{extraname}{1}
+      \field{sortinit}{ค}
+      \field{sortinithash}{b9457bd0856d24aa4054ac614be061ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{พิมพ์ครั้งที่ 3}
+      \field{title}{คณิตศาสตร์พื้นฐานสำหรับคอมพิวเตอร์}
+      \field{year}{2553}
+      \true{nocite}
+    \endentry
+    \entry{saovon2556compmath}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0fafd5fbd5850a40c72a0d9b32aa1276}{%
+           family={{คณะกรรมการโครงการตำราวิทยาศาสตร์และคณิตศาสตร์ มูลนิธิ สอวน.}},
+           familyi={ค\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {กรุงเทพฯ}%
+      }
+      \list{publisher}{1}{%
+        {บริษัท ด่านสุทธาการพิมพ์ จำกัด}%
+      }
+      \strng{namehash}{0fafd5fbd5850a40c72a0d9b32aa1276}
+      \strng{fullhash}{0fafd5fbd5850a40c72a0d9b32aa1276}
+      \strng{fullhashraw}{0fafd5fbd5850a40c72a0d9b32aa1276}
+      \strng{bibnamehash}{0fafd5fbd5850a40c72a0d9b32aa1276}
+      \strng{authorbibnamehash}{0fafd5fbd5850a40c72a0d9b32aa1276}
+      \strng{authornamehash}{0fafd5fbd5850a40c72a0d9b32aa1276}
+      \strng{authorfullhash}{0fafd5fbd5850a40c72a0d9b32aa1276}
+      \strng{authorfullhashraw}{0fafd5fbd5850a40c72a0d9b32aa1276}
+      \field{extraname}{2}
+      \field{sortinit}{ค}
+      \field{sortinithash}{b9457bd0856d24aa4054ac614be061ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{พิมพ์ครั้งที่ 4}
+      \field{title}{คณิตศาสตร์พื้นฐานสำหรับคอมพิวเตอร์}
+      \field{year}{2556}
+      \true{nocite}
+    \endentry
+    \entry{limtrakul2538commath}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=bd35ed0d60f28e9028603b9a49ddca3c}{%
+           family={{อุ่นใจ ลิมตระกูล}},
+           familyi={อุ่\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {กรุงเทพฯ}%
+      }
+      \list{publisher}{1}{%
+        {สำนักพิมพ์ภูมิบัณฑิต}%
+      }
+      \strng{namehash}{bd35ed0d60f28e9028603b9a49ddca3c}
+      \strng{fullhash}{bd35ed0d60f28e9028603b9a49ddca3c}
+      \strng{fullhashraw}{bd35ed0d60f28e9028603b9a49ddca3c}
+      \strng{bibnamehash}{bd35ed0d60f28e9028603b9a49ddca3c}
+      \strng{authorbibnamehash}{bd35ed0d60f28e9028603b9a49ddca3c}
+      \strng{authornamehash}{bd35ed0d60f28e9028603b9a49ddca3c}
+      \strng{authorfullhash}{bd35ed0d60f28e9028603b9a49ddca3c}
+      \strng{authorfullhashraw}{bd35ed0d60f28e9028603b9a49ddca3c}
+      \field{sortinit}{อุ่}
+      \field{sortinithash}{b34055ef4650e7dc88c0b05e9b513f19}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{พิมพ์ครั้งที่ 1}
+      \field{title}{คณิตศาสตร์คอมพิวเตอร์}
+      \field{year}{2538}
+      \true{nocite}
     \endentry
   \enddatalist
 \endrefsection

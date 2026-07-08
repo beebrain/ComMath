@@ -1,0 +1,21 @@
+% 09 — XOR gate with truth table and symbolic definition
+\begin{tikzpicture}[line width=1pt,>={Stealth[length=2.4mm]},font=\itshape]
+  \ctikzset{bipoles/length=0.9cm}
+  \draw[navy] (0,1) node[left,black]{$p$} to[nos] (2.1,1);
+  \draw[navy] (0,-1) node[left,black]{$q$} to[nos] (2.1,-1);
+  \node[xor gate US,draw,fill=lpurple,draw=vpurple,line width=1.4pt,scale=2.3] (G) at (3.8,0) {};
+  \node[font=\large\upshape] at ([xshift=2pt]G.center) {$\oplus$};
+  \draw[navy] (2.1,1) |- (G.input 1);
+  \draw[navy] (2.1,-1) |- (G.input 2);
+  \draw[navy] (G.output) -- ++(1,0) to[lamp,l_=\upshape output] ++(2.2,0);
+  % truth table to the right
+  \matrix[ttmatrix,right=6mm of G.east,anchor=west,yshift=-2mm] {
+    |[tthead]| $p$ \& |[tthead]| $q$ \& |[tthead]| $p\oplus q$ \\
+    |[TvalR]| T \& |[TvalR]| T \& |[FvalR]| F \\
+    |[TvalG]| T \& |[FvalG]| F \& |[TvalG]| T \\
+    |[FvalG]| F \& |[TvalG]| T \& |[TvalG]| T \\
+    |[FvalR]| F \& |[FvalR]| F \& |[FvalR]| F \\
+  };
+  \node[formula,below=11mm of G.south,anchor=north,xshift=14mm,font=\itshape]
+        {$p \oplus q \;\equiv\; (p \lor q) \land \lnot(p \land q)$};
+\end{tikzpicture}

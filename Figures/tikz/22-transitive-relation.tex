@@ -1,0 +1,23 @@
+% 22 — Transitive relation: a->b, b->c force a->c (green arc)
+\begin{tikzpicture}[font=\itshape,>={Stealth[length=2.4mm]}]
+  \node[vtx] (a) at (-2.6,0) {a};
+  \node[vtx] (b) at (0,0) {b};
+  \node[vtx] (c) at (2.6,0) {c};
+  \draw[diredge] (a) -- (b);
+  \draw[diredge] (b) -- (c);
+  \draw[diredge,Tgreen,line width=1.6pt] (a) to[bend left=45] (c);
+  \node[Tgreen,font=\large\upshape] at (0,2.2) {\cmark};
+  \node[draw=gray,line width=1pt,rounded corners=3pt,fill=cellgray,
+        right=12mm of c,anchor=west,inner sep=3mm]
+    {$a\,R\,b \,\land\, b\,R\,c \implies a\,R\,c$};
+  % counter-example inset
+  \begin{scope}[shift={(-1.3,-2.6)},scale=0.62]
+    \node[vtx,draw=gray] (x) at (-2.6,0) {a};
+    \node[vtx,draw=gray] (y) at (0,0) {b};
+    \node[vtx,draw=gray] (z) at (2.6,0) {c};
+    \draw[diredge,gray] (x) -- (y);
+    \draw[diredge,gray] (y) -- (z);
+    \node[Fred,font=\Large\upshape] at (3.7,0) {\xmark};
+  \end{scope}
+  \node[Fred,font=\small\upshape] at (3.3,-2.7) {ไม่ถ่ายทอด};
+\end{tikzpicture}

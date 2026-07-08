@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bcf:controlfile version="3.10" bltxversion="3.19" xmlns:bcf="https://sourceforge.net/projects/biblatex">
+<bcf:controlfile version="3.11" bltxversion="3.21" xmlns:bcf="https://sourceforge.net/projects/biblatex">
   <!-- BIBER OPTIONS -->
   <bcf:options component="biber" type="global">
     <bcf:option type="singlevalued">
@@ -538,6 +538,7 @@
     <bcf:option datatype="xml">inheritance</bcf:option>
     <bcf:option datatype="xml">translit</bcf:option>
     <bcf:option datatype="xml">uniquenametemplate</bcf:option>
+    <bcf:option datatype="xml">namehashtemplate</bcf:option>
     <bcf:option datatype="xml">sortingnamekeytemplate</bcf:option>
     <bcf:option datatype="xml">sortingtemplate</bcf:option>
     <bcf:option datatype="xml">extradatespec</bcf:option>
@@ -549,6 +550,7 @@
     <bcf:option datatype="string">alphaothers</bcf:option>
     <bcf:option datatype="string">sortalphaothers</bcf:option>
     <bcf:option datatype="string">presort</bcf:option>
+    <bcf:option datatype="string">citepagerange</bcf:option>
     <bcf:option datatype="string">texencoding</bcf:option>
     <bcf:option datatype="string">bibencoding</bcf:option>
     <bcf:option datatype="string">sortingtemplatename</bcf:option>
@@ -794,9 +796,10 @@
   </bcf:optionscope>
   <bcf:optionscope type="ENTRY">
     <bcf:option datatype="string">noinherit</bcf:option>
-    <bcf:option datatype="string" backendin="sortingnamekeytemplatename,uniquenametemplatename,labelalphanametemplatename">nametemplates</bcf:option>
+    <bcf:option datatype="string" backendin="sortingnamekeytemplatename,uniquenametemplatename,labelalphanametemplatename,namehashtemplatename">nametemplates</bcf:option>
     <bcf:option datatype="string" backendout="1">labelalphanametemplatename</bcf:option>
     <bcf:option datatype="string" backendout="1">uniquenametemplatename</bcf:option>
+    <bcf:option datatype="string" backendout="1">namehashtemplatename</bcf:option>
     <bcf:option datatype="string" backendout="1">sortingnamekeytemplatename</bcf:option>
     <bcf:option datatype="string">presort</bcf:option>
     <bcf:option datatype="string" backendout="1">indexing</bcf:option>
@@ -877,9 +880,10 @@
     <bcf:option datatype="integer" backendout="1">minalphanames</bcf:option>
   </bcf:optionscope>
   <bcf:optionscope type="NAMELIST">
-    <bcf:option datatype="string" backendin="sortingnamekeytemplatename,uniquenametemplatename,labelalphanametemplatename">nametemplates</bcf:option>
+    <bcf:option datatype="string" backendin="sortingnamekeytemplatename,uniquenametemplatename,labelalphanametemplatename,namehashtemplatename">nametemplates</bcf:option>
     <bcf:option datatype="string" backendout="1">labelalphanametemplatename</bcf:option>
     <bcf:option datatype="string" backendout="1">uniquenametemplatename</bcf:option>
+    <bcf:option datatype="string" backendout="1">namehashtemplatename</bcf:option>
     <bcf:option datatype="string" backendout="1">sortingnamekeytemplatename</bcf:option>
     <bcf:option datatype="string">uniquelist</bcf:option>
     <bcf:option datatype="string">uniquename</bcf:option>
@@ -893,9 +897,10 @@
     <bcf:option datatype="boolean" backendout="1">useprefix</bcf:option>
   </bcf:optionscope>
   <bcf:optionscope type="NAME">
-    <bcf:option datatype="string" backendin="sortingnamekeytemplatename,uniquenametemplatename,labelalphanametemplatename">nametemplates</bcf:option>
+    <bcf:option datatype="string" backendin="sortingnamekeytemplatename,uniquenametemplatename,labelalphanametemplatename,namehashtemplatename">nametemplates</bcf:option>
     <bcf:option datatype="string" backendout="1">labelalphanametemplatename</bcf:option>
     <bcf:option datatype="string" backendout="1">uniquenametemplatename</bcf:option>
+    <bcf:option datatype="string" backendout="1">namehashtemplatename</bcf:option>
     <bcf:option datatype="string" backendout="1">sortingnamekeytemplatename</bcf:option>
     <bcf:option datatype="string">uniquename</bcf:option>
     <bcf:option datatype="boolean" backendout="1">familyinits</bcf:option>
@@ -1119,6 +1124,13 @@
     <bcf:namepart order="2" base="1">family</bcf:namepart>
     <bcf:namepart order="3">given</bcf:namepart>
   </bcf:uniquenametemplate>
+  <!-- NAME HASH TEMPLATES -->
+  <bcf:namehashtemplate name="global">
+    <bcf:namepart order="1" hashscope="full">family</bcf:namepart>
+    <bcf:namepart order="2" hashscope="full">given</bcf:namepart>
+    <bcf:namepart order="3" hashscope="full">prefix</bcf:namepart>
+    <bcf:namepart order="4" hashscope="full">suffix</bcf:namepart>
+  </bcf:namehashtemplate>
   <!-- SORTING NAME KEY TEMPLATES -->
   <bcf:sortingnamekeytemplate name="global" visibility="sort">
     <bcf:keypart order="1">
@@ -2524,16 +2536,47 @@
   <!-- SECTION 0 -->
   <bcf:bibdata section="0">
     <bcf:datasource type="file" datatype="bibtex" glob="false">references.bib</bcf:datasource>
+    <bcf:datasource type="file" datatype="bibtex" glob="false">author_pubs.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1" intorder="1">aristotle_organon</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">boole1854investigation</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">frege1879begriffsschrift</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">russell1910principia</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">mendelson2015introduction</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">aristotle_organon</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">rosen2019discrete</bcf:citekey>
-    <bcf:citekey order="8" intorder="1" nocite="1">*</bcf:citekey>
+    <bcf:citekey order="1" intorder="1">enderton2001logic</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">velleman2019prove</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">copi2014logic</bcf:citekey>
+    <bcf:citekey order="3" intorder="2">hurley2024logic</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">aristotle_organon</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">boole1854investigation</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">frege1879begriffsschrift</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">russell1910principia</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">mendelson2015introduction</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">aristotle_organon</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">rosen2019discrete</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">halmos1974naive</bcf:citekey>
+    <bcf:citekey order="11" intorder="2">enderton1977settheory</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">lipschutz1998settheory</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">rosen2019discrete</bcf:citekey>
+    <bcf:citekey order="13" intorder="2">epp2019discrete</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">rosen2019discrete</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">kolman2008discrete</bcf:citekey>
+    <bcf:citekey order="15" intorder="2">lipschutz2009discrete</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">grimaldi2004discrete</bcf:citekey>
+    <bcf:citekey order="16" intorder="2">gersting2014structures</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">johnsonbaugh2016discrete</bcf:citekey>
+    <bcf:citekey order="17" intorder="2">tremblay1975structures</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">rosen2019discrete</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">mano2018digital</bcf:citekey>
+    <bcf:citekey order="19" intorder="2">wakerly2018digital</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">patterson2020organization</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">anton2019linear</bcf:citekey>
+    <bcf:citekey order="21" intorder="2">strang2023linear</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">lay2021linear</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">nakjai2019yolo</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">nakjai2019handsign</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">mano2018digital</bcf:citekey>
+    <bcf:citekey order="25" intorder="2">roth2021logic</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">nakjai2018latent</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">katanyukul2022awareness</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">wakerly2018digital</bcf:citekey>
+    <bcf:citekey order="29" intorder="1" nocite="1">*</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
@@ -2566,12 +2609,13 @@
   </bcf:sortingtemplate>
   <!-- DATALISTS -->
   <bcf:datalist section="0"
-                name="nyt/global//global/global"
+                name="nyt/global//global/global/global"
                 type="entry"
                 sortingtemplatename="nyt"
                 sortingnamekeytemplatename="global"
                 labelprefix=""
                 uniquenametemplatename="global"
-                labelalphanametemplatename="global">
+                labelalphanametemplatename="global"
+                namehashtemplatename="global">
   </bcf:datalist>
 </bcf:controlfile>

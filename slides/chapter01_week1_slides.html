@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 1 ตรรกศาสตร์ — สัปดาห์ที่ 1 · ประพจน์ ตัวเชื่อม และตารางค่าความจริง</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   LOGIC BLUEPRINT — Chapter 1 Logic, Week 1
+   คณิตศาสตร์สำหรับคอมพิวเตอร์ (4091606) · มหาวิทยาลัยราชภัฏอุตรดิตถ์
+   ===================================================================== */
+:root{
+  --paper:#F4EEDF; --paper2:#FCFAF3; --ink:#15203a; --ink-soft:#42506e;
+  --navy:#1F3A93; --navy2:#16265e; --navy3:#0e1a44;
+  --green:#2E8B57; --green2:#1f6b41;
+  --red:#C0392B; --red2:#962b20;
+  --gold:#B7950B; --gold2:#8a7008;
+  --lnavy:#E7ECF8; --mint:#E6F4EA; --pink:#FBE7E4; --cream:#FFF7DD; --lyellow:#FFF6D5;
+  --line:rgba(31,58,147,.16);
+  --line2:rgba(31,58,147,.30);
+  --f-head:'IBM Plex Sans Thai',sans-serif;
+  --f-body:'Sarabun',sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:var(--f-body);
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  overflow:hidden;
+}
+/* ---- atmospheric background: warm paper + blueprint grid + grain ---- */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(120% 90% at 12% 0%, #FAF5E7 0%, var(--paper) 55%, #ECE3CC 100%);
+}
+.bg::before{content:"";position:absolute;inset:0;opacity:.5;
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:46px 46px,46px 46px;
+  -webkit-mask-image:radial-gradient(120% 120% at 50% 40%,#000 55%,transparent 100%);
+          mask-image:radial-gradient(120% 120% at 50% 40%,#000 55%,transparent 100%);
+}
+.bg::after{content:"";position:absolute;inset:0;opacity:.045;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===================== stage / deck ===================== */
+#app{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100vh;width:100vw}
+.stage{position:relative;width:min(95.5vw,169vh);aspect-ratio:16/9;
+  background:var(--paper2);
+  border-radius:14px;
+  box-shadow:0 30px 70px -28px rgba(14,26,68,.55),0 2px 0 rgba(255,255,255,.6) inset,0 0 0 1px rgba(31,58,147,.10);
+  overflow:hidden;
+}
+.deck{position:absolute;inset:0}
+.slide{position:absolute;inset:0;display:none;container-type:size;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,0) 22%),
+    var(--paper2);
+}
+.slide.is-active{display:block}
+
+/* ===================== shared frame chrome ===================== */
+.head{display:flex;align-items:flex-end;gap:2cqw;
+  background:linear-gradient(100deg,var(--navy2),var(--navy));
+  color:#fff;padding:3.3cqh 5cqw 2.6cqh;position:relative}
+.head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:.65cqh;
+  background:linear-gradient(90deg,var(--gold) 0 16%,rgba(255,255,255,.25) 16% 100%)}
+.head .kick{font-family:var(--f-mono);font-size:1.75cqh;letter-spacing:.28em;
+  text-transform:uppercase;color:#cdd8f4;font-weight:500;display:block;margin-bottom:.5cqh}
+.head h2{font-family:var(--f-head);font-weight:700;font-size:4.7cqh;line-height:1.12;
+  letter-spacing:-.01em}
+.head h2 .en{font-weight:500;color:#b9c6ee;font-size:.74em}
+
+.body{position:absolute;top:0;left:0;right:0;bottom:0;
+  padding:14cqh 5.4cqw 6cqh;display:flex;flex-direction:column;justify-content:center;gap:2.7cqh;
+  font-size:3.05cqh;line-height:1.45;overflow:hidden}
+.body.tight{gap:1.75cqh}
+.body.top{justify-content:flex-start;padding-top:15cqh}
+.lead{color:var(--ink)}
+.muted{color:#6a7796}
+.tiny{font-size:2.35cqh;line-height:1.4}
+
+.foot{position:absolute;left:0;right:0;bottom:0;height:5cqh;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5.4cqw;font-size:1.95cqh;color:var(--navy);
+  font-family:var(--f-head);border-top:1px solid var(--line)}
+.foot .right{font-family:var(--f-mono);letter-spacing:.05em;color:#7884a4}
+.foot .dot{color:var(--gold);margin:0 .5em}
+
+/* ===================== typography helpers ===================== */
+b,strong{font-weight:700;color:var(--navy2)}
+.hl{color:var(--navy);font-weight:700}
+.gn{color:var(--green2);font-weight:700}
+.rd{color:var(--red2);font-weight:700}
+.gd{color:var(--gold2);font-weight:700}
+.q{color:var(--ink);font-style:normal}
+.q::before{content:"“"}.q::after{content:"”"}
+code,.mono{font-family:var(--f-mono);font-size:.9em}
+.code{font-family:var(--f-mono);background:var(--lnavy);color:var(--navy2);
+  padding:.05em .45em;border-radius:.3em;font-size:.82em;font-weight:500}
+
+/* logic glyphs */
+.op{font-family:var(--f-mono);font-weight:700;color:var(--navy)}
+.expr{font-family:var(--f-mono);font-weight:500;color:var(--ink);white-space:nowrap}
+.expr .v{font-style:italic;color:var(--navy2)}
+.vt{font-family:var(--f-mono);font-weight:700;color:var(--green2)}
+.vf{font-family:var(--f-mono);font-weight:700;color:var(--red2)}
+
+/* T / F result chips */
+.chip{display:inline-flex;align-items:center;justify-content:center;min-width:1.7em;
+  height:1.7em;padding:0 .5em;border-radius:.45em;font-family:var(--f-mono);
+  font-weight:700;color:#fff;font-size:.92em;vertical-align:middle;line-height:1}
+.chip.t{background:var(--green);box-shadow:0 .3cqh 0 var(--green2)}
+.chip.f{background:var(--red);box-shadow:0 .3cqh 0 var(--red2)}
+.arrow{color:#8b97b6;font-family:var(--f-mono);margin:0 .35em}
+
+/* ===================== lists ===================== */
+ul.bul,ol.num{list-style:none;display:flex;flex-direction:column;gap:1.85cqh}
+ul.bul li{position:relative;padding-left:2.6cqw}
+ul.bul li::before{content:"";position:absolute;left:0;top:.62em;width:1.05cqh;height:1.05cqh;
+  background:var(--navy);transform:rotate(45deg)}
+ul.sub{list-style:none;margin:.8cqh 0 0 2.6cqw;display:flex;flex-direction:column;gap:.7cqh;font-size:.92em}
+ul.sub li{position:relative;padding-left:2.4cqw;color:#41506f}
+ul.sub li::before{content:"–";position:absolute;left:0;color:var(--gold2);font-weight:700}
+ol.num{counter-reset:n}
+ol.num>li{position:relative;padding-left:4.4cqw;counter-increment:n}
+ol.num>li::before{content:counter(n);position:absolute;left:0;top:.05em;
+  width:3.1cqh;height:3.1cqh;border-radius:50%;background:var(--lnavy);color:var(--navy);
+  font-family:var(--f-mono);font-weight:700;font-size:.78em;
+  display:flex;align-items:center;justify-content:center;border:1px solid var(--line2)}
+.spread{justify-content:space-between !important}
+li .res{float:right;color:#8b97b6;font-family:var(--f-mono)}
+
+/* ===================== block cards ===================== */
+.block{border-radius:11px;padding:2.3cqh 2.7cqw;background:var(--lnavy);
+  border-left:.85cqh solid var(--navy);position:relative;
+  box-shadow:0 8px 20px -16px rgba(31,58,147,.6)}
+.block .lab{display:inline-flex;align-items:center;gap:.5em;font-family:var(--f-head);
+  font-weight:700;color:var(--navy);font-size:.82em;letter-spacing:.01em;margin-bottom:.7cqh;
+  text-transform:none}
+.block .lab .pin{font-family:var(--f-mono);font-size:.8em;background:var(--navy);color:#fff;
+  padding:.1em .55em;border-radius:.4em;letter-spacing:.12em}
+.block.ex{background:var(--mint);border-color:var(--green)}
+.block.ex .lab{color:var(--green2)} .block.ex .lab .pin{background:var(--green)}
+.block.al{background:var(--pink);border-color:var(--red)}
+.block.al .lab{color:var(--red2)} .block.al .lab .pin{background:var(--red)}
+.block.gold{background:var(--lyellow);border-color:var(--gold)}
+.block.gold .lab{color:var(--gold2)} .block.gold .lab .pin{background:var(--gold)}
+
+/* ===================== columns ===================== */
+.cols{display:grid;grid-template-columns:1.05fr .95fr;gap:3cqw;align-items:start}
+.cols.even{grid-template-columns:1fr 1fr}
+.col{display:flex;flex-direction:column;gap:1.6cqh}
+.center{align-items:center;text-align:center}
+
+/* timeline */
+.tl{display:flex;flex-direction:column;gap:1.4cqh;position:relative}
+.tl::before{content:"";position:absolute;left:5.4cqh;top:1cqh;bottom:1cqh;width:2px;
+  background:linear-gradient(var(--navy),var(--gold));opacity:.35}
+.tl-item{display:grid;grid-template-columns:11cqh 1fr;gap:1.6cqw;align-items:start;position:relative}
+.tl-item .yr{font-family:var(--f-mono);font-weight:700;font-size:1.95cqh;color:var(--navy);
+  background:#fff;border:1px solid var(--line2);border-radius:.5em;padding:.3em .2em;text-align:center;
+  box-shadow:0 4px 12px -8px rgba(31,58,147,.6);z-index:1}
+.tl-item .tx{font-size:2.55cqh;line-height:1.32;padding-top:.2cqh}
+.tl-item .tx .who{color:var(--navy2);font-weight:700}
+
+/* syllogism example */
+.syll{display:flex;flex-direction:column;gap:.85cqh;margin-top:.6cqh;font-size:2.55cqh}
+.syll .row{display:flex;gap:1cqw;align-items:baseline}
+.syll .t{flex:0 0 auto;min-width:11cqh;font-family:var(--f-head);font-weight:700;color:var(--green2);font-size:.85em}
+.syll .cc{border-top:1.5px dashed rgba(46,139,87,.55);padding-top:1cqh;margin-top:.3cqh;
+  font-weight:700;color:var(--navy2);display:flex;gap:.5cqw;align-items:baseline}
+.syll .cc .op{color:var(--green2);font-size:1.25em}
+
+/* illustration figure (image slot + graceful placeholder) */
+figure.figwrap{margin:0;display:flex;flex-direction:column;gap:.9cqh;width:100%}
+.fig{position:relative;width:100%;aspect-ratio:4/3;border-radius:14px;overflow:hidden;
+  background:linear-gradient(135deg,var(--lnavy),#fff);border:1.5px dashed var(--line2);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 16px 32px -20px rgba(31,58,147,.6)}
+.fig::after{content:"\1F5BC  รูปภาพประกอบ\A กำลังจัดทำ";white-space:pre;text-align:center;
+  font-family:var(--f-head);color:#93a0c0;font-size:2.15cqh;line-height:1.7;z-index:0;
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.fig:has(img:not(.missing))::after{display:none}
+.fig img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
+.fig img.missing{display:none}
+figure.figwrap figcaption{font-size:2.1cqh;color:#6a7796;text-align:center;font-family:var(--f-head)}
+figure.figwrap figcaption b{color:var(--navy)}
+
+/* ===================== truth tables ===================== */
+.tt-wrap{border-radius:12px;overflow:hidden;align-self:flex-start;background:#fff;
+  box-shadow:0 16px 32px -18px rgba(14,26,68,.5),0 0 0 1px var(--line2)}
+table.tt{border-collapse:collapse;font-family:var(--f-mono);width:100%}
+table.tt th,table.tt td{border:1px solid var(--line);padding:.8cqh 1.5cqw;text-align:center;
+  font-size:.92em;white-space:nowrap}
+table.tt thead th{background:linear-gradient(180deg,#2b4bb0,var(--navy2));color:#fff;
+  font-weight:700;border-color:rgba(255,255,255,.16);letter-spacing:.02em}
+table.tt thead th .op,table.tt thead th .v{color:#fff}
+table.tt tbody td{background:#fff;transition:background .2s}
+table.tt tbody tr:nth-child(even) td{background:#F6F8FE}
+table.tt tbody tr:hover td{background:var(--lnavy)}
+/* truth-value badges (only inside table cells) */
+table.tt td .vt,table.tt td .vf{display:inline-flex;align-items:center;justify-content:center;
+  min-width:1.75em;height:1.75em;border-radius:.5em;font-size:1em;font-weight:700;line-height:1;
+  transition:transform .2s}
+table.tt td .vt{background:var(--mint);color:var(--green2);box-shadow:inset 0 0 0 1.3px rgba(46,139,87,.32)}
+table.tt td .vf{background:var(--pink);color:var(--red2);box-shadow:inset 0 0 0 1.3px rgba(192,57,43,.32)}
+table.tt tbody tr:hover td .vt,table.tt tbody tr:hover td .vf{transform:scale(1.1)}
+table.tt tr.hi td{background:var(--lyellow) !important}
+table.tt.wide th,table.tt.wide td{padding:.62cqh 1.05cqw;font-size:.82em}
+/* equal-columns highlight (equivalence proof) */
+table.tt-eq td:nth-last-child(-n+2){background:rgba(183,149,11,.10)}
+table.tt-eq tbody tr:nth-child(even) td:nth-last-child(-n+2){background:rgba(183,149,11,.15)}
+table.tt-eq tbody tr:hover td:nth-last-child(-n+2){background:rgba(183,149,11,.22)}
+table.tt-eq thead th:nth-last-child(-n+2){box-shadow:inset 0 -.6cqh 0 var(--gold)}
+table.tt-eq td:nth-last-child(2),table.tt-eq th:nth-last-child(2){border-left:.35cqh solid var(--gold)}
+/* rows build in when slide opens */
+.slide.is-active .tt tbody tr{animation:rowin .5s both}
+.slide.is-active .tt tbody tr:nth-child(1){animation-delay:.18s}
+.slide.is-active .tt tbody tr:nth-child(2){animation-delay:.28s}
+.slide.is-active .tt tbody tr:nth-child(3){animation-delay:.38s}
+.slide.is-active .tt tbody tr:nth-child(4){animation-delay:.48s}
+.slide.is-active .tt tbody tr:nth-child(5){animation-delay:.58s}
+@keyframes rowin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.tt-cap{font-size:2.2cqh;color:#6a7796;margin-top:.4cqh;font-family:var(--f-head)}
+/* highlighter mark */
+.mark{position:relative;display:inline-block;z-index:0}
+.mark::before{content:"";position:absolute;left:-.18em;right:-.18em;top:12%;bottom:4%;z-index:-1;
+  background:rgba(46,139,87,.22);border-radius:.28em;transform:scaleX(0);transform-origin:left}
+.slide.is-active .mark::before{animation:hl .7s .9s both}
+@keyframes hl{to{transform:scaleX(1)}}
+
+/* ===================== derivation ===================== */
+.deriv{display:flex;flex-direction:column;gap:.55cqh;font-family:var(--f-mono);
+  background:#fff;border:1px solid var(--line2);border-radius:10px;padding:1.8cqh 2.4cqw;
+  box-shadow:0 8px 20px -16px rgba(31,58,147,.5);align-self:flex-start}
+.deriv .ln{display:grid;grid-template-columns:2.2em 1fr;align-items:baseline;font-size:.95em}
+.deriv .ln .o{color:var(--navy);font-weight:700}
+.deriv .ln.first .o{color:transparent}
+.deriv .given{font-family:var(--f-body);color:#6a7796;font-size:2.3cqh;margin-bottom:.4cqh}
+
+/* ===================== logic gate svg ===================== */
+.gate{width:100%;max-width:46cqh;height:auto;display:block;margin:0 auto;overflow:visible}
+.gate .body{stroke:var(--navy);stroke-width:2.6;stroke-linejoin:round}
+.gate .wire{stroke:var(--navy2);stroke-width:2.6;fill:none;stroke-linecap:round}
+.gate .lbl{font-family:'JetBrains Mono',monospace;font-size:19px;fill:var(--navy2);font-weight:700}
+.gate .bub{fill:#fff;stroke:var(--navy);stroke-width:2.6}
+.cap{font-size:2.35cqh;color:#56638a;text-align:center;font-family:var(--f-head)}
+.cap b{color:var(--navy)}
+
+/* ===================== cover ===================== */
+.cover{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+  padding:0 8cqw;background:
+    radial-gradient(130% 120% at 88% 8%,rgba(31,58,147,.10),transparent 46%),
+    linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0) 30%),var(--paper2)}
+.cover .tag{font-family:var(--f-mono);font-size:2.1cqh;letter-spacing:.34em;color:var(--navy);
+  text-transform:uppercase;display:flex;align-items:center;gap:1.4cqw;margin-bottom:2.4cqh}
+.cover .tag::before{content:"";width:7cqw;height:2px;background:var(--gold)}
+.cover h1{font-family:var(--f-head);font-weight:700;font-size:8.6cqh;line-height:1.04;
+  color:var(--navy2);letter-spacing:-.02em}
+.cover h1 .en{display:block;font-size:.42em;letter-spacing:.04em;color:var(--gold2);
+  font-weight:600;margin-top:.6cqh}
+.cover .sub{font-size:3.5cqh;color:var(--ink);margin-top:2.6cqh;max-width:74%;line-height:1.4}
+.cover .sub b{color:var(--navy)}
+.cover .meta{position:absolute;bottom:8cqh;left:8cqw;font-size:2.5cqh;color:#56638a;line-height:1.5}
+.cover .meta b{color:var(--navy2)}
+.cover .course{display:inline-block;font-family:var(--f-mono);font-weight:700;background:var(--navy);
+  color:#fff;padding:.3em .7em;border-radius:.4em;font-size:.85em;letter-spacing:.05em}
+.glyphs{position:absolute;right:7cqw;bottom:8cqh;display:flex;gap:1.2cqw}
+.glyphs .g{width:8.5cqh;height:8.5cqh;border-radius:12px;background:#fff;border:1px solid var(--line2);
+  box-shadow:0 12px 26px -16px rgba(31,58,147,.6);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:.2cqh}
+.glyphs .g .s{font-family:var(--f-mono);font-weight:700;font-size:3.6cqh;color:var(--navy)}
+.glyphs .g .n{font-family:var(--f-mono);font-size:1.5cqh;color:#8b97b6;letter-spacing:.1em}
+.glyphs .g:nth-child(3) .s{color:var(--green2)}
+.glyphs .g:nth-child(4) .s{color:var(--gold2)}
+
+/* ===================== section divider ===================== */
+.divider{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+  padding:0 9cqw;background:linear-gradient(115deg,var(--navy3),var(--navy) 60%,var(--navy2));color:#fff;overflow:hidden}
+.divider .ghost{position:absolute;right:-2cqw;top:50%;transform:translateY(-50%);
+  font-family:var(--f-mono);font-weight:700;font-size:62cqh;line-height:.8;color:rgba(255,255,255,.06)}
+.divider .no{font-family:var(--f-mono);font-weight:700;font-size:4cqh;color:var(--gold);
+  letter-spacing:.2em;margin-bottom:1.5cqh}
+.divider .no::before{content:"";display:inline-block;width:6cqw;height:2px;background:var(--gold);
+  vertical-align:middle;margin-right:1.4cqw}
+.divider h2{font-family:var(--f-head);font-weight:700;font-size:7.4cqh;line-height:1.08;
+  max-width:80%;position:relative}
+.divider h2 .en{display:block;font-size:.5em;color:#aebbe6;font-weight:500;margin-top:1cqh;letter-spacing:.02em}
+
+/* ===================== toc ===================== */
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:2cqh 3cqw;margin-top:.5cqh}
+.toc .it{display:flex;gap:2cqw;align-items:flex-start;background:#fff;border:1px solid var(--line2);
+  border-radius:12px;padding:2.2cqh 2.4cqw;box-shadow:0 10px 24px -20px rgba(31,58,147,.7)}
+.toc .it .n{font-family:var(--f-mono);font-weight:700;font-size:4cqh;color:var(--navy);
+  background:var(--lnavy);width:7.4cqh;min-width:7.4cqh;height:7.4cqh;border-radius:10px;
+  display:flex;align-items:center;justify-content:center}
+.toc .it .tx{display:flex;flex-direction:column;gap:.4cqh}
+.toc .it .tx .t{font-family:var(--f-head);font-weight:700;font-size:2.95cqh;color:var(--navy2);line-height:1.2}
+.toc .it .tx .d{font-size:2.25cqh;color:#6a7796}
+
+/* ===================== reveal (\pause) ===================== */
+.reveal{position:relative;cursor:pointer}
+.reveal .inner{transition:filter .45s ease,opacity .45s ease;filter:blur(7px);opacity:.32}
+.reveal.on .inner{filter:none;opacity:1}
+.reveal.on{cursor:default}
+.reveal .hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:.7em;
+  font-family:var(--f-head);font-weight:700;color:var(--navy);font-size:2.6cqh;
+  transition:opacity .3s;letter-spacing:.02em}
+.reveal .hint .k{font-family:var(--f-mono);background:var(--navy);color:#fff;border-radius:.4em;
+  padding:.15em .55em;font-size:.8em;box-shadow:0 .4cqh 0 var(--navy2)}
+.reveal.on .hint{opacity:0;pointer-events:none}
+
+/* ===================== closing ===================== */
+.closing{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2.4cqh;background:linear-gradient(160deg,var(--navy3),var(--navy));color:#fff;text-align:center}
+.closing .big{font-family:var(--f-head);font-weight:700;font-size:8cqh;letter-spacing:-.01em}
+.closing .nx{font-size:3cqh;color:#b9c6ee;max-width:70%}
+.closing .nx b{color:var(--gold)}
+.closing .rule{width:9cqw;height:3px;background:var(--gold);border-radius:2px}
+
+/* ===================== game ===================== */
+.game{position:absolute;inset:0;display:flex;flex-direction:column;color:#fff;padding:4.5cqh 6cqw 4cqh;
+  background:radial-gradient(120% 120% at 50% -10%,#27408f,#16265e 58%,#0e1a44);overflow:hidden}
+.game::before{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:48px 48px,48px 48px;-webkit-mask-image:radial-gradient(80% 80% at 50% 40%,#000,transparent);mask-image:radial-gradient(80% 80% at 50% 40%,#000,transparent)}
+.game__bar{display:flex;gap:1.2cqw;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.gchip{font-family:var(--f-mono);font-size:2.25cqh;background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:.5cqh 1.5cqw;letter-spacing:.02em;white-space:nowrap}
+.gchip b{color:var(--gold);font-size:1.15em;margin-left:.35em}
+.gchip.best b{color:#ffe8a3}
+.game__stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2.4cqh;text-align:center;position:relative;z-index:1}
+.g-title{font-family:var(--f-head);font-weight:700;font-size:6cqh}
+.g-sub{font-size:2.7cqh;color:#bcc8ec;max-width:74%;line-height:1.4}
+.g-sub b{color:#fff}
+.g-q{font-size:3.3cqh;font-family:var(--f-head);font-weight:600;max-width:86%;line-height:1.3}
+.g-big{font-family:var(--f-mono);font-weight:700;font-size:6cqh;color:#fff;letter-spacing:.06em;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:1.4cqh 4cqw}
+.g-opts{display:flex;gap:1.8cqw;flex-wrap:wrap;justify-content:center}
+.g-btn{font-family:var(--f-head);font-weight:700;font-size:3cqh;color:#fff;cursor:pointer;
+  background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.28);border-radius:14px;
+  padding:1.5cqh 3.2cqw;min-width:13cqh;transition:transform .15s,background .2s,border-color .2s}
+.g-btn:hover:not(:disabled){transform:translateY(-3px);background:rgba(255,255,255,.2);border-color:#fff}
+.g-btn.tf{font-family:var(--f-mono);min-width:8cqh}
+.g-btn.sym{font-family:var(--f-mono);font-size:4.2cqh;min-width:10cqh;line-height:1}
+.g-btn.ok{background:var(--green);border-color:#fff;color:#fff}
+.g-btn.no{background:var(--red);border-color:#fff;color:#fff;animation:shake .4s}
+.g-btn:disabled{cursor:default}
+@keyframes shake{10%,90%{transform:translateX(-2px)}30%,70%{transform:translateX(5px)}50%{transform:translateX(-8px)}}
+.g-fb{font-size:2.6cqh;font-family:var(--f-head);font-weight:600;max-width:86%;line-height:1.35;min-height:3cqh}
+.g-fb.ok{color:#92f0b8}.g-fb.no{color:#ffb4ab}
+.g-next{font-family:var(--f-head);font-weight:700;font-size:2.7cqh;color:var(--navy2);cursor:pointer;
+  background:var(--gold);border:0;border-radius:999px;padding:1.2cqh 3.2cqw;box-shadow:0 .6cqh 0 var(--gold2);
+  transition:transform .15s}
+.g-next:hover{transform:translateY(-2px)}
+.g-start,.g-replay{font-family:var(--f-head);font-weight:700;font-size:3.1cqh;color:var(--navy2);cursor:pointer;
+  background:#fff;border:0;border-radius:999px;padding:1.5cqh 4.4cqw;box-shadow:0 .8cqh 0 rgba(0,0,0,.25);transition:transform .15s}
+.g-start:hover,.g-replay:hover{transform:translateY(-2px)}
+.g-stars{font-size:6.5cqh;letter-spacing:.35em;color:var(--gold);text-shadow:0 0 24px rgba(183,149,11,.6)}
+.g-score-big{font-family:var(--f-mono);font-weight:700;font-size:9cqh;color:var(--gold);line-height:.9}
+.g-badge{position:absolute;top:4.2cqh;right:6cqw;font-family:var(--f-mono);font-size:2cqh;color:#9fb0e0;z-index:1}
+
+/* ===================== entrance animation ===================== */
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.slide.is-active .anim{animation:rise .56s cubic-bezier(.2,.75,.25,1) both;
+  animation-delay:calc(var(--i,0)*.085s + .08s)}
+.slide.is-active .head .kick,.slide.is-active .head h2{animation:fadein .6s both}
+.divider.is-anim .no,.divider.is-anim h2{animation:rise .6s both}
+
+/* ===================== top progress ===================== */
+.progress{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(31,58,147,.12);z-index:30}
+.progress .bar{height:100%;width:0;background:linear-gradient(90deg,var(--navy),var(--gold));
+  transition:width .4s cubic-bezier(.4,0,.1,1)}
+
+/* ===================== dock controls ===================== */
+.dock{position:fixed;bottom:2.4vh;left:50%;transform:translateX(-50%);z-index:30;
+  display:flex;align-items:center;gap:.4rem;padding:.4rem .55rem;border-radius:999px;
+  background:rgba(252,250,243,.92);backdrop-filter:blur(8px);
+  border:1px solid var(--line2);box-shadow:0 14px 34px -18px rgba(14,26,68,.6);
+  opacity:.4;transition:opacity .3s}
+.dock:hover{opacity:1}
+.dock button{font:inherit;border:0;background:transparent;color:var(--navy);cursor:pointer;
+  width:2.5rem;height:2.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:1.15rem;transition:background .2s}
+.dock button:hover{background:var(--lnavy)}
+.dock .count{font-family:var(--f-mono);font-weight:700;color:var(--navy2);font-size:.92rem;
+  min-width:5.2rem;text-align:center;letter-spacing:.04em}
+.dock .sep{width:1px;height:1.5rem;background:var(--line2)}
+
+/* ===================== overview ===================== */
+body.overview{overflow:auto}
+body.overview #app{display:block;height:auto;min-height:100vh;padding:5vh 4vw 12vh}
+body.overview .stage{width:100%;aspect-ratio:auto;background:transparent;box-shadow:none;border-radius:0;overflow:visible}
+body.overview .deck{position:static;display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:22px}
+body.overview .slide{position:relative;inset:auto;display:block;aspect-ratio:16/9;
+  border-radius:10px;overflow:hidden;cursor:pointer;border:1px solid var(--line2);
+  box-shadow:0 14px 30px -22px rgba(14,26,68,.7);transition:transform .2s,box-shadow .2s}
+body.overview .slide:hover{transform:translateY(-4px);box-shadow:0 22px 40px -22px rgba(14,26,68,.8)}
+body.overview .slide.is-active{outline:3px solid var(--gold);outline-offset:2px}
+body.overview .slide .anim{animation:none !important}
+body.overview .slide *{pointer-events:none}
+body.overview .reveal .inner{filter:none;opacity:1}
+body.overview .reveal .hint{display:none}
+body.overview .ov-title{position:fixed;top:0;left:0;right:0;z-index:25;
+  background:var(--navy);color:#fff;padding:1rem 4vw;font-family:var(--f-head);font-weight:700;
+  display:flex;justify-content:space-between;align-items:center}
+.ov-title{display:none}
+body.overview .ov-title{display:flex}
+.ov-title small{font-weight:400;color:#b9c6ee;font-family:var(--f-mono);font-size:.85rem}
+
+/* ===================== help overlay ===================== */
+.help{position:fixed;inset:0;z-index:40;background:rgba(14,26,68,.62);backdrop-filter:blur(4px);
+  display:none;align-items:center;justify-content:center}
+.help.show{display:flex;animation:fadein .25s both}
+.help .card{background:var(--paper2);border-radius:16px;padding:2.4rem 2.8rem;max-width:520px;width:90%;
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.5);border:1px solid var(--line2)}
+.help h3{font-family:var(--f-head);color:var(--navy2);font-size:1.5rem;margin-bottom:1.2rem}
+.help dl{display:grid;grid-template-columns:auto 1fr;gap:.7rem 1.2rem;align-items:center}
+.help kbd{font-family:var(--f-mono);background:#fff;border:1px solid var(--line2);
+  border-bottom-width:3px;border-radius:.4em;padding:.2em .6em;font-size:.85rem;color:var(--navy2);
+  font-weight:700;justify-self:start}
+.help dd{color:var(--ink)}
+.help .close{margin-top:1.6rem;font-family:var(--f-head);color:#6a7796;font-size:.9rem;text-align:center}
+
+/* ===================== onboarding toast ===================== */
+.toast{position:fixed;bottom:9vh;left:50%;transform:translateX(-50%);z-index:35;
+  background:var(--navy2);color:#fff;padding:.7rem 1.3rem;border-radius:999px;font-family:var(--f-head);
+  font-size:.9rem;box-shadow:0 16px 34px -16px rgba(0,0,0,.5);transition:opacity .5s,transform .5s;
+  display:flex;align-items:center;gap:.7rem}
+.toast kbd{font-family:var(--f-mono);background:rgba(255,255,255,.16);padding:.1em .5em;border-radius:.35em;font-size:.85em}
+.toast.hide{opacity:0;transform:translate(-50%,12px);pointer-events:none}
+
+.activity-classify .reveal:not(.on) .inner {
+  filter: none !important;
+  opacity: 0 !important;
+}
+
+.activity-classify ol.num {
+  position: relative !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 38cqh !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 2cqh auto 0 !important;
+  width: 90% !important;
+  counter-reset: q-counter;
+}
+
+.activity-classify ol.num li {
+  position: absolute !important;
+  width: 100% !important;
+  max-width: 860px !important;
+  background: #fff !important;
+  border: 3px solid var(--navy) !important;
+  border-radius: 20px !important;
+  padding: 4cqh 5cqw !important;
+  box-shadow: 0 16px 40px -12px rgba(9, 21, 51, 0.16) !important;
+  font-size: 1.45em !important;
+  line-height: 1.6 !important;
+  text-align: center !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: scale(0.92) translateY(20px) !important;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 2cqw !important;
+  counter-increment: q-counter;
+}
+
+.activity-classify ol.num li::before {
+  content: "ข้อที่ " counter(q-counter) !important;
+  font-family: var(--f-head) !important;
+  font-weight: 700 !important;
+  background: var(--navy) !important;
+  color: #fff !important;
+  border-radius: 30px !important;
+  padding: 0.4cqh 2.2cqw !important;
+  font-size: 0.7em !important;
+  letter-spacing: 0.05em !important;
+  margin-right: 1.5cqw !important;
+  position: static !important;
+  display: inline-block !important;
+  width: auto !important;
+  height: auto !important;
+  border: none !important;
+}
+
+.activity-classify ol.num li:first-child:not(:has(~ li.on)),
+.activity-classify ol.num li.on:not(:has(~ li.on)) {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: scale(1) translateY(0) !important;
+}
+
+/* Knights & Knaves Case Analysis Tree */
+.tree-box {
+  background: var(--navy3) !important;
+  border: 2px solid var(--line2) !important;
+  border-radius: 16px !important;
+  padding: 2.2cqh 2.5cqw !important;
+  color: #fff !important;
+  font-family: var(--f-head) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1.8cqh !important;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.2) !important;
+}
+
+.tree-root {
+  background: var(--gold) !important;
+  color: var(--navy) !important;
+  font-weight: 700 !important;
+  border-radius: 30px !important;
+  padding: 0.6cqh 3cqw !important;
+  font-size: 0.85em !important;
+  text-align: center !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
+}
+
+.tree-row {
+  display: flex !important;
+  width: 100% !important;
+  gap: 2cqw !important;
+  justify-content: space-between !important;
+}
+
+.tree-leaf {
+  flex: 1 !important;
+  background: rgba(255,255,255,0.06) !important;
+  border: 1.5px solid rgba(255,255,255,0.15) !important;
+  border-radius: 12px !important;
+  padding: 1.6cqh 1.8cqw !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1cqh !important;
+  transition: all 0.3s !important;
+}
+
+.tree-leaf.error {
+  border-color: rgba(239, 68, 68, 0.4) !important;
+  background: rgba(239, 68, 68, 0.04) !important;
+}
+
+.tree-leaf.success {
+  border-color: rgba(34, 197, 94, 0.4) !important;
+  background: rgba(34, 197, 94, 0.04) !important;
+}
+
+.tree-leaf.success:hover {
+  transform: translateY(-2px) !important;
+  border-color: var(--gold) !important;
+  box-shadow: 0 6px 16px rgba(212, 163, 89, 0.15) !important;
+}
+
+.tree-leaf .t-title {
+  font-size: 0.8em !important;
+  font-weight: 700 !important;
+  color: var(--gold2) !important;
+  text-align: center !important;
+  border-bottom: 1px solid rgba(255,255,255,0.15) !important;
+  width: 100% !important;
+  padding-bottom: 0.5cqh !important;
+  margin-bottom: 0.5cqh !important;
+}
+
+.tree-leaf .t-body {
+  font-size: 0.7em !important;
+  line-height: 1.5 !important;
+  text-align: center !important;
+  color: #d1d9e6 !important;
+  width: 100% !important;
+}
+
+.tree-leaf .t-body b {
+  color: #fff !important;
+}
+
+.tree-leaf .t-badge {
+  margin-top: 1cqh !important;
+  font-size: 0.9em !important;
+  font-weight: 700 !important;
+  border-radius: 6px !important;
+  padding: 0.3cqh 1.5cqw !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.tree-leaf .t-badge.no {
+  background: rgba(239, 68, 68, 0.2) !important;
+  color: #f87171 !important;
+  border: 1px solid rgba(239, 68, 68, 0.4) !important;
+}
+
+.tree-leaf .t-badge.ok {
+  background: rgba(34, 197, 94, 0.2) !important;
+  color: #4ade80 !important;
+  border: 1px solid rgba(34, 197, 94, 0.4) !important;
+}
+
+.tree-leaf .arrow {
+  color: var(--gold2) !important;
+  font-weight: 700 !important;
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+  .reveal .inner{filter:none;opacity:1}
+}
+
+/* ===================== print ===================== */
+@media print{
+  @page{size:landscape;margin:0}
+  body{overflow:visible;background:#fff}
+  .bg,.dock,.progress,.toast,.help,.ov-title{display:none !important}
+  #app{display:block;height:auto;width:auto}
+  .stage{width:100%;box-shadow:none;border-radius:0;aspect-ratio:auto}
+  .deck{position:static}
+  .slide{position:relative;display:block;inset:auto;aspect-ratio:16/9;
+    page-break-after:always;break-after:page;border-bottom:1px solid #ddd}
+  .slide .anim{animation:none !important}
+  .reveal .inner{filter:none;opacity:1}.reveal .hint{display:none}
+}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="progress"><div class="bar"></div></div>
+
+<div id="app">
+<div class="stage"><div class="deck">
+
+<!-- ============================== 1 · COVER ============================== -->
+<section class="slide">
+  <div class="cover">
+    <div class="tag">บทที่ 1 · LOGIC</div>
+    <h1>ตรรกศาสตร์<span class="en">Mathematical Logic</span></h1>
+    <div class="sub"><b>สัปดาห์ที่ 1</b> — ประพจน์ ตัวเชื่อม และตารางค่าความจริง<br>
+      <span class="muted" style="font-size:.8em">Propositions · Logical Connectives · Truth Tables</span></div>
+    <div class="meta">
+      <span class="course">4091606</span> คณิตศาสตร์สำหรับคอมพิวเตอร์<br>
+      <b>สาขาวิชาเทคโนโลยีสารสนเทศ</b> · คณะวิทยาศาสตร์และเทคโนโลยี<br>
+      มหาวิทยาลัยราชภัฏอุตรดิตถ์
+    </div>
+    <div class="glyphs">
+      <div class="g"><span class="s">¬</span><span class="n">NOT</span></div>
+      <div class="g"><span class="s">∧</span><span class="n">AND</span></div>
+      <div class="g"><span class="s">∨</span><span class="n">OR</span></div>
+      <div class="g"><span class="s">→</span><span class="n">IF</span></div>
+      <div class="g"><span class="s">↔</span><span class="n">IFF</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 2 · OBJECTIVES ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">Learning Outcomes</span>
+    <h2>วัตถุประสงค์การเรียนรู้ <span class="en">สัปดาห์ที่ 1</span></h2></div></div>
+  <div class="body">
+    <div class="lead anim" style="--i:0">เมื่อเรียนจบสัปดาห์นี้ นักศึกษาจะสามารถ</div>
+    <ol class="num">
+      <li class="anim" style="--i:1">อธิบายความหมายและคุณสมบัติของ <b>ประพจน์</b> และค่าความจริงได้</li>
+      <li class="anim" style="--i:2">แยกแยะข้อความที่<b>เป็น</b>ประพจน์และ<b>ไม่เป็น</b>ประพจน์ได้</li>
+      <li class="anim" style="--i:3">ใช้ <b>ตัวเชื่อมทางตรรกศาสตร์</b> <span class="op">¬ &nbsp;∧ &nbsp;∨ &nbsp;→ &nbsp;↔</span> ได้อย่างถูกต้อง</li>
+      <li class="anim" style="--i:4">สร้างและวิเคราะห์ <b>ตารางค่าความจริง</b> ของประพจน์เชิงประกอบได้</li>
+    </ol>
+    <div class="block ex anim" style="--i:5">
+      <span class="lab"><span class="pin">NEXT</span> สัปดาห์ที่ 2 จะต่อด้วย</span>
+      สัจนิรันดร์ / ข้อขัดแย้ง <span class="op">→</span> ความสมมูลและกฎพีชคณิต <span class="op">→</span>
+      ตัวบ่งปริมาณ <span class="op">→</span> การอนุมาน (Modus Ponens / Tollens …)
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 3 · TOC ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">Outline</span>
+    <h2>หัวข้อที่จะศึกษาในสัปดาห์นี้</h2></div></div>
+  <div class="body">
+    <div class="toc">
+      <div class="it anim" style="--i:0"><div class="n">01</div><div class="tx">
+        <div class="t">บทนำ: ทำไมตรรกศาสตร์จึงสำคัญ</div>
+        <div class="d">นิยาม · ประวัติ · บทบาทในงานคอมพิวเตอร์</div></div></div>
+      <div class="it anim" style="--i:1"><div class="n">02</div><div class="tx">
+        <div class="t">ประพจน์ (Propositions)</div>
+        <div class="d">ค่าความจริง · ข้อความที่ไม่เป็นประพจน์ · ประพจน์เปิด</div></div></div>
+      <div class="it anim" style="--i:2"><div class="n">03</div><div class="tx">
+        <div class="t">ตัวเชื่อมประพจน์และตารางค่าความจริง</div>
+        <div class="d">¬ ∧ ∨ → ↔ · ตารางค่าความจริง · ลอจิกเกต</div></div></div>
+      <div class="it anim" style="--i:3"><div class="n">04</div><div class="tx">
+        <div class="t">กิจกรรมในชั้นเรียน</div>
+        <div class="d">แบบฝึกหัดทำในห้อง · อภิปรายกลุ่ม · สรุป</div></div></div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 4 · DIVIDER 01 ============================== -->
+<section class="slide">
+  <div class="divider">
+    <div class="ghost">∴</div>
+    <div class="no">SECTION 01</div>
+    <h2>บทนำ: ทำไมตรรกศาสตร์จึงสำคัญ<span class="en">Why Logic Matters</span></h2>
+  </div>
+</section>
+
+<!-- ============================== 5 · WHAT IS LOGIC ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">บทนำ · ความสำคัญของตรรกศาสตร์</span>
+    <h2>ตรรกศาสตร์คืออะไร</h2></div></div>
+  <div class="body">
+    <div class="cols" style="grid-template-columns:1fr .6fr">
+      <div class="col">
+        <div class="block anim" style="--i:0">
+          <span class="lab"><span class="pin">นิยาม</span></span>
+          <b>ตรรกศาสตร์ (Logic)</b> คือ ศาสตร์ที่ศึกษาการให้เหตุผล การคิดอย่างมีระบบ
+          และหลักการสรุปผลที่ถูกต้องตามหลักเหตุผล
+        </div>
+        <div class="lead anim" style="--i:1">จุดมุ่งหมายสำคัญคือ แยกแยะระหว่าง</div>
+        <ul class="bul">
+          <li class="anim" style="--i:2">การให้เหตุผลที่ <span class="gn">สมเหตุสมผล</span> <span class="muted">(Valid Reasoning)</span></li>
+          <li class="anim" style="--i:3">การให้เหตุผลที่ <span class="rd">มีข้อบกพร่อง</span> <span class="muted">(Fallacy)</span></li>
+        </ul>
+        <div class="lead anim" style="--i:4">เป็น<b>รากฐานของทุกศาสตร์</b>: คณิตศาสตร์ · ปรัชญา · วิทยาการคอมพิวเตอร์ และชีวิตประจำวัน</div>
+      </div>
+      <div class="col" style="justify-content:center">
+        <figure class="figwrap anim" style="--i:5">
+          <div class="fig"><img src="img/ch1_what_is_logic.png" alt="ภาพประกอบการให้เหตุผลอย่างเป็นระบบ" onerror="this.classList.add('missing')"></div>
+          <figcaption>การให้เหตุผล: <b>สมเหตุสมผล</b> vs <b>มีข้อบกพร่อง</b></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 6 · HISTORY ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">บทนำ · ความสำคัญของตรรกศาสตร์</span>
+    <h2>ประวัติโดยสังเขป <span class="en">จากเหตุผลของกรีก สู่วงจรดิจิทัล</span></h2></div></div>
+  <div class="body tight">
+    <div class="cols" style="grid-template-columns:1.12fr .88fr">
+      <div class="col">
+        <div class="tl">
+          <div class="tl-item anim" style="--i:0"><span class="yr">~350<br>ก่อน&nbsp;ค.ศ.</span>
+            <div class="tx"><span class="who">อริสโตเติล (Aristotle)</span> วางรากฐาน <b>ตรรกศาสตร์เชิงรูปนัย</b> เป็นครั้งแรก ผ่านหลักการ <b>ตรรกบท (Syllogism)</b></div></div>
+          <div class="tl-item anim" style="--i:1"><span class="yr">ค.ศ.<br>1847</span>
+            <div class="tx"><span class="who">George Boole</span> สร้าง <b>พีชคณิตบูลีน</b> — พีชคณิตที่ตัวแปรมีค่าเพียง <span class="vt">T</span>/<span class="vf">F</span></div></div>
+          <div class="tl-item anim" style="--i:2"><span class="yr">ค.ศ.<br>1879</span>
+            <div class="tx"><span class="who">Gottlob Frege</span> พัฒนา <b>ตรรกศาสตร์เชิงภาคแสดง</b> และตัวบ่งปริมาณ (∀, ∃)</div></div>
+          <div class="tl-item anim" style="--i:3"><span class="yr">ค.ศ.<br>1910</span>
+            <div class="tx"><span class="who">Russell &amp; Whitehead</span> เขียน <i>Principia Mathematica</i> สร้าง <b>รากฐานคณิตศาสตร์</b> จากตรรกศาสตร์</div></div>
+          <div class="tl-item anim" style="--i:4"><span class="yr">ค.ศ.<br>1937</span>
+            <div class="tx"><span class="who">Claude Shannon</span> นำพีชคณิตบูลีนมาออกแบบ <b>วงจรสวิตช์ไฟฟ้า</b> <span class="arrow">→</span> จุดกำเนิดวงจรดิจิทัล</div></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="block ex anim" style="--i:5">
+          <span class="lab"><span class="pin">EX</span> ตัวอย่างตรรกบทของอริสโตเติล</span>
+          <div class="syll">
+            <div class="row"><span class="t">เหตุหลัก</span><span>มนุษย์ทุกคนเป็นสิ่งที่ต้องตาย</span></div>
+            <div class="row"><span class="t">เหตุรอง</span><span>โสกราตีสเป็นมนุษย์</span></div>
+            <div class="cc"><span class="op">∴</span><span>โสกราตีสเป็นสิ่งที่ต้องตาย</span></div>
+          </div>
+        </div>
+        <div class="muted tiny anim" style="--i:6">เมื่อเหตุทั้งสอง <b class="gn">จริง</b> ข้อสรุปย่อม <b class="gn">จริง</b> เสมอ — นี่คือ <b>การอนุมานที่สมเหตุสมผล</b></div>
+      </div>
+    </div>
+    <div class="lead anim center" style="--i:7;margin-top:.6cqh">ปัจจุบันตรรกศาสตร์กลายเป็น <span class="hl mark">พื้นฐานของวิทยาการคอมพิวเตอร์สมัยใหม่</span> — ตั้งแต่วงจรดิจิทัล ภาษาโปรแกรม จนถึงปัญญาประดิษฐ์</div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 7 · LOGIC & COMPUTERS ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">บทนำ · ความสำคัญของตรรกศาสตร์</span>
+    <h2>ตรรกศาสตร์กับคอมพิวเตอร์</h2></div></div>
+  <div class="body tight">
+    <div class="cols" style="grid-template-columns:1fr .58fr">
+      <div class="col">
+        <div class="lead anim" style="--i:0">ตรรกศาสตร์มีบทบาทสำคัญในงานคอมพิวเตอร์หลายด้าน</div>
+        <ul class="bul">
+          <li class="anim" style="--i:1"><b>วงจรดิจิทัล</b> <span class="muted">(Digital Circuits)</span> — ใช้ลอจิกเกต (AND, OR, NOT, …) ประมวลผลข้อมูล</li>
+          <li class="anim" style="--i:2"><b>การเขียนโปรแกรม</b> — การควบคุมเชิงตรรกะ เช่น <span class="code">if-else</span>, <span class="code">while</span>, <span class="code">for</span></li>
+          <li class="anim" style="--i:3"><b>ปัญญาประดิษฐ์</b> <span class="muted">(AI)</span> — การแทนความรู้และการให้เหตุผลอัตโนมัติ</li>
+          <li class="anim" style="--i:4"><b>การพิสูจน์ความถูกต้องของขั้นตอนวิธี</b> <span class="muted">(Algorithm Verification)</span></li>
+        </ul>
+        <div class="block ex anim" style="--i:5">
+          <span class="lab"><span class="pin">KEY</span> มุมมองสำคัญ</span>
+          การเรียนตรรกศาสตร์ = การฝึก <span class="q">คิดอย่างเป็นระบบ</span> ซึ่งเป็นทักษะหลักของนักคอมพิวเตอร์
+        </div>
+      </div>
+      <div class="col" style="justify-content:center">
+        <figure class="figwrap anim" style="--i:6">
+          <div class="fig"><img src="img/ch1_logic_in_computing.png" alt="ภาพประกอบตรรกศาสตร์กับวงจรดิจิทัลและการเขียนโปรแกรม" onerror="this.classList.add('missing')"></div>
+          <figcaption>ลอจิกเกต <span class="op">→</span> วงจรดิจิทัล <span class="op">→</span> เลขฐานสอง</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 8 · DIVIDER 02 ============================== -->
+<section class="slide">
+  <div class="divider">
+    <div class="ghost">P</div>
+    <div class="no">SECTION 02</div>
+    <h2>ประพจน์<span class="en">Propositions</span></h2>
+  </div>
+</section>
+
+<!-- ============================== 9 · WHAT IS A PROPOSITION ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ประพจน์ · Propositions</span>
+    <h2>ประพจน์คืออะไร</h2></div></div>
+  <div class="body tight">
+    <div class="block anim" style="--i:0">
+      <span class="lab"><span class="pin">นิยาม</span></span>
+      <b>ประพจน์ (Proposition)</b> คือ ข้อความบอกเล่าหรือปฏิเสธที่ตัดสินค่าความจริงได้แน่ชัดว่า
+      เป็น <span class="gn">จริง (True, T)</span> หรือ <span class="rd">เท็จ (False, F)</span> อย่างใดอย่างหนึ่งเท่านั้น
+    </div>
+    <div class="lead anim" style="--i:1">ลักษณะสำคัญของประพจน์ 2 ประการ</div>
+    <ol class="num">
+      <li class="anim" style="--i:2">เป็นประโยคบอกเล่า / ปฏิเสธที่สมบูรณ์</li>
+      <li class="anim" style="--i:3">ระบุค่าความจริงได้โดยไม่กำกวม (ใครก็ตามต้องเห็นพ้องตรงกัน)</li>
+    </ol>
+    <ul class="bul tiny">
+      <li class="anim" style="--i:4"><b>ค่าความจริง</b> <span class="muted">(Truth Value)</span> มีได้เพียง 2 ค่า: <span class="chip t">T</span> (หรือ 1) และ <span class="chip f">F</span> (หรือ 0)</li>
+      <li class="anim" style="--i:5">หลักการนี้เรียกว่า <b>กฎทวิภาวะ (Principle of Bivalence)</b> ของตรรกศาสตร์คลาสสิก</li>
+    </ul>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 10 · EXAMPLES OF PROPOSITIONS ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ประพจน์ · Propositions</span>
+    <h2>ตัวอย่างที่เป็นประพจน์</h2></div></div>
+  <div class="body">
+    <ol class="num">
+      <li class="anim spread" style="--i:0">กรุงเทพมหานครเป็นเมืองหลวงของประเทศไทย <span class="res"><span class="arrow">⇒</span><span class="chip t">T</span></span></li>
+      <li class="anim spread" style="--i:1"><span class="expr"><span class="v">2</span> + <span class="v">2</span> = <span class="v">5</span></span> <span class="res"><span class="arrow">⇒</span><span class="chip f">F</span></span></li>
+      <li class="anim spread" style="--i:2"><span class="expr"><span class="v">7</span> &gt; <span class="v">3</span></span> <span class="res"><span class="arrow">⇒</span><span class="chip t">T</span></span></li>
+      <li class="anim spread" style="--i:3">จำนวนเฉพาะที่มากที่สุดมีอยู่จำนวนจำกัด <span class="res"><span class="arrow">⇒</span><span class="chip f">F</span></span></li>
+      <li class="anim spread" style="--i:4">ข้าวเป็นอาหารหลักของคนไทย <span class="res"><span class="arrow">⇒</span><span class="chip t">T</span></span></li>
+    </ol>
+    <div class="block anim" style="--i:5">
+      <span class="lab"><span class="pin">NOTE</span> ข้อสังเกต</span>
+      ประพจน์เป็นได้ทั้งข้อเท็จจริงทางคณิตศาสตร์ ภูมิศาสตร์ วิทยาศาสตร์ หรือทั่วไป
+      ขอเพียง <b>ระบุค่าความจริงได้แน่นอน</b>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 11 · NOT PROPOSITIONS ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ประพจน์ · Propositions</span>
+    <h2>ข้อความที่ <em>ไม่</em> เป็นประพจน์</h2></div></div>
+  <div class="body tight">
+    <div class="lead anim" style="--i:0">ข้อความที่ระบุค่าความจริงไม่ได้ จะไม่เป็นประพจน์</div>
+    <ol class="num">
+      <li class="anim" style="--i:1"><b>ประโยคคำถาม</b> — <span class="q">ทำไมต้องเรียนคณิตศาสตร์?</span></li>
+      <li class="anim" style="--i:2"><b>ประโยคคำสั่ง</b> — <span class="q">กรุณาปิดประตู</span></li>
+      <li class="anim" style="--i:3"><b>ประโยคอุทาน</b> — <span class="q">ว้าว! สวยจัง!</span></li>
+      <li class="anim" style="--i:4"><b>ประโยคกำกวม</b> — <span class="q">บุคคลนี้สูง</span> (สูงเทียบกับอะไร?)</li>
+      <li class="anim" style="--i:5"><b>ประโยคแสดงความเห็น</b> — <span class="q">ดนตรีคลาสสิกเพราะกว่าเพลงป็อป</span></li>
+    </ol>
+    <div class="block al anim" style="--i:6">
+      <span class="lab"><span class="pin">!</span> ข้อควรระวัง</span>
+      คำถาม คำสั่ง อุทาน ความเห็น และข้อความกำกวม <span class="q">ไม่มีค่าความจริง</span> จึงไม่ใช่ประพจน์
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 12 · OPEN PROPOSITION ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ประพจน์ · Propositions</span>
+    <h2>ประพจน์เปิด <span class="en">Open Proposition</span></h2></div></div>
+  <div class="body">
+    <div class="cols" style="grid-template-columns:1.05fr .95fr">
+      <div class="col">
+        <div class="block anim" style="--i:0">
+          <span class="lab"><span class="pin">นิยาม</span></span>
+          <b>ประพจน์เปิด</b> คือ ข้อความที่มี<b>ตัวแปร</b> ทำให้ยังระบุค่าความจริงไม่ได้ จนกว่าจะแทนค่าตัวแปร
+        </div>
+        <div class="lead anim" style="--i:1">ตัวอย่าง พิจารณา <span class="expr"><span class="v">x</span> + <span class="v">3</span> = <span class="v">7</span></span></div>
+        <ul class="bul">
+          <li class="anim spread" style="--i:2">ถ้า <span class="expr"><span class="v">x</span> = <span class="v">4</span></span> <span class="res"><span class="arrow">⇒</span> เป็นจริง <span class="chip t">T</span></span></li>
+          <li class="anim spread" style="--i:3">ถ้า <span class="expr"><span class="v">x</span> ≠ <span class="v">4</span></span> <span class="res"><span class="arrow">⇒</span> เป็นเท็จ <span class="chip f">F</span></span></li>
+        </ul>
+        <div class="lead anim" style="--i:4">เทียบกับ <b>ประพจน์คงที่</b> ที่มีค่าความจริงตายตัว</div>
+        <div class="muted tiny anim" style="--i:5">(จะศึกษาวิธีทำให้ประพจน์เปิดด้วยตัวบ่งปริมาณในสัปดาห์ที่ 2)</div>
+      </div>
+      <div class="col" style="justify-content:center">
+        <figure class="figwrap anim" style="--i:6">
+          <div class="fig"><img src="img/ch1_open_sentence.png" alt="การทำงานของประพจน์เปิดและการแทนค่าตัวแปร" onerror="this.classList.add('missing')"></div>
+          <figcaption>ประพจน์เปิด: <b>แทนค่าตัวแปร</b> <span class="op">→</span> ได้ค่าความจริง <b>T/F</b></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 13 · DIVIDER 03 ============================== -->
+<section class="slide">
+  <div class="divider">
+    <div class="ghost">∧</div>
+    <div class="no">SECTION 03</div>
+    <h2>ตัวเชื่อมประพจน์และตารางค่าความจริง<span class="en">Connectives &amp; Truth Tables</span></h2>
+  </div>
+</section>
+
+<!-- ============================== 14 · FIVE CONNECTIVES ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวเชื่อม &amp; ตารางค่าความจริง</span>
+    <h2>ตัวเชื่อมประพจน์พื้นฐาน 5 ตัว</h2></div></div>
+  <div class="body tight">
+    <div class="lead anim" style="--i:0">ข้อความจริงมักประกอบด้วยหลายประพจน์เชื่อมกันด้วย <b>ตัวเชื่อม (Connectives)</b></div>
+    <div class="tt-wrap anim" style="--i:1;align-self:stretch">
+      <table class="tt" style="width:100%">
+        <thead><tr><th>สัญลักษณ์</th><th style="text-align:left">ชื่อ</th><th style="text-align:left">อ่านว่า</th></tr></thead>
+        <tbody style="font-family:var(--f-body)">
+          <tr><td><span class="op">¬p</span></td><td style="text-align:left">นิเสธ (Negation)</td><td style="text-align:left">ไม่ <span class="expr"><span class="v">p</span></span></td></tr>
+          <tr><td><span class="op">p ∧ q</span></td><td style="text-align:left">ประพจน์เชื่อม (Conjunction, AND)</td><td style="text-align:left"><span class="expr"><span class="v">p</span></span> และ <span class="expr"><span class="v">q</span></span></td></tr>
+          <tr><td><span class="op">p ∨ q</span></td><td style="text-align:left">ประพจน์เลือก (Disjunction, OR)</td><td style="text-align:left"><span class="expr"><span class="v">p</span></span> หรือ <span class="expr"><span class="v">q</span></span></td></tr>
+          <tr><td><span class="op">p → q</span></td><td style="text-align:left">ประพจน์มีเงื่อนไข (Implication)</td><td style="text-align:left">ถ้า <span class="expr"><span class="v">p</span></span> แล้ว <span class="expr"><span class="v">q</span></span></td></tr>
+          <tr><td><span class="op">p ↔ q</span></td><td style="text-align:left">เงื่อนไขสองทาง (Biconditional)</td><td style="text-align:left"><span class="expr"><span class="v">p</span></span> ก็ต่อเมื่อ <span class="expr"><span class="v">q</span></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="bul tiny">
+      <li class="anim" style="--i:2"><span class="op">¬</span> เป็นตัวเชื่อม<b>เอกภาพ</b> (ใช้กับประพจน์เดียว)</li>
+      <li class="anim" style="--i:3">อีก 4 ตัวเป็นตัวเชื่อม<b>ทวิภาค</b> (ใช้กับสองประพจน์)</li>
+    </ul>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 15 · MASTER TRUTH TABLE ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวเชื่อม &amp; ตารางค่าความจริง</span>
+    <h2>ตารางค่าความจริงรวมของตัวเชื่อมทั้ง 5</h2></div></div>
+  <div class="body center">
+    <div class="tt-wrap anim" style="--i:0">
+      <table class="tt">
+        <thead><tr>
+          <th><span class="op">p</span></th><th><span class="op">q</span></th><th><span class="op">¬p</span></th>
+          <th><span class="op">p ∧ q</span></th><th><span class="op">p ∨ q</span></th>
+          <th><span class="op">p → q</span></th><th><span class="op">p ↔ q</span></th></tr></thead>
+        <tbody>
+          <tr><td><span class="vt">T</span></td><td><span class="vt">T</span></td><td><span class="vf">F</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td></tr>
+          <tr><td><span class="vt">T</span></td><td><span class="vf">F</span></td><td><span class="vf">F</span></td><td><span class="vf">F</span></td><td><span class="vt">T</span></td><td><span class="vf">F</span></td><td><span class="vf">F</span></td></tr>
+          <tr><td><span class="vf">F</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td><td><span class="vf">F</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td><td><span class="vf">F</span></td></tr>
+          <tr><td><span class="vf">F</span></td><td><span class="vf">F</span></td><td><span class="vt">T</span></td><td><span class="vf">F</span></td><td><span class="vf">F</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="block gold anim" style="--i:1;align-self:stretch;margin-top:1cqh">
+      <span class="lab"><span class="pin">RULE</span> หลักการสร้างตารางค่าความจริง</span>
+      ประพจน์ที่มี <span class="op">n</span> ตัวแปร ต้องพิจารณา <span class="op">2ⁿ</span> กรณี &nbsp;
+      (<span class="op">n=1 ⇒ 2</span> แถว, <span class="op">n=2 ⇒ 4</span> แถว, <span class="op">n=3 ⇒ 8</span> แถว, …)
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 16 · AND ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวเชื่อม &amp; ตารางค่าความจริง</span>
+    <h2>ประพจน์เชื่อม <span class="en">AND · ∧</span></h2></div></div>
+  <div class="body">
+    <div class="cols">
+      <div class="col">
+        <div class="lead anim" style="--i:0"><span class="op">p ∧ q</span> เป็นจริง <b>ก็ต่อเมื่อทั้งคู่จริง</b><br>ถ้าตัวใดตัวหนึ่งเท็จ ผลลัพธ์เท็จทันที</div>
+        <div class="tt-wrap anim" style="--i:1">
+          <table class="tt"><thead><tr><th><span class="op">p</span></th><th><span class="op">q</span></th><th><span class="op">p ∧ q</span></th></tr></thead>
+          <tbody>
+            <tr><td><span class="vt">T</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td></tr>
+            <tr><td><span class="vt">T</span></td><td><span class="vf">F</span></td><td><span class="vf">F</span></td></tr>
+            <tr><td><span class="vf">F</span></td><td><span class="vt">T</span></td><td><span class="vf">F</span></td></tr>
+            <tr><td><span class="vf">F</span></td><td><span class="vf">F</span></td><td><span class="vf">F</span></td></tr>
+          </tbody></table>
+        </div>
+      </div>
+      <div class="col center anim" style="--i:2">
+        <svg class="gate" viewBox="0 0 250 92" role="img" aria-label="AND gate">
+          <line class="wire" x1="32" y1="33" x2="76" y2="33"/><line class="wire" x1="32" y1="59" x2="76" y2="59"/>
+          <line class="wire" x1="138" y1="46" x2="190" y2="46"/>
+          <path class="body" style="fill:var(--cream)" d="M76,20 L112,20 A26,26 0 0 1 112,72 L76,72 Z"/>
+          <text class="lbl" x="24" y="39" text-anchor="end">p</text>
+          <text class="lbl" x="24" y="65" text-anchor="end">q</text>
+          <text class="lbl" x="196" y="52">p∧q</text>
+        </svg>
+        <div class="cap">เปรียบเหมือนสวิตช์ <b>อนุกรม</b><br>ต้องปิดทั้งคู่ไฟจึงติด</div>
+      </div>
+    </div>
+    <div class="block ex anim" style="--i:3">
+      <span class="lab"><span class="pin">EX</span> ตัวอย่าง</span>
+      <span class="q">วันนี้ฝนตก <b>และ</b> พื้นถนนเปียก</span> จริงเมื่อ <em>ทั้ง</em> ฝนตก <em>และ</em> พื้นเปียก
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 17 · OR ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวเชื่อม &amp; ตารางค่าความจริง</span>
+    <h2>ประพจน์เลือก <span class="en">OR · ∨</span></h2></div></div>
+  <div class="body">
+    <div class="cols">
+      <div class="col">
+        <div class="lead anim" style="--i:0"><span class="op">p ∨ q</span> เป็นจริงเมื่อ <b>อย่างน้อยหนึ่งตัวจริง</b><br>เป็นเท็จก็ต่อเมื่อทั้งคู่เท็จ</div>
+        <div class="tt-wrap anim" style="--i:1">
+          <table class="tt"><thead><tr><th><span class="op">p</span></th><th><span class="op">q</span></th><th><span class="op">p ∨ q</span></th></tr></thead>
+          <tbody>
+            <tr><td><span class="vt">T</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td></tr>
+            <tr><td><span class="vt">T</span></td><td><span class="vf">F</span></td><td><span class="vt">T</span></td></tr>
+            <tr><td><span class="vf">F</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td></tr>
+            <tr><td><span class="vf">F</span></td><td><span class="vf">F</span></td><td><span class="vf">F</span></td></tr>
+          </tbody></table>
+        </div>
+      </div>
+      <div class="col center anim" style="--i:2">
+        <svg class="gate" viewBox="0 0 250 92" role="img" aria-label="OR gate">
+          <line class="wire" x1="32" y1="33" x2="88" y2="33"/><line class="wire" x1="32" y1="59" x2="88" y2="59"/>
+          <line class="wire" x1="162" y1="46" x2="200" y2="46"/>
+          <path class="body" style="fill:var(--mint)" d="M76,20 C96,38 96,54 76,72 C108,72 138,59 162,46 C138,33 108,20 76,20 Z"/>
+          <text class="lbl" x="24" y="39" text-anchor="end">p</text>
+          <text class="lbl" x="24" y="65" text-anchor="end">q</text>
+          <text class="lbl" x="206" y="52">p∨q</text>
+        </svg>
+        <div class="cap">เปรียบเหมือนสวิตช์ <b>ขนาน</b><br>ปิดตัวใดตัวหนึ่งไฟก็ติด</div>
+      </div>
+    </div>
+    <div class="block al anim" style="--i:3">
+      <span class="lab"><span class="pin">!</span> ข้อควรระวัง</span>
+      OR ในตรรกศาสตร์เป็น <b>Inclusive OR</b> (รวมกรณีทั้งคู่จริงด้วย)
+      ต่างจาก <span class="q">หรือ</span> ในภาษาพูดที่บางครั้งหมายถึงเลือกอย่างเดียว (XOR)
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 18 · NOT ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวเชื่อม &amp; ตารางค่าความจริง</span>
+    <h2>นิเสธ <span class="en">NOT · ¬</span></h2></div></div>
+  <div class="body">
+    <div class="cols even">
+      <div class="col">
+        <div class="lead anim" style="--i:0">นิเสธ <b>กลับค่าความจริง</b> ของประพจน์</div>
+        <div class="tt-wrap anim" style="--i:1">
+          <table class="tt"><thead><tr><th><span class="op">p</span></th><th><span class="op">¬p</span></th></tr></thead>
+          <tbody>
+            <tr><td><span class="vt">T</span></td><td><span class="vf">F</span></td></tr>
+            <tr><td><span class="vf">F</span></td><td><span class="vt">T</span></td></tr>
+          </tbody></table>
+        </div>
+      </div>
+      <div class="col center anim" style="--i:2">
+        <svg class="gate" viewBox="0 0 250 92" role="img" aria-label="NOT gate">
+          <line class="wire" x1="44" y1="46" x2="92" y2="46"/>
+          <line class="wire" x1="165.5" y1="46" x2="208" y2="46"/>
+          <path class="body" style="fill:var(--pink)" d="M92,20 L92,72 L150,46 Z"/>
+          <circle class="bub" cx="158" cy="46" r="7.5"/>
+          <text class="lbl" x="36" y="52" text-anchor="end">p</text>
+          <text class="lbl" x="214" y="52">¬p</text>
+        </svg>
+      </div>
+    </div>
+    <div class="block ex anim" style="--i:3">
+      <span class="lab"><span class="pin">EX</span> ตัวอย่าง</span>
+      ถ้า <span class="op">p</span> = <span class="q">วันนี้ฝนตก</span> แล้ว <span class="op">¬p</span> = <span class="q">วันนี้ฝนไม่ตก</span><br>
+      ฝนตกจริง <span class="arrow">⇒</span> <span class="op">p</span> จริง, <span class="op">¬p</span> เท็จ &nbsp;·&nbsp;
+      ฝนไม่ตก <span class="arrow">⇒</span> <span class="op">p</span> เท็จ, <span class="op">¬p</span> จริง
+    </div>
+    <div class="muted tiny anim" style="--i:4">นิเสธเป็นหัวใจของ <b>การพิสูจน์โดยข้อขัดแย้ง (Proof by Contradiction)</b></div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 19 · IMPLIES ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวเชื่อม &amp; ตารางค่าความจริง</span>
+    <h2>ประพจน์มีเงื่อนไข <span class="en">IMPLIES · →</span></h2></div></div>
+  <div class="body">
+    <div class="cols" style="grid-template-columns:1.05fr .95fr">
+      <div class="col">
+        <div class="lead anim" style="--i:0"><span class="op">p → q</span> อ่านว่า <span class="q">ถ้า p แล้ว q</span></div>
+        <div class="tt-wrap anim" style="--i:1" style="margin: 0.5cqh 0">
+          <table class="tt"><thead><tr><th><span class="op">p</span></th><th><span class="op">q</span></th><th><span class="op">p → q</span></th></tr></thead>
+          <tbody>
+            <tr><td><span class="vt">T</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td></tr>
+            <tr class="hi"><td><span class="vt">T</span></td><td><span class="vf">F</span></td><td><span class="vf">F</span></td></tr>
+            <tr><td><span class="vf">F</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td></tr>
+            <tr><td><span class="vf">F</span></td><td><span class="vf">F</span></td><td><span class="vt">T</span></td></tr>
+          </tbody></table>
+        </div>
+      </div>
+      <div class="col center anim" style="--i:2">
+        <figure class="figwrap">
+          <div class="fig"><img src="img/ch1_implies_flow.png" alt="การทำงานของเงื่อนไข Implies" onerror="this.classList.add('missing')"></div>
+          <figcaption>การไหลของเงื่อนไข: <b>T → F เท่านั้นที่เป็นเท็จ</b></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="block al anim" style="--i:4">
+      <span class="lab"><span class="pin">จำ</span> หลักการจำ</span>
+      <span class="op">p → q</span> เท็จเฉพาะ <span class="q"><b>จริง → เท็จ</b></span> (T→F) เท่านั้น —
+      เมื่อเงื่อนไขนำเป็นเท็จ (<span class="op">p=</span><span class="vf">F</span>) ถือว่าเงื่อนไข <span class="q">ไม่ถูกละเมิด</span> จึงเป็นจริงโดยปริยาย
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 20 · IMPLIES EXAMPLE ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวเชื่อม &amp; ตารางค่าความจริง</span>
+    <h2>IMPLIES: <span class="q">ถ้าฝนตกแล้วพื้นถนนจะเปียก</span></h2></div></div>
+  <div class="body">
+    <ol class="num">
+      <li class="anim spread" style="--i:0">ฝนตก (<span class="vt">T</span>) และพื้นเปียก (<span class="vt">T</span>) — เป็นไปตามคาด <span class="res"><span class="arrow">⇒</span><span class="chip t">T</span></span></li>
+      <li class="anim spread" style="--i:1">ฝนตก (<span class="vt">T</span>) แต่พื้นไม่เปียก (<span class="vf">F</span>) — <span class="rd">ผิดคำสัญญา</span> <span class="res"><span class="arrow">⇒</span><span class="chip f">F</span></span></li>
+      <li class="anim spread" style="--i:2">ฝนไม่ตก (<span class="vf">F</span>) แต่พื้นเปียก (<span class="vt">T</span>) — เปียกจากสาเหตุอื่น เงื่อนไขไม่ถูกละเมิด <span class="res"><span class="arrow">⇒</span><span class="chip t">T</span></span></li>
+      <li class="anim spread" style="--i:3">ฝนไม่ตก (<span class="vf">F</span>) และพื้นไม่เปียก (<span class="vf">F</span>) — ปกติ เงื่อนไขไม่ถูกละเมิด <span class="res"><span class="arrow">⇒</span><span class="chip t">T</span></span></li>
+    </ol>
+    <div class="block ex anim" style="--i:4">
+      <span class="lab"><span class="pin">CODE</span> เชื่อมโยงกับการเขียนโปรแกรม</span>
+      คำสั่ง <span class="code">if (condition) { action(); }</span> ทำงานบนหลักเดียวกับ <span class="op">p → q</span>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 21 · IFF ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวเชื่อม &amp; ตารางค่าความจริง</span>
+    <h2>เงื่อนไขสองทาง <span class="en">IFF · ↔</span></h2></div></div>
+  <div class="body">
+    <div class="cols" style="grid-template-columns:1.05fr .95fr">
+      <div class="col">
+        <div class="lead anim" style="--i:0"><span class="op">p ↔ q</span> อ่านว่า <span class="q">p ก็ต่อเมื่อ q</span></div>
+        <div class="lead anim" style="--i:1" style="font-size:2.7cqh">จริงเมื่อ <span class="op">p</span> และ <span class="op">q</span> <b>มีค่าความจริงเหมือนกัน</b></div>
+        <div class="tt-wrap anim" style="--i:2" style="margin: 0.5cqh 0">
+          <table class="tt"><thead><tr><th><span class="op">p</span></th><th><span class="op">q</span></th><th><span class="op">p ↔ q</span></th></tr></thead>
+          <tbody>
+            <tr><td><span class="vt">T</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td></tr>
+            <tr><td><span class="vt">T</span></td><td><span class="vf">F</span></td><td><span class="vf">F</span></td></tr>
+            <tr><td><span class="vf">F</span></td><td><span class="vt">T</span></td><td><span class="vf">F</span></td></tr>
+            <tr><td><span class="vf">F</span></td><td><span class="vf">F</span></td><td><span class="vt">T</span></td></tr>
+          </tbody></table>
+        </div>
+      </div>
+      <div class="col center anim" style="--i:3">
+        <figure class="figwrap">
+          <div class="fig"><img src="img/ch1_iff_equivalence.png" alt="ความเท่ากันและสองทางของ IFF" onerror="this.classList.add('missing')"></div>
+          <figcaption>เงื่อนไขสองทาง: <b>จริงเมื่อค่าความจริงตรงกัน</b></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="block ex anim" style="--i:3">
+      <span class="lab"><span class="pin">EX</span> ตัวอย่าง</span>
+      <span class="q">ฉันจะไปงานเลี้ยง <b>ก็ต่อเมื่อ</b> คุณไปด้วย</span><br>
+      จริงเมื่อไปทั้งคู่ หรือไม่ไปทั้งคู่ &nbsp;·&nbsp; เท็จเมื่อไปคนเดียว
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 22 · EQUIVALENCE ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวเชื่อม &amp; ตารางค่าความจริง</span>
+    <h2>ความสมมูล: <span class="op">p↔q ≡ (p→q)∧(q→p)</span></h2></div></div>
+  <div class="body center">
+    <div class="lead anim" style="--i:0;align-self:flex-start">พิสูจน์ด้วยตารางค่าความจริง</div>
+    <div class="tt-wrap anim" style="--i:1">
+      <table class="tt wide tt-eq"><thead><tr>
+        <th><span class="op">p</span></th><th><span class="op">q</span></th>
+        <th><span class="op">p → q</span></th><th><span class="op">q → p</span></th>
+        <th><span class="op">(p→q)∧(q→p)</span></th><th><span class="op">p ↔ q</span></th></tr></thead>
+        <tbody>
+          <tr><td><span class="vt">T</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td></tr>
+          <tr><td><span class="vt">T</span></td><td><span class="vf">F</span></td><td><span class="vf">F</span></td><td><span class="vt">T</span></td><td><span class="vf">F</span></td><td><span class="vf">F</span></td></tr>
+          <tr><td><span class="vf">F</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td><td><span class="vf">F</span></td><td><span class="vf">F</span></td><td><span class="vf">F</span></td></tr>
+          <tr><td><span class="vf">F</span></td><td><span class="vf">F</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td></tr>
+        </tbody></table>
+    </div>
+    <div class="lead anim" style="--i:2;align-self:flex-start">สองคอลัมน์ที่ขีดเส้น <span class="gd">ทอง</span> มีค่าเหมือนกันทุกแถว <span class="arrow">⇒</span> <span class="gn mark">สมมูลกัน</span></div>
+    <div class="muted tiny anim" style="--i:3;align-self:flex-start">นั่นคือ IFF = การมีเงื่อนไขทั้งสองทิศทางพร้อมกัน</div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 23 · WORKED EXAMPLE ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวเชื่อม &amp; ตารางค่าความจริง</span>
+    <h2>ตัวอย่าง: การหาค่าความจริง</h2></div></div>
+  <div class="body">
+    <div class="block anim" style="--i:0">
+      <span class="lab"><span class="pin">โจทย์</span></span>
+      พิจารณาประพจน์ <span class="op">(¬p ∧ q) → r</span> &nbsp; จงหาค่าความจริงเมื่อ
+      <span class="op">p =</span> <span class="vf">F</span>, <span class="op">q =</span> <span class="vt">T</span>, <span class="op">r =</span> <span class="vf">F</span>
+    </div>
+    <div class="lead anim" style="--i:1"><b>วิธีทำ</b> แทนค่าแล้วคำนวณจากในวงเล็บออกสู่ภายนอก</div>
+    <div class="deriv anim" style="--i:2">
+      <div class="ln first"><span class="o">≡</span><span class="expr">(¬<span class="v">p</span> ∧ <span class="v">q</span>) → <span class="v">r</span></span></div>
+      <div class="ln"><span class="o">≡</span><span class="expr">(¬<span class="vf">F</span> ∧ <span class="vt">T</span>) → <span class="vf">F</span></span></div>
+      <div class="ln"><span class="o">≡</span><span class="expr">(<span class="vt">T</span> ∧ <span class="vt">T</span>) → <span class="vf">F</span></span></div>
+      <div class="ln"><span class="o">≡</span><span class="expr"><span class="vt">T</span> → <span class="vf">F</span></span></div>
+      <div class="ln"><span class="o">≡</span><span class="expr"><span class="chip f">F</span></span></div>
+    </div>
+    <div class="block ex anim" style="--i:3">
+      <span class="lab"><span class="pin">ANS</span> คำตอบ</span>
+      ประพจน์มีค่าความจริงเป็น <b class="rd">เท็จ (F)</b>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 24 · DIVIDER 04 ============================== -->
+<section class="slide">
+  <div class="divider">
+    <div class="ghost">✓</div>
+    <div class="no">SECTION 04</div>
+    <h2>กิจกรรมในชั้นเรียน<span class="en">In-Class Activities · แบบฝึกหัดทำในห้อง</span></h2>
+  </div>
+</section>
+
+<!-- ============================== 25 · ACTIVITY HOWTO ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">กิจกรรมในชั้นเรียน</span>
+    <h2>วิธีทำกิจกรรม</h2></div></div>
+  <div class="body">
+    <div class="block anim" style="--i:0">
+      <span class="lab"><span class="pin">คำชี้แจง</span></span>
+      ให้นักศึกษาทำกิจกรรมต่อไปนี้ <b>ในชั้นเรียน</b> ลงในสมุด / กระดาษ ภายในเวลาที่กำหนด แล้วร่วมเฉลยและอภิปรายพร้อมกัน
+    </div>
+    <ul class="bul">
+      <li class="anim" style="--i:1">ทำเดี่ยวหรือจับคู่ก็ได้ (ตามที่อาจารย์กำหนด)</li>
+      <li class="anim" style="--i:2">เมื่อหมดเวลา อาจารย์จะคลิกเพื่อ <b>เฉลย</b> ทีละข้อ</li>
+      <li class="anim" style="--i:3">อาสาสมัครออกมาอธิบายวิธีคิดหน้าชั้น</li>
+    </ul>
+    <div class="block ex anim" style="--i:4">
+      <span class="lab"><span class="pin">เกณฑ์</span></span>
+      เน้น<b>กระบวนการคิด</b>และการให้เหตุผล ไม่ใช่แค่คำตอบสุดท้าย
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 26 · ACTIVITY 1 ============================== -->
+<section class="slide activity-classify">
+  <div class="head"><div><span class="kick">กิจกรรมในชั้นเรียน</span>
+    <h2>กิจกรรมที่ 1: จำแนกประพจน์ <span class="en">5 นาที</span></h2></div></div>
+  <div class="body tight">
+    <div class="lead anim" style="--i:0">ข้อความใดเป็น <b>ประพจน์</b>? ถ้าเป็น ให้ระบุค่าความจริง (T/F) ถ้าไม่เป็น บอกเหตุผล</div>
+    <ol class="num" style="display:grid;grid-template-columns:1fr 1fr;gap:2cqh 4cqw">
+      <!-- Item 1 -->
+      <li>
+        <span class="inner">
+          ดวงอาทิตย์ขึ้นทางทิศตะวันออก
+          <span class="reveal" style="margin-left:.5em">
+            <span class="inner"><span class="chip t">T</span> (ประพจน์)</span>
+          </span>
+        </span>
+      </li>
+      
+      <!-- Item 2 -->
+      <li class="reveal">
+        <span class="inner">
+          <span class="expr"><span class="v">5</span> + <span class="v">7</span> = <span class="v">13</span></span>
+          <span class="reveal" style="margin-left:.5em">
+            <span class="inner"><span class="chip f">F</span> (ประพจน์)</span>
+          </span>
+        </span>
+      </li>
+
+      <!-- Item 3 -->
+      <li class="reveal">
+        <span class="inner">
+          เธอหิวข้าวหรือยัง?
+          <span class="reveal" style="margin-left:.5em">
+            <span class="inner"><span class="rd">ไม่เป็น</span> <span class="muted" style="font-size:.85em">(คำถาม)</span></span>
+          </span>
+        </span>
+      </li>
+
+      <!-- Item 4 -->
+      <li class="reveal">
+        <span class="inner">
+          <span class="expr"><span class="v">x</span> − <span class="v">2</span> = <span class="v">9</span></span>
+          <span class="reveal" style="margin-left:.5em">
+            <span class="inner"><span class="rd">ไม่เป็น</span> <span class="muted" style="font-size:.85em">(ประพจน์เปิด)</span></span>
+          </span>
+        </span>
+      </li>
+
+      <!-- Item 5 -->
+      <li class="reveal">
+        <span class="inner">
+          ห้ามสูบบุหรี่ในอาคาร
+          <span class="reveal" style="margin-left:.5em">
+            <span class="inner"><span class="rd">ไม่เป็น</span> <span class="muted" style="font-size:.85em">(คำสั่ง)</span></span>
+          </span>
+        </span>
+      </li>
+
+      <!-- Item 6 -->
+      <li class="reveal">
+        <span class="inner">
+          จำนวนเต็มทุกจำนวนหารด้วย 2 ลงตัว
+          <span class="reveal" style="margin-left:.5em">
+            <span class="inner"><span class="chip f">F</span> (ประพจน์)</span>
+          </span>
+        </span>
+      </li>
+
+      <!-- Item 7 -->
+      <li class="reveal">
+        <span class="inner">
+          <span class="expr"><span class="v">2</span></span> เป็นจำนวนคู่ และ <span class="expr"><span class="v">3</span></span> เป็นจำนวนเฉพาะ
+          <span class="reveal" style="margin-left:.5em">
+            <span class="inner"><span class="chip t">T</span> (ประพจน์)</span>
+          </span>
+        </span>
+      </li>
+
+      <!-- Item 8 -->
+      <li class="reveal">
+        <span class="inner">
+          กรุณาส่งการบ้านก่อนวันพรุ่งนี้
+          <span class="reveal" style="margin-left:.5em">
+            <span class="inner"><span class="rd">ไม่เป็น</span> <span class="muted" style="font-size:.85em">(ขอร้อง/คำสั่ง)</span></span>
+          </span>
+        </span>
+      </li>
+
+      <!-- Item 9 -->
+      <li class="reveal">
+        <span class="inner">
+          เขาเป็นนักพัฒนาซอฟต์แวร์
+          <span class="reveal" style="margin-left:.5em">
+            <span class="inner"><span class="rd">ไม่เป็น</span> <span class="muted" style="font-size:.85em">(ประพจน์เปิด)</span></span>
+          </span>
+        </span>
+      </li>
+
+      <!-- Item 10 -->
+      <li class="reveal">
+        <span class="inner">
+          1 ไบต์ มี 8 บิต
+          <span class="reveal" style="margin-left:.5em">
+            <span class="inner"><span class="chip t">T</span> (ประพจน์)</span>
+          </span>
+        </span>
+      </li>
+    </ol>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 27 · ACTIVITY 2 ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">กิจกรรมในชั้นเรียน</span>
+    <h2>กิจกรรมที่ 2: สร้างตารางค่าความจริง <span class="en">7 นาที</span></h2></div></div>
+  <div class="body center">
+    <div class="lead anim" style="--i:0;align-self:flex-start">จงสร้างตารางค่าความจริงของ &nbsp; <span class="op" style="font-size:1.15em">¬p ∧ q</span></div>
+    <div class="muted tiny anim" style="--i:1;align-self:flex-start">เติมคอลัมน์ <span class="op">¬p</span> ก่อน แล้วจึงหา <span class="op">¬p ∧ q</span></div>
+    <div class="reveal anim" style="--i:2">
+      <div class="inner">
+        <div class="tt-wrap">
+          <table class="tt"><thead><tr><th><span class="op">p</span></th><th><span class="op">q</span></th><th><span class="op">¬p</span></th><th><span class="op">¬p ∧ q</span></th></tr></thead>
+          <tbody>
+            <tr><td><span class="vt">T</span></td><td><span class="vt">T</span></td><td><span class="vf">F</span></td><td><span class="vf">F</span></td></tr>
+            <tr><td><span class="vt">T</span></td><td><span class="vf">F</span></td><td><span class="vf">F</span></td><td><span class="vf">F</span></td></tr>
+            <tr class="hi"><td><span class="vf">F</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td><td><span class="vt">T</span></td></tr>
+            <tr><td><span class="vf">F</span></td><td><span class="vf">F</span></td><td><span class="vt">T</span></td><td><span class="vf">F</span></td></tr>
+          </tbody></table>
+        </div>
+      </div>
+      <span class="hint"><span class="k">SPACE</span> คลิกเพื่อเฉลย</span>
+    </div>
+    <div class="muted tiny anim" style="--i:3">เป็นจริงเพียงกรณีเดียว: <span class="op">p=</span><span class="vf">F</span> และ <span class="op">q=</span><span class="vt">T</span></div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 28 · ACTIVITY 3 ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">กิจกรรมในชั้นเรียน</span>
+    <h2>กิจกรรมที่ 3: หาค่าความจริง <span class="en">5 นาที</span></h2></div></div>
+  <div class="body">
+    <div class="lead anim" style="--i:0">จงหาค่าความจริงของ &nbsp; <span class="op" style="font-size:1.1em">(p → q) ∧ (¬q ∨ r)</span> &nbsp;
+      เมื่อ <span class="op">p=</span><span class="vt">T</span>, <span class="op">q=</span><span class="vf">F</span>, <span class="op">r=</span><span class="vt">T</span></div>
+    <div class="reveal anim" style="--i:1">
+      <div class="inner">
+        <div class="lead" style="margin-bottom:1.4cqh"><b>วิธีทำ</b> แทนค่าแล้วคำนวณจากในวงเล็บออกนอก</div>
+        <div class="deriv">
+          <div class="ln first"><span class="o">≡</span><span class="expr">(<span class="v">p</span> → <span class="v">q</span>) ∧ (¬<span class="v">q</span> ∨ <span class="v">r</span>)</span></div>
+          <div class="ln"><span class="o">≡</span><span class="expr">(<span class="vt">T</span> → <span class="vf">F</span>) ∧ (¬<span class="vf">F</span> ∨ <span class="vt">T</span>)</span></div>
+          <div class="ln"><span class="o">≡</span><span class="expr"><span class="vf">F</span> ∧ (<span class="vt">T</span> ∨ <span class="vt">T</span>)</span></div>
+          <div class="ln"><span class="o">≡</span><span class="expr"><span class="vf">F</span> ∧ <span class="vt">T</span> &nbsp;≡&nbsp; <span class="chip f">F</span></span></div>
+        </div>
+        <div class="block ex" style="margin-top:1.6cqh">
+          <span class="lab"><span class="pin">ANS</span> คำตอบ</span> ประพจน์มีค่าความจริงเป็น <b class="rd">เท็จ (F)</b>
+        </div>
+      </div>
+      <span class="hint"><span class="k">SPACE</span> คลิกเพื่อเฉลย</span>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 29 · ACTIVITY 4 ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">กิจกรรมในชั้นเรียน</span>
+    <h2>กิจกรรมที่ 4: แปลประโยคเป็นสัญลักษณ์ <span class="en">5 นาที</span></h2></div></div>
+  <div class="body">
+    <div class="lead anim" style="--i:0">กำหนด <span class="op">p=</span> <span class="q">ฉันอ่านหนังสือ</span>, &nbsp; <span class="op">q=</span> <span class="q">ฉันสอบผ่าน</span><br>
+      จงเขียนประโยคต่อไปนี้ในรูปสัญลักษณ์</div>
+    <ol class="num">
+      <li class="anim" style="--i:1">ถ้าฉันอ่านหนังสือ แล้วฉันจะสอบผ่าน</li>
+      <li class="anim" style="--i:2">ฉันสอบผ่านก็ต่อเมื่อฉันอ่านหนังสือ</li>
+      <li class="anim" style="--i:3">ฉันไม่อ่านหนังสือ และฉันสอบไม่ผ่าน</li>
+      <li class="anim" style="--i:4">ฉันอ่านหนังสือ หรือ ฉันสอบไม่ผ่าน</li>
+    </ol>
+    <div class="reveal anim" style="--i:5">
+      <div class="inner">
+        <div class="block ex">
+          <span class="lab"><span class="pin">เฉลย</span></span>
+          <span style="font-size:1.05em">
+          1) <span class="op">p → q</span> &nbsp;&nbsp; 2) <span class="op">q ↔ p</span> &nbsp;&nbsp;
+          3) <span class="op">¬p ∧ ¬q</span> &nbsp;&nbsp; 4) <span class="op">p ∨ ¬q</span></span>
+        </div>
+      </div>
+      <span class="hint"><span class="k">SPACE</span> คลิกเพื่อเฉลย</span>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 30 · ACTIVITY 5 ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">กิจกรรมในชั้นเรียน</span>
+    <h2>กิจกรรมที่ 5: อภิปรายกลุ่ม <span class="en">8 นาที</span></h2></div></div>
+  <div class="body tight">
+    <div class="block anim" style="--i:0">
+      <span class="lab"><span class="pin">สถานการณ์</span></span>
+      ร้านกาแฟติดป้ายว่า <span class="q">ลูกค้าจะได้รับส่วนลด <b>ถ้า</b> เป็นสมาชิก <b>และ</b> ซื้อครบ 100 บาท</span>
+    </div>
+    <div class="lead anim tiny" style="--i:1">ให้ <span class="op">M=</span> เป็นสมาชิก, &nbsp; <span class="op">B=</span> ซื้อครบ 100 บาท, &nbsp; <span class="op">D=</span> ได้รับส่วนลด</div>
+    <ol class="num">
+      <li class="anim" style="--i:2">เขียนเงื่อนไขการได้ส่วนลดเป็นสัญลักษณ์</li>
+      <li class="anim" style="--i:3">ถ้าลูกค้าเป็นสมาชิกแต่ซื้อ 80 บาท จะได้ส่วนลดหรือไม่?</li>
+      <li class="anim" style="--i:4">สร้างตารางค่าความจริงของเงื่อนไขนี้</li>
+    </ol>
+    <div class="reveal anim" style="--i:5">
+      <div class="inner">
+        <div class="block ex">
+          <span class="lab"><span class="pin">แนวเฉลย</span></span>
+          <span class="tiny">
+          1) <span class="op">D ≡ M ∧ B</span> &nbsp;&nbsp; 2) <b>ไม่ได้</b> (เพราะ <span class="op">B=</span><span class="vf">F</span> ทำให้ <span class="op">M∧B=</span><span class="vf">F</span>) &nbsp;&nbsp;
+          3) <span class="op">D</span> เป็นจริงเฉพาะเมื่อ <span class="op">M=</span><span class="vt">T</span> และ <span class="op">B=</span><span class="vt">T</span></span>
+        </div>
+      </div>
+      <span class="hint"><span class="k">SPACE</span> คลิกเพื่อเฉลย</span>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 30a · ACTIVITY 6 ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">กิจกรรมในชั้นเรียน</span>
+    <h2>กิจกรรมที่ 6: ปริศนาอัศวินและคนลวง <span class="en">8 นาที</span></h2></div></div>
+  <div class="body tight">
+    <div class="cols" style="grid-template-columns:1.05fr .95fr">
+      <div class="col">
+        <div class="block anim" style="--i:0">
+          <span class="lab"><span class="pin">สถานการณ์</span></span>
+          คุณพบชายสองคนคือ A และ B โดย <b>อัศวิน (Knight)</b> จะพูดจริงเสมอ และ <b>คนลวง (Knave)</b> จะโกหกเสมอ<br>
+          ชาย A เอ่ยขึ้นมาว่า: <span class="q"><b>เราสองคนมีอย่างน้อยหนึ่งคนที่เป็นคนลวง</b></span>
+        </div>
+        <div class="lead anim" style="--i:1">จงวิเคราะห์ว่า A และ B เป็นอะไร?</div>
+        <div class="reveal anim" style="--i:2">
+          <div class="inner">
+            <div class="block ex" style="padding:1.6cqh 2.2cqw">
+              <span class="lab"><span class="pin">ขั้นตอนการวิเคราะห์</span></span>
+              <ul class="bul tiny" style="gap:.5cqh">
+                <li>สมมติ A เป็นคนลวง <span class="arrow">→</span> คำพูดของเขาต้องเป็นเท็จ <span class="arrow">→</span> แต่ถ้าคำพูดเป็นเท็จ แสดงว่าไม่มีใครเป็นคนลวงเลย (ขัดแย้งกับที่สมมติว่า A เป็นคนลวง!)</li>
+                <li>ดังนั้น A ต้องเป็นอัศวิน (พูดจริง)</li>
+                <li>เมื่อ A พูดจริง คำพูดของเขาเป็นจริง <span class="arrow">→</span> ต้องมีอย่างน้อยหนึ่งคนเป็นคนลวง <span class="arrow">→</span> เนื่องจาก A เป็นอัศวินแล้ว ดังนั้น B ต้องเป็นคนลวง!</li>
+              </ul>
+              <div style="font-weight:700;color:var(--green2);margin-top:.6cqh">คำตอบ: A เป็นอัศวิน, B เป็นคนลวง</div>
+            </div>
+          </div>
+          <span class="hint"><span class="k">SPACE</span> คลิกเพื่อดูเฉลย</span>
+        </div>
+      </div>
+      <div class="col center" style="justify-content:center">
+        <figure class="figwrap anim" style="--i:3;width:100%">
+          <div style="text-align:center;margin-bottom:1.5cqh">
+            <img src="img/ch1_knight_knave_mascots.png" alt="การ์ตูนอัศวินและคนลวง" style="height:15cqh;width:auto;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.12)">
+          </div>
+          <div class="tree-box">
+            <div class="tree-root">อัศวิน (พูดจริงเสมอ) &nbsp;vs&nbsp; คนลวง (โกหกเสมอ)</div>
+            <div class="tree-row">
+              <div class="tree-leaf error">
+                <div class="t-title">กรณีที่ 1: A เป็นคนลวง</div>
+                <div class="t-body">
+                  คำพูด A เป็น<b>เท็จ</b><br>
+                  <span class="arrow">↓</span><br>
+                  "ไม่มีใครเป็นคนลวงเลย"<br>
+                  (ทุกคนพูดจริง)<br>
+                  <div class="t-badge no">❌ ขัดแย้งกับข้อสมมติ</div>
+                </div>
+              </div>
+              <div class="tree-leaf success">
+                <div class="t-title">กรณีที่ 2: A เป็นอัศวิน</div>
+                <div class="t-body">
+                  คำพูด A เป็น<b>จริง</b><br>
+                  <span class="arrow">↓</span><br>
+                  "มีอย่างน้อยหนึ่งคนโกหก"<br>
+                  (B ต้องเป็นคนลวง)<br>
+                  <div class="t-badge ok">✅ สมเหตุสมผล</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figcaption style="margin-top:1cqh">แผนภูมิการวิเคราะห์แบบแบ่งกรณี (Case Analysis)</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 30b · ACTIVITY 7 ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">กิจกรรมในชั้นเรียน</span>
+    <h2>กิจกรรมที่ 7: แกะรอยหาผลลัพธ์วงจรตรรกะ <span class="en">6 นาที</span></h2></div></div>
+  <div class="body tight">
+    <div class="cols" style="grid-template-columns:1.05fr .95fr">
+      <div class="col">
+        <div class="block anim" style="--i:0">
+          <span class="lab"><span class="pin">โจทย์</span></span>
+          พิจารณาวงจรตรรกะในภาพขวา หากกำหนดสัญญาณนำเข้าดังนี้:<br>
+          <span class="expr">A = <span class="vt">T</span></span>, &nbsp;
+          <span class="expr">B = <span class="vf">F</span></span>, &nbsp;
+          <span class="expr">C = <span class="vt">T</span></span><br>
+          จงหาว่าผลลัพธ์ปลายทาง <b>Y จะมีค่าความจริงเป็นอย่างไร?</b>
+        </div>
+        <div class="reveal anim" style="--i:1">
+          <div class="inner">
+            <div class="block ex" style="padding:1.8cqh 2.2cqw">
+              <span class="lab"><span class="pin">ขั้นตอนการวิเคราะห์</span></span>
+              <ol class="num tiny" style="gap:.6cqh">
+                <li>สัญญาณผ่านเกต AND (บน): <span class="expr">A ∧ B ≡ <span class="vt">T</span> ∧ <span class="vf">F</span> ≡ <b><span class="vf">F</span></b></span></li>
+                <li>สัญญาณผ่านเกต NOT (ล่าง): <span class="expr">¬C ≡ ¬<span class="vt">T</span> ≡ <b><span class="vf">F</span></b></span></li>
+                <li>สัญญาณนำเข้ารวมผ่านเกต OR (ขวา): <span class="expr">(A ∧ B) ∨ ¬C ≡ <span class="vf">F</span> ∨ <span class="vf">F</span> ≡ <b><span class="vf">F</span></b></span></li>
+              </ol>
+              <div style="font-weight:700;color:var(--red2);margin-top:.6cqh">คำตอบ: ผลลัพธ์ Y เป็นเท็จ <span class="chip f">F</span></div>
+            </div>
+          </div>
+          <span class="hint"><span class="k">SPACE</span> คลิกเพื่อดูเฉลย</span>
+        </div>
+      </div>
+      <div class="col center anim" style="--i:2;justify-content:center">
+        <svg class="gate" viewBox="0 0 420 180" style="max-width:100%;height:auto">
+          <!-- Wires -->
+          <line class="wire" x1="40" y1="40" x2="100" y2="40"/>
+          <line class="wire" x1="40" y1="65" x2="100" y2="65"/>
+          <line class="wire" x1="40" y1="140" x2="180" y2="140"/>
+          <path class="wire" d="M155,52 L240,52 L240,82 L280,82"/>
+          <path class="wire" d="M222,140 L260,140 L260,102 L280,102"/>
+          <line class="wire" x1="344" y1="92" x2="380" y2="92"/>
+          
+          <!-- AND Gate -->
+          <path class="body" style="fill:var(--cream)" d="M100,27 L130,27 A25,25 0 0 1 130,77 L100,77 Z"/>
+          <text class="lbl" x="110" y="58" style="font-size:16px">AND</text>
+          
+          <!-- NOT Gate -->
+          <path class="body" style="fill:var(--pink)" d="M180,120 L180,160 L210,140 Z"/>
+          <circle class="bub" cx="216" cy="140" r="6"/>
+          
+          <!-- OR Gate -->
+          <path class="body" style="fill:var(--mint)" d="M280,72 C295,85 295,97 280,110 C304,110 326,101 344,91 C326,81 304,72 280,72 Z"/>
+          <text class="lbl" x="292" y="97" style="font-size:16px">OR</text>
+          
+          <!-- Labels -->
+          <text class="lbl" x="30" y="45" text-anchor="end">A</text>
+          <text class="lbl" x="30" y="70" text-anchor="end">B</text>
+          <text class="lbl" x="30" y="145" text-anchor="end">C</text>
+          <text class="lbl" x="390" y="97">Y</text>
+        </svg>
+        <div class="cap" style="font-size:2.1cqh;margin-top:.8cqh">วงจรรวม: <b>Y = (A ∧ B) ∨ ¬C</b></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 30c · ACTIVITY 8 ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">กิจกรรมในชั้นเรียน</span>
+    <h2>กิจกรรมที่ 8: หาบั๊กในเงื่อนไขโค้ดโปรแกรม <span class="en">5 นาที</span></h2></div></div>
+  <div class="body tight">
+    <div class="block anim" style="--i:0">
+      <span class="lab"><span class="pin">สถานการณ์โค้ด</span></span>
+      ร้านค้าเขียนเงื่อนไขให้ส่วนลดกับลูกค้า: <br>
+      <code class="code" style="font-size:2.6cqh;padding:.2em .6em">if (isMember && (age >= 60 || hasCoupon)) { getDiscount(); }</code>
+    </div>
+    <div class="lead anim" style="--i:1">จงวิเคราะห์ว่าลูกค้าคนใดต่อไปนี้จะ **ได้รับส่วนลด** (เงื่อนไขเป็นจริง)?</div>
+    <ul class="bul tiny" style="display:grid;grid-template-columns:1fr 1fr;gap:1.2cqh 4cqw">
+      <li class="anim" style="--i:2"><b>ลูกค้าคนที่ 1:</b> เป็นสมาชิก (<span class="code">isMember = true</span>), อายุ 65 (<span class="code">age = 65</span>), ไม่มีคูปอง (<span class="code">hasCoupon = false</span>)</li>
+      <li class="anim" style="--i:3"><b>ลูกค้าคนที่ 2:</b> ไม่เป็นสมาชิก (<span class="code">isMember = false</span>), อายุ 70 (<span class="code">age = 70</span>), มีคูปอง (<span class="code">hasCoupon = true</span>)</li>
+    </ul>
+    <div class="reveal anim" style="--i:4">
+      <div class="inner">
+        <div class="block ex" style="padding:1.6cqh 2.2cqw">
+          <span class="lab"><span class="pin">เฉลยแนวคิด</span></span>
+          <ul class="bul tiny" style="gap:.4cqh">
+            <li><b>ลูกค้าคนที่ 1:</b> <span class="code">true && (true || false)</span> ≡ <span class="code">true && true</span> ≡ <b><span class="gn">true</span> (ได้รับส่วนลด)</b></li>
+            <li><b>ลูกค้าคนที่ 2:</b> <span class="code">false && (true || true)</span> ≡ <span class="code">false && true</span> ≡ <b><span class="rd">false</span> (ไม่ได้รับส่วนลด)</b></li>
+          </ul>
+        </div>
+      </div>
+      <span class="hint"><span class="k">SPACE</span> คลิกเพื่อดูเฉลย</span>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 31 · GAME ============================== -->
+<section class="slide">
+  <div class="game" id="game">
+    <div class="g-badge">บทที่ 1 · ทบทวนแบบเกม</div>
+    <div class="game__bar">
+      <span class="gchip">⚡ คะแนน <b id="gScore">0</b></span>
+      <span class="gchip">🔥 สตรีค <b id="gStreak">0</b></span>
+      <span class="gchip">ข้อ <b id="gNum">0</b><span style="opacity:.6">/</span><b id="gTot">8</b></span>
+      <span class="gchip best">★ สูงสุด <b id="gBest">0</b></span>
+    </div>
+    <div class="game__stage" id="gStage"></div>
+  </div>
+</section>
+
+<!-- ============================== 32 · SUMMARY ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">Recap</span>
+    <h2>สรุปสัปดาห์ที่ 1</h2></div></div>
+  <div class="body tight">
+    <ul class="bul">
+      <li class="anim" style="--i:0"><b>ประพจน์</b> = ข้อความที่ระบุค่าความจริง (T/F) ได้แน่นอน
+        <span class="muted">(คำถาม / คำสั่ง / อุทาน / ความเห็น / ข้อความกำกวม ไม่เป็นประพจน์)</span></li>
+      <li class="anim" style="--i:1"><b>ประพจน์เปิด</b> ยังระบุค่าความจริงไม่ได้จนกว่าจะแทนค่าตัวแปร</li>
+      <li class="anim" style="--i:2"><b>ตัวเชื่อม 5 ตัว</b>: <span class="op">¬ &nbsp;∧ &nbsp;∨ &nbsp;→ &nbsp;↔</span></li>
+      <li class="anim" style="--i:3">จำจุดสำคัญ: <span class="op">∧</span> จริงเมื่อทั้งคู่จริง · <span class="op">∨</span> เท็จเมื่อทั้งคู่เท็จ ·
+        <span class="op">→</span> เท็จเฉพาะ T→F · <span class="op">↔</span> จริงเมื่อค่าเท่ากัน</li>
+      <li class="anim" style="--i:4"><b>ตารางค่าความจริง</b> = เครื่องมือวิเคราะห์ประพจน์เชิงประกอบ (<span class="op">2ⁿ</span> กรณี)</li>
+    </ul>
+    <div class="block ex anim" style="--i:5">
+      <span class="lab"><span class="pin">NEXT</span> สัปดาห์หน้า</span>
+      สัจนิรันดร์ / ข้อขัดแย้ง <span class="op">→</span> ความสมมูลและกฎพีชคณิต <span class="op">→</span>
+      XOR / NAND / NOR <span class="op">→</span> ตัวบ่งปริมาณ <span class="op">→</span> การอนุมาน
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 32 · HOMEWORK ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">Assignment</span>
+    <h2>แบบฝึกหัดมอบหมาย <span class="en">ทำนอกห้อง</span></h2></div></div>
+  <div class="body tight">
+    <ol class="num tiny">
+      <li class="anim" style="--i:0">ข้อความต่อไปนี้เป็นประพจน์หรือไม่ ระบุค่าความจริง:
+        (ก) <span class="expr"><span class="v">3+5=8</span></span> &nbsp; (ข) <span class="expr"><span class="v">x&gt;10</span></span> &nbsp;
+        (ค) กรุณาปิดประตู &nbsp; (ง) <span class="expr"><span class="v">7</span></span> เป็นจำนวนคู่ &nbsp; (จ) <span class="expr"><span class="v">2²=4</span></span></li>
+      <li class="anim" style="--i:1">สร้างตารางค่าความจริงของ: &nbsp;
+        <span class="op">p ∧ ¬q</span>, &nbsp; <span class="op">¬p ∨ q</span>, &nbsp; <span class="op">(p→q) ∧ (q→p)</span></li>
+      <li class="anim" style="--i:2">หาค่าความจริงของ <span class="op">(¬p ∨ q) → r</span> เมื่อ
+        <span class="op">p=</span><span class="vt">T</span>, <span class="op">q=</span><span class="vf">F</span>, <span class="op">r=</span><span class="vt">T</span></li>
+      <li class="anim" style="--i:3">เขียนประพจน์เชิงสัญลักษณ์ (ให้ <span class="op">p=</span>ฝนตก, <span class="op">q=</span>พื้นเปียก, <span class="op">r=</span>อยู่บ้าน):
+        <ul class="sub">
+          <li>ถ้าฝนตก แล้วฉันจะอยู่บ้าน</li>
+          <li>ฉันจะอยู่บ้านก็ต่อเมื่อฝนตกหรือพื้นเปียก</li>
+        </ul></li>
+    </ol>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 1 ตรรกศาสตร์</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 33 · CLOSING ============================== -->
+<section class="slide">
+  <div class="closing">
+    <div class="rule"></div>
+    <div class="big">จบสัปดาห์ที่ 1</div>
+    <div class="nx">สัปดาห์ที่ 2: <b>สัจนิรันดร์ · ความสมมูล · และการอนุมาน</b></div>
+    <div class="glyphs" style="position:static;margin-top:1cqh">
+      <div class="g" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)"><span class="s" style="color:#fff">¬</span></div>
+      <div class="g" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)"><span class="s" style="color:#fff">∧</span></div>
+      <div class="g" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)"><span class="s" style="color:#fff">∨</span></div>
+      <div class="g" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)"><span class="s" style="color:var(--gold)">→</span></div>
+      <div class="g" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)"><span class="s" style="color:var(--gold)">↔</span></div>
+    </div>
+  </div>
+</section>
+
+</div></div></div>
+
+<!-- overview header -->
+<div class="ov-title"><span>ภาพรวมสไลด์ · บทที่ 1 ตรรกศาสตร์ (สัปดาห์ที่ 1)</span><small>คลิกสไลด์เพื่อไปยังหน้านั้น · กด O / Esc เพื่อปิด</small></div>
+
+<!-- dock -->
+<div class="dock">
+  <button id="bPrev" title="ก่อนหน้า (←)">‹</button>
+  <span class="count" id="count">01 / 33</span>
+  <button id="bNext" title="ถัดไป (→ / Space)">›</button>
+  <span class="sep"></span>
+  <button id="bOv" title="ภาพรวม (O)">⊞</button>
+  <button id="bHelp" title="แป้นพิมพ์ (?)">?</button>
+</div>
+
+<!-- onboarding toast -->
+<div class="toast" id="toast">
+  <span>ใช้ <kbd>←</kbd> <kbd>→</kbd> เปลี่ยนสไลด์ · <kbd>Space</kbd> เฉลย · <kbd>O</kbd> ภาพรวม</span>
+</div>
+
+<!-- help overlay -->
+<div class="help" id="help">
+  <div class="card">
+    <h3>แป้นพิมพ์ลัด</h3>
+    <dl>
+      <kbd>→ / Space</kbd><dd>สไลด์ถัดไป (และเปิดเฉลยทีละขั้น)</dd>
+      <kbd>←</kbd><dd>สไลด์ก่อนหน้า</dd>
+      <kbd>Home / End</kbd><dd>ไปสไลด์แรก / สุดท้าย</dd>
+      <kbd>R</kbd><dd>เปิดเฉลยทั้งหมดในสไลด์</dd>
+      <kbd>O / Esc</kbd><dd>เปิด/ปิดมุมมองภาพรวม</dd>
+      <kbd>F</kbd><dd>เต็มจอ</dd>
+      <kbd>?</kbd><dd>เปิด/ปิดหน้าต่างนี้</dd>
+    </dl>
+    <div class="close">คลิกที่ใดก็ได้เพื่อปิด</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const total=slides.length;
+  const bar=document.querySelector('.progress .bar');
+  const count=document.getElementById('count');
+  let cur=0;
+  const pad=n=>String(n).padStart(2,'0');
+
+  function render(){
+    slides.forEach((s,i)=>{
+      s.classList.toggle('is-active',i===cur);
+      const div=s.querySelector('.divider');
+      if(div){ div.classList.remove('is-anim'); if(i===cur){ void div.offsetWidth; div.classList.add('is-anim'); } }
+    });
+    bar.style.width=((cur+1)/total*100)+'%';
+    count.textContent=pad(cur+1)+' / '+total;
+    if(document.body.classList.contains('overview')){
+      slides[cur].scrollIntoView({block:'center',behavior:'smooth'});
+    }
+  }
+  function next(){
+    if(document.body.classList.contains('overview')) return;
+    const hidden=slides[cur].querySelector('.reveal:not(.on)');
+    if(hidden){ hidden.classList.add('on'); return; }
+    if(cur<total-1){ cur++; render(); }
+  }
+  function prev(){
+    if(document.body.classList.contains('overview')) return;
+    if(cur>0){ cur--; render(); }
+  }
+  function go(i){ cur=Math.max(0,Math.min(total-1,i)); render(); }
+  function revealAll(){ slides[cur].querySelectorAll('.reveal').forEach(r=>r.classList.add('on')); }
+  function toggleOverview(){
+    document.body.classList.toggle('overview');
+    if(!document.body.classList.contains('overview')) render(); else slides[cur].scrollIntoView({block:'center'});
+  }
+  function toggleHelp(){ document.getElementById('help').classList.toggle('show'); }
+  function fs(){ if(!document.fullscreenElement) document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen(); else document.exitFullscreen(); }
+
+  // keyboard
+  document.addEventListener('keydown',e=>{
+    if(document.getElementById('help').classList.contains('show') && e.key!=='?'){ document.getElementById('help').classList.remove('show'); }
+    switch(e.key){
+      case 'ArrowRight': case ' ': case 'PageDown': case 'l': e.preventDefault(); next(); break;
+      case 'ArrowLeft': case 'PageUp': case 'h': e.preventDefault(); prev(); break;
+      case 'ArrowDown': e.preventDefault(); next(); break;
+      case 'ArrowUp': e.preventDefault(); prev(); break;
+      case 'Home': go(0); break;
+      case 'End': go(total-1); break;
+      case 'r': case 'R': revealAll(); break;
+      case 'o': case 'O': toggleOverview(); break;
+      case 'Escape': if(document.body.classList.contains('overview')) toggleOverview(); break;
+      case 'f': case 'F': fs(); break;
+      case '?': toggleHelp(); break;
+    }
+    hideToast();
+  });
+
+  // reveal click (stop bubbling so it doesn't advance)
+  document.querySelectorAll('.reveal').forEach(r=>{
+    r.addEventListener('click',e=>{ e.stopPropagation(); r.classList.toggle('on'); });
+  });
+
+  // click background to advance / click thumb in overview to jump
+  document.addEventListener('click',e=>{
+    if(document.getElementById('help').classList.contains('show')){ document.getElementById('help').classList.remove('show'); return; }
+    if(document.body.classList.contains('overview')){
+      const s=e.target.closest('.slide');
+      if(s){ const i=slides.indexOf(s); if(i>=0){ cur=i; document.body.classList.remove('overview'); render(); } }
+      return;
+    }
+    if(e.target.closest('.reveal,.dock,.help,a,button,svg,.game')) return;
+    next();
+  });
+
+  // dock buttons
+  document.getElementById('bPrev').onclick=e=>{e.stopPropagation();prev();hideToast();};
+  document.getElementById('bNext').onclick=e=>{e.stopPropagation();next();hideToast();};
+  document.getElementById('bOv').onclick=e=>{e.stopPropagation();toggleOverview();hideToast();};
+  document.getElementById('bHelp').onclick=e=>{e.stopPropagation();toggleHelp();};
+
+  // swipe
+  let tx=0,ty=0;
+  document.addEventListener('touchstart',e=>{tx=e.changedTouches[0].clientX;ty=e.changedTouches[0].clientY;},{passive:true});
+  document.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty;
+    if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)){ dx<0?next():prev(); }
+  },{passive:true});
+
+  // toast auto-hide
+  const toast=document.getElementById('toast');
+  let toastTimer=setTimeout(hideToast,6500);
+  function hideToast(){ clearTimeout(toastTimer); toast.classList.add('hide'); }
+
+  // hash sync (optional deep-link e.g. #5)
+  const fromHash=parseInt(location.hash.replace('#',''),10);
+  if(!isNaN(fromHash)) cur=Math.max(0,Math.min(total-1,fromHash-1));
+
+  render();
+})();
+
+/* ===================== Logic Challenge game ===================== */
+(function(){
+  const BANK=[
+    {q:'ข้อความนี้เป็น “ประพจน์” หรือไม่?', big:'“ดวงอาทิตย์ขึ้นทางทิศตะวันตก”',
+     options:[['เป็นประพจน์',1],['ไม่เป็นประพจน์',0]], why:'เป็นประพจน์ — ระบุค่าความจริงได้ (เป็นเท็จ)'},
+    {q:'ข้อความนี้เป็น “ประพจน์” หรือไม่?', big:'“กรุณานั่งลง”',
+     options:[['เป็นประพจน์',0],['ไม่เป็นประพจน์',1]], why:'ไม่เป็น — เป็นประโยคคำสั่ง ไม่มีค่าความจริง'},
+    {q:'ข้อความนี้เป็น “ประพจน์” หรือไม่?', big:'x + 1 = 5',
+     options:[['เป็นประพจน์',0],['ไม่เป็นประพจน์',1]], why:'ไม่เป็น — เป็นประพจน์เปิด (มีตัวแปร x)'},
+    {q:'ข้อความนี้เป็น “ประพจน์” หรือไม่?', big:'“7 เป็นจำนวนเฉพาะ”',
+     options:[['เป็นประพจน์',1],['ไม่เป็นประพจน์',0]], why:'เป็นประพจน์ — เป็นจริง'},
+    {q:'ข้อความนี้เป็น “ประพจน์” หรือไม่?', big:'“อากาศวันนี้ดีจังเลย!”',
+     options:[['เป็นประพจน์',0],['ไม่เป็นประพจน์',1]], why:'ไม่เป็น — ประโยคอุทาน/แสดงความเห็น'},
+    {q:'กำหนด p=T, q=T แล้ว p ∧ q มีค่าเท่าใด?', big:'T ∧ T', tf:1,
+     options:[['T',1],['F',0]], why:'∧ จริงเมื่อทั้งคู่จริง ⇒ T'},
+    {q:'กำหนด p=T, q=F แล้ว p ∨ q มีค่าเท่าใด?', big:'T ∨ F', tf:1,
+     options:[['T',1],['F',0]], why:'∨ จริงเมื่ออย่างน้อยหนึ่งจริง ⇒ T'},
+    {q:'กำหนด p=T, q=F แล้ว p → q มีค่าเท่าใด?', big:'T → F', tf:1,
+     options:[['T',0],['F',1]], why:'→ เท็จเฉพาะกรณี T→F ⇒ F'},
+    {q:'กำหนด p=F, q=F แล้ว p → q มีค่าเท่าใด?', big:'F → F', tf:1,
+     options:[['T',1],['F',0]], why:'เงื่อนไขนำเป็นเท็จ ⇒ จริงโดยปริยาย ⇒ T'},
+    {q:'กำหนด p=F แล้ว ¬p มีค่าเท่าใด?', big:'¬F', tf:1,
+     options:[['T',1],['F',0]], why:'นิเสธกลับค่าความจริง ⇒ T'},
+    {q:'กำหนด p=T, q=F แล้ว p ↔ q มีค่าเท่าใด?', big:'T ↔ F', tf:1,
+     options:[['T',0],['F',1]], why:'↔ จริงเมื่อค่าเท่ากัน; ที่นี่ต่างกัน ⇒ F'},
+    {q:'ตัวเชื่อมใด “จริงก็ต่อเมื่อทั้งคู่จริง”?', sym:1,
+     options:[['∧',1],['∨',0],['↔',0]], why:'∧ (AND) จริงเมื่อทั้งคู่จริงเท่านั้น'},
+    {q:'ตัวเชื่อมใด “เท็จเฉพาะเมื่อ T → F”?', sym:1,
+     options:[['→',1],['∧',0],['∨',0]], why:'→ (IMPLIES) เท็จเฉพาะ จริง→เท็จ'},
+    {q:'ตัวเชื่อม ¬ ใช้กับประพจน์กี่ตัว?',
+     options:[['1 ตัว',1],['2 ตัว',0],['3 ตัว',0]], why:'¬ เป็นตัวเชื่อมเอกภาพ ใช้กับ 1 ประพจน์'}
+  ];
+  const TOTAL=8;
+  const stage=document.getElementById('gStage');
+  if(!stage) return;
+  const elScore=document.getElementById('gScore'),elStreak=document.getElementById('gStreak'),
+        elNum=document.getElementById('gNum'),elTot=document.getElementById('gTot'),elBest=document.getElementById('gBest');
+  let round=[],idx=0,score=0,streak=0,best=+(localStorage.getItem('logicBest')||0);
+  elTot.textContent=TOTAL; elBest.textContent=best;
+  const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]];}return a;};
+  function showStart(){
+    elNum.textContent=0;elScore.textContent=0;elStreak.textContent=0;
+    stage.innerHTML='<div class="g-title">⚡ เกมท้าทายตรรกะ</div>'+
+      '<div class="g-sub">ทดสอบความเข้าใจ: <b>ประพจน์ · ตัวเชื่อม · ค่าความจริง</b><br>ตอบถูกติดต่อกันเพื่อทำ <b>สตรีค 🔥</b> รับคะแนนโบนัส!</div>'+
+      '<button class="g-start" id="gStart">เริ่มเล่น ▸</button>';
+    document.getElementById('gStart').onclick=start;
+  }
+  function start(){round=shuffle(BANK).slice(0,TOTAL);idx=0;score=0;streak=0;elScore.textContent=0;elStreak.textContent=0;showQ();}
+  function showQ(){
+    const it=round[idx]; elNum.textContent=idx+1;
+    const cls=it.tf?'tf':(it.sym?'sym':'');
+    const opts=it.options.map((o,i)=>'<button class="g-btn '+cls+'" data-ok="'+o[1]+'">'+o[0]+'</button>').join('');
+    stage.innerHTML='<div class="g-q">'+it.q+'</div>'+(it.big?'<div class="g-big">'+it.big+'</div>':'')+
+      '<div class="g-opts">'+opts+'</div><div class="g-fb" id="gFb"></div>';
+    stage.querySelectorAll('.g-btn').forEach(b=>b.onclick=()=>answer(b,it));
+  }
+  function answer(btn,it){
+    const ok=btn.dataset.ok==='1';
+    stage.querySelectorAll('.g-btn').forEach(b=>{b.disabled=true;if(b.dataset.ok==='1')b.classList.add('ok');});
+    const fb=document.getElementById('gFb');
+    if(ok){const bonus=streak>=2?5:0;streak++;score+=10+bonus;btn.classList.add('ok');
+      fb.className='g-fb ok';fb.innerHTML='✓ ถูกต้อง! (+'+(10+bonus)+(bonus?' โบนัสสตรีค 🔥':'')+') — '+it.why;}
+    else{streak=0;btn.classList.add('no');
+      fb.className='g-fb no';fb.innerHTML='✗ ยังไม่ถูก — '+it.why;}
+    elScore.textContent=score;elStreak.textContent=streak;
+    const nb=document.createElement('button');nb.className='g-next';
+    nb.textContent=idx<TOTAL-1?'ข้อถัดไป ▸':'ดูผลคะแนน ★';
+    nb.onclick=()=>{idx++;idx<TOTAL?showQ():end();};
+    fb.after(nb);
+  }
+  function end(){
+    if(score>best){best=score;localStorage.setItem('logicBest',best);elBest.textContent=best;}
+    const pct=score/(TOTAL*10);
+    const stars=pct>=.95?'★★★':pct>=.7?'★★☆':pct>=.4?'★☆☆':'☆☆☆';
+    const msg=pct>=.95?'สุดยอด! เชี่ยวชาญตรรกศาสตร์':pct>=.7?'เก่งมาก เข้าใจดี!':pct>=.4?'ดีขึ้นได้อีก ลองทบทวนนะ':'ไปทบทวนเนื้อหาแล้วลองใหม่!';
+    elNum.textContent=TOTAL;
+    stage.innerHTML='<div class="g-stars">'+stars+'</div><div class="g-score-big">'+score+'</div>'+
+      '<div class="g-sub">'+msg+'<br>คะแนนสูงสุดของคุณ: <b>'+best+'</b> / '+(TOTAL*10+10)+'</div>'+
+      '<button class="g-replay" id="gReplay">เล่นอีกครั้ง ↺</button>';
+    document.getElementById('gReplay').onclick=start;
+  }
+  showStart();
+})();
+</script>
+</body>
+</html>

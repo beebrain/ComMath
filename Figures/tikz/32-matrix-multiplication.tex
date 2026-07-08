@@ -1,0 +1,21 @@
+% 32 — Matrix multiplication A(2x3) . B(3x2) = C(2x2)
+\begin{tikzpicture}[font=\itshape,>={Stealth[length=2.6mm]}]
+  \def\hb{\color{navy}\mathbf}   % row of A
+  \def\hr{\color{Fred}\mathbf}   % col of B
+  \node[fill=sblue!18,rounded corners=2pt,inner sep=2mm] (A) at (-5.2,0.7)
+    {$\begin{pmatrix}\hb1&\hb2&\hb3\\4&5&6\end{pmatrix}$};
+  \node at (-3.7,0.7) {$\times$};
+  \node[fill=sred!16,rounded corners=2pt,inner sep=2mm] (B) at (-2.1,0.7)
+    {$\begin{pmatrix}\hr7&8\\\hr9&10\\\hr{11}&12\end{pmatrix}$};
+  \node at (-0.3,0.7) {$=$};
+  \node[fill=sgreen!18,rounded corners=2pt,inner sep=2mm] (C) at (1.6,0.7)
+    {$\begin{pmatrix}{\color{Tgreen}\mathbf{58}}&64\\139&154\end{pmatrix}$};
+  % arrow to c11
+  \draw[navy,->,line width=1pt] (A.north) to[bend left=30] ([yshift=2pt]C.north west);
+  % computation
+  \node[formula,font=\itshape] at (-1.7,-1.4)
+    {$c_{11} = (1)(7)+(2)(9)+(3)(11) = 58$};
+  % dimension formula
+  \node[font=\itshape] at (-1.7,-2.6)
+    {$A_{(m\times {\color{gold}\mathbf{k}})}\cdot B_{({\color{gold}\mathbf{k}}\times n)} = C_{(m\times n)}$};
+\end{tikzpicture}

@@ -1,0 +1,25 @@
+% 19 — Reflexive relation : เทียบ "สะท้อน (✓)" กับ "ไม่สะท้อน (✗)" แบบแถวเรียง อ่านง่าย
+\begin{tikzpicture}[font=\small,>={Stealth[length=2.4mm]},
+    V/.style={circle,draw=navy,fill=white,line width=1pt,minimum size=9mm,inner sep=0pt,font=\itshape}]
+  % ===== แถวบน: สะท้อน (ถูก) =====
+  \node[Tgreen,font=\bfseries,anchor=west] at (-4.2,2.4) {\cmark\ สะท้อน (Reflexive)};
+  \foreach \i/\x in {1/-3,2/-0.6,3/1.8}{
+    \node[V] (v\i) at (\x,0.9) {\i};
+    \draw[diredge,Tgreen] (v\i) to[out=110,in=70,looseness=13] (v\i);
+  }
+  \node[gray,font=\footnotesize] at (-0.6,1.95) {ทุกโหนดมีลูกศรวนกลับตัวเอง (self-loop)};
+  \node[draw=gray,fill=cellgray,rounded corners=3pt,align=center,inner sep=2.4mm,anchor=west]
+        at (3.4,0.9) {$\forall a \in A:\ (a,a)\in R$\\[2pt]ทุกสมาชิกสัมพันธ์กับตัวเอง};
+  % เส้นแบ่ง
+  \draw[gray,dashed] (-4.2,-0.2) -- (8.0,-0.2);
+  % ===== แถวล่าง: ไม่สะท้อน (ตัวอย่างค้าน) =====
+  \node[Fred,font=\bfseries,anchor=west] at (-4.2,-0.9) {\xmark\ ไม่สะท้อน (ตัวอย่างค้าน)};
+  \foreach \i/\x in {1/-3,2/-0.6,3/1.8}{
+    \node[V,draw=gray,text=gray] (w\i) at (\x,-2.1) {\i};
+  }
+  \draw[diredge,gray] (w1) to[out=110,in=70,looseness=13] (w1);
+  \draw[diredge,gray] (w2) to[out=110,in=70,looseness=13] (w2);
+  \node[Fred,font=\large] at (1.8,-1.25) {\xmark};
+  \node[Fred,font=\footnotesize,align=left,anchor=west] at (3.4,-2.1)
+        {โหนด 3 ไม่มีลูกศรวนกลับตัวเอง\\$\Rightarrow$ จึงไม่สะท้อน};
+\end{tikzpicture}

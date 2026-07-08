@@ -1,0 +1,277 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{aristotle_organon}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=798a01f212a8e620a6940400717a56d9}{%
+           family={Aristotle},
+           familyi={A\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=ef9c0e115802f5350d72da31114abdf4}{%
+           family={Cooke},
+           familyi={C\bibinitperiod},
+           given={Harold\bibnamedelima P.},
+           giveni={H\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=0552b8faeae4a96cd125e013569c606c}{%
+           family={Tredennick},
+           familyi={T\bibinitperiod},
+           given={Hugh},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, MA}%
+      }
+      \list{publisher}{1}{%
+        {Harvard University Press}%
+      }
+      \strng{namehash}{798a01f212a8e620a6940400717a56d9}
+      \strng{fullhash}{798a01f212a8e620a6940400717a56d9}
+      \strng{fullhashraw}{798a01f212a8e620a6940400717a56d9}
+      \strng{bibnamehash}{798a01f212a8e620a6940400717a56d9}
+      \strng{authorbibnamehash}{798a01f212a8e620a6940400717a56d9}
+      \strng{authornamehash}{798a01f212a8e620a6940400717a56d9}
+      \strng{authorfullhash}{798a01f212a8e620a6940400717a56d9}
+      \strng{authorfullhashraw}{798a01f212a8e620a6940400717a56d9}
+      \strng{editorbibnamehash}{b2f39137832441834b4a45ef71cd106e}
+      \strng{editornamehash}{b2f39137832441834b4a45ef71cd106e}
+      \strng{editorfullhash}{b2f39137832441834b4a45ef71cd106e}
+      \strng{editorfullhashraw}{b2f39137832441834b4a45ef71cd106e}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{Loeb Classical Library}
+      \field{title}{The Organon}
+      \field{year}{1938}
+    \endentry
+    \entry{boole1854investigation}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=11e54e87435aa3c53aa25a448424f022}{%
+           family={Boole},
+           familyi={B\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {London}%
+      }
+      \list{publisher}{2}{%
+        {Walton}%
+        {Maberly}%
+      }
+      \strng{namehash}{11e54e87435aa3c53aa25a448424f022}
+      \strng{fullhash}{11e54e87435aa3c53aa25a448424f022}
+      \strng{fullhashraw}{11e54e87435aa3c53aa25a448424f022}
+      \strng{bibnamehash}{11e54e87435aa3c53aa25a448424f022}
+      \strng{authorbibnamehash}{11e54e87435aa3c53aa25a448424f022}
+      \strng{authornamehash}{11e54e87435aa3c53aa25a448424f022}
+      \strng{authorfullhash}{11e54e87435aa3c53aa25a448424f022}
+      \strng{authorfullhashraw}{11e54e87435aa3c53aa25a448424f022}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{An Investigation of the Laws of Thought}
+      \field{year}{1854}
+    \endentry
+    \entry{frege1879begriffsschrift}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1c468d5fce77082669983ce899030b96}{%
+           family={Frege},
+           familyi={F\bibinitperiod},
+           given={Gottlob},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Halle}%
+      }
+      \list{publisher}{1}{%
+        {Louis Nebert}%
+      }
+      \strng{namehash}{1c468d5fce77082669983ce899030b96}
+      \strng{fullhash}{1c468d5fce77082669983ce899030b96}
+      \strng{fullhashraw}{1c468d5fce77082669983ce899030b96}
+      \strng{bibnamehash}{1c468d5fce77082669983ce899030b96}
+      \strng{authorbibnamehash}{1c468d5fce77082669983ce899030b96}
+      \strng{authornamehash}{1c468d5fce77082669983ce899030b96}
+      \strng{authorfullhash}{1c468d5fce77082669983ce899030b96}
+      \strng{authorfullhashraw}{1c468d5fce77082669983ce899030b96}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Begriffsschrift: Eine der arithmetischen nachgebildete Formelsprache des reinen Denkens}
+      \field{year}{1879}
+    \endentry
+    \entry{grimaldi2004discrete}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5e9d0de1b0e1dbea702b9eac5cbeaec1}{%
+           family={Grimaldi},
+           familyi={G\bibinitperiod},
+           given={Ralph\bibnamedelima P.},
+           giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson Education}%
+      }
+      \strng{namehash}{5e9d0de1b0e1dbea702b9eac5cbeaec1}
+      \strng{fullhash}{5e9d0de1b0e1dbea702b9eac5cbeaec1}
+      \strng{fullhashraw}{5e9d0de1b0e1dbea702b9eac5cbeaec1}
+      \strng{bibnamehash}{5e9d0de1b0e1dbea702b9eac5cbeaec1}
+      \strng{authorbibnamehash}{5e9d0de1b0e1dbea702b9eac5cbeaec1}
+      \strng{authornamehash}{5e9d0de1b0e1dbea702b9eac5cbeaec1}
+      \strng{authorfullhash}{5e9d0de1b0e1dbea702b9eac5cbeaec1}
+      \strng{authorfullhashraw}{5e9d0de1b0e1dbea702b9eac5cbeaec1}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{5}
+      \field{isbn}{9780201726343}
+      \field{title}{Discrete and Combinatorial Mathematics: An Applied Introduction}
+      \field{year}{2004}
+      \true{nocite}
+    \endentry
+    \entry{mendelson2015introduction}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e2bc277a7dd2d160f77afac91061dca9}{%
+           family={Mendelson},
+           familyi={M\bibinitperiod},
+           given={Elliott},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{e2bc277a7dd2d160f77afac91061dca9}
+      \strng{fullhash}{e2bc277a7dd2d160f77afac91061dca9}
+      \strng{fullhashraw}{e2bc277a7dd2d160f77afac91061dca9}
+      \strng{bibnamehash}{e2bc277a7dd2d160f77afac91061dca9}
+      \strng{authorbibnamehash}{e2bc277a7dd2d160f77afac91061dca9}
+      \strng{authornamehash}{e2bc277a7dd2d160f77afac91061dca9}
+      \strng{authorfullhash}{e2bc277a7dd2d160f77afac91061dca9}
+      \strng{authorfullhashraw}{e2bc277a7dd2d160f77afac91061dca9}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{6}
+      \field{title}{Introduction to Mathematical Logic}
+      \field{year}{2015}
+      \verb{doi}
+      \verb 10.1201/b18519
+      \endverb
+    \endentry
+    \entry{rosen2019discrete}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5d7c5a2525564580a8aa04190ae2b822}{%
+           family={Rosen},
+           familyi={R\bibinitperiod},
+           given={Kenneth\bibnamedelima H.},
+           giveni={K\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {McGraw-Hill Education}%
+      }
+      \strng{namehash}{5d7c5a2525564580a8aa04190ae2b822}
+      \strng{fullhash}{5d7c5a2525564580a8aa04190ae2b822}
+      \strng{fullhashraw}{5d7c5a2525564580a8aa04190ae2b822}
+      \strng{bibnamehash}{5d7c5a2525564580a8aa04190ae2b822}
+      \strng{authorbibnamehash}{5d7c5a2525564580a8aa04190ae2b822}
+      \strng{authornamehash}{5d7c5a2525564580a8aa04190ae2b822}
+      \strng{authorfullhash}{5d7c5a2525564580a8aa04190ae2b822}
+      \strng{authorfullhashraw}{5d7c5a2525564580a8aa04190ae2b822}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{8}
+      \field{isbn}{9781259676512}
+      \field{title}{Discrete Mathematics and Its Applications}
+      \field{year}{2019}
+    \endentry
+    \entry{russell1910principia}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=9131dcc0b7c52c07d7d95e489ba0a0f6}{%
+           family={Whitehead},
+           familyi={W\bibinitperiod},
+           given={Alfred\bibnamedelima North},
+           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c58c42b6f7e7e1f78dbbdc65ed8e5384}{%
+           family={Russell},
+           familyi={R\bibinitperiod},
+           given={Bertrand},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{048cf9054c2e7dc9fef3172a79679690}
+      \strng{fullhash}{048cf9054c2e7dc9fef3172a79679690}
+      \strng{fullhashraw}{048cf9054c2e7dc9fef3172a79679690}
+      \strng{bibnamehash}{048cf9054c2e7dc9fef3172a79679690}
+      \strng{authorbibnamehash}{048cf9054c2e7dc9fef3172a79679690}
+      \strng{authornamehash}{048cf9054c2e7dc9fef3172a79679690}
+      \strng{authorfullhash}{048cf9054c2e7dc9fef3172a79679690}
+      \strng{authorfullhashraw}{048cf9054c2e7dc9fef3172a79679690}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Principia Mathematica}
+      \field{year}{1910}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

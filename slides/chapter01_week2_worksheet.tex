@@ -1,0 +1,85 @@
+% !TeX program = xelatex
+%% =====================================================================
+%%  ใบกิจกรรมในชั้นเรียน (Worksheet) บทที่ 1 : ตรรกศาสตร์ --- สัปดาห์ที่ 2
+%%  สำหรับแจกนักศึกษาทำในห้อง (ไม่มีเฉลย มีช่องว่างให้เขียน)
+%% =====================================================================
+\documentclass[a4paper,12pt]{article}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{xcolor}
+
+\XeTeXlinebreaklocale "th_TH"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\setmainfont[Script=Thai,Scale=1.25]{TH Sarabun New}
+\definecolor{navy}{HTML}{1F3A93}
+\renewcommand{\arraystretch}{1.5}
+\setlist{topsep=4pt,itemsep=6pt}
+
+%% เส้นว่างให้เขียนคำตอบ (#1 = จำนวนบรรทัด)
+\newcounter{bl}
+\newcommand{\blank}[1]{\par\vspace{0.2em}%
+  \setcounter{bl}{0}\loop\ifnum\value{bl}<#1\relax
+  \noindent\textcolor{gray!60}{\hrulefill}\par\vspace{1.0em}\stepcounter{bl}\repeat}
+
+\begin{document}
+\thispagestyle{empty}
+
+%% ---------- หัวกระดาษ ----------
+\begin{center}
+  {\Large\bfseries\color{navy} ใบกิจกรรมในชั้นเรียน บทที่ 1 : ตรรกศาสตร์ (สัปดาห์ที่ 2)}\\[0.2em]
+  {\normalsize รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์}
+\end{center}
+\vspace{0.3em}
+\noindent\begin{tabular}{@{}p{0.5\textwidth} p{0.22\textwidth} p{0.22\textwidth}@{}}
+  ชื่อ-สกุล: \dotfill & รหัส: \dotfill & กลุ่ม: \dotfill
+\end{tabular}
+\hrule
+\vspace{0.6em}
+\noindent\textbf{คำชี้แจง:} ให้นักศึกษาทำกิจกรรมต่อไปนี้ลงในใบกิจกรรม \textbf{ภายในเวลาที่กำหนด}
+แสดงวิธีคิดให้ชัดเจน แล้วร่วมเฉลยและอภิปรายพร้อมกันในชั้นเรียน
+\vspace{0.6em}
+
+%% ---------- กิจกรรม 1 ----------
+\noindent\textbf{กิจกรรมที่ 1} \hfill \textit{(6 นาที)}\\
+จงจำแนกว่าแต่ละประพจน์เป็น \textbf{สัจนิรันดร์ / ข้อขัดแย้ง / ประพจน์กลาง}
+\begin{enumerate}[label=\arabic*)]
+  \item $p \lor \neg p$ \hfill \dotfill
+  \item $p \land \neg p$ \hfill \dotfill
+  \item $(p \rightarrow q) \rightarrow (\neg q \rightarrow \neg p)$ \hfill \dotfill
+  \item $p \rightarrow q$ \hfill \dotfill
+\end{enumerate}
+\vspace{0.4em}
+
+%% ---------- กิจกรรม 2 ----------
+\noindent\textbf{กิจกรรมที่ 2} \hfill \textit{(6 นาที)}\\
+จงเขียนนิเสธให้อยู่ในรูปที่ ``นิเสธอยู่ติดตัวแปร'' โดยใช้กฎเดอมอร์แกน
+\begin{enumerate}[label=\arabic*)]
+  \item $\neg(p \land \neg q)$ \hfill \dotfill
+  \item $\neg(\neg p \lor q)$ \hfill \dotfill
+  \item $\neg(p \lor (q \land r))$ \hfill \dotfill
+\end{enumerate}
+\vspace{0.4em}
+
+%% ---------- กิจกรรม 3 ----------
+\noindent\textbf{กิจกรรมที่ 3} \hfill \textit{(8 นาที)}\\
+จงเติมตารางค่าความจริงเพื่อตรวจว่า $p \rightarrow (q \land r)$ สมมูลกับ $(p\rightarrow q)\land(p\rightarrow r)$ หรือไม่
+\begin{center}\small
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+  \hline
+  $p$ & $q$ & $r$ & $q\land r$ & $p\rightarrow(q\land r)$ & $p\rightarrow q$ & $p\rightarrow r$ & $(p\rightarrow q)\land(p\rightarrow r)$ \\ \hline
+  T & T & T & & & & & \\ \hline
+  T & T & F & & & & & \\ \hline
+  T & F & T & & & & & \\ \hline
+  T & F & F & & & & & \\ \hline
+  F & T & T & & & & & \\ \hline
+  F & T & F & & & & & \\ \hline
+  F & F & T & & & & & \\ \hline
+  F & F & F & & & & & \\ \hline
+\end{tabular}
+\end{center}
+สรุป: \dotfill
+\vspace{0.4em}
+\end{document}

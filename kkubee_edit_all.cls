@@ -17,7 +17,7 @@
 
 % This class is based on the standard report class.
 % It should have option to process twoside report too.
-\LoadClass[fontsize=16pt,a4paper,oneside]{book}
+\LoadClass[fleqn,fontsize=16pt,a4paper,oneside]{book}
 
 % This class is currently support only Thai thesis.
 % To support English thesis, some works on options 
@@ -52,7 +52,8 @@
 
 %% math define 
 %Add example
-\usepackage{amsmath, amsthm}
+\usepackage[fleqn]{amsmath}  % fleqn = จัดสมการ display ชิดซ้าย (สม่ำเสมอทั้งเล่ม)
+\usepackage{amsthm}
 %\theoremstyle{plain}
 \newtheoremstyle{mytheoremstyle} % name
     {\topsep}                    % Space above
@@ -75,27 +76,27 @@
 \renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
 \renewcommand{\labelenumiii}{\theenumiii}
 \renewcommand{\theenumiii}{\theenumii\arabic{enumiii}.}
-\setlist[itemize]{leftmargin = 0cm,itemindent = 3.2 cm,topsep=0em,itemsep = 0em}
+\setlist[itemize]{leftmargin = 0cm,itemindent = 1 cm,topsep=0em,itemsep = 0em}
 \setlist[enumerate]{leftmargin = 0cm,
 wide = 0pt,
 labelwidth = 0.5em,
 labelsep = 0.3cm,
-itemindent = 2.2 cm,
+itemindent = 1 cm,
 topsep=0em,
 itemsep = 0em}
 \setlist[enumerate,2]{leftmargin = 0cm,
-wide = 0pt, 
+wide = 0pt,
 labelwidth = 0.5em,
 labelsep = 0.3cm,
-itemindent = 2.7 cm,
+itemindent = 1.6 cm,
 topsep=0em,
 itemsep = 0em}
 
 \setlist[enumerate,3]{leftmargin = 0cm,
-	wide = 0pt, 
+	wide = 0pt,
 	labelwidth = 0.5em,
 	labelsep = 0.3cm,
-	itemindent = 3.2 cm,
+	itemindent = 2.2 cm,
 	topsep=0em,
 	itemsep = 0em}
 
@@ -434,10 +435,10 @@ eprint=false
 \renewcommand{\tablename}{}
 \titlecontents{table}
 [0mm]
-{\stepcounter{tocitem}\tocheadcontFT{\thelinenumber}{\thetocitem}{สารบัญตาราง}{ตารางที่}}
-{\contentspush{\tablename\hspace{0.8cm}\thecontentslabel\hspace{0.4cm}}}
+{\vskip 6pt\stepcounter{tocitem}\tocheadcontFT{\thelinenumber}{\thetocitem}{สารบัญตาราง}{ตารางที่}}
+{\contentspush{\hspace{0.8cm}\thecontentslabel\hspace{0.6cm}}}
 {}
-{\hfill \contentspage}
+{\hfill\contentspage}
 
 \renewcommand\listoffigures{%
 	\chapter*{สารบัญภาพ}%
@@ -463,10 +464,10 @@ eprint=false
 % Indent the next line of the entry by the width of the label with \contentspush
 \titlecontents{figure}
 [0mm]
-{\stepcounter{tocitem}\tocheadcontFT{\thelinenumber}{\thetocitem}{สารบัญรูปภาพ}{ภาพที่}}
-{\contentspush{\figurename\hspace{0.8cm}\thecontentslabel\hspace{0.4cm}}}
+{\vskip 6pt\stepcounter{tocitem}\tocheadcontFT{\thelinenumber}{\thetocitem}{สารบัญรูปภาพ}{ภาพที่}}
+{\contentspush{\hspace{0.8cm}\thecontentslabel\hspace{0.6cm}}}
 {}
-{\hfill \contentspage}
+{\hfill\contentspage}
 
 
 %%%%%%%%%%%%%% redefine content name
@@ -517,7 +518,7 @@ eprint=false
 % Fix: Added proper label width (1.5em) to prevent section number overlap with title text
 % Also increased beforeskip from 0ex to 1ex for better spacing before section titles
 \providecommand\thesection{}
-\titleformat{\section}{\large\bfseries\upshape}{\thesection}{1.5em}{}
+\titleformat{\section}{\large\bfseries\upshape}{\thesection}{0.5em}{}
 \titlespacing{\section}{0ex}{1ex}{\parskip}
 % set indent of section
 \let\oldsection\section
@@ -526,7 +527,7 @@ eprint=false
 %%subsection setup 
 % Fix: Added proper label width (2em) to prevent subsection number overlap with title text
 \providecommand\thesubsection{}
-\titleformat{\subsection}{\bfseries\upshape}{\thesubsection}{2em}{}
+\titleformat{\subsection}{\bfseries\upshape}{\thesubsection}{0.5em}{}
 \titlespacing{\subsection}{1.5cm}{1ex}{\parskip}
 % set indent of subsection
 \let\oldsubsection\subsection
@@ -625,7 +626,7 @@ eprint=false
 	
 	\begin{titlepage}
 		\begin{center}
-			{\Huge \textbf{{งานวิจัย (บทความวิจัย) \@courseIdth}\\
+			{\Huge \textbf{{เอกสารคำสอน รหัสวิชา \@courseIdth}\\
 					\vspace{0.5cm}	
 					\textbf{\@titleth}}}
 		\end{center}
@@ -672,33 +673,34 @@ eprint=false
 }
 
 \newcommand\regularsection{%
-	\titleformat{\section}{\large\bfseries\upshape}{\thesection}{1.5em}{}
+	\titleformat{\section}{\large\bfseries\upshape}{\thesection}{0.5em}{}
 }
 
 \newcommand\QAChapter{
+  \clearpage
   \specialsection
-	\section{คำถามท้ายบทที่ \thechapter}
+	\section*{คำถามท้ายบทที่ \thechapter}
+	\addcontentsline{toc}{section}{คำถามท้ายบทที่ \thechapter}
 \regularsection
 }
 
 \newcommand\RefChapter{
 \specialsection
-	\section{เอกสารอ้างอิง}
+	\section*{เอกสารอ้างอิง}
+	\addcontentsline{toc}{section}{เอกสารอ้างอิง}
 \regularsection
 
 {\let\newpage\relax
-\printbibliography[segment=\therefsegment,heading=none,keyword=Thai]}
-{\let\newpage\relax
-\printbibliography[segment=\therefsegment,heading=none,keyword=English]}
+\printbibliography[segment=\therefsegment,heading=none]}
 
 }
 \newcounter{sheetChapter}
-\setcounter{sheetChapter}{1} 
+\setcounter{sheetChapter}{1}
 \newcommand\sheetChapter[1]{
   \specialsection
-	\section{ใบงานที่ \thesheetChapter}
+	\section*{ใบงานที่ \thesheetChapter}
+	\addcontentsline{toc}{section}{ใบงานที่ \thesheetChapter}
 	\section*{#1}
-	%\addcontentsline{toc}{section}{ใบงานที่  \theintroChapter~#1}
 	\stepcounter{sheetChapter}
 \regularsection
 }

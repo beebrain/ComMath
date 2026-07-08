@@ -14,14 +14,16 @@
 }
 
 %% Environment สำหรับขั้นตอนวิธีทำ
+\newcounter{solstepc}
 \newenvironment{solsteps}{%
-  \vspace{0.1em}
-  \begin{list}{}{%
+  \vspace{0.1em}%
+  \begin{list}{\arabic{solstepc}.}{%
+    \usecounter{solstepc}%
     \setlength{\topsep}{0.1em}
-    \setlength{\itemsep}{0.1em}
-    \setlength{\leftmargin}{1em}
-    \setlength{\labelwidth}{0em}
-    \setlength{\labelsep}{0em}
+    \setlength{\itemsep}{0.35em}
+    \setlength{\leftmargin}{1.7em}
+    \setlength{\labelwidth}{1.2em}
+    \setlength{\labelsep}{0.4em}
   }
 }{%
   \end{list}
@@ -108,8 +110,8 @@
   blanker,
   breakable,
   left=0pt,
-  before skip=14pt,
-  after skip=14pt
+  before skip=22pt,
+  after skip=18pt
 }
 
 %% ── บทแทรก (prop) ───────────────────────────────
@@ -189,14 +191,12 @@
 
 %% ─────────────── Solution Environment ───────────────
 \newenvironment{solution}{%
-  \par\vspace{0.8em}
-  \noindent\textbf{\color{black}วิธีทำ}\quad
-  \begin{minipage}[t]{\dimexpr\textwidth-1.5cm\relax}
+  \par\vspace{0.8em}%
+  \noindent\textbf{\color{black}วิธีทำ}\quad\ignorespaces
 }{%
-  \end{minipage}
-  \par\vspace{1em}
-  \noindent\textcolor{gray!40}{\rule{\textwidth}{0.5pt}}
-  \par\vspace{1.5em}
+  \par\vspace{1em}%
+  \noindent\textcolor{gray!40}{\rule{\textwidth}{0.5pt}}%
+  \par\vspace{1.5em}%
 }
 
 \endinput

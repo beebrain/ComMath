@@ -1,9 +1,13 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.4.3)  2 MAY 2026 11:32
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.4.3)  3 MAY 2026 14:38
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**./demo_mathstyle.tex
-(demo_mathstyle.tex
+**"f:/OneDrive - Uttaradit Rajabhat University/URU_Work/BookComputerMath/ComMat
+h/demo_mathstyle.tex"
+
+(f:/OneDrive - Uttaradit Rajabhat University/URU_Work/BookComputerMath/ComMath/
+demo_mathstyle.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
 (kkubee_edit_all.cls
@@ -1393,7 +1397,7 @@ Package biblatex Warning: Conflicting options.
 LaTeX Warning: Unused global option(s):
     [fontsize].
 
-(demo_mathstyle.aux)
+No file demo_mathstyle.aux.
 \openout1 = `demo_mathstyle.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
@@ -1415,7 +1419,7 @@ LaTeX Font Info:    ... okay on input line 22.
 LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 22.
 LaTeX Font Info:    Trying to load font information for T3+cmr on input line 22
 .
- (C:\Program Files\MiKTeX\tex/latex/tipa\t3cmr.fd
+(C:\Program Files\MiKTeX\tex/latex/tipa\t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
 LaTeX Font Info:    ... okay on input line 22.
@@ -1494,16 +1498,17 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 *** XeTeX expects the source to be in UTF8 encoding
 *** some features of other encodings may conflict, resulting in poor output.
 Package hyperref Info: Link coloring OFF on input line 22.
-(demo_mathstyle.out) (demo_mathstyle.out)
 \@outlinefile=\write6
 \openout6 = `demo_mathstyle.out'.
+
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package biblatex Info: Trying to load language 'english' -> 'english-apa6'...
 Package biblatex Info: ... file 'english-apa6.lbx' found.
-
 (C:\Program Files\MiKTeX\tex/latex/biblatex-apa6\english-apa6.lbx
 File: english-apa6.lbx 2020/08/28 v8.5 APA 6th ed. biblatex localisation
 Package biblatex Info: Trying to load language 'english'...
@@ -1643,19 +1648,36 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `demo_mathstyle.out' has not changed.
-(rerunfilecheck)             Checksum: 3018EFDAD24B77A6F5DA2811020F7D34;252.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `demo_mathstyle.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `demo_mathstyle.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  3018EFDAD24B77A6F5DA2811020F7D34;252.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                demo_mathstyle
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'demo_mathstyle.run.xml'.
 \openout1 = `demo_mathstyle.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45655 strings out of 402983
- 923141 string characters out of 5452830
- 1883143 words of memory out of 5000000
- 73774 multiletter control sequences out of 15000+600000
+ 45647 strings out of 402983
+ 923201 string characters out of 5452830
+ 1882669 words of memory out of 5000000
+ 73771 multiletter control sequences out of 15000+600000
  632028 words of font info for 81 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 103i,5n,118p,705b,4297s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,5n,118p,783b,4297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on demo_mathstyle.pdf (2 pages).

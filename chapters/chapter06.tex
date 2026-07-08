@@ -1260,7 +1260,7 @@ $wx = 10$ & 1 & 1 & 0 & 1 \\
 ดังนั้น $f = w' z' + w x' y'$
 \end{solution}
 
-\begin{thrm}[ขั้นตอนการใช้ K-map]
+\begin{rem}[ขั้นตอนการใช้ K-map]
 \begin{enumerate}
     \item เขียน K-map ตามจำนวนตัวแปร
     \item ใส่ 1 ในเซลล์ที่สอดคล้องกับ minterm ที่อยู่ใน function
@@ -1270,7 +1270,7 @@ $wx = 10$ & 1 & 1 & 0 & 1 \\
     \item หาตัวแปรที่ไม่เปลี่ยนแปลงในกลุ่ม (คงที่) — ตัวแปรที่เป็น 1 ใช้ตัวแปรเดี่ยว ตัวแปรที่เป็น 0 ใช้ complement
     \item OR terms ที่ได้จากแต่ละกลุ่ม
 \end{enumerate}
-\end{thrm}
+\end{rem}
 
 \section{การประยุกต์ในวงจรดิจิทัล}
 \label{sec:boolean-applications}
@@ -1281,7 +1281,7 @@ $wx = 10$ & 1 & 1 & 0 & 1 \\
 
 Logic gates เป็น building blocks ของวงจรดิจิทัล:
 
-\begin{thrm}
+\begin{definition}
 \textbf{ประเภทของ Logic Gates:}
 \begin{enumerate}
     \item \textbf{NOT Gate (Inverter):} แสดงผล $a'$
@@ -1292,7 +1292,7 @@ Logic gates เป็น building blocks ของวงจรดิจิทั
     \item \textbf{XOR Gate:} แสดงผล $a \oplus b = a b' + a' b$
     \item \textbf{XNOR Gate:} แสดงผล $(a \oplus b)' = a b + a' b'$
 \end{enumerate}
-\end{thrm}
+\end{definition}
 
 \begin{thrm}[NAND Gate]
 \textbf{NAND Gate} เป็น Universal gate เนื่องจากสามารถสร้าง logic gates อื่นๆ ทั้งหมดได้จาก NAND gates เพียงอย่างเดียว NAND gate แสดงผล $(a \cdot b)'$ หรือ $\overline{ab}$
@@ -1440,7 +1440,7 @@ realization SOP สำหรับ $f(x, y, z) = y' + x y + x' y' z$
 \subsection{สมมูลของพีชคณิตบูลีน (Boolean Algebra Equivalence)}
 \label{sec:boolean-equivalence}
 
-\begin{thrm}
+\begin{rem}
 ตารางสรุป Boolean Identities:
 
 \textbf{Basic Operations:}
@@ -1484,7 +1484,7 @@ De Morgan & $(x + y)' = x' y'$ & $(xy)' = x' + y'$ \\
 \hline
 \end{tabular}
 \end{center}
-\end{thrm}
+\end{rem}
 
 \section{ตัวอย่างในวิทยาการคอมพิวเตอร์}
 \label{sec:computer-science-examples}
@@ -1523,7 +1523,7 @@ $x=1$ & 0 & 1 & 1 & 0 \\
 \subsection{Logic Gates และวงจรดิจิทัล}
 Logic gates เป็น building blocks ของวงจรดิจิทัล ซึ่งทำงานตาม Boolean algebra
 
-\begin{thrm}
+\begin{definition}
 Logic gates พื้นฐาน:
 \begin{center}
 \begin{tabular}{|c|c|}
@@ -1544,7 +1544,7 @@ NOR & $Y = (A + B)'$ \\
 \hline
 \end{tabular}
 \end{center}
-\end{thrm}
+\end{definition}
 
 \begin{ex}[การสร้าง AND จาก NAND gates]
 $$Y = ((AB)')' = AB$$

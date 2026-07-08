@@ -1199,20 +1199,11 @@ $x = 1$ & 1 & 1 & 0 & 1 \\
 \begin{solution}
 \begin{solsteps}
   \item ครอบคลุม $m_0, m_1, m_4, m_5$ (2x2 block มุมซ้าย) $\Rightarrow$ ให้ $y'$
-  \item ครอบคลุม $m_0, m_2$ (wrapping ด้านขวา) $\Rightarrow$ ให้ $x'z'$
+  \item ครอบคลุม $m_1, m_3$ (แถวบน คอลัมน์ที่ $z=1$) $\Rightarrow$ ให้ $x'z$
+  \item ครอบคลุม $m_4, m_6$ (wrapping ในแถวล่าง ระหว่างคอลัมน์ $yz=00$ และ $yz=10$) $\Rightarrow$ ให้ $xz'$
+  \item ดังนั้น \mathoval{f = y' + x'z + xz'}
 \end{solsteps}
-ตรวจสอบ: $f = y' + x'z'$
-
-จริงๆ แล้ว:
 \end{solution}
-\begin{solution}
-\begin{solsteps}
-  \item ครอบคลุม $m_0, m_1, m_4, m_5$ ทั้งแถวบนและแถวล่างของคอลัมน์แรกสองคอลัมน์ $\Rightarrow y'$
-  \item ครอบคลุม $m_6$ กับ $m_4$ หรือ $m_2$ กับ $m_6$ (wrapping) $\Rightarrow xz'$ หรือ $xy'$
-\end{solsteps}
-ดังนั้น $f = y' + x z'$
-\end{solution}
-\end{ex}
 
 \subsection{K-map สำหรับ 4 ตัวแปร}
 
@@ -1513,7 +1504,7 @@ K-map สำหรับ 3 ตัวแปร:
 \hline
  & $yz=00$ & $yz=01$ & $yz=11$ & $yz=10$ \\
 \hline
-$x=0$ & 1 & 1 & 0 & 1 \\
+$x=0$ & 1 & 1 & 1 & 1 \\
 \hline
 $x=1$ & 0 & 1 & 1 & 0 \\
 \hline
@@ -1523,8 +1514,8 @@ $x=1$ & 0 & 1 & 1 & 0 \\
 \begin{solution}
 \begin{solsteps}
   \item จัดกลุ่มที่ 1: ครอบคลุม cells 0, 1, 2, 3 (ทั้งแถวบน) $\rightarrow$ $x'$
-  \item จัดกลุ่มที่ 2: ครอบคลุม cells 1, 5 $\rightarrow$ $yz$
-  \item ผลลัพธ์ที่ลดรูปแล้ว: $F = x' + yz$
+  \item จัดกลุ่มที่ 2: ครอบคลุม cells 1, 3, 5, 7 (สองคอลัมน์ที่ $z=1$) $\rightarrow$ $z$
+  \item ผลลัพธ์ที่ลดรูปแล้ว: $F = x' + z$
 \end{solsteps}
 \end{solution}
 
@@ -1903,4 +1894,3 @@ $x$ & $y$ & $x + y$ & $f$ \\
     \item จงออกแบบวงจรสำหรับ Full Adder พร้อมเขียน Boolean expressions
     \Pointilles{3}
 \end{enumerate}
-

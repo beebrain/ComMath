@@ -2550,33 +2550,12 @@
     <bcf:citekey order="8" intorder="1">mendelson2015introduction</bcf:citekey>
     <bcf:citekey order="9" intorder="1">aristotle_organon</bcf:citekey>
     <bcf:citekey order="10" intorder="1">rosen2019discrete</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">halmos1974naive</bcf:citekey>
-    <bcf:citekey order="11" intorder="2">enderton1977settheory</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">lipschutz1998settheory</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">rosen2019discrete</bcf:citekey>
-    <bcf:citekey order="13" intorder="2">epp2019discrete</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">rosen2019discrete</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">kolman2008discrete</bcf:citekey>
-    <bcf:citekey order="15" intorder="2">lipschutz2009discrete</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">grimaldi2004discrete</bcf:citekey>
-    <bcf:citekey order="16" intorder="2">gersting2014structures</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">johnsonbaugh2016discrete</bcf:citekey>
-    <bcf:citekey order="17" intorder="2">tremblay1975structures</bcf:citekey>
-    <bcf:citekey order="18" intorder="1">rosen2019discrete</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">mano2018digital</bcf:citekey>
-    <bcf:citekey order="19" intorder="2">wakerly2018digital</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">patterson2020organization</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">anton2019linear</bcf:citekey>
-    <bcf:citekey order="21" intorder="2">strang2023linear</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">lay2021linear</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">nakjai2019yolo</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">nakjai2019handsign</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">mano2018digital</bcf:citekey>
-    <bcf:citekey order="25" intorder="2">roth2021logic</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">nakjai2018latent</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">katanyukul2022awareness</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">wakerly2018digital</bcf:citekey>
-    <bcf:citekey order="29" intorder="1" nocite="1">*</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">anton2019linear</bcf:citekey>
+    <bcf:citekey order="11" intorder="2">strang2023linear</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">lay2021linear</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">nakjai2019yolo</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">nakjai2019handsign</bcf:citekey>
+    <bcf:citekey order="15" intorder="1" nocite="1">*</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

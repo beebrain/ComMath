@@ -798,7 +798,7 @@ $$00101101 + 11010010 = 11111111 = -0$$
 \label{thrm:ieee-754-structure}
 
 \begin{prop}
-เหตุผลที่ใช้ bias 127 สำหรับ single precision คือเพื่อให้ค่า exponent ที่เก็บเป็นจำนวนไม่ติดลบตั้งแต่ 0 ถึง 255 ทำให้การเปรียบเทียบทำได้ง่าย ค่า exponent จริงจึงอยู่ในช่วง $-127$ ถึง $+128$ สำหรับ normalized numbers
+เหตุผลที่ใช้ bias 127 สำหรับ single precision คือเพื่อให้ค่า exponent ที่เก็บเป็นจำนวนไม่ติดลบตั้งแต่ 0 ถึง 255 ทำให้การเปรียบเทียบทำได้ง่าย สำหรับ normalized numbers ค่า exponent field จะอยู่ในช่วง 1 ถึง 254 จึงทำให้ค่า exponent จริงอยู่ในช่วง $-126$ ถึง $+127$ ส่วนค่า exponent field 0 และ 255 สงวนไว้สำหรับ subnormal numbers, zero, infinity และ NaN
 \end{prop}
 
 \begin{ex}

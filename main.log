@@ -1,7 +1,6 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  15 JUN 2026 11:00
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  8 JUL 2026 19:37
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
 **main.tex
 (./main.tex
@@ -2166,6 +2165,8 @@ Package biblatex Info: Setting label 'refsegment:03' on input line 166.
 
 
 ]
+Missing character: There is no ₂ (U+2082) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.07803pt, for example:
@@ -2173,7 +2174,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-0.07803pt}.
 
-[11])
+[11]
+Missing character: There is no ₂ (U+2082) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+)
 \tf@lof=\write9
 \openout9 = `main.lof'.
 
@@ -2380,63 +2384,62 @@ Package biblatex Info: Setting label 'refsegment:08' on input line 1.
 
 
 
-] [56]
-LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/it' will be
-(Font)              scaled to size 11.54994pt on input line 55.
-LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/it' will be
-(Font)              scaled to size 9.0pt on input line 55.
-LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 55.
- [57] [58] [59] [60] [61] [62] [63] [64] [65]
-(./Figures/tikz/10-venn-union.tex
-LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/it' will be
-(Font)              scaled to size 18.0pt on input line 22.
-) [66] [67]
-(./Figures/tikz/11-venn-intersection.tex) [68] [69]
-(./Figures/tikz/16-distributive-law-sets.tex
-LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/it' will be
-(Font)              scaled to size 15.0pt on input line 17.
-LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
-(Font)              scaled to size 25.92pt on input line 19.
-) [70] [71]
-(./Figures/tikz/13-venn-set-difference.tex
-LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/it' will be
-(Font)              scaled to size 12.0pt on input line 22.
-) [72] [73]
-(./Figures/tikz/14-venn-complement.tex
-LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/it' will be
-(Font)              scaled to size 21.59999pt on input line 19.
-) [74]
-(./Figures/tikz/15-de-morgan-laws.tex
-LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/it' will be
-(Font)              scaled to size 10.5pt on input line 27.
-) [75] [76] [77] [78] [79] [80] [81]
-[82] [83] [84] [85]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 778
-.
+] [56] [57] [58] [59] [60] [61] [62] [63]
+Missing character: There is no ، (U+060C) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no ، (U+060C) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no ، (U+060C) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+[64] [65]
+File: Figures/10-venn-union.jpg Graphic file (type bmp)
+<Figures/10-venn-union.jpg>
+ [66] [67] [68]
+File: Figures/11-venn-intersection.jpg Graphic file (type bmp)
+<Figures/11-venn-intersection.jpg>
+ [69]
+File: Figures/16-distributive-law-sets.jpg Graphic file (type bmp)
+<Figures/16-distributive-law-sets.jpg>
+ [70] [71]
+File: Figures/13-venn-set-difference.jpg Graphic file (type bmp)
+<Figures/13-venn-set-difference.jpg>
+ [72] [73]
+File: Figures/14-venn-complement.jpg Graphic file (type bmp)
+<Figures/14-venn-complement.jpg>
+ [74]
+File: Figures/15-de-morgan-laws.jpg Graphic file (type bmp)
+<Figures/15-de-morgan-laws.jpg>
+ [75] [76] [77] [78]
+[79]
+Missing character: There is no ✓ (U+2713) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+[80] [81] [82] [83] [84] [85] [86] [87] [88] [89]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 106
+8.
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-)
-Underfull \hbox (badness 2932) in paragraph at lines 795--796
+) [90]
+Underfull \hbox (badness 2932) in paragraph at lines 1085--1086
 []\TU/THSarabunNew(0)/m/sc/11 ทฤษฎี เซต เป็น เครื่อง มือ ที่ จำเป็น สำหรับ การ 
 ศึกษา บท ต่อ ไป โดย เฉพาะ \TU/THSarabunNew(0)/b/n/11 ความ สัมพันธ์
  []
 
-[86] [87
+[91] [92
 
-] [88] [89] [90
+] [93]) [94]
 
-] [91] [92] [93] [94
+LaTeX Warning: Empty bibliography on input line 198.
 
-]) [95] [96
+[95
 
+
+] [96
 
 ]
 \openout2 = `chapters/chapter03_or.aux'.
 
-
-(./chapters/chapter03_or.tex
+ (./chapters/chapter03_or.tex
 Package biblatex Info: Reference segment=9 on input line 1.
 Package biblatex Info: Setting label 'refsegment:09' on input line 1.
 
@@ -2445,7 +2448,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
  []
 
 [97
-
 
 
 ]) [98]
@@ -2473,43 +2475,165 @@ T1/cmr/m/n/10.95 (3\OML/cmm/m/it/10.95 ; c\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.
  =
  []
 
-[100] [101] (./Figures/tikz/18-relation-directed-graph.tex) [102] [103]
-[104] [105] (./Figures/tikz/19-reflexive-relation.tex
-LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
-(Font)              scaled to size 11.54994pt on input line 5.
-LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
-(Font)              scaled to size 8.25pt on input line 5.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
-[][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 3.11 (ตรวจสอบคุณสมบัติสะท้อนจากนิยา
-ม) []ให้ $\OML/cmm/m/it/10.95 A \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/
-cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 ; 
-\OT1/cmr/m/n/10.95 3\OMS/cmsy/m/n/10.95 g$ \TU/THSarabunNew(0)/m/sc/11 และ $\OM
-L/cmm/m/it/10.95 R \OT1/cmr/m/n/10.95 =
+[100] [101]
+File: Figures/18-relation-directed-graph.jpg Graphic file (type bmp)
+<Figures/18-relation-directed-graph.jpg>
+ [102]
+Overfull \hbox (158.75223pt too wide) in paragraph at lines 92--93
+[]\TU/THSarabunNew(0)/m/sc/11 ตรวจ สอบ $\OML/cmm/m/it/10.95 R[] \OT1/cmr/m/n/10
+.95 = \OML/cmm/m/it/10.95 A \OMS/cmsy/m/n/10.95 ^^B \OML/cmm/m/it/10.95 A \OT1/
+cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ;
+ \OT1/cmr/m/n/10.95 1)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/
+10.95 ; \OT1/cmr/m/n/10.95 2)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cm
+m/m/it/10.95 ; \OT1/cmr/m/n/10.95 3)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1
+\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 4)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/1
+0.95 (2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 1)\OML/cmm/m/it/10.95 ; \OT1/cm
+r/m/n/10.95 (2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 2)\OML/cmm/m/it/10.95 ; 
+\OT1/cmr/m/n/10.95 (2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 3)\OML/cmm/m/it/1
+0.95 ; \OT1/cmr/m/n/10.95 (2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 4)\OML/cmm
+/m/it/10.95 ; \OT1/cmr/m/n/10.95 (3\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 1)\
+OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (3\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10
+.95 2)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (3\OML/cmm/m/it/10.95 ; \OT1/cmr
+/m/n/10.95 3)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (3\OML/cmm/m/it/10.95 ; \
+OT1/cmr/m/n/10.95 4)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (4\OML/cmm/m/it/10
+.95 ; \OT1/cmr/m/n/10.95 1)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (4\OML/cmm/
+m/it/10.95 ; \OT1/cmr/m/n/10.95 2)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (4\O
+ML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 3)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.
+95 (4\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 4)\OMS/cmsy/m/n/10.95 g$
  []
 
-[106] [107] [108] (./Figures/tikz/20-symmetric-relation.tex) [109]
-Underfull \hbox (badness 10000) in paragraph at lines 206--207
-[][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 3.15 (ตรวจสอบคุณสมบัติสมมาตรจากนิยา
-ม) []ให้ $\OML/cmm/m/it/10.95 A \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/
-cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 ; 
-\OT1/cmr/m/n/10.95 3\OMS/cmsy/m/n/10.95 g$ \TU/THSarabunNew(0)/m/sc/11 และ $\OM
-L/cmm/m/it/10.95 R \OT1/cmr/m/n/10.95 =
+[103] [104]
+File: Figures/19-reflexive-relation.jpg Graphic file (type bmp)
+<Figures/19-reflexive-relation.jpg>
+ [105] [106] [107]
+File: Figures/20-symmetric-relation.jpg Graphic file (type bmp)
+<Figures/20-symmetric-relation.jpg>
+ [108] [109]
+File: Figures/21-antisymmetric-relation.jpg Graphic file (type bmp)
+<Figures/21-antisymmetric-relation.jpg>
+ [110] [111] [112]
+File: Figures/22-transitive-relation.jpg Graphic file (type bmp)
+<Figures/22-transitive-relation.jpg>
+ [113] [114]
+[115]
+Missing character: There is no ✗ (U+2717) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no ✗ (U+2717) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no ✗ (U+2717) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no ✗ (U+2717) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no ✗ (U+2717) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no ✗ (U+2717) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no ✗ (U+2717) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no ✗ (U+2717) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no ✗ (U+2717) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no ✗ (U+2717) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no ✗ (U+2717) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no ✗ (U+2717) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+[116]
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+[117]
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+File: Figures/23-equivalence-relation.jpg Graphic file (type bmp)
+<Figures/23-equivalence-relation.jpg>
+[118]
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+[119]
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+[120]
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+Missing character: There is no → (U+2192) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+[121] [122] [123]
+File: Figures/24-partial-order-hasse.jpg Graphic file (type bmp)
+<Figures/24-partial-order-hasse.jpg>
+ [124] [125] [126] [127] [128]
+Underfull \hbox (badness 10000) in paragraph at lines 572--573
+[][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 3.41 []พิจารณา Poset $\OT1/cmr/m/n/
+10.95 (\OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ; \OT1/cmr/
+m/n/10.95 2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 3\OML/cmm/m/it/10.95 ; \OT1
+/cmr/m/n/10.95 4\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 6\OML/cmm/m/it/10.95 ;
+ \OT1/cmr/m/n/10.95 12\OMS/cmsy/m/n/10.95 g\OML/cmm/m/it/10.95 ; \OMS/cmsy/m/n/
+10.95 j\OT1/cmr/m/n/10.95 )$ \TU/THSarabunNew(0)/m/sc/11 โดย
  []
 
-[110] [111] (./Figures/tikz/21-antisymmetric-relation.tex) [112] [113] [114]
-(./Figures/tikz/22-transitive-relation.tex) [115] [116] [117] [118]
-(./Figures/tikz/23-equivalence-relation.tex) [119] [120] [121] [122] [123]
-[124] [125] (./Figures/tikz/24-partial-order-hasse.tex) [126] [127] [128]
-[129] [130] [131]
-Underfull \hbox (badness 10000) in paragraph at lines 665--666
-[][]\TU/THSarabunNew(0)/m/sc/11 บทแทรก 3.50 (คุณสมบัติการรวมความสัมพันธ์) []กำห
-นด ความ สัมพันธ์ $\OML/cmm/m/it/10.95 R; S; T$ \TU/THSarabunNew(0)/m/sc/11 และ 
-เซต
+
+Underfull \hbox (badness 10000) in paragraph at lines 572--573
+\OML/cmm/m/it/10.95 a \OMS/cmsy/m/n/10.95 j \OML/cmm/m/it/10.95 b$ \TU/THSarabu
+nNew(0)/m/sc/11 ก็ ต่อ เมื่อ $\OML/cmm/m/it/10.95 a$ \TU/THSarabunNew(0)/m/sc/1
+1 หาร $\OML/cmm/m/it/10.95 b$ \TU/THSarabunNew(0)/m/sc/11 ลงตัว ความ สัมพันธ์ ค
+ือ $\OML/cmm/m/it/10.95 R \OT1/cmr/m/n/10.95 =
  []
 
-[132] [133] [134] [135] [136] [137]
-Underfull \hbox (badness 10000) in paragraph at lines 791--792
+
+Overfull \hbox (114.76398pt too wide) in paragraph at lines 572--573
+\OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10
+.95 1)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; \OT1/cmr
+/m/n/10.95 2)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; \
+OT1/cmr/m/n/10.95 3)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10
+.95 ; \OT1/cmr/m/n/10.95 4)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cmm/
+m/it/10.95 ; \OT1/cmr/m/n/10.95 6)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\O
+ML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 12)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10
+.95 (2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 2)\OML/cmm/m/it/10.95 ; \OT1/cmr
+/m/n/10.95 (2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 4)\OML/cmm/m/it/10.95 ; \
+OT1/cmr/m/n/10.95 (2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 6)\OML/cmm/m/it/10
+.95 ; \OT1/cmr/m/n/10.95 (2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 12)\OML/cmm
+/m/it/10.95 ; \OT1/cmr/m/n/10.95 (3\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 3)\
+OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (3\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10
+.95 6)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (3\OML/cmm/m/it/10.95 ; \OT1/cmr
+/m/n/10.95 12)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (4\OML/cmm/m/it/10.95 ; 
+\OT1/cmr/m/n/10.95 4)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (4\OML/cmm/m/it/1
+0.95 ; \OT1/cmr/m/n/10.95 12)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (6\OML/cm
+m/m/it/10.95 ; \OT1/cmr/m/n/10.95 6)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (6
+\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 12)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/
+10.95 (12\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 12)\OMS/cmsy/m/n/10.95 g$
+ []
+
+[129] [130] [131] [132] [133] [134] [135]
+Underfull \hbox (badness 10000) in paragraph at lines 724--725
 []\TU/THSarabunNew(0)/m/sc/11 รวม คู่ อันดับ ที่ ต้อง เพิ่ม เข้า กับ $\OML/cmm/
 m/it/10.95 R$ \TU/THSarabunNew(0)/m/sc/11 ได้ $\OML/cmm/m/it/10.95 r\OT1/cmr/m/
 n/10.95 (\OML/cmm/m/it/10.95 R\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 R \OMS
@@ -2519,9 +2643,9 @@ n/10.95 (\OML/cmm/m/it/10.95 R\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 R \OMS
 1/cmr/m/n/10.95 3)\OMS/cmsy/m/n/10.95 g \OT1/cmr/m/n/10.95 =
  []
 
-[138] [139] [140] [141] [142] [143] [144]
-Underfull \hbox (badness 10000) in paragraph at lines 943--944
-[][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 3.70 []จง พิจารณา ความ สัมพันธ์ ต่อ
+[136] [137] [138] [139] [140] [141] [142] [143] [144] [145]
+Underfull \hbox (badness 10000) in paragraph at lines 965--966
+[][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 3.71 []จง พิจารณา ความ สัมพันธ์ ต่อ
  ไป นี้ บน เซต $\OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ; 
 \OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 3\OML/cmm/m/it/10.
 95 ; \OT1/cmr/m/n/10.95 4\OMS/cmsy/m/n/10.95 g$ \TU/THSarabunNew(0)/m/sc/11 โดย
@@ -2529,7 +2653,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 943--944
  []
 
 
-Underfull \hbox (badness 3108) in paragraph at lines 943--944
+Underfull \hbox (badness 3108) in paragraph at lines 965--966
 \OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10
 .95 1)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; \OT1/cmr
 /m/n/10.95 3)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (2\OML/cmm/m/it/10.95 ; \
@@ -2543,50 +2667,11 @@ TU/THSarabunNew(0)/m/sc/11 จง ตรวจ สอบ ว่า $\OML/cmm/m/i
 nNew(0)/m/sc/11 มี คุณสมบัติ ใด ต่อ ไป นี้
  []
 
-[145
+[146] [147] [148] [149] [150] [151
 
-] [146] [147] [148] [149
+] [152] [153]) [154]
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 1028--1029
-\TU/THSarabunNew(0)/m/sc/11 การ ปิด สมมาตร $\OT1/cmr/m/n/10.95 = \OML/cmm/m/it/
-10.95 R \OMS/cmsy/m/n/10.95 [ f\OT1/cmr/m/n/10.95 (2\OML/cmm/m/it/10.95 ; \OT1/
-cmr/m/n/10.95 1)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (3\OML/cmm/m/it/10.95 
-; \OT1/cmr/m/n/10.95 2)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (4\OML/cmm/m/it
-/10.95 ; \OT1/cmr/m/n/10.95 3)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (5\OML/c
-mm/m/it/10.95 ; \OT1/cmr/m/n/10.95 4)\OMS/cmsy/m/n/10.95 g$\TU/THSarabunNew(0)/
-m/sc/11 ; การ ปิด ถ่ายทอด
- []
-
-
-Underfull \hbox (badness 4569) in paragraph at lines 1036--1037
-[]$\OML/cmm/m/it/10.95 R \OMS/cmsy/m/n/10.95 \ \OML/cmm/m/it/10.95 S$ \TU/THSar
-abunNew(0)/m/sc/11 เป็น สมมูล เสมอ (ตรวจ ทุก คุณสมบัติ ได้ ตรง); $\OML/cmm/m/it
-/10.95 R \OMS/cmsy/m/n/10.95 [ \OML/cmm/m/it/10.95 S$ \TU/THSarabunNew(0)/m/sc/
-11 ไม่ เป็น สมมูล โดย ทั่วไป
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1036--1037
-\TU/THSarabunNew(0)/m/sc/11 เพราะ อาจ สูญ เสีย คุณสมบัติ ถ่ายทอด ตัวอย่าง $\OML
-/cmm/m/it/10.95 R \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 
-(1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 2)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n
-/10.95 (2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 1)\OML/cmm/m/it/10.95 ; \OT1/
-cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 1)\OML/cmm/m/it/10.95 
-; \OT1/cmr/m/n/10.95 (2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 2)\OML/cmm/m/it
-/10.95 ; \OT1/cmr/m/n/10.95 (3\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 3)\OMS/c
-msy/m/n/10.95 g$\TU/THSarabunNew(0)/m/sc/11 ,
- []
-
-[150
-
-] [151] [152
-
-] [153]) [154]
-Underfull \hbox (badness 7796) in paragraph at lines 205--205
-[][]\TU/THSarabunNew(0)/m/sc/11 Grimaldi, R. P. (2004).  \TU/THSarabunNew(0)/m/
-it/11 Discrete and combinatorial mathematics: An applied
- []
+LaTeX Warning: Empty bibliography on input line 205.
 
 [155
 
@@ -2614,43 +2699,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
  4.
 Package biblatex Info: Reference segment=12 on input line 1.
 Package biblatex Info: Setting label 'refsegment:012' on input line 1.
+File: Figures/25-decimal-place-value.jpg Graphic file (type bmp)
+<Figures/25-decimal-place-value.jpg>
 [159
 
 
 
 
 
-] (./Figures/tikz/25-decimal-place-value.tex) [160] [161]
-(./Figures/tikz/26-binary-place-value.tex
-LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
-(Font)              scaled to size 31.11pt on input line 3.
-LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
-(Font)              scaled to size 31.11pt on input line 3.
-LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/it' will be
-(Font)              scaled to size 18.0pt on input line 21.
-) [162] [163]
-Underfull \hbox (badness 2846) in paragraph at lines 137--138
-[]\TU/THSarabunNew(0)/m/sc/11 ระบบ เลข ฐาน แปด เป็น ระบบ จำนวน ที่ มี ความ สำคั
-ญ ใน เชิง ประวัติศาสตร์ ของ การ พัฒนา
- []
+] [160] [161]
+File: Figures/26-binary-place-value.jpg Graphic file (type bmp)
+<Figures/26-binary-place-value.jpg>
 
-[164] [165] (./Figures/tikz/27-hex-grouping.tex
-LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
-(Font)              scaled to size 21.59999pt on input line 13.
-) [166] [167] [168] [169]
-[170] [171] [172] [173] [174] [175] [176] [177] [178] [179] [180] [181]
-(./Figures/tikz/28-2s-complement.tex) [182] [183] [184] [185]
-(./Figures/tikz/29-ieee754.tex) [186] [187] [188] [189] [190] [191] [192]
-[193
+Missing character: There is no ₂ (U+2082) in font TH Sarabun New/OT:script=thai
+;language=dflt;mapping=tex-text;!
+[162] [163] [164]
+File: Figures/27-hex-grouping.jpg Graphic file (type bmp)
+<Figures/27-hex-grouping.jpg>
+ [165] [166] [167] [168] [169] [170] [171] [172] [173]
+[174] [175] [176] [177] [178] [179]
+File: Figures/28-2s-complement.jpg Graphic file (type bmp)
+<Figures/28-2s-complement.jpg>
+ [180] [181] [182] [183]
+File: Figures/29-ieee754.jpg Graphic file (type bmp)
+<Figures/29-ieee754.jpg>
+ [184] [185]
+[186] [187] [188] [189] [190] [191] [192] [193
 
-] [194] [195] [196
+] [194]) [195]
 
-] [197]) [198
+LaTeX Warning: Empty bibliography on input line 212.
 
-] [199
+[196
 
-
-] [200
 
 ]
 \openout2 = `chapters/chapter05_or.aux'.
@@ -2663,58 +2744,71 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-[201
+[197
 
 
-]) [202]
+
+]) [198]
 \openout2 = `chapters/chapter05.aux'.
 
  (./chapters/chapter05.tex
  5.
 Package biblatex Info: Reference segment=14 on input line 1.
 Package biblatex Info: Setting label 'refsegment:014' on input line 1.
-[203
+[199
 
 
 
 
 
-] (./Figures/tikz/30-matrix-dimensions.tex) [204]
-(./Figures/tikz/31-matrix-types.tex) [205] [206] [207] [208] [209] [210]
-[211] [212] (./Figures/tikz/32-matrix-multiplication.tex) [213] [214] [215]
-[216] [217] [218] [219] [220] (./Figures/tikz/33-determinant-2x2.tex
+] (./Figures/tikz/30-matrix-dimensions.tex
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/it' will be
+(Font)              scaled to size 18.0pt on input line 22.
+) [200]
+(./Figures/tikz/31-matrix-types.tex) [201] [202] [203] [204] [205] [206]
+[207] [208] (./Figures/tikz/32-matrix-multiplication.tex
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
+(Font)              scaled to size 11.54994pt on input line 6.
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
+(Font)              scaled to size 8.25pt on input line 6.
+) [209] [210] [211]
+[212] [213] [214] [215] [216] (./Figures/tikz/33-determinant-2x2.tex
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
+(Font)              scaled to size 21.59999pt on input line 4.
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
 (Font)              scaled to size 10.5pt on input line 4.
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
 (Font)              scaled to size 7.5pt on input line 15.
-) [221]
-[222] [223] [224] [225] [226] [227]
-Underfull \hbox (badness 3138) in paragraph at lines 662--663
+) [217]
+[218] [219] [220] [221] [222] [223]
+Underfull \hbox (badness 3138) in paragraph at lines 663--664
 [][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 5.43 (ตัวอย่างค้านสำหรับสมบัติการบว
 กดีเทอร์มิแนนต์) []จง แสดง ตัวอย่าง ค้าน (counter-
  []
 
-[228] [229] [230] [231] [232] [233] [234] [235] [236] [237] [238] [239]
-[240] [241] (./Figures/tikz/34-matrix-transformation.tex
+[224] [225] [226] [227] [228] [229] [230] [231] [232] [233] [234] [235]
+[236] [237] (./Figures/tikz/34-matrix-transformation.tex
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
+(Font)              scaled to size 12.0pt on input line 13.
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
 (Font)              scaled to size 9.0pt on input line 13.
-) [242] [243] [244]
-[245] [246] [247] [248] [249
+) [238] [239] [240]
+[241] [242] [243] [244] [245
 
-] [250] [251
+] [246] [247
 
-] [252
+] [248
 
-] [253]) [254]
+] [249]) [250]
 Underfull \hbox (badness 2237) in paragraph at lines 219--219
 [][]\TU/THSarabunNew(0)/m/sc/11 Anton, H., Rorres, C., & Kaul, A. (2019).  \TU/
 THSarabunNew(0)/m/it/11 Elementary linear algebra: Applications
  []
 
-[255
+[251
 
 
-] [256
+] [252
 
 ]
 \openout2 = `chapters/chapter06_or.aux'.
@@ -2727,34 +2821,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-[257
+[253
 
 
-]) [258]
+]) [254]
 \openout2 = `chapters/chapter06.aux'.
 
  (./chapters/chapter06.tex
  6.
 Package biblatex Info: Reference segment=16 on input line 1.
 Package biblatex Info: Setting label 'refsegment:016' on input line 1.
-[259
+[255
 
 
 
 
 
-] [260] [261] [262] [263] [264] [265] [266] [267] [268] [269] [270]
-[271] [272] [273] (./Figures/tikz/35-function-mapping.tex) [274] [275] [276]
-[277] [278] [279] [280] [281] [282] [283] [284] [285] [286] [287] [288]
-[289] [290] [291] [292] [293] [294] [295] [296] [297] [298] [299] [300]
-[301] [302] [303] [304] [305
+] [256] [257] [258] [259] [260] [261] [262] [263] [264] [265] [266]
+[267] [268]
+File: Figures/35-function-mapping.jpg Graphic file (type bmp)
+<Figures/35-function-mapping.jpg>
+ [269] [270] [271] [272] [273] [274] [275] [276] [277] [278]
+[279] [280] [281] [282] [283] [284] [285] [286] [287] [288] [289] [290]
+[291] [292] [293] [294] [295] [296] [297] [298] [299] [300] [301] [302
 
-] [306] [307] [308
+]
+[303]) [304]
 
-] [309] [310] [311
+LaTeX Warning: Empty bibliography on input line 226.
 
-]) [312]
-[313
+[305
 
 
 ]
@@ -2769,14 +2865,14 @@ Underfull \hbox (badness 7796) in paragraph at lines 229--229
 it/11 Discrete and combinatorial mathematics: An applied
  []
 
-[314
+[306
 
-] [315]
+] [307]
 
 Package caption Warning: Unused \captionsetup[sub] on input line 12.
 See the caption package documentation for explanation.
 
-[316] (./main.aux (./organize.aux) (./chapters/chapter01_or.aux)
+[308] (./main.aux (./organize.aux) (./chapters/chapter01_or.aux)
 (./chapters/chapter01.aux) (./chapters/chapter02_or.aux)
 (./chapters/chapter02.aux) (./chapters/chapter03_or.aux)
 (./chapters/chapter03.aux) (./chapters/chapter04_or.aux)
@@ -2796,18 +2892,18 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B1D82BF327E4F6C2C2A1E6F65513BA11;25760.
+(rerunfilecheck)             Checksum: 2116778F83BB0AFA93BCB37B3629D4D1;24771.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 73249 strings out of 468168
- 1724507 string characters out of 5432815
- 2992442 words of memory out of 5000000
- 100848 multiletter control sequences out of 15000+600000
- 647600 words of font info for 178 fonts, out of 8000000 for 9000
+ 72693 strings out of 468168
+ 1715382 string characters out of 5432815
+ 2990792 words of memory out of 5000000
+ 100339 multiletter control sequences out of 15000+600000
+ 644192 words of font info for 155 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 103i,17n,118p,1348b,5290s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,17n,118p,1341b,5294s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (329 pages).
+Output written on main.xdv (321 pages, 5793916 bytes).

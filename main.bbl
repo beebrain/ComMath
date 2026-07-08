@@ -221,6 +221,7 @@
       \field{isbn}{9780122384400}
       \field{title}{Elements of Set Theory}
       \field{year}{1977}
+      \true{nocite}
     \endentry
     \entry{enderton2001logic}{book}{}{}
       \name{author}{1}{}{%
@@ -286,6 +287,7 @@
       \field{isbn}{9781337694193}
       \field{title}{Discrete Mathematics with Applications}
       \field{year}{2019}
+      \true{nocite}
     \endentry
     \entry{frege1879begriffsschrift}{book}{}{}
       \name{author}{1}{}{%
@@ -352,6 +354,7 @@
       \field{isbn}{9781429215107}
       \field{title}{Mathematical Structures for Computer Science}
       \field{year}{2014}
+      \true{nocite}
     \endentry
     \entry{grimaldi2004discrete}{book}{}{}
       \name{author}{1}{}{%
@@ -384,6 +387,7 @@
       \field{isbn}{9780201726343}
       \field{title}{Discrete and Combinatorial Mathematics: An Applied Introduction}
       \field{year}{2004}
+      \true{nocite}
     \endentry
     \entry{halmos1974naive}{book}{}{}
       \name{author}{1}{}{%
@@ -416,6 +420,7 @@
       \field{series}{Undergraduate Texts in Mathematics}
       \field{title}{Naive Set Theory}
       \field{year}{1974}
+      \true{nocite}
     \endentry
     \entry{hurley2024logic}{book}{}{}
       \name{author}{2}{}{%
@@ -486,6 +491,7 @@
       \field{isbn}{9780321964687}
       \field{title}{Discrete Mathematics}
       \field{year}{2016}
+      \true{nocite}
     \endentry
     \entry{katanyukul2022awareness}{article}{}{}
       \name{author}{2}{}{%
@@ -522,6 +528,7 @@
       \field{title}{Recognition Awareness: Adding Awareness to Pattern Recognition Using Latent Cognizance}
       \field{volume}{8}
       \field{year}{2022}
+      \true{nocite}
       \field{pages}{e09240}
       \range{pages}{-1}
       \verb{doi}
@@ -571,6 +578,7 @@
       \field{isbn}{9780132297516}
       \field{title}{Discrete Mathematical Structures}
       \field{year}{2008}
+      \true{nocite}
     \endentry
     \entry{lay2021linear}{book}{}{}
       \name{author}{3}{}{%
@@ -647,6 +655,7 @@
       \field{isbn}{9780070381599}
       \field{title}{Schaum's Outline of Theory and Problems of Set Theory and Related Topics}
       \field{year}{1998}
+      \true{nocite}
     \endentry
     \entry{lipschutz2009discrete}{book}{}{}
       \name{author}{2}{}{%
@@ -685,6 +694,7 @@
       \field{isbn}{9780071615860}
       \field{title}{Schaum's Outline of Discrete Mathematics}
       \field{year}{2009}
+      \true{nocite}
     \endentry
     \entry{mano2018digital}{book}{}{}
       \name{author}{2}{}{%
@@ -723,6 +733,7 @@
       \field{isbn}{9780134549897}
       \field{title}{Digital Design: With an Introduction to the Verilog HDL, VHDL, and SystemVerilog}
       \field{year}{2018}
+      \true{nocite}
     \endentry
     \entry{mendelson2015introduction}{book}{}{}
       \name{author}{1}{}{%
@@ -795,6 +806,7 @@
       \field{title}{Automatic Hand Sign Recognition: Identify Unusuality through Latent Cognizance}
       \field{volume}{11081}
       \field{year}{2018}
+      \true{nocite}
       \verb{doi}
       \verb 10.1007/978-3-319-99978-4_20
       \endverb
@@ -918,6 +930,7 @@
       \field{isbn}{9780128203316}
       \field{title}{Computer Organization and Design RISC-V Edition: The Hardware/Software Interface}
       \field{year}{2020}
+      \true{nocite}
     \endentry
     \entry{rosen2019discrete}{book}{}{}
       \name{author}{1}{}{%
@@ -995,6 +1008,7 @@
       \field{note}{Enhanced Edition}
       \field{title}{Fundamentals of Logic Design}
       \field{year}{2021}
+      \true{nocite}
     \endentry
     \entry{strang2023linear}{book}{}{}
       \name{author}{1}{}{%
@@ -1064,6 +1078,7 @@
       \field{isbn}{9780070651425}
       \field{title}{Discrete Mathematical Structures with Applications to Computer Science}
       \field{year}{1975}
+      \true{nocite}
     \endentry
     \entry{velleman2019prove}{book}{}{}
       \name{author}{1}{}{%
@@ -1128,6 +1143,7 @@
       \field{isbn}{9780134460093}
       \field{title}{Digital Design: Principles and Practices}
       \field{year}{2018}
+      \true{nocite}
     \endentry
     \entry{russell1910principia}{book}{}{}
       \name{author}{2}{}{%

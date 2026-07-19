@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 2 ทฤษฎีเซต — สัปดาห์ที่ 4 · ความหมายของเซต วิธีเขียนเซต และความสัมพันธ์ระหว่างเซต</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   LOGIC BLUEPRINT — Chapter 1 Logic, Week 1
+   คณิตศาสตร์สำหรับคอมพิวเตอร์ (4091606) · มหาวิทยาลัยราชภัฏอุตรดิตถ์
+   ===================================================================== */
+:root{
+  --paper:#F4EEDF; --paper2:#FCFAF3; --ink:#15203a; --ink-soft:#42506e;
+  --navy:#1F3A93; --navy2:#16265e; --navy3:#0e1a44;
+  --green:#2E8B57; --green2:#1f6b41;
+  --red:#C0392B; --red2:#962b20;
+  --gold:#B7950B; --gold2:#8a7008;
+  --lnavy:#E7ECF8; --mint:#E6F4EA; --pink:#FBE7E4; --cream:#FFF7DD; --lyellow:#FFF6D5;
+  --line:rgba(31,58,147,.16);
+  --line2:rgba(31,58,147,.30);
+  --f-head:'IBM Plex Sans Thai',sans-serif;
+  --f-body:'Sarabun',sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:var(--f-body);
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  overflow:hidden;
+}
+/* ---- atmospheric background: warm paper + blueprint grid + grain ---- */
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(120% 90% at 12% 0%, #FAF5E7 0%, var(--paper) 55%, #ECE3CC 100%);
+}
+.bg::before{content:"";position:absolute;inset:0;opacity:.5;
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:46px 46px,46px 46px;
+  -webkit-mask-image:radial-gradient(120% 120% at 50% 40%,#000 55%,transparent 100%);
+          mask-image:radial-gradient(120% 120% at 50% 40%,#000 55%,transparent 100%);
+}
+.bg::after{content:"";position:absolute;inset:0;opacity:.045;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===================== stage / deck ===================== */
+#app{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100vh;width:100vw}
+.stage{position:relative;width:min(95.5vw,169vh);aspect-ratio:16/9;
+  background:var(--paper2);
+  border-radius:14px;
+  box-shadow:0 30px 70px -28px rgba(14,26,68,.55),0 2px 0 rgba(255,255,255,.6) inset,0 0 0 1px rgba(31,58,147,.10);
+  overflow:hidden;
+}
+.deck{position:absolute;inset:0}
+.slide{position:absolute;inset:0;display:none;container-type:size;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,0) 22%),
+    var(--paper2);
+}
+.slide.is-active{display:block}
+
+/* ===================== shared frame chrome ===================== */
+.head{display:flex;align-items:flex-end;gap:2cqw;
+  background:linear-gradient(100deg,var(--navy2),var(--navy));
+  color:#fff;padding:3.3cqh 5cqw 2.6cqh;position:relative}
+.head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:.65cqh;
+  background:linear-gradient(90deg,var(--gold) 0 16%,rgba(255,255,255,.25) 16% 100%)}
+.head .kick{font-family:var(--f-mono);font-size:1.75cqh;letter-spacing:.28em;
+  text-transform:uppercase;color:#cdd8f4;font-weight:500;display:block;margin-bottom:.5cqh}
+.head h2{font-family:var(--f-head);font-weight:700;font-size:4.7cqh;line-height:1.12;
+  letter-spacing:-.01em}
+.head h2 .en{font-weight:500;color:#b9c6ee;font-size:.74em}
+
+.body{position:absolute;top:0;left:0;right:0;bottom:0;
+  padding:14cqh 5.4cqw 6cqh;display:flex;flex-direction:column;justify-content:center;gap:2.7cqh;
+  font-size:3.05cqh;line-height:1.45;overflow:hidden}
+.body.tight{gap:1.75cqh}
+.body.top{justify-content:flex-start;padding-top:15cqh}
+.lead{color:var(--ink)}
+.muted{color:#6a7796}
+.tiny{font-size:2.35cqh;line-height:1.4}
+
+.foot{position:absolute;left:0;right:0;bottom:0;height:5cqh;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5.4cqw;font-size:1.95cqh;color:var(--navy);
+  font-family:var(--f-head);border-top:1px solid var(--line)}
+.foot .right{font-family:var(--f-mono);letter-spacing:.05em;color:#7884a4}
+.foot .dot{color:var(--gold);margin:0 .5em}
+
+/* ===================== typography helpers ===================== */
+b,strong{font-weight:700;color:var(--navy2)}
+.hl{color:var(--navy);font-weight:700}
+.gn{color:var(--green2);font-weight:700}
+.rd{color:var(--red2);font-weight:700}
+.gd{color:var(--gold2);font-weight:700}
+.q{color:var(--ink);font-style:normal}
+.q::before{content:"“"}.q::after{content:"”"}
+code,.mono{font-family:var(--f-mono);font-size:.9em}
+.code{font-family:var(--f-mono);background:var(--lnavy);color:var(--navy2);
+  padding:.05em .45em;border-radius:.3em;font-size:.82em;font-weight:500}
+
+/* logic glyphs */
+.op{font-family:var(--f-mono);font-weight:700;color:var(--navy)}
+.expr{font-family:var(--f-mono);font-weight:500;color:var(--ink);white-space:nowrap}
+.expr .v{font-style:italic;color:var(--navy2)}
+.vt{font-family:var(--f-mono);font-weight:700;color:var(--green2)}
+.vf{font-family:var(--f-mono);font-weight:700;color:var(--red2)}
+
+/* T / F result chips */
+.chip{display:inline-flex;align-items:center;justify-content:center;min-width:1.7em;
+  height:1.7em;padding:0 .5em;border-radius:.45em;font-family:var(--f-mono);
+  font-weight:700;color:#fff;font-size:.92em;vertical-align:middle;line-height:1}
+.chip.t{background:var(--green);box-shadow:0 .3cqh 0 var(--green2)}
+.chip.f{background:var(--red);box-shadow:0 .3cqh 0 var(--red2)}
+.arrow{color:#8b97b6;font-family:var(--f-mono);margin:0 .35em}
+
+/* ===================== lists ===================== */
+ul.bul,ol.num{list-style:none;display:flex;flex-direction:column;gap:1.85cqh}
+ul.bul li{position:relative;padding-left:2.6cqw}
+ul.bul li::before{content:"";position:absolute;left:0;top:.62em;width:1.05cqh;height:1.05cqh;
+  background:var(--navy);transform:rotate(45deg)}
+ul.sub{list-style:none;margin:.8cqh 0 0 2.6cqw;display:flex;flex-direction:column;gap:.7cqh;font-size:.92em}
+ul.sub li{position:relative;padding-left:2.4cqw;color:#41506f}
+ul.sub li::before{content:"–";position:absolute;left:0;color:var(--gold2);font-weight:700}
+ol.num{counter-reset:n}
+ol.num>li{position:relative;padding-left:4.4cqw;counter-increment:n}
+ol.num>li::before{content:counter(n);position:absolute;left:0;top:.05em;
+  width:3.1cqh;height:3.1cqh;border-radius:50%;background:var(--lnavy);color:var(--navy);
+  font-family:var(--f-mono);font-weight:700;font-size:.78em;
+  display:flex;align-items:center;justify-content:center;border:1px solid var(--line2)}
+.spread{justify-content:space-between !important}
+li .res{float:right;color:#8b97b6;font-family:var(--f-mono)}
+
+/* ===================== block cards ===================== */
+.block{border-radius:11px;padding:2.3cqh 2.7cqw;background:var(--lnavy);
+  border-left:.85cqh solid var(--navy);position:relative;
+  box-shadow:0 8px 20px -16px rgba(31,58,147,.6)}
+.block .lab{display:inline-flex;align-items:center;gap:.5em;font-family:var(--f-head);
+  font-weight:700;color:var(--navy);font-size:.82em;letter-spacing:.01em;margin-bottom:.7cqh;
+  text-transform:none}
+.block .lab .pin{font-family:var(--f-mono);font-size:.8em;background:var(--navy);color:#fff;
+  padding:.1em .55em;border-radius:.4em;letter-spacing:.12em}
+.block.ex{background:var(--mint);border-color:var(--green)}
+.block.ex .lab{color:var(--green2)} .block.ex .lab .pin{background:var(--green)}
+.block.al{background:var(--pink);border-color:var(--red)}
+.block.al .lab{color:var(--red2)} .block.al .lab .pin{background:var(--red)}
+.block.gold{background:var(--lyellow);border-color:var(--gold)}
+.block.gold .lab{color:var(--gold2)} .block.gold .lab .pin{background:var(--gold)}
+
+/* ===================== columns ===================== */
+.cols{display:grid;grid-template-columns:1.05fr .95fr;gap:3cqw;align-items:start}
+.cols.even{grid-template-columns:1fr 1fr}
+.col{display:flex;flex-direction:column;gap:1.6cqh}
+.center{align-items:center;text-align:center}
+
+/* timeline */
+.tl{display:flex;flex-direction:column;gap:1.4cqh;position:relative}
+.tl::before{content:"";position:absolute;left:5.4cqh;top:1cqh;bottom:1cqh;width:2px;
+  background:linear-gradient(var(--navy),var(--gold));opacity:.35}
+.tl-item{display:grid;grid-template-columns:11cqh 1fr;gap:1.6cqw;align-items:start;position:relative}
+.tl-item .yr{font-family:var(--f-mono);font-weight:700;font-size:1.95cqh;color:var(--navy);
+  background:#fff;border:1px solid var(--line2);border-radius:.5em;padding:.3em .2em;text-align:center;
+  box-shadow:0 4px 12px -8px rgba(31,58,147,.6);z-index:1}
+.tl-item .tx{font-size:2.55cqh;line-height:1.32;padding-top:.2cqh}
+.tl-item .tx .who{color:var(--navy2);font-weight:700}
+
+/* syllogism example */
+.syll{display:flex;flex-direction:column;gap:.85cqh;margin-top:.6cqh;font-size:2.55cqh}
+.syll .row{display:flex;gap:1cqw;align-items:baseline}
+.syll .t{flex:0 0 auto;min-width:11cqh;font-family:var(--f-head);font-weight:700;color:var(--green2);font-size:.85em}
+.syll .cc{border-top:1.5px dashed rgba(46,139,87,.55);padding-top:1cqh;margin-top:.3cqh;
+  font-weight:700;color:var(--navy2);display:flex;gap:.5cqw;align-items:baseline}
+.syll .cc .op{color:var(--green2);font-size:1.25em}
+
+/* illustration figure (image slot + graceful placeholder) */
+figure.figwrap{margin:0;display:flex;flex-direction:column;gap:.9cqh;width:100%}
+.fig{position:relative;width:100%;aspect-ratio:4/3;border-radius:14px;overflow:hidden;
+  background:linear-gradient(135deg,var(--lnavy),#fff);border:1.5px dashed var(--line2);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 16px 32px -20px rgba(31,58,147,.6)}
+.fig::after{content:"\1F5BC  รูปภาพประกอบ\A กำลังจัดทำ";white-space:pre;text-align:center;
+  font-family:var(--f-head);color:#93a0c0;font-size:2.15cqh;line-height:1.7;z-index:0;
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.fig:has(img:not(.missing))::after{display:none}
+.fig img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
+.fig img.missing{display:none}
+figure.figwrap figcaption{font-size:2.1cqh;color:#6a7796;text-align:center;font-family:var(--f-head)}
+figure.figwrap figcaption b{color:var(--navy)}
+
+/* ===================== truth tables ===================== */
+.tt-wrap{border-radius:12px;overflow:hidden;align-self:flex-start;background:#fff;
+  box-shadow:0 16px 32px -18px rgba(14,26,68,.5),0 0 0 1px var(--line2)}
+table.tt{border-collapse:collapse;font-family:var(--f-mono);width:100%}
+table.tt th,table.tt td{border:1px solid var(--line);padding:.8cqh 1.5cqw;text-align:center;
+  font-size:.92em;white-space:nowrap}
+table.tt thead th{background:linear-gradient(180deg,#2b4bb0,var(--navy2));color:#fff;
+  font-weight:700;border-color:rgba(255,255,255,.16);letter-spacing:.02em}
+table.tt thead th .op,table.tt thead th .v{color:#fff}
+table.tt tbody td{background:#fff;transition:background .2s}
+table.tt tbody tr:nth-child(even) td{background:#F6F8FE}
+table.tt tbody tr:hover td{background:var(--lnavy)}
+/* truth-value badges (only inside table cells) */
+table.tt td .vt,table.tt td .vf{display:inline-flex;align-items:center;justify-content:center;
+  min-width:1.75em;height:1.75em;border-radius:.5em;font-size:1em;font-weight:700;line-height:1;
+  transition:transform .2s}
+table.tt td .vt{background:var(--mint);color:var(--green2);box-shadow:inset 0 0 0 1.3px rgba(46,139,87,.32)}
+table.tt td .vf{background:var(--pink);color:var(--red2);box-shadow:inset 0 0 0 1.3px rgba(192,57,43,.32)}
+table.tt tbody tr:hover td .vt,table.tt tbody tr:hover td .vf{transform:scale(1.1)}
+table.tt tr.hi td{background:var(--lyellow) !important}
+table.tt.wide th,table.tt.wide td{padding:.62cqh 1.05cqw;font-size:.82em}
+/* equal-columns highlight (equivalence proof) */
+table.tt-eq td:nth-last-child(-n+2){background:rgba(183,149,11,.10)}
+table.tt-eq tbody tr:nth-child(even) td:nth-last-child(-n+2){background:rgba(183,149,11,.15)}
+table.tt-eq tbody tr:hover td:nth-last-child(-n+2){background:rgba(183,149,11,.22)}
+table.tt-eq thead th:nth-last-child(-n+2){box-shadow:inset 0 -.6cqh 0 var(--gold)}
+table.tt-eq td:nth-last-child(2),table.tt-eq th:nth-last-child(2){border-left:.35cqh solid var(--gold)}
+/* rows build in when slide opens */
+.slide.is-active .tt tbody tr{animation:rowin .5s both}
+.slide.is-active .tt tbody tr:nth-child(1){animation-delay:.18s}
+.slide.is-active .tt tbody tr:nth-child(2){animation-delay:.28s}
+.slide.is-active .tt tbody tr:nth-child(3){animation-delay:.38s}
+.slide.is-active .tt tbody tr:nth-child(4){animation-delay:.48s}
+.slide.is-active .tt tbody tr:nth-child(5){animation-delay:.58s}
+@keyframes rowin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.tt-cap{font-size:2.2cqh;color:#6a7796;margin-top:.4cqh;font-family:var(--f-head)}
+/* highlighter mark */
+.mark{position:relative;display:inline-block;z-index:0}
+.mark::before{content:"";position:absolute;left:-.18em;right:-.18em;top:12%;bottom:4%;z-index:-1;
+  background:rgba(46,139,87,.22);border-radius:.28em;transform:scaleX(0);transform-origin:left}
+.slide.is-active .mark::before{animation:hl .7s .9s both}
+@keyframes hl{to{transform:scaleX(1)}}
+
+/* ===================== derivation ===================== */
+.deriv{display:flex;flex-direction:column;gap:.55cqh;font-family:var(--f-mono);
+  background:#fff;border:1px solid var(--line2);border-radius:10px;padding:1.8cqh 2.4cqw;
+  box-shadow:0 8px 20px -16px rgba(31,58,147,.5);align-self:flex-start}
+.deriv .ln{display:grid;grid-template-columns:2.2em 1fr;align-items:baseline;font-size:.95em}
+.deriv .ln .o{color:var(--navy);font-weight:700}
+.deriv .ln.first .o{color:transparent}
+.deriv .given{font-family:var(--f-body);color:#6a7796;font-size:2.3cqh;margin-bottom:.4cqh}
+
+/* ===================== logic gate svg ===================== */
+.gate{width:100%;max-width:46cqh;height:auto;display:block;margin:0 auto;overflow:visible}
+.gate .body{stroke:var(--navy);stroke-width:2.6;stroke-linejoin:round}
+.gate .wire{stroke:var(--navy2);stroke-width:2.6;fill:none;stroke-linecap:round}
+.gate .lbl{font-family:'JetBrains Mono',monospace;font-size:19px;fill:var(--navy2);font-weight:700}
+.gate .bub{fill:#fff;stroke:var(--navy);stroke-width:2.6}
+.cap{font-size:2.35cqh;color:#56638a;text-align:center;font-family:var(--f-head)}
+.cap b{color:var(--navy)}
+
+/* ===================== cover ===================== */
+.cover{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+  padding:0 8cqw;background:
+    radial-gradient(130% 120% at 88% 8%,rgba(31,58,147,.10),transparent 46%),
+    linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0) 30%),var(--paper2)}
+.cover .tag{font-family:var(--f-mono);font-size:2.1cqh;letter-spacing:.34em;color:var(--navy);
+  text-transform:uppercase;display:flex;align-items:center;gap:1.4cqw;margin-bottom:2.4cqh}
+.cover .tag::before{content:"";width:7cqw;height:2px;background:var(--gold)}
+.cover h1{font-family:var(--f-head);font-weight:700;font-size:8.6cqh;line-height:1.04;
+  color:var(--navy2);letter-spacing:-.02em}
+.cover h1 .en{display:block;font-size:.42em;letter-spacing:.04em;color:var(--gold2);
+  font-weight:600;margin-top:.6cqh}
+.cover .sub{font-size:3.5cqh;color:var(--ink);margin-top:2.6cqh;max-width:74%;line-height:1.4}
+.cover .sub b{color:var(--navy)}
+.cover .meta{position:absolute;bottom:8cqh;left:8cqw;font-size:2.5cqh;color:#56638a;line-height:1.5}
+.cover .meta b{color:var(--navy2)}
+.cover .course{display:inline-block;font-family:var(--f-mono);font-weight:700;background:var(--navy);
+  color:#fff;padding:.3em .7em;border-radius:.4em;font-size:.85em;letter-spacing:.05em}
+.glyphs{position:absolute;right:7cqw;bottom:8cqh;display:flex;gap:1.2cqw}
+.glyphs .g{width:8.5cqh;height:8.5cqh;border-radius:12px;background:#fff;border:1px solid var(--line2);
+  box-shadow:0 12px 26px -16px rgba(31,58,147,.6);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:.2cqh}
+.glyphs .g .s{font-family:var(--f-mono);font-weight:700;font-size:3.6cqh;color:var(--navy)}
+.glyphs .g .n{font-family:var(--f-mono);font-size:1.5cqh;color:#8b97b6;letter-spacing:.1em}
+.glyphs .g:nth-child(3) .s{color:var(--green2)}
+.glyphs .g:nth-child(4) .s{color:var(--gold2)}
+
+/* ===================== section divider ===================== */
+.divider{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+  padding:0 9cqw;background:linear-gradient(115deg,var(--navy3),var(--navy) 60%,var(--navy2));color:#fff;overflow:hidden}
+.divider .ghost{position:absolute;right:-2cqw;top:50%;transform:translateY(-50%);
+  font-family:var(--f-mono);font-weight:700;font-size:62cqh;line-height:.8;color:rgba(255,255,255,.06)}
+.divider .no{font-family:var(--f-mono);font-weight:700;font-size:4cqh;color:var(--gold);
+  letter-spacing:.2em;margin-bottom:1.5cqh}
+.divider .no::before{content:"";display:inline-block;width:6cqw;height:2px;background:var(--gold);
+  vertical-align:middle;margin-right:1.4cqw}
+.divider h2{font-family:var(--f-head);font-weight:700;font-size:7.4cqh;line-height:1.08;
+  max-width:80%;position:relative}
+.divider h2 .en{display:block;font-size:.5em;color:#aebbe6;font-weight:500;margin-top:1cqh;letter-spacing:.02em}
+
+/* ===================== toc ===================== */
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:2cqh 3cqw;margin-top:.5cqh}
+.toc .it{display:flex;gap:2cqw;align-items:flex-start;background:#fff;border:1px solid var(--line2);
+  border-radius:12px;padding:2.2cqh 2.4cqw;box-shadow:0 10px 24px -20px rgba(31,58,147,.7)}
+.toc .it .n{font-family:var(--f-mono);font-weight:700;font-size:4cqh;color:var(--navy);
+  background:var(--lnavy);width:7.4cqh;min-width:7.4cqh;height:7.4cqh;border-radius:10px;
+  display:flex;align-items:center;justify-content:center}
+.toc .it .tx{display:flex;flex-direction:column;gap:.4cqh}
+.toc .it .tx .t{font-family:var(--f-head);font-weight:700;font-size:2.95cqh;color:var(--navy2);line-height:1.2}
+.toc .it .tx .d{font-size:2.25cqh;color:#6a7796}
+
+/* ===================== reveal (\pause) ===================== */
+.reveal{position:relative;cursor:pointer}
+.reveal .inner{transition:filter .45s ease,opacity .45s ease;filter:blur(7px);opacity:.32}
+.reveal.on .inner{filter:none;opacity:1}
+.reveal.on{cursor:default}
+.reveal .hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:.7em;
+  font-family:var(--f-head);font-weight:700;color:var(--navy);font-size:2.6cqh;
+  transition:opacity .3s;letter-spacing:.02em}
+.reveal .hint .k{font-family:var(--f-mono);background:var(--navy);color:#fff;border-radius:.4em;
+  padding:.15em .55em;font-size:.8em;box-shadow:0 .4cqh 0 var(--navy2)}
+.reveal.on .hint{opacity:0;pointer-events:none}
+
+/* ===================== closing ===================== */
+.closing{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2.4cqh;background:linear-gradient(160deg,var(--navy3),var(--navy));color:#fff;text-align:center}
+.closing .big{font-family:var(--f-head);font-weight:700;font-size:8cqh;letter-spacing:-.01em}
+.closing .nx{font-size:3cqh;color:#b9c6ee;max-width:70%}
+.closing .nx b{color:var(--gold)}
+.closing .rule{width:9cqw;height:3px;background:var(--gold);border-radius:2px}
+
+/* ===================== game ===================== */
+.game{position:absolute;inset:0;display:flex;flex-direction:column;color:#fff;padding:4.5cqh 6cqw 4cqh;
+  background:radial-gradient(120% 120% at 50% -10%,#27408f,#16265e 58%,#0e1a44);overflow:hidden}
+.game::before{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:48px 48px,48px 48px;-webkit-mask-image:radial-gradient(80% 80% at 50% 40%,#000,transparent);mask-image:radial-gradient(80% 80% at 50% 40%,#000,transparent)}
+.game__bar{display:flex;gap:1.2cqw;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.gchip{font-family:var(--f-mono);font-size:2.25cqh;background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:.5cqh 1.5cqw;letter-spacing:.02em;white-space:nowrap}
+.gchip b{color:var(--gold);font-size:1.15em;margin-left:.35em}
+.gchip.best b{color:#ffe8a3}
+.game__stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2.4cqh;text-align:center;position:relative;z-index:1}
+
+/* Layout for Sidebar Game */
+.g-layout {
+  display: flex;
+  gap: 3cqw;
+  height: 100%;
+  width: 100%;
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
+}
+.g-sidebar {
+  width: 22cqw;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 3cqh 2cqw;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+}
+.g-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6cqh;
+}
+.g-stat + .g-stat {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 2cqh;
+}
+.g-stat .lbl {
+  font-family: var(--f-head);
+  font-size: 1.8cqh;
+  color: #a4bdf6;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.g-stat .val {
+  font-family: var(--f-mono);
+  font-weight: 700;
+  font-size: 4cqh;
+  color: #fff;
+  line-height: 1.1;
+}
+.g-stat small {
+  font-family: var(--f-mono);
+  font-size: 2.2cqh;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: 0.2cqw;
+}
+.g-stat .val.score {
+  color: var(--gold);
+  text-shadow: 0 0 12px rgba(241, 196, 15, 0.25);
+}
+.g-stat .val.streak {
+  color: #ff8a65;
+  text-shadow: 0 0 12px rgba(255, 138, 101, 0.35);
+}
+.g-stat .val.best {
+  color: #a5d6a7;
+}
+
+.g-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3cqh;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 3cqh 4cqw;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.g-title{font-family:var(--f-head);font-weight:700;font-size:5cqh;color:var(--gold);text-shadow:0 2px 4px rgba(0,0,0,0.2)}
+.g-sub{font-size:2.5cqh;color:#bcc8ec;max-width:80%;line-height:1.4}
+.g-sub b{color:#fff}
+.g-q{font-size:3cqh;font-family:var(--f-head);font-weight:600;max-width:86%;line-height:1.3;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.3)}
+.g-big{font-family:var(--f-mono);font-weight:700;font-size:5.5cqh;color:#fff;letter-spacing:.06em;
+  background:rgba(255, 255, 255, 0.05);border:1px solid rgba(255, 255, 255, 0.15);border-radius:16px;padding:1.4cqh 4cqw;
+  box-shadow:inset 0 2px 4px rgba(255,255,255,0.05),0 4px 12px rgba(0,0,0,0.15)}
+.g-opts{display:flex;gap:1.8cqw;flex-wrap:wrap;justify-content:center;margin-top:1cqh}
+.g-btn{font-family:var(--f-head);font-weight:700;font-size:2.8cqh;color:rgba(255, 255, 255, 0.95);cursor:pointer;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:12px;
+  padding:1.5cqh 3.2cqw;min-width:14cqw;transition:all .2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);box-sizing:border-box}
+.g-btn:hover:not(:disabled){transform:translateY(-2px);background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4);box-shadow:0 8px 20px rgba(255,255,255,.1)}
+.g-btn:active:not(:disabled){transform:translateY(1px)}
+.g-btn.tf{font-family:var(--f-mono);min-width:8cqh}
+.g-btn.sym{font-family:var(--f-mono);font-size:4.2cqh;min-width:10cqh;line-height:1}
+.g-btn.ok{background:linear-gradient(135deg, #2ecc71, #27ae60);border-color:#55efc4;color:#fff;box-shadow:0 6px 20px rgba(46,204,113,0.3);text-shadow:0 1px 2px rgba(0,0,0,0.2)}
+.g-btn.no{background:linear-gradient(135deg, #e74c3c, #c0392b);border-color:#ff7675;color:#fff;box-shadow:0 6px 20px rgba(231,76,60,0.3);text-shadow:0 1px 2px rgba(0,0,0,0.2);animation:shake .4s}
+.g-btn:disabled:not(.ok):not(.no){opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+@keyframes shake{10%,90%{transform:translateX(-2px)}30%,70%{transform:translateX(5px)}50%{transform:translateX(-8px)}}
+.g-fb{font-size:2.4cqh;font-family:var(--f-head);font-weight:500;max-width:90%;line-height:1.4;min-height:3.5cqh;
+  padding:1cqh 2cqw;border-radius:10px;box-sizing:border-box}
+.g-fb.ok{color:#a7f3d0;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2)}
+.g-fb.no{color:#fca5a5;background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.25)}
+.g-next{font-family:var(--f-head);font-weight:700;font-size:2.5cqh;color:#1a252f;cursor:pointer;
+  background:linear-gradient(135deg,#ffe082,#ffb300);border:0;border-radius:999px;padding:1.2cqh 3.6cqw;
+  box-shadow:0 4px 15px rgba(255,179,0,0.4);transition:all .2s ease;margin-top:1cqh}
+.g-next:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,179,0,0.6)}
+.g-next:active{transform:translateY(1px)}
+.g-start,.g-replay{font-family:var(--f-head);font-weight:700;font-size:2.8cqh;color:#1a252f;cursor:pointer;
+  background:linear-gradient(135deg,#fff,#e0e0e0);border:0;border-radius:999px;padding:1.5cqh 4.5cqw;
+  box-shadow:0 6px 20px rgba(0,0,0,0.25);transition:all .2s ease}
+.g-start:hover,.g-replay:hover{transform:translateY(-2px);background:linear-gradient(135deg,#fff,#f5f5f5);box-shadow:0 8px 25px rgba(255,255,255,.2)}
+.g-start:active,.g-replay:active{transform:translateY(1px)}
+.g-stars{font-size:6.5cqh;letter-spacing:.35em;color:var(--gold);text-shadow:0 0 24px rgba(183,149,11,.6)}
+.g-score-big{font-family:var(--f-mono);font-weight:700;font-size:9cqh;color:var(--gold);line-height:.9}
+.g-badge{position:absolute;top:4.2cqh;right:6cqw;font-family:var(--f-mono);font-size:2cqh;color:#9fb0e0;z-index:1}
+
+/* ===================== entrance animation ===================== */
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.slide.is-active .anim{animation:rise .56s cubic-bezier(.2,.75,.25,1) both;
+  animation-delay:calc(var(--i,0)*.085s + .08s)}
+.slide.is-active .head .kick,.slide.is-active .head h2{animation:fadein .6s both}
+.divider.is-anim .no,.divider.is-anim h2{animation:rise .6s both}
+
+/* ===================== top progress ===================== */
+.progress{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(31,58,147,.12);z-index:30}
+.progress .bar{height:100%;width:0;background:linear-gradient(90deg,var(--navy),var(--gold));
+  transition:width .4s cubic-bezier(.4,0,.1,1)}
+
+/* ===================== dock controls ===================== */
+.dock{position:fixed;bottom:2.4vh;left:50%;transform:translateX(-50%);z-index:30;
+  display:flex;align-items:center;gap:.4rem;padding:.4rem .55rem;border-radius:999px;
+  background:rgba(252,250,243,.92);backdrop-filter:blur(8px);
+  border:1px solid var(--line2);box-shadow:0 14px 34px -18px rgba(14,26,68,.6);
+  opacity:.4;transition:opacity .3s}
+.dock:hover{opacity:1}
+.dock button{font:inherit;border:0;background:transparent;color:var(--navy);cursor:pointer;
+  width:2.5rem;height:2.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:1.15rem;transition:background .2s}
+.dock button:hover{background:var(--lnavy)}
+.dock .count{font-family:var(--f-mono);font-weight:700;color:var(--navy2);font-size:.92rem;
+  min-width:5.2rem;text-align:center;letter-spacing:.04em}
+.dock .sep{width:1px;height:1.5rem;background:var(--line2)}
+
+/* ===================== overview ===================== */
+body.overview{overflow:auto}
+body.overview #app{display:block;height:auto;min-height:100vh;padding:5vh 4vw 12vh}
+body.overview .stage{width:100%;aspect-ratio:auto;background:transparent;box-shadow:none;border-radius:0;overflow:visible}
+body.overview .deck{position:static;display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:22px}
+body.overview .slide{position:relative;inset:auto;display:block;aspect-ratio:16/9;
+  border-radius:10px;overflow:hidden;cursor:pointer;border:1px solid var(--line2);
+  box-shadow:0 14px 30px -22px rgba(14,26,68,.7);transition:transform .2s,box-shadow .2s}
+body.overview .slide:hover{transform:translateY(-4px);box-shadow:0 22px 40px -22px rgba(14,26,68,.8)}
+body.overview .slide.is-active{outline:3px solid var(--gold);outline-offset:2px}
+body.overview .slide .anim{animation:none !important}
+body.overview .slide *{pointer-events:none}
+body.overview .reveal .inner{filter:none;opacity:1}
+body.overview .reveal .hint{display:none}
+body.overview .ov-title{position:fixed;top:0;left:0;right:0;z-index:25;
+  background:var(--navy);color:#fff;padding:1rem 4vw;font-family:var(--f-head);font-weight:700;
+  display:flex;justify-content:space-between;align-items:center}
+.ov-title{display:none}
+body.overview .ov-title{display:flex}
+.ov-title small{font-weight:400;color:#b9c6ee;font-family:var(--f-mono);font-size:.85rem}
+
+/* ===================== help overlay ===================== */
+.help{position:fixed;inset:0;z-index:40;background:rgba(14,26,68,.62);backdrop-filter:blur(4px);
+  display:none;align-items:center;justify-content:center}
+.help.show{display:flex;animation:fadein .25s both}
+.help .card{background:var(--paper2);border-radius:16px;padding:2.4rem 2.8rem;max-width:520px;width:90%;
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.5);border:1px solid var(--line2)}
+.help h3{font-family:var(--f-head);color:var(--navy2);font-size:1.5rem;margin-bottom:1.2rem}
+.help dl{display:grid;grid-template-columns:auto 1fr;gap:.7rem 1.2rem;align-items:center}
+.help kbd{font-family:var(--f-mono);background:#fff;border:1px solid var(--line2);
+  border-bottom-width:3px;border-radius:.4em;padding:.2em .6em;font-size:.85rem;color:var(--navy2);
+  font-weight:700;justify-self:start}
+.help dd{color:var(--ink)}
+.help .close{margin-top:1.6rem;font-family:var(--f-head);color:#6a7796;font-size:.9rem;text-align:center}
+
+/* ===================== onboarding toast ===================== */
+.toast{position:fixed;bottom:9vh;left:50%;transform:translateX(-50%);z-index:35;
+  background:var(--navy2);color:#fff;padding:.7rem 1.3rem;border-radius:999px;font-family:var(--f-head);
+  font-size:.9rem;box-shadow:0 16px 34px -16px rgba(0,0,0,.5);transition:opacity .5s,transform .5s;
+  display:flex;align-items:center;gap:.7rem}
+.toast kbd{font-family:var(--f-mono);background:rgba(255,255,255,.16);padding:.1em .5em;border-radius:.35em;font-size:.85em}
+.toast.hide{opacity:0;transform:translate(-50%,12px);pointer-events:none}
+
+.activity-classify .reveal:not(.on) .inner {
+  filter: none !important;
+  opacity: 0 !important;
+}
+
+.activity-classify ol.num {
+  position: relative !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 38cqh !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 2cqh auto 0 !important;
+  width: 90% !important;
+  counter-reset: q-counter;
+}
+
+.activity-classify ol.num li {
+  position: absolute !important;
+  width: 100% !important;
+  max-width: 860px !important;
+  background: #fff !important;
+  border: 3px solid var(--navy) !important;
+  border-radius: 20px !important;
+  padding: 4cqh 5cqw !important;
+  box-shadow: 0 16px 40px -12px rgba(9, 21, 51, 0.16) !important;
+  font-size: 1.45em !important;
+  line-height: 1.6 !important;
+  text-align: center !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: scale(0.92) translateY(20px) !important;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 2cqw !important;
+  counter-increment: q-counter;
+}
+
+.activity-classify ol.num li::before {
+  content: "ข้อที่ " counter(q-counter) !important;
+  font-family: var(--f-head) !important;
+  font-weight: 700 !important;
+  background: var(--navy) !important;
+  color: #fff !important;
+  border-radius: 30px !important;
+  padding: 0.4cqh 2.2cqw !important;
+  font-size: 0.7em !important;
+  letter-spacing: 0.05em !important;
+  margin-right: 1.5cqw !important;
+  position: static !important;
+  display: inline-block !important;
+  width: auto !important;
+  height: auto !important;
+  border: none !important;
+}
+
+.activity-classify ol.num li:first-child:not(:has(~ li.on)),
+.activity-classify ol.num li.on:not(:has(~ li.on)) {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: scale(1) translateY(0) !important;
+}
+
+/* Knights & Knaves Case Analysis Tree */
+.tree-box {
+  background: var(--navy3) !important;
+  border: 2px solid var(--line2) !important;
+  border-radius: 16px !important;
+  padding: 2.2cqh 2.5cqw !important;
+  color: #fff !important;
+  font-family: var(--f-head) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1.8cqh !important;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.2) !important;
+}
+
+.tree-root {
+  background: var(--gold) !important;
+  color: var(--navy) !important;
+  font-weight: 700 !important;
+  border-radius: 30px !important;
+  padding: 0.6cqh 3cqw !important;
+  font-size: 0.85em !important;
+  text-align: center !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15) !important;
+}
+
+.tree-row {
+  display: flex !important;
+  width: 100% !important;
+  gap: 2cqw !important;
+  justify-content: space-between !important;
+}
+
+.tree-leaf {
+  flex: 1 !important;
+  background: rgba(255,255,255,0.06) !important;
+  border: 1.5px solid rgba(255,255,255,0.15) !important;
+  border-radius: 12px !important;
+  padding: 1.6cqh 1.8cqw !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1cqh !important;
+  transition: all 0.3s !important;
+}
+
+.tree-leaf.error {
+  border-color: rgba(239, 68, 68, 0.4) !important;
+  background: rgba(239, 68, 68, 0.04) !important;
+}
+
+.tree-leaf.success {
+  border-color: rgba(34, 197, 94, 0.4) !important;
+  background: rgba(34, 197, 94, 0.04) !important;
+}
+
+.tree-leaf.success:hover {
+  transform: translateY(-2px) !important;
+  border-color: var(--gold) !important;
+  box-shadow: 0 6px 16px rgba(212, 163, 89, 0.15) !important;
+}
+
+.tree-leaf .t-title {
+  font-size: 0.8em !important;
+  font-weight: 700 !important;
+  color: var(--gold2) !important;
+  text-align: center !important;
+  border-bottom: 1px solid rgba(255,255,255,0.15) !important;
+  width: 100% !important;
+  padding-bottom: 0.5cqh !important;
+  margin-bottom: 0.5cqh !important;
+}
+
+.tree-leaf .t-body {
+  font-size: 0.7em !important;
+  line-height: 1.5 !important;
+  text-align: center !important;
+  color: #d1d9e6 !important;
+  width: 100% !important;
+}
+
+.tree-leaf .t-body b {
+  color: #fff !important;
+}
+
+.tree-leaf .t-badge {
+  margin-top: 1cqh !important;
+  font-size: 0.9em !important;
+  font-weight: 700 !important;
+  border-radius: 6px !important;
+  padding: 0.3cqh 1.5cqw !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.tree-leaf .t-badge.no {
+  background: rgba(239, 68, 68, 0.2) !important;
+  color: #f87171 !important;
+  border: 1px solid rgba(239, 68, 68, 0.4) !important;
+}
+
+.tree-leaf .t-badge.ok {
+  background: rgba(34, 197, 94, 0.2) !important;
+  color: #4ade80 !important;
+  border: 1px solid rgba(34, 197, 94, 0.4) !important;
+}
+
+.tree-leaf .arrow {
+  color: var(--gold2) !important;
+  font-weight: 700 !important;
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+  .reveal .inner{filter:none;opacity:1}
+}
+
+/* ===================== print ===================== */
+/* ===================== interactive 3D set cube ===================== */
+.cube-lab{display:grid;grid-template-columns:1.25fr .75fr;gap:3cqw;align-items:center;width:100%}
+.cube-scene{height:45cqh;perspective:900px;display:grid;place-items:center;cursor:grab;touch-action:none}
+.cube-scene:active{cursor:grabbing}
+.set-cube{position:relative;width:24cqh;height:24cqh;transform-style:preserve-3d;
+  transform:rotateX(-18deg) rotateY(28deg);transition:transform .12s linear}
+.cube-edge{position:absolute;left:50%;top:50%;height:2px;width:24cqh;background:rgba(31,58,147,.38);
+  transform-origin:left center;box-shadow:0 0 8px rgba(31,58,147,.22)}
+.set-node{position:absolute;left:50%;top:50%;width:7.2cqh;height:7.2cqh;margin:-3.6cqh;
+  display:grid;place-items:center;text-align:center;border-radius:18px;background:#fff;border:2px solid var(--navy);
+  color:var(--navy2);font:700 1.65cqh/1.05 var(--f-mono);box-shadow:0 1.2cqh 2.3cqh rgba(14,26,68,.2);
+  transform-style:preserve-3d;transition:background .25s,transform .25s}
+.set-node:hover{background:var(--lyellow);scale:1.12;z-index:4}
+.set-node[data-n="0"]{transform:translate3d(-12cqh,12cqh,-12cqh)}
+.set-node[data-n="1"]{transform:translate3d(12cqh,12cqh,-12cqh)}
+.set-node[data-n="2"]{transform:translate3d(-12cqh,-12cqh,-12cqh)}
+.set-node[data-n="3"]{transform:translate3d(12cqh,-12cqh,-12cqh)}
+.set-node[data-n="4"]{transform:translate3d(-12cqh,12cqh,12cqh)}
+.set-node[data-n="5"]{transform:translate3d(12cqh,12cqh,12cqh)}
+.set-node[data-n="6"]{transform:translate3d(-12cqh,-12cqh,12cqh)}
+.set-node[data-n="7"]{transform:translate3d(12cqh,-12cqh,12cqh)}
+.cube-controls{display:flex;gap:.7cqw;flex-wrap:wrap;margin-top:1.2cqh}
+.cube-controls button{font:600 2cqh var(--f-head);padding:.45em .9em;border:1px solid var(--line2);
+  border-radius:.6em;background:#fff;color:var(--navy);cursor:pointer;box-shadow:0 .35cqh .7cqh rgba(14,26,68,.1)}
+.cube-controls button:hover{background:var(--lnavy)}
+.depth-stack{position:relative;height:34cqh;perspective:850px;display:grid;place-items:center}
+.depth-card{position:absolute;width:30cqw;height:22cqh;border:2px solid var(--navy);border-radius:50%;
+  display:grid;place-items:center;text-align:center;font-weight:700;background:rgba(231,236,248,.72);
+  box-shadow:0 1.3cqh 2.5cqh rgba(14,26,68,.16);transform-style:preserve-3d}
+.depth-card:nth-child(1){transform:translateZ(-10cqh) scale(1.22);color:var(--navy2)}
+.depth-card:nth-child(2){transform:translateZ(0) scale(.88);background:rgba(230,244,234,.85);color:var(--green2)}
+.depth-card:nth-child(3){transform:translateZ(9cqh) scale(.5);background:rgba(255,247,221,.92);color:var(--gold2)}
+.slide.is-active .depth-stack{animation:float3d 5s ease-in-out infinite alternate}
+@keyframes float3d{to{transform:rotateX(8deg) rotateY(-10deg) translateY(-.8cqh)}}
+
+/* ===================== print ===================== */
+@media print{
+  @page{size:landscape;margin:0}
+  body{overflow:visible;background:#fff}
+  .bg,.dock,.progress,.toast,.help,.ov-title{display:none !important}
+  #app{display:block;height:auto;width:auto}
+  .stage{width:100%;box-shadow:none;border-radius:0;aspect-ratio:auto}
+  .deck{position:static}
+  .slide{position:relative;display:block;inset:auto;aspect-ratio:16/9;
+    page-break-after:always;break-after:page;border-bottom:1px solid #ddd}
+  .slide .anim{animation:none !important}
+  .reveal .inner{filter:none;opacity:1}.reveal .hint{display:none}
+}
+</style>
+</head>
+
+<body>
+<div class="bg"></div>
+<div class="progress"><div class="bar"></div></div>
+<div id="app">
+<div class="stage"><div class="deck">
+<!-- ============================== 1 · COVER ============================== -->
+<section class="slide">
+  <div class="cover">
+    <div class="tag">บทที่ 2 · ทฤษฎีเซต</div>
+    <h1>ทฤษฎีเซต<span class="en">Set Theory</span></h1>
+    <div class="sub"><b>สัปดาห์ที่ 4</b> — ความหมายของเซต วิธีเขียนเซต และความสัมพันธ์ระหว่างเซต<br>
+      <span class="muted" style="font-size:.8em">Sets · Elements · Subsets</span></div>
+    <div class="meta">
+      <span class="course">4091606</span> คณิตศาสตร์สำหรับคอมพิวเตอร์<br>
+      <b>สาขาวิชาเทคโนโลยีสารสนเทศ</b> · คณะวิทยาศาสตร์และเทคโนโลยี<br>
+      มหาวิทยาลัยราชภัฏอุตรดิตถ์
+    </div>
+    <div class="glyphs">
+      <div class="g"><span class="s">∈</span><span class="n">IN</span></div>
+      <div class="g"><span class="s">⊆</span><span class="n">SUBSET</span></div>
+      <div class="g"><span class="s">∅</span><span class="n">EMPTY</span></div>
+      <div class="g"><span class="s">∪</span><span class="n">UNION</span></div>
+      <div class="g"><span class="s">ℝ</span><span class="n">REAL</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 2 · BRIDGE FROM CH1 ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตรรกศาสตร์ → เซต</span>
+    <h2>จากบทที่ 1 (ตรรกศาสตร์) สู่บทที่ 2 (ทฤษฎีเซต)</h2></div></div>
+  <div class="body tight">
+    <div class="lead anim" style="--i:0">บทที่ 1 เราเรียน <b>ภาษาของการให้เหตุผล</b> — บทนี้เราเรียน <b>ภาษาของการจัดกลุ่ม</b></div>
+    <div class="reveal anim" style="--i:1;align-self:center">
+      <div class="inner">
+        <div class="tt-wrap">
+          <table class="tt">
+            <thead><tr><th>ตรรกศาสตร์ (บทที่ 1)</th><th>ทฤษฎีเซต (บทที่ 2)</th></tr></thead>
+            <tbody>
+              <tr><td>ประพจน์ <span class="expr"><span class="v">p</span></span></td><td>เซต <span class="expr"><span class="v">A</span></span></td></tr>
+              <tr><td>"และ" <span class="op">∧</span></td><td>อินเตอร์เซกชัน <span class="op">∩</span></td></tr>
+              <tr><td>"หรือ" <span class="op">∨</span></td><td>ยูเนียน <span class="op">∪</span></td></tr>
+              <tr><td>นิเสธ <span class="op">¬</span></td><td>คอมพลีเมนต์ <span class="op">A<sup>c</sup></span></td></tr>
+              <tr><td>สัจนิรันดร์ (T)</td><td>เอกภพสัมพัทธ์ <span class="op">U</span></td></tr>
+              <tr><td>ข้อขัดแย้ง (F)</td><td>เซตว่าง <span class="op">∅</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <span class="hint"><span class="k">SPACE</span> คลิกดูตารางเทียบ</span>
+    </div>
+    <div class="block gold anim" style="--i:2"><span class="lab"><span class="pin">ประเด็นสำคัญ</span></span>
+      กฎทุกข้อของบทที่ 1 (เดอมอร์แกน · แจกแจง · ดูดกลืน) จะกลับมาอีกครั้งใน "เสื้อคลุมของเซต"</div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 3 · OBJECTIVES ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ผลลัพธ์การเรียนรู้</span>
+    <h2>วัตถุประสงค์การเรียนรู้ <span class="en">สัปดาห์ที่ 4</span></h2></div></div>
+  <div class="body">
+    <div class="lead anim" style="--i:0">เมื่อเรียนจบสัปดาห์นี้ นักศึกษาจะสามารถ</div>
+    <ol class="num">
+      <li class="anim" style="--i:1">อธิบายความหมายของ <b>เซตและสมาชิก</b> และใช้สัญลักษณ์ <span class="op">∈, ∉</span> ได้ถูกต้อง</li>
+      <li class="anim" style="--i:2">เขียนเซตแบบ <b>แจกแจงสมาชิก (Roster)</b> และแบบ <b>บอกเงื่อนไข (Set-builder)</b> และแปลงระหว่างกันได้</li>
+      <li class="anim" style="--i:3">จำแนก <b>เซตว่าง · เซตจำกัด · เซตอนันต์</b> และเอกภพสัมพัทธ์ได้</li>
+      <li class="anim" style="--i:4">ตรวจสอบ <b>เซตย่อย (⊆)</b> และแยกความต่างระหว่าง <span class="op">∈</span> กับ <span class="op">⊆</span> ได้</li>
+    </ol>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 4 · TOC ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">สาระการเรียนรู้</span>
+    <h2>หัวข้อที่จะศึกษาในสัปดาห์นี้</h2></div></div>
+  <div class="body">
+    <div class="toc">
+      <div class="it anim" style="--i:0"><div class="n">01</div><div class="tx">
+        <div class="t">ทำไมต้องเรียนทฤษฎีเซต</div>
+        <div class="d">เซตรอบตัว · Cantor · เซตกับคอมพิวเตอร์</div></div></div>
+      <div class="it anim" style="--i:1"><div class="n">02</div><div class="tx">
+        <div class="t">นิยามพื้นฐานของเซต</div>
+        <div class="d">สมาชิก ∈/∉ · วิธีเขียนเซต 2 แบบ · เซตพิเศษ</div></div></div>
+      <div class="it anim" style="--i:2"><div class="n">03</div><div class="tx">
+        <div class="t">ความสัมพันธ์ระหว่างเซต</div>
+        <div class="d">เซตย่อย ⊆ · เซตย่อยแท้ · ∈ vs ⊆</div></div></div>
+      <div class="it anim" style="--i:3"><div class="n">04</div><div class="tx">
+        <div class="t">กิจกรรม + เกมท้ายคาบ</div>
+        <div class="d">Worksheet 3 กิจกรรม · เกม "อยู่เซตไหน?"</div></div></div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 5 · DIVIDER 01 ============================== -->
+<section class="slide">
+  <div class="divider">
+    <div class="ghost">∈</div>
+    <div class="no">ส่วนที่ 01</div>
+    <h2>ทำไมต้องเรียนทฤษฎีเซต<span class="en">Why Set Theory?</span></h2>
+  </div>
+</section>
+
+<!-- ============================== 6 · SETS AROUND US ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">แรงจูงใจ</span>
+    <h2>เซตอยู่รอบตัวเรา</h2></div></div>
+  <div class="body">
+    <div class="lead anim" style="--i:0">ในชีวิตประจำวัน เราจัดกลุ่มสิ่งต่าง ๆ อยู่ตลอดเวลา</div>
+    <ul class="bul">
+      <li class="anim" style="--i:1">เพลย์ลิสต์เพลงโปรด = <b>กลุ่มของเพลง</b></li>
+      <li class="anim" style="--i:2">รายชื่อเพื่อนในกลุ่ม LINE = <b>กลุ่มของคน</b></li>
+      <li class="anim" style="--i:3">ตะกร้าสินค้าออนไลน์ = <b>กลุ่มของสินค้า</b> · โฟลเดอร์ = <b>กลุ่มของไฟล์</b></li>
+    </ul>
+    <div class="block anim" style="--i:4"><span class="lab"><span class="pin">นิยามเชิงแนวคิด</span></span>
+      กลุ่มของสิ่งต่าง ๆ เรียกว่า <b>เซต (Set)</b> และสิ่งที่อยู่ในกลุ่มเรียกว่า <b>สมาชิก (Element)</b> —
+      ทฤษฎีเซตคือ "ภาษากลาง" ที่คณิตศาสตร์ทุกสาขาใช้ร่วมกัน</div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 7 · CANTOR ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ประวัติโดยย่อ</span>
+    <h2>ประวัติโดยสังเขป: Georg Cantor</h2></div></div>
+  <div class="body tight">
+    <div class="tl">
+      <div class="tl-item anim" style="--i:0"><div class="yr">1845</div>
+        <div class="tx"><span class="who">Georg Cantor</span> เกิดที่รัสเซีย ทำงานที่เยอรมนี — ผู้พัฒนาทฤษฎีเซตอย่างเป็นระบบ</div></div>
+      <div class="tl-item anim" style="--i:1"><div class="yr">1874</div>
+        <div class="tx">ตีพิมพ์งานที่สั่นสะเทือนวงการ: <b>ความอนันต์มีหลายระดับ!</b> — ℤ กับ ℚ "ขนาดเท่ากัน" แต่ ℝ "ใหญ่กว่า" อย่างพิสูจน์ได้</div></div>
+      <div class="tl-item anim" style="--i:2"><div class="yr">ปัจจุบัน</div>
+        <div class="tx">แม้ถูกต่อต้านหนักในยุคแรก ทฤษฎีเซตกลายเป็น <b>รากฐานของคณิตศาสตร์ทั้งหมด</b> และภาษาหลักของวิทยาการคอมพิวเตอร์</div></div>
+    </div>
+    <div class="block gold anim" style="--i:3"><span class="lab"><span class="pin">เกร็ด</span></span>
+      เราจะได้ "ชิม" เรื่องอนันต์หลายระดับ (โรงแรมของฮิลเบิร์ต) ในสัปดาห์ที่ 6</div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 8 · SETS & CS ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">การประยุกต์ใช้</span>
+    <h2>เซตกับวิทยาการคอมพิวเตอร์</h2></div></div>
+  <div class="body tight">
+    <ul class="bul">
+      <li class="anim" style="--i:0"><b>โครงสร้างข้อมูล</b> — Array, List, Hash Set, Tree ล้วนคือการเก็บ "กลุ่มของข้อมูล"</li>
+      <li class="anim" style="--i:1"><b>ฐานข้อมูล</b> — SQL คือการดำเนินการระหว่างเซต: <span class="code">UNION</span> <span class="code">INTERSECT</span> <span class="code">EXCEPT</span></li>
+      <li class="anim" style="--i:2"><b>ทฤษฎีภาษา</b> — ตัวอักษร สายอักขระ และภาษา ล้วนนิยามด้วยเซต</li>
+      <li class="anim" style="--i:3"><b>ความน่าจะเป็น</b> — ปริภูมิตัวอย่างและเหตุการณ์ คือเซตและเซตย่อย</li>
+      <li class="anim" style="--i:4"><b>ปัญญาประดิษฐ์</b> — ฐานความรู้และการอนุมาน คือการดำเนินการบนเซตของข้อเท็จจริง</li>
+    </ul>
+    <div class="block ex anim" style="--i:5"><span class="lab"><span class="pin">มุมมองสำคัญ</span></span>
+      เข้าใจเซต = เข้าใจรากของ SQL, โครงสร้างข้อมูล และคณิตศาสตร์ทุกบทที่เหลือของวิชานี้</div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 9 · PYTHON SET ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">เซตในโปรแกรม</span>
+    <h2>เซตในภาษา Python</h2></div></div>
+  <div class="body">
+    <div class="cols">
+      <div class="col">
+        <div class="deriv anim" style="--i:0">
+          <div class="given">Python interactive shell</div>
+          <div class="ln first"><span class="o"></span><span>&gt;&gt;&gt; A = {1, 2, 2, 3, 3, 3}</span></div>
+          <div class="ln first"><span class="o"></span><span>&gt;&gt;&gt; A</span></div>
+          <div class="ln first"><span class="o"></span><span><b>{1, 2, 3}</b>  # ซ้ำถูกตัดทิ้ง</span></div>
+          <div class="ln first"><span class="o"></span><span>&gt;&gt;&gt; 2 in A</span></div>
+          <div class="ln first"><span class="o"></span><span><b>True</b>  # ทดสอบ ∈</span></div>
+        </div>
+      </div>
+      <div class="col">
+        <ul class="bul">
+          <li class="anim" style="--i:1">เซตของ Python ตรงตามนิยามคณิตศาสตร์: <b>ไม่มีลำดับ ไม่มีสมาชิกซ้ำ</b></li>
+          <li class="anim" style="--i:2">ต้องการเก็บซ้ำ/มีลำดับ → ใช้ <span class="code">list</span> แทน</li>
+          <li class="anim" style="--i:3">คำสั่ง <span class="code">in</span> ก็คือสัญลักษณ์ <span class="op">∈</span> ในโค้ดนั่นเอง</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 10 · DIVIDER 02 ============================== -->
+<section class="slide">
+  <div class="divider">
+    <div class="ghost">{ }</div>
+    <div class="no">ส่วนที่ 02</div>
+    <h2>นิยามพื้นฐาน: เซต สมาชิก และวิธีเขียนเซต<span class="en">Sets, Elements &amp; Notation</span></h2>
+  </div>
+</section>
+
+<!-- ============================== 11 · SET & ELEMENT ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">นิยาม</span>
+    <h2>เซตและสมาชิก <span class="en">∈ / ∉</span></h2></div></div>
+  <div class="body">
+    <div class="block anim" style="--i:0"><span class="lab"><span class="pin">นิยาม</span></span>
+      <b>เซต (Set)</b> คือกลุ่มของวัตถุที่ระบุไว้อย่างชัดเจน เรียกวัตถุแต่ละชิ้นว่า <b>สมาชิก (Element)</b><br>
+      <span class="expr">a ∈ A</span> อ่านว่า "a <b>เป็นสมาชิกของ</b> A" · <span class="expr">a ∉ A</span> อ่านว่า "a <b>ไม่เป็นสมาชิกของ</b> A"</div>
+    <div class="cols even">
+      <div class="col">
+        <div class="lead anim" style="--i:1">ตัวอย่าง: ให้ <span class="expr">A = {1, 2, 3, 4, 5}</span></div>
+        <ul class="bul">
+          <li class="anim" style="--i:2"><span class="expr">3 ∈ A</span> <span class="chip t">T</span></li>
+          <li class="anim" style="--i:3"><span class="expr">7 ∈ A</span> <span class="chip f">F</span> &nbsp;(นั่นคือ 7 ∉ A)</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="block ex anim" style="--i:4"><span class="lab"><span class="pin">เชื่อมบทที่ 1</span></span>
+          ข้อความ <span class="expr">a ∈ A</span> ตัดสินจริง/เท็จได้เสมอ จึงเป็น <b>ประพจน์</b> —
+          เขียนเป็นกฎกีดกันกลางได้ว่า <span class="expr">(a ∈ A) ∨ (a ∉ A)</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 12 · NUMBER SETS ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">เซตมาตรฐาน</span>
+    <h2>เซตของจำนวนที่ต้องรู้จัก <span class="en">ℕ ⊆ ℤ ⊆ ℚ ⊆ ℝ</span></h2></div></div>
+  <div class="body tight">
+    <div class="cols">
+      <div class="col">
+        <ul class="bul tiny">
+          <li class="anim" style="--i:0"><span class="op">ℕ</span> = {0, 1, 2, 3, …} — <b>จำนวนนับ</b> (ตำราเล่มนี้เริ่มที่ 0)</li>
+          <li class="anim" style="--i:1"><span class="op">ℤ</span> = {…, −2, −1, 0, 1, 2, …} — <b>จำนวนเต็ม</b> (จากภาษาเยอรมัน Zahlen)</li>
+          <li class="anim" style="--i:2"><span class="op">ℚ</span> = {a/b | a, b ∈ ℤ, b ≠ 0} — <b>จำนวนตรรกยะ</b> (จาก Quotient)</li>
+          <li class="anim" style="--i:3"><span class="op">ℝ</span> — <b>จำนวนจริง</b> รวมจำนวนอตรรกยะ เช่น √2, π, e</li>
+        </ul>
+      </div>
+      <div class="col center">
+        <svg viewBox="0 0 320 210" style="width:100%;max-width:44cqh" class="anim" style="--i:4">
+          <ellipse cx="160" cy="105" rx="150" ry="95" fill="#E7ECF8" stroke="#1F3A93" stroke-width="2"/>
+          <ellipse cx="145" cy="113" rx="112" ry="68" fill="#FFF6D5" stroke="#1F3A93" stroke-width="2"/>
+          <ellipse cx="133" cy="120" rx="76" ry="44" fill="#E6F4EA" stroke="#1F3A93" stroke-width="2"/>
+          <ellipse cx="123" cy="127" rx="42" ry="22" fill="#FBE7E4" stroke="#1F3A93" stroke-width="2"/>
+          <text x="160" y="38" font-family="JetBrains Mono,monospace" font-size="20" font-weight="700" fill="#1F3A93" text-anchor="middle">ℝ</text>
+          <text x="147" y="72" font-family="JetBrains Mono,monospace" font-size="18" font-weight="700" fill="#8a7008" text-anchor="middle">ℚ</text>
+          <text x="135" y="99" font-family="JetBrains Mono,monospace" font-size="16" font-weight="700" fill="#1f6b41" text-anchor="middle">ℤ</text>
+          <text x="123" y="133" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" fill="#962b20" text-anchor="middle">ℕ</text>
+          <text x="262" y="175" font-family="JetBrains Mono,monospace" font-size="14" fill="#42506e" text-anchor="middle">√2, π</text>
+        </svg>
+        <div class="cap">ห่วงซ้อนกัน: <b>ℕ ⊆ ℤ ⊆ ℚ ⊆ ℝ</b></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 13 · QUICK CHECK 1 ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตรวจความเข้าใจ</span>
+    <h2>เช็กความเข้าใจเร็ว: จริงหรือเท็จ?</h2></div></div>
+  <div class="body">
+    <ol class="num">
+      <li class="anim" style="--i:0"><span class="expr">√2 ∈ ℚ</span></li>
+      <li class="anim" style="--i:1"><span class="expr">0.75 ∈ ℚ</span></li>
+      <li class="anim" style="--i:2"><span class="expr">−3 ∈ ℕ</span></li>
+      <li class="anim" style="--i:3"><span class="expr">π ∈ ℝ</span></li>
+    </ol>
+    <div class="reveal anim" style="--i:4">
+      <div class="inner">
+        <div class="block ex"><span class="lab"><span class="pin">เฉลย</span></span>
+          1) <span class="chip f">F</span> √2 เป็นจำนวนอตรรกยะ &nbsp;
+          2) <span class="chip t">T</span> 0.75 = 3/4 &nbsp;
+          3) <span class="chip f">F</span> ℕ ไม่มีจำนวนลบ (แต่ −3 ∈ ℤ) &nbsp;
+          4) <span class="chip t">T</span></div>
+      </div>
+      <span class="hint"><span class="k">SPACE</span> คลิกเพื่อเฉลย</span>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 14 · ROSTER METHOD ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">สัญกรณ์ 1/2</span>
+    <h2>วิธีเขียนเซตแบบที่ 1: แจกแจงสมาชิก <span class="en">Roster Method</span></h2></div></div>
+  <div class="body">
+    <div class="block anim" style="--i:0"><span class="lab"><span class="pin">แบบแจกแจงสมาชิก</span></span>
+      เขียนสมาชิก <b>ทุกตัว</b> ในวงเล็บปีกกา { } คั่นด้วยจุลภาค เช่น
+      <span class="expr">A = {1, 2, 3}</span> · <span class="expr">B = {a, e, i, o, u}</span></div>
+    <div class="cols even">
+      <div class="col">
+        <div class="lead anim" style="--i:1">กติกาสำคัญ 2 ข้อของเซต</div>
+        <ul class="bul">
+          <li class="anim" style="--i:2"><b>ไม่มีลำดับ</b>: {1, 2} = {2, 1}</li>
+          <li class="anim" style="--i:3"><b>ไม่มีสมาชิกซ้ำ</b>: {1, 1, 2, 2, 3} = {1, 2, 3}</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="block ex anim" style="--i:4"><span class="lab"><span class="pin">จุดไข่ปลา</span></span>
+          สมาชิกเยอะแต่มีแบบรูปชัดเจน ใช้จุดไข่ปลา: <span class="expr">{1, 2, 3, …, 100}</span><br>
+          <span class="muted tiny">ระวัง: เขียนอย่างน้อย 2–3 ตัวก่อน … เพื่อให้เดาแบบรูปได้</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 15 · SET BUILDER ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">สัญกรณ์ 2/2</span>
+    <h2>วิธีเขียนเซตแบบที่ 2: บอกเงื่อนไข <span class="en">Set-builder Notation</span></h2></div></div>
+  <div class="body tight">
+    <div class="block anim" style="--i:0"><span class="lab"><span class="pin">แบบบอกเงื่อนไข</span></span>
+      เขียนในรูป <span class="expr">{x | เงื่อนไขที่ x ต้องเป็นจริง}</span> อ่านว่า "เซตของ x <b>โดยที่</b> …"
+      เหมาะกับเซตที่มีสมาชิกมากหรือเป็นอนันต์</div>
+    <ul class="bul">
+      <li class="anim" style="--i:1"><span class="expr">{x ∈ ℤ | x &gt; 0}</span> = จำนวนเต็มบวก (ℤ<sup>+</sup>)</li>
+      <li class="anim" style="--i:2"><span class="expr">{x ∈ ℤ | x หารด้วย 2 ลงตัว}</span> = จำนวนคู่</li>
+      <li class="anim" style="--i:3"><span class="expr">{x ∈ ℝ | x² − 5x + 6 = 0} = {2, 3}</span> = เซตคำตอบของสมการ</li>
+    </ul>
+    <div class="block ex anim" style="--i:4"><span class="lab"><span class="pin">เทียบโค้ด</span></span>
+      คล้าย list comprehension ของ Python:
+      <span class="code">{x for x in range(100) if x % 2 == 0}</span> ≈ {x ∈ ℕ | x &lt; 100, x เป็นจำนวนคู่}</div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 16 · CONVERT EXAMPLE ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวอย่างและเฉลย</span>
+    <h2>ตัวอย่าง: แปลงจากบอกเงื่อนไขเป็นแจกแจงสมาชิก</h2></div></div>
+  <div class="body">
+    <ol class="num">
+      <li class="anim" style="--i:0"><span class="expr">B = {n² | n ∈ ℕ และ n &lt; 5}</span></li>
+      <li class="anim" style="--i:1"><span class="expr">C = {x ∈ ℝ | x² − 5x + 6 = 0}</span></li>
+      <li class="anim" style="--i:2"><span class="expr">D = {x ∈ ℝ | x² + 1 = 0}</span></li>
+    </ol>
+    <div class="reveal anim" style="--i:3">
+      <div class="inner">
+        <div class="block ex"><span class="lab"><span class="pin">เฉลย</span></span>
+          1) แทน n = 0,1,2,3,4 ได้ <b>B = {0, 1, 4, 9, 16}</b><br>
+          2) แยกตัวประกอบ (x−2)(x−3) = 0 ได้ <b>C = {2, 3}</b><br>
+          3) ไม่มีจำนวนจริงที่ x² = −1 ได้ <b>D = ∅</b> (เซตว่าง!)</div>
+      </div>
+      <span class="hint"><span class="k">SPACE</span> คลิกเพื่อเฉลย</span>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 17 · SPECIAL SETS ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">เซตชนิดพิเศษ</span>
+    <h2>เซตพิเศษที่ต้องรู้จัก</h2></div></div>
+  <div class="body tight">
+    <ul class="bul">
+      <li class="anim" style="--i:0"><b>เซตว่าง (Empty Set)</b> <span class="op">∅</span> หรือ { } — เซตที่ไม่มีสมาชิกเลย</li>
+      <li class="anim" style="--i:1"><b>เซตที่มีสมาชิกตัวเดียว (Singleton)</b> เช่น {5}, {a}, {∅}</li>
+      <li class="anim" style="--i:2"><b>เอกภพสัมพัทธ์ (Universal Set)</b> <span class="op">U</span> — "กรอบอ้างอิง" รวมทุกสิ่งที่สนใจในบริบทนั้น</li>
+      <li class="anim" style="--i:3"><b>เซตจำกัด</b> นับสมาชิกได้จบ · <b>เซตอนันต์</b> เช่น ℕ, ℤ, ℚ, ℝ</li>
+    </ul>
+    <div class="block ex anim" style="--i:4"><span class="lab"><span class="pin">ข้อเท็จจริงสำคัญ</span></span>
+      เซตว่างเป็นเซตย่อยของ <b>ทุกเซต</b>: ∅ ⊆ A เสมอ
+      (จริงแบบ vacuous truth — "สมาชิกทุกตัวของ ∅" ไม่มีให้ขัดแย้ง)</div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 18 · EMPTY SET TRAP ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ข้อผิดพลาดที่พบบ่อย</span>
+    <h2>ระวัง! ∅ ไม่เท่ากับ {∅}</h2></div></div>
+  <div class="body">
+    <div class="block al anim" style="--i:0"><span class="lab"><span class="pin">กับดัก</span></span>
+      <span class="op">∅</span> คือเซตที่ <b>ไม่มีสมาชิกเลย</b> — แต่ <span class="op">{∅}</span> คือเซตที่ <b>มีสมาชิก 1 ตัว</b> (สมาชิกตัวนั้นคือ ∅)</div>
+    <div class="reveal anim" style="--i:1;align-self:center">
+      <div class="inner">
+        <div class="tt-wrap">
+          <table class="tt">
+            <thead><tr><th>เซต</th><th>จำนวนสมาชิก</th><th>เปรียบเทียบ</th></tr></thead>
+            <tbody>
+              <tr><td><span class="op">∅</span></td><td>0</td><td>กล่องเปล่า</td></tr>
+              <tr><td><span class="op">{∅}</span></td><td>1</td><td>กล่องที่มี "กล่องเปล่า" ข้างใน</td></tr>
+              <tr><td><span class="op">{{∅}}</span></td><td>1</td><td>กล่องที่มี "กล่องซ้อนกล่องเปล่า"</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <span class="hint"><span class="k">SPACE</span> คลิกดูตารางเทียบ</span>
+    </div>
+    <div class="lead anim center" style="--i:2">ดังนั้น <span class="expr">∅ ≠ {∅} ≠ {{∅}}</span> และ <span class="expr">|∅| = 0</span> แต่ <span class="expr">|{∅}| = 1</span></div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 19 · DIVIDER 03 ============================== -->
+<section class="slide">
+  <div class="divider">
+    <div class="ghost">⊆</div>
+    <div class="no">ส่วนที่ 03</div>
+    <h2>ความสัมพันธ์ระหว่างเซต: เซตย่อยและความเท่ากัน<span class="en">Subsets &amp; Set Equality</span></h2>
+  </div>
+</section>
+
+<!-- ============================== 20 · SUBSET ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">นิยาม</span>
+    <h2>เซตย่อย <span class="en">Subset (⊆)</span></h2></div></div>
+  <div class="body tight">
+    <div class="block anim" style="--i:0"><span class="lab"><span class="pin">นิยาม</span></span>
+      A เป็น <b>เซตย่อย</b> ของ B เขียน <span class="expr">A ⊆ B</span> ก็ต่อเมื่อ <b>ทุกสมาชิกของ A เป็นสมาชิกของ B</b> ด้วย —
+      เขียนด้วยตัวบ่งปริมาณ: <span class="expr">∀x (x ∈ A → x ∈ B)</span></div>
+    <div class="cols">
+      <div class="col">
+        <ul class="bul tiny">
+          <li class="anim" style="--i:1"><span class="expr">{1, 2} ⊆ {1, 2, 3}</span> <span class="chip t">T</span></li>
+          <li class="anim" style="--i:2"><span class="expr">{1, 2} ⊆ {2, 3}</span> <span class="chip f">F</span> (เพราะ 1 ∉ {2,3})</li>
+          <li class="anim" style="--i:3"><span class="expr">∅ ⊆ {1, 2}</span> <span class="chip t">T</span> · <span class="expr">A ⊆ A</span> เสมอ <span class="chip t">T</span></li>
+        </ul>
+        <div class="block ex anim" style="--i:4"><span class="lab"><span class="pin">วิธีพิสูจน์</span></span>
+          จะพิสูจน์ A ⊆ B: สมมติ x ∈ A แล้วแสดงว่า x ∈ B (direct proof)</div>
+      </div>
+      <div class="col center">
+        <svg viewBox="0 0 260 170" style="width:100%;max-width:36cqh">
+          <rect x="4" y="4" width="252" height="162" fill="none" stroke="#1F3A93" stroke-width="2" rx="8"/>
+          <circle cx="130" cy="88" r="62" fill="#E7ECF8" stroke="#1F3A93" stroke-width="2"/>
+          <circle cx="114" cy="98" r="30" fill="#E6F4EA" stroke="#2E8B57" stroke-width="2"/>
+          <text x="170" y="48" font-family="JetBrains Mono,monospace" font-size="17" font-weight="700" fill="#1F3A93">B</text>
+          <text x="114" y="103" font-family="JetBrains Mono,monospace" font-size="15" font-weight="700" fill="#1f6b41">A</text>
+          <text x="238" y="22" font-family="JetBrains Mono,monospace" font-size="14" fill="#42506e">U</text>
+        </svg>
+        <div class="cap"><b>A ⊆ B</b> — A อยู่ข้างใน B ทั้งก้อน</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 21 · PROPER SUBSET & EQUALITY ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">เซตย่อยแท้และความเท่ากัน</span>
+    <h2>เซตย่อยแท้ และความเท่ากันของเซต</h2></div></div>
+  <div class="body">
+    <div class="block anim" style="--i:0"><span class="lab"><span class="pin">เซตย่อยแท้</span></span>
+      <span class="expr">A ⊊ B</span> ก็ต่อเมื่อ A ⊆ B <b>และ</b> A ≠ B ("เป็นเซตย่อยแต่เล็กกว่าจริง ๆ")
+      เช่น <span class="expr">{1, 2} ⊊ {1, 2, 3}</span></div>
+    <div class="block anim" style="--i:1"><span class="lab"><span class="pin">หลักความเท่ากันของเซต</span></span>
+      <span class="expr">A = B ⟺ A ⊆ B และ B ⊆ A</span></div>
+    <div class="block gold anim" style="--i:2"><span class="lab"><span class="pin">เทคนิคพิสูจน์มาตรฐาน</span></span>
+      <b>Double inclusion</b>: จะพิสูจน์เซตสองเซตเท่ากัน ให้พิสูจน์การเป็นเซตย่อย <b>สองทิศทาง</b><br>
+      (1) ทุก x ∈ A ⇒ x ∈ B &nbsp;&nbsp; (2) ทุก x ∈ B ⇒ x ∈ A — เทคนิคนี้จะใช้หนักมากในสัปดาห์ที่ 5!</div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 22 · ∈ vs ⊆ ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ประเด็นสำคัญในการสอบ</span>
+    <h2>จุดที่พลาดบ่อยที่สุด: ∈ กับ ⊆</h2></div></div>
+  <div class="body tight">
+    <div class="block al anim" style="--i:0"><span class="lab"><span class="pin">ต่างกันอย่างไร</span></span>
+      <span class="op">∈</span> = ความสัมพันธ์ระหว่าง <b>สมาชิก</b> กับ <b>เซต</b> ·
+      <span class="op">⊆</span> = ความสัมพันธ์ระหว่าง <b>เซต</b> กับ <b>เซต</b></div>
+    <div class="lead anim" style="--i:1">ให้ <span class="expr">A = {1, 2, 3}</span></div>
+    <div class="reveal anim" style="--i:2;align-self:center">
+      <div class="inner">
+        <div class="tt-wrap">
+          <table class="tt">
+            <thead><tr><th>ข้อความ</th><th>จริง/เท็จ</th><th>เหตุผล</th></tr></thead>
+            <tbody>
+              <tr><td><span class="expr">1 ∈ A</span></td><td><span class="vt">T</span></td><td>1 เป็นสมาชิกของ A</td></tr>
+              <tr><td><span class="expr">{1} ∈ A</span></td><td><span class="vf">F</span></td><td>สมาชิกของ A คือ 1, 2, 3 ไม่ใช่เซต {1}</td></tr>
+              <tr><td><span class="expr">{1} ⊆ A</span></td><td><span class="vt">T</span></td><td>สมาชิกทุกตัวของ {1} อยู่ใน A</td></tr>
+              <tr><td><span class="expr">∅ ⊆ A</span></td><td><span class="vt">T</span></td><td>เซตว่างเป็นเซตย่อยของทุกเซต</td></tr>
+              <tr><td><span class="expr">∅ ∈ A</span></td><td><span class="vf">F</span></td><td>∅ ไม่ใช่สมาชิกตัวใดของ A</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <span class="hint"><span class="k">SPACE</span> คลิกดูตารางเฉลย</span>
+    </div>
+    <div class="muted tiny anim center" style="--i:3">แต่จริงพร้อมกันได้ เช่น ∅ ∈ {∅} และ ∅ ⊆ {∅} ต่างก็จริง!</div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 23 · RUSSELL PARADOX ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">มุมสนุกชวนคิด</span>
+    <h2>เกร็ดปิดท้าย: ปฏิทรรศน์ของช่างตัดผม</h2></div></div>
+  <div class="body tight">
+    <div class="block gold anim" style="--i:0"><span class="lab"><span class="pin">เรื่องเล่า · Bertrand Russell, 1901</span></span>
+      ช่างตัดผมประจำหมู่บ้านประกาศว่า "ผมจะโกนหนวดให้ <b>เฉพาะ</b> คนที่ไม่โกนหนวดตัวเอง"<br>
+      <b>คำถาม: แล้วใครโกนหนวดให้ช่างตัดผม?</b></div>
+    <ul class="bul">
+      <li class="anim" style="--i:1">ถ้าช่างโกนให้ตัวเอง → ผิดประกาศ (เขาโกนให้เฉพาะคนที่ <i>ไม่</i> โกนเอง)</li>
+      <li class="anim" style="--i:2">ถ้าช่างไม่โกนให้ตัวเอง → ต้องโกนให้ตัวเอง (ตามประกาศ) — <span class="rd">ขัดแย้งทั้งสองทาง!</span></li>
+      <li class="anim" style="--i:3">ภาษาเซต: <span class="expr">R = {x | x ∉ x}</span> แล้วถามว่า R ∈ R หรือไม่ — <b>Russell's Paradox</b></li>
+    </ul>
+    <div class="block ex anim" style="--i:4"><span class="lab"><span class="pin">บทเรียน</span></span>
+      "กลุ่มของอะไรก็ได้" ไม่เป็นเซตเสมอไป — จึงต้องมี <b>เอกภพสัมพัทธ์ U</b> คอยกำกับขอบเขต</div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 24 · DIVIDER 04 ============================== -->
+<section class="slide">
+  <div class="divider">
+    <div class="ghost">✎</div>
+    <div class="no">ส่วนที่ 04</div>
+    <h2>กิจกรรมในชั้นเรียน<span class="en">In-class Worksheet · 3 กิจกรรม</span></h2>
+  </div>
+</section>
+
+<!-- ============================== 25 · HOW TO ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">คำชี้แจง</span>
+    <h2>วิธีทำกิจกรรม</h2></div></div>
+  <div class="body">
+    <div class="block anim" style="--i:0"><span class="lab"><span class="pin">คำชี้แจง</span></span>
+      ทำกิจกรรมลงใน <b>ใบกิจกรรม (Worksheet)</b> ภายในเวลาที่กำหนด แล้วร่วมเฉลยและอภิปรายพร้อมกัน</div>
+    <ul class="bul">
+      <li class="anim" style="--i:1">ทำเดี่ยวหรือจับคู่ก็ได้ (ตามที่อาจารย์กำหนด)</li>
+      <li class="anim" style="--i:2">เมื่อหมดเวลา อาจารย์จะคลิกเพื่อ <b>เฉลย</b> ทีละข้อ</li>
+      <li class="anim" style="--i:3">อาสาสมัครออกมาอธิบายวิธีคิดหน้าชั้น</li>
+    </ul>
+    <div class="block ex anim" style="--i:4"><span class="lab"><span class="pin">เกณฑ์</span></span>
+      เน้นกระบวนการคิดและการให้เหตุผล ไม่ใช่แค่คำตอบสุดท้าย — อย่าลืมเขียนชื่อ (Worksheet มีรหัส + QR ของแต่ละคนอยู่แล้ว)</div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 26 · ACTIVITY 1 ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">กิจกรรมที่ 1 · 6 นาที</span>
+    <h2>กิจกรรมที่ 1: เขียนเซตสองแบบ</h2></div></div>
+  <div class="body tight">
+    <div class="lead anim" style="--i:0">จงเขียนเซต <b>แบบแจกแจงสมาชิก</b> (ข้อ 1–3) และ <b>แบบบอกเงื่อนไข</b> (ข้อ 4)</div>
+    <ol class="num">
+      <li class="anim" style="--i:1">เซตของจำนวนเต็มบวกที่น้อยกว่า 8</li>
+      <li class="anim" style="--i:2"><span class="expr">{x ∈ ℤ | x² = 9}</span></li>
+      <li class="anim" style="--i:3">เซตของสระในคำว่า <span class="code">computer</span></li>
+      <li class="anim" style="--i:4"><span class="expr">{2, 4, 6, 8, 10, …}</span></li>
+    </ol>
+    <div class="reveal anim" style="--i:5">
+      <div class="inner">
+        <div class="block ex"><span class="lab"><span class="pin">เฉลย</span></span>
+          1) {1, 2, 3, 4, 5, 6, 7} &nbsp;
+          2) {−3, 3} <span class="rd">(อย่าลืมค่าลบ!)</span> &nbsp;
+          3) {o, u, e} (ไม่ซ้ำ ไม่มีลำดับ) &nbsp;
+          4) {x ∈ ℤ | x &gt; 0 และ x หารด้วย 2 ลงตัว} หรือ {2n | n ∈ ℤ<sup>+</sup>}</div>
+      </div>
+      <span class="hint"><span class="k">SPACE</span> คลิกเพื่อเฉลย</span>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 27 · ACTIVITY 2 ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">กิจกรรมที่ 2 · 6 นาที</span>
+    <h2>กิจกรรมที่ 2: จริงหรือเท็จ</h2></div></div>
+  <div class="body tight">
+    <div class="lead anim" style="--i:0">กำหนด <span class="expr">A = {1, 2, {3}}</span> จงพิจารณาว่าข้อความแต่ละข้อจริงหรือเท็จ</div>
+    <div class="cols even">
+      <div class="col">
+        <ol class="num tiny">
+          <li class="anim" style="--i:1"><span class="expr">1 ∈ A</span></li>
+          <li class="anim" style="--i:2"><span class="expr">3 ∈ A</span></li>
+          <li class="anim" style="--i:3"><span class="expr">{3} ∈ A</span></li>
+        </ol>
+      </div>
+      <div class="col">
+        <ol class="num tiny" style="counter-reset:n 3">
+          <li class="anim" style="--i:4"><span class="expr">{3} ⊆ A</span></li>
+          <li class="anim" style="--i:5"><span class="expr">{1, 2} ⊆ A</span></li>
+          <li class="anim" style="--i:6"><span class="expr">∅ ⊆ A</span></li>
+        </ol>
+      </div>
+    </div>
+    <div class="reveal anim" style="--i:7">
+      <div class="inner">
+        <div class="block ex"><span class="lab"><span class="pin">เฉลย</span></span>
+          1) <span class="chip t">T</span> &nbsp;
+          2) <span class="chip f">F</span> สมาชิกคือ 1, 2, {3} — ตัวเลข 3 เดี่ยว ๆ ไม่ใช่สมาชิก &nbsp;
+          3) <span class="chip t">T</span> เซต {3} เป็นสมาชิกตัวหนึ่ง<br>
+          4) <span class="chip f">F</span> จะเป็นเซตย่อยต้องมี 3 ∈ A ซึ่งไม่จริง &nbsp;
+          5) <span class="chip t">T</span> &nbsp;
+          6) <span class="chip t">T</span></div>
+      </div>
+      <span class="hint"><span class="k">SPACE</span> คลิกเพื่อเฉลย</span>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 28 · ACTIVITY 3 ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">กิจกรรมที่ 3 · 6 นาที</span>
+    <h2>กิจกรรมที่ 3: จำแนกประเภทเซต</h2></div></div>
+  <div class="body tight">
+    <div class="lead anim" style="--i:0"><b>ก)</b> จงระบุว่าเซตใดเป็น เซตว่าง / เซตจำกัด / เซตอนันต์</div>
+    <ol class="num tiny">
+      <li class="anim" style="--i:1"><span class="expr">{x ∈ ℕ | x &lt; 100}</span></li>
+      <li class="anim" style="--i:2"><span class="expr">{x ∈ ℝ | x² &lt; 0}</span></li>
+      <li class="anim" style="--i:3"><span class="expr">{x ∈ ℤ | x หารด้วย 5 ลงตัว}</span></li>
+    </ol>
+    <div class="lead anim" style="--i:4"><b>ข)</b> จงเขียน <b>เซตย่อยทั้งหมด</b> ของ {a, b}</div>
+    <div class="reveal anim" style="--i:5">
+      <div class="inner">
+        <div class="block ex"><span class="lab"><span class="pin">เฉลย</span></span>
+          ก) 1) เซตจำกัด (มี 100 ตัว: 0 ถึง 99) &nbsp;
+          2) เซตว่าง (กำลังสองของจำนวนจริงไม่ติดลบ) &nbsp;
+          3) เซตอนันต์ ({…, −10, −5, 0, 5, 10, …})<br>
+          ข) ∅, {a}, {b}, {a, b} — มีทั้งหมด <b>4 ตัว</b>
+          <span class="muted">(สัปดาห์ที่ 6 จะรู้ว่าทำไมได้ 2² = 4)</span></div>
+      </div>
+      <span class="hint"><span class="k">SPACE</span> คลิกเพื่อเฉลย</span>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== EXTRA · MORE EXAMPLES ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวอย่างเพิ่มเติม 1</span>
+    <h2>แปลงรูปแบบเซตอย่างเป็นขั้นตอน</h2></div></div>
+  <div class="body tight">
+    <div class="cols even">
+      <div class="col">
+        <div class="block anim" style="--i:0"><span class="lab"><span class="pin">โจทย์ ก</span></span>
+          เขียน <span class="expr">A={x∈ℤ | −3≤x&lt;4}</span> แบบแจกแจงสมาชิก</div>
+        <div class="reveal anim" style="--i:1"><div class="inner">
+          <div class="block ex"><span class="lab"><span class="pin">เฉลย ก</span></span>
+            เริ่มที่ −3 เพิ่มครั้งละ 1 และหยุดก่อน 4<br><span class="expr">A={−3,−2,−1,0,1,2,3}</span></div>
+        </div><span class="hint"><span class="k">SPACE</span> เปิดเฉลย ก</span></div>
+      </div>
+      <div class="col">
+        <div class="block gold anim" style="--i:2"><span class="lab"><span class="pin">โจทย์ ข</span></span>
+          เขียน <span class="expr">B={1,4,9,16,25}</span> แบบบอกเงื่อนไข</div>
+        <div class="reveal anim" style="--i:3"><div class="inner">
+          <div class="block ex"><span class="lab"><span class="pin">เฉลย ข</span></span>
+            สมาชิกเป็นกำลังสองของ 1 ถึง 5<br><span class="expr">B={n² | n∈ℕ และ 1≤n≤5}</span></div>
+        </div><span class="hint"><span class="k">SPACE</span> เปิดเฉลย ข</span></div>
+      </div>
+    </div>
+    <div class="block al anim" style="--i:4"><span class="lab"><span class="pin">ตรวจคำตอบ</span></span>
+      แจกแจงให้ครบทุกสมาชิก แล้วแทนกลับในเงื่อนไขเสมอ — ถ้ามีสมาชิกเกินหรือขาด แสดงว่ายังไม่ใช่เซตเดียวกัน</div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>ตัวอย่างพร้อมเฉลย</span><span class="right"></span></div>
+</section>
+
+<section class="slide">
+  <div class="head"><div><span class="kick">ตัวอย่างเพิ่มเติม 2</span>
+    <h2>คลินิกแก้ความเข้าใจผิด: สมาชิกหรือเซตย่อย?</h2></div></div>
+  <div class="body tight">
+    <div class="lead anim" style="--i:0">กำหนด <span class="expr">C={0,{0},∅}</span> ลองตัดสินทุกข้อก่อนเปิดเฉลย</div>
+    <div class="reveal anim" style="--i:1;align-self:center"><div class="inner">
+      <div class="tt-wrap"><table class="tt">
+        <thead><tr><th>ข้อความ</th><th>คำตอบ</th><th>เหตุผล</th></tr></thead>
+        <tbody>
+          <tr><td>0 ∈ C</td><td><span class="vt">จริง</span></td><td>0 ปรากฏเป็นสมาชิกโดยตรง</td></tr>
+          <tr><td>{0} ∈ C</td><td><span class="vt">จริง</span></td><td>เซต {0} เป็นสมาชิกหนึ่งตัวของ C</td></tr>
+          <tr><td>{0} ⊆ C</td><td><span class="vt">จริง</span></td><td>สมาชิกของ {0} คือ 0 และ 0 ∈ C</td></tr>
+          <tr><td>∅ ∈ C</td><td><span class="vt">จริง</span></td><td>โจทย์ใส่ ∅ ไว้เป็นสมาชิกโดยตรง</td></tr>
+          <tr><td>∅ ⊆ C</td><td><span class="vt">จริง</span></td><td>เซตว่างเป็นเซตย่อยของทุกเซต</td></tr>
+        </tbody>
+      </table></div>
+    </div><span class="hint"><span class="k">SPACE</span> เปิดคำตอบและเหตุผลทั้งหมด</span></div>
+    <div class="block gold anim" style="--i:2"><span class="lab"><span class="pin">จำง่าย</span></span>
+      ซ้ายของ <span class="op">∈</span> เป็น “ของหนึ่งชิ้น” ส่วนซ้ายของ <span class="op">⊆</span> ต้องมองเป็น “กล่องหนึ่งใบ”</div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>ตัวอย่างพร้อมเฉลย</span><span class="right"></span></div>
+</section>
+
+<section class="slide cube-slide">
+  <div class="head"><div><span class="kick">ภาพสามมิติแบบโต้ตอบ</span>
+    <h2>ลูกบาศก์เซตย่อยของ {a, b, c}</h2></div></div>
+  <div class="body tight">
+    <div class="cube-lab">
+      <div class="cube-scene" id="cubeScene" aria-label="ลากเพื่อหมุนลูกบาศก์เซตย่อย">
+        <div class="set-cube" id="setCube">
+          <span class="set-node" data-n="0">∅</span><span class="set-node" data-n="1">{a}</span>
+          <span class="set-node" data-n="2">{b}</span><span class="set-node" data-n="3">{a,b}</span>
+          <span class="set-node" data-n="4">{c}</span><span class="set-node" data-n="5">{a,c}</span>
+          <span class="set-node" data-n="6">{b,c}</span><span class="set-node" data-n="7">{a,b,c}</span>
+        </div>
+      </div>
+      <div class="col">
+        <div class="block anim" style="--i:0"><span class="lab"><span class="pin">วิธีอ่านภาพ</span></span>
+          แต่ละแกนแทนการ <b>ไม่เลือก/เลือก</b> สมาชิก a, b หรือ c จุดยอดจึงแทนรหัส 000 ถึง 111</div>
+        <div class="reveal anim" style="--i:1"><div class="inner">
+          <div class="block ex"><span class="lab"><span class="pin">เฉลย</span></span>
+            มีทางเลือก 2 แบบต่อสมาชิก 3 ตัว จึงมี <b>2³ = 8 เซตย่อย</b> ครบทั้ง 8 จุดยอด</div>
+        </div><span class="hint"><span class="k">SPACE</span> เปิดข้อสรุป</span></div>
+        <div class="cube-controls"><button type="button" data-cube="left">หมุนซ้าย</button><button type="button" data-cube="right">หมุนขวา</button><button type="button" data-cube="reset">ตั้งใหม่</button></div>
+        <div class="muted tiny">ลากเมาส์/นิ้วบนลูกบาศก์เพื่อหมุนดูทุกด้าน</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>แบบจำลองสามมิติ</span><span class="right"></span></div>
+</section>
+
+<section class="slide">
+  <div class="head"><div><span class="kick">ภาพสามมิติแบบซ้อนชั้น</span>
+    <h2>มองความสัมพันธ์ ℕ ⊆ ℤ ⊆ ℝ ให้มีมิติ</h2></div></div>
+  <div class="body">
+    <div class="cols even">
+      <div class="depth-stack anim" style="--i:0">
+        <div class="depth-card">ℝ<br><span class="tiny">จำนวนจริงทั้งหมด</span></div>
+        <div class="depth-card">ℤ<br><span class="tiny">จำนวนเต็ม</span></div>
+        <div class="depth-card">ℕ<br><span class="tiny">จำนวนนับ</span></div>
+      </div>
+      <div class="col">
+        <div class="block gold anim" style="--i:1"><span class="lab"><span class="pin">ลองคิด</span></span>
+          −5 อยู่ชั้นใดบ้าง? แล้ว √2 อยู่ชั้นใดบ้าง?</div>
+        <div class="reveal anim" style="--i:2"><div class="inner">
+          <div class="block ex"><span class="lab"><span class="pin">เฉลย</span></span>
+            −5 ∈ ℤ และ −5 ∈ ℝ แต่ −5 ∉ ℕ<br>√2 ∈ ℝ แต่ √2 ∉ ℤ และ √2 ∉ ℕ</div>
+        </div><span class="hint"><span class="k">SPACE</span> เปิดเฉลย</span></div>
+        <div class="block anim" style="--i:3"><span class="lab"><span class="pin">หลักคิด</span></span>
+          เมื่ออยู่ในกล่องชั้นใน ย่อมอยู่ในกล่องชั้นนอกด้วย แต่ย้อนกลับไม่ได้เสมอ</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>แบบจำลองสามมิติ</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== SUMMARY ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">สรุปบทเรียน</span>
+    <h2>สรุปสัปดาห์ที่ 4</h2></div></div>
+  <div class="body tight">
+    <ul class="bul">
+      <li class="anim" style="--i:0"><b>เซต</b> = กลุ่มของสมาชิกที่ระบุชัดเจน ใช้ <span class="op">∈ / ∉</span> บอกการเป็นสมาชิก</li>
+      <li class="anim" style="--i:1"><b>เขียนเซตได้ 2 แบบ</b>: แจกแจงสมาชิก {1,2,3} และบอกเงื่อนไข {x | …}</li>
+      <li class="anim" style="--i:2">กติกาเซต: <b>ไม่มีลำดับ ไม่มีสมาชิกซ้ำ</b> · เซตพิเศษ: ∅, U และ ∅ ≠ {∅}</li>
+      <li class="anim" style="--i:3"><b>เซตย่อย</b> A ⊆ B: ทุกสมาชิกของ A อยู่ใน B · A = B ⟺ ⊆ ทั้งสองทาง</li>
+      <li class="anim" style="--i:4"><span class="op">∈</span> (สมาชิก–เซต) ไม่เหมือน <span class="op">⊆</span> (เซต–เซต) — <span class="rd">จุดออกข้อสอบยอดฮิต</span></li>
+    </ul>
+    <div class="block ex anim" style="--i:5"><span class="lab"><span class="pin">สัปดาห์ถัดไป</span></span>
+      สัปดาห์ถัดไป: การดำเนินการระหว่างเซต (∪ ∩ − <sup>c</sup>) แผนภาพเวนน์ และกฎเดอมอร์แกน</div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 30 · HOMEWORK ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">งานมอบหมาย</span>
+    <h2>แบบฝึกหัดมอบหมาย (สัปดาห์ที่ 4)</h2></div></div>
+  <div class="body tight">
+    <div class="lead anim" style="--i:0">ทำลงสมุด ส่งต้นคาบสัปดาห์หน้า (ข้อละ 2 คะแนน รวม 10 คะแนน)</div>
+    <ol class="num tiny" style="gap:1.3cqh">
+      <li class="anim" style="--i:1">เขียนเซตทั้งสองแบบ: (ก) จำนวนเฉพาะที่น้อยกว่า 20 (ข) จำนวนเต็ม x ที่ x² − 4 = 0</li>
+      <li class="anim" style="--i:2">จริง/เท็จ พร้อมเหตุผล: (ก) ∅ ∈ {∅} (ข) ∅ ⊆ {∅} (ค) {1,2} ∈ {{1,2}} (ง) {1,2} ⊆ {{1},{2}}</li>
+      <li class="anim" style="--i:3">อธิบายความแตกต่างระหว่าง ∈ และ ⊆ พร้อมตัวอย่างของตนเอง 2 ตัวอย่าง</li>
+      <li class="anim" style="--i:4">เขียนเซตย่อย <b>ทั้งหมด</b> ของ {1, 2, 3} (บอกจำนวนรวมด้วย)</li>
+      <li class="anim" style="--i:5"><b>(ประยุกต์)</b> ให้ U = นักศึกษาในห้อง, A = คนใช้ Android, B = คนเคยเขียน Python —
+        เซต {x ∈ U | x ∈ A และ x ∈ B} คือใคร ยกตัวอย่างสมาชิกถ้ามี</li>
+    </ol>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right"></span></div>
+</section>
+
+<section class="slide">
+  <div class="head"><div><span class="kick">เฉลยงานมอบหมาย</span>
+    <h2>แนวคำตอบสัปดาห์ที่ 4</h2></div></div>
+  <div class="body tight">
+    <div class="reveal anim" style="--i:0"><div class="inner">
+      <div class="cols even tiny">
+        <div class="col">
+          <div class="block ex"><span class="lab"><span class="pin">ข้อ 1–2</span></span>
+            <b>1 ก)</b> {2,3,5,7,11,13,17,19} = {x∈ℕ | x เป็นจำนวนเฉพาะ และ x&lt;20}<br>
+            <b>1 ข)</b> {−2,2} = {x∈ℤ | x²−4=0}<br><br>
+            <b>2)</b> ก จริง · ข จริง · ค จริง · ง เท็จ เพราะ 1 และ 2 ไม่ใช่สมาชิกของ {{1},{2}}</div>
+          <div class="block"><span class="lab"><span class="pin">ข้อ 3</span></span>
+            ∈ เปรียบเทียบ “สมาชิกกับเซต” เช่น 1∈{1,2}; ⊆ เปรียบเทียบ “เซตกับเซต” เช่น {1}⊆{1,2}</div>
+        </div>
+        <div class="col">
+          <div class="block ex"><span class="lab"><span class="pin">ข้อ 4</span></span>
+            เซตย่อยของ {1,2,3}:<br>∅, {1}, {2}, {3}, {1,2}, {1,3}, {2,3}, {1,2,3}<br>รวม <b>2³ = 8 เซต</b></div>
+          <div class="block gold"><span class="lab"><span class="pin">ข้อ 5</span></span>
+            คือกลุ่มนักศึกษาที่ <b>ใช้ Android และเคยเขียน Python พร้อมกัน</b> หรือ <span class="expr">A∩B</span><br>
+            ตัวอย่างสมาชิกต้องเป็นคนจริงในห้องที่ผ่านทั้งสองเงื่อนไข หากไม่มีเลย คำตอบคือ ∅</div>
+        </div>
+      </div>
+    </div><span class="hint"><span class="k">SPACE</span> เปิดแนวคำตอบทุกข้อ</span></div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>เฉลยพร้อมเหตุผล</span><span class="right"></span></div>
+</section>
+
+<!-- ============================== 31 · GAME COVER ============================== -->
+<section class="slide">
+  <div class="divider">
+    <div class="ghost">∈</div>
+    <div class="no">เกมท้าทายเรื่องเซต</div>
+    <h2>เกมท้ายคาบ: "อยู่เซตไหน?" (สัปดาห์ที่ 4)</h2>
+    <div class="muted" style="font-size:1.8cqh; margin-top:2cqh">ตอบคำถามจริง/เท็จเรื่องเซตให้ถูกต้อง สะสมคะแนนและสตรีคโบนัส!</div>
+  </div>
+</section>
+
+<!-- ============================== 32 · GAME ENGINE ============================== -->
+<section class="slide">
+  <div class="game" id="game">
+    <div class="g-layout">
+      <div class="g-sidebar">
+        <div class="g-stat"><span class="lbl">คะแนน</span><span class="val score" id="gScore">0</span></div>
+        <div class="g-stat"><span class="lbl">คำถาม</span><span class="val" id="gNum">0</span><small>/ <span id="gTot">8</span></small></div>
+        <div class="g-stat"><span class="lbl">สตรีค</span><span class="val streak" id="gStreak">0</span></div>
+        <div class="g-stat"><span class="lbl">คะแนนสูงสุด</span><span class="val best" id="gBest">0</span></div>
+      </div>
+      <div class="g-main" id="gStage"><!-- loaded via javascript --></div>
+    </div>
+  </div>
+</section>
+
+</div></div></div>
+<div class="ov-title"><span>ภาพรวมสไลด์ · บทที่ 2 ทฤษฎีเซต (สัปดาห์ที่ 4)</span><small>คลิกสไลด์เพื่อไปยังหน้านั้น · กด O / Esc เพื่อปิด</small></div>
+<!-- dock -->
+<div class="dock">
+  <button id="bPrev" title="ก่อนหน้า (←)">‹</button>
+  <span class="count" id="count">01 / 29</span>
+  <button id="bNext" title="ถัดไป (→ / Space)">›</button>
+  <span class="sep"></span>
+  <button id="bOv" title="ภาพรวม (O)">⊞</button>
+  <button id="bHelp" title="แป้นพิมพ์ (?)">?</button>
+</div>
+
+<!-- onboarding toast -->
+<div class="toast" id="toast">
+  <span>ใช้ <kbd>←</kbd> <kbd>→</kbd> เปลี่ยนสไลด์ · <kbd>Space</kbd> เฉลย · <kbd>O</kbd> ภาพรวม</span>
+</div>
+
+<!-- help overlay -->
+<div class="help" id="help">
+  <div class="card">
+    <h3>แป้นพิมพ์ลัด</h3>
+    <dl>
+      <kbd>→ / Space</kbd><dd>สไลด์ถัดไป (และเปิดเฉลยทีละขั้น)</dd>
+      <kbd>←</kbd><dd>สไลด์ก่อนหน้า</dd>
+      <kbd>Home / End</kbd><dd>ไปสไลด์แรก / สุดท้าย</dd>
+      <kbd>R</kbd><dd>เปิดเฉลยทั้งหมดในสไลด์</dd>
+      <kbd>O / Esc</kbd><dd>เปิด/ปิดมุมมองภาพรวม</dd>
+      <kbd>F</kbd><dd>เต็มจอ</dd>
+      <kbd>?</kbd><dd>เปิด/ปิดหน้าต่างนี้</dd>
+    </dl>
+    <div class="close">คลิกที่ใดก็ได้เพื่อปิด</div>
+  </div>
+</div>
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const total=slides.length;
+  const bar=document.querySelector('.progress .bar');
+  const count=document.getElementById('count');
+  let cur=0;
+  const pad=n=>String(n).padStart(2,'0');
+
+  function render(){
+    slides.forEach((s,i)=>{
+      s.classList.toggle('is-active',i===cur);
+      const div=s.querySelector('.divider');
+      if(div){ div.classList.remove('is-anim'); if(i===cur){ void div.offsetWidth; div.classList.add('is-anim'); } }
+    });
+    bar.style.width=((cur+1)/total*100)+'%';
+    count.textContent=pad(cur+1)+' / '+total;
+    if(document.body.classList.contains('overview')){
+      slides[cur].scrollIntoView({block:'center',behavior:'smooth'});
+    }
+  }
+  function next(){
+    if(document.body.classList.contains('overview')) return;
+    const hidden=slides[cur].querySelector('.reveal:not(.on)');
+    if(hidden){ hidden.classList.add('on'); return; }
+    if(cur<total-1){ cur++; render(); }
+  }
+  function prev(){
+    if(document.body.classList.contains('overview')) return;
+    if(cur>0){ cur--; render(); }
+  }
+  function go(i){ cur=Math.max(0,Math.min(total-1,i)); render(); }
+  function revealAll(){ slides[cur].querySelectorAll('.reveal').forEach(r=>r.classList.add('on')); }
+  function toggleOverview(){
+    document.body.classList.toggle('overview');
+    if(!document.body.classList.contains('overview')) render(); else slides[cur].scrollIntoView({block:'center'});
+  }
+  function toggleHelp(){ document.getElementById('help').classList.toggle('show'); }
+  function fs(){ if(!document.fullscreenElement) document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen(); else document.exitFullscreen(); }
+
+  // keyboard
+  document.addEventListener('keydown', e=>{
+    if(document.getElementById('help').classList.contains('show') && e.key!=='?'){ document.getElementById('help').classList.remove('show'); }
+    switch(e.key){
+      case 'ArrowRight': case ' ': case 'PageDown': case 'l': e.preventDefault(); next(); break;
+      case 'ArrowLeft': case 'PageUp': case 'h': e.preventDefault(); prev(); break;
+      case 'ArrowDown': e.preventDefault(); next(); break;
+      case 'ArrowUp': e.preventDefault(); prev(); break;
+      case 'Home': go(0); break;
+      case 'End': go(total-1); break;
+      case 'r': case 'R': revealAll(); break;
+      case 'o': case 'O': toggleOverview(); break;
+      case 'Escape': if(document.body.classList.contains('overview')) toggleOverview(); break;
+      case 'f': case 'F': fs(); break;
+      case '?': toggleHelp(); break;
+    }
+    hideToast();
+  });
+
+  // reveal click (stop bubbling so it doesn't advance)
+  document.querySelectorAll('.reveal').forEach(r=>{
+    r.addEventListener('click', e=>{ e.stopPropagation(); r.classList.toggle('on'); });
+  });
+
+  // click background to advance / click thumb in overview to jump
+  document.addEventListener('click', e=>{
+    if(document.getElementById('help').classList.contains('show')){ document.getElementById('help').classList.remove('show'); return; }
+    if(document.body.classList.contains('overview')){
+      const s=e.target.closest('.slide');
+      if(s){ const i=slides.indexOf(s); if(i>=0){ cur=i; document.body.classList.remove('overview'); render(); } }
+      return;
+    }
+    if(e.target.closest('.reveal,.dock,.help,a,button,svg,.game')) return;
+    next();
+  });
+
+  // dock buttons
+  document.getElementById('bPrev').onclick=e=>{e.stopPropagation();prev();hideToast();};
+  document.getElementById('bNext').onclick=e=>{e.stopPropagation();next();hideToast();};
+  document.getElementById('bOv').onclick=e=>{e.stopPropagation();toggleOverview();hideToast();};
+  document.getElementById('bHelp').onclick=e=>{e.stopPropagation();toggleHelp();};
+
+  // swipe
+  let tx=0,ty=0;
+  document.addEventListener('touchstart',e=>{tx=e.changedTouches[0].clientX;ty=e.changedTouches[0].clientY;},{passive:true});
+  document.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty;
+    if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)){ dx<0?next():prev(); }
+  },{passive:true});
+
+  // toast auto-hide
+  const toast=document.getElementById('toast');
+  let toastTimer=setTimeout(hideToast,6500);
+  function hideToast(){ clearTimeout(toastTimer); toast.classList.add('hide'); }
+
+  // hash sync (optional deep-link e.g. #5)
+  const fromHash=parseInt(location.hash.replace('#',''),10);
+  if(!isNaN(fromHash)) cur=Math.max(0,Math.min(total-1,fromHash-1));
+
+  render();
+})();
+
+/* ===================== Logic Challenge game ===================== */
+(function(){
+  const BANK=[
+    {q:'เซต {1, 2, 3} กับ {3, 1, 2} เท่ากันหรือไม่?', big:'{1,2,3} = {3,1,2} ?',
+     options:[['เท่ากัน — เซตไม่มีลำดับ',1],['ไม่เท่ากัน — ลำดับต่างกัน',0],['บอกไม่ได้',0]], why:'เซตไม่มีลำดับ ดังนั้น {1,2,3} = {3,1,2}'},
+    {q:'จำนวนสมาชิกของเซต {1, 1, 2, 2, 2} คือ?', big:'|{1,1,2,2,2}| = ?',
+     options:[['2',1],['5',0],['3',0]], why:'สมาชิกซ้ำนับครั้งเดียว — เซตนี้คือ {1, 2} จึงมี 2 ตัว'},
+    {q:'ข้อความ ∅ ∈ {1, 2, 3} จริงหรือเท็จ?', big:'∅ ∈ {1,2,3}',
+     options:[['เท็จ — ∅ ไม่ใช่สมาชิก',1],['จริง — เซตว่างอยู่ในทุกเซต',0],['จริง — เพราะ ∅ ⊆ ทุกเซต',0]], why:'∅ ⊆ {1,2,3} จริง แต่ ∅ ∈ {1,2,3} เท็จ เพราะสมาชิกมีแค่ 1, 2, 3'},
+    {q:'ข้อความ 0.5 ∈ ℤ จริงหรือเท็จ?', big:'0.5 ∈ ℤ',
+     options:[['เท็จ — 0.5 ไม่ใช่จำนวนเต็ม',1],['จริง — 0.5 เป็นจำนวน',0],['เท็จ — เพราะ 0.5 ∉ ℝ',0]], why:'0.5 ไม่ใช่จำนวนเต็ม (แต่ 0.5 ∈ ℚ และ 0.5 ∈ ℝ)'},
+    {q:'ข้อความ {a} ⊆ {a, b} จริงหรือเท็จ?', big:'{a} ⊆ {a,b}',
+     options:[['จริง',1],['เท็จ',0],['จริงเฉพาะเมื่อ a = b',0]], why:'สมาชิกทุกตัวของ {a} (คือ a) อยู่ใน {a,b} จึงเป็นเซตย่อย'},
+    {q:'เซต {∅} เท่ากับ ∅ หรือไม่?', big:'{∅} = ∅ ?',
+     options:[['ไม่เท่า — {∅} มีสมาชิก 1 ตัว',1],['เท่ากัน — ต่างก็ว่าง',0],['บอกไม่ได้',0]], why:'|{∅}| = 1 (กล่องที่มีกล่องเปล่าข้างใน) แต่ |∅| = 0'},
+    {q:'ข้อใดถูกต้อง เมื่อ A = {1, 2}?', big:'A = {1, 2}',
+     options:[['1 ∈ A',1],['{1} ∈ A',0],['A ⊆ {1}',0]], why:'1 เป็นสมาชิกของ A ส่วน {1} เป็นเซตย่อย (⊆) ไม่ใช่สมาชิก'},
+    {q:'เซต {x ∈ ℝ | x² + 1 = 0} คือเซตใด?', big:'{x ∈ ℝ | x² + 1 = 0}',
+     options:[['∅ (เซตว่าง)',1],['{−1, 1}',0],['{−1}',0]], why:'ไม่มีจำนวนจริงที่ยกกำลังสองแล้วได้ −1 จึงเป็นเซตว่าง'}
+  ];
+  const TOTAL=BANK.length;
+  const stage=document.getElementById('gStage');
+  if(!stage) return;
+  const elScore=document.getElementById('gScore'),elStreak=document.getElementById('gStreak'),
+        elNum=document.getElementById('gNum'),elTot=document.getElementById('gTot'),elBest=document.getElementById('gBest');
+  let round=[],idx=0,score=0,streak=0,best=+(localStorage.getItem('setBestWeek4')||0);
+  elTot.textContent=TOTAL; elBest.textContent=best;
+  const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]];}return a;};
+  function showStart(){
+    elNum.textContent=0;elScore.textContent=0;elStreak.textContent=0;
+    stage.innerHTML='<div class="g-title">🎯 เกม “อยู่เซตไหน?” (สัปดาห์ที่ 4)</div>'+
+      '<div class="g-sub">ทบทวนความรู้: <b>สมาชิก · เซตย่อย · เซตว่าง</b><br>ตอบถูกติดกันสะสม <b>สตรีค 🔥</b> เพื่อคะแนนพิเศษ!</div>'+
+      '<button class="g-start" id="gStart">เริ่มท้าทาย ▸</button>';
+    document.getElementById('gStart').onclick=start;
+  }
+  function start(){round=shuffle(BANK).slice(0,TOTAL);idx=0;score=0;streak=0;elScore.textContent=0;elStreak.textContent=0;showQ();}
+  function showQ(){
+    const it=round[idx]; elNum.textContent=idx+1;
+    const cls=it.tf?'tf':(it.sym?'sym':'');
+    const opts=it.options.map((o,i)=>'<button class="g-btn '+cls+'" data-ok="'+o[1]+'">'+o[0]+'</button>').join('');
+    stage.innerHTML='<div class="g-q">'+it.q+'</div>'+(it.big?'<div class="g-big">'+it.big+'</div>':'')+
+      '<div class="g-opts">'+opts+'</div><div class="g-fb" id="gFb"></div>';
+    stage.querySelectorAll('.g-btn').forEach(b=>b.onclick=()=>answer(b,it));
+  }
+  function answer(btn,it){
+    const ok=btn.dataset.ok==='1';
+    stage.querySelectorAll('.g-btn').forEach(b=>{b.disabled=true;if(b.dataset.ok==='1')b.classList.add('ok');});
+    const fb=document.getElementById('gFb');
+    if(ok){const bonus=streak>=2?5:0;streak++;score+=10+bonus;btn.classList.add('ok');
+      fb.className='g-fb ok';fb.innerHTML='✓ ถูกต้อง! (+'+(10+bonus)+(bonus?' โบนัสสตรีค 🔥':'')+') — '+it.why;}
+    else{streak=0;btn.classList.add('no');
+      fb.className='g-fb no';fb.innerHTML='✗ ผิดพลาด — '+it.why;}
+    elScore.textContent=score;elStreak.textContent=streak;
+    const nb=document.createElement('button');nb.className='g-next';
+    nb.textContent=idx<TOTAL-1?'ข้อถัดไป ▸':'ดูผลคะแนน ★';
+    nb.onclick=()=>{idx++;idx<TOTAL?showQ():end();};
+    fb.after(nb);
+  }
+  function end(){
+    if(score>best){best=score;localStorage.setItem('setBestWeek4',best);elBest.textContent=best;}
+    const pct=score/(TOTAL*10);
+    const stars=pct>=.95?'★★★':pct>=.7?'★★☆':pct>=.4?'★☆☆':'☆☆☆';
+    const msg=pct>=.95?'สุดยอด! เชี่ยวชาญพื้นฐานเซต':pct>=.7?'เก่งมาก เข้าใจดี!':pct>=.4?'ดีขึ้นได้อีก ลองทบทวนนะ':'ไปทบทวนเนื้อหาแล้วลองใหม่!';
+    elNum.textContent=TOTAL;
+    stage.innerHTML='<div class="g-stars">'+stars+'</div><div class="g-score-big">'+score+'</div>'+
+      '<div class="g-sub">'+msg+'<br>คะแนนสูงสุดของคุณ: <b>'+best+'</b> / '+(TOTAL*10)+'</div>'+
+      '<button class="g-replay" id="gReplay">เล่นอีกครั้ง ↺</button>';
+    document.getElementById('gReplay').onclick=start;
+  }
+  showStart();
+})();
+
+/* ลูกบาศก์เซตย่อยสามมิติ: ลาก หมุนด้วยปุ่ม และรองรับการสัมผัส */
+(()=>{
+  const scene=document.getElementById('cubeScene');
+  const cube=document.getElementById('setCube');
+  if(!scene||!cube)return;
+  let rx=-18,ry=28,drag=false,lastX=0,lastY=0;
+  const paint=()=>{cube.style.transform=`rotateX(${rx}deg) rotateY(${ry}deg)`;};
+  scene.addEventListener('pointerdown',e=>{
+    drag=true;lastX=e.clientX;lastY=e.clientY;scene.setPointerCapture(e.pointerId);e.stopPropagation();
+  });
+  scene.addEventListener('pointermove',e=>{
+    if(!drag)return;
+    ry+=(e.clientX-lastX)*.45;rx-=(e.clientY-lastY)*.35;
+    lastX=e.clientX;lastY=e.clientY;paint();e.stopPropagation();
+  });
+  scene.addEventListener('pointerup',e=>{drag=false;e.stopPropagation();});
+  document.querySelectorAll('[data-cube]').forEach(button=>button.addEventListener('click',e=>{
+    const action=button.dataset.cube;
+    if(action==='left')ry-=30;
+    if(action==='right')ry+=30;
+    if(action==='reset'){rx=-18;ry=28;}
+    paint();e.stopPropagation();
+  }));
+})();
+</script>
+</body>
+</html>

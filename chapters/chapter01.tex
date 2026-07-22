@@ -546,9 +546,9 @@ p \leftrightarrow q \equiv (p \rightarrow q) \land (q \rightarrow p)
 \begin{solution}
 ให้ $p \equiv $ ``$n$ เป็นจำนวนเฉพาะที่มากกว่า 2'' และ $q \equiv$ ``$n$ เป็นจำนวนคี่''
 \begin{itemize}
-    \item ส่วนกลับ: ถ้า $n$ เป็นจำนวนคี่ แล้ว $n$ เป็นจำนวนเฉพาะที่มากกว่า 2 \quad (เป็นเท็จ เช่น $n=9$)
-    \item ผกผัน: ถ้า $n$ ไม่เป็นจำนวนเฉพาะที่มากกว่า 2 แล้ว $n$ ไม่เป็นจำนวนคี่ \quad (เป็นเท็จ เช่น $n=9$)
-    \item แย้งสลับที่: ถ้า $n$ ไม่เป็นจำนวนคี่ แล้ว $n$ ไม่เป็นจำนวนเฉพาะที่มากกว่า 2 \quad (เป็นจริง สมมูลกับประพจน์เดิม)
+    \item ส่วนกลับ ถ้า $n$ เป็นจำนวนคี่ แล้ว $n$ เป็นจำนวนเฉพาะที่มากกว่า 2 \quad (เป็นเท็จ เช่น $n=9$)
+    \item ผกผัน ถ้า $n$ ไม่เป็นจำนวนเฉพาะที่มากกว่า 2 แล้ว $n$ ไม่เป็นจำนวนคี่ \quad (เป็นเท็จ เช่น $n=9$)
+    \item แย้งสลับที่ ถ้า $n$ ไม่เป็นจำนวนคี่ แล้ว $n$ ไม่เป็นจำนวนเฉพาะที่มากกว่า 2 \quad (เป็นจริง สมมูลกับประพจน์เดิม)
 \end{itemize}
 \end{solution}
 
@@ -598,10 +598,10 @@ p \oplus q \equiv (p \lor q) \land \neg(p \land q) \equiv (p \land \neg q) \lor 
 
 XOR มีบทบาทสำคัญในวิทยาการคอมพิวเตอร์หลายด้าน ตัวอย่างที่สำคัญได้แก่
 \begin{enumerate}
-    \item \textbf{วงจรบวกเลขฐานสอง (Binary Adder):} วงจร Half-Adder ใช้ XOR ในการคำนวณบิตผลรวม (sum bit) ส่วนค่าทด (carry) คำนวณจาก AND
-    \item \textbf{การเข้ารหัสลับ (Cryptography):} XOR ถูกนำมาใช้ใน Stream Cipher และ One-Time Pad เพราะมีคุณสมบัติย้อนกลับได้ในตัวเอง กล่าวคือ ถ้า $C = M \oplus K$ แล้ว $M = C \oplus K$ เมื่อ $M$ คือข้อความ $K$ คือกุญแจ และ $C$ คือข้อความที่เข้ารหัสแล้ว
-    \item \textbf{การตรวจสอบความถูกต้องของข้อมูล (Parity Check):} ใช้ XOR ของบิตทั้งหมดเพื่อสร้างบิตตรวจสอบ (parity bit) สำหรับตรวจจับความผิดพลาดในการส่งข้อมูล
-    \item \textbf{การสลับค่าตัวแปร (Swap without Temporary Variable):} เทคนิคในการเขียนโปรแกรมที่สลับค่าระหว่างตัวแปรสองตัวโดยไม่ใช้ตัวแปรชั่วคราว ผ่านการประยุกต์ XOR สามครั้ง
+    \item วงจรบวกเลขฐานสอง (Binary Adder) วงจร Half-Adder ใช้ XOR ในการคำนวณบิตผลรวม (sum bit) ส่วนค่าทด (carry) คำนวณจาก AND
+    \item การเข้ารหัสลับ (Cryptography) XOR ถูกนำมาใช้ใน Stream Cipher และ One-Time Pad เพราะมีคุณสมบัติย้อนกลับได้ในตัวเอง กล่าวคือ ถ้า $C = M \oplus K$ แล้ว $M = C \oplus K$ เมื่อ $M$ คือข้อความ $K$ คือกุญแจ และ $C$ คือข้อความที่เข้ารหัสแล้ว
+    \item การตรวจสอบความถูกต้องของข้อมูล (Parity Check) ใช้ XOR ของบิตทั้งหมดเพื่อสร้างบิตตรวจสอบ (parity bit) สำหรับตรวจจับความผิดพลาดในการส่งข้อมูล
+    \item การสลับค่าตัวแปร (Swap without Temporary Variable) เทคนิคในการเขียนโปรแกรมที่สลับค่าระหว่างตัวแปรสองตัวโดยไม่ใช้ตัวแปรชั่วคราว ผ่านการประยุกต์ XOR สามครั้ง
 \end{enumerate}
 
 \subsection{แนนด์และนอร์ (NAND $\uparrow$, NOR $\downarrow$)}
@@ -778,8 +778,8 @@ Modus Ponens หรือ การยืนยัน เป็นรูปแ�
 \begin{solution}
 \begin{solsteps}
     \item ให้ $p \equiv \text{ฝนตก}$ และ $q \equiv \text{พื้นถนนเปียก}$
-    \item เหตุ 1: $p \rightarrow q$
-    \item เหตุ 2: $p$
+    \item เหตุ 1 คือ $p \rightarrow q$
+    \item เหตุ 2 คือ $p$
     \item \mathoval{\therefore q \equiv \text{พื้นถนนเปียก}}
 \end{solsteps}
 \end{solution}
@@ -797,8 +797,8 @@ Modus Ponens หรือ การยืนยัน เป็นรูปแ�
 \begin{solution}
 \begin{solsteps}
     \item ให้ $p \equiv \text{คนรักษาสัญญา}$ และ $q \equiv \text{ได้รับความเชื่อถือ}$
-    \item เหตุ 1: $p \rightarrow q$
-    \item เหตุ 2: $p$
+    \item เหตุ 1 คือ $p \rightarrow q$
+    \item เหตุ 2 คือ $p$
     \item \mathoval{\therefore q \equiv \text{นาย ก ได้รับความเชื่อถือ}}
 \end{solsteps}
 \end{solution}
@@ -838,8 +838,8 @@ Modus Tollens หรือ การปฏิเสธ เป็นรูปแ�
 \begin{solution}
 \begin{solsteps}
     \item ให้ $p \equiv \text{ฝนตก}$ และ $q \equiv \text{พื้นถนนเปียก}$
-    \item เหตุ 1: $p \rightarrow q$
-    \item เหตุ 2: $\neg q$
+    \item เหตุ 1 คือ $p \rightarrow q$
+    \item เหตุ 2 คือ $\neg q$
     \item \mathoval{\therefore \neg p \equiv \text{ฝนไม่ตก}}
 \end{solsteps}
 \end{solution}
@@ -857,8 +857,8 @@ Modus Tollens หรือ การปฏิเสธ เป็นรูปแ�
 \begin{solution}
 \begin{solsteps}
     \item ให้ $p \equiv \text{สัตว์เป็นสุนัข}$ และ $q \equiv \text{เป็นสัตว์เลี้ยงลูกด้วยนม}$
-    \item เหตุ 1: $p \rightarrow q$
-    \item เหตุ 2: $\neg q$
+    \item เหตุ 1 คือ $p \rightarrow q$
+    \item เหตุ 2 คือ $\neg q$
     \item \mathoval{\therefore \neg p \equiv \text{สัตว์ตัวนี้ไม่ใช่สุนัข}}
 \end{solsteps}
 \end{solution}
@@ -887,8 +887,8 @@ Hypothetical Syllogism หรือ การอ้างเหตุผลแ�
 \begin{solution}
 \begin{solsteps}
     \item ให้ $p \equiv \text{ฝนตก}$, $q \equiv \text{ถนนเปียก}$, $r \equiv \text{รถจะลื่น}$
-    \item เหตุ 1: $p \rightarrow q$
-    \item เหตุ 2: $q \rightarrow r$
+    \item เหตุ 1 คือ $p \rightarrow q$
+    \item เหตุ 2 คือ $q \rightarrow r$
     \item \mathoval{\therefore p \rightarrow r \equiv \text{ถ้าฝนตก แล้วรถจะลื่น}}
 \end{solsteps}
 \end{solution}
@@ -921,8 +921,8 @@ Disjunctive Syllogism หรือ การอ้างเหตุผลแบ
 \begin{solution}
 \begin{solsteps}
     \item ให้ $p \equiv \text{นาย ก อยู่บ้าน}$ และ $q \equiv \text{นาย ก อยู่ที่ทำงาน}$
-    \item เหตุ 1: $p \lor q$
-    \item เหตุ 2: $\neg q$
+    \item เหตุ 1 คือ $p \lor q$
+    \item เหตุ 2 คือ $\neg q$
     \item \mathoval{\therefore p \equiv \text{นาย ก อยู่บ้าน}}
 \end{solsteps}
 \end{solution}
@@ -1114,14 +1114,14 @@ p \rightarrow q \equiv \neg p \lor q
 ในส่วนนี้แสดงเฉลยอย่างย่อสำหรับแบบฝึกหัดท้ายบทตามลำดับข้างต้น เพื่อให้ผู้เรียนใช้ตรวจคำตอบของตนเอง
 
 \begin{enumerate}
-    \item \textbf{ระบุประพจน์และค่าความจริง:} (ก) เป็นประพจน์ ค่าจริง; (ข) ไม่เป็นประพจน์ เพราะมีตัวแปร $x$; (ค) ไม่เป็นประพจน์ เป็นประโยคคำสั่ง; (ง) เป็นประพจน์ ค่าเท็จ ($7$ เป็นจำนวนคี่); (จ) เป็นประโยคบอกเล่าเกี่ยวกับอนาคต ซึ่งในตรรกศาสตร์คลาสสิกมักถือว่าเป็นประพจน์ได้หากเหตุการณ์นั้นมีค่าความจริงแน่นอน แม้ผู้พูดจะยังไม่ทราบค่าความจริงในขณะกล่าว; (ฉ) ไม่เป็นประพจน์ เป็นข้อคิดเห็นเชิงค่านิยม; (ช) เป็นประพจน์ ค่าจริง
-    \item \textbf{ตารางค่าความจริง:} ใช้ $p,q,r \in \{T,F\}$ สร้างตารางขนาด $2^n$ แถว เช่น $p\land\neg q$ มีค่าจริงเฉพาะแถว $p=T, q=F$; $(p\rightarrow q)\land(q\rightarrow p)$ มีค่าจริงเมื่อ $p$ และ $q$ มีค่าตรงกัน (สมมูล $p\leftrightarrow q$)
-    \item \textbf{สัจนิรันดร์:} (ก) เป็นสัจนิรันดร์ เพราะตรวจทุกแถวให้ค่าจริง; (ข) เป็นสัจนิรันดร์ (Law of Simplification); (ค) เป็นสัจนิรันดร์ (Law of Excluded Middle); (ง) เป็นสัจนิรันดร์ เพราะ $p\rightarrow q \equiv \neg p \lor q$
-    \item \textbf{ข้อขัดแย้ง:} (ก) เป็นข้อขัดแย้ง เพราะ $p\land\neg p$ เป็นเท็จเสมอ; (ข) เป็นข้อขัดแย้ง เพราะ $p\lor\neg p$ เป็นจริงเสมอ จึงนิเสธเป็นเท็จเสมอ; (ค) เป็นข้อขัดแย้ง เพราะถ้า $p\rightarrow q$ จริงและ $p$ จริง $q$ ต้องจริง ขัดกับ $\neg q$
+    \item ระบุประพจน์และค่าความจริง (ก) เป็นประพจน์ ค่าจริง; (ข) ไม่เป็นประพจน์ เพราะมีตัวแปร $x$; (ค) ไม่เป็นประพจน์ เป็นประโยคคำสั่ง; (ง) เป็นประพจน์ ค่าเท็จ ($7$ เป็นจำนวนคี่); (จ) เป็นประโยคบอกเล่าเกี่ยวกับอนาคต ซึ่งในตรรกศาสตร์คลาสสิกมักถือว่าเป็นประพจน์ได้หากเหตุการณ์นั้นมีค่าความจริงแน่นอน แม้ผู้พูดจะยังไม่ทราบค่าความจริงในขณะกล่าว; (ฉ) ไม่เป็นประพจน์ เป็นข้อคิดเห็นเชิงค่านิยม; (ช) เป็นประพจน์ ค่าจริง
+    \item ตารางค่าความจริง ใช้ $p,q,r \in \{T,F\}$ สร้างตารางขนาด $2^n$ แถว เช่น $p\land\neg q$ มีค่าจริงเฉพาะแถว $p=T, q=F$; $(p\rightarrow q)\land(q\rightarrow p)$ มีค่าจริงเมื่อ $p$ และ $q$ มีค่าตรงกัน (สมมูล $p\leftrightarrow q$)
+    \item สัจนิรันดร์ (ก) เป็นสัจนิรันดร์ เพราะตรวจทุกแถวให้ค่าจริง; (ข) เป็นสัจนิรันดร์ (Law of Simplification); (ค) เป็นสัจนิรันดร์ (Law of Excluded Middle); (ง) เป็นสัจนิรันดร์ เพราะ $p\rightarrow q \equiv \neg p \lor q$
+    \item ข้อขัดแย้ง (ก) เป็นข้อขัดแย้ง เพราะ $p\land\neg p$ เป็นเท็จเสมอ; (ข) เป็นข้อขัดแย้ง เพราะ $p\lor\neg p$ เป็นจริงเสมอ จึงนิเสธเป็นเท็จเสมอ; (ค) เป็นข้อขัดแย้ง เพราะถ้า $p\rightarrow q$ จริงและ $p$ จริง $q$ ต้องจริง ขัดกับ $\neg q$
     \item \textbf{Modus Ponens/Tollens:} (ก) สรุปว่า "ฉันจะไม่ออกไปข้างนอก" (Modus Ponens); (ข) สรุปว่า "ข้าพเจ้าสอบไม่ผ่าน" (Modus Tollens); (ค) สรุปว่า "ผู้สมัครไม่มีประสบการณ์" (Modus Tollens)
-    \item \textbf{ความสมมูล:} (ก) สมมูล โดยตารางค่าความจริง; (ข) และ (ค) สมมูล (กฎ De Morgan); (ง) สมมูล จากนิยามของไบคอนดิชันแนล
-    \item \textbf{ประพจน์เชิงสัญลักษณ์:} (ก) $p\rightarrow r$; (ข) $p\land q$; (ค) $\neg p \rightarrow \neg r$; (ง) $r \leftrightarrow (p\lor q)$
-    \item \textbf{ความแตกต่าง:} สัจนิรันดร์คือประพจน์ที่จริงทุกการประเมิน (เช่น $p\lor\neg p$); ข้อขัดแย้งคือประพจน์ที่เท็จทุกการประเมิน (เช่น $p\land\neg p$); ประพจน์กลางคือมีทั้งจริงและเท็จ (เช่น $p\land q$, $p\rightarrow q$)
+    \item ความสมมูล (ก) สมมูล โดยตารางค่าความจริง; (ข) และ (ค) สมมูล (กฎ De Morgan); (ง) สมมูล จากนิยามของไบคอนดิชันแนล
+    \item ประพจน์เชิงสัญลักษณ์ (ก) $p\rightarrow r$; (ข) $p\land q$; (ค) $\neg p \rightarrow \neg r$; (ง) $r \leftrightarrow (p\lor q)$
+    \item ความแตกต่าง สัจนิรันดร์คือประพจน์ที่จริงทุกการประเมิน (เช่น $p\lor\neg p$); ข้อขัดแย้งคือประพจน์ที่เท็จทุกการประเมิน (เช่น $p\land\neg p$); ประพจน์กลางคือมีทั้งจริงและเท็จ (เช่น $p\land q$, $p\rightarrow q$)
 \end{enumerate}
 
 \QAChapter
@@ -1129,11 +1129,11 @@ p \rightarrow q \equiv \neg p \lor q
     \item จงระบุว่าข้อความต่อไปนี้เป็นประพจน์หรือไม่ พร้อมระบุค่าความจริงของข้อที่เป็นประพจน์ ดังนี้ (ก) กรุงเทพฯ เป็นเมืองหลวงของไทย (ข) $x + 3 = 10$ (ค) กรุณาปิดไฟ (ง) $3 \times 3 = 10$
     \item กำหนดให้ $p$ แทนฝนตก และ $q$ แทนถนนเปียก จงสร้างตารางค่าความจริงของ $p \rightarrow q$ และ $\neg p \lor q$ แล้วสรุปว่าทั้งสองประพจน์สมมูลกันหรือไม่
     \item จงพิสูจน์ด้วยตารางค่าความจริงว่า $(p \land q) \lor (p \land \neg q) \equiv p$
-    \item จงจำแนกประพจน์ต่อไปนี้ว่าเป็นสัจนิรันดร์ ข้อขัดแย้ง หรือประพจน์กลาง: (ก) $p \lor \neg p$ (ข) $p \land \neg p$ (ค) $(p \rightarrow q) \rightarrow (\neg q \rightarrow \neg p)$
+    \item จงจำแนกประพจน์ต่อไปนี้ว่าเป็นสัจนิรันดร์ ข้อขัดแย้ง หรือประพจน์กลาง (ก) $p \lor \neg p$ (ข) $p \land \neg p$ (ค) $(p \rightarrow q) \rightarrow (\neg q \rightarrow \neg p)$
     \item จงหา converse, inverse และ contrapositive ของประพจน์ "ถ้า $n$ หารด้วย 4 ลงตัว แล้ว $n$ หารด้วย 2 ลงตัว"
     \item จงใช้กฎ Modus Ponens สรุปผลจาก: ถ้าโปรแกรมไม่มีบัก แล้วโปรแกรมทำงานถูกต้อง, โปรแกรมไม่มีบัก
-    \item จงตรวจสอบว่าการให้เหตุผลต่อไปนี้สมเหตุสมผลหรือไม่โดยใช้ตารางค่าความจริง: จากสมมติฐาน $p \rightarrow q$ และ $\neg q$ สรุปได้ว่า $\neg p$
-    \item จงประยุกต์ใช้ตรรกศาสตร์เขียนเงื่อนไขการรับสมัครงานต่อไปนี้เป็นสูตรตรรกศาสตร์: "ผู้สมัครต้องมีวุฒิปริญญาตรีและประสบการณ์ไม่น้อยกว่า 2 ปี หรือมีวุฒิปริญญาโท"
+    \item จงตรวจสอบว่าการให้เหตุผลต่อไปนี้สมเหตุสมผลหรือไม่โดยใช้ตารางค่าความจริง จากสมมติฐาน $p \rightarrow q$ และ $\neg q$ สรุปได้ว่า $\neg p$
+    \item จงประยุกต์ใช้ตรรกศาสตร์เขียนเงื่อนไขการรับสมัครงานต่อไปนี้เป็นสูตรตรรกศาสตร์ "ผู้สมัครต้องมีวุฒิปริญญาตรีและประสบการณ์ไม่น้อยกว่า 2 ปี หรือมีวุฒิปริญญาโท"
 \end{enumerate}
 
 \newpage

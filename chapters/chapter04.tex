@@ -43,23 +43,18 @@ $$\sum_{i=-m}^{n} d_i \times 10^i = d_n \times 10^n + d_{n-1} \times 10^{n-1} + 
 $4729$ ในฐานสิบ หมายความว่า
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item แยกตัวเลขแต่ละหลัก $4, 7, 2, 9$
-  \item ระบุค่าประจำตำแหน่ง $10^3, 10^2, 10^1, 10^0$
-  \item คูณตัวเลขกับค่าประจำตำแหน่ง $4 \times 10^3 = 4000$, $7 \times 10^2 = 700$, $2 \times 10^1 = 20$, $9 \times 10^0 = 9$
-  \item รวมผลลัพธ์ $4729 = 4000 + 700 + 20 + 9$
-\end{solsteps}
+\begin{align*}
+4729 &= (4\times10^3)+(7\times10^2)+(2\times10^1)+(9\times10^0)\\
+     &= 4000+700+20+9
+\end{align*}
 \end{solution}
 
 สำหรับจำนวนทศนิยม $53.847$:
 \begin{solution}
-\begin{solsteps}
-  \item แยกตัวเลขแต่ละหลัก $5, 3, 8, 4, 7$
-  \item ระบุค่าประจำตำแหน่งสำหรับส่วนเต็ม $10^1, 10^0$
-  \item ระบุค่าประจำตำแหน่งสำหรับส่วนทศนิยม $10^{-1}, 10^{-2}, 10^{-3}$
-  \item คูณตัวเลขกับค่าประจำตำแหน่งแต่ละตำแหน่ง
-  \item รวมผลลัพธ์ $53.847 = 50 + 3 + 0.8 + 0.04 + 0.007$
-\end{solsteps}
+\begin{align*}
+53.847 &= (5\times10^1)+(3\times10^0)+(8\times10^{-1})+(4\times10^{-2})+(7\times10^{-3})\\
+       &= 50+3+0.8+0.04+0.007
+\end{align*}
 \end{solution}
 \label{ex:decimal-place-value}
 
@@ -67,7 +62,7 @@ $4729$ ในฐานสิบ หมายความว่า
 \begin{figure}[H]
     \centering
     \resizebox{0.8\textwidth}{!}{\input{Figures/tikz/26-binary-place-value}}
-    \caption{ค่าประจำตำแหน่งของเลขฐานสอง (Binary Place Value) แสดงการแปลง 1101₂}
+    \caption{ค่าประจำตำแหน่งของเลขฐานสอง (Binary Place Value) แสดงการแปลง $1101_2$}
     \label{fig:binary-place-value}
 \end{figure}
 
@@ -92,21 +87,23 @@ $$(b_n b_{n-1} \ldots b_1 b_0)_2 = \sum_{i=0}^{n} b_i \times 2^i$$
 แปลง $(1101)_2$ เป็นฐานสิบ
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ระบุเลขโดดและค่าประจำตำแหน่ง $1\times2^3, 1\times2^2, 0\times2^1, 1\times2^0$
-  \item คำนวณแต่ละตำแหน่ง $1\times8=8$, $1\times4=4$, $0\times2=0$, $1\times1=1$
-  \item รวมผลลัพธ์ $8+4+0+1=13$
-\end{solsteps}
+\begin{align*}
+(1101)_2 &= (1\times2^3)+(1\times2^2)+(0\times2^1)+(1\times2^0)\\
+         &= 8+4+0+1\\
+         &= 13
+\end{align*}
+$\therefore (1101)_2 = (13)_{10}$ \solhere
 \end{solution}
 
 แปลง $(10110)_2$ เป็นฐานสิบ
 
 \begin{solution}
-\begin{solsteps}
-  \item ระบุเลขโดดและค่าประจำตำแหน่ง $1\times2^4, 0\times2^3, 1\times2^2, 1\times2^1, 0\times2^0$
-  \item คำนวณแต่ละตำแหน่ง $1\times16=16$, $0\times8=0$, $1\times4=4$, $1\times2=2$, $0\times1=0$
-  \item รวมผลลัพธ์ $16+0+4+2+0=22$
-\end{solsteps}
+\begin{align*}
+(10110)_2 &= (1\times2^4)+(0\times2^3)+(1\times2^2)+(1\times2^1)+(0\times2^0)\\
+          &= 16+0+4+2+0\\
+          &= 22
+\end{align*}
+$\therefore (10110)_2 = (22)_{10}$ \solhere
 \end{solution}
 
 \begin{thrm}
@@ -121,21 +118,23 @@ $$(0.b_1 b_2 \ldots b_m)_2 = \sum_{i=1}^{m} b_i \times 2^{-i}$$
 แปลง $(0.101)_2$ เป็นฐานสิบ
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ระบุเลขโดดและค่าประจำตำแหน่ง $1\times2^{-1}, 0\times2^{-2}, 1\times2^{-3}$
-  \item แปลงเป็นเศษส่วน $1\times\frac{1}{2}=\frac{1}{2}$, $0\times\frac{1}{4}=0$, $1\times\frac{1}{8}=\frac{1}{8}$
-  \item รวมผลลัพธ์ $\frac{1}{2}+0+\frac{1}{8}=\frac{4}{8}+\frac{1}{8}=\frac{5}{8}=0.625$
-\end{solsteps}
+\begin{align*}
+(0.101)_2 &= (1\times2^{-1})+(0\times2^{-2})+(1\times2^{-3})\\
+          &= \tfrac{1}{2}+0+\tfrac{1}{8}\\
+          &= \tfrac{5}{8} = 0.625
+\end{align*}
+$\therefore (0.101)_2 = (0.625)_{10}$ \solhere
 \end{solution}
 
 แปลง $(10.011)_2$ เป็นฐานสิบ
 
 \begin{solution}
-\begin{solsteps}
-  \item ระบุเลขโดดและค่าประจำตำแหน่ง $1\times2^1, 0\times2^0, 0\times2^{-1}, 1\times2^{-2}, 1\times2^{-3}$
-  \item คำนวณแต่ละตำแหน่ง $1\times2=2$, $0\times1=0$, $0\times\frac{1}{2}=0$, $1\times\frac{1}{4}=0.25$, $1\times\frac{1}{8}=0.125$
-  \item รวมผลลัพธ์ $2+0+0+0.25+0.125=2.375$
-\end{solsteps}
+\begin{align*}
+(10.011)_2 &= (1\times2^1)+(0\times2^0)+(0\times2^{-1})+(1\times2^{-2})+(1\times2^{-3})\\
+           &= 2+0+0+0.25+0.125\\
+           &= 2.375
+\end{align*}
+$\therefore (10.011)_2 = (2.375)_{10}$ \solhere
 \end{solution}
 
 \section{ระบบเลขฐานแปด (Octal System)}
@@ -152,23 +151,23 @@ $$(0.b_1 b_2 \ldots b_m)_2 = \sum_{i=1}^{m} b_i \times 2^{-i}$$
 แปลง $(110101)_2$ เป็นฐานแปด
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item จัดกลุ่มตัวเลขฐานสองครั้งละ 3 ตัวจากขวาสุด $110101_2 = 110\ 101_2$
-  \item แปลงกลุ่มแรก $110_2$ เป็นฐานแปด: $110_2 = 6_8$
-  \item แปลงกลุ่มที่สอง $101_2$ เป็นฐานแปด: $101_2 = 5_8$
-  \item รวมผลลัพธ์ $(110101)_2 = (65)_8$
-\end{solsteps}
+\begin{align*}
+(110101)_2 &= \underbrace{110}_{6}\ \underbrace{101}_{5}\\
+           &= (65)_8
+\end{align*}
+$\therefore (110101)_2 = (65)_8$ \solhere
 \end{solution}
 
 \begin{ex}
 แปลง $(472)_8$ เป็นฐานสิบ
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ระบุเลขโดดและค่าประจำตำแหน่ง $4\times8^2, 7\times8^1, 2\times8^0$
-  \item คำนวณแต่ละตำแหน่ง $4\times64=256$, $7\times8=56$, $2\times1=2$
-  \item รวมผลลัพธ์ $256+56+2=314$
-\end{solsteps}
+\begin{align*}
+(472)_8 &= (4\times8^2)+(7\times8^1)+(2\times8^0)\\
+        &= 256+56+2\\
+        &= 314
+\end{align*}
+$\therefore (472)_8 = (314)_{10}$ \solhere
 \end{solution}
 
 \begin{rem}
@@ -226,22 +225,23 @@ $$(0.b_1 b_2 \ldots b_m)_2 = \sum_{i=1}^{m} b_i \times 2^{-i}$$
 แปลง $(11010110)_2$ เป็นฐานสิบหก
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item จัดกลุ่มตัวเลขฐานสองครั้งละ 4 ตัวจากขวาสุด $11010110_2 = 1101\ 0110_2$
-  \item แปลงแต่ละกลุ่ม $1101_2 = D_{16}$ และ $0110_2 = 6_{16}$
-  \item ดังนั้น $(11010110)_2 = (D6)_{16}$
-\end{solsteps}
+\begin{align*}
+(11010110)_2 &= \underbrace{1101}_{\mathrm{D}}\ \underbrace{0110}_{6}\\
+             &= (\mathrm{D}6)_{16}
+\end{align*}
+$\therefore (11010110)_2 = (\mathrm{D}6)_{16}$ \solhere
 \end{solution}
 
 \begin{ex}
 แปลง $(3A.F)_{16}$ เป็นฐานสิบ
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item เขียนการกระจายตามค่าประจำตำแหน่ง $(3A.F)_{16} = 3 \times 16^1 + 10 \times 16^0 + 15 \times 16^{-1}$
-  \item คำนวณแต่ละพจน์ $3 \times 16 = 48$, $10 \times 1 = 10$, $15 \times \frac{1}{16} = 0.9375$
-  \item รวมผลลัพธ์ $48 + 10 + 0.9375 = 58.9375$
-\end{solsteps}
+\begin{align*}
+(3A.F)_{16} &= (3\times16^1)+(10\times16^0)+(15\times16^{-1})\\
+            &= 48+10+0.9375\\
+            &= 58.9375
+\end{align*}
+$\therefore (3A.F)_{16} = (58.9375)_{10}$ \solhere
 \end{solution}
 
 \section{การแปลงฐานทั่วไป}
@@ -265,12 +265,13 @@ $$(d_n d_{n-1} \ldots d_1 d_0)_b = \sum_{i=0}^{n} d_i \times b^i$$
 แปลง $(2B3)_{16}$ เป็นฐานสิบ และ $(57)_8$ เป็นฐานสิบ
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item แปลง $(2B3)_{16}$: เขียนการกระจาย $(2B3)_{16} = 2 \times 16^2 + 11 \times 16^1 + 3 \times 16^0$
-  \item คำนวณ $2 \times 256 + 11 \times 16 + 3 \times 1 = 512 + 176 + 3 = 691$
-  \item แปลง $(57)_8$: เขียนการกระจาย $(57)_8 = 5 \times 8^1 + 7 \times 8^0$
-  \item คำนวณ $5 \times 8 + 7 \times 1 = 40 + 7 = 47$
-\end{solsteps}
+\begin{align*}
+(2B3)_{16} &= (2\times16^2)+(11\times16^1)+(3\times16^0)\\
+           &= 512+176+3 = 691\\[6pt]
+(57)_8     &= (5\times8^1)+(7\times8^0)\\
+           &= 40+7 = 47
+\end{align*}
+$\therefore (2B3)_{16} = (691)_{10}$ และ $(57)_8 = (47)_{10}$ \solhere
 \end{solution}
 
 \subsection{การแปลงจากฐานสิบเป็นฐานใดๆ}
@@ -292,42 +293,45 @@ $$(d_n d_{n-1} \ldots d_1 d_0)_b = \sum_{i=0}^{n} d_i \times b^i$$
 แปลง $45$ ฐานสิบเป็นฐานสอง
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item หาร $45$ ด้วย $2$ ได้ผลหาร $22$ เศษ $1$
-  \item หาร $22$ ด้วย $2$ ได้ผลหาร $11$ เศษ $0$
-  \item หาร $11$ ด้วย $2$ ได้ผลหาร $5$ เศษ $1$
-  \item หาร $5$ ด้วย $2$ ได้ผลหาร $2$ เศษ $1$
-  \item หาร $2$ ด้วย $2$ ได้ผลหาร $1$ เศษ $0$
-  \item หาร $1$ ด้วย $2$ ได้ผลหาร $0$ เศษ $1$
-  \item อ่านเศษจากล่างขึ้นบน $101101_2$
-  \item ตรวจสอบ $101101_2 = 1 \times 2^5 + 0 \times 2^4 + 1 \times 2^3 + 1 \times 2^2 + 0 \times 2^1 + 1 \times 2^0 = 32 + 0 + 8 + 4 + 0 + 1 = 45 \checkmark$
-\end{solsteps}
+\begin{align*}
+45 \div 2 &= 22 \quad \text{เศษ } 1\\
+22 \div 2 &= 11 \quad \text{เศษ } 0\\
+11 \div 2 &= 5  \quad \text{เศษ } 1\\
+ 5 \div 2 &= 2  \quad \text{เศษ } 1\\
+ 2 \div 2 &= 1  \quad \text{เศษ } 0\\
+ 1 \div 2 &= 0  \quad \text{เศษ } 1
+\end{align*}
+อ่านเศษจากล่างขึ้นบน $\therefore (45)_{10} = (101101)_2$
+
+ตรวจสอบ: $(101101)_2 = 32+8+4+1 = 45$ \checkmark \solhere
 \end{solution}
 
 \begin{ex}
 แปลง $158$ ฐานสิบเป็นฐานแปด
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item หาร $158$ ด้วย $8$ ได้ผลหาร $19$ เศษ $6$
-  \item หาร $19$ ด้วย $8$ ได้ผลหาร $2$ เศษ $3$
-  \item หาร $2$ ด้วย $8$ ได้ผลหาร $0$ เศษ $2$
-  \item อ่านเศษจากล่างขึ้นบน $158_{10} = 236_8$
-  \item ตรวจสอบ $236_8 = 2 \times 8^2 + 3 \times 8^1 + 6 \times 8^0 = 128 + 24 + 6 = 158 \checkmark$
-\end{solsteps}
+\begin{align*}
+158 \div 8 &= 19 \quad \text{เศษ } 6\\
+ 19 \div 8 &= 2  \quad \text{เศษ } 3\\
+  2 \div 8 &= 0  \quad \text{เศษ } 2
+\end{align*}
+อ่านเศษจากล่างขึ้นบน $\therefore (158)_{10} = (236)_8$
+
+ตรวจสอบ: $(236)_8 = 128+24+6 = 158$ \checkmark \solhere
 \end{solution}
 
 \begin{ex}
 แปลง $2543$ ฐานสิบเป็นฐานสิบหก
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item หาร $2543$ ด้วย $16$ ได้ผลหาร $158$ เศษ $15$ (F)
-  \item หาร $158$ ด้วย $16$ ได้ผลหาร $9$ เศษ $14$ (E)
-  \item หาร $9$ ด้วย $16$ ได้ผลหาร $0$ เศษ $9$
-  \item อ่านเศษจากล่างขึ้นบน $2543_{10} = 9EF_{16}$
-  \item ตรวจสอบ $9EF_{16} = 9 \times 16^2 + 14 \times 16^1 + 15 \times 16^0 = 9 \times 256 + 14 \times 16 + 15 = 2304 + 224 + 15 = 2543 \checkmark$
-\end{solsteps}
+\begin{align*}
+2543 \div 16 &= 158 \quad \text{เศษ } 15\ (\mathrm{F})\\
+ 158 \div 16 &= 9   \quad \text{เศษ } 14\ (\mathrm{E})\\
+   9 \div 16 &= 0   \quad \text{เศษ } 9
+\end{align*}
+อ่านเศษจากล่างขึ้นบน $\therefore (2543)_{10} = (9\mathrm{EF})_{16}$
+
+ตรวจสอบ: $(9\mathrm{EF})_{16} = 2304+224+15 = 2543$ \checkmark \solhere
 \end{solution}
 
 \section{การแปลงจำนวนทศนิยมระหว่างฐาน}
@@ -354,43 +358,44 @@ $$(d_n d_{n-1} \ldots d_1 d_0)_b = \sum_{i=0}^{n} d_i \times b^i$$
 แปลง $0.625$ ฐานสิบเป็นฐานสอง
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item คูณ $0.625 \times 2 = 1.25$ เลขหลัก $1$
-  \item คูณ $0.25 \times 2 = 0.5$ เลขหลัก $0$
-  \item คูณ $0.5 \times 2 = 1.0$ เลขหลัก $1$
-  \item ดังนั้น $0.625_{10} = 0.101_2$
-  \item ตรวจสอบ $0.101_2 = 1 \times 2^{-1} + 0 \times 2^{-2} + 1 \times 2^{-3} = 0.5 + 0 + 0.125 = 0.625 \checkmark$
-\end{solsteps}
+\begin{align*}
+0.625 \times 2 &= 1.25 \quad \text{หลัก } 1\\
+0.25  \times 2 &= 0.5  \quad \text{หลัก } 0\\
+0.5   \times 2 &= 1.0  \quad \text{หลัก } 1
+\end{align*}
+อ่านหลักจากบนลงล่าง $\therefore (0.625)_{10} = (0.101)_2$
+
+ตรวจสอบ: $(0.101)_2 = 0.5+0.125 = 0.625$ \checkmark \solhere
 \end{solution}
 
 \begin{ex}
 แปลง $0.7$ ฐานสิบเป็นฐานสอง (แสดง 8 หลัก)
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item คูณ $0.7 \times 2 = 1.4$ เลขหลัก $1$
-  \item คูณ $0.4 \times 2 = 0.8$ เลขหลัก $0$
-  \item คูณ $0.8 \times 2 = 1.6$ เลขหลัก $1$
-  \item คูณ $0.6 \times 2 = 1.2$ เลขหลัก $1$
-  \item คูณ $0.2 \times 2 = 0.4$ เลขหลัก $0$
-  \item คูณ $0.4 \times 2 = 0.8$ เลขหลัก $0$
-  \item คูณ $0.8 \times 2 = 1.6$ เลขหลัก $1$
-  \item คูณ $0.6 \times 2 = 1.2$ เลขหลัก $1$
-  \item สังเกตว่า $0.4$ ปรากฏซ้ำ ดังนั้น $0.7_{10} \approx 0.10110011_2$ (repeating)
-  \item ค่าจริงคือ $0.7 = 0.\overline{1011}_2$ (repeating block "$1011$")
-\end{solsteps}
+\begin{align*}
+0.7 \times 2 &= 1.4 \quad \text{หลัก } 1\\
+0.4 \times 2 &= 0.8 \quad \text{หลัก } 0\\
+0.8 \times 2 &= 1.6 \quad \text{หลัก } 1\\
+0.6 \times 2 &= 1.2 \quad \text{หลัก } 1\\
+0.2 \times 2 &= 0.4 \quad \text{หลัก } 0\\
+0.4 \times 2 &= 0.8 \quad \text{หลัก } 0\\
+0.8 \times 2 &= 1.6 \quad \text{หลัก } 1\\
+0.6 \times 2 &= 1.2 \quad \text{หลัก } 1
+\end{align*}
+ส่วนทศนิยม $0.4$ วนซ้ำ ทำให้ได้ทศนิยมซ้ำไม่รู้จบ เมื่อแสดง 8 หลักได้ $(0.7)_{10} \approx (0.10110011)_2$ และค่าที่แท้จริงคือ $(0.7)_{10} = (0.1\overline{0110})_2$ \solhere
 \end{solution}
 
 \begin{ex}
 แปลง $0.3125$ ฐานสิบเป็นฐานแปด
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item คูณ $0.3125 \times 8 = 2.5$ เลขหลัก $2$
-  \item คูณ $0.5 \times 8 = 4.0$ เลขหลัก $4$
-  \item ดังนั้น $0.3125_{10} = 0.24_8$
-  \item ตรวจสอบ $0.24_8 = 2 \times 8^{-1} + 4 \times 8^{-2} = \frac{2}{8} + \frac{4}{64} = 0.25 + 0.0625 = 0.3125 \checkmark$
-\end{solsteps}
+\begin{align*}
+0.3125 \times 8 &= 2.5 \quad \text{หลัก } 2\\
+0.5    \times 8 &= 4.0 \quad \text{หลัก } 4
+\end{align*}
+อ่านหลักจากบนลงล่าง $\therefore (0.3125)_{10} = (0.24)_8$
+
+ตรวจสอบ: $(0.24)_8 = \tfrac{2}{8}+\tfrac{4}{64} = 0.25+0.0625 = 0.3125$ \checkmark \solhere
 \end{solution}
 
 \section{การบวกและลบเลขฐานสอง}
@@ -418,27 +423,17 @@ $$(d_n d_{n-1} \ldots d_1 d_0)_b = \sum_{i=0}^{n} d_i \times b^i$$
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-  \item วางตัวตั้งและตัวบวกให้เรียงตามหลัก
-        \begin{align*}
-          & \ \ \ 1011 \\
-          &+ \ 1101
-        \end{align*}
-  \item บวกหลักขวาสุด $1 + 1 = 10$ คือ เขียน 0 ทด 1
-  \item บวกหลักที่สอง $1 + 0 + \text{ทด}1 = 10$ คือ เขียน 0 ทด 1
-  \item บวกหลักที่สาม $0 + 1 + \text{ทด}1 = 10$ คือ เขียน 0 ทด 1
-  \item บวกหลักที่สี่ $1 + 1 + \text{ทด}1 = 11$ คือ เขียน 1 ทด 1
-  \item เขียนเลขทด 1 ลงมาเป็นหลักที่ห้า
-\end{solsteps}
-\begin{align*}
-  & \ \ \ 1011 \\
-  &+ \ 1101 \\
-  \hline
-  & \ 11000
-\end{align*}
-ดังนั้น $1011_2 + 1101_2 = 11000_2$
+\[
+\begin{array}{r}
+1011 \\
++\,1101 \\
+\hline
+11000
+\end{array}
+\]
+$\therefore (1011)_2 + (1101)_2 = (11000)_2$
 
-ตรวจสอบ: $1011_2 = 11_{10}$, $1101_2 = 13_{10}$, $11000_2 = 24_{10}$ ซึ่ง $11 + 13 = 24 \checkmark$
+ตรวจสอบ: $(1011)_2 = 11_{10}$, $(1101)_2 = 13_{10}$, และ $11+13 = 24 = (11000)_2$ \checkmark
 \end{solution}
 
 \begin{ex}
@@ -446,20 +441,15 @@ $$(d_n d_{n-1} \ldots d_1 d_0)_b = \sum_{i=0}^{n} d_i \times b^i$$
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-  \item วางตัวตั้งและตัวบวกให้เรียงตามหลัก
-        \begin{align*}
-          & \ \ \ 1111 \\
-          &+ \ 0001
-        \end{align*}
-\end{solsteps}
-\begin{align*}
-  & \ \ \ 1111 \\
-  &+ \ 0001 \\
-  \hline
-  & \ 10000
-\end{align*}
-ดังนั้น $1111_2 + 0001_2 = 10000_2$ (เป็น $2^4 = 16$)
+\[
+\begin{array}{r}
+1111 \\
++\,0001 \\
+\hline
+10000
+\end{array}
+\]
+$\therefore (1111)_2 + (0001)_2 = (10000)_2 = (16)_{10}$
 \end{solution}
 
 \subsection{การลบเลขฐานสอง}
@@ -483,26 +473,17 @@ $$(d_n d_{n-1} \ldots d_1 d_0)_b = \sum_{i=0}^{n} d_i \times b^i$$
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-  \item วางตัวตั้งและตัวลบให้เรียงตามหลัก
-        \begin{align*}
-          & \ \ \ 1100 \\
-          &- \ 0101
-        \end{align*}
-  \item หลักขวาสุด $0 - 1$ คือ ยืม 1 จากหลักซ้าย ได้ $10 - 1 = 1$
-  \item หลักที่สอง $0$ (หลักที่ยืมไปแล้วลดเหลือ 0) $- 0 = 0$
-  \item หลักที่สาม $1 - 0 = 1$
-  \item หลักที่สี่ $1 - 0 = 1$
-  \item ดังนั้น
-        \begin{align*}
-          & \ \ \ 1100 \\
-          &- \ 0101 \\
-          \hline
-          & \ 0111
-        \end{align*}
-        จึงได้ว่า \mathoval{1100_2 - 0101_2 = 0111_2}
-  \item ตรวจสอบ $1100_2 = 12_{10}$, $0101_2 = 5_{10}$, $0111_2 = 7_{10}$ ซึ่ง $12 - 5 = 7 \checkmark$
-\end{solsteps}
+\[
+\begin{array}{r}
+1100 \\
+-\,0101 \\
+\hline
+0111
+\end{array}
+\]
+$\therefore (1100)_2 - (0101)_2 = (0111)_2$
+
+ตรวจสอบ: $(1100)_2 = 12_{10}$, $(0101)_2 = 5_{10}$, และ $12-5 = 7 = (0111)_2$ \checkmark
 \end{solution}
 
 \begin{ex}
@@ -511,29 +492,19 @@ $$(d_n d_{n-1} \ldots d_1 d_0)_b = \sum_{i=0}^{n} d_i \times b^i$$
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-  \item วางตัวตั้งและตัวลบให้เรียงตามหลัก
-        \begin{align*}
-          & \ \ \ \ 1000 \\
-          &- \ \ 0001
-        \end{align*}
-  \item หลักขวาสุด $0 - 1$ ต้องยืมจากหลักซ้าย แต่หลักที่สองและสามเป็น 0 จึงต้องยืมต่อเนื่องจากหลักที่สี่
-  \item หลังยืมต่อเนื่องจาก $1000_2$ หลักที่สี่ลดจาก $1$ เป็น $0$ และหลักที่สามกับหลักที่สองส่ง borrow ต่อไปยังหลักขวาสุด
-  \item เขียนภาพรวมของค่าประจำหลักหลังการยืมได้เป็น $0,1,1,10_2$ จากซ้ายไปขวา กล่าวคือหลักซ้ายสามหลักกลายเป็น $0,1,1$ ตามลำดับ และหลักขวาสุดได้รับค่า $10_2$
-  \item หลักขวาสุด $10_2 - 1_2 = 1$
-  \item หลักที่สอง $1 - 0 = 1$
-  \item หลักที่สาม $1 - 0 = 1$
-  \item หลักที่สี่ $0 - 0 = 0$
-\end{solsteps}
-\begin{align*}
-  & \ \ \ \ 1000 \\
-  &- \ \ 0001 \\
-  \hline
-  & \ \ 0111
-\end{align*}
-ดังนั้น $1000_2 - 0001_2 = 0111_2$
+\[
+\begin{array}{r}
+1000 \\
+-\,0001 \\
+\hline
+0111
+\end{array}
+\]
+การยืมต่อเนื่อง: หลักขวาสุด $0-1$ ต้องยืมจากหลักที่สี่ผ่านหลักที่สองและสาม ทำให้ $1000_2$ กลายเป็นค่าประจำหลัก $0,1,1,10_2$ ก่อนลบ
 
-ตรวจสอบ: $1000_2 = 8_{10}$, $0001_2 = 1_{10}$, $0111_2 = 7_{10}$ ซึ่ง $8 - 1 = 7 \checkmark$
+$\therefore (1000)_2 - (0001)_2 = (0111)_2$
+
+ตรวจสอบ: $(1000)_2 = 8_{10}$, $(0001)_2 = 1_{10}$, และ $8-1 = 7 = (0111)_2$ \checkmark
 \end{solution}
 
 \section{การคูณและการหารเลขฐานสอง}
@@ -561,28 +532,22 @@ $$(d_n d_{n-1} \ldots d_1 d_0)_b = \sum_{i=0}^{n} d_i \times b^i$$
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-  \item วางตัวตั้งและตัวคูณให้เรียงตามหลัก
-  \item คูณ 1011 ด้วย bit ขวาสุดของตัวคูณ (1): ได้ 1011
-  \item คูณ 1011 ด้วย bit ถัดมา (0): ได้ 0000 ขยับไป 1 หลัก
-  \item คูณ 1011 ด้วย bit ถัดมา (1): ได้ 1011 ขยับไป 2 หลัก
-  \item คูณ 1011 ด้วย bit ซ้ายสุด (1): ได้ 1011 ขยับไป 3 หลัก
-  \item นำผลคูณย่อยทั้งหมดมาบวกกัน
-\end{solsteps}
-\begin{align*}
-  & \ \ \ \ \ \ \ 1011 \\
-  & \times \ \ 1101 \\
-  \hline
-  & \ \ \ \ \ 1011 \quad \text{(} 1011 \times 1 \text{)} \\
-  & \ \ \ \ 0000 \quad \text{(} 1011 \times 0 \text{ ทดไป 1 หลัก)}\\
-  & \ \ \ 1011 \quad \text{(} 1011 \times 1 \text{ ทดไป 2 หลัก)}\\
-  & \ 1011 \quad \text{(} 1011 \times 1 \text{ ทดไป 3 หลัก)}\\
-  \hline
-  & 10001111
-\end{align*}
-ดังนั้น $1011_2 \times 1101_2 = 10001111_2$
+\[
+\begin{array}{r}
+1011 \\
+\times\,1101 \\
+\hline
+1011 \\
+0000\phantom{0} \\
+1011\phantom{00} \\
+1011\phantom{000} \\
+\hline
+10001111
+\end{array}
+\]
+$\therefore (1011)_2 \times (1101)_2 = (10001111)_2$
 
-ตรวจสอบ: $1011_2 = 11_{10}$, $1101_2 = 13_{10}$, $10001111_2 = 143_{10}$ ซึ่ง $11 \times 13 = 143 \checkmark$
+ตรวจสอบ: $(1011)_2 = 11_{10}$, $(1101)_2 = 13_{10}$, และ $11\times13 = 143 = (10001111)_2$ \checkmark
 \end{solution}
 
 \begin{rem}
@@ -614,11 +579,12 @@ $$(d_n d_{n-1} \ldots d_1 d_0)_b = \sum_{i=0}^{n} d_i \times b^i$$
 ในระบบ signed magnitude 8 bits: $+45$ และ $-45$ แทนด้วย binary อย่างไร
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item แปลง $45$ เป็นฐานสอง 7 bits สำหรับส่วน magnitude: $45 = 0101101_2$
-  \item เติม sign bit $0$ ข้างหน้าสำหรับ $+45$: $+45 = 0\,0101101_2 = 00101101_2$
-  \item เติม sign bit $1$ ข้างหน้าสำหรับ $-45$: $-45 = 1\,0101101_2 = 10101101_2$
-\end{solsteps}
+\begin{align*}
+45  &= (0101101)_2 \quad (\text{ส่วนขนาด 7 บิต})\\
++45 &= (\underline{0}\,0101101)_2 = (00101101)_2\\
+-45 &= (\underline{1}\,0101101)_2 = (10101101)_2
+\end{align*}
+โดยบิตซ้ายสุดที่ขีดเส้นใต้คือบิตเครื่องหมาย \solhere
 \end{solution}
 
 \begin{rem}
@@ -649,18 +615,18 @@ $$(d_n d_{n-1} \ldots d_1 d_0)_b = \sum_{i=0}^{n} d_i \times b^i$$
 ในระบบ 1's complement 8 bits:
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $+45 = 00101101_2$
-  \item $-45 = 11010010_2$ (กลับ bit ของ 00101101)
-\end{solsteps}
-การบวกใน 1's complement ต้องมี end-around carry:
-$$00101101 + 11010010 = 11111111 = -0$$
+\begin{align*}
++45 &= (00101101)_2\\
+-45 &= (11010010)_2 \quad (\text{กลับบิตทุกบิต})
+\end{align*}
+การบวกใน 1's complement ต้องมี end-around carry
+\[ (00101101)_2 + (11010010)_2 = (11111111)_2 = -0 \]
 \end{solution}
 
 \subsection{2's Complement}
 \begin{figure}[H]
     \centering
-    \resizebox{0.8\textwidth}{!}{\input{Figures/tikz/28-2s-complement}}
+    \input{Figures/tikz/28-2s-complement}
     \caption{การหา 2's Complement ของจำนวนเต็มลบในฐานสอง}
     \label{fig:2s-complement}
 \end{figure}
@@ -677,33 +643,33 @@ $$00101101 + 11010010 = 11111111 = -0$$
     \item มี 0 แบบเดียว คือ $00000000$
     \item การบวกปกติใช้ได้เลยโดยไม่ต้อง special case
 \end{enumerate}
-\end{thrm}
 \label{thrm:twos-complement}
+\end{thrm}
 
 \begin{prop}
 ในระบบ 2's complement $n$ bits สำหรับจำนวนเต็ม $x$ ใดๆ จะได้ว่า $-x \equiv 2^n - x \pmod{2^n}$ และ $-x$ หาได้โดยการกลับ bit ทุก bit แล้วบวก 1
 \end{prop}
 
-\begin{ex}
-ในระบบ 2's complement 8 bits:
+\begin{ex}[การหาค่า 2's Complement]
+จงหาค่า $-45$ ในระบบ 2's complement ขนาด 8 บิต
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $+45 = 00101101_2$
-  \item $-45 = 11010011_2$ (กลับ bit แล้วบวก 1)
-\end{solsteps}
-ตรวจสอบ: $00101101 + 11010011 = 100000000_2 = 00000000_2$ (ลบ bit ซ้ายสุด)
+\begin{align*}
++45 &= (00101101)_2\\
+-45 &= (11010011)_2 \quad (\text{กลับบิตแล้วบวก 1})
+\end{align*}
+ตรวจสอบ: $(00101101)_2 + (11010011)_2 = (1\,00000000)_2 \equiv (00000000)_2$ (ตัดบิตทดซ้ายสุดทิ้ง) \solhere
 \end{solution}
 
 \begin{ex}
 หาค่าของ $11010011_2$ ในระบบ 2's complement 8 bits:
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item bit ซ้ายสุดคือ 1 ดังนั้นเป็นจำนวนลบ หาค่าสัมบูรณ์โดยกลับ bit แล้วบวก 1
-  \item $11010011 \rightarrow 00101100 \rightarrow 00101101_2 = 45$
-\end{solsteps}
-ดังนั้น $11010011_2 = -45$
+บิตซ้ายสุดเป็น 1 จึงเป็นจำนวนลบ หาค่าสัมบูรณ์โดยกลับบิตแล้วบวก 1
+\begin{align*}
+(11010011)_2 \xrightarrow{\text{กลับบิต}} (00101100)_2 \xrightarrow{+1} (00101101)_2 = 45
+\end{align*}
+$\therefore (11010011)_2 = -45$
 \end{solution}
 
 \begin{thrm}
@@ -713,13 +679,12 @@ $$00101101 + 11010010 = 11111111 = -0$$
     \item ค่าลบน้อยที่สุด คือ $-2^{n-1}$ (เช่น -128 ใน 8 bits)
     \item ไม่มี $-0$ เพราะ $-128$ ใช้ $10000000_2$
 \end{enumerate}
-\end{thrm}
 \label{thrm:twos-complement-range}
+\end{thrm}
 
 \section{การบวกและลบในฐานสิบหก}
 \zlabel{sec:hex-arithmetic}
 การบวกและลบในฐานสิบหกมีหลักการเหมือนกับฐานสิบทุกประการ แต่ตัวเลขสูงสุดในแต่ละหลักคือ $F$ (ค่า 15) แทนที่จะเป็น $9$ การบวกจึงต้องทดเมื่อผลลัพธ์เกิน $F$ ซึ่งเทียบเท่ากับการทดเมื่อผลบวกเกิน 9 ในฐานสิบ ความเข้าใจในการดำเนินการฐานสิบหกมีความสำคัญในการเขียนโปรแกรมระดับต่ำ การแก้ไขข้อมูลในหน่วยความจำ และการใช้เครื่องมือ debug
-\label{sec:hex-arithmetic}
 
 \begin{thrm}
 ถ้าผลบวกของแต่ละหลักเกิน $F_{16}$ ให้ทด 1 ไปหลักซ้าย และเขียนผลลัพธ์ลบ 16
@@ -732,25 +697,17 @@ $$00101101 + 11010010 = 11111111 = -0$$
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-  \item วางตัวตั้งและตัวบวกให้เรียงตามหลัก
-        \begin{align*}
-          & \ \ \ 3A5 \\
-          &+ \ 1F7
-        \end{align*}
-  \item หลักขวาสุด $5 + 7 = 12$ เขียน $C$ ไม่ทด
-  \item หลักที่สอง $A + F = 10 + 15 = 25 = 16 + 9$ เขียน $9$ ทด 1
-  \item หลักที่สาม $3 + 1 + \text{ทด}1 = 5$ เขียน $5$
-\end{solsteps}
-\begin{align*}
-  & \ \ \ 3A5 \\
-  &+ \ 1F7 \\
-  \hline
-  & \ 59C
-\end{align*}
-ดังนั้น $3A5_{16} + 1F7_{16} = 59C_{16}$
+\[
+\begin{array}{r}
+3A5 \\
++\,1F7 \\
+\hline
+59C
+\end{array}
+\]
+$\therefore (3A5)_{16} + (1F7)_{16} = (59C)_{16}$
 
-ตรวจสอบ: $3A5_{16} = 933_{10}$, $1F7_{16} = 503_{10}$, $59C_{16} = 1436_{10}$ ซึ่ง $933 + 503 = 1436 \checkmark$
+ตรวจสอบ: $(3A5)_{16} = 933_{10}$, $(1F7)_{16} = 503_{10}$, และ $933+503 = 1436 = (59C)_{16}$ \checkmark
 \end{solution}
 
 \begin{ex}
@@ -758,25 +715,17 @@ $$00101101 + 11010010 = 11111111 = -0$$
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-  \item วางตัวตั้งและตัวลบให้เรียงตามหลัก
-        \begin{align*}
-          & \ \ \ 9F2 \\
-          &- \ 3A4
-        \end{align*}
-  \item หลักขวาสุด $2 - 4$ ยืม 1 คือ $12 - 4 = 8$ เขียน $8$
-  \item หลักที่สอง $F - 1$ (ยืมไปแล้วลดเหลือ $E$) $- A = 14 - 10 = 4$ เขียน $4$
-  \item หลักที่สาม $9 - 3 = 6$ เขียน $6$
-\end{solsteps}
-\begin{align*}
-  & \ \ \ 9F2 \\
-  &- \ 3A4 \\
-  \hline
-  & \ 64E
-\end{align*}
-ดังนั้น $9F2_{16} - 3A4_{16} = 64E_{16}$
+\[
+\begin{array}{r}
+9F2 \\
+-\,3A4 \\
+\hline
+64E
+\end{array}
+\]
+$\therefore (9F2)_{16} - (3A4)_{16} = (64E)_{16}$
 
-ตรวจสอบ: $9F2_{16} = 2546_{10}$, $3A4_{16} = 932_{10}$, $64E_{16} = 1614_{10}$ ซึ่ง $2546 - 932 = 1614 \checkmark$
+ตรวจสอบ: $(9F2)_{16} = 2546_{10}$, $(3A4)_{16} = 932_{10}$, และ $2546-932 = 1614 = (64E)_{16}$ \checkmark
 \end{solution}
 
 \section{IEEE 754  การแทนทศนิยมในคอมพิวเตอร์}
@@ -793,20 +742,21 @@ $$00101101 + 11010010 = 11111111 = -0$$
 
 \subsection{โครงสร้างของ IEEE 754 Single Precision (32 bits)}
 \label{ssec:ieee-754-single-precision}
+มาตรฐาน IEEE 754 กำหนดวิธีเก็บจำนวนจริงในรูปเลขทศนิยมลอยตัว (floating point) โดยแบ่งบิตออกเป็นส่วน ๆ ที่มีหน้าที่ต่างกัน แบบ single precision ใช้ทั้งหมด 32 บิต
+
 \begin{definition}
 จำนวน single precision 32 bits แบ่งเป็น 3 ส่วน ดังนี้
-
 \begin{enumerate}
     \item \textbf{Sign (S)} คือ 1 bit เครื่องหมาย (0 = บวก, 1 = ลบ)
     \item \textbf{Exponent (E)} คือ 8 bits เลขยกกำลัง (biased)
     \item \textbf{Fraction (F)} คือ 23 bits ส่วนเศษ (mantissa)
 \end{enumerate}
-
-ค่าจริงคือ $(-1)^S \times 1.F \times 2^{E-127}$
-
-โดยที่ $S$ คือ sign bit กำหนดเครื่องหมายของจำนวน, $E$ คือ biased exponent ที่มี bias เท่ากับ 127 สำหรับ single precision และ $F$ คือ fraction (mantissa) ที่อยู่หลังจุดทศนิยม
+ค่าจริงของจำนวนคือ
+\[ (-1)^S \times 1.F \times 2^{E-127} \]
 \end{definition}
 \label{thrm:ieee-754-structure}
+
+โดยที่ $S$ คือ sign bit กำหนดเครื่องหมายของจำนวน, $E$ คือ biased exponent ซึ่งมี bias เท่ากับ 127 สำหรับ single precision และ $F$ คือ fraction (mantissa) ที่อยู่หลังจุดทศนิยม
 
 \begin{prop}
 เหตุผลที่ใช้ bias 127 สำหรับ single precision คือเพื่อให้ค่า exponent ที่เก็บเป็นจำนวนไม่ติดลบตั้งแต่ 0 ถึง 255 ทำให้การเปรียบเทียบทำได้ง่าย สำหรับ normalized numbers ค่า exponent field จะอยู่ในช่วง 1 ถึง 254 จึงทำให้ค่า exponent จริงอยู่ในช่วง $-126$ ถึง $+127$ ส่วนค่า exponent field 0 และ 255 สงวนไว้สำหรับ subnormal numbers, zero, infinity และ NaN
@@ -816,27 +766,28 @@ $$00101101 + 11010010 = 11111111 = -0$$
 จำนวน $3.14$ ในระบบ IEEE 754 single precision:
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item แปลงเป็นฐานสอง $3.14 \approx 11.00100011..._2$ โดยเป็นค่าประมาณ เพราะ $3.14$ ไม่สามารถแทนได้พอดีด้วยเศษส่วนฐานสองจำนวนจำกัด
-  \item Normalize: $1.100100011... \times 2^1$
-  \item Sign = 0
-  \item Exponent = $1 + 127 = 128 = 10000000_2$
-  \item Fraction = $100100011...$ (23 bits)
-\end{solsteps}
+\begin{align*}
+3.14 &\approx (11.00100011\ldots)_2 \quad (\text{ค่าประมาณ})\\
+     &= 1.100100011\ldots \times 2^{1} \quad (\text{normalize})\\
+S &= 0\\
+E &= 1 + 127 = 128 = (10000000)_2\\
+F &= 100100011\ldots \quad (\text{23 บิต})
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{ex}
 จำนวน $-0.5$ ในระบบ IEEE 754 single precision:
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item แปลงเป็นฐานสอง $0.5 = 0.1_2$
-  \item Normalize: $1.0 \times 2^{-1}$
-  \item Sign = 1 (ลบ)
-  \item Exponent = $-1 + 127 = 126 = 01111110_2$
-  \item Fraction = $00000000000000000000000_2$
-\end{solsteps}
-ดังนั้น $-0.5$ ใน IEEE 754 single precision คือ $10111111000000000000000000000000_2$ หรือ $BF000000_{16}$ (เขียนแบบโปรแกรมได้เป็น \texttt{0xBF000000})
+\begin{align*}
+0.5 &= (0.1)_2\\
+    &= 1.0 \times 2^{-1} \quad (\text{normalize})\\
+S &= 1 \quad (\text{ลบ})\\
+E &= -1 + 127 = 126 = (01111110)_2\\
+F &= (0\ldots0)_2 \quad (\text{23 บิต})
+\end{align*}
+$\therefore -0.5 = (10111111\,00000000000000000000000)_2 = (\mathrm{BF000000})_{16} = \texttt{0xBF000000}$
 \end{solution}
 
 \begin{rem}
@@ -846,6 +797,8 @@ $$00101101 + 11010010 = 11111111 = -0$$
 
 \subsection{Special Values ใน IEEE 754}
 \label{ssec:ieee-754-special-values}
+นอกจากการเก็บจำนวนปกติแล้ว IEEE 754 ยังสงวนรูปแบบบิตบางแบบไว้แทนค่าพิเศษ เช่น ศูนย์ อนันต์ และค่าที่ไม่ใช่จำนวน เพื่อให้การคำนวณจัดการกรณีขอบเขตได้อย่างสอดคล้องกัน
+
 \begin{definition}
 IEEE 754 กำหนดค่าพิเศษไว้ดังนี้
 
@@ -862,12 +815,13 @@ IEEE 754 กำหนดค่าพิเศษไว้ดังนี้
 ใน single precision:
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $+0 = 00000000\_00000000000000000000000_2$
-  \item $-0 = 10000000\_00000000000000000000000_2$
-  \item $+\infty = 01111111\_00000000000000000000000_2$
-  \item $-\infty = 11111111\_00000000000000000000000_2$
-\end{solsteps}
+\begin{align*}
++0      &= (00000000\ 00000000000000000000000)_2\\
+-0      &= (10000000\ 00000000000000000000000)_2\\
++\infty &= (01111111\ 00000000000000000000000)_2\\
+-\infty &= (11111111\ 00000000000000000000000)_2
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{rem}
@@ -918,11 +872,11 @@ ASCII แบ่งช่วงรหัสได้ดังนี้
 คำ "Hi" ใน ASCII hexadecimal:
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item 'H' = 0x48
-  \item 'i' = 0x69
-  \item ดังนั้น "Hi" = 0x4869
-\end{solsteps}
+\begin{align*}
+\text{'H'} &= \texttt{0x48}\\
+\text{'i'} &= \texttt{0x69}
+\end{align*}
+$\therefore$ ``Hi'' $= \texttt{0x4869}$ \solhere
 \end{solution}
 
 \begin{rem}
@@ -948,11 +902,11 @@ Unicode มีหลาย encoding:
 
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item 'ก' (U+0E01) = 0xE0 0xB8 0x81 (3 bytes)
-  \item 'ข' (U+0E02) = 0xE0 0xB8 0x82 (3 bytes)
-  \item ดังนั้นคำว่า "กข" = 0xE0B881E0B882
-\end{solsteps}
+\begin{align*}
+\text{'ก' (U+0E01)} &= \texttt{0xE0 0xB8 0x81} \quad (\text{3 ไบต์})\\
+\text{'ข' (U+0E02)} &= \texttt{0xE0 0xB8 0x82} \quad (\text{3 ไบต์})
+\end{align*}
+$\therefore$ ``กข'' $= \texttt{0xE0B881E0B882}$ \solhere
 \end{solution}
 
 \section{สรุป}

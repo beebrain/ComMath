@@ -8,25 +8,40 @@
 \usepackage{fancybox} % ใช้สำหรับวาดกรอบวงรีโดยไม่พึ่ง tikz
 
 %% ─────────────── New Macros for Examples ───────────────
-%% Macro สำหรับวงรีล้อมรอบสมการแบบไม่ใช้ tikz (ใช้ ovalbox แทน)
-\newcommand{\mathoval}[1]{%
-  \ovalbox{\ensuremath{\displaystyle #1}}%
+%% Macro สำหรับคำตอบ (ยกเลิกการวาดกรอบรูปสี่เหลี่ยม/วงรีล้อมรอบคำตอบ)
+\newcommand{\mathoval}[1]{\ensuremath{\displaystyle #1}}
+
+%% ─────────────── QED Symbol ───────────────
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+%% ─────────────── Solution Environment ───────────────
+%% \solhere = วาง ∎ บนบรรทัดปัจจุบัน (ใช้ท้าย \item สุดท้ายเมื่อ solution จบด้วย list/สมการ
+%% ไม่งั้น ∎ จะตกไปอยู่บรรทัดใหม่ชิดขวา) — ทำงานแบบเดียวกับ \qedhere ของ amsthm
+\newif\ifsolqed@done
+\newcommand{\solhere}{\unskip\nobreak\hfill\qedsymbol\global\solqed@donetrue}
+\newenvironment{solution}{%
+  \global\solqed@donefalse
+  \par\vspace{0.8em}%
+  \noindent\textbf{\color{black}วิธีทำ}\quad\ignorespaces
+}{%
+  \ifsolqed@done\else\hfill\qedsymbol\fi
+  \par\vspace{1em}%
+  \noindent\textcolor{gray!40}{\rule{\textwidth}{0.5pt}}%
+  \par\vspace{1.5em}%
 }
 
-%% Environment สำหรับขั้นตอนวิธีทำ
-\newcounter{solstepc}
+%% Environment สำหรับขั้นตอนวิธีทำ (ไม่ใช้ตัวเลขกำกับ)
 \newenvironment{solsteps}{%
   \vspace{0.1em}%
-  \begin{list}{\arabic{solstepc}.}{%
-    \usecounter{solstepc}%
-    \setlength{\topsep}{0.1em}
-    \setlength{\itemsep}{0.35em}
-    \setlength{\leftmargin}{1.7em}
-    \setlength{\labelwidth}{1.2em}
-    \setlength{\labelsep}{0.4em}
-  }
+  \begin{list}{}{%
+    \setlength{\topsep}{0.1em}%
+    \setlength{\itemsep}{0.35em}%
+    \setlength{\leftmargin}{0.8em}%
+    \setlength{\labelwidth}{0pt}%
+    \setlength{\labelsep}{0pt}%
+  }%
 }{%
-  \end{list}
+  \end{list}%
 }
 
 %% ─────────────── Color Palette (Muted Pastel Theme) ───────────────
@@ -70,7 +85,6 @@
   mathstylebase/.style={
     enhanced jigsaw,
     breakable,
-    drop fuzzy shadow,
     boxrule=0pt,          % Default no border
     arc=4pt,              % Rounded corners
     outer arc=4pt,
@@ -93,16 +107,27 @@
   bottomrule=0pt
 }
 
-%% ── นิยาม (definition) ──────────────────────────
-\tcolorboxenvironment{definition}{
-  mathstylebase,
-  colback=white,
-  coltitle=defTitle,
-  colframe=defBar,
-  toprule=4pt,
-  leftrule=4pt,
-  rightrule=0pt,
-  bottomrule=0pt
+%% ── นิยาม (definition) — กล่องแถบหัวเข้ม "บทนิยาม X.Y: ชื่อ" (สไตล์ prinmath) ──
+%% ใช้ตัวนับ thrm ร่วมกับ ทฤษฎีบท/ตัวอย่าง เลขจึงต่อเนื่องเหมือนเดิม; รองรับ \begin{definition}[ชื่อ]
+\newenvironment{definition}[1][]{%
+  \par\refstepcounter{defcnt}%
+  \def\@dsub{#1}%
+  \ifx\@dsub\@empty\def\@dttl{}\else\def\@dttl{\quad #1}\fi
+  \begin{tcolorbox}[
+    enhanced, breakable,
+    colback=white,
+    colframe=defBar,
+    boxrule=0.5pt,
+    arc=2pt, outer arc=2pt,
+    left=10pt, right=10pt, top=8pt, bottom=8pt,
+    before skip=12pt, after skip=12pt,
+    colbacktitle=defTitle,
+    coltitle=white,
+    fonttitle=\bfseries,
+    title={บทนิยาม~\thedefcnt\@dttl}
+  ]%
+}{%
+  \end{tcolorbox}%
 }
 
 %% ── ตัวอย่าง (ex) ───────────────────────────────
@@ -184,19 +209,6 @@
   left=10pt, right=10pt, top=6pt, bottom=6pt,
   before skip=8pt,
   after skip=8pt,
-}
-
-%% ─────────────── QED Symbol ───────────────
-\renewcommand{\qedsymbol}{$\blacksquare$}
-
-%% ─────────────── Solution Environment ───────────────
-\newenvironment{solution}{%
-  \par\vspace{0.8em}%
-  \noindent\textbf{\color{black}วิธีทำ}\quad\ignorespaces
-}{%
-  \par\vspace{1em}%
-  \noindent\textcolor{gray!40}{\rule{\textwidth}{0.5pt}}%
-  \par\vspace{1.5em}%
 }
 
 \endinput

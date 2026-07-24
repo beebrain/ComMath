@@ -41,11 +41,11 @@
 การแยกแยะระหว่างข้อความทั่วไปกับประพจน์ทางตรรกศาสตร์เป็นทักษะสำคัญที่ต้องใช้ในการกำหนดทฤษฎีและการเขียนโปรแกรม ประพจน์สามารถเป็นได้ทั้งความจริงทางวิทยาศาสตร์ ข้อเท็จจริงทางภูมิศาสตร์ สมการทางคณิตศาสตร์ หรือประโยคบอกเล่าที่มีความหมายแน่ชัดในตัวเอง หัวใจสำคัญคือเราสามารถตัดสินผลลัพธ์ของข้อมูลนำเข้าเหล่านี้ให้เป็นค่าความจริงจริงหรือเท็จได้อย่างแน่นอนโดยไม่ขึ้นอยู่กับทัศนคติส่วนบุคคล เพื่อให้เข้าใจแนวคิดของประพจน์อย่างชัดเจนยิ่งขึ้น พิจารณาตัวอย่างประพจน์ดังต่อไปนี้
 
 \begin{enumerate}
-    \item กรุงเทพมหานครเป็นเมืองหลวงของประเทศไทย ซึ่งประพจน์นี้เป็นจริง เนื่องจากกรุงเทพมหานครเป็นเมืองหลวงของประเทศไทยตามที่รับรองกันทั่วโลก ดังนั้นค่าความจริงของประพจน์นี้คือ จริง (T)
-    \item $2 + 2 = 5$ ซึ่งประพจน์นี้เป็นเท็จ เนื่องจากผลบวกของ 2 กับ 2 เท่ากับ 4 ไม่ใช่ 5 ดังนั้นค่าความจริงของประพจน์นี้คือ เท็จ (F)
-    \item $7 > 3$ ซึ่งประพจน์นี้เป็นจริง เนื่องจาก 7 มีค่ามากกว่า 3 อย่างชัดเจน ดังนั้นค่าความจริงคือ จริง (T)
-    \item จำนวนเฉพาะที่มากที่สุดมีอยู่จำนวนจำกัด ซึ่งประพจน์นี้เป็นเท็จ เนื่องจากพิสูจน์ได้ว่าจำนวนเฉพาะมีอยู่ไม่จำกัด ดังนั้นค่าความจริงคือ เท็จ (F)
-    \item ข้าวเป็นอาหารหลักของคนไทย ซึ่งประพจน์นี้เป็นจริง เนื่องจากข้าวเป็นอาหารหลักที่คนไทยบริโภคเป็นประจำทุกวัน ดังนั้นค่าความจริงคือ จริง (T)
+    \item "กรุงเทพมหานครเป็นเมืองหลวงของประเทศไทย" มีค่าความจริงเป็นจริง (T)
+    \item "$2 + 2 = 5$" มีค่าความจริงเป็นเท็จ (F) เนื่องจาก $2 + 2 = 4$
+    \item "$7 > 3$" มีค่าความจริงเป็นจริง (T)
+    \item "จำนวนเฉพาะมีจำนวนเป็นอนันต์" มีค่าความจริงเป็นจริง (T)
+    \item "ดาวอังคารเป็นดาวเคราะห์ในระบบสุริยะ" มีค่าความจริงเป็นจริง (T)
 \end{enumerate}
 
 จากตัวอย่างข้างต้นจะเห็นได้ว่า ประพจน์สามารถเกี่ยวกับข้อเท็จจริงทางคณิตศาสตร์ ภูมิศาสตร์ วิทยาศาสตร์ หรือข้อเท็จจริงทั่วไปก็ได้ โดยทุกประพจน์ต้องสามารถระบุค่าความจริงได้อย่างชัดเจน
@@ -116,22 +116,11 @@
 
 \subsection{ประพจน์เชื่อม (Conjunction / AND, $\land$)}
 
-ประพจน์เชื่อม (conjunction, AND) ใช้สัญลักษณ์ $\land$ ในทางตรรกศาสตร์ และใช้ในวงจรดิจิทัลว่า AND Gate ประพจน์ $p \land q$ อ่านว่า $p$ และ $q$ จะเป็นจริงก็ต่อเมื่อทั้ง $p$ และ $q$ เป็นจริงทั้งคู่ ถ้าตัวใดตัวหนึ่งเป็นเท็จ ผลลัพธ์จะเป็นเท็จทันที หลักการนี้เปรียบเทียบได้กับการทำงานของสวิตช์ไฟฟ้าที่ต้องปิดทั้งสองตัวจึงจะมีกระแสไหล
+ประพจน์เชื่อม (conjunction, AND) ใช้สัญลักษณ์ $\land$ ในทางตรรกศาสตร์ และใช้ในวงจรดิจิทัลว่า AND Gate ประพจน์ $p \land q$ อ่านว่า $p$ และ $q$ จะเป็นจริงก็ต่อเมื่อทั้ง $p$ และ $q$ เป็นจริงทั้งคู่ ถ้าตัวใดตัวหนึ่งเป็นเท็จ ผลลัพธ์จะเป็นเท็จทันที หลักการนี้เปรียบเทียบได้กับการทำงานของสวิตช์ไฟฟ้าแบบอนุกรม
 
-\begin{figure}[H]
+\begin{table}[H]
     \centering
-    \resizebox{0.7\textwidth}{!}{\input{Figures/tikz/02-and-gate-circuit}}
-    \caption{วงจรลอจิกเกต AND แสดงการทำงานของ $p \land q$}
-    \label{fig:and-gate-circuit}
-\end{figure}
-
-รูปที่ \ref{fig:and-gate-circuit} แสดงวงจรลอจิกเกต AND ที่มีสวิตช์สองตัวอนุกรมกัน เมื่อสวิตช์ทั้งคู่ปิด (T,T) ไฟจะติด แต่ถ้าสวิตช์ตัวใดตัวหนึ่งเปิด ไฟจะไม่ติด
-
-ประพจน์ $p \land q$ มีลักษณะเหมือนกับการใช้คำว่า และ ในภาษาพูด เช่น ฉันซื้อขนมและน้ำ หมายความว่าฉันซื้อขนมเป็นจริง และฉันซื้อน้ำเป็นจริงด้วย ถ้าฉันซื้อเฉพาะขนม ประโยคนี้ก็จะไม่เป็นจริง
-
-\begin{table}[h]
-    \centering
-    \caption{ตารางค่าความจริงของประพจน์เชื่อม (AND, $p \land q$)}
+    \caption{ประพจน์เชื่อม ($p \land q$)}
     \label{tab:and-truth}
     \begin{tabular}{|c|c|c|}
         \hline
@@ -143,21 +132,28 @@
     \end{tabular}
 \end{table}
 
-ตารางที่ \ref{tab:and-truth} แสดงให้เห็นว่า $p \land q$ เป็นจริงเพียงกรณีเดียว คือกรณีที่ $p$ และ $q$ ทั้งคู่เป็นจริง
+\bigskip
 
-ตัวอย่าง พิจารณาประพจน์ วันนี้ฝนตก และ พื้นถนนเปียก ถ้าทั้งสองประพจน์เป็นจริง คือฝนตกจริงและพื้นเปียกจริง ผลลัพธ์ก็จะเป็นจริง แต่ถ้าฝนตกจริงแต่พื้นไม่เปียก ผลลัพธ์ก็จะเป็นเท็จ
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/02-and-gate-circuit.png}
+    \caption{วงจรสวิตช์ไฟฟ้าแบบอนุกรม แสดงการทำงานของ $p \land q$}
+    \label{fig:and-gate-circuit}
+\end{figure}
+
+\noindent พิจารณาตัวอย่างค่าความจริงของการเชื่อมด้วยคำว่า ``และ'':
+\begin{align*}
+(2>1) \land (4<5) &\equiv \text{T} \land \text{T} \equiv \text{T}\\
+(2+2=5) \land (\text{คนปกติมี 6 ขา}) &\equiv \text{F} \land \text{F} \equiv \text{F}
+\end{align*}
 
 \subsection{ประพจน์เลือก (Disjunction / OR, $\lor$)}
 
 ประพจน์เลือก (disjunction, OR) ใช้สัญลักษณ์ $\lor$ ในทางตรรกศาสตร์ และใช้ในวงจรดิจิทัลว่า OR Gate ประพจน์ $p \lor q$ อ่านว่า $p$ หรือ $q$ จะเป็นจริงเมื่อมีอย่างน้อยหนึ่งใน $p$ หรือ $q$ เป็นจริง จะเป็นเท็จก็ต่อเมื่อทั้ง $p$ และ $q$ เป็นเท็จทั้งคู่ ต้องระวังว่า OR ในทางตรรกศาสตร์เป็น OR แบบรวม (Inclusive OR) ซึ่งรวมกรณีที่ทั้งคู่จริงด้วย
 
-ในภาษาพูด คำว่า หรือ อาจมีความหมายแบบแบ่ง (Exclusive OR, XOR) หรือแบบรวมก็ได้ ต้องพิจารณาบริบทประโยค ตัวอย่างเช่น ประโยค คุณสามารถเลือกชา หรือ กาแฟ อาจตีความได้ว่าเลือกได้อย่างใดอย่างหนึ่งเท่านั้น (Exclusive) หรือเลือกทั้งสองก็ได้ (Inclusive) ขึ้นกับบริบท
-
-
-
-\begin{table}[h]
+\begin{table}[H]
     \centering
-    \caption{ตารางค่าความจริงของประพจน์เลือก (OR, $p \lor q$)}
+    \caption{ประพจน์เลือก ($p \lor q$)}
     \label{tab:or-truth}
     \begin{tabular}{|c|c|c|}
         \hline
@@ -169,28 +165,28 @@
     \end{tabular}
 \end{table}
 
-ตารางที่ \ref{tab:or-truth} แสดงให้เห็นว่า $p \lor q$ เป็นเท็จเพียงกรณีเดียว คือกรณีที่ $p$ และ $q$ ทั้งคู่เป็นเท็จ
+\bigskip
 
 \begin{figure}[H]
     \centering
-    \resizebox{0.7\textwidth}{!}{\input{Figures/tikz/03-or-gate-circuit}}
-    \caption{วงจรลอจิกเกต OR แสดงการทำงานของ $p \lor q$}
+    \includegraphics[width=0.8\textwidth]{Figures/03-or-gate-circuit.png}
+    \caption{วงจรสวิตช์ไฟฟ้าแบบขนาน แสดงการทำงานของ $p \lor q$}
     \label{fig:or-gate-circuit}
 \end{figure}
 
-รูปที่ \ref{fig:or-gate-circuit} แสดงวงจรลอจิกเกต OR ที่มีสวิตช์สองตัวขนานกัน ถ้าตัวใดตัวหนึ่งปิด ไฟก็จะติด ต่างจาก AND ที่ต้องปิดทั้งคู่
-
-ตัวอย่าง พิจารณาประพจน์ ฉันจะไปกินข้าว หรือ ฉันจะไปดูหนัง ถ้าฉันไปกินข้าวเพียงอย่างเดียว ประพจน์ก็เป็นจริง ถ้าฉันไปดูหนังเพียงอย่างเดียว ประพจน์ก็เป็นจริง แต่ถ้าฉันไม่ไปทั้งสองอย่าง ประพจน์ก็จะเป็นเท็จ
+\noindent พิจารณาตัวอย่างค่าความจริงของการเชื่อมด้วยคำว่า ``หรือ'':
+\begin{align*}
+(\text{ประเทศไทยอยู่ในทวีปยุโรป}) \lor (2+5>4) &\equiv \text{F} \lor \text{T} \equiv \text{T}\\
+(2+2=5) \lor (\text{คนปกติมี 6 ขา}) &\equiv \text{F} \lor \text{F} \equiv \text{F}
+\end{align*}
 
 \subsection{นิเสธ (Negation / NOT, $\neg$)}
 
-นิเสธ (Negation) ใช้สัญลักษณ์ $\neg$ เป็นตัวเชื่อมเอกภาพ (Unary Connective) ที่กระทำกับประพจน์เพียงประพจน์เดียว $\neg p$ อ่านว่า ไม่ $p$ หรือ นิเสธของ $p$ การหานิเสธจะกลับค่าความจริงของประพจน์ ถ้า $p$ เป็นจริง $\neg p$ จะเป็นเท็จ และถ้า $p$ เป็นเท็จ $\neg p$ จะเป็นจริง
+นิเสธ (Negation) ใช้สัญลักษณ์ $\neg$ เป็นตัวเชื่อมเอกภาพ (Unary Connective) ที่กระทำกับประพจน์เพียงประพจน์เดียว $\neg p$ อ่านว่า ไม่ $p$ หรือ นิเสธของ $p$ การหานิเสธจะกลับค่าความจริงของประพจน์อย่างสมบูรณ์ ถ้า $p$ เป็นจริง $\neg p$ จะเป็นเท็จ และถ้า $p$ เป็นเท็จ $\neg p$ จะเป็นจริง
 
-นิเสธมีความสำคัญมากในการสร้างประพจน์ที่ซับซ้อน เนื่องจากเป็นเครื่องมือในการเปลี่ยนแปลงข้อความจากจริงเป็นเท็จ หรือจากเท็จเป็นจริง การใช้นิเสธอย่างถูกต้องเป็นพื้นฐานของการพิสูจน์ทางคณิตศาสตร์ โดยเฉพาะการพิสูจน์โดยข้อขัดแย้ง (Proof by Contradiction)
-
-\begin{table}[h]
+\begin{table}[H]
     \centering
-    \caption{ตารางค่าความจริงของนิเสธ ($\neg p$)}
+    \caption{นิเสธ ($\neg p$)}
     \label{tab:not-truth}
     \begin{tabular}{|c|c|}
         \hline
@@ -200,19 +196,13 @@
     \end{tabular}
 \end{table}
 
-ตารางที่ \ref{tab:not-truth} แสดงให้เห็นว่านิเสธกลับค่าความจริงอย่างสมบูรณ์
-
-ตัวอย่าง ถ้า $p$ คือประพจน์ วันนี้ฝนตก แล้ว $\neg p$ คือประพจน์ วันนี้ฝนไม่ตก ถ้าวันนี้ฝนตกจริง $p$ จะเป็นจริงและ $\neg p$ จะเป็นเท็จ แต่ถ้าวันนี้ฝนไม่ตก $p$ จะเป็นเท็จและ $\neg p$ จะเป็นจริง
-
 \subsection{ประพจน์มีเงื่อนไข (Conditional / IMPLIES, $\rightarrow$)}
 
-ประพจน์มีเงื่อนไข (conditional, IMPLIES) ใช้สัญลักษณ์ $\rightarrow$ เป็นตัวเชื่อมที่มีความหมายละเอียดอ่อนที่สุดในบรรดาตัวเชื่อมทั้งหมด ประพจน์ $p \rightarrow q$ อ่านว่า ถ้า $p$ แล้ว $q$ หรือ $p$ implies $q$ โดย $p$ เรียกว่า เงื่อนไขนำ (Antecedent หรือ Hypothesis) และ $q$ เรียกว่า เงื่อนไขตาม (Consequent หรือ Conclusion)
+ประพจน์มีเงื่อนไข (conditional, IMPLIES) ใช้สัญลักษณ์ $\rightarrow$ ประพจน์ $p \rightarrow q$ อ่านว่า ถ้า $p$ แล้ว $q$ โดย $p$ เรียกว่า เงื่อนไขนำ (Antecedent) และ $q$ เรียกว่า เงื่อนไขตาม (Consequent) ค่าความจริงของ $p \rightarrow q$ จะเป็นเท็จเพียงกรณีเดียวคือ เมื่อเงื่อนไขนำ $p$ เป็นจริงแต่เงื่อนไขตาม $q$ เป็นเท็จ
 
-ค่าความจริงของ $p \rightarrow q$ กำหนดดังนี้ จะเป็นเท็จเพียงกรณีเดียวคือ เมื่อ $p$ เป็นจริงแต่ $q$ เป็นเท็จ ในกรณีอื่นๆ ทั้งหมด คือ ถ้า $p$ เป็นเท็จ ไม่ว่า $q$ จะเป็นอะไร $p \rightarrow q$ จะเป็นจริง หรือถ้า $p$ และ $q$ ทั้งคู่เป็นจริง $p \rightarrow q$ ก็จะเป็นจริง หลักการนี้อาจดูไม่สอดคล้องกับสัญชาตญาณในบางครั้ง แต่เป็นนิยามมาตรฐานในทางตรรกศาสตร์ ทั้งนี้ หลักการที่ว่าเมื่อเงื่อนไขนำเป็นเท็จแล้วประพจน์ทั้งหมดจะเป็นจริง อธิบายได้ว่าเมื่อเงื่อนไขนำไม่เกิดขึ้น เงื่อนไขจึงไม่ถูกละเมิดและถือว่าเป็นจริงโดยปริยาย~\cite{mendelson2015introduction}
-
-\begin{table}[h]
+\begin{table}[H]
     \centering
-    \caption{ตารางค่าความจริงของประพจน์มีเงื่อนไข (IMPLIES, $p \rightarrow q$)}
+    \caption{ประพจน์มีเงื่อนไข ($p \rightarrow q$)}
     \label{tab:implies-truth}
     \begin{tabular}{|c|c|c|}
         \hline
@@ -224,35 +214,29 @@
     \end{tabular}
 \end{table}
 
-ตารางที่ \ref{tab:implies-truth} แสดงให้เห็นว่า $p \rightarrow q$ เป็นเท็จเพียงกรณีเดียวที่แถวที่สอง
+\bigskip
 
 \begin{figure}[H]
     \centering
-    \resizebox{0.7\textwidth}{!}{\input{Figures/tikz/04-implication-truth}}
-    \caption{ตารางค่าความจริงของ Implication $p \rightarrow q$ แสดงกรณีที่เป็นเท็จเพียงเมื่อ $p=T$ แต่ $q=F$}
+    \includegraphics[width=0.8\textwidth]{Figures/04-implication-truth.png}
+    \caption{ตารางค่าความจริงของ Implication $p \rightarrow q$ แสดงกรณีที่เป็นเท็จเพียงเมื่อ $p=\text{T}$ แต่ $q=\text{F}$}
     \label{fig:implication-truth}
 \end{figure}
 
-รูปที่ \ref{fig:implication-truth} แสดงตารางค่าความจริงของ $p \rightarrow q$ พร้อมระบุว่า antecedent คือเงื่อนไขนำ และ consequent คือเงื่อนไขตาม
-
-ตัวอย่าง พิจารณาประพจน์ ถ้าฝนตกแล้วพื้นถนนจะเปียก
-
-\begin{enumerate}
-    \item ฝนตก (T) และ พื้นเปียก (T) หมายความว่าฝนตกจริงและพื้นเปียกจริงตามที่คาดหมาย ผลลัพธ์คือ จริง
-    \item ฝนตก (T) แต่ พื้นไม่เปียก (F) หมายความว่าฝนตกจริงแต่พื้นไม่เปียกผิดคาด ผลลัพธ์คือ เท็จ
-    \item ฝนไม่ตก (F) และ พื้นเปียก (T) หมายความว่าฝนไม่ตกแต่พื้นเปียกจากสาเหตุอื่น เงื่อนไขนำไม่เกิดขึ้นจึงไม่ถูกละเมิด ผลลัพธ์คือ จริง
-    \item ฝนไม่ตก (F) และ พื้นไม่เปียก (F) หมายความว่าฝนไม่ตกและพื้นไม่เปียกตามปกติ เงื่อนไขนำไม่เกิดขึ้นจึงไม่ถูกละเมิด ผลลัพธ์คือ จริง
-\end{enumerate}
-
-หลักการจำ จำได้ง่ายว่า $p \rightarrow q$ จะเท็จเพียงเมื่อ จริงแต่ไม่จริง (T $\rightarrow$ F เท่านั้น)
+\noindent พิจารณาตัวอย่างค่าความจริงของประพจน์มีเงื่อนไข:
+\begin{align*}
+(\text{เป็นคนปกติ}) \rightarrow (\text{มี 2 ตา}) &\equiv \text{T} \rightarrow \text{T} \equiv \text{T}\\
+(\text{เป็นคนปกติ}) \rightarrow (\text{มี 6 ขา}) &\equiv \text{T} \rightarrow \text{F} \equiv \text{F}\\
+(\text{หมูบินได้}) \rightarrow (\text{สอบได้ที่หนึ่ง}) &\equiv \text{T} \quad (\text{เงื่อนไขนำเป็นเท็จ})
+\end{align*}
 
 \subsection{ประพจน์เงื่อนไขสองทาง (Biconditional / IFF, $\leftrightarrow$)}
 
-ประพจน์เงื่อนไขสองทาง (biconditional, IFF) ใช้สัญลักษณ์ $\leftrightarrow$ ประพจน์ $p \leftrightarrow q$ อ่านว่า ``$p$ ก็ต่อเมื่อ $q$'' (อาจอ่านอีกแบบว่า ``$p$ เมื่อและเฉพาะเมื่อ $q$'') หมายความว่า $p$ และ $q$ มีค่าความจริงเหมือนกัน ทั้งคู่จริงหรือทั้งคู่เท็จนั่นเอง IFF สามารถมองได้ว่าเป็นการรวมกันของ $p \rightarrow q$ และ $q \rightarrow p$ ซึ่งหมายความว่าทั้งสองเงื่อนไขต้องเป็นจริงพร้อมกัน
+ประพจน์เงื่อนไขสองทาง (biconditional, IFF) ใช้สัญลักษณ์ $\leftrightarrow$ ประพจน์ $p \leftrightarrow q$ อ่านว่า ``$p$ ก็ต่อเมื่อ $q$'' หมายความว่า $p$ และ $q$ มีค่าความจริงเหมือนกัน (จริงทั้งคู่หรือเท็จทั้งคู่) IFF เป็นการรวมกันของ $p \rightarrow q$ และ $q \rightarrow p$ ซึ่งสมมูลกับ $(p \rightarrow q) \land (q \rightarrow p)$
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
-    \caption{ตารางค่าความจริงของประพจน์เงื่อนไขสองทาง (IFF, $p \leftrightarrow q$)}
+    \caption{เงื่อนไขสองทาง ($p \leftrightarrow q$)}
     \label{tab:iff-truth}
     \begin{tabular}{|c|c|c|}
         \hline
@@ -264,9 +248,14 @@
     \end{tabular}
 \end{table}
 
-ตารางที่ \ref{tab:iff-truth} แสดงให้เห็นว่า $p \leftrightarrow q$ จะจริงเมื่อ $p$ และ $q$ มีค่าเหมือนกัน
+\bigskip
 
-ตัวอย่าง พิจารณาประพจน์ ฉันจะไปงานเลี้ยง ก็ต่อเมื่อ คุณไปงานเลี้ยงด้วย ประพจน์นี้เป็นจริงก็ต่อเมื่อทั้งสองคนไปงานเลี้ยงหรือทั้งสองคนไม่ไปงานเลี้ยง ถ้าคนหนึ่งไปอีกคนไม่ไป ประพจน์จะเป็นเท็จ
+\noindent พิจารณาตัวอย่างค่าความจริงของการเชื่อมด้วยคำว่า ``ก็ต่อเมื่อ'':
+\begin{align*}
+(2+2=4) \leftrightarrow (3<5) &\equiv \text{T} \leftrightarrow \text{T} \equiv \text{T}\\
+(2+2=5) \leftrightarrow (\text{คนปกติมี 6 ขา}) &\equiv \text{F} \leftrightarrow \text{F} \equiv \text{T}\\
+(2+2=4) \leftrightarrow (\text{คนปกติมี 6 ขา}) &\equiv \text{T} \leftrightarrow \text{F} \equiv \text{F}
+\end{align*}
 
 \noindent ในทางตรรกศาสตร์ การเชื่อมแบบก็ต่อเมื่อมีความสัมพันธ์อย่างใกล้ชิดกับการเชื่อมแบบถ้า...แล้วสองทิศทาง กล่าวคือ $p \leftrightarrow q$ สมมูลกับ $(p \rightarrow q) \land (q \rightarrow p)$ ความสมมูลนี้มีความสำคัญในการพิสูจน์ทางคณิตศาสตร์และการแปลงประพจน์เชิงตรรกศาสตร์
 
@@ -309,7 +298,7 @@ p \leftrightarrow q \equiv (p \rightarrow q) \land (q \rightarrow p)
     &\equiv \text{T} \rightarrow \text{F} \\
     &\equiv \text{F}
 \end{align*}
-ดังนั้น ประพจน์มีค่าความจริงเป็น \mathoval{\text{เท็จ (F)}}
+ดังนั้น ประพจน์มีค่าความจริงเป็น เท็จ (F)
 \end{solution}
 
 \section{สัจนิรันดร์และข้อขัดแย้ง}
@@ -327,6 +316,7 @@ p \leftrightarrow q \equiv (p \rightarrow q) \land (q \rightarrow p)
 สำหรับประพจน์กลาง (Contingency) คือ ประพจน์เชิงประกอบที่มีค่าความจริงเป็นจริงบ้างและเป็นเท็จบ้าง ขึ้นอยู่กับค่าของตัวแปรย่อย ประพจน์ส่วนใหญ่ในชีวิตจริงเป็นประพจน์กลาง
 
 \subsection{สัจนิรันดร์ (Tautology)}
+ประพจน์เชิงประกอบบางรูปแบบให้ค่าความจริงเป็นจริงทุกแถวของตารางค่าความจริง ไม่ว่าจะแทนค่าตัวแปรย่อยด้วยจริงหรือเท็จอย่างไร ประพจน์ลักษณะนี้เรียกว่าสัจนิรันดร์
 
 \begin{definition}[สัจนิรันดร์]
 \index{สัจนิรันดร์!นิยาม}
@@ -374,22 +364,18 @@ p \leftrightarrow q \equiv (p \rightarrow q) \land (q \rightarrow p)
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-    \item สมมติให้ $\sqrt{2}$ เป็นจำนวนตรรกยะ
-    \item $\sqrt{2} = \frac{a}{b}$ \quad (โดยที่ $a, b \in \mathbb{Z}$, $b \neq 0$ และ $\gcd(a,b)=1$)
-    \item $2 = \frac{a^2}{b^2}$ \quad (ยกกำลังสองทั้งสองข้าง)
-    \item $a^2 = 2b^2 \Rightarrow a^2$ เป็นจำนวนคู่
-    \item $a$ เป็นจำนวนคู่ \quad $\Rightarrow$ ให้ $a = 2c$ สำหรับ $c \in \mathbb{Z}$ บางตัว
-    \item $(2c)^2 = 2b^2 \Rightarrow 4c^2 = 2b^2 \Rightarrow b^2 = 2c^2$
-    \item $b^2$ เป็นจำนวนคู่ \quad $\Rightarrow$ $b$ เป็นจำนวนคู่
-    \item $a$ และ $b$ เป็นจำนวนคู่ทั้งคู่ \quad $\Rightarrow$ ขัดแย้งกับ $\gcd(a,b)=1$
-    \item \mathoval{\sqrt{2} \text{ เป็นจำนวนอตรรกยะ}}
-\end{solsteps}
+สมมติในทางตรงข้ามว่า $\sqrt{2}$ เป็นจำนวนตรรกยะ จะเขียนได้เป็น $\sqrt{2} = \dfrac{a}{b}$ โดย $a,b \in \mathbb{Z}$, $b \neq 0$ และ $\gcd(a,b)=1$
+\begin{align*}
+\sqrt{2} = \frac{a}{b} \ &\Rightarrow\ 2 = \frac{a^2}{b^2} \ \Rightarrow\ a^2 = 2b^2 \quad (a^2 \text{ คู่} \Rightarrow a \text{ คู่})\\
+a = 2c \ &\Rightarrow\ (2c)^2 = 2b^2 \ \Rightarrow\ b^2 = 2c^2 \quad (b^2 \text{ คู่} \Rightarrow b \text{ คู่})
+\end{align*}
+แต่ $a$ และ $b$ เป็นจำนวนคู่ทั้งคู่ ขัดแย้งกับ $\gcd(a,b)=1$ ดังนั้นข้อสมมติเป็นเท็จ จึงสรุปว่า $\sqrt{2}$ เป็นจำนวนอตรรกยะ \solhere
 \end{solution}
 
 การพิสูจน์นี้ใช้หลักการว่า ถ้า $\neg P$ นำไปสู่ข้อขัดแย้ง แสดงว่า $P$ เป็นจริง
 
 \subsection{ข้อขัดแย้ง (Contradiction)}
+ในทางกลับกัน ประพจน์เชิงประกอบบางรูปแบบให้ค่าความจริงเป็นเท็จทุกแถวของตารางค่าความจริง ไม่ว่าจะแทนค่าตัวแปรย่อยอย่างไร ประพจน์ลักษณะนี้เรียกว่าข้อขัดแย้ง
 
 \begin{definition}[ข้อขัดแย้ง]
 \index{ข้อขัดแย้ง!นิยาม}
@@ -499,7 +485,7 @@ p \leftrightarrow q \equiv (p \rightarrow q) \land (q \rightarrow p)
 &\equiv \neg p \land T \quad \text{(กฎนิเสธ)} \\
 &\equiv \neg p \quad \text{(กฎเอกลักษณ์)}
 \end{align*}
-ดังนั้น $\neg(p \lor q) \lor (\neg p \land q) \equiv \mathoval{\neg p}$
+ดังนั้น $\neg(p \lor q) \lor (\neg p \land q) \equiv \neg p$
 \end{solution}
 
 \subsection{ประพจน์กลับ ประพจน์ผกผัน และประพจน์แย้งสลับที่ (Converse, Inverse, Contrapositive)}
@@ -575,7 +561,7 @@ p \oplus q \equiv (p \lor q) \land \neg(p \land q) \equiv (p \land \neg q) \lor 
 
 \begin{figure}[H]
     \centering
-    \resizebox{0.75\textwidth}{!}{\input{Figures/tikz/09-xor-logic}}
+    \includegraphics[width=0.85\textwidth]{Figures/09-xor-logic.png}
     \caption{ตารางค่าความจริงและสัญลักษณ์ของลอจิกเกต XOR}
     \label{fig:xor-logic}
 \end{figure}
@@ -667,11 +653,12 @@ p \downarrow q &\equiv \neg(p \lor q) \quad \text{(NOR, Peirce arrow)}
 \end{enumerate}
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $\forall x\,(x^2 \geq 0)$ เป็นจริง เพราะกำลังสองของจำนวนจริงใด ๆ ไม่ติดลบ
-  \item $\exists x\,(x^2 = 4)$ เป็นจริง เพราะมี $x = 2$ (หรือ $x = -2$) ที่ทำให้เป็นจริง
-  \item $\forall x\,(x^2 = 4)$ เป็นเท็จ เพราะมีบางค่า เช่น $x = 0$ ที่ทำให้ $x^2 = 0 \neq 4$
-\end{solsteps}
+\begin{align*}
+\forall x\,(x^2 \geq 0) &\equiv \text{T} \quad (\text{กำลังสองของจำนวนจริงใด ๆ ไม่ติดลบ})\\
+\exists x\,(x^2 = 4) &\equiv \text{T} \quad (\text{เช่น } x = 2)\\
+\forall x\,(x^2 = 4) &\equiv \text{F} \quad (\text{ตัวอย่างค้าน } x = 0:\ 0 \neq 4)
+\end{align*}
+\solhere
 \end{solution}
 
 ข้อสังเกตสำคัญคือ การแสดงว่า $\forall x\,P(x)$ เป็นเท็จ ทำได้โดยยกตัวอย่างค้าน (counter-example) เพียงตัวเดียว ส่วนการแสดงว่า $\exists x\,P(x)$ เป็นจริง ก็ทำได้โดยยกตัวอย่างที่ใช้ได้เพียงตัวเดียวเช่นกัน
@@ -701,52 +688,11 @@ p \downarrow q &\equiv \neg(p \lor q) \quad \text{(NOR, Peirce arrow)}
 
 การอนุมานมีหลายรูปแบบ แต่ละรูปแบบมีชื่อเรียกเฉพาะและมีการใช้งานที่แตกต่างกัน การเข้าใจรูปแบบต่างๆ ของการอนุมานมีความสำคัญอย่างยิ่งในการให้เหตุผลอย่างมีตรรกะและการเขียนโปรแกรมคอมพิวเตอร์
 
-การที่การอนุมานจะถือว่าสมเหตุสมผลนั้น ประพจน์เชิงประกอบที่เกิดจากการเชื่อมข้อตั้งต้นทั้งหมดด้วย AND แล้วตามด้วย IMPLIES ไปยังผลสรุป ต้องเป็นสัจนิรันดร์ กล่าวคือ สำหรับ Modus Ponens ประพจน์ $(p \rightarrow q) \land p \rightarrow q$ ต้องเป็นสัจนิรันดร์ และสำหรับ Modus Tollens ประพจน์ $(p \rightarrow q) \land \neg q \rightarrow \neg p$ ต้องเป็นสัจนิรันดร์ ทั้งสองประพจน์นี้สามารถพิสูจน์ได้โดยใช้ตารางค่าความจริง
+การที่การอนุมานจะถือว่าสมเหตุสมผลนั้น ประพจน์เชิงประกอบที่เกิดจากการเชื่อมข้อตั้งต้นทั้งหมดด้วยตัวเชื่อม และ ($\land$) แล้วส่งไปยังผลสรุปด้วยตัวเชื่อม ถ้า...แล้ว ($\rightarrow$) จะต้องเป็น \textbf{สัจนิรันดร์ (Tautology)} เสมอ เช่น สำหรับ Modus Ponens ประพจน์ $[(p \rightarrow q) \land p] \rightarrow q$ ต้องเป็นสัจนิรันดร์ และสำหรับ Modus Tollens ประพจน์ $[(p \rightarrow q) \land \neg q] \rightarrow \neg p$ ต้องเป็นสัจนิรันดร์ ซึ่งสามารถพิสูจน์ความสมเหตุสมผลได้ด้วยตารางค่าความจริงในแต่ละหัวข้อย่อยต่อไปนี้
 
-\begin{prop}[ความสมเหตุสมผลของ Modus Ponens]
-\index{Modus Ponens!ความสมเหตุสมผล}
-ประพจน์ $(p \rightarrow q) \land p \rightarrow q$ เป็นสัจนิรันดร์ ดังนั้นการอนุมานแบบ Modus Ponens จึงสมเหตุสมผล
-\end{prop}
-
-\begin{table}[h]
-    \centering
-    \caption{ตารางพิสูจน์ความสมเหตุสมผลของ Modus Ponens}
-    \label{tab:modus-ponens-valid}
-    \begin{tabular}{|c|c|c|c|c|c|}
-        \hline
-        \textbf{$p$} & \textbf{$q$} & \textbf{$p \rightarrow q$} & \textbf{$(p \rightarrow q) \land p$} & \textbf{$(p \rightarrow q) \land p \rightarrow q$} & \textbf{ผล} \\ \hline
-        T & T & T & T & T & T \\ \hline
-        T & F & F & F & T & T \\ \hline
-        F & T & T & F & T & T \\ \hline
-        F & F & T & F & T & T \\ \hline
-    \end{tabular}
-\end{table}
-
-ตารางที่ \ref{tab:modus-ponens-valid} แสดงให้เห็นว่าคอลัมน์สุดท้ายมีค่า T ทุกแถว จึงเป็นสัจนิรันดร์ตามที่ต้องการพิสูจน์
-
-\begin{prop}[ความสมเหตุสมผลของ Modus Tollens]
-\index{Modus Tollens!ความสมเหตุสมผล}
-ประพจน์ $(p \rightarrow q) \land \neg q \rightarrow \neg p$ เป็นสัจนิรันดร์ ดังนั้นการอนุมานแบบ Modus Tollens จึงสมเหตุสมผล
-\end{prop}
-
-\begin{table}[h]
-    \centering
-    \caption{ตารางพิสูจน์ความสมเหตุสมผลของ Modus Tollens}
-    \label{tab:modus-tollens-valid}
-    \begin{tabular}{|c|c|c|c|c|c|c|}
-        \hline
-        \textbf{$p$} & \textbf{$q$} & \textbf{$\neg p$} & \textbf{$\neg q$} & \textbf{$p \rightarrow q$} & \textbf{$(p \rightarrow q) \land \neg q$} & \textbf{$(p \rightarrow q) \land \neg q \rightarrow \neg p$} \\ \hline
-        T & T & F & F & T & F & T \\ \hline
-        T & F & F & T & F & T & T \\ \hline
-        F & T & T & F & T & F & T \\ \hline
-        F & F & T & T & T & T & T \\ \hline
-    \end{tabular}
-\end{table}
-
-ตารางที่ \ref{tab:modus-tollens-valid} แสดงให้เห็นว่าคอลัมน์สุดท้ายมีค่า T ทุกแถว จึงเป็นสัจนิรันดร์ตามที่ต้องการพิสูจน์
-
-\subsection{กฎการยืนยัน (Modus Ponens)}
+\subsection{กฎโมดัส โพเนนส์ (Modus Ponens)}
 \index{Modus Ponens}
+\index{โมดัส โพเนนส์}
 
 Modus Ponens หรือ การยืนยัน เป็นรูปแบบการอนุมานที่ใช้บ่อยที่สุดในการให้เหตุผล มีรูปแบบดังนี้
 
@@ -760,12 +706,43 @@ Modus Ponens หรือ การยืนยัน เป็นรูปแ�
 
 \begin{figure}[H]
     \centering
-    \resizebox{0.75\textwidth}{!}{\input{Figures/tikz/07-modus-ponens}}
+    \includegraphics[width=0.85\textwidth]{Figures/07-modus-ponens.png}
     \caption{แผนผังแสดงกฎการอนุมานแบบ Modus Ponens}
     \label{fig:modus-ponens}
 \end{figure}
 
-รูปที่ \ref{fig:modus-ponens} แสดงรูปแบบของ Modus Ponens ว่าถ้า $p \rightarrow q$ และ $p$ เป็นจริง แล้ว $q$ ต้องเป็นจริง
+รูปที่ \ref{fig:modus-ponens} แสดงโครงสร้างการอนุมานแบบ Modus Ponens (ละติน: \textit{Modus Ponendo Ponens}) ซึ่งเป็นกฎการอนุมานพื้นฐานในตรรกศาสตร์สัญลักษณ์
+
+\subsubsection{โครงสร้างเชิงตรรกศาสตร์ของ Modus Ponens}
+การอนุมานแบบ Modus Ponens ประกอบด้วยข้อตั้งต้น (Premises) 2 ประพจน์ และข้อสรุป (Conclusion) 1 ประพจน์
+\begin{enumerate}
+    \item ข้อตั้งต้นหลัก (Major Premise) คือประพจน์เงื่อนไข $p \rightarrow q$ ซึ่งระบุความสัมพันธ์ว่าถ้าเงื่อนไขนำ $p$ เกิดขึ้น แล้วเงื่อนไขตาม $q$ จะเกิดตามมา
+    \item ข้อตั้งต้นรอง (Minor Premise) คือประพจน์ยืนยันข้อเท็จจริง $p$ ว่าเงื่อนไขนำเกิดขึ้นจริง ($p = T$)
+    \item ข้อสรุป (Conclusion) สามารถสรุปผลได้อย่างแน่ชัดว่า $q$ เกิดขึ้นจริง ($\therefore q$)
+\end{enumerate}
+
+\subsubsection{การพิสูจน์ความสมเหตุสมผลด้วยตารางค่าความจริง (Tautology Proof)}
+การอนุมานแบบ Modus Ponens มีความสมเหตุสมผล (Valid) เนื่องจากรูปแบบประพจน์รวม
+\begin{equation}
+[(p \rightarrow q) \land p] \rightarrow q
+\end{equation}
+เป็น \textbf{สัจนิรันดร์ (Tautology)} ซึ่งสามารถพิสูจน์ได้ด้วยตารางค่าความจริงดังตารางที่ \ref{tab:modus-ponens-valid}
+
+\begin{table}[H]
+    \centering
+    \caption{ตารางค่าความจริงพิสูจน์ความสมเหตุสมผลของ Modus Ponens}
+    \label{tab:modus-ponens-valid}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        $p$ & $q$ & $p \rightarrow q$ & $(p \rightarrow q) \land p$ & $[(p \rightarrow q) \land p] \rightarrow q$ \\ \hline
+        \textbf{T} & \textbf{T} & \textbf{T} & \textbf{T} & \textbf{T} \\ \hline
+        \textbf{T} & \textbf{F} & \textbf{F} & \textbf{F} & \textbf{T} \\ \hline
+        \textbf{F} & \textbf{T} & \textbf{T} & \textbf{F} & \textbf{T} \\ \hline
+        \textbf{F} & \textbf{F} & \textbf{T} & \textbf{F} & \textbf{T} \\ \hline
+    \end{tabular}
+\end{table}
+
+จากตารางที่ \ref{tab:modus-ponens-valid} จะเห็นว่าคอลัมน์สุดท้ายมีค่าความจริงเป็นจริง (T) ในทุกกรณีที่เป็นไปได้ จึงยืนยันได้อย่างเด็ดขาดว่าการให้เหตุผลแบบ Modus Ponens เป็นการอนุมานที่สมเหตุสมผล 100\%
 
 \begin{ex}[การอนุมานแบบ Modus Ponens]
 จงหาผลสรุปจากการให้เหตุผลต่อไปนี้ตามหลักเหตุผลทางตรรกศาสตร์
@@ -776,15 +753,19 @@ Modus Ponens หรือ การยืนยัน เป็นรูปแ�
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-    \item ให้ $p \equiv \text{ฝนตก}$ และ $q \equiv \text{พื้นถนนเปียก}$
-    \item เหตุ 1 คือ $p \rightarrow q$
-    \item เหตุ 2 คือ $p$
-    \item \mathoval{\therefore q \equiv \text{พื้นถนนเปียก}}
-\end{solsteps}
+กำหนด $p \equiv \text{ฝนตก}$, $q \equiv \text{พื้นถนนเปียก}$
+\[
+\begin{array}{r@{\quad}l}
+\text{เหตุ 1} & p \rightarrow q\\
+\text{เหตุ 2} & p\\
+\hline
+\therefore & q
+\end{array}
+\]
+นั่นคือ $q \equiv \text{พื้นถนนเปียก}$ \solhere
 \end{solution}
 
-จากตัวอย่างจะเห็นว่า เมื่อทราบว่าถ้าฝนตกแล้วพื้นถนนจะเปียก และฝนตกจริง จึงสรุปได้อย่างแน่นอนว่าพื้นถนนเปียก
+จากตัวอย่างจะเห็นว่า เมื่อทราบว่าถ้าฝนตกแล้วพื้นถนนจะเปียก และทราบข้อเท็จจริงว่าฝนตกจริง จึงสรุปได้อย่างแน่ชัดว่าพื้นถนนเปียก
 
 \begin{ex}[การอนุมานแบบ Modus Ponens]
 จงหาผลสรุปจากการให้เหตุผลต่อไปนี้ตามหลักเหตุผลทางตรรกศาสตร์
@@ -795,15 +776,24 @@ Modus Ponens หรือ การยืนยัน เป็นรูปแ�
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-    \item ให้ $p \equiv \text{คนรักษาสัญญา}$ และ $q \equiv \text{ได้รับความเชื่อถือ}$
-    \item เหตุ 1 คือ $p \rightarrow q$
-    \item เหตุ 2 คือ $p$
-    \item \mathoval{\therefore q \equiv \text{นาย ก ได้รับความเชื่อถือ}}
-\end{solsteps}
+กำหนด $p \equiv \text{คนรักษาสัญญา}$, $q \equiv \text{ได้รับความเชื่อถือ}$
+\[
+\begin{array}{r@{\quad}l}
+\text{เหตุ 1} & p \rightarrow q\\
+\text{เหตุ 2} & p\\
+\hline
+\therefore & q
+\end{array}
+\]
+นั่นคือ $q \equiv \text{นาย ก ได้รับความเชื่อถือ}$ \solhere
 \end{solution}
 
-Modus Ponens เป็นเครื่องมือสำคัญในการเขียนโปรแกรมคอมพิวเตอร์ เช่น คำสั่ง if (condition) \{ execute\_action(); \} ทำงานบนหลักการเดียวกับ Modus Ponens คือถ้าเงื่อนไขเป็นจริง แล้วกระทำการที่กำหนด
+\subsubsection{การประยุกต์ใช้ในทางวิทยาการคอมพิวเตอร์และปัญญาประดิษฐ์}
+กฎ Modus Ponens เป็นหัวใจสำคัญของโครงสร้างคำสั่งและการประมวลผลในวิทยาการคอมพิวเตอร์ เช่น
+\begin{itemize}
+    \item \textbf{คำสั่งเลือกทำตามเงื่อนไข (Control Flow Statements)} ในการเขียนโปรแกรมด้วยภาษาคอมพิวเตอร์ (เช่น C++, Java, Python) คำสั่งประเภท \texttt{if (condition) \{ action(); \}} อาศัยหลักการของ Modus Ponens โดยตรง กล่าวคือ หากหน่วยประมวลผล (CPU) ตรวจสอบแล้วพบว่าข้อตั้งต้น $p$ (\texttt{condition}) เป็นจริง ($T$) โปรแกรมจะทำการส่งลำดับการทำงานไปประมวลผลคำสั่ง $q$ (\texttt{action()}) ทันที
+    \item \textbf{ระบบผู้เชี่ยวชาญและการอนุมานไปข้างหน้า (Forward Chaining in Expert Systems)} ในระบบปัญญาประดิษฐ์แบบอิงกฎ (Rule-Based AI Systems) กลไกการอนุมาน (Inference Engine) จะใช้ Modus Ponens ในการนำข้อเท็จจริงเข้ากระทำกับกฎในฐานความรู้ (Knowledge Base Rules $p \rightarrow q$) เพื่อสร้างข้อสรุปใหม่ๆ ขึ้นมาอย่างเป็นระบบ
+\end{itemize}
 
 \subsection{กฎการปฏิเสธ (Modus Tollens)}
 \index{Modus Tollens}
@@ -812,20 +802,43 @@ Modus Tollens หรือ การปฏิเสธ เป็นรูปแ�
 
 \begin{figure}[H]
     \centering
-    \resizebox{0.75\textwidth}{!}{\input{Figures/tikz/08-modus-tollens}}
+    \includegraphics[width=0.85\textwidth]{Figures/08-modus-tollens.png}
     \caption{แผนผังแสดงกฎการอนุมานแบบ Modus Tollens}
     \label{fig:modus-tollens}
 \end{figure}
 
-รูปที่ \ref{fig:modus-tollens} แสดงรูปแบบของ Modus Tollens ว่าถ้า $p \rightarrow q$ และ $\neg q$ เป็นจริง แล้ว $\neg p$ ต้องเป็นจริง
+รูปที่ \ref{fig:modus-tollens} แสดงโครงสร้างการอนุมานแบบ Modus Tollens (ละติน: \textit{Modus Tollendo Tollens} แปลว่า ``วิธีแห่งการปฏิเสธเพื่อสรุปผล'') ซึ่งใช้การปฏิเสธเงื่อนไขตามเพื่อสรุปปฏิเสธเงื่อนไขนำ
 
+\subsubsection{โครงสร้างเชิงตรรกศาสตร์ของ Modus Tollens}
+การอนุมานแบบ Modus Tollens ประกอบด้วยข้อตั้งต้น 2 ประพจน์ และข้อสรุป 1 ประพจน์
 \begin{enumerate}
-    \item ถ้า $p$ แล้ว $q$ โดยมีข้อตั้งต้นที่ 1
-    \item $\neg q$ และข้อตั้งต้นที่ 2
-    \item $\therefore \neg p$ ผลสรุปคือ
+    \item ข้อตั้งต้นหลัก (Major Premise) คือประพจน์เงื่อนไข $p \rightarrow q$ (ถ้าเกิด $p$ แล้วจะเกิด $q$)
+    \item ข้อตั้งต้นรอง (Minor Premise) คือประพจน์ปฏิเสธเงื่อนไขตาม $\neg q$ (ปรากฏว่า $q$ ไม่เกิดขึ้นจริง)
+    \item ข้อสรุป (Conclusion) สามารถสรุปผลได้อย่างแน่ชัดว่าเงื่อนไขนำต้องไม่เกิดขึ้นจริง ($\therefore \neg p$)
 \end{enumerate}
 
-อ่านได้ว่า ถ้า $p$ แล้ว $q$ และ $q$ เป็นเท็จ แล้ว $p$ ต้องเป็นเท็จ หลักการคือถ้าผลลัพธ์ไม่เกิดขึ้น แสดงว่าเงื่อนไขนำไม่น่าจะเกิดขึ้น ต้องระวังว่าการสรุปว่า $p$ เป็นเท็จเป็นการสรุปที่สมเหตุสมผล แต่ในทางวิทยาศาสตร์ต้องระวังว่าอาจมีสาเหตุอื่นที่ทำให้ $q$ ไม่เกิดขึ้น
+\subsubsection{การพิสูจน์ความสมเหตุสมผลด้วยตารางค่าความจริง (Tautology Proof)}
+การอนุมานแบบ Modus Tollens มีความสมเหตุสมผลเนื่องจากรูปแบบประพจน์รวม
+\begin{equation}
+[(p \rightarrow q) \land \neg q] \rightarrow \neg p
+\end{equation}
+เป็น \textbf{สัจนิรันดร์ (Tautology)} ดังแสดงในตารางที่ \ref{tab:modus-tollens-valid}
+
+\begin{table}[H]
+    \centering
+    \caption{ตารางค่าความจริงพิสูจน์ความสมเหตุสมผลของ Modus Tollens}
+    \label{tab:modus-tollens-valid}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        $p$ & $q$ & $\neg p$ & $\neg q$ & $p \rightarrow q$ & $(p \rightarrow q) \land \neg q$ & $[(p \rightarrow q) \land \neg q] \rightarrow \neg p$ \\ \hline
+        \textbf{T} & \textbf{T} & \textbf{F} & \textbf{F} & \textbf{T} & \textbf{F} & \textbf{T} \\ \hline
+        \textbf{T} & \textbf{F} & \textbf{F} & \textbf{T} & \textbf{F} & \textbf{F} & \textbf{T} \\ \hline
+        \textbf{F} & \textbf{T} & \textbf{T} & \textbf{F} & \textbf{T} & \textbf{F} & \textbf{T} \\ \hline
+        \textbf{F} & \textbf{F} & \textbf{T} & \textbf{T} & \textbf{T} & \textbf{T} & \textbf{T} \\ \hline
+    \end{tabular}
+\end{table}
+
+จากตารางที่ \ref{tab:modus-tollens-valid} จะเห็นว่าคอลัมน์สุดท้ายมีค่าความจริงเป็นจริง (T) ในทุกกรณี การอนุมานแบบ Modus Tollens จึงสมเหตุสมผล 100\%
 
 \begin{ex}[การอนุมานแบบ Modus Tollens]
 จงหาผลสรุปจากการให้เหตุผลต่อไปนี้ตามหลักเหตุผลทางตรรกศาสตร์
@@ -836,12 +849,16 @@ Modus Tollens หรือ การปฏิเสธ เป็นรูปแ�
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-    \item ให้ $p \equiv \text{ฝนตก}$ และ $q \equiv \text{พื้นถนนเปียก}$
-    \item เหตุ 1 คือ $p \rightarrow q$
-    \item เหตุ 2 คือ $\neg q$
-    \item \mathoval{\therefore \neg p \equiv \text{ฝนไม่ตก}}
-\end{solsteps}
+กำหนด $p \equiv \text{ฝนตก}$, $q \equiv \text{พื้นถนนเปียก}$
+\[
+\begin{array}{r@{\quad}l}
+\text{เหตุ 1} & p \rightarrow q\\
+\text{เหตุ 2} & \neg q\\
+\hline
+\therefore & \neg p
+\end{array}
+\]
+นั่นคือ $\neg p \equiv \text{ฝนไม่ตก}$ \solhere
 \end{solution}
 
 จากตัวอย่างจะเห็นว่า เมื่อทราบว่าถ้าฝนตกแล้วพื้นถนนจะเปียก และพื้นถนนไม่เปียก จึงสรุปได้ว่าฝนไม่ตก ทั้งนี้ต้องพิจารณาว่าอาจมีสาเหตุอื่นที่ทำให้พื้นเปียกได้ เช่น รดน้ำต้นไม้
@@ -855,13 +872,24 @@ Modus Tollens หรือ การปฏิเสธ เป็นรูปแ�
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-    \item ให้ $p \equiv \text{สัตว์เป็นสุนัข}$ และ $q \equiv \text{เป็นสัตว์เลี้ยงลูกด้วยนม}$
-    \item เหตุ 1 คือ $p \rightarrow q$
-    \item เหตุ 2 คือ $\neg q$
-    \item \mathoval{\therefore \neg p \equiv \text{สัตว์ตัวนี้ไม่ใช่สุนัข}}
-\end{solsteps}
+กำหนด $p \equiv \text{สัตว์เป็นสุนัข}$, $q \equiv \text{เป็นสัตว์เลี้ยงลูกด้วยนม}$
+\[
+\begin{array}{r@{\quad}l}
+\text{เหตุ 1} & p \rightarrow q\\
+\text{เหตุ 2} & \neg q\\
+\hline
+\therefore & \neg p
+\end{array}
+\]
+นั่นคือ $\neg p \equiv \text{สัตว์ตัวนี้ไม่ใช่สุนัข}$ \solhere
 \end{solution}
+
+\subsubsection{การประยุกต์ใช้ในทางวิทยาการคอมพิวเตอร์และซอฟต์แวร์}
+กฎ Modus Tollens มีบทบาทสำคัญในการทดสอบซอฟต์แวร์และการค้นหาข้อผิดพลาด (Debugging \& Fault Isolation) เช่น
+\begin{itemize}
+    \item \textbf{การทดสอบหน่วย (Unit Testing Verification)} หากกำหนดข้อตั้งต้นว่า ``ถ้าอัลกอริทึมทำงานถูกต้อง ($p$) แล้วจะได้ผลลัพธ์ $q$'' แต่เมื่อทดสอบ (Unit Test) พบว่าผลลัพธ์ที่ได้ไม่ใช่ $q$ ($\neg q$) นักพัฒนาสามารถสรุปด้วยกฎ Modus Tollens ได้ทันทีว่าอัลกอริทึมมีความผิดพลาดหรือมีบักเกิดขึ้น ($\neg p$)
+    \item \textbf{การอนุมานย้อนกลับในระบบปัญญาประดิษฐ์ (Backward Chaining)} ในระบบสืบค้นและวินิจฉัยปัญหา (Diagnostic Expert Systems) กลไกจะใช้ Modus Tollens ในการตัดสาเหตุที่ไม่เกี่ยวข้องออก เมื่อผลลัพธ์อันไม่พึงประสงค์ไม่ได้เกิดขึ้น
+\end{itemize}
 
 \subsection{การอ้างเหตุผลแบบมีเงื่อนไข (Hypothetical Syllogism)}
 \index{Hypothetical Syllogism}
@@ -885,12 +913,16 @@ Hypothetical Syllogism หรือ การอ้างเหตุผลแ�
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-    \item ให้ $p \equiv \text{ฝนตก}$, $q \equiv \text{ถนนเปียก}$, $r \equiv \text{รถจะลื่น}$
-    \item เหตุ 1 คือ $p \rightarrow q$
-    \item เหตุ 2 คือ $q \rightarrow r$
-    \item \mathoval{\therefore p \rightarrow r \equiv \text{ถ้าฝนตก แล้วรถจะลื่น}}
-\end{solsteps}
+กำหนด $p \equiv \text{ฝนตก}$, $q \equiv \text{ถนนเปียก}$, $r \equiv \text{รถจะลื่น}$
+\[
+\begin{array}{r@{\quad}l}
+\text{เหตุ 1} & p \rightarrow q\\
+\text{เหตุ 2} & q \rightarrow r\\
+\hline
+\therefore & p \rightarrow r
+\end{array}
+\]
+นั่นคือ $p \rightarrow r \equiv \text{ถ้าฝนตก แล้วรถจะลื่น}$ \solhere
 \end{solution}
 
 ตัวอย่างนี้แสดงให้เห็นว่าสามารถเชื่อมโยงเงื่อนไขหลายข้อเข้าด้วยกันเพื่อสร้างเงื่อนไขใหม่ที่ซับซ้อนขึ้น
@@ -919,12 +951,16 @@ Disjunctive Syllogism หรือ การอ้างเหตุผลแบ
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-    \item ให้ $p \equiv \text{นาย ก อยู่บ้าน}$ และ $q \equiv \text{นาย ก อยู่ที่ทำงาน}$
-    \item เหตุ 1 คือ $p \lor q$
-    \item เหตุ 2 คือ $\neg q$
-    \item \mathoval{\therefore p \equiv \text{นาย ก อยู่บ้าน}}
-\end{solsteps}
+กำหนด $p \equiv \text{นาย ก อยู่บ้าน}$, $q \equiv \text{นาย ก อยู่ที่ทำงาน}$
+\[
+\begin{array}{r@{\quad}l}
+\text{เหตุ 1} & p \lor q\\
+\text{เหตุ 2} & \neg q\\
+\hline
+\therefore & p
+\end{array}
+\]
+นั่นคือ $p \equiv \text{นาย ก อยู่บ้าน}$ \solhere
 \end{solution}
 
 ในการเขียนโปรแกรม Disjunctive Syllogism สามารถใช้ในการตรวจสอบสถานะและการตัดสินใจ เช่น ถ้า error flag เป็น E1 หรือ E2 และตรวจพบว่า error flag ไม่ใช่ E1 แล้ว error flag ต้องเป็น E2
@@ -945,16 +981,20 @@ Disjunctive Syllogism หรือ การอ้างเหตุผลแบ
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-    \item $I \equiv \text{ผู้สมัครมีรายได้สูงกว่า 50,000 บาทต่อเดือน}$
-    \item $D \equiv \text{ผู้สมัครมีหนี้ค้างชำระ}$
-    \item $A \equiv \text{ผู้สมัครได้รับอนุมัติสินเชื่อ}$
-    \item $P \equiv \text{ต้องพิจารณาเพิ่มเติม}$
-    \item $N \equiv \text{ไม่ได้รับอนุมัติสินเชื่อ}$
-    \item $A \equiv I \land \neg D$ \quad (จากเงื่อนไขที่ 1)
-    \item $P \equiv I \land D$ \quad (จากเงื่อนไขที่ 2)
-    \item $N \equiv \neg I$ \quad (จากเงื่อนไขที่ 3)
-\end{solsteps}
+กำหนดประพจน์
+\begin{align*}
+I &\equiv \text{ผู้สมัครมีรายได้สูงกว่า 50,000 บาทต่อเดือน}\\
+D &\equiv \text{ผู้สมัครมีหนี้ค้างชำระ}\\
+A &\equiv \text{ได้รับอนุมัติสินเชื่อ}\\
+P &\equiv \text{ต้องพิจารณาเพิ่มเติม}\\
+N &\equiv \text{ไม่ได้รับอนุมัติสินเชื่อ}
+\end{align*}
+จากเงื่อนไขทั้งสามเขียนประพจน์เชิงประกอบได้เป็น
+\begin{align*}
+A &\equiv I \land \neg D \quad (\text{เงื่อนไข 1})\\
+P &\equiv I \land D \quad (\text{เงื่อนไข 2})\\
+N &\equiv \neg I \quad (\text{เงื่อนไข 3})
+\end{align*}
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -969,9 +1009,7 @@ $I$ & $D$ & $A$ & $P$ & $N$ & ผลการตัดสินใจ \\
 \end{tabular}
 \end{center}
 
-\begin{solsteps}
-    \item \mathoval{A \equiv I \land \neg D,\quad P \equiv I \land D,\quad N \equiv \neg I}
-\end{solsteps}
+จากตารางค่าความจริง ระบบจะอนุมัติเมื่อ $I \land \neg D$ เป็นจริง, พิจารณาเพิ่มเติมเมื่อ $I \land D$ และไม่อนุมัติเมื่อ $\neg I$ \solhere
 \end{solution}
 
 ในการวิเคราะห์ประพจน์เชิงประกอบที่ซับซ้อน การใช้ตารางค่าความจริงเป็นวิธีการที่เป็นระบบและแม่นยำในการตรวจสอบความสมมูลหรือความถูกต้องของประพจน์ การพิสูจน์ด้วยตารางค่าความจริงอาจใช้เวลานานหากประพจน์มีตัวแปรหลายตัว แต่ให้ผลลัพธ์ที่แน่นอนและตรวจสอบได้
@@ -1012,7 +1050,7 @@ p \rightarrow q \equiv \neg p \lor q
 \label{tab:implies-equiv-proof}
     \begin{tabular}{|c|c|c|c|c|c|}
         \hline
-        \textbf{$p$} & \textbf{$q$} & \textbf{$p \rightarrow q$} & \textbf{$\neg p$} & \textbf{$\neg p \lor q$} & \textbf{สมมูล?} \\ \hline
+        \textbf{$p$} & \textbf{$q$} & \textbf{$p \rightarrow q$} & \textbf{$\neg p$} & \textbf{$\neg p \lor q$} & \textbf{การสมมูลกัน} \\ \hline
         T & T & T & F & T & \checkmark \\ \hline
         T & F & F & F & F & \checkmark \\ \hline
         F & T & T & T & T & \checkmark \\ \hline

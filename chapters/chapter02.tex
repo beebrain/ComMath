@@ -3,6 +3,8 @@
 
 \section{บทนำ  ความเป็นมาและความสำคัญของทฤษฎีเซต}
 
+หัวข้อนี้กล่าวถึงจุดกำเนิดของทฤษฎีเซตในงานของ Georg Cantor และเหตุผลที่ทฤษฎีเซตกลายเป็นภาษาพื้นฐานของคณิตศาสตร์และวิทยาการคอมพิวเตอร์
+
 \subsection{ประวัติและที่มาของทฤษฎีเซต}
 ทฤษฎีเซต (Set Theory) เป็นรากฐานทางคณิตศาสตร์ที่ Georg Cantor (1845--1918) นักคณิตศาสตร์ชาวเยอรมัน พัฒนาขึ้นในช่วงปลายศตวรรษที่ 19 งานของ Cantor เปลี่ยนแนวทางการศึกษาคณิตศาสตร์ เพราะก่อนหน้านั้นยังไม่มีใครศึกษาธรรมชาติของความไม่สิ้นสุด (infinity) อย่างจริงจัง
 
@@ -39,11 +41,15 @@ Cantor เริ่มศึกษาเรื่องเซตเมื่อ�
 ในชีวิตประจำวัน เรามักจัดกลุ่มของสิ่งต่างๆ อยู่เสมอ เช่น "กลุ่มเพื่อนสนิท" "กลุ่มวิชาที่ชอบ" "กลุ่มของใช้บนโต๊ะ" ในทางคณิตศาสตร์ เราเรียกกลุ่มของสิ่งต่างๆ ว่า "เซต" และเรียกสิ่งที่อยู่ในกลุ่มว่า "สมาชิก"
 
 \subsection{นิยามของเซตและสมาชิก}
+เมื่อเราจัดกลุ่มสิ่งต่าง ๆ เข้าด้วยกัน เราต้องมีวิธีบอกอย่างชัดเจนว่าสิ่งใด ``อยู่ในกลุ่ม'' หรือ ``ไม่อยู่ในกลุ่ม'' แนวคิดนี้นำไปสู่นิยามของเซตและสมาชิก ซึ่งเป็นพื้นฐานของทุกเรื่องในบทนี้
+
 \begin{definition}
-\textbf{เซต (Set)} คือ กลุ่มของวัตถุที่มีคุณสมบัติร่วมกันหรือมีการระบุไว้อย่างชัดเจน โดยเรียกวัตถุแต่ละชิ้นว่า \textbf{สมาชิก (Element)} ของเซต ถ้า $a$ เป็นสมาชิกของเซต $A$ เขียนแทนด้วย $a \in A$ อ่านว่า "$a$ เป็นสมาชิกของ $A$" ถ้า $a$ ไม่เป็นสมาชิกของ $A$ เขียนแทนด้วย $a \notin A$ อ่านว่า "$a$ ไม่เป็นสมาชิกของ $A$" สัญลักษณ์ $\in$ มาจากภาษากรีก "epsilon" ($\varepsilon$) ซึ่ง Cantor นำมาใช้เพื่อแสดงการ "เป็นสมาชิกของ" (element of) ความสัมพันธ์ $a \in A$ เป็นความสัมพันธ์ระหว่างวัตถุกับเซต ไม่ใช่ความสัมพันธ์ระหว่างเซตกับเซต~\cite{lipschutz1998settheory}
+\textbf{เซต (Set)} คือกลุ่มของวัตถุที่มีคุณสมบัติร่วมกันหรือระบุไว้อย่างชัดเจน โดยเรียกวัตถุแต่ละชิ้นว่า \textbf{สมาชิก (Element)} ของเซต ถ้า $a$ เป็นสมาชิกของเซต $A$ เขียนแทนด้วย $a \in A$ อ่านว่า ``$a$ เป็นสมาชิกของ $A$'' และถ้า $a$ ไม่เป็นสมาชิกของ $A$ เขียนแทนด้วย $a \notin A$
 \label{def:set-membership}
 \label{rem:epsilon-symbol}
 \end{definition}
+
+สัญลักษณ์ $\in$ มาจากอักษรกรีก epsilon ($\varepsilon$) ซึ่งคันทอร์นำมาใช้แทนความหมาย ``เป็นสมาชิกของ'' (element of) ข้อควรสังเกตคือความสัมพันธ์ $a \in A$ เป็นความสัมพันธ์ระหว่างวัตถุกับเซต ไม่ใช่ความสัมพันธ์ระหว่างเซตกับเซต~\cite{lipschutz1998settheory}
 
 \begin{ex}
 พิจารณาตัวอย่างต่อไปนี้ซึ่งแสดงเซตในบริบทที่แตกต่างกัน
@@ -82,14 +88,15 @@ Cantor เริ่มศึกษาเรื่องเซตเมื่อ�
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-  \item $3 \in \{1, 2, 3, 4, 5\}$ เป็นจริง เพราะ 3 อยู่ในเซต
-  \item $7 \in \{1, 2, 3, 4, 5\}$ เป็นเท็จ เพราะ 7 ไม่อยู่ในเซต
-  \item $\sqrt{2} \in \mathbb{Q}$ เป็นเท็จ เพราะ $\sqrt{2}$ เป็นจำนวนอตรรกยะ
-  \item $\sqrt{2} \in \mathbb{R}$ เป็นจริง เพราะ $\sqrt{2}$ เป็นจำนวนจริง
-  \item $0.75 \in \mathbb{Q}$ เป็นจริง เพราะ $0.75 = \frac{3}{4}$
-  \item $0.\overline{3} \in \mathbb{Q}$ เป็นจริง เพราะ $0.\overline{3} = \frac{1}{3}$
-\end{solsteps}
+\begin{align*}
+3 \in \{1,2,3,4,5\} &\equiv \text{T}\\
+7 \in \{1,2,3,4,5\} &\equiv \text{F}\\
+\sqrt{2} \in \mathbb{Q} &\equiv \text{F} \quad (\sqrt{2} \text{ เป็นจำนวนอตรรกยะ})\\
+\sqrt{2} \in \mathbb{R} &\equiv \text{T}\\
+0.75 \in \mathbb{Q} &\equiv \text{T} \quad (0.75 = \tfrac{3}{4})\\
+0.\overline{3} \in \mathbb{Q} &\equiv \text{T} \quad (0.\overline{3} = \tfrac{1}{3})
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{rem}
@@ -97,7 +104,7 @@ Cantor เริ่มศึกษาเรื่องเซตเมื่อ�
 \end{rem}
 
 \subsection{วิธีการเขียนเซต}
-มี 2 วิธีหลักในการเขียนเซต ดังนี้
+เซตเดียวกันสามารถเขียนแทนได้มากกว่าหนึ่งวิธี การเลือกวิธีเขียนขึ้นอยู่กับจำนวนสมาชิกและลักษณะของเซต ถ้าเซตมีสมาชิกไม่มากและระบุได้ครบทุกตัว การเขียนไล่สมาชิกออกมาโดยตรงจะชัดเจนที่สุด แต่ถ้าเซตมีสมาชิกจำนวนมากหรือมีจำนวนไม่สิ้นสุดจนไล่ไม่หมด เราจะอธิบายเซตด้วยเงื่อนไขที่สมาชิกทุกตัวต้องมีร่วมกันแทน ด้วยเหตุนี้ วิธีเขียนเซตที่ใช้กันจึงมี 2 แบบหลัก ดังนี้
 
 \textbf{1. แจกแจงสมาชิก (Roster Method)} — เขียนสมาชิกทั้งหมดภายในวงเล็บปีกกา $\{\}$ โดยคั่นด้วยเครื่องหมายจุลภาค วิธีนี้เหมาะกับเซตที่มีจำนวนสมาชิกน้อยและสามารถระบุได้ทั้งหมด
 
@@ -125,13 +132,24 @@ $A = \{1, 2, 3\}$ แสดงเซตที่มีสมาชิกสา�
 
 
 \subsection{เซตพิเศษ}
+ในบรรดาเซตทั้งหมด มีบางเซตที่ปรากฏซ้ำ ๆ ในเกือบทุกหัวข้อจนคณิตศาสตร์กำหนดชื่อและสัญลักษณ์เฉพาะไว้ให้ การรู้จักเซตเหล่านี้ช่วยให้เขียนนิยามและพิสูจน์ได้กระชับและสื่อความตรงกัน หัวข้อนี้จะแนะนำเซตพิเศษที่ใช้บ่อยที่สุด
+
+\begin{definition}
+เซตพิเศษที่ใช้บ่อย ได้แก่
+\begin{enumerate}
+    \item \textbf{เซตว่าง (Empty Set)} เขียนแทนด้วย $\emptyset$ หรือ $\{\quad\}$ คือเซตที่ไม่มีสมาชิก
+    \item \textbf{เซตที่มีสมาชิกตัวเดียว (Singleton Set)} คือเซตที่มีสมาชิกเพียงตัวเดียว เช่น $\{5\}$, $\{a\}$, $\{\emptyset\}$
+    \item \textbf{เอกภพสัมพัทธ์ (Universal Set)} เขียนแทนด้วย $U$ คือเซตของสมาชิกทั้งหมดที่พิจารณาในบริบทหนึ่ง
+    \item \textbf{เซตจำกัด (Finite Set)} คือเซตที่มีจำนวนสมาชิกจำกัด ส่วน \textbf{เซตอนันต์ (Infinite Set)} คือเซตที่มีจำนวนสมาชิกไม่สิ้นสุด เช่น $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$
+\end{enumerate}
+\label{def:special-sets}
+\end{definition}
+
+เซตว่างมีสมบัติที่ควรจำคือเป็นเซตย่อยของทุกเซต เขียนได้ว่า $\emptyset \subseteq A$ สำหรับทุกเซต $A$ เหตุผลคือข้อความ ``สมาชิกทุกตัวของ $\emptyset$ อยู่ใน $A$'' เป็นจริงโดยปริยาย (vacuous truth) เพราะ $\emptyset$ ไม่มีสมาชิกที่จะขัดกับเงื่อนไขได้ ส่วนเอกภพสัมพัทธ์ $U$ ทำหน้าที่เป็นกรอบกำหนดขอบเขตของสมาชิกที่นำมาพิจารณา การเลือก $U$ ต่างกันจะส่งผลต่อการดำเนินการบางอย่าง เช่น คอมพลีเมนต์ ดังจะเห็นในหัวข้อถัดไป
+
 \begin{rem}
 \textbf{ความเข้าใจผิดที่พบบ่อย:} $\emptyset$ คือเซตที่ไม่มีสมาชิกเลย แต่ $\{\emptyset\}$ คือเซตที่มีสมาชิก 1 ตัว คือ $\emptyset$ ดังนั้น $\emptyset \neq \{\emptyset\} \neq \{\{\emptyset\}\}$ และ $|\emptyset| = 0$, $|\{\emptyset\}| = 1$
 \end{rem}
-
-\begin{definition}
-เซตพิเศษที่สำคัญ ได้แก่ (1) \textbf{เซตว่าง (Empty Set)} เขียนแทนด้วย $\emptyset$ หรือ $\{\quad\}$ คือเซตที่ไม่มีสมาชิกเลย (2) \textbf{Singleton Set} คือเซตที่มีสมาชิกเพียงตัวเดียว เช่น $\{5\}$, $\{a\}$, $\{\emptyset\}$ (3) \textbf{Universal Set} เขียนแทนด้วย $U$ คือเซตที่ประกอบด้วยสมาชิกทุกตัวที่สนใจในบริบทหนึ่ง เช่น ในการศึกษาเรื่องจำนวน $\mathbb{R}$ อาจเป็น Universal Set เป็นเหมือน "กรอบอ้างอิง" ที่กำหนดขอบเขตของการพิจารณา นอกจากนี้ เซตจำกัด (Finite Set) คือเซตที่มีจำนวนสมาชิกจำกัด ในขณะที่ $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$ เป็น \textbf{เซตอนันต์ (Infinite Set)} ที่มีจำนวนสมาชิกไม่สิ้นสุด และเซตว่างเป็นเซตย่อยของทุกเซต: $\emptyset \subseteq A$ สำหรับทุกเซต $A$ เพราะ "ทุกสมาชิกของ $\emptyset$ มีคุณสมบัติ P" เป็นจริงโดย vacuous truth
-\end{definition}
 
 \begin{rem}
 \textbf{ความเข้าใจผิดที่พบบ่อย:} $\emptyset \in \{\emptyset\}$ เป็นจริง เพราะ $\emptyset$ เป็นสมาชิกของ $\{\emptyset\}$ แต่ $\emptyset \subseteq \{\emptyset\}$ ก็เป็นจริงด้วย (เซตว่างเป็นเซตย่อยของทุกเซต) แสดงว่า $\in$ (เป็นสมาชิก) และ $\subseteq$ (เป็นเซตย่อย) เป็นความสัมพันธ์ที่ต่างกัน แต่สามารถเป็นจริงทั้งคู่พร้อมกันได้
@@ -141,15 +159,14 @@ $A = \{1, 2, 3\}$ แสดงเซตที่มีสมาชิกสา�
 เพื่อเข้าใจความแตกต่างระหว่าง $\in$ และ $\subseteq$: $1 \in \{1, 2, 3\}$ ถูกต้อง แต่ $\{1\} \in \{1, 2, 3\}$ ไม่ถูกต้อง ส่วน $\{1\} \subseteq \{1, 2, 3\}$ ถูกต้องเพราะทุกสมาชิกของ $\{1\}$ (คือ 1) อยู่ใน $\{1, 2, 3\}$ และ $\emptyset \subseteq \{1, 2, 3\}$ ถูกต้อง (เซตว่างเป็นเซตย่อยของทุกเซต) แต่ $\emptyset \in \{1, 2, 3\}$ ไม่ถูกต้อง สรุปคือ $\in$ และ $\subseteq$ เป็นความสัมพันธ์ที่ต่างกันแต่สามารถเป็นจริงทั้งคู่พร้อมกันได้ และในชีวิตจริง: ฐานข้อมูลนักศึกษา $U$ = นักศึกษาทั้งหมด, $A$ = นักศึกษาคณิตศาสตร์, $B$ = นักศึกษาฟิสิกส์ แล้ว $A \cap B$ = นักศึกษาที่เรียนทั้งสองวิชา
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $\in$ (element of) เป็นความสัมพันธ์ระหว่างสมาชิกกับเซต: $1 \in \{1, 2, 3\}$ หมายถึง "1 เป็นสมาชิกของเซต $\{1, 2, 3\}$" --- ถูกต้อง
-  \item $\{1\} \in \{1, 2, 3\}$ หมายถึง "เซต $\{1\}$ เป็นสมาชิกของเซต $\{1, 2, 3\}$" --- ไม่ถูกต้อง เพราะ $\{1\}$ ไม่ใช่สมาชิกของ $\{1, 2, 3\}$ (1, 2, 3 เป็นสมาชิก ไม่ใช่ $\{1\}$)
-  \item $\subseteq$ (subset of) เป็นความสัมพันธ์ระหว่างเซตกับเซต: $\{1\} \subseteq \{1, 2, 3\}$ หมายถึง "ทุกสมาชิกของ $\{1\}$ อยู่ใน $\{1, 2, 3\}$" --- ถูกต้อง
-  \item $\emptyset \subseteq \{1, 2, 3\}$ ถูกต้อง เพราะเซตว่างเป็นเซตย่อยของทุกเซต (vacuously true)
-  \item $\emptyset \in \{1, 2, 3\}$ ไม่ถูกต้อง เพราะ $\emptyset$ ไม่ใช่สมาชิกของ $\{1, 2, 3\}$
-  \item สรุปได้ว่า $\in$ และ $\subseteq$ เป็นความสัมพันธ์ที่ต่างกัน แต่สามารถเป็นจริงทั้งคู่พร้อมกันได้ เช่น $1 \in \{1\}$ และ $\{1\} \subseteq \{1\}$
-  \item ตัวอย่างในชีวิตจริง ฐานข้อมูลนักศึกษา $U$ = นักศึกษาทั้งหมด, $A$ = นักศึกษาคณิตศาสตร์, $B$ = นักศึกษาฟิสิกส์ แล้ว $A \cap B$ = นักศึกษาที่เรียนทั้งสองวิชา
-\end{solsteps}
+\begin{align*}
+1 \in \{1,2,3\} &\equiv \text{T} \quad (1 \text{ เป็นสมาชิก})\\
+\{1\} \in \{1,2,3\} &\equiv \text{F} \quad (\{1\} \text{ ไม่ใช่สมาชิก})\\
+\{1\} \subseteq \{1,2,3\} &\equiv \text{T} \quad (\text{ทุกสมาชิกของ } \{1\} \text{ อยู่ใน } \{1,2,3\})\\
+\emptyset \subseteq \{1,2,3\} &\equiv \text{T} \quad (\text{เซตว่างเป็นเซตย่อยของทุกเซต})\\
+\emptyset \in \{1,2,3\} &\equiv \text{F}
+\end{align*}
+สรุปว่า $\in$ (เป็นสมาชิก) และ $\subseteq$ (เป็นเซตย่อย) เป็นความสัมพันธ์ต่างกัน แต่เป็นจริงพร้อมกันได้ เช่น $1 \in \{1\}$ และ $\{1\} \subseteq \{1\}$ \solhere
 \end{solution}
 
 \section{ความสัมพันธ์ระหว่างเซต}
@@ -166,12 +183,13 @@ $\{1, 2\} \subseteq \{1, 2, 3\}$ ถูกต้องเพราะ 1 แล�
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-  \item $\{1, 2\} \subseteq \{1, 2, 3\}$ ถูกต้อง เพราะ 1 และ 2 ต่างก็อยู่ใน $\{1, 2, 3\}$
-  \item $\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}$ เป็นความจริงพื้นฐานแสดงความสัมพันธ์ระหว่างเซตของจำนวน
-  \item $\emptyset \subseteq \{1, 2\}$ ถูกต้อง เพราะเซตว่างเป็นเซตย่อยของทุกเซต
-  \item $\{1, 2\} \not\subseteq \{2, 3\}$ ไม่ถูกต้อง เพราะ $1 \in \{1, 2\}$ แต่ $1 \notin \{2, 3\}$
-\end{solsteps}
+\begin{align*}
+\{1,2\} \subseteq \{1,2,3\} &\equiv \text{T} \quad (1,2 \in \{1,2,3\})\\
+\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R} &\equiv \text{T}\\
+\emptyset \subseteq \{1,2\} &\equiv \text{T}\\
+\{1,2\} \not\subseteq \{2,3\} &\equiv \text{T} \quad (1 \in \{1,2\},\ 1 \notin \{2,3\})
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{thrm}
@@ -183,38 +201,52 @@ $\{1, 2\} \subseteq \{1, 2, 3\}$ ถูกต้องเพราะ 1 แล�
 พิสูจน์ว่า $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ (Distributive Law)
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ($\subseteq$) สมมติ $x \in A \cap (B \cup C)$
-  \item โดยนิยามของ intersection: $x \in A$ และ $x \in B \cup C$
-  \item โดยนิยามของ union: $x \in A$ และ ($x \in B$ หรือ $x \in C$)
-  \item ใช้ distributive law ของตรรกศาสตร์: $(x \in A \text{ และ } x \in B)$ หรือ $(x \in A \text{ และ } x \in C)$
-  \item กลับไปใช้นิยามของ intersection: $x \in (A \cap B) \cup (A \cap C)$
-  \item ($\supseteq$) พิสูจน์กลับกันโดยทำตามขั้นตอนย้อนกลับ
-  \item สรุปได้ว่า $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
-\end{solsteps}
+พิสูจน์แบบสมาชิก โดยแสดงว่า $x$ อยู่ในเซตด้านซ้ายก็ต่อเมื่ออยู่ในเซตด้านขวา
+\begin{align*}
+x \in A \cap (B \cup C)
+&\Leftrightarrow x \in A \ \land\ (x \in B \lor x \in C)\\
+&\Leftrightarrow (x \in A \land x \in B) \lor (x \in A \land x \in C) \quad (\text{กฎแจกแจงตรรกศาสตร์})\\
+&\Leftrightarrow x \in (A \cap B) \ \lor\ x \in (A \cap C)\\
+&\Leftrightarrow x \in (A \cap B) \cup (A \cap C)
+\end{align*}
+$\therefore A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ \solhere
 \end{solution}
 
 \section{การดำเนินการระหว่างเซต (Set Operations)}
 
-การดำเนินการระหว่างเซตเป็นเครื่องมือพื้นฐานในการสร้างเซตใหม่จากเซตที่มีอยู่ เราจะศึกษาการดำเนินการ 4 อย่างหลักๆ ได้แก่ union ($\cup$)، intersection ($\cap$)، difference ($-$)، และ complement ($^c$)
+การดำเนินการระหว่างเซตเป็นเครื่องมือพื้นฐานในการสร้างเซตใหม่จากเซตที่มีอยู่ เราจะศึกษาการดำเนินการ 4 อย่างหลักๆ ได้แก่ union ($\cup$), intersection ($\cap$), difference ($-$), และ complement ($^c$)
 
 \subsection{ยูเนียน (Union)}
+ยูเนียนเป็นการรวมสมาชิกของสองเซตเข้าด้วยกันเป็นเซตเดียว เปรียบได้กับการนำรายชื่อสมาชิกของสองชมรมมารวมเป็นรายชื่อเดียว โดยผู้ที่สังกัดทั้งสองชมรมก็ยังถูกนับเป็นคนเดียว
+
 \begin{definition}
-\textbf{ยูเนียน (Union)} ของเซต $A$ และ $B$ เขียนแทนด้วย $A \cup B$ คือเซตที่ประกอบด้วยสมาชิกที่อยู่ใน $A$ หรืออยู่ใน $B$ หรืออยู่ทั้งสองเซต กล่าวคือ $A \cup B = \{x \mid x \in A \text{ หรือ } x \in B\}$ สมบัติสำคัญ ได้แก่ (1) $A \cup A = A$ (Idempotent Law) (2) $A \cup \emptyset = A$ (Identity Law) (3) $A \cup U = U$ (Domination Law) (4) $A \cup B = B \cup A$ (Commutative Law) (5) $(A \cup B) \cup C = A \cup (B \cup C)$ (Associative Law) และ $A \subseteq A \cup B$, $B \subseteq A \cup B$ สำหรับทุกเซต $A, B, C$ สมาชิกใหม่จะเข้ามาในผลลัพธ์ก็ต่อเมื่อมันอยู่ใน $A$ หรืออยู่ใน $B$ อย่างน้อยที่หนึ่ง และสมาชิกที่อยู่ทั้งสองเซตจะปรากฏในผลลัพธ์เพียงครั้งเดียว (เพราะเซตไม่มีสมาชิกซ้ำ)
+\textbf{ยูเนียน (Union)} ของเซต $A$ และ $B$ เขียนแทนด้วย $A \cup B$ คือเซตที่ประกอบด้วยสมาชิกที่อยู่ใน $A$ หรืออยู่ใน $B$ หรืออยู่ทั้งสองเซต นั่นคือ
+\[ A \cup B = \{x \mid x \in A \text{ หรือ } x \in B\} \]
 \label{def:union}
 \end{definition}
+
+สมาชิกจะเข้ามาอยู่ในผลลัพธ์ก็ต่อเมื่อมันอยู่ใน $A$ หรืออยู่ใน $B$ อย่างน้อยหนึ่งเซต และสมาชิกที่อยู่ทั้งสองเซตจะปรากฏในผลลัพธ์เพียงครั้งเดียว เพราะเซตไม่มีสมาชิกซ้ำ ยูเนียนมีสมบัติสำคัญดังนี้
+\begin{enumerate}
+    \item $A \cup A = A$ (Idempotent Law)
+    \item $A \cup \emptyset = A$ (Identity Law)
+    \item $A \cup U = U$ (Domination Law)
+    \item $A \cup B = B \cup A$ (Commutative Law)
+    \item $(A \cup B) \cup C = A \cup (B \cup C)$ (Associative Law)
+\end{enumerate}
+นอกจากนี้ยังได้ว่า $A \subseteq A \cup B$ และ $B \subseteq A \cup B$ สำหรับทุกเซต $A$, $B$, $C$
 
 \begin{ex}
 พิจารณาตัวอย่างต่อไปนี้เพื่อเข้าใจ union: $\{1, 2\} \cup \{2, 3\} = \{1, 2, 3\}$ --- สังเกตว่า 2 อยู่ทั้งสองเซต แต่ในผลลัพธ์ 2 ปรากฏเพียงครั้งเดียว $\{1, 2\} \cup \emptyset = \{1, 2\}$ --- union กับเซตว่างไม่เปลี่ยนเซตเดิม $\{x \mid x \text{ เป็นจำนวนคู่}\} \cup \{x \mid x \text{ เป็นจำนวนคี่}\} = \mathbb{Z}$ --- ทุกจำนวนเต็มเป็นได้ทั้งคู่หรือคี่อย่างใดอย่างหนึ่ง $A \cup A = A$ และ $A \cup B = B \cup A$ แสดงสมบัติ idempotent และ commutative ตามลำดับ
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $\{1, 2\} \cup \{2, 3\} = \{1, 2, 3\}$ --- สังเกตว่า 2 อยู่ทั้งสองเซต แต่ในผลลัพธ์ 2 ปรากฏเพียงครั้งเดียว (เซตไม่มีสมาชิกซ้ำ)
-  \item $\{1, 2\} \cup \emptyset = \{1, 2\}$ --- union กับเซตว่างไม่เปลี่ยนเซตเดิม (Identity Law)
-  \item $\{x \mid x \text{ เป็นจำนวนคู่}\} \cup \{x \mid x \text{ เป็นจำนวนคี่}\} = \mathbb{Z}$ --- ทุกจำนวนเต็มเป็นได้ทั้งคู่หรือคี่อย่างใดอย่างหนึ่ง
-  \item $A \cup A = A$ แสดงสมบัติ Idempotent Law
-  \item $A \cup B = B \cup A$ แสดงสมบัติ Commutative Law
-\end{solsteps}
+\begin{align*}
+\{1,2\} \cup \{2,3\} &= \{1,2,3\} \quad (2 \text{ อยู่ทั้งสองเซต ปรากฏครั้งเดียว})\\
+\{1,2\} \cup \emptyset &= \{1,2\} \quad (\text{Identity Law})\\
+\{x \mid x \text{ คู่}\} \cup \{x \mid x \text{ คี่}\} &= \mathbb{Z}\\
+A \cup A &= A \quad (\text{Idempotent Law})\\
+A \cup B &= B \cup A \quad (\text{Commutative Law})
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{ex}[การหายูเนียนของเซต]
@@ -222,38 +254,14 @@ $\{1, 2\} \subseteq \{1, 2, 3\}$ ถูกต้องเพราะ 1 แล�
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-  \item เราต้องระบุสมาชิกทั้งหมดที่อยู่ใน $A$ หรืออยู่ใน $B$ หรืออยู่ทั้งสองเซต
-  \item พิจารณาสมาชิกแต่ละตัวของ $A$:
-        \[
-        1 \in A \Rightarrow 1 \in A \cup B
-        \]
-        \[
-        2 \in A \Rightarrow 2 \in A \cup B
-        \]
-        \[
-        3 \in A \Rightarrow 3 \in A \cup B
-        \]
-        \[
-        4 \in A \Rightarrow 4 \in A \cup B
-        \]
-  \item พิจารณาสมาชิกที่อยู่ใน $B$ แต่ไม่อยู่ใน $A$:
-        \[
-        5 \in B \text{ และ } 5 \notin A \Rightarrow 5 \in A \cup B
-        \]
-        \[
-        6 \in B \text{ และ } 6 \notin A \Rightarrow 6 \in A \cup B
-        \]
-  \item รวมสมาชิกทั้งหมดเข้าด้วยกัน
-\end{solsteps}
-\[
-A \cup B = \{1, 2, 3, 4, 5, 6\}
-\]
-
-\textbf{ตรวจสอบ:} สมาชิก 3 และ 4 อยู่ทั้งสองเซต แต่ปรากฏในผลลัพธ์เพียงครั้งเดียว ซึ่งสอดคล้องกับนิยามของเซตที่ไม่มีสมาชิกซ้ำ
-
-โดยที่ $A \cup B$ คือเซตที่ประกอบด้วยสมาชิกทั้งหมดที่อยู่ใน $A$ หรืออยู่ใน $B$ หรืออยู่ทั้งสองเซต
+รวมสมาชิกที่อยู่ใน $A$ หรือ $B$ โดยนับสมาชิกที่ซ้ำเพียงครั้งเดียว
+\begin{align*}
+A \cup B &= \{1,2,3,4\} \cup \{3,4,5,6\}\\
+         &= \{1,2,3,4,5,6\}
+\end{align*}
+สมาชิก 3 และ 4 อยู่ทั้งสองเซตแต่ปรากฏในผลลัพธ์เพียงครั้งเดียว ตามนิยามของเซตที่ไม่มีสมาชิกซ้ำ
 \label{ex:union-step-by-step}
+\solhere
 \end{solution}
 
 \begin{figure}[H]
@@ -269,19 +277,31 @@ A \cup B = \{1, 2, 3, 4, 5, 6\}
 ในการคิดถึง intersection ให้นึกภาพว่าเป็นส่วนที่ซ้อนทับกันของเซตสองเซต สมาชิกต้องอยู่ในทั้งสองเซตจึงจะอยู่ใน intersection การที่ $x \in A \cap B$ หมายความว่า $x$ เป็นสมาชิกของ $A$ และ $x$ เป็นสมาชิกของ $B$ ทั้งคู่ ในทางตรรกศาสตร์สอดคล้องกับ "AND" และถ้า $A \cap B = \emptyset$ เราจะเรียก $A$ และ $B$ ว่า \textbf{เซตแยกกัน (Disjoint Sets)}
 
 \begin{definition}
-\textbf{อินเตอร์เซกชัน (Intersection)} ของเซต $A$ และ $B$ เขียนแทนด้วย $A \cap B$ คือเซตที่ประกอบด้วยสมาชิกที่อยู่ทั้งใน $A$ และใน $B$ พร้อมกัน นั่นคือ $A \cap B = \{x \mid x \in A \text{ และ } x \in B\}$ สมบัติสำคัญ ได้แก่ $A \cap A = A$ (Idempotent), $A \cap \emptyset = \emptyset$ (Domination), $A \cap U = A$ (Identity), $A \cap B = B \cap A$ (Commutative), $(A \cap B) \cap C = A \cap (B \cap C)$ (Associative) และ $A \cap B \subseteq A$, $A \cap B \subseteq B$
+\textbf{อินเตอร์เซกชัน (Intersection)} ของเซต $A$ และ $B$ เขียนแทนด้วย $A \cap B$ คือเซตที่ประกอบด้วยสมาชิกที่อยู่ทั้งใน $A$ และใน $B$ พร้อมกัน นั่นคือ
+\[ A \cap B = \{x \mid x \in A \text{ และ } x \in B\} \]
 \end{definition}
+
+อินเตอร์เซกชันมีสมบัติสำคัญดังนี้
+\begin{enumerate}
+    \item $A \cap A = A$ (Idempotent Law)
+    \item $A \cap \emptyset = \emptyset$ (Domination Law)
+    \item $A \cap U = A$ (Identity Law)
+    \item $A \cap B = B \cap A$ (Commutative Law)
+    \item $(A \cap B) \cap C = A \cap (B \cap C)$ (Associative Law)
+\end{enumerate}
+นอกจากนี้ยังได้ว่า $A \cap B \subseteq A$ และ $A \cap B \subseteq B$
 
 \begin{ex}
 $\{1, 2\} \cap \{2, 3\} = \{2\}$ --- 2 เป็นสมาชิกเพียงตัวเดียวที่อยู่ทั้งสองเซต $\{1, 2\} \cap \{3, 4\} = \emptyset$ --- ไม่มีสมาชิกใดที่อยู่ทั้งสองเซตจึงเป็น disjoint $\mathbb{Z} \cap \mathbb{R} = \mathbb{Z}$ เพราะทุกจำนวนเต็มเป็นจำนวนจริง และ $\{x \mid x \text{ เป็นจำนวนคู่}\} \cap \{x \mid x \text{ เป็นจำนวนคี่}\} = \emptyset$ เพราะไม่มีจำนวนใดเป็นได้ทั้งคู่และคี่พร้อมกัน
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $\{1, 2\} \cap \{2, 3\} = \{2\}$ --- 2 เป็นสมาชิกเพียงตัวเดียวที่อยู่ทั้งสองเซต (ต้องอยู่ในทั้ง $A$ และ $B$ พร้อมกัน)
-  \item $\{1, 2\} \cap \{3, 4\} = \emptyset$ --- ไม่มีสมาชิกใดที่อยู่ทั้งสองเซตจึงเป็น disjoint sets
-  \item $\mathbb{Z} \cap \mathbb{R} = \mathbb{Z}$ เพราะทุกจำนวนเต็มเป็นจำนวนจริง ($\mathbb{Z} \subseteq \mathbb{R}$)
-  \item $\{x \mid x \text{ เป็นจำนวนคู่}\} \cap \{x \mid x \text{ เป็นจำนวนคี่}\} = \emptyset$ เพราะไม่มีจำนวนใดเป็นได้ทั้งคู่และคี่พร้อมกัน
-\end{solsteps}
+\begin{align*}
+\{1,2\} \cap \{2,3\} &= \{2\} \quad (2 \text{ อยู่ทั้งสองเซต})\\
+\{1,2\} \cap \{3,4\} &= \emptyset \quad (\text{disjoint})\\
+\mathbb{Z} \cap \mathbb{R} &= \mathbb{Z} \quad (\mathbb{Z} \subseteq \mathbb{R})\\
+\{x \mid x \text{ คู่}\} \cap \{x \mid x \text{ คี่}\} &= \emptyset
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{ex}[การหาอินเตอร์เซกชันของเซต]
@@ -289,33 +309,14 @@ $\{1, 2\} \cap \{2, 3\} = \{2\}$ --- 2 เป็นสมาชิกเพี�
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-  \item เราต้องหาสมาชิกที่อยู่ทั้งใน $A$ และใน $B$ พร้อมกัน โดยทดสอบสมาชิกแต่ละตัวของ $A$:
-        \[
-        2 \in A \text{ แต่ } 2 \notin B \Rightarrow 2 \notin A \cap B
-        \]
-        \[
-        4 \in A \text{ แต่ } 4 \notin B \Rightarrow 4 \notin A \cap B
-        \]
-        \[
-        6 \in A \text{ และ } 6 \in B \Rightarrow 6 \in A \cap B
-        \]
-        \[
-        8 \in A \text{ แต่ } 8 \notin B \Rightarrow 8 \notin A \cap B
-        \]
-        \[
-        10 \in A \text{ แต่ } 10 \notin B \Rightarrow 10 \notin A \cap B
-        \]
-  \item รวบรวมเฉพาะสมาชิกที่ผ่านเงื่อนไข
-\end{solsteps}
-\[
-A \cap B = \{6\}
-\]
-
-\textbf{ตรวจสอบ:} 6 เป็นพจน์ที่ 3 ของ $A$ และเป็นพจน์ที่ 2 ของ $B$ จึงเป็นสมาชิกร่วมของทั้งสองเซต สมาชิกตัวอื่นๆ ไม่ปรากฏในทั้งสองเซตพร้อมกัน
-
-โดยที่ $A \cap B$ คือเซตที่ประกอบด้วยสมาชิกที่อยู่ทั้งใน $A$ และใน $B$ พร้อมกัน และ $A \cap B = \emptyset$ หมายความว่า $A$ และ $B$ เป็นเซตแยกกัน (disjoint)
+หาสมาชิกที่อยู่ทั้งใน $A$ และ $B$ พร้อมกัน
+\begin{align*}
+A \cap B &= \{2,4,6,8,10\} \cap \{3,6,9,12\}\\
+         &= \{6\}
+\end{align*}
+มีเพียง 6 ที่อยู่ทั้งสองเซต สมาชิกตัวอื่นไม่เป็นสมาชิกร่วม (ถ้า $A \cap B = \emptyset$ จะเรียกว่าเซตแยกกัน)
 \label{ex:intersection-step-by-step}
+\solhere
 \end{solution}
 
 \begin{figure}[H]
@@ -348,13 +349,13 @@ A \cap B = \{6\}
 \label{ex:absorption-proof}
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ($\subseteq$) ถ้า $x \in A \cup (A \cap B)$ แล้ว $x \in A$ หรือ $x \in A \cap B$
-  \item ถ้า $x \in A$ ก็เสร็จ ถ้า $x \in A \cap B$ แล้ว $x \in A$ โดยนิยามของ $\cap$
-  \item ดังนั้น \mathoval{x \in A} ในทุกกรณี
-  \item ($\supseteq$) ถ้า $x \in A$ แล้ว $x \in A \cup (A \cap B)$ เพราะ $x \in A \Rightarrow x \in A \cup X$ สำหรับทุกเซต $X$
-  \item สรุปได้ว่า $A \cup (A \cap B) = A$
-\end{solsteps}
+พิสูจน์แบบสมาชิก
+\begin{align*}
+x \in A \cup (A \cap B)
+&\Leftrightarrow x \in A \ \lor\ (x \in A \land x \in B)\\
+&\Leftrightarrow x \in A \quad (\text{กฎการดูดกลืนของตรรกศาสตร์})
+\end{align*}
+$\therefore A \cup (A \cap B) = A$ \solhere
 \end{solution}
 
 \begin{figure}[H]
@@ -367,10 +368,15 @@ A \cap B = \{6\}
 รูปที่ \ref{fig:distributive-law-sets} แสดงกฎการกระจายของเซต โดยฝั่งซ้ายแสดง $A \cap (B \cup C)$ และฝั่งขวาแสดง $(A \cap B) \cup (A \cap C)$ ทั้งสองให้ผลลัพธ์เดียวกัน
 
 \subsection{ผลต่าง (Set Difference)}
+ผลต่างของเซตคือการนำสมาชิกของอีกเซตหนึ่งออกไป เหลือไว้เฉพาะสมาชิกที่อยู่ในเซตแรกแต่ไม่อยู่ในเซตที่สอง
+
 \begin{definition}
-\textbf{ผลต่าง (Difference)} ของเซต $A$ และ $B$ เขียนแทนด้วย $A - B$ คือเซตที่ประกอบด้วยสมาชิกที่อยู่ใน $A$ แต่ไม่อยู่ใน $B$ กล่าวคือ $A - B = \{x \mid x \in A \text{ และ } x \notin B\}$ ในทางตรรกศาสตร์สอดคล้องกับ "A และ ไม่ B" และโดยทั่วไป $A - B \neq B - A$ ไม่มีสมบัติสลับที่ ตัวอย่างเช่น $\{1, 2\} - \{2, 3\} = \{1\}$ ในขณะที่ $\{2, 3\} - \{1, 2\} = \{3\}$
+\textbf{ผลต่าง (Difference)} ของเซต $A$ และ $B$ เขียนแทนด้วย $A - B$ คือเซตที่ประกอบด้วยสมาชิกที่อยู่ใน $A$ แต่ไม่อยู่ใน $B$ นั่นคือ
+\[ A - B = \{x \mid x \in A \text{ และ } x \notin B\} \]
 \label{def:set-difference}
 \end{definition}
+
+ในทางตรรกศาสตร์ผลต่างสอดคล้องกับ ``$A$ และไม่ $B$'' และโดยทั่วไป $A - B \neq B - A$ กล่าวคือผลต่างไม่มีสมบัติสลับที่ ตัวอย่างเช่น $\{1, 2\} - \{2, 3\} = \{1\}$ ในขณะที่ $\{2, 3\} - \{1, 2\} = \{3\}$
 
 \begin{ex}
 จงหาผลต่างของเซตต่อไปนี้
@@ -382,12 +388,13 @@ A \cap B = \{6\}
 \end{enumerate}
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $\{1, 2, 3\} - \{2, 4\} = \{1, 3\}$ --- นำ 2 และ 4 ออกจากเซตแรก 2 อยู่ในเซตแรกดังนั้นถูกนำออก 4 ไม่อยู่ในเซตแรกดังนั้นไม่กระทบ
-  \item $\mathbb{Z} - \mathbb{N} = \{x \in \mathbb{Z} \mid x < 0\} = \mathbb{Z}^-$ (จำนวนเต็มลบ) --- จำนวนเต็มที่ไม่เป็นจำนวนนับคือจำนวนเต็มลบ
-  \item $\{1, 2\} - \{1, 2\} = \emptyset$ --- นำสมาชิกทั้งหมดออกไม่เหลืออะไร
-  \item $\{1, 2\} - \{3, 4\} = \{1, 2\}$ --- ไม่มีสมาชิกใดในเซตที่สองที่อยู่ในเซตแรก
-\end{solsteps}
+\begin{align*}
+\{1,2,3\} - \{2,4\} &= \{1,3\} \quad (\text{นำ 2 ออก; 4 ไม่อยู่ในเซตแรก})\\
+\mathbb{Z} - \mathbb{N} &= \{x \in \mathbb{Z} \mid x < 0\} = \mathbb{Z}^-\\
+\{1,2\} - \{1,2\} &= \emptyset\\
+\{1,2\} - \{3,4\} &= \{1,2\}
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{rem}
@@ -399,33 +406,14 @@ A \cap B = \{6\}
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-  \item เราต้องหาสมาชิกที่อยู่ใน $A$ แต่ไม่อยู่ใน $B$ โดยพิจารณาสมาชิกแต่ละตัวของ $A$:
-        \[
-        a \in A \text{ และ } a \notin B \Rightarrow a \in A - B
-        \]
-        \[
-        b \in A \text{ แต่ } b \in B \Rightarrow b \notin A - B
-        \]
-        \[
-        c \in A \text{ และ } c \notin B \Rightarrow c \in A - B
-        \]
-        \[
-        d \in A \text{ แต่ } d \in B \Rightarrow d \notin A - B
-        \]
-        \[
-        e \in A \text{ และ } e \notin B \Rightarrow e \in A - B
-        \]
-  \item รวบรวมสมาชิกที่อยู่ใน $A$ แต่ไม่อยู่ใน $B$
-\end{solsteps}
-\[
-A - B = \{a, c, e\}
-\]
-
-\textbf{ตรวจสอบ:} สมาชิก $b$ และ $d$ ถูกนำออกเพราะอยู่ใน $B$ ส่วน $a$, $c$, $e$ อยู่ใน $A$ และไม่อยู่ใน $B$ จึงอยู่ในผลลัพธ์ สังเกตว่า $f$ ไม่อยู่ใน $A$ จึงไม่กระทบผลลัพธ์
-
-โดยที่ $A - B$ คือเซตที่ประกอบด้วยสมาชิกที่อยู่ใน $A$ แต่ไม่อยู่ใน $B$ และโดยทั่วไป $A - B \neq B - A$ เพราะผลต่างไม่มีสมบัติสลับที่
+หาสมาชิกที่อยู่ใน $A$ แต่ไม่อยู่ใน $B$
+\begin{align*}
+A - B &= \{a,b,c,d,e\} - \{b,d,f\}\\
+      &= \{a,c,e\}
+\end{align*}
+$b$ และ $d$ ถูกนำออกเพราะอยู่ใน $B$; $f$ ไม่อยู่ใน $A$ จึงไม่กระทบผลลัพธ์ (โดยทั่วไป $A - B \neq B - A$)
 \label{ex:difference-step-by-step}
+\solhere
 \end{solution}
 
 \begin{figure}[H]
@@ -438,23 +426,35 @@ A - B = \{a, c, e\}
 รูปที่ \ref{fig:set-difference} แสดงผลต่าง $A - B$ โดยพื้นที่ที่แรเงาคือส่วนที่อยู่ใน $A$ แต่ไม่อยู่ใน $B$
 
 \subsection{คอมพลีเมนต์ (Complement)}
-Complement เป็นการดำเนินการที่ให้ "สิ่งที่ไม่อยู่ใน A" โดยอ้างอิงกับ Universal Set สิ่งสำคัญคือต้องกำหนด Universal Set ก่อนเสมอ เพราะ complement ขึ้นอยู่กับบริบท
+คอมพลีเมนต์เป็นการดำเนินการที่ให้ ``สิ่งที่ไม่อยู่ใน $A$'' โดยอ้างอิงกับเอกภพสัมพัทธ์ $U$ สิ่งสำคัญคือต้องกำหนดเอกภพสัมพัทธ์ก่อนเสมอ เพราะคอมพลีเมนต์ขึ้นอยู่กับบริบท
 
 \begin{definition}
-\textbf{คอมพลีเมนต์ (Complement)} ของเซต $A$ เขียนแทนด้วย $A^c$ หรือ $\overline{A}$ คือเซตที่ประกอบด้วยสมาชิกทั้งหมดใน Universal Set $U$ ที่ไม่อยู่ใน $A$ นั่นคือ $A^c = \{x \in U \mid x \notin A\} = U - A$ สมบัติสำคัญ: (1) $A \cup A^c = U$ (Complement Law) (2) $A \cap A^c = \emptyset$ (Non-Contradiction) (3) $(A^c)^c = A$ (Double Complement) (4) $A - B = A \cap B^c$ (Set Difference as Intersection with Complement) ซึ่งเป็นประโยชน์มากในการเปลี่ยนผลต่างเป็น intersection กับ complement ทำให้สามารถใช้ distributive law ได้
+\textbf{คอมพลีเมนต์ (Complement)} ของเซต $A$ เขียนแทนด้วย $A^c$ หรือ $\overline{A}$ คือเซตที่ประกอบด้วยสมาชิกทั้งหมดในเอกภพสัมพัทธ์ $U$ ที่ไม่อยู่ใน $A$ นั่นคือ
+\[ A^c = \{x \in U \mid x \notin A\} = U - A \]
 \label{def:complement}
 \end{definition}
+
+คอมพลีเมนต์มีสมบัติสำคัญดังนี้
+\begin{enumerate}
+    \item $A \cup A^c = U$ (Complement Law)
+    \item $A \cap A^c = \emptyset$ (Non-Contradiction Law)
+    \item $(A^c)^c = A$ (Double Complement Law)
+    \item $A - B = A \cap B^c$ (Set Difference as Intersection with Complement)
+\end{enumerate}
+สมบัติข้อสุดท้ายมีประโยชน์มาก เพราะช่วยเปลี่ยนผลต่างให้อยู่ในรูปอินเตอร์เซกชันกับคอมพลีเมนต์ ทำให้นำกฎการแจกแจง (distributive law) มาใช้ต่อได้
 
 \begin{ex}
 ถ้า $U = \{1, 2, 3, 4, 5\}$ และ $A = \{1, 2\}$ แล้ว $A^c = \{3, 4, 5\}$ เพราะ $3 \in U$ และ $3 \notin A$ ในขณะที่ $1 \notin A^c$ เพราะ $1 \in A$ แต่ถ้าเปลี่ยน Universal Set เป็น $U = \{1, 2, 3, 4, 5, 6, 7\}$ แล้ว $A^c = \{3, 4, 5, 6, 7\}$ --- เซตเดียวกัน $A$ มี complement ต่างกันเพราะ Universal Set ต่างกัน
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item พิสูจน์ $A - B = A \cap B^c$:
-  \item ($\subseteq$) สมมติ $x \in A - B$ แล้ว $x \in A$ และ $x \notin B$ ซึ่งหมายความว่า $x \in A$ และ $x \in B^c$ ดังนั้น $x \in A \cap B^c$ ได้ $A - B \subseteq A \cap B^c$
-  \item ($\supseteq$) พิสูจน์กลับได้ $A \cap B^c \subseteq A - B$
-  \item ดังนั้น \mathoval{A - B = A \cap B^c}
-\end{solsteps}
+พิสูจน์แบบสมาชิก
+\begin{align*}
+x \in A - B
+&\Leftrightarrow x \in A \ \land\ x \notin B\\
+&\Leftrightarrow x \in A \ \land\ x \in B^c\\
+&\Leftrightarrow x \in A \cap B^c
+\end{align*}
+$\therefore A - B = A \cap B^c$ \solhere
 \end{solution}
 
 \begin{ex}[การหาคอมพลีเมนต์ของเซต]
@@ -462,42 +462,14 @@ Complement เป็นการดำเนินการที่ให้ "�
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-  \item เราต้องหาสมาชิกทั้งหมดใน $U$ ที่ไม่อยู่ใน $A$ โดยพิจารณาสมาชิกแต่ละตัวของ $U$:
-        \[
-        1 \in U \text{ และ } 1 \notin A \Rightarrow 1 \in A^c
-        \]
-        \[
-        2 \in U \text{ แต่ } 2 \in A \Rightarrow 2 \notin A^c
-        \]
-        \[
-        3 \in U \text{ และ } 3 \notin A \Rightarrow 3 \in A^c
-        \]
-        \[
-        4 \in U \text{ แต่ } 4 \in A \Rightarrow 4 \notin A^c
-        \]
-        \[
-        5 \in U \text{ และ } 5 \notin A \Rightarrow 5 \in A^c
-        \]
-        \[
-        6 \in U \text{ แต่ } 6 \in A \Rightarrow 6 \notin A^c
-        \]
-        \[
-        7 \in U \text{ และ } 7 \notin A \Rightarrow 7 \in A^c
-        \]
-        \[
-        8 \in U \text{ แต่ } 8 \in A \Rightarrow 8 \notin A^c
-        \]
-  \item รวบรวมสมาชิกที่อยู่ใน $U$ แต่ไม่อยู่ใน $A$
-\end{solsteps}
-\[
-A^c = \{1, 3, 5, 7\}
-\]
-
-\textbf{ตรวจสอบ:} ทุกจำนวนคู่ใน $U$ (2, 4, 6, 8) อยู่ใน $A$ จึงไม่อยู่ใน $A^c$ ส่วนทุกจำนวนคี่ใน $U$ (1, 3, 5, 7) ไม่อยู่ใน $A$ จึงอยู่ใน $A^c$ และ $A \cup A^c = U$ เป็นจริง
-
-โดยที่ $A^c$ คือเซตที่ประกอบด้วยสมาชิกทั้งหมดใน Universal Set $U$ ที่ไม่อยู่ใน $A$ และ $A \cup A^c = U$ และ $A \cap A^c = \emptyset$ เป็นสมบัติพื้นฐานของ complement
+หาสมาชิกใน $U$ ที่ไม่อยู่ใน $A$
+\begin{align*}
+A^c &= U - A = \{1,2,3,4,5,6,7,8\} - \{2,4,6,8\}\\
+    &= \{1,3,5,7\}
+\end{align*}
+จำนวนคู่ทั้งหมดอยู่ใน $A$ จึงไม่อยู่ใน $A^c$; จำนวนคี่ทั้งหมดอยู่ใน $A^c$ และตรวจได้ว่า $A \cup A^c = U$
 \label{ex:complement-step-by-step}
+\solhere
 \end{solution}
 
 \begin{figure}[H]
@@ -550,33 +522,28 @@ De Morgan's Laws มีการประยุกต์ใช้มากใน
 พิสูจน์ $(A \cup B)^c = A^c \cap B^c$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ($\subseteq$) สมมติ $x \in (A \cup B)^c$
-  \item $x \notin A \cup B$
-  \item $\neg(x \in A \cup B)$
-  \item $\neg(x \in A \text{ หรือ } x \in B)$
-  \item $\neg(x \in A) \text{ และ } \neg(x \in B)$ \hfill (De Morgan ในตรรกศาสตร์)
-  \item $x \notin A \text{ และ } x \notin B$
-  \item $x \in A^c \text{ และ } x \in B^c$
-  \item $x \in A^c \cap B^c$
-  \item ดังนั้น \mathoval{(A \cup B)^c \subseteq A^c \cap B^c}
-  \item ($\supseteq$) สมมติ $x \in A^c \cap B^c$
-  \item $x \in A^c \text{ และ } x \in B^c$
-  \item $x \notin A \text{ และ } x \notin B$
-  \item $\neg(x \in A) \text{ และ } \neg(x \in B)$
-  \item $\neg(x \in A \text{ หรือ } x \in B)$ \hfill (De Morgan ในตรรกศาสตร์)
-  \item $x \notin A \cup B$
-  \item $x \in (A \cup B)^c$
-  \item ดังนั้น \mathoval{A^c \cap B^c \subseteq (A \cup B)^c}
-  \item เนื่องจาก $\subseteq$ และ $\supseteq$ ต่างก็เป็นจริง ดังนั้น \mathoval{(A \cup B)^c = A^c \cap B^c}
-\end{solsteps}
+พิสูจน์แบบสมาชิก
+\begin{align*}
+x \in (A \cup B)^c
+&\Leftrightarrow x \notin A \cup B\\
+&\Leftrightarrow \neg(x \in A \lor x \in B)\\
+&\Leftrightarrow \neg(x \in A) \land \neg(x \in B) \quad (\text{De Morgan ตรรกศาสตร์})\\
+&\Leftrightarrow x \in A^c \land x \in B^c\\
+&\Leftrightarrow x \in A^c \cap B^c
+\end{align*}
+$\therefore (A \cup B)^c = A^c \cap B^c$ \solhere
 \end{solution}
 
 \subsection{เพาเวอร์เซต (Power Set)}
+บางครั้งเราไม่ได้สนใจเพียงสมาชิกของเซต แต่สนใจ ``เซตย่อยทั้งหมด'' ที่สร้างจากเซตนั้นได้ การรวบรวมเซตย่อยทุกแบบเข้าด้วยกันเป็นเซตใหม่ นำไปสู่แนวคิดเพาเวอร์เซต
+
 \begin{definition}
-\textbf{เพาเวอร์เซต (Power Set)} ของเซต $A$ เขียนแทนด้วย $\mathcal{P}(A)$ หรือ $2^A$ คือเซตที่ประกอบด้วยเซตย่อยทั้งหมดของ $A$ กล่าวคือ $\mathcal{P}(A) = \{B \mid B \subseteq A\}$ เพาเวอร์เซตเป็น "เซตของเซต" เพราะสมาชิกของมันคือเซตย่อยของ $A$ สมบัติสำคัญ: ถ้า $|A| = n$ แล้ว $|\mathcal{P}(A)| = 2^n$ เพราะแต่ละสมาชิกใน $A$ สามารถตัดสินใจได้ 2 ทางคือ "อยู่" หรือ "ไม่อยู่" ในเซตย่อย สัญลักษณ์ $2^A$ จึงสื่อความหมายเพราะ $|\mathcal{P}(A)| = 2^{|A|}$
+\textbf{เพาเวอร์เซต (Power Set)} ของเซต $A$ เขียนแทนด้วย $\mathcal{P}(A)$ หรือ $2^A$ คือเซตที่ประกอบด้วยเซตย่อยทั้งหมดของ $A$ นั่นคือ
+\[ \mathcal{P}(A) = \{B \mid B \subseteq A\} \]
 \label{def:power-set}
 \end{definition}
+
+เพาเวอร์เซตเป็น ``เซตของเซต'' เพราะสมาชิกของมันคือเซตย่อยของ $A$ สมบัติสำคัญคือ ถ้า $|A| = n$ แล้ว $|\mathcal{P}(A)| = 2^n$ เหตุผลคือในการสร้างเซตย่อยหนึ่ง สมาชิกแต่ละตัวของ $A$ มีทางเลือก 2 ทาง คือ ``อยู่'' หรือ ``ไม่อยู่'' ในเซตย่อยนั้น จำนวนเซตย่อยทั้งหมดจึงเท่ากับ $2^n$ ด้วยเหตุนี้สัญลักษณ์ $2^A$ จึงสื่อความหมายได้ตรง เพราะ $|\mathcal{P}(A)| = 2^{|A|}$
 
 \begin{ex}
 จงหาเพาเวอร์เซตของเซตต่อไปนี้
@@ -588,12 +555,13 @@ De Morgan's Laws มีการประยุกต์ใช้มากใน
 \end{enumerate}
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $\mathcal{P}(\{1, 2\}) = \{\emptyset, \{1\}, \{2\}, \{1, 2\}\}$ --- เซตย่อยทั้งหมดได้แก่ เซตว่าง, เซตที่มี 1, เซตที่มี 2, และเซตเดิม
-  \item $\mathcal{P}(\emptyset) = \{\emptyset\}$ --- สังเกตว่าเพาเวอร์เซตของเซตว่างไม่ใช่เซตว่าง เพราะมันมีสมาชิก 1 ตัว คือ $\emptyset$ เอง
-  \item $\mathcal{P}(\{a\}) = \{\emptyset, \{a\}\}$ --- มีเซตย่อย 2 ตัว
-  \item $\mathcal{P}(\{1, 2, 3\}) = \{\emptyset, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\}$ --- มีเซตย่อย 8 ตัว ซึ่งตรงกับ $2^3 = 8$
-\end{solsteps}
+\begin{align*}
+\mathcal{P}(\{1,2\}) &= \{\emptyset, \{1\}, \{2\}, \{1,2\}\} \quad (2^2 = 4)\\
+\mathcal{P}(\emptyset) &= \{\emptyset\} \quad (2^0 = 1,\ \text{มีสมาชิกคือ } \emptyset)\\
+\mathcal{P}(\{a\}) &= \{\emptyset, \{a\}\} \quad (2^1 = 2)\\
+\mathcal{P}(\{1,2,3\}) &= \{\emptyset, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\} \quad (2^3 = 8)
+\end{align*}
+\solhere
 \end{solution}
 
 
@@ -613,11 +581,12 @@ De Morgan's Laws มีการประยุกต์ใช้มากใน
 \end{enumerate}
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $\{1, 2\} \times \{a, b\} = \{(1, a), (1, b), (2, a), (2, b)\}$ --- สมาชิกตัวแรกมาจากเซตแรก สมาชิกตัวหลังมาจากเซตหลัง ทุกคู่ที่เป็นไปได้จะอยู่ในผลลัพธ์ สังเกตว่าลำดับสำคัญ $(1,a) \neq (a,1)$
-  \item $\mathbb{R} \times \mathbb{R} = \mathbb{R}^2$ คือระนาบ 2 มิติ
-  \item $\emptyset \times A = A \times \emptyset = \emptyset$ สำหรับทุกเซต $A$ เพราะไม่มีคู่อันดับใดที่มาจากเซตว่าง
-\end{solsteps}
+\begin{align*}
+\{1,2\} \times \{a,b\} &= \{(1,a),(1,b),(2,a),(2,b)\} \quad (\text{ลำดับสำคัญ: } (1,a) \neq (a,1))\\
+\mathbb{R} \times \mathbb{R} &= \mathbb{R}^2 \quad (\text{ระนาบ 2 มิติ})\\
+\emptyset \times A &= A \times \emptyset = \emptyset
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{thrm}
@@ -637,13 +606,15 @@ De Morgan's Laws มีการประยุกต์ใช้มากใน
 
 \section{การนับจำนวนสมาชิกของเซต (Cardinality)}
 
-\begin{definition}
-\textbf{คาร์ดินัลลิตี้ (Cardinality)} ของเซต $A$ เขียนแทนด้วย $|A|$ หมายถึงจำนวนสมาชิกในเซต $A$
+เมื่อมีเซตหนึ่ง คำถามพื้นฐานที่สุดคือเซตนั้นมีสมาชิกกี่ตัว การนับจำนวนสมาชิกเป็นสิ่งที่เราทำในชีวิตประจำวันอยู่แล้ว เช่น นับจำนวนนักศึกษาในห้องหรือจำนวนสินค้าในตะกร้า ในทางคณิตศาสตร์เราเรียกจำนวนสมาชิกของเซตว่าคาร์ดินัลลิตี้
 
-สำหรับเซตจำกัด คาร์ดินัลลิตี้คือจำนวนสมาชิกที่นับได้ สำหรับเซตอนันต์จะต้องใช้แนวคิดที่ซับซ้อนกว่านี้ เช่น การจับคู่หนึ่งต่อหนึ่ง และในบางกรณีใช้ Cantor's diagonal argument ซึ่งจะกล่าวถึงในหัวข้อเซตนับได้และเซตนับไม่ได้ของบทนี้
+\begin{definition}
+\textbf{คาร์ดินัลลิตี้ (Cardinality)} ของเซต $A$ เขียนแทนด้วย $|A|$ คือจำนวนสมาชิกของเซต $A$
 \end{definition}
 
-การนับจำนวนสมาชิกเป็นพื้นฐานของการนับ (combinatorics) และมีการประยุกต์ใช้มากในการนับโอกาสทั้งหมดที่เป็นไปได้
+สำหรับเซตจำกัด คาร์ดินัลลิตี้คือจำนวนสมาชิกที่นับได้โดยตรง เช่น ถ้า $A = \{a, e, i, o, u\}$ แล้ว $|A| = 5$ ส่วนเซตอนันต์ต้องใช้แนวคิดที่ละเอียดกว่านี้ คือการจับคู่สมาชิกแบบหนึ่งต่อหนึ่งระหว่างเซต และในบางกรณีต้องใช้ข้อโต้แย้งแนวทแยงของคันทอร์ (Cantor's diagonal argument) ซึ่งจะกล่าวถึงในหัวข้อเซตนับได้และเซตนับไม่ได้ต่อไป
+
+การนับจำนวนสมาชิกเป็นพื้นฐานของการนับเชิงการจัด (combinatorics) และใช้มากในการนับจำนวนโอกาสทั้งหมดที่เป็นไปได้
 
 \begin{thrm}[หลักการรวม-การแยก (Inclusion-Exclusion Principle)]
 สำหรับเซตจำกัด $A$ และ $B$:
@@ -659,12 +630,11 @@ De Morgan's Laws มีการประยุกต์ใช้มากใน
 ถ้า $A = \{1, 2, 3, 4\}$, $B = \{3, 4, 5, 6\}$ จงหา $|A \cup B|$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item หาขนาดของเซต $|A| = 4$, $|B| = 4$
-  \item หา intersection: $A \cap B = \{3, 4\}$ ดังนั้น $|A \cap B| = 2$
-  \item ใช้สูตร Inclusion-Exclusion: $|A \cup B| = |A| + |B| - |A \cap B| = 4 + 4 - 2 = 6$
-  \item ตรวจสอบ $|A \cup B| = |\{1, 2, 3, 4, 5, 6\}| = 6$ \cmark — ถ้านับ $4 + 4 = 8$ โดยไม่หัก intersection จะได้ 8 ซึ่งมากกว่าความจริง (6) เพราะ 3 และ 4 ถูกนับซ้ำ
-\end{solsteps}
+\begin{align*}
+A \cap B &= \{3,4\} \Rightarrow |A \cap B| = 2\\
+|A \cup B| &= |A| + |B| - |A \cap B| = 4 + 4 - 2 = 6
+\end{align*}
+ตรวจสอบ: $|\{1,2,3,4,5,6\}| = 6$; ถ้านับ $|A|+|B| = 8$ โดยไม่หัก intersection จะเกินจริงเพราะ 3 และ 4 ถูกนับซ้ำ \solhere
 \end{solution}
 
 การประยุกต์ใช้ในชีวิตจริง ดังนี้
@@ -687,15 +657,12 @@ De Morgan's Laws มีการประยุกต์ใช้มากใน
 ในห้องเรียน 20 คน มี 12 คนเรียนคณิตศาสตร์ 15 คนเรียนฟิสิกส์ และ 10 คนเรียนเคมี นอกจากนี้ 6 คนเรียนคณิตศาสตร์และฟิสิกส์ 5 คนเรียนคณิตศาสตร์และเคมี 4 คนเรียนฟิสิกส์และเคมี และ 2 คนเรียนทั้งสามวิชา มีกี่คนที่เรียนอย่างน้อยหนึ่งวิชา?
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item กำหนดเซต $M$ (คณิตศาสตร์), $P$ (ฟิสิกส์), $C$ (เคมี)
-  \item ทราบค่า $|M| = 12$, $|P| = 15$, $|C| = 10$, $|M \cap P| = 6$, $|M \cap C| = 5$, $|P \cap C| = 4$, $|M \cap P \cap C| = 2$
-  \item ใช้สูตร Inclusion-Exclusion สำหรับ 3 เซต
-
-  \[|M \cup P \cup C| = |M| + |P| + |C| - |M \cap P| - |M \cap C| - |P \cap C| + |M \cap P \cap C|\]
-  \item แทนค่า: $|M \cup P \cup C| = 12 + 15 + 10 - 6 - 5 - 4 + 2 = 24$
-  \item ตรวจสอบ: $24 \leq 20$ เป็นไปไม่ได้ เพราะจำนวนผู้เรียนอย่างน้อยหนึ่งวิชามากกว่าจำนวนนักเรียนทั้งหมด แสดงว่าข้อมูลที่ให้มาไม่สอดคล้องกัน จึงควรย้อนกลับไปตรวจแหล่งข้อมูลก่อนสรุปผล
-\end{solsteps}
+กำหนด $M$ (คณิตศาสตร์), $P$ (ฟิสิกส์), $C$ (เคมี) โดย $|M|=12$, $|P|=15$, $|C|=10$, $|M \cap P|=6$, $|M \cap C|=5$, $|P \cap C|=4$, $|M \cap P \cap C|=2$
+\begin{align*}
+|M \cup P \cup C| &= |M|+|P|+|C|-|M\cap P|-|M\cap C|-|P\cap C|+|M\cap P\cap C|\\
+                  &= 12+15+10-6-5-4+2 = 24
+\end{align*}
+แต่ $24 > 20$ (จำนวนนักเรียนทั้งหมด) เป็นไปไม่ได้ แสดงว่าข้อมูลที่ให้มาไม่สอดคล้องกัน ควรย้อนกลับไปตรวจแหล่งข้อมูลก่อนสรุปผล \solhere
 \end{solution}
 
 \begin{thrm}
@@ -721,17 +688,12 @@ $|\mathcal{P}(A)| = 2^{|A|}$ สำหรับเซตจำกัด $A$
 จงแทนเซต $A = \{2, 5, 7\}$ ใน Universal Set $U = \{1, 2, 3, 4, 5, 6, 7, 8, 9\}$ ด้วย bit vector
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item กำหนด Universal Set: $U = \{1, 2, 3, 4, 5, 6, 7, 8, 9\}$
-  \item เซต $A = \{2, 5, 7\}$ หมายความว่า positions ที่ 2, 5, 7 มี bit = 1 ส่วน positions อื่นมี bit = 0
-  \item เขียน bit vector โดยตรวจสอบแต่ละ element ใน $U$:
-  \begin{center}
-  $U$:   \texttt{1 2 3 4 5 6 7 8 9}\\[2pt]
-  $A$:   \texttt{0 1 0 0 1 0 1 0 0}
-  \end{center}
-  \item แปลงเป็นเลขฐาน 2: $\texttt{010010100}_2 = 148_{10}$
-  \item ประโยชน์ของ bit vector: Union = bitwise OR ($\lor$), Intersection = bitwise AND ($\land$), Complement = bitwise NOT ($\neg$), Membership test = ตรวจสอบ bit ที่ position ที่เกี่ยวข้อง — ทุก operation ทำได้ใน $O(1)$ บน hardware
-\end{solsteps}
+เขียน bit ตามตำแหน่งใน $U = \{1,2,\ldots,9\}$ โดยให้ bit $= 1$ ถ้าสมาชิกอยู่ใน $A = \{2,5,7\}$ มิฉะนั้นเป็น 0
+\begin{center}
+$U$:\quad \texttt{1 2 3 4 5 6 7 8 9}\\[2pt]
+$A$:\quad \texttt{0 1 0 0 1 0 1 0 0}
+\end{center}
+ได้ bit vector $\texttt{010010100}$ ซึ่งเท่ากับ $148_{10}$ ประโยชน์คือ union $=$ bitwise OR, intersection $=$ bitwise AND, complement $=$ bitwise NOT และการทดสอบสมาชิก $=$ อ่าน bit ที่ตำแหน่งนั้น ทุกการดำเนินการทำได้ใน $O(1)$ บนฮาร์ดแวร์ \solhere
 \end{solution}
 
 \begin{thrm}[Set Operations as Boolean Algebra]
@@ -777,12 +739,7 @@ Join ($\bowtie$) & Complex combination \\
 จงอธิบายว่าเซตและความสัมพันธ์ทางคณิตศาสตร์เกี่ยวข้องอย่างไรกับฐานข้อมูลเชิงสัมพันธ์
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item \textbf{Relation} $R$ เป็นเซตของ tuples: $R \subseteq D_1 \times D_2 \times \cdots \times D_n$ โดยที่ $D_i$ คือ domain ของ attribute ที่ $i$
-  \item \textbf{Primary Key} คือ subset ของ attributes ที่ uniquely identify tuples ใน relation
-  \item \textbf{Foreign Key} คือ subset ของ attributes ที่อ้างอิงไปยัง primary key ของอีก relation หนึ่ง (เป็น subset relationship ระหว่าง schemas)
-  \item ถ้า $S$ แทนเซตของนักศึกษา และ $C$ แทนเซตของรายวิชา และ $E \subseteq S \times C$ แทนเซตของการลงทะเบียน แล้ว $E$ คือเซตของ tuples $(s, c)$ โดยที่ $s \in S$ และ $c \in C$ — นี่คือ Cartesian Product ในทางคณิตศาสตร์
-\end{solsteps}
+ในเชิงเซต \textbf{Relation} $R$ คือเซตของ tuples $R \subseteq D_1 \times D_2 \times \cdots \times D_n$ โดย $D_i$ เป็นโดเมนของ attribute ที่ $i$ ส่วน \textbf{Primary Key} คือสับเซตของ attributes ที่ระบุ tuple ได้อย่างเจาะจง และ \textbf{Foreign Key} คือสับเซตของ attributes ที่อ้างอิงไปยัง primary key ของอีก relation หนึ่ง ตัวอย่างเช่น ถ้า $S$ เป็นเซตของนักศึกษา $C$ เป็นเซตของรายวิชา และ $E \subseteq S \times C$ เป็นเซตของการลงทะเบียน แล้ว $E$ คือเซตของ tuples $(s,c)$ ที่ $s \in S$ และ $c \in C$ ซึ่งก็คือ Cartesian Product นั่นเอง \solhere
 \end{solution}
 
 \subsection{Hash Tables และ Functions}
@@ -854,12 +811,13 @@ Cantor ได้พิสูจน์ว่าเซตนับได้มี�
 จงจำแนกว่าเซตใดนับได้และเซตใดนับไม่ได้:
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item[(ก)] $\mathbb{N}$ นับได้ เพราะ $|\mathbb{N}| = \aleph_0$
-  \item[(ข)] $\mathbb{Z}$ นับได้ เพราะสามารถจับคู่กับ $\mathbb{N}$ ได้ เช่น $0 \leftrightarrow 1, 1 \leftrightarrow 2, -1 \leftrightarrow 3, 2 \leftrightarrow 4, -2 \leftrightarrow 5, \ldots$
-  \item[(ค)] $\mathbb{Q}$ (จำนวนตรรกยะ) นับได้ แม้ว่าจะ dense อยู่ระหว่างจำนวนจริงทุกตัว
-  \item[(ง)] $\mathbb{R}$ นับไม่ได้ เพราะ $|\mathbb{R}| = \mathfrak{c} > \aleph_0$
-\end{solsteps}
+\begin{align*}
+\text{(ก)}\ \ \mathbb{N} &\ \text{นับได้} \quad (|\mathbb{N}| = \aleph_0)\\
+\text{(ข)}\ \ \mathbb{Z} &\ \text{นับได้} \quad (\text{จับคู่ } 0{\leftrightarrow}1,\ 1{\leftrightarrow}2,\ -1{\leftrightarrow}3,\ 2{\leftrightarrow}4,\ldots)\\
+\text{(ค)}\ \ \mathbb{Q} &\ \text{นับได้} \quad (\text{หนาแน่นในจำนวนจริง แต่ยังนับได้})\\
+\text{(ง)}\ \ \mathbb{R} &\ \text{นับไม่ได้} \quad (|\mathbb{R}| = \mathfrak{c} > \aleph_0)
+\end{align*}
+\solhere
 \end{solution}
 
 \section{สรุป}

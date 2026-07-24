@@ -35,9 +35,9 @@
 \XeTeXlinebreaklocale "th"
 \XeTeXlinebreakskip = 0pt plus 1pt
 \hyphenpenalty=10000
-\renewcommand{\baselinestretch}{2.2}
+\renewcommand{\baselinestretch}{1.5}
 
-\linespread{2.25} 
+\linespread{1.5}
 \defaultfontfeatures{Scale=1.35}
 \usepackage{hyperref} 
 \usepackage{emptypage}

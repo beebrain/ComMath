@@ -81,6 +81,12 @@
 %% เพื่อให้ "วิธีทำ" ทุกข้อมีระยะย่อหน้าของสมการเท่ากัน
 \setlength{\mathindent}{1.5em}
 
+%% แต่สมการเลขที่ (equation) จัดกึ่งกลาง — ปิด fleqn เฉพาะภายใน environment นี้
+%% (align/align* ของ "วิธีทำ" และ \[...\] อื่น ยังชิดซ้ายตามเดิม) กลุ่มของ environment คืนค่าให้เองหลังจบ
+\makeatletter
+\AtBeginEnvironment{equation}{\@fleqnfalse\setlength{\mathindent}{0pt}}
+\makeatother
+
 %% ==============================================================================
 %% กฎสำคัญ (CRITICAL RULE): ห้ามพิมพ์ข้อความภาษาไทยในโหมดคณิตศาสตร์ (Math Mode) โดยตรง
 %% เช่น $ทด1$ หรือ $x_{พจน์}$ เพราะจะทำให้ LaTeX ไปเรียกใช้ฟอนต์คณิตศาสตร์ (เช่น cmmi8, cmmi10) 
@@ -96,7 +102,12 @@
 \newtheorem{warning}[thrm]{คำเตือน}
 \newtheorem{prop}[thrm]{บทแทรก}
 \newtheorem{cor}[thrm]{บทสรุป}
-\newtheorem{definition}[thrm]{นิยาม}
+%% definition เป็น tcolorbox แถบหัวเข้ม (บทนิยาม X.Y: ชื่อ) ใน mathstyle.sty
+%% ใช้ตัวนับ defn ของตัวเอง รันเลขต่อกันในแต่ละบท (บทนิยาม 1.1, 1.2, ...) แยกจาก thrm
+%% อ้างอิงด้วย \label{def:...} + \autoref/\ref ได้เลขอัตโนมัติ
+\newcounter{defcnt}[chapter]
+\renewcommand{\thedefcnt}{\thechapter.\arabic{defcnt}}
+\def\defcntautorefname{บทนิยาม}
 
 %% ============ Boxed Theorem Styles (tcolorbox) ============
 \usepackage[most]{tcolorbox}

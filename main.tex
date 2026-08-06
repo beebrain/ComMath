@@ -3,6 +3,7 @@
 %% Updated Main.tex to use the kkubee_edit_all template
 \documentclass{kkubee_edit_all}
 \usepackage{graphicx}
+\usepackage{colortbl}
 \usepackage{float}
 \usepackage{listings}
 \usepackage{url}
@@ -63,6 +64,11 @@
   %% ตั้งชื่อภาษาไทยให้ \autoref (ของเดิม hyperref ใช้ "Chapter" ภาษาอังกฤษ)
   %% ทำใน hook นี้เพื่อเขียนทับค่าที่ hyperref ตั้งตอน \begin{document}
   \renewcommand{\chapterautorefname}{บทที่}%
+  \renewcommand{\sectionautorefname}{หัวข้อที่}%
+  \renewcommand{\subsectionautorefname}{หัวข้อที่}%
+  \renewcommand{\subsubsectionautorefname}{หัวข้อที่}%
+  \renewcommand{\figureautorefname}{ภาพที่}%
+  \renewcommand{\tableautorefname}{ตารางที่}%
 }
 \makeatother
 
@@ -97,7 +103,7 @@
 
 %% ============ Theorem Environments ============
 \newtheorem{thrm}{ทฤษฎีบท}[chapter]
-\newtheorem{ex}[thrm]{ตัวอย่างที่}
+\newtheorem{ex}{ตัวอย่างที่}[chapter]
 \newtheorem{rem}[thrm]{หมายเหตุ}
 \newtheorem{warning}[thrm]{คำเตือน}
 \newtheorem{prop}[thrm]{บทแทรก}
@@ -121,12 +127,12 @@
 % Use simple macros to avoid LaTeX environment stack issues
 \def\beginlearningObjectives{
     \vspace{1em}
-    \noindent\textbf{วัตถุประสงค์การเรียนรู้:}
+    \noindent\textbf{วัตถุประสงค์การเรียนรู้}
     \vspace{0.6em}
-    \begin{itemize}[label=\checkmark, leftmargin=2em, topsep=0.4em, itemsep=0.3em]
+    \begin{enumerate}[label=\checkmark, leftmargin=2em, topsep=0.4em, itemsep=0.3em]
 }
 \def\endlearningObjectives{
-    \end{itemize}
+    \end{enumerate}
     \vspace{1em}
 }
 
@@ -147,6 +153,19 @@
 %% ใช้ shape [hang] กันเลข section ทับชื่อ (ฟอนต์ไทย Scale=1.5 ทำให้เลขกว้าง) และตั้ง sep = 0.5em (≈ 2 เคาะ)
 \titleformat{\section}[hang]{\large\bfseries\upshape}{\thesection}{0.5em}{}
 \titleformat{\subsection}[hang]{\bfseries\upshape}{\thesubsection}{0.5em}{}
+
+%% หัวข้อแบ่งส่วนแบบฝึกหัด/เฉลย — จัดกึ่งกลาง (subsection ปกติเยื้อง 1.5cm จาก \titlespacing)
+\newcommand{\exercisepart}[1]{%
+  \par\addvspace{1.8ex}%
+  {\centering\bfseries\upshape #1\par}%
+  \addvspace{0.8ex}}
+
+%% แบนเนอร์หัวข้อแบบฝึกหัด/เฉลย — ขึ้นหน้าใหม่ + จัดกึ่งกลาง (ไม่มีเลขกำกับ แต่เข้า TOC)
+\newcommand{\sectionbanner}[1]{%
+  \clearpage
+  \phantomsection\addcontentsline{toc}{section}{#1}%
+  \par\vspace*{0.5ex}{\centering\large\bfseries\upshape #1\par}\vspace{1.8ex}}
+\newcommand{\answerkeyhead}{\sectionbanner{เฉลยแบบฝึกหัด}}
 
 \usepackage{biblatex}
 \addbibresource{references.bib}

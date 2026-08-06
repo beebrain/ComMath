@@ -1,8 +1,6 @@
 \chapter{พีชคณิตบูลีน (Boolean Algebra)}
 \label{ch:boolean}
 
-\section{บทนำ}
-
 พีชคณิตบูลีน (Boolean Algebra) เป็นสาขาของคณิตศาสตร์ที่ศึกษาเกี่ยวกับค่าตรรกะ (logical values) และการดำเนินการทางตรรกะ (logical operations) พีชคณิตบูลีนถูกพัฒนาขึ้นโดย George Boole (1815--1864) นักคณิตศาสตร์ชาวอังกฤษในปี ค.ศ. 1854 ผ่านงานวิจัยเรื่อง ``An Investigation of the Laws of Thought'' ซึ่งวางรากฐานของตรรกศาสตร์เชิงสัญลักษณ์ที่กลายเป็นเครื่องมือสำคัญในการคำนวณและการออกแบบระบบดิจิทัล~\cite{boole1854investigation}
 
 พีชคณิตบูลีนมีความสำคัญอย่างยิ่งในวิทยาการคอมพิวเตอร์ เนื่องจากเป็นพื้นฐานของวงจรดิจิทัล (การออกแบบ logic gates) ตรรกศาสตร์ในการเขียนโปรแกรม (เงื่อนไข if-else, loops) ฐานข้อมูล (boolean queries ใน SQL) และทฤษฎีการคำนวณ (boolean circuits) การเข้าใจหลักการของพีชคณิตบูลีนอย่างแท้จริงจึงเป็นสิ่งจำเป็นสำหรับนักศึกษาทุกสาขาที่เกี่ยวข้องกับเทคโนโลยีสารสนเทศ
@@ -15,6 +13,8 @@
 
 \begin{table}[!htb]
     \centering
+    \caption{ความสัมพันธ์ระหว่างพีชคณิตบูลีน ทฤษฎีเซต และตรรกศาสตร์}
+    \label{tab:boolean-set-logic}
     \begin{tabular}{|c|c|c|}
         \hline
         Boolean Algebra & Set Theory & Propositional Logic \\
@@ -30,8 +30,6 @@
         NOT ($\overline{x}$) & Complement ($A^c$) & NOT ($\neg$) \\
         \hline
     \end{tabular}
-    \caption{ความสัมพันธ์ระหว่างพีชคณิตบูลีน ทฤษฎีเซต และตรรกศาสตร์}
-    \label{tab:boolean-set-logic}
 \end{table}
 
 \section{นิยามพื้นฐานของพีชคณิตบูลีน}
@@ -40,8 +38,9 @@
 \subsection{นิยามของ Boolean Algebra}
 พีชคณิตบูลีนเป็นโครงสร้างเชิงพีชคณิตที่สร้างขึ้นเพื่ออธิบายการให้เหตุผลเชิงตรรกะและการทำงานของวงจรดิจิทัล โดยกำหนดค่าพื้นฐานเพียงสองค่าและการดำเนินการไม่กี่อย่าง พร้อมกฎพื้นฐาน (axioms) ที่การดำเนินการเหล่านั้นต้องเป็นไปตาม
 
-\begin{definition}
-\textbf{Boolean Algebra} คือ algebraic structure $(B, +, \cdot, ', 0, 1)$ โดยที่ $B$ เป็นเซตที่ประกอบด้วยสองค่า $\{0, 1\}$ และ $+$, $\cdot$ เป็น binary operations และ $'$ เป็น unary operation โดยมี axioms ดังนี้
+\begin{definition}[พีชคณิตบูลีน]
+\index{พีชคณิตบูลีน!นิยาม}
+พีชคณิตบูลีน คือ โครงสร้างเชิงพีชคณิต $(B, +, \cdot, ', 0, 1)$ โดยที่ $B$ เป็นเซตที่มีสองสมาชิกคือ $\{0, 1\}$ พร้อมการดำเนินการทวิภาค $+$ และ $\cdot$ และการดำเนินการเอกภาพ $'$ โดยสอดคล้องกับสัจพจน์ต่อไปนี้
 
 \begin{enumerate}
     \item Closure สำหรับทุก $a, b \in B$:
@@ -77,15 +76,15 @@
 \end{enumerate}
 \end{definition}
 
-\subsection{ค่าคงที่บูลีน}
-รากฐานของพีชคณิตบูลีนคือค่าคงที่สองค่าที่ใช้แทนสถานะทางตรรกะ ได้แก่ เท็จและจริง หรือในทางวงจรดิจิทัลคือระดับแรงดันต่ำและสูง
+\subsection{ค่าคงตัวบูลีน}
+รากฐานของพีชคณิตบูลีนคือค่าคงตัวสองค่าที่ใช้แทนสถานะทางตรรกะ ได้แก่ เท็จและจริง หรือในทางวงจรดิจิทัลคือระดับแรงดันต่ำและสูง
 
-\begin{definition}
-ในพีชคณิตบูลีน มีค่าคงที่สองค่า ดังนี้
-
+\begin{definition}[ค่าคงตัวบูลีน]
+\index{ค่าคงตัวบูลีน!นิยาม}
+ในพีชคณิตบูลีน มีค่าคงตัวสองค่า ดังนี้
 \begin{enumerate}
-    \item \textbf{0 (False/ปลอม)} คือ แทนค่าความจริงว่างเปล่าหรือเท็จ
-    \item \textbf{1 (True/จริง)} คือ แทนค่าความจริงว่าถูกต้องหรือจริง
+    \item 0 แทนค่าความจริงเท็จ หรือแรงดันระดับต่ำ
+    \item 1 แทนค่าความจริงจริง หรือแรงดันระดับสูง
 \end{enumerate}
 \end{definition}
 
@@ -93,10 +92,7 @@
 ถ้า 0 แทนค่าความจริงว่างเปล่าหรือเท็จ และ 1 แทนค่าความจริงว่าถูกต้องหรือจริง จงอธิบายความหมายของ 0 และ 1 ในบริบทต่างๆ
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ในบริบทของวงจรดิจิทัล 0 อาจแทนแรงดัน 0V หรือสัญญาณปิด (off) และ 1 อาจแทนแรงดัน 5V หรือสัญญาณเปิด (on)
-  \item ในบริบทของตรรกศาสตร์ 0 อาจแทน ``ไม่จริง'' หรือ ``เท็จ'' และ 1 อาจแทน ``จริง'' หรือ ``ถูกต้อง'' \solhere
-\end{solsteps}
+วงจรดิจิทัล $0 = 0\text{V (off)},\ 1 = 5\text{V (on)}$; ตรรกศาสตร์ $0 = $ เท็จ, $1 = $ จริง \solhere
 \end{solution}
 
 \section{การดำเนินการทางบูลีน (Boolean Operations)}
@@ -109,8 +105,9 @@
 \subsection{การดำเนินการ OR (Disjunction)}
 การดำเนินการพื้นฐานอย่างแรกในพีชคณิตบูลีนคือ OR ซึ่งสอดคล้องกับการเชื่อม ``หรือ'' ในตรรกศาสตร์
 
-\begin{definition}
-\textbf{การดำเนินการ OR} ของ $a$ และ $b$ เขียนแทนด้วย $a + b$ หรือ $a \lor b$ ให้ผลลัพธ์เป็น 1 ถ้าอย่างน้อยหนึ่งใน $a$ หรือ $b$ เป็น 1 และให้ผลลัพธ์เป็น 0 ก็ต่อเมื่อ $a = b = 0$
+\begin{definition}[การดำเนินการ OR]
+\index{การดำเนินการ OR!นิยาม}
+การดำเนินการ OR ของ $a$ และ $b$ เขียนแทนด้วย $a + b$ หรือ $a \lor b$ ให้ผลลัพธ์เป็น 1 ถ้าอย่างน้อยหนึ่งใน $a$ หรือ $b$ เป็น 1 และให้ผลลัพธ์เป็น 0 ก็ต่อเมื่อ $a = b = 0$
 \end{definition}
 
 ตารางค่าความจริงของ OR เป็นดังนี้
@@ -134,12 +131,11 @@ $a$ & $b$ & $a + b$ \\
 Truth table ของการดำเนินการ OR
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $0 + 0 = 0$
-  \item $0 + 1 = 1$
-  \item $1 + 0 = 1$
-  \item $1 + 1 = 1$ \solhere
-\end{solsteps}
+\begin{align*}
+0 + 0 &= 0 & 0 + 1 &= 1\\
+1 + 0 &= 1 & 1 + 1 &= 1
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{thrm}[Properties ของ OR]
@@ -181,12 +177,11 @@ $a$ & $b$ & $a \cdot b$ \\
 Truth table ของการดำเนินการ AND
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $0 \cdot 0 = 0$
-  \item $0 \cdot 1 = 0$
-  \item $1 \cdot 0 = 0$
-  \item $1 \cdot 1 = 1$ \solhere
-\end{solsteps}
+\begin{align*}
+0 \cdot 0 &= 0 & 0 \cdot 1 &= 0\\
+1 \cdot 0 &= 0 & 1 \cdot 1 &= 1
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{thrm}[Properties ของ AND]
@@ -205,8 +200,9 @@ Truth table ของการดำเนินการ AND
 \subsection{การดำเนินการ NOT (Negation)}
 การดำเนินการ NOT เป็นการกลับค่าบูลีนจากค่าหนึ่งไปเป็นอีกค่าหนึ่ง สอดคล้องกับการปฏิเสธ ``ไม่'' ในตรรกศาสตร์
 
-\begin{definition}
-\textbf{การดำเนินการ NOT} ของ $a$ เขียนแทนด้วย $a'$ หรือ $\overline{a}$ หรือ $\neg a$ ให้ผลลัพธ์ตรงข้ามกับ $a$ นั่นคือ ถ้า $a = 0$ แล้ว $a' = 1$ และถ้า $a = 1$ แล้ว $a' = 0$
+\begin{definition}[การดำเนินการ NOT]
+\index{การดำเนินการ NOT!นิยาม}
+การดำเนินการ NOT ของ $a$ เขียนแทนด้วย $a'$ หรือ $\overline{a}$ หรือ $\neg a$ ให้ผลลัพธ์ตรงข้ามกับ $a$ นั่นคือ ถ้า $a = 0$ แล้ว $a' = 1$ และถ้า $a = 1$ แล้ว $a' = 0$
 \end{definition}
 
 ตารางค่าความจริงของ NOT เป็นดังนี้
@@ -226,12 +222,11 @@ $a$ & $a'$ \\
 Truth table ของการดำเนินการ NOT
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $0' = 1$
-  \item $1' = 0$
-  \item $(0')' = 0$
-  \item $(1')' = 1$ \solhere
-\end{solsteps}
+\begin{align*}
+0' &= 1 & 1' &= 0\\
+(0')' &= 0 & (1')' &= 1
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{thrm}[Properties ของ NOT]
@@ -260,10 +255,11 @@ Truth table ของการดำเนินการ NOT
 
 การดำเนินการ XOR หรือ Exclusive OR เป็นการดำเนินการที่สำคัญมากในวงจรดิจิทัลและการเข้ารหัส ต่างจาก OR ตรงที่ XOR ให้ผลลัพธ์เป็น 1 ก็ต่อเมื่อค่าอินพุตสองค่าแตกต่างกัน (หนึ่งเป็น 0 และอีกหนึ่งเป็น 1) คุณสมบัตินี้ทำให้ XOR เหมาะสำหรับการคำนวณ parity bit ในระบบตรวจจับข้อผิดพลาด และการเข้ารหัสแบบ symmetric encryption
 
-\begin{definition}
-\textbf{การดำเนินการ XOR} ของ $a$ และ $b$ เขียนแทนด้วย $a \oplus b$ ให้ผลลัพธ์เป็น 1 ก็ต่อเมื่อ $a$ และ $b$ มีค่าต่างกัน และให้ผลลัพธ์เป็น 0 เมื่อ $a$ และ $b$ มีค่าเท่ากัน
-
-\textbf{Truth Table ของ XOR:}
+\begin{definition}[การดำเนินการ XOR]
+\index{การดำเนินการ XOR!นิยาม}
+การดำเนินการ XOR ของ $a$ และ $b$ เขียนแทนด้วย $a \oplus b$ ให้ผลลัพธ์เป็น 1 ก็ต่อเมื่อ $a$ และ $b$ มีค่าต่างกัน และให้ผลลัพธ์เป็น 0 เมื่อ $a$ และ $b$ มีค่าเท่ากัน นั่นคือ
+\[ a \oplus b = a'b + ab' = (a \land \neg b) \lor (\neg a \land b) \]
+\end{definition}
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
@@ -279,7 +275,6 @@ $a$ & $b$ & $a \oplus b$ \\
 \hline
 \end{tabular}
 \end{center}
-\end{definition}
 
 \begin{thrm}[คุณสมบัติของ XOR]
 สำหรับทุก $a, b, c \in \{0, 1\}$ โดยที่ $a, b, c$ แทนค่าบูลีนใดๆ ดังนี้
@@ -300,27 +295,19 @@ $a$ & $b$ & $a \oplus b$ \\
 คำนวณ $1 \oplus 0 \oplus 1$:
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $(1 \oplus 0) \oplus 1$ \quad (Associate property)
-  \item $= 1 \oplus 1$ \quad (จาก $1 \oplus 0 = 1$)
-  \item $= 0$ \quad (จาก $a \oplus a = 0$)
-\end{solsteps}
 \begin{align*}
 1 \oplus 0 \oplus 1 &= (1 \oplus 0) \oplus 1 \\
                    &= 1 \oplus 1 \quad \text{(จาก } 1 \oplus 0 = 1 \text{)} \\
                    &= 0 \quad \text{(จาก } a \oplus a = 0 \text{)}
 \end{align*}
+\solhere
 \end{solution}
 
 \begin{ex}
 พิสูจน์ $a \oplus b = a \cdot b' + a' \cdot b$ โดยใช้ truth table
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item สร้าง truth table สำหรับการพิสูจน์ ดังนี้ \solhere
-
-\end{solsteps}
-\end{solution}
+สร้าง truth table เปรียบเทียบทั้งสองข้าง
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
@@ -336,10 +323,7 @@ $a$ & $b$ & $a'$ & $b'$ & $a \cdot b'$ & $a' \cdot b$ & $a \cdot b' + a' \cdot b
 \hline
 \end{tabular}
 \end{center}
-\begin{solution}
-\begin{solsteps}
-  \item เนื่องจากคอลัมน์ $a \oplus b$ และ $a \cdot b' + a' \cdot b$ มีค่าเท่ากันทุกแถว ดังนั้น $a \oplus b = a \cdot b' + a' \cdot b$ \solhere
-\end{solsteps}
+คอลัมน์ $a \cdot b' + a' \cdot b$ ตรงกับ $a \oplus b$ ทุกแถว $\therefore a \oplus b = a \cdot b' + a' \cdot b$ \solhere
 \end{solution}
 
 \section{กฎของพีชคณิตบูลีน (Boolean Identities)}
@@ -421,70 +405,66 @@ $a$ & $b$ & $c$ & $b \cdot c$ & $a + (b \cdot c)$ & $a + b$ & $a + c$ & $(a + b)
 พิสูจน์ $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$ โดยใช้ truth table
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item สร้างตาราง truth table สำหรับตัวแปร $a, b, c$:
-  \begin{center}
-  \begin{tabular}{|c|c|c|c|c|c|c|c|}
-  \hline
-  $a$ & $b$ & $c$ & $b + c$ & $a \cdot (b + c)$ & $a \cdot b$ & $a \cdot c$ & $(a \cdot b) + (a \cdot c)$ \\
-  \hline
-  0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-  \hline
-  0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\
-  \hline
-  0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 \\
-  \hline
-  0 & 1 & 1 & 1 & 0 & 0 & 0 & 0 \\
-  \hline
-  1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-  \hline
-  1 & 0 & 1 & 1 & 1 & 0 & 1 & 1 \\
-  \hline
-  1 & 1 & 0 & 1 & 1 & 1 & 0 & 1 \\
-  \hline
-  1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
-  \hline
-  \end{tabular}
-  \end{center}
-  \item เนื่องจากคอลัมน์ $a \cdot (b + c)$ และ $(a \cdot b) + (a \cdot c)$ มีค่าเท่ากันทุกแถว ดังนั้น $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$ \solhere
-\end{solsteps}
+สร้าง truth table เปรียบเทียบทั้งสองข้าง
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+$a$ & $b$ & $c$ & $b + c$ & $a \cdot (b + c)$ & $a \cdot b$ & $a \cdot c$ & $(a \cdot b) + (a \cdot c)$ \\
+\hline
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\
+\hline
+0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 \\
+\hline
+0 & 1 & 1 & 1 & 0 & 0 & 0 & 0 \\
+\hline
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+1 & 0 & 1 & 1 & 1 & 0 & 1 & 1 \\
+\hline
+1 & 1 & 0 & 1 & 1 & 1 & 0 & 1 \\
+\hline
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+คอลัมน์ $a \cdot (b + c)$ และ $(a \cdot b) + (a \cdot c)$ เท่ากันทุกแถว $\therefore a \cdot (b + c) = (a \cdot b) + (a \cdot c)$ \solhere
 \end{solution}
 
 \begin{ex}
 พิสูจน์ $a + (b \cdot c) = (a + b) \cdot (a + c)$ โดยใช้ truth table
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item สร้างตาราง truth table สำหรับตัวแปร $a, b, c$:
-  \begin{center}
-  \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-  \hline
-  $a$ & $b$ & $c$ & $b \cdot c$ & $a + (b \cdot c)$ & $a + b$ & $a + c$ & $(a + b) \cdot (a + c)$ \\
-  \hline
-  0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
-  \hline
-  0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 \\
-  \hline
-  0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 \\
-  \hline
-  0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
-  \hline
-  1 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\
-  \hline
-  1 & 0 & 1 & 0 & 1 & 1 & 1 & 1 \\
-  \hline
-  1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 \\
-  \hline
-  1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
-  \hline
-  \end{tabular}
-  \end{center}
-  \item เนื่องจากคอลัมน์ $a + (b \cdot c)$ และ $(a + b) \cdot (a + c)$ มีค่าเท่ากันทุกแถว ดังนั้น $a + (b \cdot c) = (a + b) \cdot (a + c)$ \solhere
-\end{solsteps}
+สร้าง truth table เปรียบเทียบทั้งสองข้าง
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+$a$ & $b$ & $c$ & $b \cdot c$ & $a + (b \cdot c)$ & $a + b$ & $a + c$ & $(a + b) \cdot (a + c)$ \\
+\hline
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 \\
+\hline
+0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 \\
+\hline
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+\hline
+1 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\
+\hline
+1 & 0 & 1 & 0 & 1 & 1 & 1 & 1 \\
+\hline
+1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 \\
+\hline
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+คอลัมน์ $a + (b \cdot c)$ และ $(a + b) \cdot (a + c)$ เท่ากันทุกแถว $\therefore a + (b \cdot c) = (a + b) \cdot (a + c)$ \solhere
 \end{solution}
 
 \subsection{Absorption Laws}
-การดูดกลืน (Absorption) เป็นคุณสมบัติที่แสดงให้เห็นว่าการดำเนินการ OR และ AND มีความสัมพันธ์กัน คุณสมบัตินี้บอกเราว่าเมื่อนำผลลัพธ์ของการดำเนินการหนึ่งไปดำเนินการกับอีกตัวแปรหนึ่ง ผลลัพธ์จะ "ถูกดูดกลืน" กลับมาเป็นตัวแปรเดิม เช่นเดียวกับการนำน้ำไปเติมลงในแก้วที่มีน้ำอยู่แล้ว น้ำใหม่จะผสานเป็นเนื้อเดียวกับน้ำเดิม คุณสมบัตินี้มีประโยชน์มากในการทำให้นิพจน์บูลีนง่ายขึ้น เพราะช่วยตัดพจน์ที่ซ้ำซ้อนออกไปได้
+การดูดกลืน (Absorption) เป็นคุณสมบัติที่แสดงให้เห็นว่าการดำเนินการ OR และ AND มีความสัมพันธ์กัน คุณสมบัตินี้บอกเราว่าเมื่อนำผลลัพธ์ของการดำเนินการหนึ่งไปดำเนินการกับอีกตัวแปรหนึ่ง ผลลัพธ์จะ ``ถูกดูดกลืน'' กลับมาเป็นตัวแปรเดิม เช่นเดียวกับการนำน้ำไปเติมลงในแก้วที่มีน้ำอยู่แล้ว น้ำใหม่จะผสานเป็นเนื้อเดียวกับน้ำเดิม คุณสมบัตินี้มีประโยชน์มากในการทำให้นิพจน์บูลีนง่ายขึ้น เพราะช่วยตัดพจน์ที่ซ้ำซ้อนออกไปได้
 
 \begin{thrm}[Absorption Laws]
 สำหรับทุก $a, b \in \{0, 1\}$ โดยที่ $a$ และ $b$ แทนค่าบูลีนใดๆ ดังนี้
@@ -499,50 +479,46 @@ $a$ & $b$ & $c$ & $b \cdot c$ & $a + (b \cdot c)$ & $a + b$ & $a + c$ & $(a + b)
 พิสูจน์ $a + (a \cdot b) = a$ โดยใช้ truth table
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item สร้างตาราง truth table สำหรับตัวแปร $a, b$:
-  \begin{center}
-  \begin{tabular}{|c|c|c|c|c|c|}
-  \hline
-  $a$ & $b$ & $a \cdot b$ & $a + (a \cdot b)$ & $a$ \\
-  \hline
-  0 & 0 & 0 & 0 & 0 \\
-  \hline
-  0 & 1 & 0 & 0 & 0 \\
-  \hline
-  1 & 0 & 0 & 1 & 1 \\
-  \hline
-  1 & 1 & 1 & 1 & 1 \\
-  \hline
-  \end{tabular}
-  \end{center}
-  \item ดังนั้น $a + (a \cdot b) = a$ \solhere
-\end{solsteps}
+สร้าง truth table เปรียบเทียบทั้งสองข้าง
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$a$ & $b$ & $a \cdot b$ & $a + (a \cdot b)$ & $a$ \\
+\hline
+0 & 0 & 0 & 0 & 0 \\
+\hline
+0 & 1 & 0 & 0 & 0 \\
+\hline
+1 & 0 & 0 & 1 & 1 \\
+\hline
+1 & 1 & 1 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+คอลัมน์ $a + (a \cdot b)$ ตรงกับ $a$ ทุกแถว $\therefore a + (a \cdot b) = a$ \solhere
 \end{solution}
 
 \begin{ex}
 พิสูจน์ $a \cdot (a + b) = a$ โดยใช้ truth table
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item สร้างตาราง truth table สำหรับตัวแปร $a, b$:
-  \begin{center}
-  \begin{tabular}{|c|c|c|c|c|c|}
-  \hline
-  $a$ & $b$ & $a + b$ & $a \cdot (a + b)$ & $a$ \\
-  \hline
-  0 & 0 & 0 & 0 & 0 \\
-  \hline
-  0 & 1 & 1 & 0 & 0 \\
-  \hline
-  1 & 0 & 1 & 1 & 1 \\
-  \hline
-  1 & 1 & 1 & 1 & 1 \\
-  \hline
-  \end{tabular}
-  \end{center}
-  \item ดังนั้น $a \cdot (a + b) = a$ \solhere
-\end{solsteps}
+สร้าง truth table เปรียบเทียบทั้งสองข้าง
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$a$ & $b$ & $a + b$ & $a \cdot (a + b)$ & $a$ \\
+\hline
+0 & 0 & 0 & 0 & 0 \\
+\hline
+0 & 1 & 1 & 0 & 0 \\
+\hline
+1 & 0 & 1 & 1 & 1 \\
+\hline
+1 & 1 & 1 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+คอลัมน์ $a \cdot (a + b)$ ตรงกับ $a$ ทุกแถว $\therefore a \cdot (a + b) = a$ \solhere
 \end{solution}
 
 \section{กฎของ De Morgan (De Morgan's Laws)}
@@ -616,29 +592,31 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 \end{rem}
 
 \section{นิพจน์บูลีนและฟังก์ชันบูลีน (Boolean Expressions and Functions)}
+\zlabel{sec:boolean-expressions}
+นิพจน์บูลีนและฟังก์ชันบูลีนเป็นเครื่องมือสำคัญในการนำเสนอและวิเคราะห์ปัญหาทางตรรกะในระบบคอมพิวเตอร์ ฟังก์ชันบูลีนเป็นการแมปจากโดเมนค่าบูลีน $n$ ตัวแปร $B^n = \{0, 1\}^n$ ไปยังเรนจ์ $\{0, 1\}$ การนำเสนอความสัมพันธ์ของการแมปฟังก์ชันนี้สามารถอธิบายด้วยตารางค่าความจริง แผนภาพวงจรดิจิทัล หรือการส่งค่าดังแสดงในรูปที่~\ref{fig:function-mapping}
+
 \begin{figure}[H]
     \centering
-    \resizebox{0.8\textwidth}{!}{\input{Figures/tikz/35-function-mapping}}
+    \includegraphics[width=0.62\textwidth]{Figures/png_ready/35-function-mapping-manual.png}
     \caption{การแมปแบบหนึ่งต่อหนึ่ง (One-to-One) และแบบทั่วถึง (Onto) ของฟังก์ชัน}
     \label{fig:function-mapping}
 \end{figure}
 
-\label{sec:boolean-expressions}
-
-นิพจน์บูลีนและฟังก์ชันบูลีนเป็นเครื่องมือสำคัญในการนำเสนอและวิเคราะห์ปัญหาทางตรรกะ นิพจน์บูลีนสร้างจากตัวแปรบูลีน ค่าคงที่ 0 และ 1 และการดำเนินการ OR, AND และ NOT โดยใช้วงเล็บเพื่อกำหนดลำดับการดำเนินการ ฟังก์ชันบูลีนเป็นการแมปจากเซตของค่าบูลีน $n$ ตัวแปรไปยังค่าบูลีนหนึ่งค่า ฟังก์ชันบูลีนสามารถนำเสนอได้หลายรูปแบบ ได้แก่ truth table, นิพจน์บูลีน, และแผนที่คาร์นอ (Karnaugh map)
+นิพจน์บูลีนสร้างจากตัวแปรบูลีน ค่าคงตัว 0 และ 1 และการดำเนินการ OR, AND และ NOT โดยใช้วงเล็บเพื่อกำหนดลำดับการดำเนินการ ฟังก์ชันบูลีนสามารถนำเสนอได้หลายรูปแบบ ได้แก่ truth table, นิพจน์บูลีน, และแผนที่คาร์นอ (Karnaugh map)
 
 ในการออกแบบวงจรดิจิทัล ฟังก์ชันบูลีนเป็นจุดเริ่มต้นของการออกแบบ วิศวกรจะนำข้อกำหนดของปัญหามาเขียนเป็นฟังก์ชันบูลีน จากนั้นจึงลดรูปฟังก์ชันให้เป็นรูปแบบที่ง่ายที่สุดก่อนที่จะแปลงเป็นวงจร การลดรูปที่ดีสามารถลดจำนวนอุปกรณ์อิเล็กทรอนิกส์ที่ต้องใช้ได้อย่างมาก ทำให้วงจรมีความซับซ้อนน้อยลงและประหยัดต้นทุนการผลิต
 
 \subsection{นิยามของนิพจน์บูลีน}
-ในทางคณิตศาสตร์ นิพจน์ (expression) คือการรวมกันของตัวแปร ค่าคงที่ และการดำเนินการ เช่นเดียวกัน นิพจน์บูลีนก็คือการรวมกันของตัวแปรบูลีน ค่าคงที่ 0 และ 1 และการดำเนินการ OR, AND, NOT โดยใช้วงเล็บเพื่อกำหนดลำดับการดำเนินการ การเข้าใจโครงสร้างของนิพจน์บูลีนเป็นพื้นฐานสำคัญในการวิเคราะห์และออกแบบวงจรดิจิทัล
+ในทางคณิตศาสตร์ นิพจน์ (expression) คือการรวมกันของตัวแปร ค่าคงตัว และการดำเนินการ เช่นเดียวกัน นิพจน์บูลีนก็คือการรวมกันของตัวแปรบูลีน ค่าคงตัว 0 และ 1 และการดำเนินการ OR, AND, NOT โดยใช้วงเล็บเพื่อกำหนดลำดับการดำเนินการ การเข้าใจโครงสร้างของนิพจน์บูลีนเป็นพื้นฐานสำคัญในการวิเคราะห์และออกแบบวงจรดิจิทัล
 
-\begin{definition}
-\textbf{นิพจน์บูลีน (Boolean Expression)} คือ การรวมกันของ:
+\begin{definition}[นิพจน์บูลีน]
+\index{นิพจน์บูลีน!นิยาม}
+นิพจน์บูลีน คือการรวมกันขององค์ประกอบต่อไปนี้
 \begin{enumerate}
-    \item ตัวแปรบูลีน (Boolean variables) เช่น $x, y, z$
-    \item ค่าคงที่บูลีน 0 และ 1
+    \item ตัวแปรบูลีน เช่น $x, y, z$
+    \item ค่าคงตัวบูลีน 0 และ 1
     \item การดำเนินการบูลีน ($+$, $\cdot$, $'$)
-    \item วงเล็บ $($ และ $=$ เพื่อกำหนดลำดับการดำเนินการ
+    \item วงเล็บ $($ และ $)$ เพื่อกำหนดลำดับการดำเนินการ
 \end{enumerate}
 \end{definition}
 
@@ -654,13 +632,7 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 \end{enumerate}
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $x + y$ — ตัวแปรสองตัวขึ้นไปด้วยการดำเนินการ $+$ เป็นนิพจน์บูลีนที่ถูกต้อง
-  \item $x \cdot y'$ — การใช้ตัวดำเนินการ $\cdot$ และ $'$ กับตัวแปรเป็นนิพจน์บูลีนที่ถูกต้อง
-  \item $(x + y) \cdot z$ — วงเล็บกำหนดลำดับการดำเนินการ และการรวมตัวดำเนินการหลายตัวเป็นนิพจน์ที่ถูกต้อง
-  \item $x' + y \cdot z$ — ตัวดำเนินการ $'$ มีลำดับสูงสุด จากนั้น $\cdot$ และ $+$ ตามลำดับ
-  \item $(a + b) \cdot (a' + c) + (a \cdot b \cdot c)'$ — นิพจน์ซับซ้อนที่รวมการดำเนินการทุกรูปแบบ \solhere
-\end{solsteps}
+ทุกนิพจน์สร้างจากตัวแปรบูลีนกับตัวดำเนินการ $+,\ \cdot,\ '$ ตามกฎการสร้างนิพจน์ (ลำดับความสำคัญ: $'$ ก่อน $\cdot$ ก่อน $+$; วงเล็บกำหนดลำดับได้) $\therefore$ ทั้งห้าเป็นนิพจน์บูลีนที่ถูกต้อง \solhere
 \end{solution}
 
 \subsection{ฟังก์ชันบูลีน}
@@ -668,8 +640,9 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 
 เมื่อนำตัวแปรบูลีนและการดำเนินการมาประกอบกัน เราสามารถสร้างฟังก์ชันที่รับอินพุตเป็นค่าบูลีนและให้ผลลัพธ์เป็นค่าบูลีนได้
 
-\begin{definition}
-\textbf{ฟังก์ชันบูลีน (Boolean Function)} $f(x_1, x_2, \ldots, x_n)$ คือ ฟังก์ชันที่รับค่าบูลีน $n$ ตัวแปรและให้ผลลัพธ์เป็นค่าบูลีน
+\begin{definition}[ฟังก์ชันบูลีน]
+\index{ฟังก์ชันบูลีน!นิยาม}
+ฟังก์ชันบูลีน $f(x_1, x_2, \ldots, x_n)$ คือ ฟังก์ชันที่รับค่าบูลีน $n$ ตัวแปรและให้ผลลัพธ์เป็นค่าบูลีน
 \end{definition}
 
 ฟังก์ชันบูลีนสามารถแทนด้วยตารางค่าความจริง (truth table) ที่แสดงผลลัพธ์สำหรับทุกชุดค่าอินพุตที่เป็นไปได้
@@ -678,59 +651,54 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 ฟังก์ชันบูลีน $f(x, y) = x \cdot y + x' \cdot y'$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item พิจารณา truth table ของฟังก์ชัน ดังนี้
-
-  \begin{center}
-  \begin{tabular}{|c|c|c|c|c|c|c|}
-  \hline
-  $x$ & $y$ & $x'$ & $y'$ & $x \cdot y$ & $x \cdot y + x' \cdot y'$ \\
-  \hline
-  0 & 0 & 1 & 1 & 0 & 1 \\
-  \hline
-  0 & 1 & 1 & 0 & 0 & 0 \\
-  \hline
-  1 & 0 & 0 & 1 & 0 & 0 \\
-  \hline
-  1 & 1 & 0 & 0 & 1 & 1 \\
-  \hline
-  \end{tabular}
-  \end{center}
-  \item ฟังก์ชันนี้เรียกว่า \textbf{XNOR} ซึ่งให้ผลลัพธ์เป็น 1 เมื่อ $x = y$ และให้ผลลัพธ์เป็น 0 เมื่อ $x \neq y$ \solhere
-\end{solsteps}
+สร้าง truth table ของฟังก์ชัน
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$x$ & $y$ & $x'$ & $y'$ & $x \cdot y$ & $x \cdot y + x' \cdot y'$ \\
+\hline
+0 & 0 & 1 & 1 & 0 & 1 \\
+\hline
+0 & 1 & 1 & 0 & 0 & 0 \\
+\hline
+1 & 0 & 0 & 1 & 0 & 0 \\
+\hline
+1 & 1 & 0 & 0 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+$f = 1$ เมื่อ $x = y$ และ $f = 0$ เมื่อ $x \neq y$ $\therefore f$ คือฟังก์ชัน \textbf{XNOR} \solhere
 \end{solution}
 
 \begin{ex}
 ฟังก์ชันบูลีน $f(x, y, z) = (x + y') \cdot z + x \cdot y$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item พิจารณา truth table ของฟังก์ชัน ดังนี้
-
-  \begin{center}
-  \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-  \hline
-  $x$ & $y$ & $z$ & $y'$ & $x + y'$ & $(x + y') \cdot z$ & $x \cdot y$ & $f$ \\
-  \hline
-  0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 \\
-  \hline
-  0 & 0 & 1 & 1 & 1 & 1 & 0 & 1 \\
-  \hline
-  0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
-  \hline
-  0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\
-  \hline
-  1 & 0 & 0 & 1 & 1 & 0 & 0 & 0 \\
-  \hline
-  1 & 0 & 1 & 1 & 1 & 1 & 0 & 1 \\
-  \hline
-  1 & 1 & 0 & 0 & 1 & 0 & 1 & 1 \\
-  \hline
-  1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 \\
-  \hline
-  \end{tabular}
-  \end{center}
-\end{solsteps}
+สร้าง truth table ของฟังก์ชัน
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+$x$ & $y$ & $z$ & $y'$ & $x + y'$ & $(x + y') \cdot z$ & $x \cdot y$ & $f$ \\
+\hline
+0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 \\
+\hline
+0 & 0 & 1 & 1 & 1 & 1 & 0 & 1 \\
+\hline
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+1 & 0 & 0 & 1 & 1 & 0 & 0 & 0 \\
+\hline
+1 & 0 & 1 & 1 & 1 & 1 & 0 & 1 \\
+\hline
+1 & 1 & 0 & 0 & 1 & 0 & 1 & 1 \\
+\hline
+1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+\solhere
 \end{solution}
 
 \section{รูปแบบปกติ (Canonical Forms)}
@@ -741,8 +709,9 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 \subsection{Minterms และ Maxterms}
 เพื่อให้สามารถเขียนฟังก์ชันบูลีนในรูปแบบมาตรฐานที่ชัดเจน เราต้องเข้าใจแนวคิดของ Minterm และ Maxterm ก่อน Minterm คือ term ที่เกิดจากการ AND ตัวแปรทุกตัว โดยแต่ละตัวแปรจะปรากฏเพียงครั้งเดียวในรูปแบบปกติ (ถ้าตัวแปรมีค่า 1 ใช้ตัวแปรเดี่ยว ถ้ามีค่า 0 ใช้ complement) ในทางตรงข้าม Maxterm คือ term ที่เกิดจากการ OR ตัวแปรทุกตัว โดยใช้กฎเกณฑ์เดียวกันแต่กลับกัน การเข้าใจความสัมพันธ์ระหว่าง Minterm และ Maxterm จะช่วยให้สามารถแปลงฟังก์ชันบูลีนระหว่างรูปแบบ SOP และ POS ได้อย่างง่ายดาย
 
-\begin{definition}
-\textbf{Minterm} ของตัวแปร $n$ ตัวคือ AND term ที่มีตัวแปรทุกตัวปรากฏ exactly once ในรูปแบบปกติ (ถ้าตัวแปรเป็น 1 ใช้ตัวแปรเดี่ยว ถ้าตัวแปรเป็น 0 ใช้ complement)
+\begin{definition}[มินเทอม]
+\index{มินเทอม!นิยาม}
+มินเทอม ของตัวแปร $n$ ตัวคือ AND term ที่มีตัวแปรทุกตัวปรากฏเพียงครั้งเดียวในรูปแบบปกติ (ถ้าตัวแปรเป็น 1 ใช้ตัวแปรเดี่ยว ถ้าตัวแปรเป็น 0 ใช้ complement)
 
 สำหรับ 2 ตัวแปร $x, y$:
 \begin{enumerate}
@@ -753,8 +722,9 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 \end{enumerate}
 \end{definition}
 
-\begin{definition}
-\textbf{Maxterm} ของตัวแปร $n$ ตัวคือ OR term ที่มีตัวแปรทุกตัวปรากฏ exactly once ในรูปแบบปกติ (ถ้าตัวแปรเป็น 0 ใช้ตัวแปรเดี่ยว ถ้าตัวแปรเป็น 1 ใช้ complement)
+\begin{definition}[แมกซ์เทอม]
+\index{แมกซ์เทอม!นิยาม}
+แมกซ์เทอม ของตัวแปร $n$ ตัวคือ OR term ที่มีตัวแปรทุกตัวปรากฏเพียงครั้งเดียวในรูปแบบปกติ (ถ้าตัวแปรเป็น 0 ใช้ตัวแปรเดี่ยว ถ้าตัวแปรเป็น 1 ใช้ complement)
 
 สำหรับ 2 ตัวแปร $x, y$:
 \begin{enumerate}
@@ -776,94 +746,84 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 \end{thrm}
 
 \subsection{Sum of Products (SOP) — ผลบวกของผลคูณ}
-หลังจากเข้าใจ Minterm แล้ว ตอนนี้เราสามารถนำ Minterms มาประกอบกันเป็นรูปแบบ Sum of Products (SOP) ซึ่งเป็นรูปแบบมาตรฐานที่สำคัญในการออกแบบวงจรดิจิทัล SOP คือการนำผลคูณ (AND) ของตัวแปรหลายๆ พจน์มาบวก (OR) กัน รูปแบบนี้เรียกอีกอย่างว่า "ผลบวกของผลคูณ" เพราะเราเอาผลคูณหลายๆ อันมาบวกกัน การเขียนฟังก์ชันในรูปแบบ SOP ทำให้ง่ายต่อการแปลงเป็นวงจรที่ใช้ AND gate และ OR gate
+หลังจากเข้าใจ Minterm แล้ว ตอนนี้เราสามารถนำ Minterms มาประกอบกันเป็นรูปแบบ Sum of Products (SOP) ซึ่งเป็นรูปแบบมาตรฐานที่สำคัญในการออกแบบวงจรดิจิทัล SOP คือการนำผลคูณ (AND) ของตัวแปรหลายๆ พจน์มาบวก (OR) กัน รูปแบบนี้เรียกอีกอย่างว่า ``ผลบวกของผลคูณ'' เพราะเราเอาผลคูณหลายๆ อันมาบวกกัน การเขียนฟังก์ชันในรูปแบบ SOP ทำให้ง่ายต่อการแปลงเป็นวงจรที่ใช้ AND gate และ OR gate
 
-\begin{definition}
-\textbf{Sum of Products (SOP)} คือ รูปแบบของนิพจน์บูลีนที่เขียนเป็น OR ของ AND terms
-
-ฟังก์ชันบูลีนใดๆ สามารถเขียนเป็น SOP ได้โดยใช้ \textbf{minterm expansion} หรือ \textbf{canonical SOP form}
+\begin{definition}[รูปแบบผลบวกของผลคูณ (SOP)]
+\index{รูปแบบผลบวกของผลคูณ!นิยาม}
+รูปแบบผลบวกของผลคูณ (Sum of Products: SOP) คือ รูปแบบของนิพจน์บูลีนที่เขียนเป็น OR ของ AND terms โดยฟังก์ชันบูลีนใดๆ สามารถเขียนเป็น SOP ได้โดยใช้ minterm expansion
 \end{definition}
 
 \begin{ex}
 เขียนฟังก์ชัน $f(x, y) = x \cdot y + x'$ ในรูปแบบ canonical SOP
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item สร้าง truth table ของฟังก์ชัน ดังนี้
-
-  \begin{center}
-  \begin{tabular}{|c|c|c|c|c|c|}
-  \hline
-  $x$ & $y$ & $x \cdot y$ & $x'$ & $f$ \\
-  \hline
-  0 & 0 & 0 & 1 & 1 \\
-  \hline
-  0 & 1 & 0 & 1 & 1 \\
-  \hline
-  1 & 0 & 0 & 0 & 0 \\
-  \hline
-  1 & 1 & 1 & 0 & 1 \\
-  \hline
-  \end{tabular}
-  \end{center}
-  \item หาแถวที่ $f = 1$ พบว่า $(x, y) = (0, 0)$ หรือ $(0, 1)$ หรือ $(1, 1)$
-  \item เขียน minterm สำหรับแต่ละแถว: $m_0 = x'y'$, $m_1 = x'y$, $m_3 = xy$
-  \item ดังนั้น $f(x, y) = x'y' + x'y + xy = \sum(0, 1, 3)$ \solhere
-\end{solsteps}
+สร้าง truth table ของฟังก์ชัน
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$x$ & $y$ & $x \cdot y$ & $x'$ & $f$ \\
+\hline
+0 & 0 & 0 & 1 & 1 \\
+\hline
+0 & 1 & 0 & 1 & 1 \\
+\hline
+1 & 0 & 0 & 0 & 0 \\
+\hline
+1 & 1 & 1 & 0 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+แถวที่ $f = 1$ ได้แก่ $(0,0), (0,1), (1,1)$ ตรงกับ $m_0 = x'y',\ m_1 = x'y,\ m_3 = xy$
+\[
+\therefore f(x, y) = x'y' + x'y + xy = \sum(0, 1, 3)
+\]
+\solhere
 \end{solution}
 
 \begin{ex}
 จาก truth table ของ $f(x, y, z)$ ที่ $f = 1$ สำหรับ minterms $m_1, m_3, m_5, m_7$:
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item แปลง minterm indices เป็น binary: $m_1 = 001$, $m_3 = 011$, $m_5 = 101$, $m_7 = 111$
-  \item เขียน minterm แต่ละตัวในรูป product form:
-  \begin{itemize}
-    \item $m_1 = x'y'z$
-    \item $m_3 = x'y z'$
-    \item $m_5 = x y' z$
-    \item $m_7 = x y z'$
-  \end{itemize}
-  \item นำ minterms มาบวกกัน: $f(x, y, z) = x'y'z + x'y z' + x y' z + x y z' = \sum(1, 3, 5, 7)$ \solhere
-\end{solsteps}
+\begin{align*}
+m_1 = 001 &\Rightarrow x'y'z & m_3 = 011 &\Rightarrow x'yz\\
+m_5 = 101 &\Rightarrow xy'z & m_7 = 111 &\Rightarrow xyz
+\end{align*}
+$\therefore f(x, y, z) = x'y'z + x'yz + xy'z + xyz = \sum(1, 3, 5, 7)$ \solhere
 \end{solution}
 
 \subsection{Product of Sums (POS) — ผลคูณของผลบวก}
-นอกจาก SOP แล้ว ยังมีอีกรูปแบบหนึ่งที่สำคัญคือ Product of Sums (POS) หรือ "ผลคูณของผลบวก" ซึ่งเป็นรูปแบบที่ใช้ Maxterms มาประกอบกัน รูปแบบ POS คือการนำผลบวก (OR) ของตัวแปรหลายๆ พจน์มาคูณ (AND) กัน รูปแบบนี้มีประโยชน์ในบางสถานการณ์ เช่น เมื่อต้องการวงจรที่ใช้ NOR gate เป็นหลัก หรือเมื่อฟังก์ชันถูกกำหนดในรูปแบบที่ง่ายต่อการเขียนเป็น POS การเข้าใจทั้ง SOP และ POS ทำให้สามารถเลือกใช้รูปแบบที่เหมาะสมกับการออกแบบวงจรได้
+นอกจาก SOP แล้ว ยังมีอีกรูปแบบหนึ่งที่สำคัญคือ Product of Sums (POS) หรือ ``ผลคูณของผลบวก'' ซึ่งเป็นรูปแบบที่ใช้ Maxterms มาประกอบกัน รูปแบบ POS คือการนำผลบวก (OR) ของตัวแปรหลายๆ พจน์มาคูณ (AND) กัน รูปแบบนี้มีประโยชน์ในบางสถานการณ์ เช่น เมื่อต้องการวงจรที่ใช้ NOR gate เป็นหลัก หรือเมื่อฟังก์ชันถูกกำหนดในรูปแบบที่ง่ายต่อการเขียนเป็น POS การเข้าใจทั้ง SOP และ POS ทำให้สามารถเลือกใช้รูปแบบที่เหมาะสมกับการออกแบบวงจรได้
 
-\begin{definition}
-\textbf{Product of Sums (POS)} คือ รูปแบบของนิพจน์บูลีนที่เขียนเป็น AND ของ OR terms
-
-ฟังก์ชันบูลีนใดๆ สามารถเขียนเป็น POS ได้โดยใช้ \textbf{maxterm expansion} หรือ \textbf{canonical POS form}
+\begin{definition}[รูปแบบผลคูณของผลบวก (POS)]
+\index{รูปแบบผลคูณของผลบวก!นิยาม}
+รูปแบบผลคูณของผลบวก (Product of Sums: POS) คือ รูปแบบของนิพจน์บูลีนที่เขียนเป็น AND ของ OR terms โดยฟังก์ชันบูลีนใดๆ สามารถเขียนเป็น POS ได้โดยใช้ maxterm expansion
 \end{definition}
 
 \begin{ex}
 เขียนฟังก์ชัน $f(x, y) = (x + y) \cdot (x' + y')$ ในรูปแบบ canonical POS
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item สร้าง truth table ของฟังก์ชัน ดังนี้
-
-  \begin{center}
-  \begin{tabular}{|c|c|c|c|c|c|}
-  \hline
-  $x$ & $y$ & $x + y$ & $x' + y'$ & $f$ \\
-  \hline
-  0 & 0 & 0 & 1 & 0 \\
-  \hline
-  0 & 1 & 1 & 0 & 0 \\
-  \hline
-  1 & 0 & 1 & 0 & 0 \\
-  \hline
-  1 & 1 & 1 & 1 & 1 \\
-  \hline
-  \end{tabular}
-  \end{center}
-  \item หาแถวที่ $f = 0$ พบว่า $(x, y) = (0, 0)$ หรือ $(0, 1)$ หรือ $(1, 0)$
-  \item เขียน maxterm สำหรับแต่ละแถว: $M_0 = x + y$, $M_1 = x + y'$, $M_2 = x' + y$
-  \item ดังนั้น $f(x, y) = M_0 \cdot M_1 \cdot M_2 = \prod(0, 1, 2) = (x + y) \cdot (x + y') \cdot (x' + y)$ \solhere
-\end{solsteps}
+สร้าง truth table ของฟังก์ชัน
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$x$ & $y$ & $x + y$ & $x' + y'$ & $f$ \\
+\hline
+0 & 0 & 0 & 1 & 0 \\
+\hline
+0 & 1 & 1 & 0 & 0 \\
+\hline
+1 & 0 & 1 & 0 & 0 \\
+\hline
+1 & 1 & 1 & 1 & 1 \\
+\hline
+\end{tabular}
+\end{center}
+แถวที่ $f = 0$ ได้แก่ $(0,0), (0,1), (1,0)$ ตรงกับ $M_0 = x+y,\ M_1 = x+y',\ M_2 = x'+y$
+\[
+\therefore f(x, y) = M_0 \cdot M_1 \cdot M_2 = \prod(0, 1, 2) = (x + y)(x + y')(x' + y)
+\]
+\solhere
 \end{solution}
 
 \begin{thrm}
@@ -885,15 +845,6 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 ลดรูป $f(x, y, z) = x y + x' y + x y'$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $f = x y + x' y + x y'$
-  \item $= y(x + x') + x y'$ \quad (Distributive ย้อนกลับ)
-  \item $= y \cdot 1 + x y'$ \quad (Complement: $x + x' = 1$)
-  \item $= y + x y'$
-  \item $= (y + x)(y + y')$ \quad (Distributive)
-  \item $= (y + x) \cdot 1$ \quad (Complement)
-  \item $= x + y$
-\end{solsteps}
 \begin{align*}
 f &= x y + x' y + x y' \\
   &= y(x + x') + x y' \quad \text{(Distributive ย้อนกลับ)} \\
@@ -903,55 +854,38 @@ f &= x y + x' y + x y' \\
   &= (y + x) \cdot 1 \quad \text{(Complement)} \\
   &= x + y
 \end{align*}
-ดังนั้น $f = x + y$
+$\therefore f = x + y$ \solhere
 \end{solution}
 
 \begin{ex}
 ลดรูป $f(a, b, c) = a b c + a b c' + a' b + a b' c$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $f = a b c + a b c' + a' b + a b' c$
-  \item $= a b(c + c') + a' b + a b' c$ \quad (Distributive)
-  \item $= a b \cdot 1 + a' b + a b' c$ \quad (Complement)
-  \item $= a b + a' b + a b' c$
-  \item $= b(a + a') + a b' c$
-  \item $= b + a b' c$ \quad (Consensus หรือ Distribution ย้อนกลับ)
-  \item $= (b + a)(b + b')(b + c)$
-  \item $= (b + a) \cdot 1 \cdot (b + c)$
-  \item $= b + a c$ \quad (Consensus หรือ Distribution ย้อนกลับ)
-\end{solsteps}
 \begin{align*}
 f &= a b c + a b c' + a' b + a b' c \\
   &= a b(c + c') + a' b + a b' c \quad \text{(Distributive)} \\
   &= a b \cdot 1 + a' b + a b' c \quad \text{(Complement)} \\
   &= a b + a' b + a b' c \\
   &= b(a + a') + a b' c \\
-  &= b + a b' c \quad \text{(Consensus หรือ Distribution ย้อนกลับ)} \\
-  &= (b + a)(b + b')(b + c) \\
-  &= (b + a) \cdot 1 \cdot (b + c) \\
-  &= b + a c \quad \text{(Consensus หรือ Distribution ย้อนกลับ)}
+  &= b + a b' c \quad \text{(Complement)} \\
+  &= (b + a)(b + b')(b + c) \quad \text{(Distributive)} \\
+  &= (b + a) \cdot 1 \cdot (b + c) \quad \text{(Complement)} \\
+  &= b + a c \quad \text{(Distributive ย้อนกลับ)}
 \end{align*}
-ดังนั้น $f = b + a c$
+$\therefore f = b + a c$ \solhere
 \end{solution}
 
 \begin{ex}
 ลดรูป $f(x, y) = (x + y) \cdot (x + y')$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $f = (x + y) \cdot (x + y')$
-  \item $= x + y \cdot y'$ \quad (Distribution: $x + yz = (x+y)(x+z)$)
-  \item $= x + 0$ \quad (Complement: $y \cdot y' = 0$)
-  \item $= x$
-\end{solsteps}
 \begin{align*}
 f &= (x + y) \cdot (x + y') \\
   &= x + y \cdot y' \quad \text{(Distribution: } x + yz = (x+y)(x+z)) \\
   &= x + 0 \quad \text{(Complement: } y \cdot y' = 0) \\
   &= x
 \end{align*}
-ดังนั้น $f = x$
+$\therefore f = x$ \solhere
 \end{solution}
 
 \begin{ex}
@@ -959,16 +893,17 @@ f &= (x + y) \cdot (x + y') \\
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-    \item จากนิพจน์ $f = (a + b) \cdot (a' + c) + (b + c)$
-    \item ใช้ Distributive Law กับพจน์แรก จะได้ $f = (a + b) \cdot a' + (a + b) \cdot c + (b + c)$
-    \item กระจายต่อ จะได้ $f = a \cdot a' + b \cdot a' + a \cdot c + b \cdot c + b + c$
-    \item ใช้ Complement Law กับ $a \cdot a' = 0$ จะได้ $f = 0 + b \cdot a' + a \cdot c + b \cdot c + b + c$
-    \item จัดกลุ่มพจน์ที่ 4 กับ $b$ จะได้ $f = b \cdot a' + a \cdot c + b \cdot (1 + c) + c$
-    \item ใช้ Domination Law กับ $1 + c = 1$ จะได้ $f = b \cdot a' + a \cdot c + b + c$
-    \item จัดกลุ่ม $b \cdot a' + b = b \cdot (a' + 1)$ แล้วใช้ Domination Law อีกครั้ง จะได้ $f = b + a \cdot c + c$
-    \item จัดกลุ่ม $a \cdot c + c = c \cdot (a + 1)$ แล้วใช้ Domination Law จะได้ $f = b + c$ \solhere
-\end{solsteps}
+\begin{align*}
+f &= (a + b)(a' + c) + (b + c) \\
+  &= a a' + b a' + a c + b c + b + c \quad \text{(Distributive)} \\
+  &= b a' + a c + b c + b + c \quad \text{(Complement: } a a' = 0) \\
+  &= b a' + a c + b(1 + c) + c \\
+  &= b a' + a c + b + c \quad \text{(Domination: } 1 + c = 1) \\
+  &= b(a' + 1) + a c + c \\
+  &= b + c(a + 1) \quad \text{(Domination)} \\
+  &= b + c \quad \text{(Domination)}
+\end{align*}
+$\therefore f = b + c$ \solhere
 \end{solution}
 
 \begin{center}
@@ -1057,15 +992,11 @@ $a$ & $b$ & $c$ & $ab$ & $a'c$ & $bc$ & $ab+a'c+bc$ & $ab+a'c$ \\
 ลดรูป $f(x, y, z) = x y + x' z + y z$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $f = x y + x' z + y z$
-  \item $= x y + x' z$ \quad (Consensus: $yz$ ถูกละทิ้ง)
-\end{solsteps}
 \begin{align*}
 f &= x y + x' z + y z \\
   &= x y + x' z \quad \text{(Consensus: } yz \text{ ถูกละทิ้ง)}
 \end{align*}
-ดังนั้น $f = x y + x' z$
+$\therefore f = x y + x' z$ \solhere
 \end{solution}
 
 \subsection*{ตัวอย่างที่ 4: พีชคณิตบูลีนกับ Perceptron ใน Machine Learning}
@@ -1078,33 +1009,14 @@ $$f(z) = \begin{cases} 1 & \text{ถ้า } z \geq 0 \\ 0 & \text{ถ้า } z
 โดยที่ $z = x_1 w_1 + x_2 w_2 + b$ จงทดสอบกับ input $(0, 0)$, $(0, 1)$, $(1, 0)$, $(1, 1)$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item กำหนดสูตรการคำนวณ $z = x_1 w_1 + x_2 w_2 + b$ และ $y = f(z)$
-  \item ทดสอบ $(x_1, x_2) = (0, 0)$:
-        $$z = (0)(0.5) + (0)(0.5) + (-0.7) = -0.7 < 0 \implies y = 0$$
-  \item ทดสอบ $(x_1, x_2) = (0, 1)$:
-        $$z = (0)(0.5) + (1)(0.5) + (-0.7) = -0.2 < 0 \implies y = 0$$
-  \item ทดสอบ $(x_1, x_2) = (1, 0)$:
-        $$z = (1)(0.5) + (0)(0.5) + (-0.7) = -0.2 < 0 \implies y = 0$$
-  \item ทดสอบ $(x_1, x_2) = (1, 1)$:
-        $$z = (1)(0.5) + (1)(0.5) + (-0.7) = 0.3 > 0 \implies y = 1$$
-\end{solsteps}
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-$x_1$ & $x_2$ & $y$ \\
-\hline
-0 & 0 & 0 \\
-0 & 1 & 0 \\
-1 & 0 & 0 \\
-1 & 1 & 1 \\
-\hline
-\end{tabular}
-\end{center}
-\begin{solsteps}
-  \item ดังนั้น \mathoval{y = x_1 \land x_2} ซึ่งคือ AND gate — แสดงว่า Perceptron ตัวนี้ทำงานเหมือน AND gate ทางดิจิทัล
-  \item หมายเหตุ Perceptron สามารถเรียนรู้ weight และ bias ที่เหมาะสมได้จากข้อมูล โดยใช้อัลกอริทึม learning rule: $w_i \leftarrow w_i + \eta (t - y) x_i$ เมื่อ $t$ คือ target output และ $\eta$ คือ learning rate \solhere
-\end{solsteps}
+คำนวณ $z = x_1 w_1 + x_2 w_2 + b$ แล้ว $y = f(z)$ ทีละกรณี
+\begin{align*}
+(0,0):\ z &= 0 + 0 - 0.7 = -0.7 < 0 &&\Rightarrow y = 0\\
+(0,1):\ z &= 0 + 0.5 - 0.7 = -0.2 < 0 &&\Rightarrow y = 0\\
+(1,0):\ z &= 0.5 + 0 - 0.7 = -0.2 < 0 &&\Rightarrow y = 0\\
+(1,1):\ z &= 0.5 + 0.5 - 0.7 = 0.3 \geq 0 &&\Rightarrow y = 1
+\end{align*}
+$\therefore y = x_1 \land x_2$ — Perceptron ตัวนี้ทำงานเหมือน AND gate (weight/bias เรียนรู้ได้จากข้อมูลด้วย learning rule $w_i \leftarrow w_i + \eta (t - y) x_i$) \solhere
 \end{solution}
 
 \section{แผนที่คาร์นอ (Karnaugh Map)}
@@ -1112,7 +1024,7 @@ $x_1$ & $x_2$ & $y$ \\
 
 แผนที่คาร์นอ หรือ K-map เป็นเครื่องมือในการลดรูปฟังก์ชันบูลีนอย่างเป็นระบบ K-map แสดงค่าของฟังก์ชันในรูปแบบ grid โดยการจัดเรียงเซลล์ทำให้ minterms ที่อยู่ติดกัน (adjacent) อยู่ใกล้กัน หลักการสำคัญของ K-map คือการจัดกลุ่มเซลล์ที่มีค่า 1 ร่วมกันเป็นกลุ่มขนาด $2^n$ (n = 0, 1, 2, 3, ...) เพื่อหาตัวแปรที่ไม่เปลี่ยนแปลงในกลุ่ม ซึ่งจะถูกนำมาสร้าง term ที่ง่ายขึ้นในนิพจน์บูลีนที่ลดรูปแล้ว การใช้ K-map สำหรับฟังก์ชัน 2-4 ตัวแปรเป็นวิธีที่มีประสิทธิภาพและเป็นที่นิยมในการออกแบบวงจรดิจิทัล
 
-การใช้ K-map มีข้อได้เปรียบเหนือการใช้ Boolean identities โดยตรง กล่าวคือ K-map เป็นวิธีที่เป็นระบบและลดความผิดพลาดในการลดรูป ในขณะที่การใช้ identities ต้องอาศัยประสบการณ์และความชำนาญในการเลือกใช้กฎที่ถูกต้อง อย่างไรก็ตาม สำหรับฟังก์ชันที่มีตัวแปรมากกว่า 4 ตัว วิธี Quine-McCluskey ซึ่งเป็นวิธีที่เป็นอัลกอริทึมมากขึ้นจะเหมาะสมกว่า
+การใช้ K-map มีข้อได้เปรียบเหนือการใช้ Boolean identities โดยตรง กล่าวคือ K-map เป็นวิธีที่เป็นระบบและลดความผิดพลาดในการลดรูป ในขณะที่การใช้ identities ต้องอาศัยประสบการณ์และความชำนาญในการเลือกใช้กฎที่ถูกต้อง อย่างไรก็ตาม สำหรับฟังก์ชันที่มีตัวแปรมากกว่า 4 ตัว วิธี Quine-McCluskey ซึ่งเป็นวิธีที่เป็นขั้นตอนวิธีแบบอัตโนมัติจะเหมาะสมกว่า
 
 \subsection{K-map สำหรับ 2 ตัวแปร}
 
@@ -1154,11 +1066,11 @@ $x = 1$ & 1 & 1 \\
 \end{center}
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ครอบคลุม $m_1$ และ $m_3$ (คอลัมน์ $y = 1$) $\Rightarrow$ ให้ $x$
-  \item ครอบคลุม $m_2$ และ $m_3$ (แถว $x = 1$) $\Rightarrow$ ให้ $y'$
-\end{solsteps}
-ดังนั้น $f = x + y'$
+\begin{align*}
+\{m_2, m_3\}\ (\text{แถว } x = 1) &\Rightarrow x\\
+\{m_1, m_3\}\ (\text{คอลัมน์ } y = 1) &\Rightarrow y
+\end{align*}
+$\therefore f = x + y$ \solhere
 \end{solution}
 
 \begin{ex}
@@ -1179,11 +1091,11 @@ $x = 1$ & 1 & 1 \\
 \end{center}
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ครอบคลุม $m_0, m_2$ (คอลัมน์ $y = 0$) $\Rightarrow$ ให้ $x'$
-  \item ครอบคลุม $m_2, m_3$ (แถว $x = 1$) $\Rightarrow$ ให้ $x$
-\end{solsteps}
-ดังนั้น $f = x' + x = 1$ (ตรรกะที่เป็นจริงเสมอ)
+\begin{align*}
+\{m_0, m_2\}\ (\text{คอลัมน์ } y = 0) &\Rightarrow y'\\
+\{m_2, m_3\}\ (\text{แถว } x = 1) &\Rightarrow x
+\end{align*}
+$\therefore f = x + y'$ \solhere
 \end{solution}
 
 \subsection{K-map สำหรับ 3 ตัวแปร}
@@ -1225,12 +1137,12 @@ $x = 1$ & 1 & 1 & 0 & 1 \\
 \end{center}
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ครอบคลุม $m_0, m_1, m_4, m_5$ (2x2 block มุมซ้าย) $\Rightarrow$ ให้ $y'$
-  \item ครอบคลุม $m_1, m_3$ (แถวบน คอลัมน์ที่ $z=1$) $\Rightarrow$ ให้ $x'z$
-  \item ครอบคลุม $m_4, m_6$ (wrapping ในแถวล่าง ระหว่างคอลัมน์ $yz=00$ และ $yz=10$) $\Rightarrow$ ให้ $xz'$
-  \item ดังนั้น \mathoval{f = y' + x'z + xz'} \solhere
-\end{solsteps}
+\begin{align*}
+\{m_0, m_1, m_4, m_5\}\ (\text{บล็อก } 2\times 2 \text{ ซ้าย}) &\Rightarrow y'\\
+\{m_1, m_3\}\ (\text{แถวบน},\ z = 1) &\Rightarrow x'z\\
+\{m_4, m_6\}\ (\text{แถวล่าง wrap},\ z = 0) &\Rightarrow xz'
+\end{align*}
+$\therefore f = y' + x'z + xz'$ \solhere
 \end{solution}
 
 \subsection{K-map สำหรับ 4 ตัวแปร}
@@ -1270,22 +1182,20 @@ $wx = 00$ & 1 & 1 & 1 & 1 \\
 \hline
 $wx = 01$ & 1 & 0 & 0 & 1 \\
 \hline
-$wx = 11$ & 0 & 0 & 0 & 0 \\
+$wx = 11$ & 1 & 0 & 0 & 1 \\
 \hline
-$wx = 10$ & 1 & 1 & 0 & 1 \\
+$wx = 10$ & 1 & 1 & 0 & 0 \\
 \hline
 \end{tabular}
 \end{center}
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ครอบคลุม $m_0, m_1, m_8, m_9$ (8-cell vertical) $\Rightarrow w'z'$
-  \item ครอบคลุม $m_0, m_2, m_8, m_{10}$ (wrapping) $\Rightarrow y'z'$
-  \item ครอบคลุม $m_4, m_6$ $\Rightarrow w x' y'$
-  \item ครอบคลุม $m_0, m_1, m_2, m_3$ $\Rightarrow w' y'$
-  \item ครอบคลุม $m_8, m_9, m_{12}, m_{14}$ $\Rightarrow x' z' + w x' y'$
-\end{solsteps}
-ดังนั้น $f = w' z' + w x' y'$
+\begin{align*}
+\{m_0, m_1, m_2, m_3\}\ (\text{แถว } wx = 00) &\Rightarrow w'x'\\
+\{m_4, m_6, m_{12}, m_{14}\}\ (\text{สองแถวกลาง wrap},\ z = 0) &\Rightarrow xz'\\
+\{m_0, m_1, m_8, m_9\}\ (\text{แถวบน-ล่าง wrap},\ y = 0) &\Rightarrow x'y'
+\end{align*}
+$\therefore f = w'x' + xz' + x'y'$ \solhere
 \end{solution}
 
 \begin{rem}[ขั้นตอนการใช้ K-map]
@@ -1310,8 +1220,9 @@ $wx = 10$ & 1 & 1 & 0 & 1 \\
 Logic gates เป็น building blocks ของวงจรดิจิทัล ดังนี้
 
 
-\begin{definition}
-\textbf{ประเภทของ Logic Gates:}
+\begin{definition}[ประเภทของประตูตรรกะ]
+\index{ประตูตรรกะ!ประเภท}
+ประเภทของประตูตรรกะพื้นฐาน ได้แก่
 \begin{enumerate}
     \item NOT Gate (Inverter) แสดงผล $a'$
     \item AND Gate แสดงผล $a \cdot b$
@@ -1323,82 +1234,73 @@ Logic gates เป็น building blocks ของวงจรดิจิทั
 \end{enumerate}
 \end{definition}
 
-\begin{thrm}[NAND Gate]
-\textbf{NAND Gate} เป็น Universal gate เนื่องจากสามารถสร้าง logic gates อื่นๆ ทั้งหมดได้จาก NAND gates เพียงอย่างเดียว NAND gate แสดงผล $(a \cdot b)'$ หรือ $\overline{ab}$
+\begin{thrm}[NAND Gate และความสมบูรณ์เชิงฟังก์ชัน (Universal Gate)]
+\index{ประตูตรรกะ!NAND Gate}
+\textbf{NAND Gate} เป็นเกตสากล (Universal Gate) เนื่องจากสามารถนำมาต่อเชื่อมเพื่อสร้างเกตตรรกะพื้นฐานอื่นๆ ได้ทั้งหมด โดย NAND Gate ให้ผลลัพธ์การทำงานคือ $Y = (a \cdot b)' = \overline{a \cdot b}$
 
-Truth Table ของ NAND:
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-$a$ & $b$ & $(a \cdot b)'$ \\
-\hline
-0 & 0 & 1 \\
-\hline
-0 & 1 & 1 \\
-\hline
-1 & 0 & 1 \\
-\hline
-1 & 1 & 0 \\
-\hline
-\end{tabular}
-\end{center}
+ค่าผลลัพธ์ของ NAND Gate ในแต่ละกรณีของสัญญาณอินพุต $(a, b)$ มีดังนี้:
+\begin{itemize}[leftmargin=1.5em,itemsep=0.3em]
+    \item เมื่อ $a=0, b=0$ ได้ผลลัพธ์ $(0 \cdot 0)' = 1$
+    \item เมื่อ $a=0, b=1$ ได้ผลลัพธ์ $(0 \cdot 1)' = 1$
+    \item เมื่อ $a=1, b=0$ ได้ผลลัพธ์ $(1 \cdot 0)' = 1$
+    \item เมื่อ $a=1, b=1$ ได้ผลลัพธ์ $(1 \cdot 1)' = 0$
+\end{itemize}
 
-\textbf{การสร้าง NOT จาก NAND:} เมื่อ input ทั้งสองเท่ากัน $(a, a)$ จะได้ $(a \cdot a)' = a'$
-
-\textbf{การสร้าง AND จาก NAND:} $a \cdot b = ((a \cdot b)')'$
-
-\textbf{การสร้าง OR จาก NAND:} ใช้ De Morgan's Law: $a + b = (a' \cdot b')' = ( (a \cdot a)' \cdot (b \cdot b)' )'$
+การสร้างเกตตรรกะพื้นฐานจาก NAND Gate เพียงอย่างเดียว:
+\begin{itemize}[leftmargin=1.5em,itemsep=0.4em]
+    \item \textbf{การสร้าง NOT Gate จาก NAND:} เมื่อป้อนสัญญาณอินพุตเดียวกันทั้งสองช่อง $(a, a)$ จะได้:
+    \[ a' = (a \cdot a)' \]
+    \item \textbf{การสร้าง AND Gate จาก NAND:} นำผลลัพธ์ของ NAND Gate มาผ่าน NOT Gate (NAND ที่ป้อนอินพุตซ้ำ):
+    \[ a \cdot b = ((a \cdot b)')' \]
+    \item \textbf{การสร้าง OR Gate จาก NAND:} ใช้กฎของเดมอร์แกน (De Morgan's Law) ร่วมกับการนิเสธอินพุตแต่ละตัว:
+    \[ a + b = (a' \cdot b')' = ((a \cdot a)' \cdot (b \cdot b)')' \]
+\end{itemize}
 \end{thrm}
 
-\begin{thrm}[NOR Gate]
-\textbf{NOR Gate} เป็น Universal gate เช่นเดียวกับ NAND สามารถสร้าง logic gates อื่นๆ ทั้งหมดได้จาก NOR gates เพียงอย่างเดียว NOR gate แสดงผล $(a + b)'$
+\begin{thrm}[NOR Gate และความสมบูรณ์เชิงฟังก์ชัน (Universal Gate)]
+\index{ประตูตรรกะ!NOR Gate}
+\textbf{NOR Gate} เป็นเกตสากล (Universal Gate) เช่นเดียวกับ NAND Gate ที่สามารถนำมาประพฤติตนสร้างเกตตรรกะอื่นๆ ทั้งหมดได้ด้วยตัวมันเอง โดย NOR Gate ให้ผลลัพธ์การทำงานคือ $Y = (a + b)'$
 
-Truth Table ของ NOR:
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-$a$ & $b$ & $(a + b)'$ \\
-\hline
-0 & 0 & 1 \\
-\hline
-0 & 1 & 0 \\
-\hline
-1 & 0 & 0 \\
-\hline
-1 & 1 & 0 \\
-\hline
-\end{tabular}
-\end{center}
+ค่าผลลัพธ์ของ NOR Gate ในแต่ละกรณีของสัญญาณอินพุต $(a, b)$ มีดังนี้:
+\begin{itemize}[leftmargin=1.5em,itemsep=0.3em]
+    \item เมื่อ $a=0, b=0$ ได้ผลลัพธ์ $(0 + 0)' = 1$
+    \item เมื่อ $a=0, b=1$ ได้ผลลัพธ์ $(0 + 1)' = 0$
+    \item เมื่อ $a=1, b=0$ ได้ผลลัพธ์ $(1 + 0)' = 0$
+    \item เมื่อ $a=1, b=1$ ได้ผลลัพธ์ $(1 + 1)' = 0$
+\end{itemize}
 
-\textbf{การสร้าง NOT จาก NOR:} เมื่อ input ทั้งสองเท่ากัน $(a, a)$ จะได้ $(a + a)' = a'$
-
-\textbf{การสร้าง OR จาก NOR:} $a + b = ((a + b)')'$
-
-\textbf{การสร้าง AND จาก NOR:} ใช้ De Morgan's Law: $a \cdot b = (a' + b')' = ( (a + a)' + (b + b)' )'$
+การสร้างเกตตรรกะพื้นฐานจาก NOR Gate เพียงอย่างเดียว:
+\begin{itemize}[leftmargin=1.5em,itemsep=0.4em]
+    \item \textbf{การสร้าง NOT Gate จาก NOR:} เมื่อป้อนสัญญาณอินพุตเดียวกันทั้งสองช่อง $(a, a)$ จะได้:
+    \[ a' = (a + a)' \]
+    \item \textbf{การสร้าง OR Gate จาก NOR:} นำผลลัพธ์ของ NOR Gate มาผ่าน NOT Gate (NOR ที่ป้อนอินพุตซ้ำ):
+    \[ a + b = ((a + b)')' \]
+    \item \textbf{การสร้าง AND Gate จาก NOR:} ใช้กฎของเดมอร์แกน (De Morgan's Law) ร่วมกับการนิเสธอินพุตแต่ละตัว:
+    \[ a \cdot b = (a' + b')' = ((a + a)' + (b + b)')' \]
+\end{itemize}
 \end{thrm}
 
 \begin{ex}
 วงจรสำหรับ $f(x, y, z) = x y + x' z$:
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item NOT gate สำหรับ $x$ ให้ $x'$
-  \item AND gate สำหรับ $x$ และ $y$ ให้ $x y$
-  \item AND gate สำหรับ $x'$ และ $z$ ให้ $x' z$
-  \item OR gate สำหรับ $x y$ และ $x' z$ ให้ $x y + x' z$ \solhere
-\end{solsteps}
+\begin{align*}
+x &\xrightarrow{\text{NOT}} x'\\
+(x, y) &\xrightarrow{\text{AND}} xy, \qquad (x', z) \xrightarrow{\text{AND}} x'z\\
+(xy, x'z) &\xrightarrow{\text{OR}} xy + x'z = f
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{ex}
 ลดรูปและวาดวงจรสำหรับ $f(a, b, c) = (a + b) \cdot (a + c)$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ใช้ Distributive Law: $(a + b)(a + c) = a + b c$
-  \item วงจรที่ลดรูปแล้ว AND gate สำหรับ $b$ และ $c$ ให้ $b c$
-  \item OR gate สำหรับ $a$ และ $b c$ ให้ $a + b c$
-  \item วงจรที่ลดรูปใช้ 1 AND gate และ 1 OR gate (ลดจาก 2 OR gates และ 1 AND gate) \solhere
-\end{solsteps}
+\begin{align*}
+f &= (a + b)(a + c)\\
+&= a + bc \quad \text{(Distributive)}
+\end{align*}
+วงจร $(b,c) \xrightarrow{\text{AND}} bc$ แล้ว $(a, bc) \xrightarrow{\text{OR}} a + bc$ ใช้เพียง 1 AND + 1 OR gate (เดิม 2 OR + 1 AND) \solhere
 \end{solution}
 
 \subsection{การออกแบบวงจร Combination}
@@ -1407,13 +1309,12 @@ $a$ & $b$ & $(a + b)'$ \\
 ออกแบบวงจรที่ตรวจสอบว่าจำนวน 3-bit เป็นเลขคู่ (even)
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ถ้า input เป็น $x, y, z$ และผลลัพธ์เป็น 1 เมื่อจำนวนเป็นเลขคู่
-  \item $f(x, y, z) = 1$ เมื่อมีจำนวน 1 ที่เป็นคู่ (0, 2)
-  \item Minterms: $m_0$ (000), $m_3$ (011), $m_5$ (101), $m_6$ (110)
-  \item $f(x, y, z) = x' y' z' + x' y z + x y' z + x y z'$
-  \item ลดรูปโดยใช้ K-map ได้ $f = x \oplus y \oplus z$ (parity function) \solhere
-\end{solsteps}
+ให้บิต $z$ เป็นบิตต่ำสุด (LSB); จำนวนเป็นเลขคู่ ก็ต่อเมื่อ $z = 0$ ได้ minterms $m_0, m_2, m_4, m_6$
+\begin{align*}
+f(x, y, z) &= x'y'z' + x'yz' + xy'z' + xyz'\\
+&= z' \quad (\text{ตรวจสอบบิตต่ำสุด})
+\end{align*}
+\solhere
 \end{solution}
 
 \subsection{Two-level Realization}
@@ -1433,12 +1334,7 @@ $a$ & $b$ & $(a + b)'$ \\
 realization SOP สำหรับ $f(x, y, z) = y' + x y + x' y' z$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item วงจรประกอบด้วย NOT gate สำหรับ $y$ ให้ $y'$
-  \item AND gate สำหรับ $x$ และ $y$ ให้ $x y$
-  \item AND gate สำหรับ $x', y', z$ ให้ $x' y' z$
-  \item OR gate สำหรับ $y', x y, x' y' z$ ให้ $f$ \solhere
-\end{solsteps}
+ระดับแรก $(x,y) \xrightarrow{\text{AND}} xy$ และ $(x',y',z) \xrightarrow{\text{AND}} x'y'z$ (ใช้ NOT สร้าง $x', y'$); ระดับที่สอง $(y',\ xy,\ x'y'z) \xrightarrow{\text{OR}} f$ \solhere
 \end{solution}
 
 \subsection{Half Adder และ Full Adder}
@@ -1448,22 +1344,24 @@ realization SOP สำหรับ $f(x, y, z) = y' + x y + x' y' z$
 ออกแบบ Half Adder
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item Half Adder รับ input 2 bits $x, y$ และให้ผลลัพธ์ Sum $S = x \oplus y = x y' + x' y$
-  \item Carry $C = x \cdot y$
-  \item Truth Table แสดงผลลัพธ์ของทุกกรณี \solhere
-\end{solsteps}
+Half Adder รับ 2 บิต $x, y$
+\begin{align*}
+S &= x \oplus y = x y' + x' y\\
+C &= x \cdot y
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{ex}
 ออกแบบ Full Adder
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item Full Adder รับ input 3 bits $x, y, z_{in}$ และให้ผลลัพธ์ Sum $S = x \oplus y \oplus z_{in}$
-  \item Carry $C_{out} = x y + x z_{in} + y z_{in}$
-  \item Truth Table แสดงผลลัพธ์ของทุกกรณี \solhere
-\end{solsteps}
+Full Adder รับ 3 บิต $x, y, z_{in}$
+\begin{align*}
+S &= x \oplus y \oplus z_{in}\\
+C_{out} &= x y + x z_{in} + y z_{in}
+\end{align*}
+\solhere
 \end{solution}
 
 \subsection{สมมูลของพีชคณิตบูลีน (Boolean Algebra Equivalence)}
@@ -1542,39 +1440,28 @@ $x=1$ & 0 & 1 & 1 & 0 \\
 \end{center}
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item จัดกลุ่มที่ 1 ครอบคลุม cells 0, 1, 2, 3 (ทั้งแถวบน) $\rightarrow$ $x'$
-  \item จัดกลุ่มที่ 2 ครอบคลุม cells 1, 3, 5, 7 (สองคอลัมน์ที่ $z=1$) $\rightarrow$ $z$
-  \item ผลลัพธ์ที่ลดรูปแล้ว $F = x' + z$ \solhere
-\end{solsteps}
+\begin{align*}
+\{m_0, m_1, m_2, m_3\}\ (\text{แถว } x = 0) &\Rightarrow x'\\
+\{m_1, m_3, m_5, m_7\}\ (\text{สองคอลัมน์ } z = 1) &\Rightarrow z
+\end{align*}
+$\therefore F = x' + z$ \solhere
 \end{solution}
 
 
 \subsection{Logic Gates และวงจรดิจิทัล}
-Logic gates เป็น building blocks ของวงจรดิจิทัล ซึ่งทำงานตาม Boolean algebra~\cite{mano2018digital}
+เกตตรรกะ (Logic Gates) เป็นส่วนประกอบพื้นฐานของวงจรดิจิทัลในระบบคอมพิวเตอร์ ซึ่งประมวลผลสัญญาณไฟฟ้าให้อยู่ในรูปแบบของค่าทางตรรกศาสตร์ (0 และ 1) โดยการทำงานของเกตแต่ละชนิดเป็นไปตามหลักการของพีชคณิตบูลีน การเข้าใจนิพจน์บูลีนของแต่ละเกตช่วยให้สามารถวิเคราะห์ ออกแบบ และลดรูปวงจรดิจิทัลได้อย่างเป็นระบบ~\cite{mano2018digital}
 
-\begin{definition}
-Logic gates พื้นฐาน ดังนี้
-
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-Gate & Boolean Expression \\
-\hline
-NOT & $Y = A'$ \\
-\hline
-AND & $Y = A \cdot B$ \\
-\hline
-OR & $Y = A + B$ \\
-\hline
-XOR & $Y = A \oplus B = A'B + AB'$ \\
-\hline
-NAND & $Y = (AB)'$ \\
-\hline
-NOR & $Y = (A + B)'$ \\
-\hline
-\end{tabular}
-\end{center}
+\begin{definition}[ประตูตรรกะพื้นฐาน (Basic Logic Gates)]
+\index{ประตูตรรกะ!นิพจน์บูลีน}
+ประตูตรรกะพื้นฐานประเภทต่างๆ สามารถเขียนแทนด้วยนิพจน์บูลีน (Boolean Expression) ได้ดังนี้:
+\begin{itemize}[leftmargin=1.5em,itemsep=0.4em]
+    \item \textbf{NOT Gate (นิเสธ):} ทำหน้าที่กลับค่าสัญญาณทางตรรกะ เขียนแทนด้วย $Y = A'$
+    \item \textbf{AND Gate (และการ):} ให้ผลลัพธ์เป็น 1 เมื่อสัญญาณอินพุตทุกตัวเป็น 1 เขียนแทนด้วย $Y = A \cdot B$
+    \item \textbf{OR Gate (หรือ):} ให้ผลลัพธ์เป็น 1 เมื่อสัญญาณอินพุตอย่างน้อยหนึ่งตัวเป็น 1 เขียนแทนด้วย $Y = A + B$
+    \item \textbf{XOR Gate (Exclusive OR):} ให้ผลลัพธ์เป็น 1 เมื่อสัญญาณอินพุตมีค่าต่างกัน เขียนแทนด้วย $Y = A \oplus B = A'B + AB'$
+    \item \textbf{NAND Gate (Not AND):} เป็นการนิเสธผลลัพธ์ของ AND Gate เขียนแทนด้วย $Y = (AB)'$
+    \item \textbf{NOR Gate (Not OR):} เป็นการนิเสธผลลัพธ์ของ OR Gate เขียนแทนด้วย $Y = (A + B)'$
+\end{itemize}
 \end{definition}
 
 \begin{ex}[การสร้าง AND จาก NAND gates]
@@ -1582,10 +1469,11 @@ $$Y = ((AB)')' = AB$$
 นำ output ของ NAND gate มาเข้า NOT gate (ซึ่งก็คือ NAND gate ที่ input ทั้งสองเท่ากัน)
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ใช้ NAND gate สร้าง NOT gate โดยต่อ input ทั้งสองขาเข้าด้วยกัน: $Y = (A \cdot A)' = A'$
-  \item นำ NAND gate output มาเข้า NOT gate อีกที: $Y = ((AB)')' = AB$ \solhere
-\end{solsteps}
+\begin{align*}
+\text{NOT จาก NAND}\quad (A \cdot A)' &= A'\\
+\text{AND จาก NAND สองตัว}\quad ((AB)')' &= AB
+\end{align*}
+\solhere
 \end{solution}
 
 \subsection{Half Adder และ Full Adder}
@@ -1617,18 +1505,20 @@ $C_{out} = AB + C_{in}(A \oplus B)$
 สามารถสร้างได้จาก 2 Half Adders + 1 OR gate
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item Half Adder ตัวที่ 1: รับ A, B ได้ $S_1 = A \oplus B$, $C_1 = AB$
-  \item Half Adder ตัวที่ 2: รับ $S_1$, $C_{in}$ ได้ $S = S_1 \oplus C_{in} = A \oplus B \oplus C_{in}$
-  \item OR gate: รับ $C_1$ และ $C_{in} \cdot S_1$ ได้ $C_{out} = C_1 + C_{in} \cdot S_1 = AB + C_{in}(A \oplus B)$ \solhere
-\end{solsteps}
+\begin{align*}
+\text{HA}_1(A, B):\quad S_1 &= A \oplus B, & C_1 &= AB\\
+\text{HA}_2(S_1, C_{in}):\quad S &= S_1 \oplus C_{in} = A \oplus B \oplus C_{in}, & C_2 &= C_{in} S_1\\
+\text{OR}(C_1, C_2):\quad C_{out} &= AB + C_{in}(A \oplus B)
+\end{align*}
+\solhere
 \end{solution}
 
 \subsection{Multiplexer และ Demultiplexer}
 วงจรเชิงการจัดหมู่ที่ใช้บ่อยในการเลือกและกระจายสัญญาณคือมัลติเพล็กเซอร์และดีมัลติเพล็กเซอร์ ซึ่งทำหน้าที่ตรงข้ามกัน
 
-\begin{definition}
-\textbf{Multiplexer (MUX)} เป็นวงจรที่เลือก 1 จาก $n$ inputs ไปยัง 1 output โดยใช้ select lines
+\begin{definition}[ตัวเลือกข้อมูล (Multiplexer)]
+\index{มัลติเพล็กเซอร์!นิยาม}
+มัลติเพล็กเซอร์ (Multiplexer: MUX) เป็นวงจรที่เลือก 1 จาก $n$ inputs ไปยัง 1 output โดยใช้ select lines
 
 สำหรับ 4-to-1 MUX:
 $$Y = I_0 \cdot S_1' \cdot S_0' + I_1 \cdot S_1' \cdot S_0 + I_2 \cdot S_1 \cdot S_0' + I_3 \cdot S_1 \cdot S_0$$
@@ -1650,15 +1540,16 @@ $S_1$ & $S_0$ & Output \\
 \end{center}
 \end{definition}
 
-\begin{definition}
-\textbf{Demultiplexer (DEMUX)} ทำงานตรงข้ามกับ MUX คือรับ 1 input และส่งไปยัง 1 จาก $n$ outputs
+\begin{definition}[ตัวกระจายข้อมูล (Demultiplexer)]
+\index{ดีมัลติเพล็กเซอร์!นิยาม}
+ดีมัลติเพล็กเซอร์ (Demultiplexer: DEMUX) ทำงานตรงข้ามกับ MUX คือรับ 1 input และส่งไปยัง 1 จาก $n$ outputs
 \end{definition}
 
 \subsection{FSM Implementation ด้วย Boolean Logic}
 Finite State Machine (FSM) สามารถ implement ได้โดยใช้ Boolean algebra ในตัวอย่างนี้ใช้ Moore machine ซึ่ง output ขึ้นกับ state ปัจจุบันเท่านั้น
 
 \begin{ex}
-พิจารณา Moore FSM ที่ตรวจสอบลำดับบิต "10" โดย output เป็น 1 หลังจากอ่านบิต 0 ที่ต่อจากบิต 1 แล้ว ดังนี้
+พิจารณา Moore FSM ที่ตรวจสอบลำดับบิต ``10'' โดย output เป็น 1 หลังจากอ่านบิต 0 ที่ต่อจากบิต 1 แล้ว ดังนี้
 
 
 \begin{center}
@@ -1682,14 +1573,10 @@ State transitions และ outputs สามารถเขียนเป็�
 ตัวอย่างเช่น input $11010$ จะเดินสถานะเป็น $S0 \rightarrow S1 \rightarrow S1 \rightarrow S2 \rightarrow S1 \rightarrow S2$ ดังนั้น output หลังอ่านแต่ละบิตคือ $0,0,1,0,1$ โดยค่า 1 เกิดเมื่อเครื่องเข้าสู่ state $S2$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item กำหนด state variables: $Q_1, Q_0$ (2 bits แทน 3 states)
-  \item เขียน state table สำหรับ next state และ output เป็น Boolean functions
-  \item ใช้ K-map หรือ Boolean algebra ลดรูป expressions สำหรับแต่ละ flip-flop input \solhere
-\end{solsteps}
+ใช้ state variables $Q_1, Q_0$ (2 บิตแทน 3 states); เขียน next state และ output เป็นฟังก์ชันบูลีนจาก state table แล้วลดรูปแต่ละ flip-flop input ด้วย K-map/Boolean algebra $\therefore$ ได้ Boolean expressions สำหรับ implement FSM \solhere
 \end{solution}
 
-\section{สรุป}
+\sectionbanner{สรุปบทเรียน}
 \label{sec:chapter-summary}
 บทนี้เริ่มจากนิยามของพีชคณิตบูลีน $(B, +, \cdot, ', 0, 1)$ พร้อมสัจพจน์ แล้วศึกษาการดำเนินการพื้นฐานสามตัว คือ OR ($+$), AND ($\cdot$) และ NOT ($'$) พร้อมตารางค่าความจริง ต่อด้วยกฎพื้นฐานของพีชคณิตบูลีน (Boolean Identities) ได้แก่ กฎเอกนัย กฎเอกลักษณ์ กฎการครอบงำ กฎคอมพลีเมนต์ กฎการสลับที่ กฎการเปลี่ยนกลุ่ม กฎการแจกแจง และกฎการดูดกลืน รวมทั้งกฎของ De Morgan คือ $(a + b)' = a' \cdot b'$ และ $(a \cdot b)' = a' + b'$ จากนั้นนำเสนอฟังก์ชันบูลีนและนิพจน์บูลีน รูปแบบบัญญัติ (Canonical Forms) ทั้งแบบผลบวกของผลคูณ (SOP) และผลคูณของผลบวก (POS) และการลดรูปฟังก์ชันบูลีนด้วยแผนที่คาร์นอ (Karnaugh Map) ก่อนปิดท้ายด้วยการประยุกต์ในวงจรดิจิทัล เช่น ลอจิกเกต วงจรบวก มัลติเพล็กเซอร์/ดีมัลติเพล็กเซอร์ และเครื่องสถานะจำกัด (FSM)
 
@@ -1698,10 +1585,10 @@ State transitions และ outputs สามารถเขียนเป็�
 ความเชื่อมโยงระหว่างพีชคณิตบูลีน ตรรกศาสตร์ และทฤษฎีเซตเป็นสิ่งสำคัญที่แสดงให้เห็นว่าโครงสร้างทางคณิตศาสตร์ต่างๆ มีความสัมพันธ์กัน~\cite{rosen2019discrete}
 
 \clearpage
-\section{แบบฝึกหัด}
+\sectionbanner{แบบฝึกหัด}
 \label{sec:exercises}
 
-\subsection*{ส่วนที่ 1: การดำเนินการพื้นฐาน}
+\exercisepart{ส่วนที่ 1: การดำเนินการพื้นฐาน}
 \begin{exercise}
 จงหาค่าของนิพจน์ต่อไปนี้
 \begin{enumerate}
@@ -1738,7 +1625,7 @@ State transitions และ outputs สามารถเขียนเป็�
 \end{enumerate}
 \end{exercise}
 
-\subsection*{ส่วนที่ 2: Boolean Identities}
+\exercisepart{ส่วนที่ 2: Boolean Identities}
 \begin{exercise}
 พิสูจน์โดยใช้ truth table:
 \begin{enumerate}
@@ -1768,7 +1655,7 @@ State transitions และ outputs สามารถเขียนเป็�
 \end{enumerate}
 \end{exercise}
 
-\subsection*{ส่วนที่ 3: De Morgan's Laws}
+\exercisepart{ส่วนที่ 3: De Morgan's Laws}
 \begin{exercise}
 พิสูจน์ De Morgan's Laws:
 \begin{enumerate}
@@ -1787,7 +1674,7 @@ State transitions และ outputs สามารถเขียนเป็�
 \end{enumerate}
 \end{exercise}
 
-\subsection*{ส่วนที่ 4: ฟังก์ชันบูลีนและ Canonical Forms}
+\exercisepart{ส่วนที่ 4: ฟังก์ชันบูลีนและ Canonical Forms}
 \begin{exercise}
 เขียน truth table สำหรับ ดังนี้
 \begin{enumerate}
@@ -1813,7 +1700,7 @@ State transitions และ outputs สามารถเขียนเป็�
 \end{enumerate}
 \end{exercise}
 
-\subsection*{ส่วนที่ 5: Karnaugh Maps}
+\exercisepart{ส่วนที่ 5: Karnaugh Maps}
 \begin{exercise}
 ใช้ K-map ลดรูป ดังนี้
 \begin{enumerate}
@@ -1834,13 +1721,13 @@ State transitions และ outputs สามารถเขียนเป็�
 \end{enumerate}
 \end{exercise}
 
-\section{เฉลยแบบฝึกหัด}
+\answerkeyhead
 \label{sec:exercises-solutions}
 
-\subsection*{เฉลยส่วนที่ 1}
-\begin{enumerate}
+\exercisepart{เฉลยส่วนที่ 1: มโนทัศน์และสัจพจน์บูลีน}
+\begin{enumerate}[label={},leftmargin=0pt,itemsep=0.6em]
     \item
-    \begin{enumerate}
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
         \item $1 + 0 = 1$
         \item $1 \cdot 1 = 1$
         \item $0' = 1$
@@ -1852,49 +1739,100 @@ State transitions และ outputs สามารถเขียนเป็�
     \end{enumerate}
 
     \item
-    \begin{enumerate}
-        \item $f(x, y) = x + y'$
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-$x$ & $y$ & $y'$ & $f$ \\
-\hline
-0 & 0 & 1 & 1 \\
-\hline
-0 & 1 & 0 & 0 \\
-\hline
-1 & 0 & 1 & 1 \\
-\hline
-1 & 1 & 0 & 1 \\
-\hline
-\end{tabular}
-\end{center}
-        \item $f(x, y) = (x + y)'$
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-$x$ & $y$ & $x + y$ & $f$ \\
-\hline
-0 & 0 & 0 & 1 \\
-\hline
-0 & 1 & 1 & 0 \\
-\hline
-1 & 0 & 1 & 0 \\
-\hline
-1 & 1 & 1 & 0 \\
-\hline
-\end{tabular}
-\end{center}
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item $f(x, y) = x + y'$ (มีค่า 1 เมื่อ $(x,y) \in \{(0,0), (1,0), (1,1)\}$)
+        \item $f(x, y) = (x + y)'$ (มีค่า 1 เมื่อ $(x,y) = (0,0)$ เท่านั้น)
     \end{enumerate}
 
     \item
-    \begin{enumerate}
-        \item เท็จ (ใน Boolean: $1+1=1$)
-        \item จริง
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item เท็จ (ใน Boolean Algebra: $1+1=1$)
+        \item จริง ($1 \cdot 0 = 0$)
         \item เท็จ ($0' = 1$)
-        \item จริง
-        \item จริง
+        \item จริง ($x + x' = 1$)
+        \item จริง ($x \cdot x' = 0$)
         \item เท็จ ($x \cdot 0 = 0$)
+    \end{enumerate}
+\end{enumerate}
+
+\exercisepart{เฉลยส่วนที่ 2: กฎและทฤษฎีบทพีชคณิตบูลีน}
+\begin{enumerate}[label={},leftmargin=0pt,itemsep=0.6em]
+    \setcounter{enumi}{3}
+    \item
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item $x + x \cdot y = x(1 + y) = x \cdot 1 = x$ (Absorption Law)
+        \item $x(x' + y) = x \cdot x' + x \cdot y = 0 + x y = x y$
+        \item $(x + y)(x + y') = x + y \cdot y' = x + 0 = x$
+        \item $x y + x y' = x(y + y') = x \cdot 1 = x$
+    \end{enumerate}
+
+    \item
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item $(x \cdot y)' = x' + y'$ (De Morgan's Law 1: สร้าง Truth Table เปรียบเทียบผลลัพธ์ตรงกันทุกกรณี)
+        \item $(x + y)' = x' \cdot y'$ (De Morgan's Law 2: สร้าง Truth Table เปรียบเทียบผลลัพธ์ตรงกันทุกกรณี)
+        \item $(x + y)(x + z) = x + x z + y x + y z = x(1 + z + y) + y z = x \cdot 1 + y z = x + y z$
+    \end{enumerate}
+
+    \item
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item Dual ของ $x + 0 = x$ คือ $x \cdot 1 = x$
+        \item Dual ของ $x \cdot (y + z) = x \cdot y + x \cdot z$ คือ $x + (y \cdot z) = (x + y) \cdot (x + z)$
+    \end{enumerate}
+\end{enumerate}
+
+\exercisepart{เฉลยส่วนที่ 3: การลดรูปนิพจน์บูลีน}
+\begin{enumerate}[label={},leftmargin=0pt,itemsep=0.6em]
+    \setcounter{enumi}{6}
+    \item
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item $x y + x' z + y z = x y + x' z$ (Consensus Theorem)
+        \item $(x + y)(x' + z)(y + z) = (x + y)(x' + z)$ (Consensus Theorem Dual)
+        \item $x y z + x y z' + x' y = x y(z + z') + x' y = x y + x' y = (x + x')y = y$
+        \item $(x + y + z)(x + y + z') = (x + y) + z \cdot z' = x + y + 0 = x + y$
+    \end{enumerate}
+
+    \item
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item $f(x, y, z) = x y + y z + x z \implies \sum m(3, 5, 6, 7)$ (มีค่า 1 เมื่อมีบิต 1 อย่างน้อย 2 ตัว)
+        \item $f(x, y, z) = (x + y)(y + z)(x + z) \implies \sum m(3, 5, 6, 7)$ (ตรงกับข้อ 1)
+        \item $f(x, y, z) = x \oplus y \oplus z \implies \sum m(1, 2, 4, 7)$ (มีค่า 1 เมื่อมีบิต 1 เป็นจำนวนคี่)
+    \end{enumerate}
+
+    \item
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item $f(x, y) = x + y' = x(y + y') + y'(x + x') = x y + x y' + x' y' = \sum m(0, 2, 3)$
+        \item $f(x, y, z) = x y + x' z = x y(z + z') + x' z(y + y') = x y z + x y z' + x' y z + x' y' z = \sum m(1, 3, 6, 7)$
+    \end{enumerate}
+\end{enumerate}
+
+\exercisepart{เฉลยส่วนที่ 4: ฟังก์ชันบูลีนและการแทนมาตรฐาน}
+\begin{enumerate}[label={},leftmargin=0pt,itemsep=0.6em]
+    \setcounter{enumi}{9}
+    \item
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item $f(x, y) = x \cdot y = \prod M(0, 1, 2) = (x + y)(x + y')(x' + y)$
+        \item $f(x, y, z) = (x + y')(x' + z) = \prod M(1, 4, 5)$
+    \end{enumerate}
+\end{enumerate}
+
+\exercisepart{เฉลยส่วนที่ 5: Karnaugh Maps และวงจรตรรกะ}
+\begin{enumerate}[label={},leftmargin=0pt,itemsep=0.6em]
+    \label{sec:kmap-solutions}
+    \setcounter{enumi}{10}
+    \item
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item $f(x, y) = \sum(1, 2, 3) = x + y$
+        \item $f(x, y) = \sum(0, 1, 2) = x' + y'$
+        \item $f(x, y, z) = \sum(0, 2, 4, 6) = z'$
+        \item $f(x, y, z) = \sum(1, 3, 5, 7) = z$
+        \item $f(w, x, y, z) = \sum(0, 2, 4, 6, 8, 10, 12, 14) = z'$
+    \end{enumerate}
+
+    \item
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item Half Adder: $\text{Sum} = x \oplus y = x y' + x' y$, $\text{Carry} = x \cdot y$
+        \item 2-to-1 Multiplexer: $f = s' \cdot d_0 + s \cdot d_1$
+        \item วงจรตรวจ 2 bits เป็น 1 จาก 3 bits: $f(x, y, z) = x y z' + x y' z + x' y z = \sum m(3, 5, 6)$
     \end{enumerate}
 \end{enumerate}
 

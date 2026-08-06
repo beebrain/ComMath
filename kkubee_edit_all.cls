@@ -35,18 +35,18 @@
 \XeTeXlinebreaklocale "th"
 \XeTeXlinebreakskip = 0pt plus 1pt
 \hyphenpenalty=10000
-\renewcommand{\baselinestretch}{1.5}
+\renewcommand{\baselinestretch}{1.2}
 
-\linespread{1.5}
+\linespread{1.2}
 \defaultfontfeatures{Scale=1.35}
 \usepackage{hyperref} 
 \usepackage{emptypage}
 
 
-\renewcommand{\Huge}{\fontsize{14pt}{14pt}\selectfont}		%% 20pt in word
-\renewcommand{\small}{\fontsize{10pt}{10pt}\selectfont}
-\renewcommand{\normalsize}{\fontsize{11pt}{11pt}\selectfont}	%%16pt in word
-\renewcommand{\large}{\fontsize{12pt}{13pt}\selectfont}   %%% 18pt in word
+\renewcommand{\Huge}{\fontsize{16pt}{22pt}\selectfont}		%% 20pt in word
+\renewcommand{\small}{\fontsize{10pt}{14pt}\selectfont}
+\renewcommand{\normalsize}{\fontsize{11pt}{15.5pt}\selectfont}	%%16pt in word
+\renewcommand{\large}{\fontsize{12pt}{17pt}\selectfont}   %%% 18pt in word
 
 
 
@@ -76,29 +76,29 @@
 \renewcommand{\theenumii}{\theenumi.\arabic{enumii}.}
 \renewcommand{\labelenumiii}{\theenumiii}
 \renewcommand{\theenumiii}{\theenumii\arabic{enumiii}.}
-\setlist[itemize]{leftmargin = 0cm,itemindent = 1 cm,topsep=0em,itemsep = 0em}
-\setlist[enumerate]{leftmargin = 0cm,
-wide = 0pt,
-labelwidth = 0.5em,
-labelsep = 0.3cm,
-itemindent = 1 cm,
-topsep=0em,
-itemsep = 0em}
-\setlist[enumerate,2]{leftmargin = 0cm,
-wide = 0pt,
-labelwidth = 0.5em,
-labelsep = 0.3cm,
-itemindent = 1.6 cm,
-topsep=0em,
-itemsep = 0em}
+\setlist[itemize]{leftmargin = 1.8em, labelindent = 0.6em, topsep = 0.1em, itemsep = 0.05em, parsep = 0pt}
+\setlist[enumerate,1]{leftmargin = 2.2em,
+labelindent = 0.8em,
+labelwidth = 1.4em,
+labelsep = 0.4em,
+topsep = 0.1em,
+itemsep = 0.05em,
+parsep = 0pt}
+\setlist[enumerate,2]{leftmargin = 3.6em,
+labelindent = 1.6em,
+labelwidth = 1.8em,
+labelsep = 0.4em,
+topsep = 0.1em,
+itemsep = 0.05em,
+parsep = 0pt}
 
-\setlist[enumerate,3]{leftmargin = 0cm,
-	wide = 0pt,
-	labelwidth = 0.5em,
-	labelsep = 0.3cm,
-	itemindent = 2.2 cm,
-	topsep=0em,
-	itemsep = 0em}
+\setlist[enumerate,3]{leftmargin = 5.0em,
+	labelindent = 2.4em,
+	labelwidth = 2.2em,
+	labelsep = 0.4em,
+	topsep = 0.1em,
+	itemsep = 0.05em,
+	parsep = 0pt}
 
 % Optional package
 \usepackage{multirow}
@@ -112,9 +112,9 @@ itemsep = 0em}
 %%%%%Add clear leftpage to new page
 \newcommand*\cleartoleftpage{%
   \clearpage
-  \ifodd\value{page} %
+  \ifodd\c@page\relax
   \else
-  \hbox{}\vspace*{\fill}\thispagestyle{empty}\newpage
+    \hbox{}\vspace*{\fill}\thispagestyle{empty}\newpage
   \fi
 }
 
@@ -261,7 +261,7 @@ eprint=false
 
 
 % Layout packages
-\RequirePackage[top=30mm, bottom=25mm, left=25mm, right=25mm]{geometry}
+\RequirePackage[a4paper, twoside, top=30mm, bottom=25mm, inner=30mm, outer=20mm, headheight=14pt]{geometry}
 \RequirePackage{fancyhdr}
 \RequirePackage{calc}
 \RequirePackage{indentfirst}                                                                                                          
@@ -315,159 +315,77 @@ eprint=false
 \addtocontents{lot}{\protect\noaddvspace} % for table
 
 \setcounter{tocdepth}{1}
+
 \renewcommand\tableofcontents{%
-	\modulolinenumbers[5000]
-	\chapter*{\centering \large \textbf{สารบัญ} }%
-	\addcontentsline{toc}{chapter}{สารบัญ}
-	%\vspace{-1cm}
-%\addcontentsline{toc}{chapter}{สารบัญ}
-		\begin{flushright}
-		  \textbf{หน้า}
-		\end{flushright} 
-	% Hold current page value
-	% for TOC heading
-	\vspace{-0.27cm}
-	\newcounter{tocitem}
-	\setcounter{tocitem}{0}
-	\linenumbers[5]
+	\chapter*{\centering \large \textbf{สารบัญ}}%
+	\begin{flushright}%
+		\textbf{หน้า}%
+	\end{flushright}%
+	\vspace{-0.5em}%
 	\@starttoc{toc}%
-	\setcounter{tocitem}{0}
 	\clearpage
-	%\cleardoublepage
-}
-
-% A new command to test wheather it is a newpage or not.
-% Useful to insert a heading (if possible) for the subsequence pages of the toc
-
-% The rests are done by the titletoc package
-% I fixed the titledepth to 1 for the sake of simplicity.
-% If make it more general -> if more headings -> the entry will be more 
-% and one must solve the "Table of Contents (cont.)" on the second page of the TOC.
-% In this case, I think the bug is at the Graduate School and I will not fix it.
-
-%\tocheadcont{\tocitem}{\linenumber}{headertype}
-\usepackage[absolute,overlay]{textpos}
-
-\newcommand{\tocheadcont}[3]{
-	%\ifthenelse{#1>27 \OR #2>27}{
-	\ifthenelse{#1 > 27}{
-		%\cleardoublepage
-		%Should be a newpage here.
-		\pagebreak[4]
-		\resetlinenumber[1]
-		\setcounter{tocitem}{0}
-		\begin{center}
-			{\large \textbf{#3 (ต่อ)} }
-		\end{center} 
-		\vspace{-0.6cm}
-		\noindent
-		\begin{flushright}
-		  \textbf{หน้า}
-		\end{flushright} 
-		\vspace{-0.2cm}
-	}{}
-}
-
-
-\newcommand{\tocheadcontFT}[4]{
-	%\ifthenelse{#1>27 \OR #2>27}{
-	\ifthenelse{#1 > 27}{
-		%\cleardoublepage
-		%Should be a newpage here.
-		\pagebreak[4]
-		\resetlinenumber[1]
-		\setcounter{tocitem}{0}
-		\begin{center}
-			{\large \textbf{#3 (ต่อ)} }
-		\end{center} 
-		\vspace{\baselineskip}
-		\noindent
-		\begin{textblock*}{5cm}(2.55cm,3.7cm) % {block width} (coords) 
-		   \textbf{#4}
-		\end{textblock*}
-		\vspace{-1.7cm}
-		\begin{flushright}
-		  \textbf{หน้า}
-		\end{flushright} 
-	}{}
 }
 
 \titlecontents{chapter}
-[0mm]
-{\stepcounter{tocitem}\tocheadcont{\thelinenumber}{\thetocitem}{สารบัญ}}
-{\MakeUppercase\chaptername\hspace{1ex}\thecontentslabel\enspace}
+[0pt]
+{\addvspace{0.75em}\bfseries}
+{\thecontentslabel\quad}
 {}
-{\hfill \contentspage}
+{\titlerule*[0.5pc]{.}\contentspage}
 
 \titlecontents{section}
-[0mm]
-{\stepcounter{tocitem}\tocheadcont{\thelinenumber}{\thetocitem}{สารบัญ}}
-{\hspace{\firstindentlength}\thecontentslabel\hspace{2mm}}
+[1.5em]
+{\addvspace{0.25em}}
+{\thecontentslabel\quad}
 {}
-{\hfill \contentspage} 
+{\titlerule*[0.5pc]{.}\contentspage}
 
-
+\titlecontents{subsection}
+[3.0em]
+{\addvspace{0.15em}\small}
+{\thecontentslabel\quad}
+{}
+{\titlerule*[0.5pc]{.}\contentspage}
 
 % List of Tables
-% The major part was taken from report.cls
-% and modified according to the KKU Graduate School Manual
 \renewcommand\listoftables{%
-	\setcounter{tocitem}{0}
-	\resetlinenumber[1]
-	\chapter*{\centering \large \textbf{สารบัญตาราง} }%
-	\addcontentsline{toc}{chapter}{สารบัญตาราง }
-	\noindent
-	\begin{textblock*}{5cm}(1cm,5.5cm) % {block width} (coords) 
-		   \textbf{ตารางที่}
-		\end{textblock*}
-	\vspace{-1.15cm}
-		\begin{flushright}
-		  \textbf{หน้า}
-		\end{flushright} 
-	\vspace{-0.2cm}
-	\linenumbers[5]
+	\chapter*{\centering \large \textbf{สารบัญตาราง}}%
+	\addcontentsline{toc}{chapter}{สารบัญตาราง}%
+	\begin{flushright}%
+		\textbf{หน้า}%
+	\end{flushright}%
+	\vspace{-0.5em}%
 	\@starttoc{lot}%
-	\setcounter{tocitem}{0}
 	\clearpage
-	%\cleardoublepage
 }
 
 \renewcommand{\tablename}{}
 \titlecontents{table}
-[0mm]
-{\vskip 6pt\stepcounter{tocitem}\tocheadcontFT{\thelinenumber}{\thetocitem}{สารบัญตาราง}{ตารางที่}}
-{\contentspush{\hspace{0.8cm}\thecontentslabel\hspace{0.6cm}}}
+[0pt]
+{\addvspace{0.25em}}
+{ตารางที่~\thecontentslabel\quad}
 {}
-{\hfill\contentspage}
+{\titlerule*[0.5pc]{.}\contentspage}
 
+% List of Figures
 \renewcommand\listoffigures{%
-	\chapter*{สารบัญภาพ}%
-	\addcontentsline{toc}{chapter}{สารบัญภาพ }
-	\resetlinenumber[1]
-	\setcounter{tocitem}{0}
-	\noindent
-		\begin{textblock*}{5cm}(1cm,5.5cm) % {block width} (coords) 
-		   \textbf{ภาพที่}
-		\end{textblock*}
-		\vspace{-1.15cm}
-		\begin{flushright}
-		  \textbf{หน้า}
-		\end{flushright} 
-		\vspace{-0.2cm}
-	\linenumbers[5]
+	\chapter*{\centering \large \textbf{สารบัญภาพ}}%
+	\addcontentsline{toc}{chapter}{สารบัญภาพ}%
+	\begin{flushright}%
+		\textbf{หน้า}%
+	\end{flushright}%
+	\vspace{-0.5em}%
 	\@starttoc{lof}%
-	\setcounter{tocitem}{0}
 	\clearpage
-	%\cleardoublepage
 }
+
 \renewcommand{\figurename}{}
-% Indent the next line of the entry by the width of the label with \contentspush
 \titlecontents{figure}
-[0mm]
-{\vskip 6pt\stepcounter{tocitem}\tocheadcontFT{\thelinenumber}{\thetocitem}{สารบัญรูปภาพ}{ภาพที่}}
-{\contentspush{\hspace{0.8cm}\thecontentslabel\hspace{0.6cm}}}
+[0pt]
+{\addvspace{0.25em}}
+{ภาพที่~\thecontentslabel\quad}
 {}
-{\hfill\contentspage}
+{\titlerule*[0.5pc]{.}\contentspage}
 
 
 %%%%%%%%%%%%%% redefine content name
@@ -503,7 +421,7 @@ eprint=false
 \titleformat{\chapter}[display]
   {\Huge\bfseries\filcenter}{}{0pt}{\Huge}
 \titlespacing*{\chapter}
-  {0pt}{0pt}{0pt}
+  {0pt}{0pt}{22pt}
 \assignpagestyle{\chapter}{empty}
 %%%%%%%%%%%%%%%%%%%%% addition new command %%%%%%%%%%%%%%%%
 \newcommand\blfootnote[1]{%
@@ -565,10 +483,11 @@ eprint=false
 % Redifined for twopage
 \newcommand{\setkkupagestyle}{%
 	\pagestyle{fancy}
-	\renewcommand\headrulewidth{0pt}
-	\lhead{} \chead{} \rhead{} 
-	\lfoot{} \cfoot{} \rfoot{}
-	\fancyhead[CE,CO]{\thepage} % option for twoside
+	\fancyhf{}
+	\renewcommand\headrulewidth{0.4pt}
+	\fancyhead[LE,RO]{\thepage}
+	\fancyhead[RE]{\small\itshape คณิตศาสตร์สำหรับคอมพิวเตอร์}
+	\fancyhead[LO]{\small\itshape\leftmark}
 	\pagenumbering{arabic}
 }%
 

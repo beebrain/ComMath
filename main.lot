@@ -1,32 +1,33 @@
 \noaddvspace 
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1}{\ignorespaces ตัวเชื่อมประพจน์พื้นฐานทั้ง 5 ตัว}}{15}{table.caption.7}%
-\contentsline {table}{\numberline {2}{\ignorespaces ตารางค่าความจริงของประพจน์เชื่อม (AND, $p \land q$)}}{17}{table.caption.9}%
-\contentsline {table}{\numberline {3}{\ignorespaces ตารางค่าความจริงของประพจน์เลือก (OR, $p \lor q$)}}{18}{table.caption.10}%
-\contentsline {table}{\numberline {4}{\ignorespaces ตารางค่าความจริงของนิเสธ ($\neg p$)}}{20}{table.caption.12}%
-\contentsline {table}{\numberline {5}{\ignorespaces ตารางค่าความจริงของประพจน์มีเงื่อนไข (IMPLIES, $p \rightarrow q$)}}{20}{table.caption.13}%
-\contentsline {table}{\numberline {6}{\ignorespaces ตารางค่าความจริงของประพจน์เงื่อนไขสองทาง (IFF, $p \leftrightarrow q$)}}{22}{table.caption.15}%
-\contentsline {table}{\numberline {7}{\ignorespaces ตารางพิสูจน์ความสมมูลของ Biconditional}}{23}{table.caption.16}%
-\contentsline {table}{\numberline {8}{\ignorespaces ตารางแสดงว่า $p \lor \neg p$ เป็นสัจนิรันดร์}}{24}{table.caption.17}%
-\contentsline {table}{\numberline {9}{\ignorespaces ตารางแสดงว่า $(p \land q) \rightarrow p$ เป็นสัจนิรันดร์}}{25}{table.caption.18}%
-\contentsline {table}{\numberline {10}{\ignorespaces ตารางแสดงว่า $p \land \neg p$ เป็นข้อขัดแย้ง}}{26}{table.caption.19}%
-\contentsline {table}{\numberline {11}{\ignorespaces ตารางแสดงว่า $p \land q$ เป็นประพจน์กลาง}}{27}{table.caption.20}%
-\contentsline {table}{\numberline {12}{\ignorespaces กฎพีชคณิตของประพจน์ (โดยที่ $T$ แทนสัจนิรันดร์ และ $F$ แทนข้อขัดแย้ง)}}{28}{table.caption.21}%
-\contentsline {table}{\numberline {13}{\ignorespaces ตารางพิสูจน์ความสมมูลของประพจน์เงื่อนไขและแย้งสลับที่}}{30}{table.caption.22}%
-\contentsline {table}{\numberline {14}{\ignorespaces ตารางค่าความจริงของ XOR ($p \oplus q$)}}{32}{table.caption.24}%
-\contentsline {table}{\numberline {15}{\ignorespaces ตารางค่าความจริงของ NAND และ NOR}}{33}{table.caption.25}%
-\contentsline {table}{\numberline {16}{\ignorespaces ตารางพิสูจน์ความสมเหตุสมผลของ Modus Ponens}}{35}{table.caption.26}%
-\contentsline {table}{\numberline {17}{\ignorespaces ตารางพิสูจน์ความสมเหตุสมผลของ Modus Tollens}}{36}{table.caption.27}%
-\contentsline {table}{\numberline {18}{\ignorespaces ตารางพิสูจน์ว่า $p \rightarrow q \equiv \neg p \lor q$}}{44}{table.caption.30}%
+\contentsline {table}{\numberline {1}{\ignorespaces ตารางค่าความจริงของตัวเชื่อมประพจน์พื้นฐาน 5 ชนิด}}{11}{table.caption.7}%
+\contentsline {table}{\numberline {2}{\ignorespaces ประพจน์เชื่อม ($p \land q$)}}{11}{table.caption.8}%
+\contentsline {table}{\numberline {3}{\ignorespaces ประพจน์เลือก ($p \lor q$)}}{12}{table.caption.10}%
+\contentsline {table}{\numberline {4}{\ignorespaces นิเสธ ($\neg p$)}}{13}{table.caption.12}%
+\contentsline {table}{\numberline {5}{\ignorespaces ประพจน์มีเงื่อนไข ($p \rightarrow q$)}}{14}{table.caption.13}%
+\contentsline {table}{\numberline {6}{\ignorespaces เงื่อนไขสองทาง ($p \leftrightarrow q$)}}{14}{table.caption.14}%
+\contentsline {table}{\numberline {7}{\ignorespaces ตารางพิสูจน์ความสมมูลของ Biconditional}}{15}{table.caption.15}%
+\contentsline {table}{\numberline {8}{\ignorespaces ตารางแสดงว่า $p \lor \neg p$ เป็นสัจนิรันดร์}}{16}{table.caption.16}%
+\contentsline {table}{\numberline {9}{\ignorespaces ตารางแสดงว่า $(p \land q) \rightarrow p$ เป็นสัจนิรันดร์}}{17}{table.caption.17}%
+\contentsline {table}{\numberline {10}{\ignorespaces ตารางแสดงว่า $p \land \neg p$ เป็นข้อขัดแย้ง}}{18}{table.caption.18}%
+\contentsline {table}{\numberline {11}{\ignorespaces ตารางแสดงว่า $p \land q$ เป็นประพจน์กลาง}}{18}{table.caption.19}%
+\contentsline {table}{\numberline {12}{\ignorespaces กฎพีชคณิตของประพจน์ (โดยที่ $T$ แทนสัจนิรันดร์ และ $F$ แทนข้อขัดแย้ง)}}{20}{table.caption.20}%
+\contentsline {table}{\numberline {13}{\ignorespaces ตารางพิสูจน์ความสมมูลของประพจน์เงื่อนไขและแย้งสลับที่}}{21}{table.caption.21}%
+\contentsline {table}{\numberline {14}{\ignorespaces ตารางค่าความจริงของ XOR ($p \oplus q$)}}{22}{table.caption.23}%
+\contentsline {table}{\numberline {15}{\ignorespaces ตารางค่าความจริงของ NAND และ NOR}}{23}{table.caption.24}%
+\contentsline {table}{\numberline {16}{\ignorespaces ตารางแสดงกฎการอนุมานแบบ Modus Ponens}}{25}{table.caption.25}%
+\contentsline {table}{\numberline {17}{\ignorespaces ตารางค่าความจริงพิสูจน์ความสมเหตุสมผลของกฎการยืนยันเงื่อนไขนำ}}{26}{table.caption.26}%
+\contentsline {table}{\numberline {18}{\ignorespaces ตารางแสดงกฎการอนุมานแบบ Modus Tollens}}{28}{table.caption.27}%
+\contentsline {table}{\numberline {19}{\ignorespaces ตารางค่าความจริงพิสูจน์ความสมเหตุสมผลของกฎการปฏิเสธเงื่อนไขตาม}}{28}{table.caption.28}%
+\contentsline {table}{\numberline {20}{\ignorespaces ตารางพิสูจน์ว่า $p \rightarrow q \equiv \neg p \lor q$}}{33}{table.caption.29}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {19}{\ignorespaces ความสัมพันธ์ระหว่าง Relational Algebra และ Set Theory}}{83}{table.caption.38}%
-\contentsline {table}{\numberline {20}{\ignorespaces ประสิทธิภาพของ Hash Set Operations}}{85}{table.caption.39}%
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {21}{\ignorespaces สรุปคุณสมบัติของความสัมพันธ์บางชนิด}}{116}{table.caption.46}%
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {22}{\ignorespaces ตารางเปรียบเทียบฐานสิบ ฐานสอง และฐานสิบหก}}{167}{table.caption.53}%
-\contentsline {table}{\numberline {23}{\ignorespaces ตาราง ASCII Code บางส่วน}}{188}{table.caption.56}%
+\contentsline {table}{\numberline {21}{\ignorespaces ความสัมพันธ์ระหว่าง Relational Algebra และ Set Theory}}{70}{table.caption.42}%
+\contentsline {table}{\numberline {22}{\ignorespaces ความซับซ้อนเชิงเวลา (Time Complexity) ของ Hash Set Operations}}{71}{table.caption.43}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {24}{\ignorespaces ความสัมพันธ์ระหว่างพีชคณิตบูลีน ทฤษฎีเซต และตรรกศาสตร์}}{256}{table.caption.64}%
+\contentsline {table}{\numberline {23}{\ignorespaces ตารางเปรียบเทียบฐานสิบ ฐานสอง และฐานสิบหก}}{124}{table.caption.58}%
+\contentsline {table}{\numberline {24}{\ignorespaces ตาราง ASCII Code บางส่วน}}{141}{table.caption.61}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {25}{\ignorespaces ความสัมพันธ์ระหว่างพีชคณิตบูลีน ทฤษฎีเซต และตรรกศาสตร์}}{202}{table.caption.75}%
 \contentsfinish 

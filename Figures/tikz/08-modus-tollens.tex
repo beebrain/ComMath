@@ -1,22 +1,21 @@
 % 08 — Modus Tollens : รูปแบบกฎการอนุมาน (premises เหนือเส้น, ข้อสรุปใต้เส้น) คู่กับตัวอย่าง
 \begin{tikzpicture}[font=\small]
   % ---- ซ้าย: รูปสัญลักษณ์ ----
-  \node[font=\bfseries] at (-2.7,2.0) {รูปสัญลักษณ์};
+  \node[draw=navy,fill=navy,text=white,rounded corners=3pt,
+        minimum width=5.2cm,minimum height=0.85cm,font=\bfseries]
+        at (-2.7,2.0) {รูปสัญลักษณ์};
   \node[font=\itshape] (p1) at (-2.7,1.15) {$p \rightarrow q$};
   \node[font=\itshape] (p2) at (-2.7,0.45) {$\lnot q$};
   \draw[line width=1pt] (-3.9,0.05) -- (-1.5,0.05);
   \node[font=\itshape] at (-2.7,-0.6) {$\therefore\ \lnot p$};
   % ---- ขวา: ตัวอย่างรูปธรรม (รูปแบบเดียวกัน) ----
-  \node[font=\bfseries] at (3.1,2.0) {ตัวอย่าง};
+  \node[draw=navy,fill=navy,text=white,rounded corners=3pt,
+        minimum width=5.2cm,minimum height=0.85cm,font=\bfseries]
+        at (3.1,2.0) {ตัวอย่าง};
   \node (e1) at (3.1,1.15) {ถ้าไฟแดง แล้วรถต้องหยุด};
   \node (e2) at (3.1,0.45) {รถไม่ได้หยุด};
   \draw[line width=1pt] (0.5,0.05) -- (5.7,0.05);
   \node at (3.1,-0.6) {$\therefore\ $ ไฟไม่ได้เป็นสีแดง};
   % เส้นแบ่ง
   \draw[gray,dashed] (-0.1,2.1) -- (-0.1,-0.7);
-  % ข้อความสรุปกฎเป็นภาษาง่าย
-  \node[draw=gray,fill=cellgray,rounded corners=3pt,align=center,inner sep=2.6mm,
-        text width=11.5cm,anchor=north] at (0.6,-1.25)
-        {\textbf{กฎ Modus Tollens:} เมื่อ ``$p \rightarrow q$'' เป็นจริง และ ``$q$'' เป็นเท็จ ($\lnot q$)
-         จึงสรุปได้ว่า ``$p$'' เป็นเท็จ ($\lnot p$)};
 \end{tikzpicture}

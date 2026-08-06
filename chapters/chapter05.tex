@@ -1,8 +1,7 @@
 \chapter{เมทริกซ์และดีเทอร์มิแนนต์ (Matrices \& Determinants)}
 \label{ch:matrix}
-
-\section{บทนำ}
 \label{sec:matrix-intro}
+
 เมทริกซ์ (Matrix) เป็นโครงสร้างข้อมูลทางคณิตศาสตร์ที่ใช้จัดระเบียบข้อมูลในรูปแบบตารางสองมิติ เมทริกซ์ประกอบด้วยแถว (rows) และคอลัมน์ (columns) โดยแต่ละช่องเก็บค่าที่เรียกว่าสมาชิก (element) หรือค่าประจำตำแหน่ง (entry) ของเมทริกซ์ การจัดระเบียบข้อมูลในรูปแบบนี้ทำให้สามารถดำเนินการทางคณิตศาสตร์ได้อย่างมีประสิทธิภาพและเป็นระบบ ในเชิงทฤษฎี เมทริกซ์สามารถมองได้ว่าเป็นการแทนเชิงเส้น (linear transformation) ระหว่างปริภูมิเวกเตอร์ ซึ่งเป็นหัวใจสำคัญของพีชคณิตเชิงเส้นที่วางรากฐานให้กับขั้นตอนวิธีทางคอมพิวเตอร์จำนวนมาก~\cite{anton2019linear, strang2023linear}
 
 เมทริกซ์ถูกใช้อย่างกว้างขวางในวิทยาการคอมพิวเตอร์และคณิตศาสตร์ประยุกต์ เนื่องจากเป็นพื้นฐานของคอมพิวเตอร์กราฟิกส์ (การแปลงภาพ 2 มิติและ 3 มิติ) การเรียนรู้ของเครื่อง (Neural Networks) การเข้ารหัส (Hill Cipher) และการแก้ระบบสมการเชิงเส้น ในงานด้านการประมวลผลภาพ เมทริกซ์คอนโวลูชัน (Convolution Matrix) ถูกใช้ในการทำ blur, sharpen และ edge detection ขณะที่ในด้านการเรียนรู้ของเครื่อง เมทริกซ์น้ำหนัก (weight matrices) เป็นองค์ประกอบหลักของโครงข่ายประสาทเทียม นอกจากนี้เมทริกซ์ยังถูกใช้ในงานด้านการวิเคราะห์ข้อมูล การคำนวณทางวิทยาศาสตร์หลากหลายสาขา และการแก้ปัญหาเชิงการจัดการเครือข่ายผ่านเมทริกซ์ประชิด (Adjacency Matrix) ในทฤษฎีกราฟ
@@ -13,35 +12,34 @@
 \label{sec:matrix-definition}
 
 \subsection{นิยามของเมทริกซ์}
+การเรียนรู้โครงสร้างของเมทริกซ์เริ่มต้นจากการเข้าใจมิติและการระบุตำแหน่งสมาชิกภายในตารางสี่เหลี่ยมผืนผ้า โดยจำนวนแถวและจำนวนคอลัมน์จะถูกนำมาระบุเป็นมิติ $m \times n$ เพื่อกำหนดขอบเขตของข้อมูล ตำแหน่งของสมาชิกแต่ละตัวจะระบุด้วยดรรชนีคู่ $(i, j)$ ซึ่งระบุแถวและคอลัมน์ตามลำดับ ดังแสดงโครงสร้างและตำแหน่งสมาชิกในรูปที่~\ref{fig:matrix-dimensions}
+
 \begin{figure}[H]
     \centering
-    \resizebox{0.8\textwidth}{!}{\input{Figures/tikz/30-matrix-dimensions}}
-    \caption{มิติของเมทริกซ์ (Matrix Dimensions) แสดงเมทริกซ์ $m \times n$ พร้อมตำแหน่งแถวและคอลัมน์}
+    \includegraphics[width=0.62\textwidth]{Figures/png_ready/30-matrix-dimensions-manual.png}
+    \caption{แผนภาพแสดงมิติของเมทริกซ์และตำแหน่งสมาชิก}
     \label{fig:matrix-dimensions}
 \end{figure}
 
-\begin{definition}
-\textbf{เมทริกซ์ (Matrix)} คือ การจัดเรียงข้อมูลในรูปแบบตารางสี่เหลี่ยมผืนผ้า ซึ่งประกอบด้วย $m$ แถว และ $n$ คอลัมน์ เมทริกซ์ขนาด $m \times n$ จะมีสมาชิกทั้งหมด $m \cdot n$ ตัว เรียกว่า เมทริกซ์ขนาด $m \times n$ เขียนแทนด้วย $A_{m \times n}$ หรือ $A = [a_{ij}]$ โดยที่ $a_{ij}$ คือสมาชิกที่อยู่ในแถวที่ $i$ และคอลัมน์ที่ $j$
+\begin{definition}[นิยามของเมทริกซ์]
+\index{เมทริกซ์!นิยาม}
+เมทริกซ์ คือการจัดเรียงข้อมูลในรูปแบบตารางสี่เหลี่ยมผืนผ้า ซึ่งประกอบด้วย $m$ แถว และ $n$ คอลัมน์ เมทริกซ์ขนาด $m \times n$ จะมีสมาชิกทั้งหมด $m \cdot n$ ตัว เขียนแทนด้วย
+\[ A_{m \times n} = [a_{ij}]_{m \times n} \]
+โดยที่ $a_{ij}$ คือสมาชิกที่อยู่ในแถวที่ $i$ และคอลัมน์ที่ $j$
 \end{definition}
 
 \begin{ex}
 เมทริกซ์ $A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}$ มีขนาด $2 \times 3$ (2 แถว 3 คอลัมน์)
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item สมาชิก $a_{11} = 1$, $a_{12} = 2$, $a_{13} = 3$, $a_{21} = 4$, $a_{22} = 5$, $a_{23} = 6$ \solhere
-\end{solsteps}
+$a_{11}=1,\ a_{12}=2,\ a_{13}=3,\ a_{21}=4,\ a_{22}=5,\ a_{23}=6$ \solhere
 \end{solution}
 
 \begin{ex}
 เมทริกซ์ $B = \begin{pmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{pmatrix}$ มีขนาด $3 \times 2$ (3 แถว 2 คอลัมน์)
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item เมทริกซ์ $B$ มี 3 แถว คือ $\begin{pmatrix}1 & 2\end{pmatrix}$, $\begin{pmatrix}3 & 4\end{pmatrix}$ และ $\begin{pmatrix}5 & 6\end{pmatrix}$
-  \item เมทริกซ์ $B$ มี 2 คอลัมน์ คือ $\begin{pmatrix}1 \\ 3 \\ 5\end{pmatrix}$ และ $\begin{pmatrix}2 \\ 4 \\ 6\end{pmatrix}$
-  \item ดังนั้นขนาดของ $B$ คือ $3 \times 2$ และมีสมาชิกทั้งหมด $3 \cdot 2 = 6$ ตัว \solhere
-\end{solsteps}
+$B$ มี $3$ แถว ($\begin{psmallmatrix}1&2\end{psmallmatrix},\begin{psmallmatrix}3&4\end{psmallmatrix},\begin{psmallmatrix}5&6\end{psmallmatrix}$) และ $2$ คอลัมน์ $\therefore$ ขนาด $3\times 2$, สมาชิก $3\cdot 2 = 6$ ตัว \solhere
 \end{solution}
 
 เมทริกซ์ขนาด $m \times n$ สามารถเขียนในรูปทั่วไปได้ดังนี้
@@ -61,15 +59,16 @@ a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}
 
 \begin{figure}[H]
     \centering
-    \resizebox{0.85\textwidth}{!}{\input{Figures/tikz/31-matrix-types}}
-    \caption{ประเภทของเมทริกซ์ (Types of Matrices) ได้แก่ เมทริกซ์ศูนย์ เอกลักษณ์ ทแยงมุม สามเหลี่ยมบน สามเหลี่ยมล่าง และสมมาตร}
+    \includegraphics[width=0.62\textwidth]{Figures/png_ready/31-matrix-types-manual.png}
+    \caption{แผนภาพแสดงประเภทของเมทริกซ์ที่สำคัญ}
     \label{fig:matrix-types}
 \end{figure}
 
 เมทริกซ์แต่ละประเภทมีคุณสมบัติเฉพาะที่แตกต่างกัน การจำแนกประเภทของเมทริกซ์ช่วยให้เข้าใจพฤติกรรมและการประยุกต์ใช้ในบริบททางคณิตศาสตร์และวิทยาการคอมพิวเตอร์ได้ชัดเจนขึ้น โดยเมทริกซ์จตุรัสเป็นประเภทที่สำคัญที่สุดเนื่องจากสามารถคำนวณดีเทอร์มิแนนต์และหาตัวผกผันได้
 
-\begin{definition}
-\textbf{ประเภทของเมทริกซ์:} เมทริกซ์มีหลายประเภทที่สำคัญ ได้แก่
+\begin{definition}[ประเภทของเมทริกซ์]
+\index{เมทริกซ์!ประเภท}
+เมทริกซ์ในทางคณิตศาสตร์จำแนกตามโครงสร้างและสมบัติเฉพาะของสมาชิกออกเป็นประเภทที่สำคัญ ได้แก่
 \end{definition}
 
 \begin{enumerate}
@@ -110,11 +109,7 @@ a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}
 เมทริกซ์สมมาตรและเมทริกซ์เส้นทแยงมุมเฉียงมีความสำคัญในการประยุกต์ เช่น ในทฤษฎีสถิติ เมทริกซ์ความแปรปรวน (covariance matrix) เป็นเมทริกซ์สมมาตร และในฟิสิกส์ เมทริกซ์เส้นทแยงมุมเฉียงใช้ในการแสดงปริมาณเวกเตอร์
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item เมทริกซ์สมมาตร $a_{ij} = a_{ji}$ พบในเมทริกซ์ความแปรปรวน ซึ่งแสดงความสัมพันธ์ระหว่างตัวแปรสุ่ม
-  \item เมทริกซ์เส้นทแยงมุมเฉียง $a_{ij} = -a_{ji}$ และ $a_{ii} = 0$ พบในการแสดงปริมาณเวกเตอร์ เช่น ทอร์ก (torque) ในฟิสิกส์
-  \item สมบัติเหล่านี้ทำให้เมทริกซ์ทั้งสองชนิดมีประโยชน์ในการลดความซับซ้อนของการคำนวณ \solhere
-\end{solsteps}
+เมทริกซ์สมมาตร ($a_{ij}=a_{ji}$) พบในเมทริกซ์ความแปรปรวน (covariance); เมทริกซ์เส้นทแยงมุมเฉียง ($a_{ij}=-a_{ji},\ a_{ii}=0$) ใช้แทนปริมาณเวกเตอร์ เช่น ทอร์กในฟิสิกส์ $\therefore$ ทั้งสองชนิดช่วยลดความซับซ้อนของการคำนวณ \solhere
 \end{solution}
 
 \section{การดำเนินการระหว่างเมทริกซ์}
@@ -123,25 +118,31 @@ a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}
 
 \subsection{ความเท่ากันของเมทริกซ์}
 ความสัมพันธ์ระดับพื้นฐานที่สุดระหว่างสองเมทริกซ์คือความเท่ากัน ซึ่งกำหนดเงื่อนไขทางโครงสร้างที่เข้มงวดสำหรับการเปรียบเทียบค่าข้อมูลในแต่ละตำแหน่ง การตรวจสอบความเท่ากันจะทำได้ก็ต่อเมื่อเมทริกซ์ทั้งสองมีมิติที่สอดคล้องกันอย่างสมบูรณ์ และค่าสมาชิกในทุกตำแหน่งตรงกันทุกประการ สมบัตินี้มักถูกนำไปใช้ในขั้นตอนวิธีการจับคู่ข้อมูล (Pattern Matching) และการคำนวณค่าตัวแปรในระบบสมการเชิงเส้น ดังนิยามต่อไปนี้
-\begin{definition}
-\textbf{ความเท่ากันของเมทริกซ์:} เมทริกซ์ $A = [a_{ij}]$ และ $B = [b_{ij}]$ มีขนาด $m \times n$ เท่ากัน ก็ต่อเมื่อ $a_{ij} = b_{ij}$ สำหรับทุก $i = 1, 2, \ldots, m$ และ $j = 1, 2, \ldots, n$
+\begin{definition}[ความเท่ากันของเมทริกซ์]
+\index{ความเท่ากันของเมทริกซ์!นิยาม}
+เมทริกซ์ $A = [a_{ij}]$ และ $B = [b_{ij}]$ ขนาด $m \times n$ เท่ากัน ก็ต่อเมื่อ
+\[ a_{ij} = b_{ij} \quad \forall i \in \{1,\ldots,m\}, j \in \{1,\ldots,n\} \]
 \end{definition}
 
 \begin{ex}
 ถ้า $\begin{pmatrix} x & 2 \\ 3 & y \end{pmatrix} = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ แล้ว $x = 1$ และ $y = 4$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item เปรียบเทียบสมาชิกตำแหน่ง $(1,1)$: $x = 1$
-  \item เปรียบเทียบสมาชิกตำแหน่ง $(2,2)$: $y = 4$ \solhere
-\end{solsteps}
+\begin{align*}
+(1,1):\ & x = 1\\
+(2,2):\ & y = 4
+\end{align*}
+$\therefore x=1,\ y=4$ \solhere
 \end{solution}
 
 \subsection{การบวกและการลบเมทริกซ์}
 การดำเนินการเพิ่มหรือลดระดับค่าของข้อมูลในตารางสองมิติมักทำผ่านการบวกและการลบเมทริกซ์ โดยมีเงื่อนไขพื้นฐานว่าเมทริกซ์คู่กรณีจะต้องมีขนาดมิติเท่ากันทุกประการเพื่อจะนำสมาชิกในตำแหน่งเดียวกันมาทำปฏิกิริยากันทางพีชคณิต หากขนาดมิติไม่เท่ากันจะไม่สามารถดำเนินการได้เนื่องจากจะไม่มีคู่สมาชิกมารองรับการรวมค่า ซึ่งผลลัพธ์จากการดำเนินการจะได้เมทริกซ์ใหม่ที่มีมิติคงเดิม ดังอธิบายตามบทนิยามและตัวอย่างต่อไปนี้
 
-\begin{definition}
-\textbf{การบวกและการลบเมทริกซ์:} กำหนดเมทริกซ์ $A = [a_{ij}]$ และ $B = [b_{ij}]$ ขนาด $m \times n$ การบวกเมทริกซ์ $A + B = [a_{ij} + b_{ij}]$ และการลบเมทริกซ์ $A - B = [a_{ij} - b_{ij}]$
+\begin{definition}[การบวกและการลบเมทริกซ์]
+\index{การบวกเมทริกซ์!นิยาม}
+\index{การลบเมทริกซ์!นิยาม}
+กำหนดเมทริกซ์ $A = [a_{ij}]$ และ $B = [b_{ij}]$ ขนาด $m \times n$ การบวกและการลบเมทริกซ์กำหนดโดย
+\[ A + B = [a_{ij} + b_{ij}] \quad\text{และ}\quad A - B = [a_{ij} - b_{ij}] \]
 \end{definition}
 
 หมายเหตุ: เมทริกซ์สองเมทริกซ์จะบวกหรือลบกันได้ก็ต่อเมื่อมีขนาดเท่ากัน
@@ -157,12 +158,11 @@ a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}
 \]
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item บวกสมาชิกตำแหน่งเดียวกัน $1+1=2$, $2+1=3$, $3+1=4$, $4+2=6$, $5+2=7$, $6+2=8$
-  \item ผลบวกคือ $\begin{pmatrix} 2 & 3 & 4 \\ 6 & 7 & 8 \end{pmatrix}$
-  \item ลบสมาชิกตำแหน่งเดียวกัน $5-1=4$, $6-2=4$, $7-3=4$, $8-4=4$
-  \item ผลลบคือ $\begin{pmatrix} 4 & 4 \\ 4 & 4 \end{pmatrix}$ \solhere
-\end{solsteps}
+\begin{align*}
+\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix} + \begin{pmatrix} 1 & 1 & 1 \\ 2 & 2 & 2 \end{pmatrix} &= \begin{pmatrix} 2 & 3 & 4 \\ 6 & 7 & 8 \end{pmatrix}\\
+\begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix} - \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} &= \begin{pmatrix} 4 & 4 \\ 4 & 4 \end{pmatrix}
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{ex}[สมบัติของการบวกเมทริกซ์]
@@ -176,34 +176,35 @@ a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}
 \end{enumerate}
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item สมบัติการสลับที่ $A + B = B + A$ แสดงว่าลำดับการบวกไม่สำคัญ
-  \item สมบัติการเปลี่ยนหมู่ $(A + B) + C = A + (B + C)$ แสดงว่าสามารถจัดการวงเล็บได้
-  \item สมบัติเอกลักษณ์ $A + O = A$ คือเมทริกซ์ศูนย์ $O$ ทำหน้าที่เหมือน $0$ ในการบวก
-  \item สมบัติตรงข้าม $A + (-A) = O$ คือ $-A$ คือเมทริกซ์ที่มีสมาชิกตรงข้าม และผลบวกได้ศูนย์
-  \item การลบ $A - B = A + (-B)$ แสดงว่าการลบคือการบวกด้วยเมทริกซ์ตรงข้าม \solhere
-\end{solsteps}
+ทุกสมบัติลดรูปเป็นสมบัติการบวกจำนวนจริงรายตำแหน่ง
+\begin{align*}
+[A+B]_{ij} &= a_{ij}+b_{ij} = b_{ij}+a_{ij} = [B+A]_{ij}\\
+[(A+B)+C]_{ij} &= a_{ij}+b_{ij}+c_{ij} = [A+(B+C)]_{ij}\\
+[A+O]_{ij} &= a_{ij}+0 = a_{ij}\\
+[A+(-A)]_{ij} &= a_{ij}-a_{ij} = 0
+\end{align*}
+$\therefore$ สลับที่ เปลี่ยนหมู่ เอกลักษณ์ ตรงข้าม เป็นจริง และ $A-B=A+(-B)$ \solhere
 \end{solution}
 
 \begin{ex}
 การลบเมทริกซ์ไม่มีสมบัติการสลับที่ กล่าวคือ $A - B \neq B - A$ โดยทั่วไป
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item พิจารณ์ $A - B = A + (-B)$ คือการบวกด้วยเมทริกซ์ตรงข้ามของ $B$
-  \item พิจารณ์ $B - A = B + (-A)$ คือการบวกด้วยเมทริกซ์ตรงข้ามของ $A$
-  \item โดยทั่วไป $-A \neq -B$ ดังนั้น $A - B \neq B - A$
-  \item ยกตัวอย่าง ให้ $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$, $B = \begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix}$
-  \item $A - B = \begin{pmatrix} -4 & -4 \\ -4 & -4 \end{pmatrix}$ แต่ $B - A = \begin{pmatrix} 4 & 4 \\ 4 & 4 \end{pmatrix}$
-  \item ดังนั้น $A - B \neq B - A$ แสดงว่าการลบเมทริกซ์ไม่มีสมบัติสลับที่ \solhere
-\end{solsteps}
+ให้ $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$, $B = \begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix}$
+\begin{align*}
+A-B &= \begin{pmatrix} -4 & -4 \\ -4 & -4 \end{pmatrix}, \qquad
+B-A = \begin{pmatrix} 4 & 4 \\ 4 & 4 \end{pmatrix}
+\end{align*}
+$\therefore A-B \neq B-A$ (การลบไม่มีสมบัติสลับที่) \solhere
 \end{solution}
 
 \subsection{การคูณเมทริกซ์ด้วยสเกลาร์}
 การปรับขนาดหรือการขยายค่าของสมาชิกทุกตัวในเมทริกซ์อย่างสม่ำเสมอทำได้ด้วยการคูณด้วยปริมาณสเกลาร์หรือตัวเลขคงที่จำนวนจริง ค่าสเกลาร์จะถูกกระจายไปคูณกับสมาชิกในทุกตำแหน่งของเมทริกซ์อย่างไม่มีข้อยกเว้น ส่งผลให้ลักษณะเชิงโครงสร้างยังคงเดิมแต่มีขนาดของปริมาณเปลี่ยนแปลงไปตามสัดส่วนของสเกลาร์นั้น การดำเนินการนี้พบได้ทั่วไปในวิชากราฟิกส์คอมพิวเตอร์เมื่อมีการขยายภาพหรือปรับแต่งระดับความเข้มสี ดังรายละเอียดตามบทนิยามต่อไปนี้
 
-\begin{definition}
-\textbf{การคูณเมทริกซ์ด้วยสเกลาร์:} กำหนดเมทริกซ์ $A = [a_{ij}]$ ขนาด $m \times n$ และสเกลาร์ $c$ (ค่าคงตัวจำนวนจริง) การคูณสเกลาร์ $cA$ คือเมทริกซ์ $[c \cdot a_{ij}]$
+\begin{definition}[การคูณเมทริกซ์ด้วยสเกลาร์]
+\index{การคูณเมทริกซ์ด้วยสเกลาร์!นิยาม}
+กำหนดเมทริกซ์ $A = [a_{ij}]$ ขนาด $m \times n$ และสเกลาร์ $c$ (ค่าคงตัวจำนวนจริง) การคูณสเกลาร์ $cA$ คือเมทริกซ์
+\[ cA = [c \cdot a_{ij}] \]
 \end{definition}
 
 \begin{ex}
@@ -212,10 +213,10 @@ a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}
 \]
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item คูณสเกลาร์ 3 กับทุกสมาชิกของเมทริกซ์
-  \item $3 \times 1 = 3$, $3 \times 2 = 6$, $3 \times 3 = 9$, $3 \times 4 = 12$ \solhere
-\end{solsteps}
+\[
+3\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} = \begin{pmatrix} 3\cdot1 & 3\cdot2 \\ 3\cdot3 & 3\cdot4 \end{pmatrix} = \begin{pmatrix} 3 & 6 \\ 9 & 12 \end{pmatrix}
+\]
+\solhere
 \end{solution}
 
 \begin{ex}[สมบัติของการคูณสเกลาร์]
@@ -229,13 +230,14 @@ a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}
 \end{enumerate}
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item สมบัติการกระจาย $c(A + B) = cA + cB$ แสดงว่าสเกลาร์กระจายเข้าหาทุกสมาชิกของผลบวกเมทริกซ์
-  \item สมบัติการกระจายฝั่งสเกลาร์ $(c + d)A = cA + dA$ แสดงว่าผลบวกสเกลาร์กระจายเข้าหาเมทริกซ์
-  \item สมบัติการเปลี่ยนหมู่ $c(dA) = (cd)A$ แสดงว่าลำดับการคูณสเกลาร์ไม่สำคัญ
-  \item สมบัติเอกลักษณ์ $1A = A$ คือสเกลาร์ $1$ ทำหน้าที่เหมือน $1$ ในการคูณ
-  \item สมบัติศูนย์ $0A = O$ คือสเกลาร์ $0$ คูณเมทริกซ์ใดๆ ได้เมทริกซ์ศูนย์ \solhere
-\end{solsteps}
+ทุกสมบัติลดรูปเป็นสมบัติการคูณ/บวกจำนวนจริงรายตำแหน่ง
+\begin{align*}
+[c(A+B)]_{ij} &= c(a_{ij}+b_{ij}) = ca_{ij}+cb_{ij} = [cA+cB]_{ij}\\
+[(c+d)A]_{ij} &= (c+d)a_{ij} = ca_{ij}+da_{ij} = [cA+dA]_{ij}\\
+[c(dA)]_{ij} &= c(d\,a_{ij}) = (cd)a_{ij} = [(cd)A]_{ij}\\
+[1A]_{ij} &= a_{ij}, \qquad [0A]_{ij} = 0
+\end{align*}
+$\therefore$ การกระจาย เปลี่ยนหมู่ เอกลักษณ์ ศูนย์ เป็นจริงทั้งหมด \solhere
 \end{solution}
 
 \subsection{การคูณเมทริกซ์ด้วยเมทริกซ์}
@@ -243,17 +245,16 @@ a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}
 
 \begin{figure}[H]
     \centering
-    \resizebox{0.85\textwidth}{!}{\input{Figures/tikz/32-matrix-multiplication}}
-    \caption{การคูณเมทริกซ์ด้วยเมทริกซ์ (Matrix Multiplication) แสดงขั้นตอนการคูณแถวด้วยคอลัมน์}
+    \includegraphics[width=0.62\textwidth]{Figures/png_ready/32-matrix-multiplication-manual.png}
+    \caption{แผนภาพแสดงการคูณแถวของเมทริกซ์กับหลักของเมทริกซ์}
     \label{fig:matrix-multiplication}
 \end{figure}
 
 การคูณเมทริกซ์เป็นการดำเนินการที่ซับซ้อนกว่าการบวกและการคูณสเกลาร์ สมาชิกของเมทริกซ์ผลคูณคำนวณจากผลรวมของผลคูณของสมาชิกในแถวของเมทริกซ์ตัวแรกกับสมาชิกในคอลัมน์ของเมทริกซ์ตัวที่สอง การคูณเมทริกซ์สามารถมองได้ว่าเป็นการแทนการแปลงเชิงเส้น (linear transformation) ซึ่งใช้อย่างกว้างขวางในคณิตศาสตร์และวิทยาการคอมพิวเตอร์
 
-\begin{definition}
-\textbf{การคูณเมทริกซ์ (Matrix Multiplication):} กำหนดเมทริกซ์ $A = [a_{ij}]$ ขนาด $m \times n$ และเมทริกซ์ $B = [b_{jk}]$ ขนาด $n \times p$ การคูณ $AB$ จะได้เมทริกซ์ $C = [c_{ik}]$ ขนาด $m \times p$ โดยที่
-
-
+\begin{definition}[การคูณเมทริกซ์ด้วยเมทริกซ์]
+\index{การคูณเมทริกซ์!นิยาม}
+กำหนดเมทริกซ์ $A = [a_{ij}]$ ขนาด $m \times n$ และเมทริกซ์ $B = [b_{jk}]$ ขนาด $n \times p$ ผลคูณ $AB$ จะได้เมทริกซ์ $C = [c_{ik}]$ ขนาด $m \times p$ โดยสมาชิกในแถวที่ $i$ คอลัมน์ที่ $k$ คือ
 \[
 c_{ik} = a_{i1}b_{1k} + a_{i2}b_{2k} + a_{i3}b_{3k} + \cdots + a_{in}b_{nk} = \sum_{j=1}^{n} a_{ij}b_{jk}
 \]
@@ -278,15 +279,20 @@ c_{ik} = a_{i1}b_{1k} + a_{i2}b_{2k} + a_{i3}b_{3k} + \cdots + a_{in}b_{nk} = \s
 \end{thrm}
 
 \begin{proof}
-ให้ $A = [a_{ij}]$ และ $B = [b_{jk}]$ กำหนดให้ $C = AB$ โดยมีสมาชิก $c_{ik} = \sum_{j} a_{ij}b_{jk}$
-
-พิจารณาตำแหน่ง $(k,i)$ ของเมทริกซ์ $C^T$ จะได้ว่า $(C^T)_{ki} = C_{ik} = c_{ik} = \sum_{j} a_{ij}b_{jk}$
-
-ในอีกด้านหนึ่ง พิจารณา $B^T A^T$ ที่ตำแหน่ง $(k,i)$ จะได้ว่า $\sum_{j} b^T_{kj} \cdot a^T_{ji} = \sum_{j} b_{jk} \cdot a_{ij}$
-
-เนื่องจาก $\sum_{j} a_{ij}b_{jk} = \sum_{j} b_{jk}a_{ij}$ (การคูณจำนวนเป็นการสลับที่ได้) จึงได้ว่า $(C^T)_{ki} = (B^T A^T)_{ki}$
-
-ดังนั้น $C^T = B^T A^T$ ซึ่งพิสูจน์ว่า $(AB)^T = B^T A^T$
+การพิสูจน์สมบัติ $(AB)^T = B^T A^T$ พิจารณาเปรียบเทียบสมาชิกในตำแหน่ง $(k,i)$ เป็นขั้นตอนดังนี้:
+\begin{enumerate}[label=\textbf{\arabic*.}]
+    \item \textbf{กำหนดเมทริกซ์ผลคูณ:} ให้ $A = [a_{ij}]$ และ $B = [b_{jk}]$ ให้ $C = AB$ เป็นเมทริกซ์ผลคูณ โดยมีสมาชิกตำแหน่ง $(i,k)$ คือ
+    \[ c_{ik} = \sum_{j} a_{ij}b_{jk} \]
+    
+    \item \textbf{หาทรานสโพสของผลคูณ ($C^T$):} จากนิยามทรานสโพส สมาชิกในตำแหน่ง $(k,i)$ ของ $C^T$ คือ
+    \[ (C^T)_{ki} = C_{ik} = \sum_{j} a_{ij}b_{jk} \]
+    
+    \item \textbf{หาผลคูณของทรานสโพสย้อนกลับ ($B^T A^T$):} สมาชิกในตำแหน่ง $(k,i)$ ของ $B^T A^T$ คือ
+    \[ (B^T A^T)_{ki} = \sum_{j} (B^T)_{kj} (A^T)_{ji} = \sum_{j} b_{jk} a_{ij} \]
+    
+    \item \textbf{สรุปผลการสลับที่การคูณ:} เนื่องจาก $a_{ij}b_{jk} = b_{jk}a_{ij}$ เป็นสเกลาร์ที่สลับที่การคูณได้ ทำให้ $(C^T)_{ki} = (B^T A^T)_{ki}$ สำหรับทุกตำแหน่ง
+\end{enumerate}
+ดังนั้นจึงสรุปได้ว่า $(AB)^T = B^T A^T$
 \end{proof}
 
 \begin{ex}
@@ -297,18 +303,12 @@ A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}, \quad B = \begin{pmatrix} 5 & 
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-    \item ตรวจสอบว่าการคูณ $AB$ กระทำได้ เนื่องจาก $A$ มี 2 คอลัมน์และ $B$ มี 2 แถว ดังนั้น conformable
-    \item คำนวณสมาชิก $c_{11} = a_{11}b_{11} + a_{12}b_{21} = (1)(5) + (2)(7) = 5 + 14 = 19$
-    \item คำนวณสมาชิก $c_{12} = a_{11}b_{12} + a_{12}b_{22} = (1)(6) + (2)(8) = 6 + 16 = 22$
-    \item คำนวณสมาชิก $c_{21} = a_{21}b_{11} + a_{22}b_{21} = (3)(5) + (4)(7) = 15 + 28 = 43$
-    \item คำนวณสมาชิก $c_{22} = a_{21}b_{12} + a_{22}b_{22} = (3)(6) + (4)(8) = 18 + 32 = 50$
-    \item ดังนั้น
-    \[
-    AB = \begin{pmatrix} 19 & 22 \\ 43 & 50 \end{pmatrix}
-    \]
-    \item ตรวจสอบ $c_{ik}$ หมายถึงผลรวมของผลคูณของสมาชิกในแถว $i$ ของ $A$ กับสมาชิกในคอลัมน์ $k$ ของ $B$ \solhere
-\end{solsteps}
+$A_{2\times2}B_{2\times2}$ กระทำได้ ($c_{ik}=\sum_j a_{ij}b_{jk}$)
+\begin{align*}
+AB &= \begin{pmatrix} (1)(5)+(2)(7) & (1)(6)+(2)(8) \\ (3)(5)+(4)(7) & (3)(6)+(4)(8) \end{pmatrix}\\
+&= \begin{pmatrix} 19 & 22 \\ 43 & 50 \end{pmatrix}
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{ex}
@@ -319,13 +319,11 @@ A = \begin{pmatrix} 1 & 2 & 3 \end{pmatrix}, \quad B = \begin{pmatrix} 4 \\ 5 \\
 แล้วสังเกตว่าการคูณเมทริกซ์ไม่มีสมบัติสลับที่
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item คูณเมทริกซ์ขนาด $1 \times 3$ กับ $3 \times 1$ ได้เมทริกซ์ขนาด $1 \times 1$ โดยใช้ dot product
-  \item คำนวณ $AB = [1(4) + 2(5) + 3(6)] = [4 + 10 + 18] = [32]$
-  \item คูณเมทริกซ์ขนาด $3 \times 1$ กับ $1 \times 3$ ได้เมทริกซ์ขนาด $3 \times 3$
-  \item คำนวณ $BA = \begin{pmatrix} 4 & 8 & 12 \\ 5 & 10 & 15 \\ 6 & 12 & 18 \end{pmatrix}$
-  \item สังเกตว่า $AB \neq BA$ ในกรณีทั่วไป — การคูณเมทริกซ์ไม่มีสมบัติสลับที่ \solhere
-\end{solsteps}
+\begin{align*}
+AB &= \begin{pmatrix} 1 & 2 & 3 \end{pmatrix}\begin{pmatrix} 4 \\ 5 \\ 6 \end{pmatrix} = [1(4)+2(5)+3(6)] = [32]\\
+BA &= \begin{pmatrix} 4 \\ 5 \\ 6 \end{pmatrix}\begin{pmatrix} 1 & 2 & 3 \end{pmatrix} = \begin{pmatrix} 4 & 8 & 12 \\ 5 & 10 & 15 \\ 6 & 12 & 18 \end{pmatrix}
+\end{align*}
+$\therefore AB \neq BA$ (การคูณเมทริกซ์ไม่มีสมบัติสลับที่) \solhere
 \end{solution}
 
 \begin{ex}
@@ -333,44 +331,26 @@ A = \begin{pmatrix} 1 & 2 & 3 \end{pmatrix}, \quad B = \begin{pmatrix} 4 \\ 5 \\
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-    \item ตรวจสอบว่าการคูณ $AB$ กระทำได้ เนื่องจาก $A$ มี 2 คอลัมน์และ $B$ มี 2 แถว ดังนั้น conformable และผลลัพธ์จะมีขนาด $2 \times 2$
-    \item คำนวณสมาชิก $c_{11}$ ซึ่งเป็นผลคูณภายใน (dot product) ของแถวที่ 1 ของ $A$ กับคอลัมน์ที่ 1 ของ $B$
-    \[
-    c_{11} = a_{11}b_{11} + a_{12}b_{21} = (2)(5) + (3)(1) = 10 + 3 = 13
-    \]
-    \item คำนวณสมาชิก $c_{12}$ ซึ่งเป็นผลคูณภายในของแถวที่ 1 ของ $A$ กับคอลัมน์ที่ 2 ของ $B$
-    \[
-    c_{12} = a_{11}b_{12} + a_{12}b_{22} = (2)(2) + (3)(6) = 4 + 18 = 22
-    \]
-    \item คำนวณสมาชิก $c_{21}$ ซึ่งเป็นผลคูณภายในของแถวที่ 2 ของ $A$ กับคอลัมน์ที่ 1 ของ $B$
-    \[
-    c_{21} = a_{21}b_{11} + a_{22}b_{21} = (1)(5) + (4)(1) = 5 + 4 = 9
-    \]
-    \item คำนวณสมาชิก $c_{22}$ ซึ่งเป็นผลคูณภายในของแถวที่ 2 ของ $A$ กับคอลัมน์ที่ 2 ของ $B$
-    \[
-    c_{22} = a_{21}b_{12} + a_{22}b_{22} = (1)(2) + (4)(6) = 2 + 24 = 26
-    \]
-    \item เขียนผลลัพธ์ในรูปเมทริกซ์
-    \[
-    AB = \begin{pmatrix} 13 & 22 \\ 9 & 26 \end{pmatrix}
-    \]
-    \item ตรวจสอบความถูกต้องโดยสังเกตว่าผลคูณภายในของแถวกับคอลัมน์ที่เลือกใช้สมาชิกที่ตรงกันในตำแหน่ง และพิจารณาว่าการคูณเมทริกซ์ไม่มีสมบัติสลับที่ กล่าวคือ $AB \neq BA$ ในกรณีทั่วไป \solhere
-\end{solsteps}
+\begin{align*}
+AB &= \begin{pmatrix} (2)(5)+(3)(1) & (2)(2)+(3)(6) \\ (1)(5)+(4)(1) & (1)(2)+(4)(6) \end{pmatrix}\\
+&= \begin{pmatrix} 13 & 22 \\ 9 & 26 \end{pmatrix}
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{ex}
 การคูณเมทริกซ์ไม่มีสมบัติการสลับที่ กล่าวคือ $AB \neq BA$ โดยทั่วไป นอกจากนี้ $AB = O$ ไม่ได้หมายความว่า $A = O$ หรือ $B = O$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item การคูณเมทริกซ์ไม่มีสมบัติสลับที่ ให้ $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$, $B = \begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix}$
-  \item $AB = \begin{pmatrix} 19 & 22 \\ 43 & 50 \end{pmatrix}$ แต่ $BA = \begin{pmatrix} 23 & 34 \\ 31 & 46 \end{pmatrix}$
-  \item $AB \neq BA$ แสดงว่าลำดับการคูณสำคัญ
-  \item การคูณไม่ได้แปลว่าศูนย์ ให้ $A = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}$, $B = \begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix}$
-  \item $AB = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} = O$ แต่ $A \neq O$ และ $B \neq O$
-  \item นี่คือตัวอย่างที่แสดงว่า $AB = O$ ไม่ได้บังคับว่า $A = O$ หรือ $B = O$ \solhere
-\end{solsteps}
+\textbf{ไม่สลับที่:} ให้ $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$, $B = \begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix}$
+\[
+AB = \begin{pmatrix} 19 & 22 \\ 43 & 50 \end{pmatrix} \neq \begin{pmatrix} 23 & 34 \\ 31 & 46 \end{pmatrix} = BA
+\]
+\textbf{$AB=O$ ไม่บังคับ $A=O$ หรือ $B=O$:} ให้ $A = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}$, $B = \begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix}$
+\[
+AB = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} = O \quad\text{แต่}\quad A,B \neq O
+\]
+\solhere
 \end{solution}
 
 \begin{ex}[สมบัติของการคูณเมทริกซ์]
@@ -385,46 +365,42 @@ A = \begin{pmatrix} 1 & 2 & 3 \end{pmatrix}, \quad B = \begin{pmatrix} 4 \\ 5 \\
 \end{enumerate}
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item สมบัติการเปลี่ยนหมู่ (Associative Law): การคูณเมทริกซ์ไม่ขึ้นกับการจับกลุ่ม เมื่อคูณสามเมทริกซ์
-  \item สมบัติการแจกแจงซ้าย (Left Distributive Law): $A(B + C) = AB + AC$
-  \item สมบัติการแจกแจงขวา (Right Distributive Law): $(A + B)C = AC + BC$
-  \item สมบัติเอกลักษณ์ (Identity Law): $AI = IA = A$ โดย $I$ คือเมทริกซ์เอกลักษณ์
-  \item การคูณสเกลาร์ $c(AB) = (cA)B = A(cB)$ แสดงว่าสเกลาร์สามารถสลับตำแหน่งได้
-  \item การสลับเปลี่ยนของผลคูณ $(AB)^T = B^T A^T$ (สลับตำแหน่งและฐาน) \solhere
-\end{solsteps}
+สมบัติทั้งหกพิสูจน์ได้จากนิยาม $[AB]_{ik}=\sum_j a_{ij}b_{jk}$ และสมบัติของผลบวก/ผลคูณจำนวนจริง เช่น การเปลี่ยนหมู่
+\[
+[(AB)C]_{i\ell} = \sum_{j,k} a_{ij}b_{jk}c_{k\ell} = [A(BC)]_{i\ell}
+\]
+และการแจกแจง $A(B+C)=AB+AC$, เอกลักษณ์ $AI=IA=A$; ส่วน $(AB)^T=B^TA^T$ พิสูจน์ในตัวอย่างถัดไป $\therefore$ ทุกสมบัติเป็นจริง \solhere
 \end{solution}
 
 \begin{ex}
 พิสูจน์ $(AB)^T = B^T A^T$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item กำหนด $A = [a_{ij}]$, $B = [b_{jk}]$, และ $C = AB$
-  \item โดยนิยาม $C_{ik} = \sum_{j} a_{ij}b_{jk}$ คือสมาชิกที่ตำแหน่ง $(i,k)$ ของ $AB$
-  \item เนื่องจาก $(AB)^T$ สลับตำแหน่งแถว-คอลัมน์ สมาชิกที่ตำแหน่ง $(k,i)$ ของ $(AB)^T$ คือ $(C^T)_{ki} = C_{ik} = \sum_{j} a_{ij}b_{jk}$
-  \item พิจารณา $B^T A^T$ ที่ตำแหน่ง $(k,i)$: $\sum_{j} b^T_{kj} \cdot a^T_{ji} = \sum_{j} b_{jk} \cdot a_{ij}$
-  \item เปรียบเทียบผลลัพธ์ $\sum_{j} a_{ij}b_{jk} = \sum_{j} b_{jk} \cdot a_{ij}$ (การสลับที่ของผลคูณ)
-  \item ดังนั้น $(AB)^T = B^T A^T$ $\blacksquare$ \solhere
-\end{solsteps}
+\begin{align*}
+[(AB)^T]_{ki} &= [AB]_{ik} = \sum_{j} a_{ij}b_{jk}\\
+[B^T A^T]_{ki} &= \sum_{j} [B^T]_{kj}[A^T]_{ji} = \sum_{j} b_{jk}a_{ij} = \sum_{j} a_{ij}b_{jk}
+\end{align*}
+$\therefore [(AB)^T]_{ki} = [B^TA^T]_{ki}$ ทุก $(k,i)$ จึง $(AB)^T = B^TA^T$ \solhere
 \end{solution}
 
 \subsection{เมทริกซ์สลับเปลี่ยน (Transpose)}
 เมทริกซ์สลับเปลี่ยนเป็นการดำเนินการพื้นฐานที่สลับโครงสร้างทิศทางของข้อมูล โดยเปลี่ยนแถวของเมทริกซ์ให้กลายเป็นคอลัมน์ และเปลี่ยนคอลัมน์ของเมทริกซ์ให้กลายเป็นแถวตามลำดับ สมบัตินี้ช่วยอำนวยความสะดวกในการวิเคราะห์สมบัติเชิงพีชคณิตเชิงเส้นเชิงลึก เช่น การคำนวณหาสมมาตรของเมทริกซ์ความแปรปรวนร่วมเกี่ยว ตลอดจนการหาตัวผกผันในปริภูมิของเมทริกซ์เชิงตั้งฉาก (Orthogonal Matrix) ดังรายละเอียดตามนิยามต่อไปนี้
 
-\begin{definition}
-\textbf{เมทริกซ์สลับเปลี่ยน (Transpose)} ของเมทริกซ์ $A = [a_{ij}]$ ขนาด $m \times n$ คือเมทริกซ์ $A^T = [a_{ji}]$ ขนาด $n \times m$ โดยการสลับแถวเป็นคอลัมน์
+\begin{definition}[เมทริกซ์สลับเปลี่ยน]
+\index{เมทริกซ์สลับเปลี่ยน!นิยาม}
+เมทริกซ์สลับเปลี่ยน ของเมทริกซ์ $A = [a_{ij}]$ ขนาด $m \times n$ คือเมทริกซ์
+\[ A^T = [a_{ji}]_{n \times m} \]
+ที่เกิดจากการสลับแถวเป็นคอลัมน์
 \end{definition}
 
 \begin{ex}
 จงหา transpose ของเมทริกซ์ $A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item เมทริกซ์ $A$ มีขนาด $2 \times 3$ (2 แถว 3 คอลัมน์)
-  \item สลับแถวเป็นคอลัมน์ แถวที่ 1 กลายเป็นคอลัมน์ที่ 1 และแถวที่ 2 กลายเป็นคอลัมน์ที่ 2
-  \item เมทริกซ์สลับเปลี่ยน $A^T = \begin{pmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{pmatrix}$ มีขนาด $3 \times 2$ \solhere
-\end{solsteps}
+\[
+A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix} \Rightarrow A^T = \begin{pmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{pmatrix} \quad (\text{ขนาด } 3\times 2)
+\]
+\solhere
 \end{solution}
 
 \begin{ex}[สมบัติของ Transpose]
@@ -437,12 +413,13 @@ A = \begin{pmatrix} 1 & 2 & 3 \end{pmatrix}, \quad B = \begin{pmatrix} 4 \\ 5 \\
 \end{enumerate}
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $(A^T)^T = A$: สลับเปลี่ยนสองครั้งกลับสู่รูปเดิม
-  \item $(A + B)^T = A^T + B^T$: ผลรวมก่อนสลับเท่ากับผลรวมหลังสลับ
-  \item $(cA)^T = cA^T$: คูณสเกลาร์ก่อนหรือหลังสลับได้ผลเท่ากัน
-  \item $(AB)^T = B^T A^T$: ผลคูณสลับได้โดยสลับลำดับด้วย (ได้พิสูจน์ไว้แล้วข้างต้น) \solhere
-\end{solsteps}
+ทุกสมบัติตามนิยาม $[A^T]_{ij}=a_{ji}$
+\begin{align*}
+[(A^T)^T]_{ij} &= [A^T]_{ji} = a_{ij} \Rightarrow (A^T)^T = A\\
+[(A+B)^T]_{ij} &= a_{ji}+b_{ji} = [A^T+B^T]_{ij}\\
+[(cA)^T]_{ij} &= c\,a_{ji} = [cA^T]_{ij}
+\end{align*}
+$\therefore$ ทั้งสามเป็นจริง และ $(AB)^T=B^TA^T$ (พิสูจน์แล้วข้างต้น) \solhere
 \end{solution}
 
 \begin{thrm}
@@ -467,39 +444,37 @@ A = \frac{1}{2}(A + A^T) + \frac{1}{2}(A - A^T)
 
 \begin{figure}[H]
     \centering
-    \resizebox{0.7\textwidth}{!}{\input{Figures/tikz/33-determinant-2x2}}
-    \caption{ดีเทอร์มิแนนต์ของเมทริกซ์ $2 \times 2$ พร้อมสูตรและตัวอย่างการคำนวณ}
+    \includegraphics[width=0.62\textwidth]{Figures/png_ready/33-determinant-2x2-manual.png}
+    \caption{แผนภาพแสดงดีเทอร์มิแนนต์ของเมทริกซ์ $2\times2$}
     \label{fig:determinant-2x2}
 \end{figure}
 
 
-\begin{definition}
-\textbf{ดีเทอร์มิแนนต์ (Determinant)} ของเมทริกซ์จตุรัส $A$ ขนาด $n \times n$ เขียนแทนด้วย $\det(A)$ หรือ $|A|$
+\begin{definition}[ดีเทอร์มิแนนต์]
+\index{ดีเทอร์มิแนนต์!นิยาม}
+ดีเทอร์มิแนนต์ ของเมทริกซ์จตุรัส $A$ ขนาด $n \times n$ เขียนแทนด้วย $\det(A)$ หรือ $|A|$
 \end{definition}
 
 \begin{definition}[ดีเทอร์มิแนนต์ของเมทริกซ์ขนาดเล็ก]
 ดีเทอร์มิแนนต์ของเมทริกซ์จตุรัสนิยามตามขนาดดังต่อไปนี้
-\begin{itemize}
+\begin{enumerate}
   \item สำหรับเมทริกซ์ขนาด $1 \times 1$: $\det([a]) = a$
   \item สำหรับเมทริกซ์ขนาด $2 \times 2$:
   \[
     \det\begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc
   \]
-  โดยที่ $a$ และ $d$ อยู่บนเส้นทแยงมุมหลัก (principal diagonal) ส่วน $b$ และ $c$ อยู่บนเส้นทแยงมุมรอง (secondary diagonal) ดีเทอร์มิแนนต์คือผลคูณเส้นทแยงมุมหลักลบผลคูณเส้นทแยงมุมรอง
-\end{itemize}
+  โดยที่ $a$ และ $d$ อยู่บนเส้นทแยงมุมหลัก ส่วน $b$ และ $c$ อยู่บนเส้นทแยงมุมรอง ดีเทอร์มิแนนต์คือผลคูณเส้นทแยงมุมหลักลบผลคูณเส้นทแยงมุมรอง
+\end{enumerate}
 \end{definition}
 
 \begin{ex}
 จงคำนวณ $\det\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ระบุสมาชิก $a = 1$, $b = 2$, $c = 3$, $d = 4$
-  \item คำนวณผลคูณเส้นทแยงมุมหลัก $ad = (1)(4) = 4$
-  \item คำนวณผลคูณเส้นทแยงมุมรอง $bc = (2)(3) = 6$
-  \item ดีเทอร์มิแนนต์ $\det = ad - bc = 4 - 6 = -2$
-  \item ดังนั้น $\det\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} = -2$ \solhere
-\end{solsteps}
+\[
+\det\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} = ad-bc = (1)(4)-(2)(3) = -2
+\]
+\solhere
 \end{solution}
 
 \begin{prop}[กฎของ Sarrus สำหรับเมทริกซ์ $3 \times 3$]
@@ -514,12 +489,12 @@ A = \frac{1}{2}(A + A^T) + \frac{1}{2}(A - A^T)
 จงคำนวณ $\det\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}$ โดยใช้กฎของ Sarrus
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ระบุเทอมบวก (เส้นทแยงมุมหลักและเส้นทแยงมุมขนาน) $(1)(5)(9) = 45$, $(2)(6)(7) = 84$, $(3)(4)(8) = 96$
-  \item ระบุเทอมลบ (เส้นทแยงมุมรองและเส้นทแยงมุมขนาน) $(3)(5)(7) = 105$, $(2)(4)(9) = 72$, $(1)(6)(8) = 48$
-  \item คำนวณผลรวม $\det = (45 + 84 + 96) - (105 + 72 + 48) = 225 - 225 = 0$
-  \item ดังนั้น $\det\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix} = 0$ \solhere
-\end{solsteps}
+\begin{align*}
+\det &= (1)(5)(9)+(2)(6)(7)+(3)(4)(8) - (3)(5)(7)-(2)(4)(9)-(1)(6)(8)\\
+&= (45+84+96) - (105+72+48)\\
+&= 225 - 225 = 0
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{rem}
@@ -531,10 +506,10 @@ A = \frac{1}{2}(A + A^T) + \frac{1}{2}(A - A^T)
 
 \begin{definition}[Minor, Cofactor และ Cofactor Expansion]
 กำหนดเมทริกซ์ $A = [a_{ij}]$ ขนาด $n \times n$
-\begin{itemize}
-  \item \textbf{Minor} ของ $a_{ij}$ คือดีเทอร์มิแนนต์ของเมทริกซ์ย่อยที่ได้จากการลบแถว $i$ และคอลัมน์ $j$ เขียนแทนด้วย $M_{ij}$
-  \item \textbf{Cofactor} ของ $a_{ij}$ คือ $C_{ij} = (-1)^{i+j} M_{ij}$
-\end{itemize}
+\begin{enumerate}
+  \item Minor ของ $a_{ij}$ คือดีเทอร์มิแนนต์ของเมทริกซ์ย่อยที่ได้จากการลบแถว $i$ และคอลัมน์ $j$ เขียนแทนด้วย $M_{ij}$
+  \item Cofactor ของ $a_{ij}$ คือ $C_{ij} = (-1)^{i+j} M_{ij}$
+\end{enumerate}
 ดีเทอร์มิแนนต์ของ $A$ สามารถคำนวณได้โดยการกระจายตามแถวที่ $i$:
 \[
 \det(A) = a_{i1}C_{i1} + a_{i2}C_{i2} + \cdots + a_{in}C_{in} = \sum_{j=1}^{n} a_{ij}C_{ij}
@@ -549,28 +524,24 @@ A = \frac{1}{2}(A + A^T) + \frac{1}{2}(A - A^T)
 จงคำนวณ $\det\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}$ โดยการกระจายตามแถวแรก
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item กระจายตามแถวที่ 1 $\det(A) = a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13}$
-  \item คำนวณ minor และ cofactor:
-  $M_{11} = 45 - 48 = -3,\ C_{11} = (-1)^{2}(-3) = -3$
-  $M_{12} = 36 - 42 = -6,\ C_{12} = (-1)^{3}(-6) = 6$
-  $M_{13} = 32 - 35 = -3,\ C_{13} = (-1)^{4}(-3) = -3$
-  \item แทนค่า $\det(A) = 1(-3) + 2(6) + 3(-3) = -3 + 12 - 9 = 0$
-  \item ดังนั้น $\det\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix} = 0$ \solhere
-\end{solsteps}
+\begin{align*}
+M_{11} &= 45-48 = -3, & C_{11} &= (-1)^{2}(-3) = -3\\
+M_{12} &= 36-42 = -6, & C_{12} &= (-1)^{3}(-6) = 6\\
+M_{13} &= 32-35 = -3, & C_{13} &= (-1)^{4}(-3) = -3
+\end{align*}
+$\therefore \det(A) = 1(-3)+2(6)+3(-3) = -3+12-9 = 0$ \solhere
 \end{solution}
 
 \begin{ex}
 คำนวณ $\det\begin{pmatrix} 2 & 1 & 3 \\ 0 & 4 & 1 \\ 5 & 6 & 0 \end{pmatrix}$ โดยการกระจายตามคอลัมน์ที่ 3
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item คำนวณ minor และ cofactor ของสมาชิกในคอลัมน์ที่ 3
-  \item $M_{13} = \det\begin{pmatrix} 0 & 4 \\ 5 & 6 \end{pmatrix} = 0 - 20 = -20$, $C_{13} = (-1)^{1+3}(-20) = -20$
-  \item $M_{23} = \det\begin{pmatrix} 2 & 1 \\ 5 & 6 \end{pmatrix} = 12 - 5 = 7$, $C_{23} = (-1)^{2+3}(7) = -7$
-  \item $M_{33} = \det\begin{pmatrix} 2 & 1 \\ 0 & 4 \end{pmatrix} = 8 - 0 = 8$, $C_{33} = (-1)^{3+3}(8) = 8$
-  \item แทนค่าในสูตร $\det(A) = 3(-20) + 1(-7) + 0(8) = -60 - 7 + 0 = -67$ \solhere
-\end{solsteps}
+\begin{align*}
+M_{13} &= \det\begin{psmallmatrix} 0 & 4 \\ 5 & 6 \end{psmallmatrix} = -20, & C_{13} &= (-1)^{4}(-20) = -20\\
+M_{23} &= \det\begin{psmallmatrix} 2 & 1 \\ 5 & 6 \end{psmallmatrix} = 7, & C_{23} &= (-1)^{5}(7) = -7\\
+M_{33} &= \det\begin{psmallmatrix} 2 & 1 \\ 0 & 4 \end{psmallmatrix} = 8, & C_{33} &= (-1)^{6}(8) = 8
+\end{align*}
+$\therefore \det(A) = 3(-20)+1(-7)+0(8) = -67$ \solhere
 \end{solution}
 
 \begin{rem}[เคล็ดลับการเลือกแถว/คอลัมน์]
@@ -578,25 +549,23 @@ A = \frac{1}{2}(A + A^T) + \frac{1}{2}(A - A^T)
 \end{rem}
 
 \subsection{สมบัติของดีเทอร์มิแนนต์}
-\begin{thrm}
-สมบัติสำคัญของดีเทอร์มิแนนต์มีดังต่อไปนี้ ซึ่งถือเป็นทฤษฎีบทพื้นฐานที่ใช้ในการพิสูจน์และคำนวณเกี่ยวกับดีเทอร์มิแนนต์
-\end{thrm}
+ดีเทอร์มิแนนต์มีสมบัติทางพีชคณิตที่สำคัญหลายประการ ซึ่งช่วยลดความซับซ้อนในการคำนวณได้อย่างมาก โดยไม่จำเป็นต้องใช้การกระจายโคแฟกเตอร์ที่มีความซับซ้อนระดับ $O(n!)$ ในทุกกรณี นอกจากนี้ สมบัติเหล่านี้ยังเป็นเครื่องมือหลักในการวิเคราะห์การมีอยู่ของเมทริกซ์ผกผัน การแก้ระบบสมการเชิงเส้น และการพิสูจน์ทฤษฎีบทในพีชคณิตเชิงเส้นขั้นสูง
 
-\begin{enumerate}
+\begin{thrm}[สมบัติพื้นฐานของดีเทอร์มิแนนต์]
+\index{ดีเทอร์มิแนนต์!สมบัติพื้นฐาน}
+กำหนดให้ $A$ และ $B$ เป็นเมทริกซ์จตุรัสขนาด $n \times n$ ดีเทอร์มิแนนต์มีสมบัติสำคัญดังต่อไปนี้:
+\begin{enumerate}[leftmargin=1.8em,itemsep=0.3em]
     \item $\det(I) = 1$ โดยที่ $I$ คือเมทริกซ์เอกลักษณ์
-    \item ถ้ามีแถวหรือคอลัมน์เป็นศูนย์ทั้งหมด $\Rightarrow \det(A) = 0$
-    \item ถ้าสลับแถวสองแถว $\Rightarrow$ ดีเทอร์มิแนนต์เปลี่ยนเครื่องหมาย
-    \item ถ้าคูณแถวใดแถวหนึ่งด้วยสเกลาร์ $c$ $\Rightarrow$ ดีเทอร์มิแนนต์ถูกคูณด้วย $c$
-    \item ถ้าคูณเมทริกซ์ทั้งเมทริกซ์ด้วยสเกลาร์ $c$ $\Rightarrow \det(cA) = c^n \det(A)$ สำหรับเมทริกซ์ $n \times n$
-    \item ถ้าแถวหนึ่งเป็นผลรวมของสองแถว $\Rightarrow$ ดีเทอร์มิแนนต์แยกได้
-    \item $\det(AB) = \det(A)\det(B)$ \hfill (Multiplicative Property)
-    \item $\det(A^T) = \det(A)$
-    \item เมทริกซ์สามเหลี่ยม $\det(A) = a_{11} \cdot a_{22} \cdot \cdots \cdot a_{nn}$ (ผลคูณของสมาชิกบนเส้นทแยงมุมหลัก)
+    \item ถ้าเมทริกซ์ $A$ มีแถวหรือคอลัมน์ใดเป็นศูนย์ทั้งหมด จะได้ $\det(A) = 0$
+    \item ถ้าสลับแถวสองแถว (หรือสลับคอลัมน์สองคอลัมน์) ค่าดีเทอร์มิแนนต์จะเปลี่ยนเป็นเครื่องหมายตรงข้าม
+    \item ถ้าคูณแถวใดแถวหนึ่ง (หรือคอลัมน์ใดคอลัมน์หนึ่ง) ด้วยสเกลาร์ $c$ ค่าดีเทอร์มิแนนต์ใหม่จะเท่ากับ $c \det(A)$
+    \item ถ้าคูณเมทริกซ์ทั้งเมทริกซ์ด้วยสเกลาร์ $c$ จะได้ $\det(cA) = c^n \det(A)$ สำหรับเมทริกซ์ขนาด $n \times n$
+    \item ถ้าแถวหนึ่งเป็นผลรวมของสองพจน์ สามารถแยกดีเทอร์มิแนนต์ออกเป็นผลบวกของสองดีเทอร์มิแนนต์ได้
+    \item $\det(AB) = \det(A)\det(B)$ \hfill (สมบัติการคูณดีเทอร์มิแนนต์)
+    \item $\det(A^T) = \det(A)$ \hfill (ดีเทอร์มิแนนต์ของเมทริกซ์สลับเปลี่ยน)
+    \item สำหรับเมทริกซ์สามเหลี่ยม (Upper/Lower Triangular Matrix) หรือเมทริกซ์เฉียง ค่า $\det(A) = a_{11} \cdot a_{22} \cdots a_{nn}$ (ผลคูณของสมาชิกบนเส้นทแยงมุมหลัก)
 \end{enumerate}
-
-\begin{prop}
-ถ้า $A$ และ $B$ เป็นเมทริกซ์จตุรัสขนาด $n \times n$ แล้ว $\det(AB) = \det(A)\det(B)$
-\end{prop}
+\end{thrm}
 
 \begin{proof}
 พิสูจน์สำหรับเมทริกซ์ $2 \times 2$ ให้ $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ และ $B = \begin{pmatrix} e & f \\ g & h \end{pmatrix}$
@@ -642,26 +611,25 @@ aecf - afce = 0, \qquad bgdh - bhdg = 0
 \]
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item เมทริกซ์นี้เป็นเมทริกซ์สามเหลี่ยมบน (upper triangular matrix)
-  \item ดีเทอร์มิแนนต์เท่ากับผลคูณของสมาชิกบนเส้นทแยงมุมหลัก $\det(A) = 2 \times 3 \times 5 = 30$ \solhere
-\end{solsteps}
+เมทริกซ์ทแยงมุม/สามเหลี่ยม $\Rightarrow \det = $ ผลคูณสมาชิกทแยงมุมหลัก
+\[
+\det\begin{pmatrix} 2 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 5 \end{pmatrix} = 2\cdot 3\cdot 5 = 30
+\]
+\solhere
 \end{solution}
 
 \begin{ex}
 พิสูจน์ $\det(AB) = \det(A)\det(B)$ สำหรับเมทริกซ์ $2 \times 2$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item กำหนดเมทริกซ์ $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$, $B = \begin{pmatrix} e & f \\ g & h \end{pmatrix}$
-  \item คูณเมทริกซ์ $AB = \begin{pmatrix} ae+bg & af+bh \\ ce+dg & cf+dh \end{pmatrix}$
-  \item คำนวณ $\det(AB) = (ae+bg)(cf+dh) - (af+bh)(ce+dg)$
-  \item กระจายพจน์เพื่อการวิเคราะห์ $\det(AB) = ae \cdot cf + ae \cdot dh + bg \cdot cf + bg \cdot dh - af \cdot ce - af \cdot dg - bh \cdot ce - bh \cdot dg$
-  \item พิจารณาพจน์ที่หักล้างกันจนเป็นศูนย์เนื่องจากการคูณสลับที่ได้ในจำนวนจริง ได้แก่ $ae \cdot cf - af \cdot ce = 0$ และ $bg \cdot dh - bh \cdot dg = 0$
-  \item พจน์ที่เหลือ 4 พจน์ คือ $aedh - afdg - bhce + bgcf$ จัดเรียงโดยใช้การสลับที่: $= adeh - adfg - bceh + bcfg$
-  \item ดึงตัวร่วม $\det(AB) = ad(eh - fg) - bc(eh - fg) = (ad - bc)(eh - fg)$
-  \item ได้ผลคูณของสองดีเทอร์มิแนนต์ \mathoval{\det(AB) = (ad - bc)(eh - fg) = \det(A)\det(B)} \solhere
-\end{solsteps}
+ให้ $A = \begin{psmallmatrix} a & b \\ c & d \end{psmallmatrix}$, $B = \begin{psmallmatrix} e & f \\ g & h \end{psmallmatrix} \Rightarrow AB = \begin{psmallmatrix} ae+bg & af+bh \\ ce+dg & cf+dh \end{psmallmatrix}$
+\begin{align*}
+\det(AB) &= (ae+bg)(cf+dh) - (af+bh)(ce+dg)\\
+&= aedh + bgcf - afdg - bhce \quad (aecf,\,bgdh \text{ ตัดกัน})\\
+&= ad(eh-fg) - bc(eh-fg)\\
+&= (ad-bc)(eh-fg) = \det(A)\det(B)
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{ex}[ตัวอย่างค้านสำหรับสมบัติการบวกดีเทอร์มิแนนต์]
@@ -681,7 +649,7 @@ aecf - afce = 0, \qquad bgdh - bhdg = 0
 \end{equation*}
 เนื่องจาก $\det(A + B) = 4 \neq 2 = \det(A) + \det(B)$
 
-ดังนั้น $\det(A + B) \neq \det(A) + \det(B)$ โดยทั่วไป (สมบัติการบวกดีเทอร์มิแนนต์ไม่เป็นไปตามกฎการแจกแจง)
+ดังนั้น $\det(A + B) \neq \det(A) + \det(B)$ โดยทั่วไป (สมบัติการบวกดีเทอร์มิแนนต์ไม่เป็นไปตามกฎการแจกแจง) \solhere
 \end{solution}
 
 \begin{prop}[เงื่อนไขการมีตัวผกผัน]
@@ -692,8 +660,11 @@ aecf - afce = 0, \qquad bgdh - bhdg = 0
 \label{sec:matrix-inverse}
 ตัวผกผันของเมทริกซ์หรืออินเวอร์สการคูณเป็นแนวคิดคณิตศาสตร์ที่มีลักษณะคล้ายคลึงกับตัวผกผันของจำนวนจริงที่เมื่อนำไปคูณกับจำนวนเดิมแล้วจะได้ผลลัพธ์เป็นหนึ่ง สำหรับเมทริกซ์จตุรัสใด ๆ ตัวผกผันการคูณจะมีสมบัติที่เมื่อนำไปคูณกับเมทริกซ์เดิมแล้วจะได้เมทริกซ์เอกลักษณ์เป็นผลลัพธ์ การหาตัวผกผันมีความสำคัญในทางวิทยาการคอมพิวเตอร์และการคำนวณทางวิศวกรรม เนื่องจากเป็นส่วนประกอบหลักในการประมวลผลคำตอบของสมการเมทริกซ์และแก้ปัญหาโครงข่ายสัญญาณประเภทต่างๆ ดังบทนิยามและขั้นตอนการคำนวณต่อไปนี้
 
-\begin{definition}
-\textbf{ตัวผกผัน (Inverse) ของเมทริกซ์:} กำหนดเมทริกซ์จตุรัส $A$ ขนาด $n \times n$ ถ้ามีเมทริกซ์ $B$ ที่ทำให้ $AB = BA = I_n$ แล้ว $B$ คือตัวผกผัน (inverse) ของ $A$ เขียนแทนด้วย $A^{-1}$ และเรียก $A$ ว่าเป็นเมทริกซ์ที่มีตัวผกผัน (invertible หรือ nonsingular) ในทางตรงกันข้าม ถ้าไม่มีเมทริกซ์ $B$ ที่สอดคล้องกับเงื่อนไขดังกล่าว เรียก $A$ ว่า singular หรือ noninvertible
+\begin{definition}[ตัวผกผันของเมทริกซ์]
+\index{ตัวผกผันของเมทริกซ์!นิยาม}
+กำหนดเมทริกซ์จตุรัส $A$ ขนาด $n \times n$ ถ้ามีเมทริกซ์ $B$ ที่ทำให้
+\[ AB = BA = I_n \]
+แล้วจะเรียก $B$ ว่า ตัวผกผัน ของ $A$ เขียนแทนด้วย $A^{-1}$ และเรียก $A$ ว่าเป็นเมทริกซ์ที่มีตัวผกผัน แต่ถ้าไม่มีเมทริกซ์ $B$ ดังกล่าว จะเรียก $A$ ว่าเป็นเมทริกซ์ไม่มีตัวผกผัน
 \end{definition}
 
 \begin{prop}[{สูตรตัวผกผันของเมทริกซ์ $2\times 2$}]
@@ -717,25 +688,15 @@ A^{-1} = \frac{1}{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-    \item คำนวณ $\det(A) = (1)(4) - (2)(3) = 4 - 6 = -2 \neq 0$ ดังนั้น $A$ มีตัวผกผัน
-    \item ใช้สูตร $A^{-1} = \frac{1}{-2} \begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix}$
-    \item คูณสเกลาร์ $\frac{1}{-2} = -\frac{1}{2}$ กับทุกสมาชิกได้ $A^{-1} = \begin{pmatrix} -2 & 1 \\ \frac{3}{2} & -\frac{1}{2} \end{pmatrix}$
-    \item ตรวจสอบโดยการคูณ $A \cdot A^{-1}$
-    \begin{align*}
-    \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \begin{pmatrix} -2 & 1 \\ \frac{3}{2} & -\frac{1}{2} \end{pmatrix}
-        &= \begin{pmatrix} (1)(-2)+(2)(\frac{3}{2}) & (1)(1)+(2)(-\frac{1}{2}) \\ (3)(-2)+(4)(\frac{3}{2}) & (3)(1)+(4)(-\frac{1}{2}) \end{pmatrix} \\
-        &= \begin{pmatrix} -2+3 & 1-1 \\ -6+6 & 3-2 \end{pmatrix}
-         = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I
-    \end{align*}
-    \item ตรวจสอบ $A^{-1} \cdot A$ ด้วย
-    \begin{align*}
-    \begin{pmatrix} -2 & 1 \\ \frac{3}{2} & -\frac{1}{2} \end{pmatrix} \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}
-        &= \begin{pmatrix} (-2)(1)+(1)(3) & (-2)(2)+(1)(4) \\ (\frac{3}{2})(1)+(-\frac{1}{2})(3) & (\frac{3}{2})(2)+(-\frac{1}{2})(4) \end{pmatrix} \\
-        &= \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I
-    \end{align*}
-    \item ทั้งสองผลลัพธ์ได้เมทริกซ์เอกลักษณ์ ดังนั้น $A^{-1} = \begin{pmatrix} -2 & 1 \\ \frac{3}{2} & -\frac{1}{2} \end{pmatrix}$ ถูกต้อง \solhere
-\end{solsteps}
+\begin{align*}
+\det(A) &= (1)(4)-(2)(3) = -2 \neq 0\\
+A^{-1} &= \frac{1}{-2}\begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix} = \begin{pmatrix} -2 & 1 \\ \tfrac{3}{2} & -\tfrac{1}{2} \end{pmatrix}
+\end{align*}
+ตรวจสอบ:
+\[
+AA^{-1} = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}\begin{pmatrix} -2 & 1 \\ \tfrac{3}{2} & -\tfrac{1}{2} \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I
+\]
+\solhere
 \end{solution}
 
 \begin{ex}
@@ -743,64 +704,54 @@ A^{-1} = \frac{1}{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}
 \end{ex}
 
 \begin{solution}
-\begin{solsteps}
-    \item คำนวณ $\det(A) = (3)(3) - (2)(5) = 9 - 10 = -1 \neq 0$ ดังนั้น $A$ มีตัวผกผัน
-    \item ใช้สูตร $A^{-1} = \frac{1}{\det(A)} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix} = \frac{1}{-1} \begin{pmatrix} 3 & -2 \\ -5 & 3 \end{pmatrix}$
-    \item คูณสเกลาร์ $\frac{1}{-1} = -1$ กับทุกสมาชิกได้ $A^{-1} = \begin{pmatrix} -3 & 2 \\ 5 & -3 \end{pmatrix}$
-    \item ตรวจสอบโดยการคูณ $A \cdot A^{-1}$
-    \begin{align*}
-    \begin{pmatrix} 3 & 2 \\ 5 & 3 \end{pmatrix} \begin{pmatrix} -3 & 2 \\ 5 & -3 \end{pmatrix}
-        &= \begin{pmatrix} (3)(-3)+(2)(5) & (3)(2)+(2)(-3) \\ (5)(-3)+(3)(5) & (5)(2)+(3)(-3) \end{pmatrix} \\
-        &= \begin{pmatrix} -9+10 & 6-6 \\ -15+15 & 10-9 \end{pmatrix}
-         = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I
-    \end{align*}
-    \item ตรวจสอบ $A^{-1} \cdot A$ ด้วย
-    \begin{align*}
-    \begin{pmatrix} -3 & 2 \\ 5 & -3 \end{pmatrix} \begin{pmatrix} 3 & 2 \\ 5 & 3 \end{pmatrix}
-        &= \begin{pmatrix} (-3)(3)+(2)(5) & (-3)(2)+(2)(3) \\ (5)(3)+(-3)(5) & (5)(2)+(-3)(3) \end{pmatrix} \\
-        &= \begin{pmatrix} -9+10 & -6+6 \\ 15-15 & 10-9 \end{pmatrix}
-         = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I
-    \end{align*}
-    \item ทั้งสองผลลัพธ์ได้เมทริกซ์เอกลักษณ์ ดังนั้น $A^{-1} = \begin{pmatrix} -3 & 2 \\ 5 & -3 \end{pmatrix}$ ถูกต้อง \solhere
-\end{solsteps}
+\begin{align*}
+\det(A) &= (3)(3)-(2)(5) = -1 \neq 0\\
+A^{-1} &= \frac{1}{-1}\begin{pmatrix} 3 & -2 \\ -5 & 3 \end{pmatrix} = \begin{pmatrix} -3 & 2 \\ 5 & -3 \end{pmatrix}
+\end{align*}
+ตรวจสอบ:
+\[
+AA^{-1} = \begin{pmatrix} 3 & 2 \\ 5 & 3 \end{pmatrix}\begin{pmatrix} -3 & 2 \\ 5 & -3 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I
+\]
+\solhere
 \end{solution}
 
 \begin{ex}
 หาตัวผกผันของ $A = \begin{pmatrix} 2 & 1 & 1 \\ 0 & 1 & 1 \\ 1 & 0 & 1 \end{pmatrix}$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ใช้สูตร $A^{-1} = \frac{1}{\det(A)} \operatorname{adj}(A)$
-  \item คำนวณ $\det(A) = 2(1-0) - 1(0-1) + 1(0-1) = 2 + 1 - 1 = 2$
-  \item คำนวณ cofactor ทุกตำแหน่ง
-
-  \[C_{11} = + \det\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = 1\]  \[C_{12} = - \det\begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix} = -(-1) = 1\]  \[C_{13} = + \det\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = -1\]  \[C_{21} = - \det\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = -1\]  \[C_{22} = + \det\begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix} = 1\]  \[C_{23} = - \det\begin{pmatrix} 2 & 1 \\ 1 & 0 \end{pmatrix} = -(-1) = 1\]  \[C_{31} = + \det\begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix} = 0\]  \[C_{32} = - \det\begin{pmatrix} 2 & 1 \\ 0 & 1 \end{pmatrix} = -2\]  \[C_{33} = + \det\begin{pmatrix} 2 & 1 \\ 0 & 1 \end{pmatrix} = 2\]  \item $\operatorname{adj}(A) = \begin{pmatrix} 1 & 1 & -1 \\ -1 & 1 & -2 \\ 0 & 1 & 2 \end{pmatrix}^T = \begin{pmatrix} 1 & -1 & 0 \\ 1 & 1 & 1 \\ -1 & -2 & 2 \end{pmatrix}$
-  \item $A^{-1} = \frac{1}{2} \begin{pmatrix} 1 & -1 & 0 \\ 1 & 1 & 1 \\ -1 & -2 & 2 \end{pmatrix} = \begin{pmatrix} \frac{1}{2} & -\frac{1}{2} & 0 \\ \frac{1}{2} & \frac{1}{2} & \frac{1}{2} \\ -\frac{1}{2} & -1 & 1 \end{pmatrix}$ \solhere
-\end{solsteps}
+\begin{align*}
+\det(A) &= 2(1-0)-1(0-1)+1(0-1) = 2\\
+C_{11},C_{12},C_{13} &= 1,\ 1,\ -1\\
+C_{21},C_{22},C_{23} &= -1,\ 1,\ 1\\
+C_{31},C_{32},C_{33} &= 0,\ -2,\ 2\\
+\operatorname{adj}(A) &= [C_{ij}]^T = \begin{pmatrix} 1 & -1 & 0 \\ 1 & 1 & 1 \\ -1 & -2 & 2 \end{pmatrix}\\
+A^{-1} &= \tfrac{1}{2}\operatorname{adj}(A) = \begin{pmatrix} \tfrac{1}{2} & -\tfrac{1}{2} & 0 \\ \tfrac{1}{2} & \tfrac{1}{2} & \tfrac{1}{2} \\ -\tfrac{1}{2} & -1 & 1 \end{pmatrix}
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{ex}[สมบัติของตัวผกผัน]
 สำหรับเมทริกซ์ invertible $A, B$ สรุปสมบัติที่สำคัญได้ดังนี้
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $(A^{-1})^{-1} = A$ \hfill (ตัวผกผันของตัวผกผันคือตัวมันเอง)
-  \item $(AB)^{-1} = B^{-1} A^{-1}$ \hfill (ตัวผกผันของผลคูณเท่ากับผลคูณของตัวผกผันในลำดับกลับกัน — สังเกตการสลับที่)
-  \item $(A^T)^{-1} = (A^{-1})^T$ \hfill (ตัวผกผันของ transpose เท่ากับ transpose ของตัวผกผัน)
-  \item $\det(A^{-1}) = \frac{1}{\det(A)}$ \hfill (ดีเทอร์มิแนนต์ของตัวผกผันเท่ากับส่วนกลับของดีเทอร์มิแนนต์) \solhere
-\end{solsteps}
+\begin{align*}
+(A^{-1})^{-1} &= A\\
+(AB)^{-1} &= B^{-1}A^{-1} && (\text{จาก } (AB)(B^{-1}A^{-1})=I)\\
+(A^T)^{-1} &= (A^{-1})^T\\
+\det(A^{-1}) &= \frac{1}{\det(A)} && (\text{จาก } \det(A)\det(A^{-1})=\det(I)=1)
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{ex}
 $(AB)^{-1} = B^{-1} A^{-1}$ ไม่ใช่ $A^{-1} B^{-1}$ ต้องระวังลำดับการคูณ!
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item การคูณเมทริกซ์ไม่มีสมบัติการสลับที่ จึงต้องสลับลำดับเมทริกซ์เมื่อหาตัวผกผันของผลคูณ
-  \item $(AB)(B^{-1}A^{-1}) = A(BB^{-1})A^{-1} = AIA^{-1} = AA^{-1} = I$
-  \item $(B^{-1}A^{-1})(AB) = B^{-1}(A^{-1}A)B = B^{-1}IB = B^{-1}B = I$
-  \item ดังนั้น $(AB)^{-1} = B^{-1}A^{-1}$ (ลำดับสลับกัน) ไม่ใช่ $A^{-1}B^{-1}$ \solhere
-\end{solsteps}
+\begin{align*}
+(AB)(B^{-1}A^{-1}) &= A(BB^{-1})A^{-1} = AIA^{-1} = I\\
+(B^{-1}A^{-1})(AB) &= B^{-1}(A^{-1}A)B = B^{-1}IB = I
+\end{align*}
+$\therefore (AB)^{-1} = B^{-1}A^{-1}$ (ลำดับสลับกัน ไม่ใช่ $A^{-1}B^{-1}$) \solhere
 \end{solution}
 
 \begin{thrm}
@@ -826,24 +777,6 @@ $(AB)^{-1} = B^{-1} A^{-1}$ ไม่ใช่ $A^{-1} B^{-1}$ ต้องร�
 ข้อควรระวังในการใช้ตัวผกผัน: สำหรับเมทริกซ์ $n \times n$ invertible ทั้งหมด จะได้ว่า $(A^{-1})^{-1} = A$ และ $(A^T)^{-1} = (A^{-1})^T$
 \end{cor}
 
-\begin{ex}
-หาตัวผกผันของ $A = \begin{pmatrix} 2 & 1 & 1 \\ 0 & 1 & 1 \\ 1 & 0 & 1 \end{pmatrix}$
-\end{ex}
-\begin{solution}
-\begin{solsteps}
-  \item ใช้สูตร $A^{-1} = \frac{1}{\det(A)} \operatorname{adj}(A)$
-  \item คำนวณ $\det(A)$ โดยใช้ cofactor expansion ตามแถวที่ 2:
-  \begin{align*}
-    \det(A) &= 2 \cdot \det\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} - 1 \cdot \det\begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix} + 1 \cdot \det\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \\
-    &= 2(1-0) - 1(0-1) + 1(0-1) = 2 + 1 - 1 = 2
-  \end{align*}
-  \item คำนวณ cofactor ทุกตำแหน่ง:
-  \[C_{11} = + \det\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = 1\]  \[C_{12} = - \det\begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix} = -(-1) = 1\]  \[C_{13} = + \det\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = -1\]  \[C_{21} = - \det\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = -1\]  \[C_{22} = + \det\begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix} = 1\]  \[C_{23} = - \det\begin{pmatrix} 2 & 1 \\ 1 & 0 \end{pmatrix} = -(-1) = 1\]  \[C_{31} = + \det\begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix} = 0\]  \[C_{32} = - \det\begin{pmatrix} 2 & 1 \\ 0 & 1 \end{pmatrix} = -2\]  \[C_{33} = + \det\begin{pmatrix} 2 & 1 \\ 0 & 1 \end{pmatrix} = 2\]  \item สร้างเมทริกซ์ cofactor แล้ว transpose ได้ $\operatorname{adj}(A)$:
-  \[\operatorname{adj}(A) = \begin{pmatrix} 1 & 1 & -1 \\ -1 & 1 & -2 \\ 0 & 1 & 2 \end{pmatrix}^T = \begin{pmatrix} 1 & -1 & 0 \\ 1 & 1 & 1 \\ -1 & -2 & 2 \end{pmatrix}\]  \item คูณด้วย $\frac{1}{\det(A)} = \frac{1}{2}$ ได้:
-  \[A^{-1} = \frac{1}{2} \begin{pmatrix} 1 & -1 & 0 \\ 1 & 1 & 1 \\ -1 & -2 & 2 \end{pmatrix} = \begin{pmatrix} \frac{1}{2} & -\frac{1}{2} & 0 \\ \frac{1}{2} & \frac{1}{2} & \frac{1}{2} \\ -\frac{1}{2} & -1 & 1 \end{pmatrix}\]  \item ตรวจสอบโดยการคูณ $A \cdot A^{-1}$ จะได้เมทริกซ์เอกลักษณ์ $I$ \solhere
-\end{solsteps}
-\end{solution}
-
 \section{ระบบสมการเชิงเส้น (Systems of Linear Equations)}
 \label{sec:linear-systems}
 การแก้ระบบสมการเชิงเส้นพร้อมกันหลายตัวแปรเป็นปัญหาพื้นฐานในหลากหลายสาขาวิชา ทั้งทางฟิสิกส์ วิศวกรรม และวิทยาการคอมพิวเตอร์ การนำระบบสมการมาจัดให้อยู่ในรูปของสมการเมทริกซ์ช่วยให้เราสามารถประยุกต์ใช้ทฤษฎีบททางพีชคณิตเชิงเส้นและขั้นตอนวิธีเชิงตัวเลขในการคำนวณหาคำตอบได้อย่างมีประสิทธิภาพและเป็นระบบ โดยผู้เรียนจะได้ศึกษาขอบเขตวิธีการแก้ระบบสมการผ่านตัวผกผันเมทริกซ์ กฎของคราเมอร์ และการกำจัดแบบเกาส์ ดังรายละเอียดต่อไปนี้
@@ -866,12 +799,11 @@ a_{m1} & a_{m2} & \cdots & a_{mn}
 \]
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item กำหนด $A = \begin{pmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{pmatrix}$ เป็นเมทริกซ์สัมประสิทธิ์ (coefficient matrix)
-  \item กำหนด $x = \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix}$ เป็นเวกเตอร์ตัวแปร (variable vector)
-  \item กำหนด $b = \begin{pmatrix} b_1 \\ b_2 \\ \vdots \\ b_m \end{pmatrix}$ เป็นเวกเตอร์ค่าคงตัว (constant vector)
-  \item เขียนระบบสมการในรูปย่อได้ $Ax = b$ \solhere
-\end{solsteps}
+เมทริกซ์สัมประสิทธิ์ $A$, เวกเตอร์ตัวแปร $x$, เวกเตอร์ค่าคงตัว $b$
+\[
+A = [a_{ij}]_{m\times n},\quad x = \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix},\quad b = \begin{pmatrix} b_1 \\ \vdots \\ b_m \end{pmatrix} \ \Rightarrow\ Ax = b
+\]
+\solhere
 \end{solution}
 
 \begin{ex}
@@ -892,14 +824,10 @@ x + 2y + 3z &= 14 \\
 \]
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ระบบสมการที่กำหนดมี 3 ตัวแปร ($x, y, z$) และ 3 สมการ
-  \item เมทริกซ์สัมประสิทธิ์ $A$ คือเมทริกซ์ของค่าสัมประสิทธิ์หน้าตัวแปรในแต่ละสมการ
-
-  \[A = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 1 \\ 3 & 1 & 2 \end{pmatrix}\]  \item เวกเตอร์ตัวแปร $x = \begin{pmatrix} x \\ y \\ z \end{pmatrix}$
-  \item เวกเตอร์ค่าคงตัว $b = \begin{pmatrix} 14 \\ 10 \\ 14 \end{pmatrix}$
-  \item เขียนในรูปเมทริกซ์ได้ $Ax = b$ หรือ $\begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 1 \\ 3 & 1 & 2 \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 14 \\ 10 \\ 14 \end{pmatrix}$ \solhere
-\end{solsteps}
+\[
+\underbrace{\begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 1 \\ 3 & 1 & 2 \end{pmatrix}}_{A} \underbrace{\begin{pmatrix} x \\ y \\ z \end{pmatrix}}_{x} = \underbrace{\begin{pmatrix} 14 \\ 10 \\ 14 \end{pmatrix}}_{b}
+\]
+$\therefore Ax = b$ \solhere
 \end{solution}
 
 \subsection{การแก้ระบบสมการโดยใช้ตัวผกผันเมทริกซ์}
@@ -909,12 +837,12 @@ x + 2y + 3z &= 14 \\
 ถ้า $A$ มีตัวผกผัน ($Ax = b$) แล้ว $x = A^{-1}b$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item จากสมการ $Ax = b$ โดยที่ $A$ เป็นเมทริกซ์ที่มีตัวผกผัน ($\det(A) \neq 0$)
-  \item คูณทั้งสองข้างด้วย $A^{-1}$ ทางซ้าย: $A^{-1}Ax = A^{-1}b$
-  \item เนื่องจาก $A^{-1}A = I$ (เมทริกซ์เอกลักษณ์) จึงได้ $Ix = A^{-1}b$
-  \item ดังนั้น $x = A^{-1}b$ คือคำตอบของระบบสมการ \solhere
-\end{solsteps}
+\begin{align*}
+Ax &= b\\
+A^{-1}Ax &= A^{-1}b\\
+Ix = x &= A^{-1}b
+\end{align*}
+\solhere
 \end{solution}
 
 \begin{ex}
@@ -927,13 +855,12 @@ x + 2y &= 5 \\
 \]
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item เขียนระบบสมการในรูปเมทริกซ์ $Ax = b$ โดยที่ $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$, $x = \begin{pmatrix} x \\ y \end{pmatrix}$, $b = \begin{pmatrix} 5 \\ 11 \end{pmatrix}$
-  \item คำนวณ $\det(A) = 1(4) - 2(3) = 4 - 6 = -2 \neq 0$ ดังนั้น $A$ มีตัวผกผัน
-  \item หาตัวผกผัน $A^{-1} = \frac{1}{\det(A)} \begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix} = \frac{1}{-2} \begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix} = \begin{pmatrix} -2 & 1 \\ \frac{3}{2} & -\frac{1}{2} \end{pmatrix}$
-  \item คูณ $x = A^{-1}b = \begin{pmatrix} -2 & 1 \\ \frac{3}{2} & -\frac{1}{2} \end{pmatrix} \begin{pmatrix} 5 \\ 11 \end{pmatrix} = \begin{pmatrix} -10+11 \\ \frac{15}{2}-\frac{11}{2} \end{pmatrix} = \begin{pmatrix} 1 \\ 2 \end{pmatrix}$
-  \item ดังนั้น $x = 1$, $y = 2$ \solhere
-\end{solsteps}
+$A = \begin{psmallmatrix} 1 & 2 \\ 3 & 4 \end{psmallmatrix}$, $b = \begin{psmallmatrix} 5 \\ 11 \end{psmallmatrix}$, $\det(A) = -2 \neq 0$
+\begin{align*}
+A^{-1} &= \frac{1}{-2}\begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix} = \begin{pmatrix} -2 & 1 \\ \tfrac{3}{2} & -\tfrac{1}{2} \end{pmatrix}\\
+x &= A^{-1}b = \begin{pmatrix} -2 & 1 \\ \tfrac{3}{2} & -\tfrac{1}{2} \end{pmatrix}\begin{pmatrix} 5 \\ 11 \end{pmatrix} = \begin{pmatrix} 1 \\ 2 \end{pmatrix}
+\end{align*}
+$\therefore x=1,\ y=2$ \solhere
 \end{solution}
 
 \subsection{การแก้ระบบสมการโดยใช้กฎของคราเมอร์ (Cramer's Rule)}
@@ -947,11 +874,10 @@ x_i = \frac{\det(A_i)}{\det(A)}
 โดยที่ $A_i$ คือเมทริกซ์ที่ได้จากการแทนคอลัมน์ที่ $i$ ของ $A$ ด้วยเวกเตอร์ $b$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item หาค่า $\det(A)$
-  \item สำหรับแต่ละตัวแปร $x_i$ ให้แทนคอลัมน์ที่ $i$ ด้วย $b$ เพื่อได้ $A_i$
-  \item คำนวณ $x_i = \frac{\det(A_i)}{\det(A)}$ \solhere
-\end{solsteps}
+\[
+\det(A) \neq 0; \quad A_i = (A \text{ แทนคอลัมน์ } i \text{ ด้วย } b); \quad x_i = \frac{\det(A_i)}{\det(A)}
+\]
+\solhere
 \end{solution}
 
 \begin{ex}
@@ -965,26 +891,19 @@ x + 2y &= 5 \\
 \]
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item กำหนด $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$, $b = \begin{pmatrix} 5 \\ 11 \end{pmatrix}$
-  \item หา $\det(A) = 1(4) - 2(3) = -2$
-  \item หา $x$: แทนคอลัมน์ที่ 1 ด้วย $b$ ได้ $A_1 = \begin{pmatrix} 5 & 2 \\ 11 & 4 \end{pmatrix}$
-  \item $x = \frac{\det(A_1)}{\det(A)} = \frac{5(4)-2(11)}{-2} = \frac{20-22}{-2} = \frac{-2}{-2} = 1$
-  \item หา $y$: แทนคอลัมน์ที่ 2 ด้วย $b$ ได้ $A_2 = \begin{pmatrix} 1 & 5 \\ 3 & 11 \end{pmatrix}$
-  \item $y = \frac{\det(A_2)}{\det(A)} = \frac{1(11)-5(3)}{-2} = \frac{11-15}{-2} = \frac{-4}{-2} = 2$
-  \item ดังนั้น $x = 1$, $y = 2$ \solhere
-\end{solsteps}
+\begin{align*}
+\det(A) &= 1(4)-2(3) = -2\\
+x &= \frac{\det(A_1)}{\det(A)} = \frac{\det\begin{psmallmatrix} 5 & 2 \\ 11 & 4 \end{psmallmatrix}}{-2} = \frac{20-22}{-2} = 1\\
+y &= \frac{\det(A_2)}{\det(A)} = \frac{\det\begin{psmallmatrix} 1 & 5 \\ 3 & 11 \end{psmallmatrix}}{-2} = \frac{11-15}{-2} = 2
+\end{align*}
+$\therefore x=1,\ y=2$ \solhere
 \end{solution}
 
 \begin{ex}
 กฎของคราเมอร์มีประสิทธิภาพในการแสดงทฤษฎี แต่ในทางปฏิบัติ หากคำนวณดีเทอร์มิแนนต์ด้วย cofactor expansion แบบตรงไปตรงมา ความซับซ้อนอาจสูงถึงระดับ $O(n!)$ สำหรับระบบขนาดใหญ่ วิธี Gaussian elimination ซึ่งคำนวณได้ระดับ $O(n^3)$ จึงเหมาะกับการคำนวณจริงมากกว่า
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item กฎของคราเมอร์เหมาะสำหรับการพิสูจน์ทฤษฎีและแสดงสูตร เพราะให้สูตรตรงไปตรงมา
-  \item ข้อเสีย ต้องคำนวณ $\det(A)$ และ $\det(A_i)$ สำหรับทุกตัวแปร หากใช้ cofactor expansion โดยตรงจะมีความซับซ้อนระดับ $O(n!)$
-  \item วิธี Gaussian elimination มีความซับซ้อนเพียง $O(n^3)$ จึงเหมาะสำหรับการคำนวณจริง \solhere
-\end{solsteps}
+กฎของคราเมอร์เหมาะกับการพิสูจน์ทฤษฎี (ให้สูตรตรง) แต่ต้องคำนวณ $\det(A)$ และ $\det(A_i)$ ทุกตัวแปร ซึ่งด้วย cofactor expansion มีความซับซ้อน $O(n!)$; ส่วน Gaussian elimination มีเพียง $O(n^3)$ $\therefore$ ในทางปฏิบัติใช้ Gaussian elimination \solhere
 \end{solution}
 
 \subsection{การแก้ระบบสมการโดยวิธีการกำจัดแบบเกาส์ (Gaussian Elimination)}
@@ -994,13 +913,11 @@ x + 2y &= 5 \\
 Augmented Matrix ของระบบ $Ax = b$ คือ $[A|b]$ ขนาด $n \times (n+1)$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item การดำเนินการแถว (Row Operations) มีดังนี้
-  \item สลับแถว ($R_i \leftrightarrow R_j$)
-  \item คูณแถวด้วยสเกลาร์ไม่เป็นศูนย์ ($cR_i$)
-  \item แทน $R_i$ ด้วย $R_i + cR_j$ ($i \neq j$)
-  \item การดำเนินการเหล่านี้ไม่เปลี่ยนคำตอบของระบบสมการ \solhere
-\end{solsteps}
+การดำเนินการตามแถวที่ไม่เปลี่ยนคำตอบของระบบ:
+\[
+R_i \leftrightarrow R_j, \qquad cR_i\ (c\neq 0), \qquad R_i \leftarrow R_i + cR_j\ (i\neq j)
+\]
+\solhere
 \end{solution}
 
 \begin{ex}
@@ -1014,37 +931,31 @@ x + 3z &= 7
 \]
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item เขียน Augmented matrix: $\begin{pmatrix} 1 & 2 & 1 & | & 9 \\ 2 & 5 & 3 & | & 23 \\ 1 & 0 & 3 & | & 7 \end{pmatrix}$
-  \item $R_2 \leftarrow R_2 - 2R_1$: $\begin{pmatrix} 1 & 2 & 1 & | & 9 \\ 0 & 1 & 1 & | & 5 \\ 1 & 0 & 3 & | & 7 \end{pmatrix}$
-  \item $R_3 \leftarrow R_3 - R_1$: $\begin{pmatrix} 1 & 2 & 1 & | & 9 \\ 0 & 1 & 1 & | & 5 \\ 0 & -2 & 2 & | & -2 \end{pmatrix}$
-  \item $R_3 \leftarrow R_3 + 2R_2$: $\begin{pmatrix} 1 & 2 & 1 & | & 9 \\ 0 & 1 & 1 & | & 5 \\ 0 & 0 & 4 & | & 8 \end{pmatrix}$
-  \item จาก $4z = 8 \Rightarrow z = 2$
-  \item จาก $y + z = 5 \Rightarrow y + 2 = 5 \Rightarrow y = 3$
-  \item จาก $x + 2y + z = 9 \Rightarrow x + 6 + 2 = 9 \Rightarrow x = 1$
-  \item ดังนั้น $x = 1$, $y = 3$, $z = 2$ \solhere
-\end{solsteps}
+\begin{align*}
+[A|b] &= \left(\begin{array}{ccc|c} 1 & 2 & 1 & 9 \\ 2 & 5 & 3 & 23 \\ 1 & 0 & 3 & 7 \end{array}\right)\\
+\xrightarrow{R_2-2R_1,\ R_3-R_1}\ &\left(\begin{array}{ccc|c} 1 & 2 & 1 & 9 \\ 0 & 1 & 1 & 5 \\ 0 & -2 & 2 & -2 \end{array}\right)\\
+\xrightarrow{R_3+2R_2}\ &\left(\begin{array}{ccc|c} 1 & 2 & 1 & 9 \\ 0 & 1 & 1 & 5 \\ 0 & 0 & 4 & 8 \end{array}\right)
+\end{align*}
+แทนกลับ: $4z=8\Rightarrow z=2$; $y+z=5\Rightarrow y=3$; $x+2y+z=9\Rightarrow x=1$
+$\therefore x=1,\ y=3,\ z=2$ \solhere
 \end{solution}
 
 \begin{ex}
 ระบบสมการ $Ax = b$ มีคำตอบเดียวก็ต่อเมื่อ $\det(A) \neq 0$ (เมทริกซ์ $A$ invertible) และไม่มีคำตอบหรือมีคำตอบไม่จำกัดก็ต่อเมื่อ $\det(A) = 0$ (เมทริกซ์ $A$ singular)
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item $\det(A) \neq 0 \Rightarrow A$ invertible $\Rightarrow$ มีคำตอบเดียว
-  \item $\det(A) = 0 \Rightarrow A$ singular อาจจะไม่มีคำตอบ หรือมีคำตอบไม่จำกัด
-  \item ตรวจสอบโดยดูว่า $b$ อยู่ใน column space ของ $A$ หรือไม่ \solhere
-\end{solsteps}
+\begin{align*}
+\det(A) \neq 0 &\Rightarrow A \text{ invertible} \Rightarrow \text{มีคำตอบเดียว}\\
+\det(A) = 0 &\Rightarrow A \text{ singular} \Rightarrow \text{ไม่มีคำตอบ หรือมีคำตอบไม่จำกัด}
+\end{align*}
+(ตรวจว่า $b$ อยู่ใน column space ของ $A$ หรือไม่) \solhere
 \end{solution}
 
 \begin{ex}
 ถ้า $\det(A) = 0$ จะพิจารณาได้ว่า ถ้า $b$ อยู่ใน column space ของ $A$ จะมีคำตอบไม่จำกัด แต่ถ้า $b$ ไม่อยู่ใน column space ของ $A$ จะไม่มีคำตอบ
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item ถ้า $b$ อยู่ใน column space ของ $A$ จะมีคำตอบไม่จำกัด
-  \item ถ้า $b$ ไม่อยู่ใน column space ของ $A$ จะไม่มีคำตอบ \solhere
-\end{solsteps}
+เมื่อ $\det(A)=0$: ถ้า $b$ อยู่ใน column space ของ $A$ $\Rightarrow$ มีคำตอบไม่จำกัด; ถ้าไม่อยู่ $\Rightarrow$ ไม่มีคำตอบ \solhere
 \end{solution}
 
 \section{การประยุกต์ในวิทยาการคอมพิวเตอร์}
@@ -1056,8 +967,8 @@ x + 3z &= 7
 
 \begin{figure}[H]
     \centering
-    \resizebox{0.85\textwidth}{!}{\input{Figures/tikz/34-matrix-transformation}}
-    \caption{การแปลงเมทริกซ์ในคอมพิวเตอร์กราฟิกส์ (Matrix Transformations) แสดงการหมุน การขยาย และการเฉือน}
+    \includegraphics[width=0.62\textwidth]{Figures/png_ready/34-matrix-transformation-manual.png}
+    \caption{แผนภาพแสดงการหมุน การขยาย และการเฉือนด้วยเมทริกซ์}
     \label{fig:matrix-transformation}
 \end{figure}
 
@@ -1073,66 +984,50 @@ x + 3z &= 7
 โดยใช้ homogeneous coordinates
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item การเลื่อน (Translation): $T = \begin{pmatrix} 1 & 0 & t_x \\ 0 & 1 & t_y \\ 0 & 0 & 1 \end{pmatrix}$
-  \item การขยายหรือหด (Scaling): $S = \begin{pmatrix} s_x & 0 & 0 \\ 0 & s_y & 0 \\ 0 & 0 & 1 \end{pmatrix}$
-  \item การหมุน (Rotation): $R = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}$
-  \item การแปลงผสมสามารถทำได้โดยการคูณเมทริกซ์ $P' = T \cdot R \cdot S \cdot P$ \solhere
-\end{solsteps}
+\begin{align*}
+\text{เลื่อน:}\quad T &= \begin{pmatrix} 1 & 0 & t_x \\ 0 & 1 & t_y \\ 0 & 0 & 1 \end{pmatrix}, &
+\text{ขยาย:}\quad S &= \begin{pmatrix} s_x & 0 & 0 \\ 0 & s_y & 0 \\ 0 & 0 & 1 \end{pmatrix}\\
+\text{หมุน:}\quad R &= \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}
+\end{align*}
+การแปลงผสม: $P' = T\cdot R\cdot S\cdot P$ \solhere
 \end{solution}
 
 \begin{ex}
 หมุนจุด $(1, 0)$ รอบจุดกำเนิด $90^\circ$ โดยใช้เมทริกซ์การหมุน $R = \begin{pmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item เขียนจุด $P$ ในรูปเวกเตอร์เมทริกซ์: $P = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}$
-  \item คูณเมทริกซ์การหมุน $R$ กับเวกเตอร์ $P$: $P' = R \cdot P = \begin{pmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}$
-  \item จุดใหม่คือ $(0, 1)$ \solhere
-\end{solsteps}
+\[
+P' = RP = \begin{pmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}\begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+\]
+$\therefore$ จุดใหม่คือ $(0,1)$ \solhere
 \end{solution}
 
 \subsection{การเข้ารหัส Hill Cipher}
 Hill Cipher เป็นระบบเข้ารหัสแบบบล็อกที่พัฒนาโดย Lester Hill ในปี ค.ศ. 1929 โดยใช้ความรู้เรื่องเมทริกซ์เป็นพื้นฐาน ข้อความธรรมดาถูกแปลงเป็นเวกเตอร์ตัวเลข แล้วคูณด้วยเมทริกซ์กุญแจ $K$ ผลลัพธ์คือข้อความเข้ารหัส ความแข็งแกร่งของ Hill Cipher อยู่ที่การกระจายตัวอักษรแต่ละตัวไปยังหลายตำแหน่งในข้อความเข้ารหัส ทำให้การวิเคราะห์ความถี่ตัวอักษร (frequency analysis) ไม่สามารถถอดรหัสได้โดยตรง
 
 \begin{ex}
-กำหนดเมทริกซ์กุญแจ $K = \begin{pmatrix} 3 & 2 \\ 1 & 1 \end{pmatrix}$ เข้ารหัสข้อความ "HI"
+กำหนดเมทริกซ์กุญแจ $K = \begin{pmatrix} 3 & 2 \\ 1 & 1 \end{pmatrix}$ เข้ารหัสข้อความ ``HI''
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item แปลงตัวอักษรเป็นตัวเลข โดยกำหนดให้ A=0, B=1, ..., Z=25 ดังนั้น H=7 และ I=8
-  \item เขียนข้อความเป็นเวกเตอร์ $P = \begin{pmatrix} 7 \\ 8 \end{pmatrix}$
-  \item คูณเมทริกซ์กุญแจ $K$ กับเวกเตอร์ $P$:
-  \[
-  C = K \cdot P = \begin{pmatrix} 3 & 2 \\ 1 & 1 \end{pmatrix} \begin{pmatrix} 7 \\ 8 \end{pmatrix} = \begin{pmatrix} (3)(7)+(2)(8) \\ (1)(7)+(1)(8) \end{pmatrix} = \begin{pmatrix} 37 \\ 15 \end{pmatrix}
-  \]
-  \item นำผลลัพธ์มอดุโล 26 (เพื่อให้อยู่ในช่วง 0-25)
-  \[
-  \begin{pmatrix} 37 \\ 15 \end{pmatrix} \pmod{26} = \begin{pmatrix} 11 \\ 15 \end{pmatrix}
-  \]
-  \item แปลงตัวเลขกลับเป็นตัวอักษร 11=L และ 15=P
-
-  ดังนั้น "HI" เข้ารหัสเป็น "LP" \solhere
-\end{solsteps}
+กำหนด A$=0$, \ldots, Z$=25$ จึงได้ H$=7$, I$=8$
+\begin{align*}
+P &= \begin{pmatrix} 7 \\ 8 \end{pmatrix}\\
+C = KP &= \begin{pmatrix} 3 & 2 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} 7 \\ 8 \end{pmatrix} = \begin{pmatrix} 37 \\ 15 \end{pmatrix} \equiv \begin{pmatrix} 11 \\ 15 \end{pmatrix} \pmod{26}
+\end{align*}
+$11=$L, $15=$P $\therefore$ ``HI'' $\to$ ``LP'' \solhere
 \end{solution}
 
 หมายเหตุ: การถอดรหัสต้องใช้ $K^{-1}$ ซึ่งมีอยู่ก็ต่อเมื่อ $\det(K) \neq 0 \pmod{26}$ นั่นคือ $\gcd(\det(K), 26) = 1$ ในกรณีนี้ $\det(K) = 3(1) - 2(1) = 1$ และ $\gcd(1, 26) = 1$ ดังนั้นตัวผกผันมีอยู่
 
 \begin{ex}
-ถอดรหัส "LP" กลับเป็น "HI" โดยใช้เมทริกซ์กุญแจ $K = \begin{pmatrix} 3 & 2 \\ 1 & 1 \end{pmatrix}$
+ถอดรหัส ``LP'' กลับเป็น ``HI'' โดยใช้เมทริกซ์กุญแจ $K = \begin{pmatrix} 3 & 2 \\ 1 & 1 \end{pmatrix}$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item หาตัวผกผันของ $K$ ก่อน โดย $\det(K) = 1$ และ $K^{-1} = \begin{pmatrix} 1 & -2 \\ -1 & 3 \end{pmatrix} \pmod{26}$
-  \item แปลง "LP" เป็นเวกเตอร์ $C = \begin{pmatrix} 11 \\ 15 \end{pmatrix}$
-  \item คูณ $K^{-1}$ กับ $C$:
-  \[
-  P = K^{-1} \cdot C = \begin{pmatrix} 1 & -2 \\ -1 & 3 \end{pmatrix} \begin{pmatrix} 11 \\ 15 \end{pmatrix} = \begin{pmatrix} 11-30 \\ -11+45 \end{pmatrix} = \begin{pmatrix} -19 \\ 34 \end{pmatrix} \pmod{26} = \begin{pmatrix} 7 \\ 8 \end{pmatrix}
-  \]
-  \item แปลงกลับเป็นตัวอักษร 7=H, 8=I
-
-  ดังนั้นได้ข้อความเดิม "HI" \solhere
-\end{solsteps}
+\begin{align*}
+K^{-1} &= \begin{pmatrix} 1 & -2 \\ -1 & 3 \end{pmatrix} \pmod{26} \quad (\det K = 1)\\
+P = K^{-1}C &= \begin{pmatrix} 1 & -2 \\ -1 & 3 \end{pmatrix}\begin{pmatrix} 11 \\ 15 \end{pmatrix} = \begin{pmatrix} -19 \\ 34 \end{pmatrix} \equiv \begin{pmatrix} 7 \\ 8 \end{pmatrix} \pmod{26}
+\end{align*}
+$7=$H, $8=$I $\therefore$ ได้ข้อความเดิม ``HI'' \solhere
 \end{solution}
 
 \subsection{เมทริกซ์ประชิดในทฤษฎีกราฟ}
@@ -1142,12 +1037,7 @@ Hill Cipher เป็นระบบเข้ารหัสแบบบล็�
 Adjacency Matrix ของกราฟ $G$ ที่มี $n$ โหนด คือเมทริกซ์ $A$ ขนาด $n \times n$ โดยที่ $a_{ij} = 1$ ถ้ามีเส้นเชื่อมระหว่างโหนด $i$ และ $j$ และ $a_{ij} = 0$ ในกรณีอื่น โดยสมบัติที่สำคัญคือ $(A^k)_{ij}$ บอกจำนวนเส้นทางความยาว $k$ จากโหนด $i$ ไปยังโหนด $j$ และผลรวมของแถวที่ $i$ เท่ากับ degree ของโหนด $i$
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item สร้างเมทริกซ์ $A$ ขนาด $n \times n$ โดยเริ่มจากเติม 0 ทั้งหมด
-  \item สำหรับแต่ละเส้นเชื่อมระหว่างโหนด $i$ และ $j$ ให้ตั้งค่า $a_{ij} = 1$
-  \item คุณสมบัติที่สำคัญ $(A^k)_{ij}$ บอกจำนวนเส้นทางความยาว $k$ จาก $i$ ไป $j$
-  \item ผลรวมของแถวที่ $i$ = degree ของโหนด $i$ \solhere
-\end{solsteps}
+สร้าง $A_{n\times n}$ โดย $a_{ij}=1$ ถ้ามีเส้นเชื่อม $i$–$j$ มิฉะนั้น $0$; สมบัติ: $(A^k)_{ij}=$ จำนวนเส้นทางยาว $k$ จาก $i$ ไป $j$, และผลรวมแถว $i$ $=$ degree ของโหนด $i$ \solhere
 \end{solution}
 
 \begin{ex}
@@ -1160,12 +1050,10 @@ A^2 = \begin{pmatrix} 2 & 1 & 1 \\ 1 & 2 & 1 \\ 1 & 1 & 2 \end{pmatrix}.
 สมาชิก $(A^2)_{ij}$ บอกจำนวนเส้นทาง 2 ขั้นจากโหนด $i$ ไปโหนด $j$ เช่น $(A^2)_{12} = 1$ หมายความว่ามี 1 เส้นทาง 2 ขั้นจากโหนด 1 ไปโหนด 2 (คือ $1 \to 3 \to 2$)
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item สร้าง adjacency matrix $A$ ของกราฟสามเหลี่ยม โดยทุกโหนดเชื่อมกันทุกคู่
-  \item คำนวณ $A^2 = A \times A$ เพื่อหาจำนวนเส้นทาง 2 ขั้น
-  \item $(A^2)_{12} = 1$ หมายความว่ามี 1 เส้นทาง 2 ขั้นจากโหนด 1 ไปโหนด 2 คือ $1 \to 3 \to 2$
-  \item แนวทแยงของ $A^2$ เท่ากับ 2 เพราะแต่ละโหนดมี 2 เส้นทางกลับไปตัวเอง ผ่านโหนดอื่น \solhere
-\end{solsteps}
+\[
+A = \begin{pmatrix} 0 & 1 & 1 \\ 1 & 0 & 1 \\ 1 & 1 & 0 \end{pmatrix} \Rightarrow A^2 = \begin{pmatrix} 2 & 1 & 1 \\ 1 & 2 & 1 \\ 1 & 1 & 2 \end{pmatrix}
+\]
+$(A^2)_{12}=1$: มี 1 เส้นทาง 2 ขั้น $1\to 3\to 2$; แนวทแยง $=2$ (แต่ละโหนดมี 2 เส้นทางกลับตัวเองผ่านโหนดอื่น) \solhere
 \end{solution}
 
 \subsection{เมทริกซ์ในการเรียนรู้ของเครื่อง}
@@ -1179,12 +1067,12 @@ y = \begin{pmatrix} 3 \\ 5 \\ 7 \end{pmatrix}
 \]
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item คำนวณ $X^T X = \begin{pmatrix} 3 & 12 \\ 12 & 56 \end{pmatrix}$ ซึ่งมี $\det(X^T X) = 3(56) - 12(12) = 24 \neq 0$
-  \item หาตัวผกผัน $(X^T X)^{-1} = \dfrac{1}{24}\begin{pmatrix} 56 & -12 \\ -12 & 3 \end{pmatrix}$
-  \item คำนวณ $X^T y = \begin{pmatrix} 3+5+7 \\ 6+20+42 \end{pmatrix} = \begin{pmatrix} 15 \\ 68 \end{pmatrix}$
-  \item ได้ $\beta = (X^T X)^{-1} X^T y = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ นั่นคือเส้นตรง $y = 1 + x$ \solhere
-\end{solsteps}
+\begin{align*}
+X^T X &= \begin{pmatrix} 3 & 12 \\ 12 & 56 \end{pmatrix}, \quad \det = 24 \neq 0\\
+(X^T X)^{-1} &= \tfrac{1}{24}\begin{pmatrix} 56 & -12 \\ -12 & 3 \end{pmatrix}, \quad X^T y = \begin{pmatrix} 15 \\ 68 \end{pmatrix}\\
+\beta = (X^T X)^{-1} X^T y &= \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+\end{align*}
+$\therefore y = 1 + x$ \solhere
 \end{solution}
 
 \begin{ex}[โครงข่ายประสาทเทียมหนึ่งชั้น]
@@ -1196,28 +1084,22 @@ W = \begin{pmatrix} 0.8 & 0.2 \\ 0.3 & 0.7 \end{pmatrix}, \qquad
 \]
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-  \item คำนวณผลรวมถ่วงน้ำหนัก (weighted sum)
-
-    \begin{align*}
-      \mathbf{z} &= \mathbf{x} W + \mathbf{b} \\
-      &= \begin{pmatrix} 1 & 0.5 \end{pmatrix}\begin{pmatrix} 0.8 & 0.2 \\ 0.3 & 0.7 \end{pmatrix} + \begin{pmatrix} -0.5 & 0.1 \end{pmatrix} \\
-      &= \begin{pmatrix} 0.95 & 0.55 \end{pmatrix} + \begin{pmatrix} -0.5 & 0.1 \end{pmatrix}
-       = \begin{pmatrix} 0.45 & 0.65 \end{pmatrix}
-    \end{align*}
-  \item ส่งผ่าน ReLU: $f(\mathbf{z}) = \begin{pmatrix} \max(0,0.45) & \max(0,0.65) \end{pmatrix} = \begin{pmatrix} 0.45 & 0.65 \end{pmatrix}$
-  \item ดังนั้นผลลัพธ์ของชั้นนี้คือ \mathoval{\begin{pmatrix} 0.45 & 0.65 \end{pmatrix}} \solhere
-\end{solsteps}
+\begin{align*}
+\mathbf{z} &= \mathbf{x} W + \mathbf{b} = \begin{pmatrix} 1 & 0.5 \end{pmatrix}\begin{pmatrix} 0.8 & 0.2 \\ 0.3 & 0.7 \end{pmatrix} + \begin{pmatrix} -0.5 & 0.1 \end{pmatrix}\\
+&= \begin{pmatrix} 0.95 & 0.55 \end{pmatrix} + \begin{pmatrix} -0.5 & 0.1 \end{pmatrix} = \begin{pmatrix} 0.45 & 0.65 \end{pmatrix}\\
+f(\mathbf{z}) &= \mathrm{ReLU}(\mathbf{z}) = \begin{pmatrix} 0.45 & 0.65 \end{pmatrix}
+\end{align*}
+\solhere
 \end{solution}
 
-\section{สรุป}
+\sectionbanner{สรุปบทเรียน}
 บทนี้ศึกษาเมทริกซ์และดีเทอร์มิแนนต์ซึ่งเป็นเครื่องมือพื้นฐานในคณิตศาสตร์และวิทยาการคอมพิวเตอร์ เริ่มจากเมทริกซ์ซึ่งเป็นการจัดเรียงข้อมูลในรูปตารางสองมิติและมีหลายประเภท เช่น เมทริกซ์จตุรัส เส้นทแยงมุม สมมาตร และสามเหลี่ยม ต่อด้วยการดำเนินการระหว่างเมทริกซ์ ได้แก่ การบวก ลบ คูณด้วยสเกลาร์ คูณเมทริกซ์ และการสลับเปลี่ยน (transpose) โดยการคูณเมทริกซ์ไม่มีสมบัติการสลับที่ ดีเทอร์มิแนนต์เป็นค่าจำเพาะของเมทริกซ์จตุรัสที่คำนวณได้ด้วยการกระจายโคแฟกเตอร์ (cofactor expansion) หรือกฎของ Sarrus สำหรับเมทริกซ์ $3 \times 3$ และมีสมบัติสำคัญคือ $\det(AB) = \det(A)\det(B)$ ตัวผกผัน $A^{-1}$ ทำให้ $AA^{-1} = A^{-1}A = I$ และมีได้ก็ต่อเมื่อ $\det(A) \neq 0$ ระบบสมการเชิงเส้นแก้ได้ด้วยตัวผกผันเมทริกซ์ ($x = A^{-1}b$) กฎของคราเมอร์ หรือการกำจัดแบบเกาส์ (Gaussian elimination) และนำไปประยุกต์ในคอมพิวเตอร์กราฟิกส์ การเข้ารหัส การเรียนรู้ของเครื่อง และทฤษฎีกราฟ
 
 เมทริกซ์เป็นพื้นฐานที่จำเป็นสำหรับการศึกษาต่อในสาขาคณิตศาสตร์ขั้นสูง เช่น พีชคณิตเชิงเส้น (Linear Algebra) และการวิเคราะห์เชิงตัวเลข (Numerical Analysis)~\cite{strang2023linear}
 
 \clearpage
-\section{แบบฝึกหัด}
-\subsection*{ส่วนที่ 1: พื้นฐานเมทริกซ์}
+\sectionbanner{แบบฝึกหัด}
+\exercisepart{ส่วนที่ 1: พื้นฐานเมทริกซ์}
 \begin{exercise}
 จงระบุขนาดของเมทริกซ์ต่อไปนี้
 \begin{enumerate}
@@ -1236,7 +1118,7 @@ W = \begin{pmatrix} 0.8 & 0.2 \\ 0.3 & 0.7 \end{pmatrix}, \qquad
 \end{enumerate}
 \end{exercise}
 
-\subsection*{ส่วนที่ 2: การดำเนินการระหว่างเมทริกซ์}
+\exercisepart{ส่วนที่ 2: การดำเนินการระหว่างเมทริกซ์}
 \begin{exercise}
 กำหนด $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ และ $B = \begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix}$ จงหา
 \begin{enumerate}
@@ -1256,7 +1138,7 @@ W = \begin{pmatrix} 0.8 & 0.2 \\ 0.3 & 0.7 \end{pmatrix}, \qquad
 \end{enumerate}
 \end{exercise}
 
-\subsection*{ส่วนที่ 3: ดีเทอร์มิแนนต์}
+\exercisepart{ส่วนที่ 3: ดีเทอร์มิแนนต์}
 \begin{exercise}
 จงคำนวณดีเทอร์มิแนนต์ของเมทริกซ์ต่อไปนี้โดยใช้วิธี cofactor expansion:
 \begin{enumerate}
@@ -1272,7 +1154,7 @@ W = \begin{pmatrix} 0.8 & 0.2 \\ 0.3 & 0.7 \end{pmatrix}, \qquad
 \end{enumerate}
 \end{exercise}
 
-\subsection*{ส่วนที่ 4: ตัวผกผันของเมทริกซ์}
+\exercisepart{ส่วนที่ 4: ตัวผกผันของเมทริกซ์}
 \begin{exercise}
 จงหาตัวผกผันของเมทริกซ์ต่อไปนี้ (ถ้ามี)
 \begin{enumerate}
@@ -1286,7 +1168,7 @@ W = \begin{pmatrix} 0.8 & 0.2 \\ 0.3 & 0.7 \end{pmatrix}, \qquad
 จงตรวจสอบว่า $A \cdot A^{-1} = A^{-1} \cdot A = I$ สำหรับข้อ 1(a)
 \end{exercise}
 
-\subsection*{ส่วนที่ 5: การแก้ระบบสมการเชิงเส้น}
+\exercisepart{ส่วนที่ 5: การแก้ระบบสมการเชิงเส้น}
 \begin{exercise}
 จงแก้ระบบสมการต่อไปนี้โดยใช้ตัวผกผันเมทริกซ์
 \begin{enumerate}
@@ -1303,36 +1185,72 @@ W = \begin{pmatrix} 0.8 & 0.2 \\ 0.3 & 0.7 \end{pmatrix}, \qquad
 \end{exercise}
 
 \clearpage
-\section{เฉลยแบบฝึกหัด}
+\answerkeyhead
 เฉลยอย่างย่อสำหรับแบบฝึกหัดในแต่ละส่วน เพื่อให้ผู้เรียนใช้ตรวจคำตอบของตนเอง
 
-\subsection*{ส่วนที่ 1: พื้นฐานเมทริกซ์}
-\begin{enumerate}
-    \item ขนาด (ก) $2\times 3$; (ข) $3\times 2$; (ค) $1\times 1$
-    \item ประเภท (ก) จตุรัส เส้นทแยงมุม (และเป็นสมมาตร สามเหลี่ยมบน สามเหลี่ยมล่างพร้อมกัน); (ข) จตุรัส สมมาตร; (ค) จตุรัส สามเหลี่ยมบน
+\exercisepart{ส่วนที่ 1: พื้นฐานเมทริกซ์}
+\begin{enumerate}[label={},leftmargin=0pt]
+    \item ขนาด
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item $2\times 3$
+        \item $3\times 2$
+        \item $1\times 1$
+    \end{enumerate}
+
+    \item ประเภท
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item จตุรัส เส้นทแยงมุม (และเป็นสมมาตร สามเหลี่ยมบน สามเหลี่ยมล่างพร้อมกัน)
+        \item จตุรัส สมมาตร
+        \item จตุรัส สามเหลี่ยมบน
+    \end{enumerate}
 \end{enumerate}
 
-\subsection*{ส่วนที่ 2: การดำเนินการระหว่างเมทริกซ์}
-\begin{enumerate}
-    \item (ก) $A+B = \begin{pmatrix}6 & 8\\ 10 & 12\end{pmatrix}$; (ข) $A-B = \begin{pmatrix}-4 & -4\\ -4 & -4\end{pmatrix}$; (ค) $3A = \begin{pmatrix}3 & 6\\ 9 & 12\end{pmatrix}$; (ง) $AB = \begin{pmatrix}19 & 22\\ 43 & 50\end{pmatrix}$; (จ) $BA = \begin{pmatrix}23 & 34\\ 31 & 46\end{pmatrix}$ (ยืนยันว่า $AB\neq BA$)
-    \item (ก) $A^T = \begin{pmatrix}1 & 4\\ 2 & 5\\ 3 & 6\end{pmatrix}$; (ข) $B^T = \begin{pmatrix}1 & 3 & 5\\ 2 & 4 & 6\end{pmatrix}$
+\exercisepart{ส่วนที่ 2: การดำเนินการระหว่างเมทริกซ์}
+\begin{enumerate}[label={},leftmargin=0pt,start=3]
+    \item การดำเนินการ
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item $A+B = \begin{pmatrix}6 & 8\\ 10 & 12\end{pmatrix}$
+        \item $A-B = \begin{pmatrix}-4 & -4\\ -4 & -4\end{pmatrix}$
+        \item $3A = \begin{pmatrix}3 & 6\\ 9 & 12\end{pmatrix}$
+        \item $AB = \begin{pmatrix}19 & 22\\ 43 & 50\end{pmatrix}$
+        \item $BA = \begin{pmatrix}23 & 34\\ 31 & 46\end{pmatrix}$ (ยืนยันว่า $AB\neq BA$)
+    \end{enumerate}
+
+    \item เมทริกซ์สลับเปลี่ยน
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item $A^T = \begin{pmatrix}1 & 4\\ 2 & 5\\ 3 & 6\end{pmatrix}$
+        \item $B^T = \begin{pmatrix}1 & 3 & 5\\ 2 & 4 & 6\end{pmatrix}$
+    \end{enumerate}
 \end{enumerate}
 
-\subsection*{ส่วนที่ 3: ดีเทอร์มิแนนต์}
-\begin{enumerate}
-    \item (ก) $\det = (1)(4)-(2)(3) = -2$; (ข) กระจายตามแถวที่ 1: $1\cdot(1-24) - 0 + 2\cdot(18-5) = -23 + 26 = 3$
+\exercisepart{ส่วนที่ 3: ดีเทอร์มิแนนต์}
+\begin{enumerate}[label={},leftmargin=0pt,start=5]
+    \item ดีเทอร์มิแนนต์
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item $\det = (1)(4)-(2)(3) = -2$
+        \item กระจายตามแถวที่ 1: $1\cdot(1-24) - 0 + 2\cdot(18-5) = -23 + 26 = 3$
+    \end{enumerate}
     \item Sarrus: $aei+bfg+cdh-ceg-bdi-afh = 45+84+96-105-72-48 = 0$
 \end{enumerate}
 
-\subsection*{ส่วนที่ 4: ตัวผกผันของเมทริกซ์}
-\begin{enumerate}
-    \item (ก) $\det(A) = -2 \neq 0$, $A^{-1} = -\frac{1}{2}\begin{pmatrix}4 & -2\\ -3 & 1\end{pmatrix} = \begin{pmatrix}-2 & 1\\ \frac{3}{2} & -\frac{1}{2}\end{pmatrix}$; (ข) $\det(B) = 0$ จึงไม่มีตัวผกผัน; (ค) $I^{-1} = I$
+\exercisepart{ส่วนที่ 4: ตัวผกผันของเมทริกซ์}
+\begin{enumerate}[label={},leftmargin=0pt,start=7]
+    \item การหาตัวผกผัน
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item $\det(A) = -2 \neq 0$, $A^{-1} = -\frac{1}{2}\begin{pmatrix}4 & -2\\ -3 & 1\end{pmatrix} = \begin{pmatrix}-2 & 1\\ \frac{3}{2} & -\frac{1}{2}\end{pmatrix}$
+        \item $\det(B) = 0$ จึงไม่มีตัวผกผัน
+        \item $I^{-1} = I$
+    \end{enumerate}
     \item $A\cdot A^{-1} = \begin{pmatrix}1 & 2\\ 3 & 4\end{pmatrix}\begin{pmatrix}-2 & 1\\ \frac{3}{2} & -\frac{1}{2}\end{pmatrix} = \begin{pmatrix}1 & 0\\ 0 & 1\end{pmatrix} = I$ และตรวจ $A^{-1}\cdot A = I$ เช่นกัน
 \end{enumerate}
 
-\subsection*{ส่วนที่ 5: การแก้ระบบสมการเชิงเส้น}
-\begin{enumerate}
-    \item (ก) $A^{-1}b = \begin{pmatrix}-2 & 1\\ \frac{3}{2} & -\frac{1}{2}\end{pmatrix}\begin{pmatrix}5\\ 6\end{pmatrix} = \begin{pmatrix}-4\\ \frac{9}{2}\end{pmatrix}$ ดังนั้น $x=-4, y=\frac{9}{2}$; (ข) $\det(A) = -3$, $A^{-1} = -\frac{1}{3}\begin{pmatrix}-1 & -1\\ -1 & 2\end{pmatrix} = \begin{pmatrix}\frac{1}{3} & \frac{1}{3}\\ \frac{1}{3} & -\frac{2}{3}\end{pmatrix}$ ดังนั้น $\begin{pmatrix}x\\y\end{pmatrix} = A^{-1}b = \begin{pmatrix}\frac{1}{3} & \frac{1}{3}\\ \frac{1}{3} & -\frac{2}{3}\end{pmatrix}\begin{pmatrix}3\\1\end{pmatrix} = \begin{pmatrix}\frac{4}{3}\\ \frac{1}{3}\end{pmatrix}$ ตรวจคำตอบ: $2(\frac{4}{3})+\frac{1}{3} = \frac{8}{3}+\frac{1}{3} = 3$ และ $\frac{4}{3}-\frac{1}{3} = 1$ ถูกต้อง
+\exercisepart{ส่วนที่ 5: การแก้ระบบสมการเชิงเส้น}
+\begin{enumerate}[label={},leftmargin=0pt,start=9]
+    \item การแก้ระบบสมการด้วยตัวผกผัน
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item $A^{-1}b = \begin{pmatrix}-2 & 1\\ \frac{3}{2} & -\frac{1}{2}\end{pmatrix}\begin{pmatrix}5\\ 6\end{pmatrix} = \begin{pmatrix}-4\\ \frac{9}{2}\end{pmatrix}$ ดังนั้น $x=-4, y=\frac{9}{2}$
+        \item $\det(A) = -3$, $A^{-1} = -\frac{1}{3}\begin{pmatrix}-1 & -1\\ -1 & 2\end{pmatrix} = \begin{pmatrix}\frac{1}{3} & \frac{1}{3}\\ \frac{1}{3} & -\frac{2}{3}\end{pmatrix}$ ดังนั้น $\begin{pmatrix}x\\y\end{pmatrix} = A^{-1}b = \begin{pmatrix}\frac{1}{3} & \frac{1}{3}\\ \frac{1}{3} & -\frac{2}{3}\end{pmatrix}\begin{pmatrix}3\\1\end{pmatrix} = \begin{pmatrix}\frac{4}{3}\\ \frac{1}{3}\end{pmatrix}$
+    \end{enumerate}
     \item กฎคราเมอร์ $\det A = 1$, $\det A_x = \begin{vmatrix}2 & 1\\ 5 & 3\end{vmatrix} = 1$, $\det A_y = \begin{vmatrix}1 & 2\\ 2 & 5\end{vmatrix} = 1$ ดังนั้น $x = 1, y = 1$
 \end{enumerate}
 

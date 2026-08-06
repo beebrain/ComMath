@@ -36,5 +36,15 @@
             ]
         }
     ],
-    "latex-workshop.latex.recipe.default": "first"
+    "latex-workshop.latex.recipe.default": "first",
+
+    // ============ SyncTeX & PDF Viewer Navigation (Inverse/Forward Search) ============
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.view.pdf.internal.synctex.keymap": "doubleClick",
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.view.pdf.external.synctex.command": "code",
+    "latex-workshop.view.pdf.external.synctex.args": [
+        "-g",
+        "%FILE%:%LINE%"
+    ]
 }

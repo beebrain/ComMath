@@ -146,6 +146,41 @@
       \field{title}{An Investigation of the Laws of Thought}
       \field{year}{1854}
     \endentry
+    \entry{codd1970relational}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=575e6ec8dab1a34c19f7021664baaccc}{%
+           family={Codd},
+           familyi={C\bibinitperiod},
+           given={E.\bibnamedelimi F.},
+           giveni={E\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{575e6ec8dab1a34c19f7021664baaccc}
+      \strng{fullhash}{575e6ec8dab1a34c19f7021664baaccc}
+      \strng{fullhashraw}{575e6ec8dab1a34c19f7021664baaccc}
+      \strng{bibnamehash}{575e6ec8dab1a34c19f7021664baaccc}
+      \strng{authorbibnamehash}{575e6ec8dab1a34c19f7021664baaccc}
+      \strng{authornamehash}{575e6ec8dab1a34c19f7021664baaccc}
+      \strng{authorfullhash}{575e6ec8dab1a34c19f7021664baaccc}
+      \strng{authorfullhashraw}{575e6ec8dab1a34c19f7021664baaccc}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Communications of the ACM}
+      \field{number}{6}
+      \field{title}{A Relational Model of Data for Large Shared Data Banks}
+      \field{volume}{13}
+      \field{year}{1970}
+      \field{pages}{377\bibrangedash 387}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1145/362384.362685
+      \endverb
+    \endentry
     \entry{copi2014logic}{book}{}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=070d1afdab00000750ae4a5d761f04c5}{%
@@ -221,7 +256,6 @@
       \field{isbn}{9780122384400}
       \field{title}{Elements of Set Theory}
       \field{year}{1977}
-      \true{nocite}
     \endentry
     \entry{enderton2001logic}{book}{}{}
       \name{author}{1}{}{%
@@ -420,7 +454,6 @@
       \field{series}{Undergraduate Texts in Mathematics}
       \field{title}{Naive Set Theory}
       \field{year}{1974}
-      \true{nocite}
     \endentry
     \entry{hurley2024logic}{book}{}{}
       \name{author}{2}{}{%
@@ -655,7 +688,6 @@
       \field{isbn}{9780070381599}
       \field{title}{Schaum's Outline of Theory and Problems of Set Theory and Related Topics}
       \field{year}{1998}
-      \true{nocite}
     \endentry
     \entry{lipschutz2009discrete}{book}{}{}
       \name{author}{2}{}{%
@@ -733,7 +765,6 @@
       \field{isbn}{9780134549897}
       \field{title}{Digital Design: With an Introduction to the Verilog HDL, VHDL, and SystemVerilog}
       \field{year}{2018}
-      \true{nocite}
     \endentry
     \entry{mendelson2015introduction}{book}{}{}
       \name{author}{1}{}{%
@@ -766,6 +797,7 @@
       \field{isbn}{9781482237726}
       \field{title}{Introduction to Mathematical Logic}
       \field{year}{2015}
+      \true{nocite}
       \verb{doi}
       \verb 10.1201/b18519
       \endverb
@@ -930,7 +962,6 @@
       \field{isbn}{9780128203316}
       \field{title}{Computer Organization and Design RISC-V Edition: The Hardware/Software Interface}
       \field{year}{2020}
-      \true{nocite}
     \endentry
     \entry{rosen2019discrete}{book}{}{}
       \name{author}{1}{}{%
@@ -1008,7 +1039,6 @@
       \field{note}{Enhanced Edition}
       \field{title}{Fundamentals of Logic Design}
       \field{year}{2021}
-      \true{nocite}
     \endentry
     \entry{strang2023linear}{book}{}{}
       \name{author}{1}{}{%
@@ -1143,7 +1173,6 @@
       \field{isbn}{9780134460093}
       \field{title}{Digital Design: Principles and Practices}
       \field{year}{2018}
-      \true{nocite}
     \endentry
     \entry{russell1910principia}{book}{}{}
       \name{author}{2}{}{%

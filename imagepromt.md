@@ -15,7 +15,7 @@ with exact verbatim Thai text rendering, sharp typographic accuracy, --ar 16:9
 02-and-gate-circuit.jpg
 nanobanana2 style, an educational electronic circuit diagram for a Thai discrete-mathematics textbook, clean off-white background (#FAFAFA), academic minimalist schematic style, print-quality 300 DPI rendering, minimum 2400x1350 pixels, crisp 2pt schematic line work, no cartoon characters.
 Layout (left → right):
-1. LEFT: Two series-connected toggle switches drawn as classic schematic lever switches (rectangular), labeled in italic Latin letters only — "p" (top switch) and "q" (bottom switch). Strictly NO Thai characters (no ป, ค, ก, พ) as variable labels.
+1. LEFT: Two clean input signal wires labeled in italic Latin letters only — "p" (top input) and "q" (bottom input). Strictly NO mechanical switches or Thai characters (no ป, ค, ก, พ) as variable labels.
 2. MIDDLE: A classic AND gate (D-shape: flat back, semicircular front) outlined in dark gold (#D4AC0D, 3pt stroke), filled with soft cream (#FFF8E1), with a centered "∧" symbol in bold black serif.
 3. RIGHT: A stylized incandescent light bulb glowing soft yellow, indicating output. Wire turns yellow when output = T.
 4. Connect all parts with clean navy blue wires (#1F3A93, 1.5pt).
@@ -32,7 +32,7 @@ with exact verbatim Thai text rendering, sharp typographic accuracy, --ar 16:9
 03-or-gate-circuit.jpg
 nanobanana2 style, an educational electronic circuit diagram for a Thai discrete-mathematics textbook, clean off-white background (#FAFAFA), academic minimalist schematic style, print-quality 300 DPI rendering, minimum 2400x1350 pixels, crisp 2pt schematic line work, no cartoon characters.
 Layout (left → right):
-1. LEFT: Two parallel-connected toggle switches drawn as classic schematic lever switches, labeled in italic Latin letters only — "p" (top) and "q" (bottom). Strictly NO Thai labels (no ก, พ, ค).
+1. LEFT: Two clean input signal wires labeled in italic Latin letters only — "p" (top input) and "q" (bottom input). Strictly NO mechanical switches or Thai labels (no ก, พ, ค).
 2. MIDDLE: A classic OR gate (curved-back shield shape) outlined in dark green (#2E8B57, 3pt stroke), filled with light mint (#E8F5E9), with a centered "∨" symbol in bold black serif.
 3. RIGHT: A stylized incandescent light bulb glowing soft yellow when output = T.
 4. Connect with clean navy blue wires (#1F3A93, 1.5pt).

@@ -5,6 +5,7 @@
 \RequirePackage[most]{tcolorbox}
 \tcbuselibrary{skins,breakable,theorems}
 \usepackage{amsmath, amsthm, amssymb}
+\usepackage{centernot}
 \usepackage{fancybox} % ใช้สำหรับวาดกรอบวงรีโดยไม่พึ่ง tikz
 
 %% ─────────────── New Macros for Examples ───────────────
@@ -30,18 +31,20 @@
   \par\vspace{1.5em}%
 }
 
-%% Environment สำหรับขั้นตอนวิธีทำ (ไม่ใช้ตัวเลขกำกับ)
+%% Environment สำหรับขั้นตอนวิธีทำ (เน้นกึ่งกลางและขยับย่อหน้าให้อ่านง่าย)
 \newenvironment{solsteps}{%
-  \vspace{0.1em}%
+  \vspace{0.3em}%
   \begin{list}{}{%
-    \setlength{\topsep}{0.1em}%
-    \setlength{\itemsep}{0.35em}%
-    \setlength{\leftmargin}{0.8em}%
+    \setlength{\topsep}{0.2em}%
+    \setlength{\itemsep}{0.4em}%
+    \setlength{\leftmargin}{2.5em}%
+    \setlength{\rightmargin}{1.5em}%
     \setlength{\labelwidth}{0pt}%
     \setlength{\labelsep}{0pt}%
   }%
 }{%
   \end{list}%
+  \vspace{0.3em}%
 }
 
 %% ─────────────── Color Palette (Muted Pastel Theme) ───────────────
@@ -79,6 +82,7 @@
 
 \definecolor{proofBar}{HTML}{D5D8DC}  % Muted Light Gray
 \definecolor{proofBg}{HTML}{FAFAFA}
+\definecolor{proofTitle}{HTML}{566573} % Dark Gray for title bar
 
 %% ─────────────── Base Style Template ───────────────
 \tcbset{
@@ -95,16 +99,29 @@
   }
 }
 
-%% ── ทฤษฎีบท (thrm) ──────────────────────────────
-\tcolorboxenvironment{thrm}{
-  mathstylebase,
-  colback=white,
-  coltitle=thrmTitle,
-  colframe=thrmBar,
-  toprule=4pt,
-  leftrule=4pt,
-  rightrule=0pt,
-  bottomrule=0pt
+%% ── ทฤษฎีบท (thrm) — กล่องแถบหัวเข้ม "ทฤษฎีบท X.Y" (สไตล์เดียวกับนิยาม แต่สีน้ำเงิน) ──
+%% renew ทับ amsthm thrm (จาก main.tex) — ตัวนับ thrm ยังใช้ร่วมกับ ex/prop/rem/cor/warning
+\renewenvironment{thrm}[1][]{%
+  \par\refstepcounter{thrm}%
+  \def\@tsub{#1}%
+  \ifx\@tsub\@empty\def\@tttl{}\else\def\@tttl{\quad #1}\fi
+  \begin{tcolorbox}[
+    enhanced, breakable,
+    colback=white,
+    colframe=thrmBar,
+    boxrule=0.5pt,
+    arc=2pt, outer arc=2pt,
+    left=10pt, right=10pt, top=8pt, bottom=8pt,
+    before skip=12pt, after skip=12pt,
+    colbacktitle=thrmTitle,
+    coltitle=white,
+    fonttitle=\bfseries,
+    title={ทฤษฎีบท~\thethrm\@tttl}
+  ]%
+  \def\[{\begin{center}$\displaystyle}%
+  \def\]{$\end{center}}%
+}{%
+  \end{tcolorbox}%
 }
 
 %% ── นิยาม (definition) — กล่องแถบหัวเข้ม "บทนิยาม X.Y: ชื่อ" (สไตล์ prinmath) ──
@@ -126,6 +143,8 @@
     fonttitle=\bfseries,
     title={บทนิยาม~\thedefcnt\@dttl}
   ]%
+  \def\[{\begin{center}$\displaystyle}%
+  \def\]{$\end{center}}%
 }{%
   \end{tcolorbox}%
 }
@@ -139,28 +158,52 @@
   after skip=18pt
 }
 
-%% ── บทแทรก (prop) ───────────────────────────────
-\tcolorboxenvironment{prop}{
-  mathstylebase,
-  colback=white,
-  coltitle=propTitle,
-  colframe=propBar,
-  toprule=4pt,
-  leftrule=4pt,
-  rightrule=0pt,
-  bottomrule=0pt
+%% ── บทแทรก (prop) — กล่องแถบหัวเข้ม "บทแทรก X.Y" (สไตล์เดียวกับนิยาม) ──
+\renewenvironment{prop}[1][]{%
+  \par\refstepcounter{thrm}%
+  \def\@psub{#1}%
+  \ifx\@psub\@empty\def\@pttl{}\else\def\@pttl{\quad #1}\fi
+  \begin{tcolorbox}[
+    enhanced, breakable,
+    colback=white,
+    colframe=propBar,
+    boxrule=0.5pt,
+    arc=2pt, outer arc=2pt,
+    left=10pt, right=10pt, top=8pt, bottom=8pt,
+    before skip=12pt, after skip=12pt,
+    colbacktitle=propTitle,
+    coltitle=white,
+    fonttitle=\bfseries,
+    title={บทแทรก~\thethrm\@pttl}
+  ]%
+  \def\[{\begin{center}$\displaystyle}%
+  \def\]{$\end{center}}%
+}{%
+  \end{tcolorbox}%
 }
 
-%% ── หมายเหตุ (rem) ──────────────────────────────
-\tcolorboxenvironment{rem}{
-  mathstylebase,
-  colback=white,
-  coltitle=remTitle,
-  colframe=remBar,
-  toprule=4pt,
-  leftrule=4pt,
-  rightrule=0pt,
-  bottomrule=0pt
+%% ── หมายเหตุ (rem) — กล่องแถบหัวเข้ม "หมายเหตุ X.Y" (สไตล์เดียวกับนิยาม) ──
+\renewenvironment{rem}[1][]{%
+  \par\refstepcounter{thrm}%
+  \def\@rsub{#1}%
+  \ifx\@rsub\@empty\def\@rttl{}\else\def\@rttl{\quad #1}\fi
+  \begin{tcolorbox}[
+    enhanced, breakable,
+    colback=white,
+    colframe=remBar,
+    boxrule=0.5pt,
+    arc=2pt, outer arc=2pt,
+    left=10pt, right=10pt, top=8pt, bottom=8pt,
+    before skip=12pt, after skip=12pt,
+    colbacktitle=remTitle,
+    coltitle=white,
+    fonttitle=\bfseries,
+    title={หมายเหตุ~\thethrm\@rttl}
+  ]%
+  \def\[{\begin{center}$\displaystyle}%
+  \def\]{$\end{center}}%
+}{%
+  \end{tcolorbox}%
 }
 
 %% ── บทสรุป (cor) ────────────────────────────────
@@ -196,19 +239,25 @@
   after skip=14pt
 }
 
-%% ─────────────── Proof Environment ───────────────
-\tcolorboxenvironment{proof}{
-  enhanced jigsaw,
-  breakable,
-  colback=proofBg,
-  colframe=proofBar,
-  boxrule=0pt,
-  leftrule=2pt,
-  arc=0pt,
-  outer arc=0pt,
-  left=10pt, right=10pt, top=6pt, bottom=6pt,
-  before skip=8pt,
-  after skip=8pt,
+%% ─────────────── Proof Environment — กล่องแถบหัวเข้ม "พิสูจน์" (สไตล์เดียวกับนิยาม) ───────────────
+\renewenvironment{proof}[1][พิสูจน์]{%
+  \par
+  \begin{tcolorbox}[
+    enhanced, breakable,
+    colback=proofBg,
+    colframe=proofBar,
+    boxrule=0.5pt,
+    arc=2pt, outer arc=2pt,
+    left=10pt, right=10pt, top=8pt, bottom=8pt,
+    before skip=10pt, after skip=10pt,
+    colbacktitle=proofTitle,
+    coltitle=white,
+    fonttitle=\bfseries,
+    title={#1}
+  ]%
+}{%
+  \unskip\nobreak\hfill\qedsymbol
+  \end{tcolorbox}%
 }
 
 \endinput

@@ -50,7 +50,7 @@
   bitbox/.style={draw=navy,line width=1pt,minimum size=8.5mm,font=\ttfamily},
 }
 
-%% ---- check / cross marks (no pifont dependency) ----
-\newcommand{\cmark}{{\color{Tgreen}\ensuremath{\checkmark}}}
+%% ---- check / cross marks (no font dependency) ----
+\newcommand{\cmark}{\tikz[baseline=-.3ex]{\draw[Tgreen,line width=1.2pt] (0,0.85mm)--(0.7mm,0.15mm)--(1.7mm,1.4mm);}}
 \newcommand{\xmark}{\tikz[baseline=-.55ex]{\draw[Fred,line width=1.1pt]
   (0,0)--(1.7mm,1.7mm) (0,1.7mm)--(1.7mm,0);}}

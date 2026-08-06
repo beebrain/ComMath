@@ -1,0 +1,142 @@
+% !TeX program = xelatex
+%% =====================================================================
+%%  ใบกิจกรรมในชั้นเรียน (Worksheet) บทที่ 2 : ทฤษฎีเซต --- สัปดาห์ที่ 4
+%%  สร้างใบงานรายบุคคล: 1 หน้าต่อ 1 รหัสนักศึกษา (รายชื่อใน _students.tex)
+%%  พิมพ์รหัสนักศึกษา + QR Code (เนื้อหา QR: 4091606-W04-<รหัส>) สำหรับสแกนเก็บคะแนน
+%% =====================================================================
+\documentclass[a4paper,12pt]{article}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{qrcode}
+\usepackage{pgffor}
+
+\XeTeXlinebreaklocale "th_TH"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\setmainfont[Script=Thai,Scale=1.25]{TH Sarabun New}
+\definecolor{navy}{HTML}{1F3A93}
+\renewcommand{\arraystretch}{1.4}
+\setlist{topsep=3pt,itemsep=4pt}
+\pagestyle{empty}
+
+\input{_students}
+\qrset{height=2.1cm}
+
+%% ---------- หัวกระดาษรายบุคคล (#1 = รหัสนักศึกษา) ----------
+\newcommand{\wshead}[1]{%
+  \noindent
+  \begin{minipage}[c]{0.76\textwidth}
+    {\Large\bfseries\color{navy} ใบกิจกรรมในชั้นเรียน บทที่ 2 : ทฤษฎีเซต (สัปดาห์ที่ 4)}\\[0.2em]
+    {\normalsize รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์}\\[0.9em]
+    ชื่อ-สกุล: \dotfill\\[0.6em]
+    รหัสนักศึกษา: {\large\bfseries #1} \qquad กลุ่ม: \makebox[3cm]{\dotfill}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.2\textwidth}
+    \centering
+    \qrcode{4091606-W04-#1}\\[0.25em]
+    {\scriptsize\ttfamily #1}
+  \end{minipage}
+  \par\vspace{0.5em}\hrule\vspace{0.6em}
+}
+
+%% ---------- หัวกระดาษหน้าต่อ (ไม่ใส่ QR ซ้ำ) ----------
+\newcommand{\wsheadcontinued}[1]{%
+  \noindent
+  {\Large\bfseries\color{navy} ใบกิจกรรมในชั้นเรียน บทที่ 2 : ทฤษฎีเซต (สัปดาห์ที่ 4) --- หน้าที่ 2}\\[0.25em]
+  {\normalsize รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์}\\[0.7em]
+  ชื่อ-สกุล (ต่อ): \dotfill \qquad
+  รหัส: {\large\bfseries #1}
+  \par\vspace{0.5em}\hrule\vspace{0.6em}
+}
+
+%% ---------- เนื้อหาใบกิจกรรม 1 ชุด (#1 = รหัสนักศึกษา) ----------
+\newcommand{\wsbody}[1]{%
+\wshead{#1}
+\noindent\textbf{คำชี้แจง:} ทำกิจกรรมลงในใบนี้ \textbf{ภายในเวลาที่กำหนด} แสดงวิธีคิดให้ชัดเจน
+แล้วร่วมเฉลยและอภิปรายพร้อมกันในชั้นเรียน
+\vspace{0.5em}
+
+%% ---------- กิจกรรม 1 ----------
+\noindent\textbf{กิจกรรมที่ 1 : เขียนเซตสองแบบ} \hfill \textit{(6 นาที)}\\
+จงเขียนเซตต่อไปนี้ \textbf{แบบแจกแจงสมาชิก} (ข้อ 1--3) และ \textbf{แบบบอกเงื่อนไข} (ข้อ 4)
+\begin{enumerate}[label=\arabic*)]
+  \item เซตของจำนวนเต็มบวกที่น้อยกว่า 8 \hfill \makebox[6cm]{\dotfill}
+  \item $\{x \in \mathbb{Z} \mid x^2 = 9\}$ \hfill \makebox[6cm]{\dotfill}
+  \item เซตของสระในคำว่า \texttt{computer} \hfill \makebox[6cm]{\dotfill}
+  \item $\{2, 4, 6, 8, 10, \ldots\}$ \hfill \makebox[8cm]{\dotfill}
+\end{enumerate}
+\vspace{0.3em}
+
+%% ---------- กิจกรรม 2 ----------
+\noindent\textbf{กิจกรรมที่ 2 : จริงหรือเท็จ} \hfill \textit{(6 นาที)}\\
+กำหนด $A = \{1, 2, \{3\}\}$ จงเขียน T (จริง) หรือ F (เท็จ) พร้อมเหตุผลสั้น ๆ
+\begin{enumerate}[label=\arabic*)]
+  \item $1 \in A$ \hfill \makebox[7cm]{\dotfill}
+  \item $3 \in A$ \hfill \makebox[7cm]{\dotfill}
+  \item $\{3\} \in A$ \hfill \makebox[7cm]{\dotfill}
+  \item $\{3\} \subseteq A$ \hfill \makebox[7cm]{\dotfill}
+  \item $\{1, 2\} \subseteq A$ \hfill \makebox[7cm]{\dotfill}
+  \item $\emptyset \subseteq A$ \hfill \makebox[7cm]{\dotfill}
+\end{enumerate}
+\vspace{0.3em}
+
+%% ---------- กิจกรรม 3 ----------
+\noindent\textbf{กิจกรรมที่ 3 : จำแนกประเภทเซต} \hfill \textit{(6 นาที)}\\
+ก) จงระบุว่าเซตใดเป็น \textbf{เซตว่าง / เซตจำกัด / เซตอนันต์}
+\begin{enumerate}[label=\arabic*)]
+  \item $\{x \in \mathbb{N} \mid x < 100\}$ \hfill \makebox[5cm]{\dotfill}
+  \item $\{x \in \mathbb{R} \mid x^2 < 0\}$ \hfill \makebox[5cm]{\dotfill}
+  \item $\{x \in \mathbb{Z} \mid x \text{ หารด้วย 5 ลงตัว}\}$ \hfill \makebox[5cm]{\dotfill}
+\end{enumerate}
+ข) จงเขียน \textbf{เซตย่อยทั้งหมด} ของ $\{a, b\}$\\[0.3em]
+\noindent\textcolor{gray!60}{\hrulefill}\\[0.8em]
+\noindent\textcolor{gray!60}{\hrulefill}
+
+\clearpage
+\wsheadcontinued{#1}
+\noindent\textbf{คำชี้แจง:} แบบฝึกเสริมหน้านี้ให้แสดงวิธีคิดและตรวจคำตอบด้วยการแทนค่ากลับ
+\vspace{0.6em}
+
+%% ---------- กิจกรรม 4 ----------
+\noindent\textbf{กิจกรรมที่ 4 : แปลงรูปแบบของเซต} \hfill \textit{(8 นาที)}
+\begin{enumerate}[label=\arabic*)]
+  \item เขียน $A=\{x\in\mathbb{Z}\mid -4\leq x<3\}$ แบบแจกแจงสมาชิก\\[0.3em]
+  \noindent\textcolor{gray!60}{\hrulefill}\\[0.7em]
+  \item เขียน $B=\{1,4,9,16,25,36\}$ แบบบอกเงื่อนไข\\[0.3em]
+  \noindent\textcolor{gray!60}{\hrulefill}\\[0.7em]
+  \item เขียนเซตของจำนวนคี่บวกที่น้อยกว่า 15 ทั้งสองแบบ\\[0.3em]
+  \noindent\textcolor{gray!60}{\hrulefill}\\[0.7em]
+\end{enumerate}
+
+%% ---------- กิจกรรม 5 ----------
+\noindent\textbf{กิจกรรมที่ 5 : สมาชิกหรือเซตย่อย} \hfill \textit{(8 นาที)}\\
+กำหนด $C=\{0,\{0\},\emptyset\}$ จงเขียน T หรือ F พร้อมเหตุผลสั้น ๆ
+\begin{enumerate}[label=\arabic*)]
+  \item $0\in C$ \hfill เหตุผล: \makebox[8cm]{\dotfill}
+  \item $\{0\}\in C$ \hfill เหตุผล: \makebox[8cm]{\dotfill}
+  \item $\{0\}\subseteq C$ \hfill เหตุผล: \makebox[8cm]{\dotfill}
+  \item $\emptyset\in C$ \hfill เหตุผล: \makebox[8cm]{\dotfill}
+  \item $\emptyset\subseteq C$ \hfill เหตุผล: \makebox[8cm]{\dotfill}
+\end{enumerate}
+
+%% ---------- กิจกรรม 6 ----------
+\noindent\textbf{กิจกรรมที่ 6 : เซตย่อยของเซตสามสมาชิก} \hfill \textit{(8 นาที)}\\
+กำหนด $D=\{a,b,c\}$
+\begin{enumerate}[label=\arabic*)]
+  \item จงเขียนเซตย่อยทั้งหมดของ $D$\\[0.2em]
+  \noindent\textcolor{gray!60}{\hrulefill}\\[0.7em]
+  \noindent\textcolor{gray!60}{\hrulefill}\\[0.7em]
+  \item $D$ มีเซตย่อยทั้งหมดกี่เซต และคำนวณได้อย่างไร\\[0.2em]
+  \noindent\textcolor{gray!60}{\hrulefill}
+\end{enumerate}
+}
+
+\begin{document}
+\foreach \sid in \studentlist {%
+  \expandafter\wsbody\expandafter{\sid}%
+  \clearpage
+}
+\end{document}

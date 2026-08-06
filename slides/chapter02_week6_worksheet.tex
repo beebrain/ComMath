@@ -1,0 +1,136 @@
+% !TeX program = xelatex
+%% =====================================================================
+%%  ใบกิจกรรมในชั้นเรียน (Worksheet) บทที่ 2 : ทฤษฎีเซต --- สัปดาห์ที่ 6
+%%  สร้างใบงานรายบุคคล: 1 หน้าต่อ 1 รหัสนักศึกษา (รายชื่อใน _students.tex)
+%%  พิมพ์รหัสนักศึกษา + QR Code (เนื้อหา QR: 4091606-W06-<รหัส>) สำหรับสแกนเก็บคะแนน
+%% =====================================================================
+\documentclass[a4paper,12pt]{article}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{qrcode}
+\usepackage{pgffor}
+
+\XeTeXlinebreaklocale "th_TH"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\setmainfont[Script=Thai,Scale=1.25]{TH Sarabun New}
+\definecolor{navy}{HTML}{1F3A93}
+\renewcommand{\arraystretch}{1.4}
+\setlist{topsep=3pt,itemsep=4pt}
+\pagestyle{empty}
+
+\input{_students}
+\qrset{height=2.1cm}
+
+%% ---------- หัวกระดาษรายบุคคล (#1 = รหัสนักศึกษา) ----------
+\newcommand{\wshead}[1]{%
+  \noindent
+  \begin{minipage}[c]{0.76\textwidth}
+    {\Large\bfseries\color{navy} ใบกิจกรรมในชั้นเรียน บทที่ 2 : ทฤษฎีเซต (สัปดาห์ที่ 6)}\\[0.2em]
+    {\normalsize รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์}\\[0.9em]
+    ชื่อ-สกุล: \dotfill\\[0.6em]
+    รหัสนักศึกษา: {\large\bfseries #1} \qquad กลุ่ม: \makebox[3cm]{\dotfill}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.2\textwidth}
+    \centering
+    \qrcode{4091606-W06-#1}\\[0.25em]
+    {\scriptsize\ttfamily #1}
+  \end{minipage}
+  \par\vspace{0.5em}\hrule\vspace{0.6em}
+}
+
+%% ---------- เนื้อหาใบกิจกรรม 1 ชุด (#1 = รหัสนักศึกษา) ----------
+\newcommand{\wsbody}[1]{%
+\wshead{#1}
+\noindent\textbf{คำชี้แจง:} ทำกิจกรรมลงในใบนี้ \textbf{ภายในเวลาที่กำหนด} แสดงวิธีคิดให้ชัดเจน
+แล้วร่วมเฉลยและอภิปรายพร้อมกันในชั้นเรียน
+\vspace{0.5em}
+
+%% ---------- กิจกรรม 1 ----------
+\noindent\textbf{กิจกรรมที่ 1 : เพาเวอร์เซต} \hfill \textit{(6 นาที)}\\
+\begin{enumerate}[label=\arabic*)]
+  \item จงแจกแจง $\mathcal{P}(\{x, y, z\})$ ให้ครบทุกตัว\\[0.4em]
+        \textcolor{gray!60}{\hrulefill}\\[0.8em]
+        \textcolor{gray!60}{\hrulefill}
+  \item $|\mathcal{P}(\{x, y, z\})| =$ \makebox[3cm]{\dotfill} ตรงกับสูตร \makebox[3cm]{\dotfill} หรือไม่ \makebox[2cm]{\dotfill}
+  \item จริงหรือเท็จ: \quad $\emptyset \subseteq \mathcal{P}(A)$ \makebox[2cm]{\dotfill} \quad
+        $\emptyset \in \mathcal{P}(A)$ \makebox[2cm]{\dotfill}
+\end{enumerate}
+\vspace{0.3em}
+
+%% ---------- กิจกรรม 2 ----------
+\noindent\textbf{กิจกรรมที่ 2 : ผลคูณคาร์ทีเซียน} \hfill \textit{(6 นาที)}\\
+กำหนด $A = \{1, 2\}$ และ $B = \{a, b, c\}$
+\begin{enumerate}[label=\arabic*)]
+  \item $A \times B =$ \makebox[9cm]{\dotfill}
+  \item $|A \times B| =$ \makebox[3cm]{\dotfill}
+  \item $B \times A$ เท่ากับ $A \times B$ หรือไม่ เพราะเหตุใด\\[0.4em]
+        \textcolor{gray!60}{\hrulefill}
+  \item $|\{1,2\} \times \{3,4\} \times \{5,6\}| =$ \makebox[3cm]{\dotfill}
+\end{enumerate}
+\vspace{0.3em}
+
+%% ---------- กิจกรรม 3 ----------
+\noindent\textbf{กิจกรรมที่ 3 : หลักการรวม-การแยก} \hfill \textit{(8 นาที)}\\
+ชมรมกีฬามีสมาชิก 45 คน เล่นฟุตบอล 28 คน เล่นบาสเกตบอล 19 คน และเล่น \textbf{ทั้งสองอย่าง} 8 คน
+(เขียนสูตรที่ใช้ประกอบทุกข้อ)
+\begin{enumerate}[label=\arabic*)]
+  \item จำนวนคนที่เล่นกีฬาอย่างน้อยหนึ่งอย่าง\\[0.4em]
+        \textcolor{gray!60}{\hrulefill}
+  \item จำนวนคนที่ไม่เล่นกีฬาเลย\\[0.4em]
+        \textcolor{gray!60}{\hrulefill}
+  \item จำนวนคนที่เล่นฟุตบอลอย่างเดียว\\[0.4em]
+        \textcolor{gray!60}{\hrulefill}
+\end{enumerate}
+\vspace{0.3em}
+
+%% ---------- ท้าทายพิเศษ ----------
+\noindent\textbf{ท้าทายพิเศษ (ทำเมื่อเสร็จก่อนเวลา):}
+bit vector ของ $A = \{2, 5, 7\}$ ใน $U = \{1, \ldots, 9\}$ คือ \makebox[4cm]{\dotfill}
+
+\clearpage
+\wshead{#1}
+\noindent\textbf{คำชี้แจง:} แบบฝึกเสริมหน้านี้ให้แจกแจงข้อมูลและเขียนสูตรก่อนคำนวณ
+\vspace{0.5em}
+
+\noindent\textbf{กิจกรรมที่ 4 : เพาเวอร์เซตและการนับ} \hfill \textit{(8 นาที)}
+\begin{enumerate}[label=\arabic*)]
+  \item จงเขียน $\mathcal{P}(\{1,2,3,4\})$ ให้ครบทุกเซต\\[0.2em]
+  \textcolor{gray!60}{\hrulefill}\\[0.7em]
+  \textcolor{gray!60}{\hrulefill}\\[0.7em]
+  \textcolor{gray!60}{\hrulefill}\\[0.7em]
+  \item เพาเวอร์เซตนี้มีสมาชิกกี่ตัว และสัมพันธ์กับเลขฐานสองอย่างไร\\[0.2em]
+  \textcolor{gray!60}{\hrulefill}
+\end{enumerate}
+
+\noindent\textbf{กิจกรรมที่ 5 : ผลคูณคาร์ทีเซียนในโปรแกรม} \hfill \textit{(8 นาที)}\\
+กำหนด $X=\{\texttt{red},\texttt{blue}\}$ และ $Y=\{S,M,L\}$
+\begin{enumerate}[label=\arabic*)]
+  \item เขียน $X\times Y$ ให้ครบทุกคู่อันดับ\\[0.2em]
+  \textcolor{gray!60}{\hrulefill}\\[0.7em]
+  \item เขียน $Y\times X$ และอธิบายว่าเหตุใดจึงไม่เท่ากับ $X\times Y$\\[0.2em]
+  \textcolor{gray!60}{\hrulefill}\\[0.7em]
+  \item ถ้าเพิ่มขนาด XL ใน $Y$ จะมีตัวเลือกทั้งหมดกี่แบบ\\[0.2em]
+  \textcolor{gray!60}{\hrulefill}
+\end{enumerate}
+
+\noindent\textbf{กิจกรรมที่ 6 : หลักการรวม--การแยกสามเซต} \hfill \textit{(8 นาที)}\\
+สำรวจนักศึกษา 60 คน พบว่าชอบ Python 32 คน, Java 28 คน, JavaScript 25 คน,
+ชอบเป็นคู่ 12, 10, 9 คนตามลำดับ และชอบทั้งสามภาษา 5 คน
+\begin{enumerate}[label=\arabic*)]
+  \item ชอบอย่างน้อยหนึ่งภาษากี่คน (เขียนสูตรสามเซต)\\[0.2em]
+  \textcolor{gray!60}{\hrulefill}\\[0.7em]
+  \item ไม่ชอบทั้งสามภาษากี่คน\\[0.2em]
+  \textcolor{gray!60}{\hrulefill}
+\end{enumerate}
+}
+
+\begin{document}
+\foreach \sid in \studentlist {%
+  \expandafter\wsbody\expandafter{\sid}%
+  \clearpage
+}
+\end{document}

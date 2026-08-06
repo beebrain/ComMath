@@ -1,0 +1,566 @@
+
+%% ====================== ปก ======================
+\begin{frame}[plain]
+  \maketitle
+\end{frame}
+
+%% ====================== เชื่อมจากบทที่ 1 ======================
+\begin{frame}{จากบทที่ 1 (ตรรกศาสตร์) สู่บทที่ 2 (ทฤษฎีเซต)}
+  บทที่ 1 เราเรียน ``ภาษาของการให้เหตุผล'' บทนี้เราเรียน ``ภาษาของการจัดกลุ่ม''
+  \begin{center}
+  \begin{tabular}{|l|l|}
+    \hline
+    \textbf{ตรรกศาสตร์ (บทที่ 1)} & \textbf{ทฤษฎีเซต (บทที่ 2)} \\ \hline
+    ประพจน์ $p$ & เซต $A$ \\ \hline
+    ``และ'' $\land$ & อินเตอร์เซกชัน $\cap$ \\ \hline
+    ``หรือ'' $\lor$ & ยูเนียน $\cup$ \\ \hline
+    นิเสธ $\neg$ & คอมพลีเมนต์ $^c$ \\ \hline
+    สัจนิรันดร์ (T) & เอกภพสัมพัทธ์ $U$ \\ \hline
+    ข้อขัดแย้ง (F) & เซตว่าง $\emptyset$ \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \begin{exampleblock}{}
+    กฎทุกข้อที่เรียนในบทที่ 1 (เดอมอร์แกน แจกแจง ดูดกลืน ฯลฯ) จะกลับมาอีกครั้งใน ``เสื้อคลุมของเซต''
+  \end{exampleblock}
+\end{frame}
+
+%% ====================== วัตถุประสงค์ ======================
+\begin{frame}{วัตถุประสงค์การเรียนรู้ (สัปดาห์ที่ 4)}
+  เมื่อเรียนจบสัปดาห์นี้ นักศึกษาจะสามารถ
+  \begin{enumerate}
+    \item อธิบายความหมายของ \textbf{เซตและสมาชิก} และใช้สัญลักษณ์ $\in,\ \notin$ ได้ถูกต้อง
+    \item เขียนเซตแบบ \textbf{แจกแจงสมาชิก} และแบบ \textbf{บอกเงื่อนไข} และแปลงระหว่างสองแบบได้
+    \item จำแนก \textbf{เซตว่าง เซตจำกัด เซตอนันต์} และเอกภพสัมพัทธ์ได้
+    \item ตรวจสอบ \textbf{เซตย่อย} ($\subseteq$) \textbf{เซตย่อยแท้} ($\subsetneq$) และแยกความต่างระหว่าง $\in$ กับ $\subseteq$ ได้
+  \end{enumerate}
+  \vspace{0.5em}
+  \begin{exampleblock}{สัปดาห์ที่ 5--6 จะต่อด้วย}
+    การดำเนินการระหว่างเซต $\rightarrow$ กฎเดอมอร์แกน $\rightarrow$ เพาเวอร์เซต
+    $\rightarrow$ ผลคูณคาร์ทีเซียน $\rightarrow$ การนับสมาชิกและการประยุกต์
+  \end{exampleblock}
+\end{frame}
+
+%% ====================== หัวข้อ ======================
+\begin{frame}{หัวข้อที่จะศึกษาในสัปดาห์นี้}
+  \tableofcontents
+\end{frame}
+
+
+%% =====================================================================
+\section{บทนำ: ทำไมต้องเรียนทฤษฎีเซต}
+%% =====================================================================
+
+\begin{frame}{เซตอยู่รอบตัวเรา}
+  ในชีวิตประจำวัน เราจัดกลุ่มสิ่งต่าง ๆ อยู่ตลอดเวลา
+  \begin{itemize}
+    \item เพลย์ลิสต์เพลงโปรด = \textbf{กลุ่มของเพลง}
+    \item รายชื่อเพื่อนในกลุ่ม LINE = \textbf{กลุ่มของคน}
+    \item ตะกร้าสินค้าออนไลน์ = \textbf{กลุ่มของสินค้า}
+    \item โฟลเดอร์ในเครื่อง = \textbf{กลุ่มของไฟล์}
+  \end{itemize}
+  \vspace{0.5em}
+  \begin{block}{ในทางคณิตศาสตร์}
+    กลุ่มของสิ่งต่าง ๆ เรียกว่า \textbf{เซต (Set)} และสิ่งที่อยู่ในกลุ่มเรียกว่า \textbf{สมาชิก (Element)}
+  \end{block}
+  \vspace{0.4em}
+  ทฤษฎีเซตคือ ``ภาษากลาง'' ที่คณิตศาสตร์ทุกสาขาใช้ร่วมกัน เหมือนตัวอักษรที่เป็นพื้นฐานของภาษา
+\end{frame}
+
+\begin{frame}{ประวัติโดยสังเขป: Georg Cantor}
+  \begin{itemize}
+    \item ทฤษฎีเซตพัฒนาอย่างเป็นระบบโดย \textbf{Georg Cantor} (1845--1918)
+          นักคณิตศาสตร์ชาวเยอรมัน ช่วงปลายศตวรรษที่ 19
+    \item จุดเริ่มต้น: ศึกษาอนุกรมฟูเรียร์ แล้วตั้งคำถามกับธรรมชาติของ \textbf{ความไม่สิ้นสุด (Infinity)}
+    \item ผลงานที่สั่นสะเทือนวงการ: \textbf{ความอนันต์มีหลายระดับ!}
+      \begin{itemize}
+        \item เซตจำนวนเต็ม $\mathbb{Z}$ กับจำนวนตรรกยะ $\mathbb{Q}$ มี ``ขนาดเท่ากัน''
+        \item แต่เซตจำนวนจริง $\mathbb{R}$ ``ใหญ่กว่า'' อย่างพิสูจน์ได้
+      \end{itemize}
+  \end{itemize}
+  \vspace{0.4em}
+  \begin{exampleblock}{เกร็ด}
+    แนวคิดของ Cantor ถูกต่อต้านอย่างหนักในยุคแรก แต่ปัจจุบันเป็น \textbf{รากฐานของคณิตศาสตร์ทั้งหมด}
+    (เราจะได้ชิมเรื่อง ``อนันต์หลายระดับ'' ในสัปดาห์ที่ 6)
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{เซตกับวิทยาการคอมพิวเตอร์}
+  \begin{itemize}
+    \item \textbf{โครงสร้างข้อมูล} \eng{Data Structures} -- Array, List, Hash Set, Tree ล้วนคือการจัดเก็บ ``กลุ่มของข้อมูล''
+    \item \textbf{ฐานข้อมูล} \eng{Database} -- SQL คือการดำเนินการระหว่างเซต: \texttt{UNION}, \texttt{INTERSECT}, \texttt{EXCEPT}
+    \item \textbf{ทฤษฎีภาษา} \eng{Language Theory} -- ตัวอักษร สายอักขระ และภาษา ล้วนนิยามด้วยเซต
+    \item \textbf{ความน่าจะเป็น} -- ปริภูมิตัวอย่างและเหตุการณ์ คือเซตและเซตย่อย
+    \item \textbf{ปัญญาประดิษฐ์} -- ฐานความรู้และการอนุมาน คือการดำเนินการบนเซตของข้อเท็จจริง
+  \end{itemize}
+  \vspace{0.4em}
+  \begin{exampleblock}{มุมมองสำคัญ}
+    เข้าใจเซต = เข้าใจรากของ SQL, โครงสร้างข้อมูล และคณิตศาสตร์ทุกบทที่เหลือของวิชานี้
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{เซตในภาษา Python}
+  ภาษาโปรแกรมสมัยใหม่มีชนิดข้อมูล ``เซต'' ให้ใช้โดยตรง
+  \begin{block}{ตัวอย่าง Python}
+    \texttt{>>> A = \{1, 2, 2, 3, 3, 3\}} \\
+    \texttt{>>> A} \\
+    \texttt{\{1, 2, 3\}} \hfill \eng{สมาชิกซ้ำถูกตัดทิ้งอัตโนมัติ} \\[0.4em]
+    \texttt{>>> 2 in A} \hfill \eng{ทดสอบการเป็นสมาชิก} \\
+    \texttt{True}
+  \end{block}
+  \vspace{0.4em}
+  \begin{itemize}
+    \item เซตของ Python ทำงานตรงตามนิยามคณิตศาสตร์: \textbf{ไม่มีลำดับ ไม่มีสมาชิกซ้ำ}
+    \item ถ้าต้องการเก็บซ้ำ/มีลำดับ ต้องใช้ \texttt{list} แทน --- นี่คือเหตุผลที่ต้องแยกแนวคิดให้ชัด
+  \end{itemize}
+\end{frame}
+
+
+%% =====================================================================
+\section{นิยามพื้นฐาน: เซต สมาชิก และวิธีเขียนเซต}
+%% =====================================================================
+
+\begin{frame}{เซตและสมาชิก}
+  \begin{block}{นิยาม}
+    \textbf{เซต (Set)} คือ กลุ่มของวัตถุที่ระบุไว้อย่างชัดเจน เรียกวัตถุแต่ละชิ้นว่า
+    \textbf{สมาชิก (Element)} ของเซต
+    \begin{itemize}
+      \item $a \in A$ อ่านว่า ``$a$ \textbf{เป็นสมาชิกของ} $A$''
+      \item $a \notin A$ อ่านว่า ``$a$ \textbf{ไม่เป็นสมาชิกของ} $A$''
+    \end{itemize}
+  \end{block}
+  \vspace{0.3em}
+  ตัวอย่าง: ให้ $A = \{1, 2, 3, 4, 5\}$
+  \begin{itemize}
+    \item $3 \in A$ \hfill $\Rightarrow$ \TT
+    \item $7 \in A$ \hfill $\Rightarrow$ \FF \quad (นั่นคือ $7 \notin A$)
+  \end{itemize}
+  \vspace{0.3em}
+  ข้อความ $a \in A$ ตัดสินได้ว่าจริงหรือเท็จเสมอ จึงเป็น \textbf{ประพจน์} ตามบทที่ 1
+  --- เขียนเป็นกฎกีดกันกลางได้ว่า $(a \in A) \lor (a \notin A)$
+\end{frame}
+
+\begin{frame}{เซตของจำนวนที่ต้องรู้จัก}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      \begin{itemize}\small
+        \item $\mathbb{N} = \{0, 1, 2, 3, \ldots\}$ \\ \textbf{จำนวนนับ} \eng{Natural Numbers}
+        \item $\mathbb{Z} = \{\ldots, -2, -1, 0, 1, 2, \ldots\}$ \\ \textbf{จำนวนเต็ม} \eng{Integers, มาจาก Zahlen}
+        \item $\mathbb{Q} = \left\{\tfrac{a}{b} \,\middle|\, a, b \in \mathbb{Z},\ b \neq 0\right\}$ \\ \textbf{จำนวนตรรกยะ} \eng{Rational, มาจาก Quotient}
+        \item $\mathbb{R}$ = \textbf{จำนวนจริง} \eng{Real Numbers} \\ รวมจำนวนอตรรกยะ เช่น $\sqrt{2}, \pi, e$
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.46\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=0.78,every node/.style={font=\small}]
+        \draw[fill=lightnavy] (0,0) ellipse (3.1 and 1.95);
+        \node at (0,1.62) {$\mathbb{R}$};
+        \draw[fill=lyellow] (-0.25,-0.18) ellipse (2.3 and 1.35);
+        \node at (-0.25,0.92) {$\mathbb{Q}$};
+        \draw[fill=mint] (-0.5,-0.35) ellipse (1.55 and 0.85);
+        \node at (-0.5,0.28) {$\mathbb{Z}$};
+        \draw[fill=lpink] (-0.7,-0.5) ellipse (0.85 and 0.42);
+        \node at (-0.7,-0.5) {$\mathbb{N}$};
+        \node at (2.05,-1.3) {$\sqrt{2},\ \pi$};
+      \end{tikzpicture}
+      \end{center}
+      \centering\small
+      $\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}$
+    \end{column}
+  \end{columns}
+  \vspace{0.3em}
+  \footnotesize ข้อตกลงของตำราเล่มนี้: $\mathbb{N}$ เริ่มที่ 0
+\end{frame}
+
+\begin{frame}{เช็กความเข้าใจเร็ว: จริงหรือเท็จ?}
+  พิจารณาข้อความต่อไปนี้ (คิดในใจ 1 นาที แล้วร่วมกันเฉลย)
+  \begin{enumerate}
+    \item $\sqrt{2} \in \mathbb{Q}$
+    \item $0.75 \in \mathbb{Q}$
+    \item $-3 \in \mathbb{N}$
+    \item $0.\overline{3} \in \mathbb{Q}$
+    \item $\pi \in \mathbb{R}$
+  \end{enumerate}
+  \pause
+  \begin{exampleblock}{เฉลย}
+    \footnotesize
+    1) \FF\ ($\sqrt{2}$ เป็นจำนวนอตรรกยะ) \quad
+    2) \TT\ ($0.75 = \tfrac{3}{4}$) \quad
+    3) \FF\ ($\mathbb{N}$ ไม่มีจำนวนลบ แต่ $-3 \in \mathbb{Z}$) \quad
+    4) \TT\ ($0.\overline{3} = \tfrac{1}{3}$) \quad
+    5) \TT
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{วิธีเขียนเซตแบบที่ 1: แจกแจงสมาชิก}
+  \begin{block}{แจกแจงสมาชิก (Roster Method)}
+    เขียนสมาชิก \textbf{ทุกตัว} ในวงเล็บปีกกา $\{\ \}$ คั่นด้วยจุลภาค เช่น
+    $A = \{1, 2, 3\}$ \quad $B = \{a, e, i, o, u\}$
+  \end{block}
+  \vspace{0.3em}
+  กติกาสำคัญ 2 ข้อของเซต
+  \begin{enumerate}
+    \item \textbf{ไม่มีลำดับ} \eng{Unordered}: $\{1, 2\} = \{2, 1\}$
+    \item \textbf{ไม่มีสมาชิกซ้ำ} \eng{No Duplicates}: $\{1, 1, 2, 2, 3\} = \{1, 2, 3\}$
+  \end{enumerate}
+  \vspace{0.3em}
+  \begin{exampleblock}{เมื่อสมาชิกเยอะแต่มีแบบรูปชัดเจน ใช้จุดไข่ปลา (ellipsis)}
+    $\{1, 2, 3, \ldots, 100\}$ = จำนวนเต็ม 1 ถึง 100 \\
+    \footnotesize ข้อควรระวัง: เขียนสมาชิกอย่างน้อย 2--3 ตัวก่อน $\ldots$ เพื่อให้ผู้อ่านเดาแบบรูปได้
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{วิธีเขียนเซตแบบที่ 2: บอกเงื่อนไข}
+  \begin{block}{บอกเงื่อนไขของสมาชิก (Set-builder Notation)}
+    เขียนในรูป $\{x \mid \text{เงื่อนไขที่ } x \text{ ต้องเป็นจริง}\}$
+    อ่านว่า ``เซตของ $x$ \textbf{โดยที่} \ldots'' เหมาะกับเซตที่มีสมาชิกมากหรือเป็นอนันต์
+  \end{block}
+  \vspace{0.3em}
+  ตัวอย่าง
+  \begin{itemize}
+    \item $\{x \in \mathbb{Z} \mid x > 0\}$ = จำนวนเต็มบวก ($\mathbb{Z}^+$)
+    \item $\{x \in \mathbb{Z} \mid x \text{ หารด้วย 2 ลงตัว}\}$ = จำนวนคู่
+    \item $\{x \in \mathbb{R} \mid x^2 - 5x + 6 = 0\} = \{2, 3\}$ = เซตคำตอบของสมการ
+  \end{itemize}
+  \vspace{0.3em}
+  \begin{exampleblock}{เทียบกับการเขียนโปรแกรม}
+    Set-builder คล้าย list comprehension ของ Python: \\
+    \texttt{\{x for x in range(100) if x \% 2 == 0\}} $\;\approx\; \{x \in \mathbb{N} \mid x < 100,\ x \text{ เป็นจำนวนคู่}\}$
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{ตัวอย่าง: แปลงจากบอกเงื่อนไขเป็นแจกแจงสมาชิก}
+  จงเขียนเซตต่อไปนี้แบบแจกแจงสมาชิก
+  \begin{enumerate}
+    \item $B = \{n^2 \mid n \in \mathbb{N} \text{ และ } n < 5\}$
+    \item $C = \{x \in \mathbb{R} \mid x^2 - 5x + 6 = 0\}$
+    \item $D = \{x \in \mathbb{R} \mid x^2 + 1 = 0\}$
+  \end{enumerate}
+  \pause
+  \begin{exampleblock}{เฉลย}
+    \begin{enumerate}\footnotesize
+      \item แทน $n = 0, 1, 2, 3, 4$ ได้ $B = \{0, 1, 4, 9, 16\}$
+      \item แยกตัวประกอบ $(x-2)(x-3) = 0$ ได้ $C = \{2, 3\}$
+      \item ไม่มีจำนวนจริงที่ $x^2 = -1$ ได้ $D = \emptyset$ \quad (เซตว่าง!)
+    \end{enumerate}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{เซตพิเศษที่ต้องรู้จัก}
+  \begin{itemize}
+    \item \textbf{เซตว่าง (Empty Set)} $\emptyset$ หรือ $\{\ \}$ --- เซตที่ไม่มีสมาชิกเลย
+    \item \textbf{เซตที่มีสมาชิกตัวเดียว (Singleton Set)} เช่น $\{5\},\ \{a\},\ \{\emptyset\}$
+    \item \textbf{เอกภพสัมพัทธ์ (Universal Set)} $U$ --- ``กรอบอ้างอิง'' ที่รวมทุกสิ่งที่สนใจในบริบทนั้น
+          เช่น ศึกษาเรื่องจำนวน อาจให้ $U = \mathbb{R}$
+    \item \textbf{เซตจำกัด (Finite Set)} --- นับจำนวนสมาชิกได้จบ เช่น $\{1,2,3\}$
+    \item \textbf{เซตอนันต์ (Infinite Set)} --- สมาชิกไม่สิ้นสุด เช่น $\mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{R}$
+  \end{itemize}
+  \vspace{0.4em}
+  \begin{exampleblock}{}
+    เซตว่างเป็นเซตย่อยของ \textbf{ทุกเซต}: $\emptyset \subseteq A$ เสมอ
+    (จริงแบบ vacuous truth --- ``สมาชิกทุกตัวของ $\emptyset$'' ไม่มีให้ขัดแย้ง)
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{ระวัง! $\emptyset$ ไม่เท่ากับ $\{\emptyset\}$}
+  \begin{alertblock}{ความเข้าใจผิดที่พบบ่อย}
+    $\emptyset$ คือเซตที่ \textbf{ไม่มีสมาชิกเลย} \quad แต่ $\{\emptyset\}$ คือเซตที่ \textbf{มีสมาชิก 1 ตัว}
+    (สมาชิกตัวนั้นคือ $\emptyset$)
+  \end{alertblock}
+  \vspace{0.4em}
+  \begin{center}
+  \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{เซต} & \textbf{จำนวนสมาชิก} & \textbf{เปรียบเทียบ} \\ \hline
+    $\emptyset$ & 0 & กล่องเปล่า \\ \hline
+    $\{\emptyset\}$ & 1 & กล่องที่มี ``กล่องเปล่า'' ข้างใน \\ \hline
+    $\{\{\emptyset\}\}$ & 1 & กล่องที่มี ``กล่องซ้อนกล่องเปล่า'' \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.4em}
+  ดังนั้น $\emptyset \neq \{\emptyset\} \neq \{\{\emptyset\}\}$ \quad และ $|\emptyset| = 0$ แต่ $|\{\emptyset\}| = 1$
+\end{frame}
+
+
+%% =====================================================================
+\section{ความสัมพันธ์ระหว่างเซต: เซตย่อยและความเท่ากัน}
+%% =====================================================================
+
+\begin{frame}{เซตย่อย (Subset)}
+  \begin{block}{นิยาม}
+    $A$ เป็น \textbf{เซตย่อย} ของ $B$ เขียน $A \subseteq B$ ก็ต่อเมื่อ
+    \textbf{ทุกสมาชิกของ $A$ เป็นสมาชิกของ $B$} ด้วย \\
+    เขียนด้วยตัวบ่งปริมาณ (บทที่ 1): $\forall x\, (x \in A \rightarrow x \in B)$
+  \end{block}
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      ตัวอย่าง
+      \begin{itemize}\small
+        \item $\{1, 2\} \subseteq \{1, 2, 3\}$ \hfill \TT
+        \item $\{1, 2\} \subseteq \{2, 3\}$ \hfill \FF\ \footnotesize(เพราะ $1 \notin \{2,3\}$)
+        \item $\emptyset \subseteq \{1, 2\}$ \hfill \TT
+        \item $A \subseteq A$ เสมอ \hfill \TT
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=0.72,every node/.style={font=\small}]
+        \draw (-2.1,-1.5) rectangle (2.1,1.6);
+        \draw[fill=lightnavy] (0,0) circle (1.25);
+        \draw[fill=mint] (-0.3,-0.2) circle (0.62);
+        \node at (0.75,0.85) {$B$};
+        \node at (-0.3,-0.2) {$A$};
+        \node at (1.85,1.38) {$U$};
+      \end{tikzpicture}\\
+      $A \subseteq B$
+      \end{center}
+    \end{column}
+  \end{columns}
+  \vspace{0.2em}
+  \footnotesize วิธีพิสูจน์ $A \subseteq B$: สมมติ $x \in A$ แล้วแสดงว่า $x \in B$ (direct proof)
+\end{frame}
+
+\begin{frame}{เซตย่อยแท้ และความเท่ากันของเซต}
+  \begin{block}{เซตย่อยแท้ (Proper Subset)}
+    $A \subsetneq B$ ก็ต่อเมื่อ $A \subseteq B$ \textbf{และ} $A \neq B$
+    (เป็นเซตย่อยแต่ ``เล็กกว่าจริง ๆ'') เช่น $\{1, 2\} \subsetneq \{1, 2, 3\}$
+  \end{block}
+  \vspace{0.4em}
+  \begin{block}{ความเท่ากันของเซต (Extensionality)}
+    \centering
+    $A = B$ \quad ก็ต่อเมื่อ \quad $A \subseteq B$ \textbf{และ} $B \subseteq A$
+  \end{block}
+  \vspace{0.4em}
+  \begin{exampleblock}{เทคนิคพิสูจน์มาตรฐาน: double inclusion}
+    จะพิสูจน์ว่าเซตสองเซตเท่ากัน ให้พิสูจน์การเป็นเซตย่อย \textbf{สองทิศทาง} \\
+    (1) $A \subseteq B$: ทุก $x \in A \Rightarrow x \in B$ \qquad
+    (2) $B \subseteq A$: ทุก $x \in B \Rightarrow x \in A$ \\
+    เทคนิคนี้จะใช้หนักมากในสัปดาห์ที่ 5!
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{จุดที่พลาดบ่อยที่สุด: $\in$ กับ $\subseteq$}
+  \begin{alertblock}{ต่างกันอย่างไร}
+    $\in$ = ความสัมพันธ์ระหว่าง \textbf{สมาชิก} กับ \textbf{เซต} \qquad
+    $\subseteq$ = ความสัมพันธ์ระหว่าง \textbf{เซต} กับ \textbf{เซต}
+  \end{alertblock}
+  \vspace{0.3em}
+  ให้ $A = \{1, 2, 3\}$
+  \begin{center}
+  \begin{tabular}{|l|c|l|}
+    \hline
+    \textbf{ข้อความ} & \textbf{จริง/เท็จ} & \textbf{เหตุผล} \\ \hline
+    $1 \in A$ & \TT & 1 เป็นสมาชิกของ $A$ \\ \hline
+    $\{1\} \in A$ & \FF & สมาชิกของ $A$ คือ $1,2,3$ ไม่ใช่เซต $\{1\}$ \\ \hline
+    $\{1\} \subseteq A$ & \TT & สมาชิกทุกตัวของ $\{1\}$ อยู่ใน $A$ \\ \hline
+    $\emptyset \subseteq A$ & \TT & เซตว่างเป็นเซตย่อยของทุกเซต \\ \hline
+    $\emptyset \in A$ & \FF & $\emptyset$ ไม่ใช่สมาชิกตัวใดของ $A$ \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \footnotesize แต่ทั้งคู่จริงพร้อมกันได้ เช่น $\emptyset \in \{\emptyset\}$ และ $\emptyset \subseteq \{\emptyset\}$ ต่างก็จริง!
+\end{frame}
+
+\begin{frame}{เกร็ดปิดท้าย: ปฏิทรรศน์ของช่างตัดผม}
+  \begin{block}{เรื่องเล่า (Bertrand Russell, 1901)}
+    ช่างตัดผมประจำหมู่บ้านประกาศว่า ``ผมจะโกนหนวดให้ \textbf{เฉพาะ} คนที่ไม่โกนหนวดตัวเอง''
+    \\ \centering \textbf{คำถาม: แล้วใครโกนหนวดให้ช่างตัดผม?}
+  \end{block}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item ถ้าช่างโกนให้ตัวเอง $\rightarrow$ ผิดประกาศ (เขาโกนให้เฉพาะคนที่ \emph{ไม่} โกนเอง)
+    \item ถ้าช่างไม่โกนให้ตัวเอง $\rightarrow$ ต้องโกนให้ตัวเอง (ตามประกาศ) --- ขัดแย้งทั้งสองทาง!
+  \end{itemize}
+  \vspace{0.3em}
+  ในภาษาเซต: $R = \{x \mid x \notin x\}$ แล้วถามว่า $R \in R$ หรือไม่ ---
+  คือ \textbf{ปฏิทรรศน์ของรัสเซลล์ (Russell's Paradox)}
+  \vspace{0.3em}
+  \begin{exampleblock}{บทเรียน}
+    ``กลุ่มของอะไรก็ได้'' ไม่เป็นเซตเสมอไป --- จึงต้องมี \textbf{เอกภพสัมพัทธ์ $U$} คอยกำกับขอบเขต
+  \end{exampleblock}
+\end{frame}
+
+
+%% =====================================================================
+\section{กิจกรรมในชั้นเรียน (แบบฝึกหัดทำในห้อง)}
+%% =====================================================================
+
+\begin{frame}{วิธีทำกิจกรรม}
+  \begin{block}{คำชี้แจง}
+    ให้นักศึกษาทำกิจกรรมต่อไปนี้ \textbf{ลงในใบกิจกรรม (Worksheet)} ภายในเวลาที่กำหนด
+    แล้วร่วมเฉลยและอภิปรายพร้อมกัน
+  \end{block}
+  \vspace{0.5em}
+  \begin{itemize}
+    \item ทำเดี่ยวหรือจับคู่ก็ได้ (ตามที่อาจารย์กำหนด)
+    \item เมื่อหมดเวลา อาจารย์จะคลิกเพื่อ \textbf{เฉลย} ทีละข้อ
+    \item อาสาสมัครออกมาอธิบายวิธีคิดหน้าชั้น
+  \end{itemize}
+  \vspace{0.5em}
+  \begin{exampleblock}{เกณฑ์}
+    เน้นกระบวนการคิดและการให้เหตุผล ไม่ใช่แค่คำตอบสุดท้าย
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 1: เขียนเซตสองแบบ \eng{6 นาที}}
+  จงเขียนเซตต่อไปนี้ \textbf{แบบแจกแจงสมาชิก}
+  \begin{enumerate}
+    \item เซตของจำนวนเต็มบวกที่น้อยกว่า 8
+    \item $\{x \in \mathbb{Z} \mid x^2 = 9\}$
+    \item เซตของสระในคำว่า \texttt{computer} (ตัวอักษรภาษาอังกฤษ)
+  \end{enumerate}
+  และจงเขียนเซตต่อไปนี้ \textbf{แบบบอกเงื่อนไข}
+  \begin{enumerate}
+    \setcounter{enumi}{3}
+    \item $\{2, 4, 6, 8, 10, \ldots\}$
+  \end{enumerate}
+  \pause
+  \begin{exampleblock}{เฉลย}
+    \footnotesize
+    1) $\{1, 2, 3, 4, 5, 6, 7\}$ \quad
+    2) $\{-3, 3\}$ (อย่าลืมค่าลบ!) \quad
+    3) $\{o, u, e\}$ (ไม่ซ้ำ ไม่มีลำดับ) \quad
+    4) $\{x \in \mathbb{Z} \mid x > 0 \text{ และ } x \text{ หารด้วย 2 ลงตัว}\}$ หรือ $\{2n \mid n \in \mathbb{Z}^+\}$
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 2: จริงหรือเท็จ \eng{6 นาที}}
+  กำหนด $A = \{1, 2, \{3\}\}$ จงพิจารณาว่าข้อความแต่ละข้อจริงหรือเท็จ
+  \begin{enumerate}
+    \item $1 \in A$
+    \item $3 \in A$
+    \item $\{3\} \in A$
+    \item $\{3\} \subseteq A$
+    \item $\{1, 2\} \subseteq A$
+    \item $\emptyset \subseteq A$
+  \end{enumerate}
+  \pause
+  \begin{exampleblock}{เฉลย}
+    \footnotesize
+    1) \TT \quad
+    2) \FF\ (สมาชิกคือ $1, 2, \{3\}$ --- ตัวเลข 3 เดี่ยว ๆ ไม่ใช่สมาชิก) \quad
+    3) \TT\ (เซต $\{3\}$ เป็นสมาชิกตัวหนึ่ง) \quad
+    4) \FF\ (จะเป็นเซตย่อยต้องมี $3 \in A$ ซึ่งไม่จริง) \quad
+    5) \TT \quad
+    6) \TT
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 3: จำแนกประเภทเซต \eng{6 นาที}}
+  \textbf{ก)} จงระบุว่าเซตใดเป็น เซตว่าง / เซตจำกัด / เซตอนันต์
+  \begin{enumerate}
+    \item $\{x \in \mathbb{N} \mid x < 100\}$
+    \item $\{x \in \mathbb{R} \mid x^2 < 0\}$
+    \item $\{x \in \mathbb{Z} \mid x \text{ หารด้วย 5 ลงตัว}\}$
+  \end{enumerate}
+  \textbf{ข)} จงเขียน \textbf{เซตย่อยทั้งหมด} ของ $\{a, b\}$
+  \pause
+  \begin{exampleblock}{เฉลย}
+    \footnotesize
+    ก) 1) เซตจำกัด (มี 100 ตัว: $0$ ถึง $99$) \quad
+    2) เซตว่าง (กำลังสองของจำนวนจริงไม่ติดลบ) \quad
+    3) เซตอนันต์ ($\{\ldots, -10, -5, 0, 5, 10, \ldots\}$) \\[0.3em]
+    ข) $\emptyset,\ \{a\},\ \{b\},\ \{a, b\}$ --- มีทั้งหมด 4 ตัว
+    \eng{สัปดาห์ที่ 6 จะรู้ว่าทำไมได้ $2^2 = 4$}
+  \end{exampleblock}
+\end{frame}
+
+
+%% =====================================================================
+\section{เกมท้ายคาบ: อยู่เซตไหน?}
+%% =====================================================================
+
+\begin{frame}{เกมท้ายคาบ: ``อยู่เซตไหน?'' \eng{ประมาณ 10 นาที}}
+  \begin{block}{กติกา}
+    \begin{enumerate}
+      \item แบ่งทีมตามแถวที่นั่ง (แถวละ 1 ทีม)
+      \item อาจารย์ฉายคำถาม \textbf{จริง/เท็จ} ทีละข้อ ให้เวลาข้อละ \textbf{15 วินาที}
+      \item หมดเวลา ทุกทีมชูมือพร้อมกัน: \textcolor{Tgreen}{\textbf{มือขวา = จริง (T)}} \quad
+            \textcolor{Fred}{\textbf{มือซ้าย = เท็จ (F)}}
+      \item ทีมที่สมาชิกตอบถูก \textbf{เกินครึ่งทีม} ได้ 1 แต้ม --- ข้อสุดท้ายเป็น \textbf{ข้อทอง} ได้ 2 แต้ม
+    \end{enumerate}
+  \end{block}
+  \vspace{0.4em}
+  \begin{exampleblock}{}
+    \centering ทีมที่แต้มสูงสุด = แชมป์เซตประจำสัปดาห์ \quad ห้ามเปิดสไลด์ย้อน ห้ามเปิดโพย!
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{เกม: รอบที่ 1--3}
+  \begin{enumerate}
+    \item[\textbf{1.}] {\large $\{1, 2, 3\} = \{3, 1, 2\}$}
+    \pause
+    \item[] \hfill \textcolor{Tgreen}{\textbf{จริง}} --- เซตไม่มีลำดับ
+    \pause
+    \item[\textbf{2.}] {\large $|\{1, 1, 2, 2, 2\}| = 5$}
+    \pause
+    \item[] \hfill \textcolor{Fred}{\textbf{เท็จ}} --- สมาชิกซ้ำนับครั้งเดียว $\{1, 2\}$ มี 2 ตัว
+    \pause
+    \item[\textbf{3.}] {\large $\emptyset \in \{1, 2, 3\}$}
+    \pause
+    \item[] \hfill \textcolor{Fred}{\textbf{เท็จ}} --- $\emptyset$ ไม่ใช่สมาชิกของเซตนี้ (แต่ $\emptyset \subseteq$ จริง!)
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{เกม: รอบที่ 4--5 และข้อทอง}
+  \begin{enumerate}
+    \item[\textbf{4.}] {\large $0.5 \in \mathbb{Z}$}
+    \pause
+    \item[] \hfill \textcolor{Fred}{\textbf{เท็จ}} --- $0.5$ ไม่ใช่จำนวนเต็ม (แต่ $0.5 \in \mathbb{Q}$)
+    \pause
+    \item[\textbf{5.}] {\large $\{a\} \subseteq \{a, b\}$}
+    \pause
+    \item[] \hfill \textcolor{Tgreen}{\textbf{จริง}} --- สมาชิกทุกตัวของ $\{a\}$ อยู่ใน $\{a,b\}$
+    \pause
+    \item[\textbf{ทอง}] {\large $\{\emptyset\} = \emptyset$} \quad \eng{2 แต้ม!}
+    \pause
+    \item[] \hfill \textcolor{Fred}{\textbf{เท็จ}} --- ฝั่งซ้ายมีสมาชิก 1 ตัว ฝั่งขวาไม่มีเลย
+  \end{enumerate}
+  \pause
+  \vspace{0.4em}
+  \begin{exampleblock}{}
+    \centering รวมแต้ม ประกาศแชมป์ แล้วพบกันสัปดาห์หน้า!
+  \end{exampleblock}
+\end{frame}
+
+
+%% ====================== สรุป + แบบฝึกหัด ======================
+\begin{frame}{สรุปสัปดาห์ที่ 4}
+  \begin{itemize}
+    \item \textbf{เซต} = กลุ่มของสมาชิกที่ระบุชัดเจน ใช้ $\in$ / $\notin$ บอกการเป็นสมาชิก
+    \item \textbf{เขียนเซตได้ 2 แบบ}: แจกแจงสมาชิก $\{1,2,3\}$ และบอกเงื่อนไข $\{x \mid \ldots\}$
+    \item กติกาเซต: \textbf{ไม่มีลำดับ ไม่มีสมาชิกซ้ำ}
+    \item เซตพิเศษ: เซตว่าง $\emptyset$, เอกภพสัมพัทธ์ $U$, เซตจำกัด/อนันต์ และ $\emptyset \neq \{\emptyset\}$
+    \item \textbf{เซตย่อย} $A \subseteq B$: ทุกสมาชิกของ $A$ อยู่ใน $B$ \quad
+          $A = B \Leftrightarrow A \subseteq B$ และ $B \subseteq A$
+    \item $\in$ (สมาชิก--เซต) ไม่เหมือน $\subseteq$ (เซต--เซต) --- จุดออกข้อสอบยอดฮิต
+  \end{itemize}
+  \begin{exampleblock}{}
+    \centering สัปดาห์ถัดไป: การดำเนินการระหว่างเซต ($\cup\ \cap\ -\ ^c$) แผนภาพเวนน์ และกฎเดอมอร์แกน
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{แบบฝึกหัดมอบหมาย (สัปดาห์ที่ 4)}
+  ทำลงสมุด ส่งต้นคาบสัปดาห์หน้า (ข้อละ 2 คะแนน รวม 10 คะแนน)
+  \begin{enumerate}\small
+    \item เขียนเซตต่อไปนี้ทั้งแบบแจกแจงสมาชิกและแบบบอกเงื่อนไข:
+          (ก) จำนวนเฉพาะที่น้อยกว่า 20 \quad (ข) จำนวนเต็ม $x$ ที่ $x^2 - 4 = 0$
+    \item พิจารณาจริง/เท็จ พร้อมเหตุผล:
+          (ก) $\emptyset \in \{\emptyset\}$ \quad (ข) $\emptyset \subseteq \{\emptyset\}$ \quad
+          (ค) $\{1, 2\} \in \{\{1, 2\}\}$ \quad (ง) $\{1, 2\} \subseteq \{\{1\}, \{2\}\}$
+    \item อธิบายความแตกต่างระหว่าง $\in$ และ $\subseteq$ พร้อมยกตัวอย่างของตนเอง 2 ตัวอย่าง
+    \item เขียนเซตย่อย \textbf{ทั้งหมด} ของ $\{1, 2, 3\}$ (บอกจำนวนรวมด้วย)
+    \item \textbf{(ประยุกต์)} ให้ $U$ = นักศึกษาทั้งหมดในห้องนี้, $A$ = คนที่มีโทรศัพท์ Android,
+          $B$ = คนที่เคยเขียน Python จงบรรยายด้วยคำพูดว่าเซต
+          $\{x \in U \mid x \in A \text{ และ } x \in B\}$ คือใคร และยกตัวอย่างสมาชิกถ้ามี
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[plain]
+  \vfill
+  \centering
+  {\Large\color{navy}\textbf{จบสัปดาห์ที่ 4}}\par
+  \vspace{0.8em}
+  {\color{gray} สัปดาห์ถัดไป: สัปดาห์ที่ 5 · การดำเนินการระหว่างเซต และกฎเดอมอร์แกน}
+  \vfill
+\end{frame}

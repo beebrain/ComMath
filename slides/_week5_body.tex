@@ -1,0 +1,658 @@
+
+%% ====================== ปก ======================
+\begin{frame}[plain]
+  \maketitle
+\end{frame}
+
+%% ====================== ทบทวน ======================
+\begin{frame}{ทบทวนสัปดาห์ที่ 4}
+  \begin{itemize}
+    \item \textbf{เซต} = กลุ่มของสมาชิก ($\in$ / $\notin$) เขียนได้ 2 แบบ: แจกแจงสมาชิก / บอกเงื่อนไข
+    \item กติกา: \textbf{ไม่มีลำดับ ไม่มีสมาชิกซ้ำ} และ $\emptyset \neq \{\emptyset\}$
+    \item \textbf{เซตย่อย} $A \subseteq B$: ทุกสมาชิกของ $A$ อยู่ใน $B$
+    \item $A = B \Leftrightarrow A \subseteq B$ และ $B \subseteq A$ \eng{double inclusion}
+  \end{itemize}
+  \vspace{0.4em}
+  \begin{center}
+  \begin{tabular}{|l|c|c|c|}
+    \hline
+     & $1 \in \{1,2\}$ & $\{1\} \subseteq \{1,2\}$ & $\{1\} \in \{1,2\}$ \\ \hline
+    จริง/เท็จ & \TT & \TT & \FF \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.4em}
+  \footnotesize สัปดาห์นี้: นำเซตมา \textbf{บวก ลบ คูณ} กัน --- การดำเนินการระหว่างเซต และกฎเดอมอร์แกน
+\end{frame}
+
+%% ====================== วัตถุประสงค์ ======================
+\begin{frame}{วัตถุประสงค์การเรียนรู้ (สัปดาห์ที่ 5)}
+  เมื่อเรียนจบสัปดาห์นี้ นักศึกษาจะสามารถ
+  \begin{enumerate}
+    \item หา \textbf{ยูเนียน อินเตอร์เซกชัน ผลต่าง และคอมพลีเมนต์} ของเซตที่กำหนดได้
+    \item วาดและตีความ \textbf{แผนภาพเวนน์ (Venn Diagram)} ของนิพจน์เซตได้
+    \item ใช้ \textbf{กฎพีชคณิตของเซต} ลดรูปนิพจน์เซตได้
+    \item พิสูจน์และประยุกต์ \textbf{กฎเดอมอร์แกนสำหรับเซต} ได้
+  \end{enumerate}
+\end{frame}
+
+%% ====================== หัวข้อ ======================
+\begin{frame}{หัวข้อที่จะศึกษาในสัปดาห์นี้}
+  \tableofcontents
+\end{frame}
+
+
+%% =====================================================================
+\section{การดำเนินการระหว่างเซต}
+%% =====================================================================
+
+\begin{frame}{ภาพรวม: สร้างเซตใหม่จากเซตเดิม}
+  การดำเนินการหลัก 4 แบบ --- แต่ละแบบ ``ยกร่าง'' มาจากตัวเชื่อมตรรกศาสตร์ที่เรารู้จักแล้ว
+  \begin{center}
+  \begin{tabular}{|l|c|c|l|}
+    \hline
+    \textbf{การดำเนินการ} & \textbf{สัญลักษณ์} & \textbf{ตรรกศาสตร์} & \textbf{ความหมาย} \\ \hline
+    ยูเนียน (Union) & $A \cup B$ & $\lor$ (หรือ) & อยู่ใน $A$ \textbf{หรือ} $B$ \\ \hline
+    อินเตอร์เซกชัน (Intersection) & $A \cap B$ & $\land$ (และ) & อยู่ใน $A$ \textbf{และ} $B$ \\ \hline
+    ผลต่าง (Difference) & $A - B$ & $\land\neg$ & อยู่ใน $A$ แต่ \textbf{ไม่อยู่ใน} $B$ \\ \hline
+    คอมพลีเมนต์ (Complement) & $A^c$ & $\neg$ (นิเสธ) & ทุกอย่างใน $U$ ที่ \textbf{ไม่อยู่ใน} $A$ \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.4em}
+  \begin{exampleblock}{}
+    จำง่าย ๆ: $\cup \leftrightarrow \lor$ \quad $\cap \leftrightarrow \land$ \quad $^c \leftrightarrow \neg$ ---
+    กฎของบทที่ 1 จึงใช้ได้กับเซตแทบทุกข้อ
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{ยูเนียน (Union): รวมกัน}
+  \begin{block}{นิยาม}
+    $A \cup B = \{x \mid x \in A \text{ หรือ } x \in B\}$ --- สมาชิกที่อยู่ใน $A$ หรือ $B$ (หรือทั้งคู่)
+  \end{block}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      ตัวอย่าง: $A = \{1,2,3,4\}$, $B = \{3,4,5,6\}$
+      \[ A \cup B = \{1,2,3,4,5,6\} \]
+      \begin{itemize}\small
+        \item 3 และ 4 อยู่ทั้งสองเซต แต่เขียน \textbf{ครั้งเดียว}
+        \item $A \cup \emptyset = A$ \eng{Identity}
+        \item $A \cup U = U$ \eng{Domination}
+        \item $A \subseteq A \cup B$ เสมอ
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.44\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=0.8,every node/.style={font=\small}]
+        \fill[mint] (-0.65,0) circle (1);
+        \fill[mint] (0.65,0) circle (1);
+        \draw (-2.2,-1.45) rectangle (2.2,1.55);
+        \draw (-0.65,0) circle (1);
+        \draw (0.65,0) circle (1);
+        \node at (-1.4,1.15) {$A$};
+        \node at (1.4,1.15) {$B$};
+        \node at (1.95,1.32) {$U$};
+      \end{tikzpicture}\\
+      พื้นที่แรเงา $= A \cup B$
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{อินเตอร์เซกชัน (Intersection): ส่วนที่ซ้อนทับ}
+  \begin{block}{นิยาม}
+    $A \cap B = \{x \mid x \in A \text{ และ } x \in B\}$ --- สมาชิกที่อยู่ \textbf{ทั้งสองเซตพร้อมกัน}
+  \end{block}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      ตัวอย่าง: $A = \{2,4,6,8,10\}$, $B = \{3,6,9,12\}$
+      \[ A \cap B = \{6\} \]
+      \begin{itemize}\small
+        \item $A \cap U = A$ \eng{Identity}
+        \item $A \cap \emptyset = \emptyset$ \eng{Domination}
+        \item $A \cap B \subseteq A$ เสมอ
+      \end{itemize}
+      \begin{alertblock}{}\small
+        ถ้า $A \cap B = \emptyset$ เรียก $A, B$ ว่า \textbf{เซตแยกกัน} \eng{Disjoint Sets}
+      \end{alertblock}
+    \end{column}
+    \begin{column}{0.44\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=0.8,every node/.style={font=\small}]
+        \begin{scope}
+          \clip (-0.65,0) circle (1);
+          \fill[mint] (0.65,0) circle (1);
+        \end{scope}
+        \draw (-2.2,-1.45) rectangle (2.2,1.55);
+        \draw (-0.65,0) circle (1);
+        \draw (0.65,0) circle (1);
+        \node at (-1.4,1.15) {$A$};
+        \node at (1.4,1.15) {$B$};
+        \node at (1.95,1.32) {$U$};
+      \end{tikzpicture}\\
+      พื้นที่แรเงา $= A \cap B$
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{ผลต่าง (Set Difference): อยู่ซ้ายแต่ไม่อยู่ขวา}
+  \begin{block}{นิยาม}
+    $A - B = \{x \mid x \in A \text{ และ } x \notin B\}$
+  \end{block}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      ตัวอย่าง: $A = \{a,b,c,d,e\}$, $B = \{b,d,f\}$
+      \[ A - B = \{a, c, e\} \]
+      \begin{itemize}\small
+        \item $b, d$ ถูกตัดออกเพราะอยู่ใน $B$
+        \item $f$ ไม่กระทบ (ไม่ได้อยู่ใน $A$ ตั้งแต่แรก)
+      \end{itemize}
+      \begin{alertblock}{}\small
+        \textbf{ไม่มีสมบัติสลับที่!} \quad $\{1,2\} - \{2,3\} = \{1\}$ \\
+        แต่ $\{2,3\} - \{1,2\} = \{3\}$
+      \end{alertblock}
+    \end{column}
+    \begin{column}{0.44\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=0.8,every node/.style={font=\small}]
+        \fill[mint] (-0.65,0) circle (1);
+        \begin{scope}
+          \clip (0.65,0) circle (1);
+          \fill[white] (-0.65,0) circle (1);
+        \end{scope}
+        \draw (-2.2,-1.45) rectangle (2.2,1.55);
+        \draw (-0.65,0) circle (1);
+        \draw (0.65,0) circle (1);
+        \node at (-1.4,1.15) {$A$};
+        \node at (1.4,1.15) {$B$};
+        \node at (1.95,1.32) {$U$};
+      \end{tikzpicture}\\
+      พื้นที่แรเงา $= A - B$
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{คอมพลีเมนต์ (Complement): ทุกอย่างที่เหลือ}
+  \begin{block}{นิยาม}
+    $A^c = \{x \in U \mid x \notin A\} = U - A$ \quad (เขียน $\overline{A}$ หรือ $A'$ ก็ได้)
+  \end{block}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      ตัวอย่าง: $U = \{1,\ldots,8\}$, $A = \{2,4,6,8\}$
+      \[ A^c = \{1, 3, 5, 7\} \]
+      สมบัติสำคัญ
+      \begin{itemize}\small
+        \item $A \cup A^c = U$ \quad และ \quad $A \cap A^c = \emptyset$
+        \item $(A^c)^c = A$ \eng{Double Complement}
+      \end{itemize}
+      \begin{alertblock}{}\small
+        คอมพลีเมนต์ \textbf{ขึ้นกับ $U$}: เซต $A$ เดียวกัน ถ้าเปลี่ยน $U$
+        ผลลัพธ์ $A^c$ ก็เปลี่ยน --- ต้องกำหนด $U$ ก่อนเสมอ
+      \end{alertblock}
+    \end{column}
+    \begin{column}{0.44\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=0.8,every node/.style={font=\small}]
+        \fill[mint] (-2.2,-1.45) rectangle (2.2,1.55);
+        \fill[white] (0,0) circle (1.05);
+        \draw (-2.2,-1.45) rectangle (2.2,1.55);
+        \draw (0,0) circle (1.05);
+        \node at (0,0) {$A$};
+        \node at (1.95,1.32) {$U$};
+      \end{tikzpicture}\\
+      พื้นที่แรเงา $= A^c$
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{ความสัมพันธ์สำคัญ: $A - B = A \cap B^c$}
+  \begin{block}{ทฤษฎีบท}
+    \centering $A - B = A \cap B^c$ \quad (ผลต่าง = อินเตอร์เซกชันกับคอมพลีเมนต์)
+  \end{block}
+  \vspace{0.3em}
+  \textbf{แนวคิดการพิสูจน์} (double inclusion)
+  \begin{itemize}
+    \item $x \in A - B$ \;$\Leftrightarrow$\; $x \in A$ และ $x \notin B$
+          \;$\Leftrightarrow$\; $x \in A$ และ $x \in B^c$
+          \;$\Leftrightarrow$\; $x \in A \cap B^c$
+  \end{itemize}
+  \vspace{0.4em}
+  \begin{exampleblock}{ทำไมสูตรนี้มีประโยชน์}
+    เปลี่ยน ``ผลต่าง'' (ที่ไม่มีสมบัติดี ๆ) ให้เป็น ``อินเตอร์เซกชัน'' (ที่มีกฎครบ)
+    จากนั้นใช้กฎแจกแจง เดอมอร์แกน ฯลฯ ต่อได้ทันที --- เทคนิคหลักของการลดรูปนิพจน์เซต
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{เช็กความเข้าใจเร็ว: ครบทั้ง 4 การดำเนินการ}
+  กำหนด $U = \{1, 2, 3, 4, 5, 6, 7\}$, \quad $A = \{1, 2, 3, 4\}$, \quad $B = \{3, 4, 5, 6\}$ จงหา
+  \begin{enumerate}
+    \item $A \cup B$
+    \item $A \cap B$
+    \item $A - B$
+    \item $B - A$
+    \item $A^c$
+    \item $(A \cup B)^c$
+  \end{enumerate}
+  \pause
+  \begin{exampleblock}{เฉลย}
+    \footnotesize
+    1) $\{1,2,3,4,5,6\}$ \quad
+    2) $\{3,4\}$ \quad
+    3) $\{1,2\}$ \quad
+    4) $\{5,6\}$ \quad
+    5) $\{5,6,7\}$ \quad
+    6) $\{7\}$
+  \end{exampleblock}
+\end{frame}
+
+
+%% =====================================================================
+\section{กฎพีชคณิตของเซต}
+%% =====================================================================
+
+\begin{frame}{กฎพีชคณิตของเซต (1/2)}
+  เทียบกับ ``กฎพีชคณิตของประพจน์'' สัปดาห์ที่ 2 --- โครงสร้างเดียวกันทุกข้อ
+  \begin{center}\small
+  \begin{tabular}{|l|l|}
+    \hline
+    \textbf{ชื่อกฎ} & \textbf{รูปของเซต} \\ \hline
+    นิจพล (Idempotent) & $A \cup A = A$, \quad $A \cap A = A$ \\ \hline
+    เอกลักษณ์ (Identity) & $A \cup \emptyset = A$, \quad $A \cap U = A$ \\ \hline
+    ครอบงำ (Domination) & $A \cup U = U$, \quad $A \cap \emptyset = \emptyset$ \\ \hline
+    สลับที่ (Commutative) & $A \cup B = B \cup A$, \quad $A \cap B = B \cap A$ \\ \hline
+    เปลี่ยนกลุ่ม (Associative) & $(A \cup B) \cup C = A \cup (B \cup C)$ \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \footnotesize สังเกต: แทน $\lor \to \cup$, $\land \to \cap$, $F \to \emptyset$, $T \to U$ จากกฎประพจน์ได้เลย
+\end{frame}
+
+\begin{frame}{กฎพีชคณิตของเซต (2/2)}
+  \begin{center}\small
+  \begin{tabular}{|l|l|}
+    \hline
+    \textbf{ชื่อกฎ} & \textbf{รูปของเซต} \\ \hline
+    แจกแจง (Distributive) & $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ \\ \hline
+                          & $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$ \\ \hline
+    ดูดกลืน (Absorption) & $A \cup (A \cap B) = A$, \quad $A \cap (A \cup B) = A$ \\ \hline
+    คอมพลีเมนต์ (Complement) & $A \cup A^c = U$, \quad $A \cap A^c = \emptyset$ \\ \hline
+                             & $(A^c)^c = A$, \quad $\emptyset^c = U$, \quad $U^c = \emptyset$ \\ \hline
+    เดอมอร์แกน (De Morgan) & $(A \cup B)^c = A^c \cap B^c$ \\ \hline
+                            & $(A \cap B)^c = A^c \cup B^c$ \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \begin{exampleblock}{สำคัญ}
+    กฎชุดนี้ + กฎชุดประพจน์ + พีชคณิตบูลีน (บทที่ 6) คือ ``กฎเดียวกันในสามเสื้อคลุม''
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{ตัวอย่าง: พิสูจน์กฎดูดกลืน $A \cup (A \cap B) = A$}
+  ใช้ \textbf{double inclusion} (พิสูจน์สองทิศทาง)
+  \vspace{0.2em}
+  \begin{itemize}
+    \item[($\subseteq$)] สมมติ $x \in A \cup (A \cap B)$
+      \begin{itemize}
+        \item กรณี $x \in A$ --- จบทันที
+        \item กรณี $x \in A \cap B$ --- โดยนิยามของ $\cap$ ได้ $x \in A$ เช่นกัน
+      \end{itemize}
+      ดังนั้นทุกกรณี $x \in A$ \quad นั่นคือ $A \cup (A \cap B) \subseteq A$
+    \item[($\supseteq$)] สมมติ $x \in A$ แล้ว $x \in A \cup X$ สำหรับทุกเซต $X$
+      โดยนิยามของ $\cup$ \quad นั่นคือ $A \subseteq A \cup (A \cap B)$
+  \end{itemize}
+  \vspace{0.3em}
+  \begin{exampleblock}{สรุป}
+    ทั้งสองทิศทางเป็นจริง ดังนั้น $A \cup (A \cap B) = A$ \hfill $\blacksquare$
+  \end{exampleblock}
+\end{frame}
+
+
+%% =====================================================================
+\section{กฎเดอมอร์แกนสำหรับเซต}
+%% =====================================================================
+
+\begin{frame}{กฎเดอมอร์แกน (De Morgan's Laws)}
+  ตั้งชื่อตาม \textbf{Augustus De Morgan} (1806--1871) ผู้ร่วมก่อตั้งตรรกศาสตร์คณิตศาสตร์
+  \begin{block}{กฎ 2 ข้อ}
+    \begin{enumerate}
+      \item $(A \cup B)^c = A^c \cap B^c$ \hfill ``ไม่ ($A$ หรือ $B$)'' = ``(ไม่ $A$) และ (ไม่ $B$)''
+      \item $(A \cap B)^c = A^c \cup B^c$ \hfill ``ไม่ ($A$ และ $B$)'' = ``(ไม่ $A$) หรือ (ไม่ $B$)''
+    \end{enumerate}
+  \end{block}
+  \vspace{0.3em}
+  ตรงกับกฎเดอมอร์แกนของประพจน์ที่เรียนในสัปดาห์ที่ 2 แบบตัวต่อตัว
+  \begin{center}\small
+  \begin{tabular}{|c|c|}
+    \hline
+    \textbf{ตรรกศาสตร์ (บทที่ 1)} & \textbf{เซต (บทที่ 2)} \\ \hline
+    $\neg(p \lor q) \equiv \neg p \land \neg q$ & $(A \cup B)^c = A^c \cap B^c$ \\ \hline
+    $\neg(p \land q) \equiv \neg p \lor \neg q$ & $(A \cap B)^c = A^c \cup B^c$ \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.2em}
+  \footnotesize หัวใจ: นิเสธ ``ทะลุ'' วงเล็บแล้ว \textbf{สลับ} $\cup \leftrightarrow \cap$
+\end{frame}
+
+\begin{frame}{ยืนยันด้วยแผนภาพเวนน์: $(A \cup B)^c = A^c \cap B^c$}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=0.75,every node/.style={font=\small}]
+        \fill[lpink] (-2.2,-1.45) rectangle (2.2,1.55);
+        \fill[white] (-0.65,0) circle (1);
+        \fill[white] (0.65,0) circle (1);
+        \draw (-2.2,-1.45) rectangle (2.2,1.55);
+        \draw (-0.65,0) circle (1);
+        \draw (0.65,0) circle (1);
+        \node at (-1.4,1.15) {$A$};
+        \node at (1.4,1.15) {$B$};
+        \node at (1.95,1.32) {$U$};
+      \end{tikzpicture}\\
+      $(A \cup B)^c$ --- นอกวงทั้งสอง
+      \end{center}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=0.75,every node/.style={font=\small}]
+        \fill[lpink] (-2.2,-1.45) rectangle (2.2,1.55);
+        \fill[white] (-0.65,0) circle (1);
+        \fill[white] (0.65,0) circle (1);
+        \draw (-2.2,-1.45) rectangle (2.2,1.55);
+        \draw (-0.65,0) circle (1);
+        \draw (0.65,0) circle (1);
+        \node at (-1.4,1.15) {$A$};
+        \node at (1.4,1.15) {$B$};
+        \node at (1.95,1.32) {$U$};
+      \end{tikzpicture}\\
+      $A^c \cap B^c$ --- นอก $A$ ``และ'' นอก $B$
+      \end{center}
+    \end{column}
+  \end{columns}
+  \vspace{0.5em}
+  \centering พื้นที่แรเงา \textbf{เหมือนกันทุกจุด} $\Rightarrow$ สองนิพจน์เท่ากัน
+  \quad \footnotesize (แผนภาพช่วย ``เห็น'' แต่การพิสูจน์จริงใช้เชิงสมาชิก $\rightarrow$ หน้าถัดไป)
+\end{frame}
+
+\begin{frame}{พิสูจน์เชิงสมาชิก: $(A \cup B)^c = A^c \cap B^c$}
+  ไล่สมมูลทีละขั้น (แต่ละขั้นย้อนกลับได้ จึงได้ทั้งสองทิศทางพร้อมกัน)
+  \begin{align*}
+    x \in (A \cup B)^c
+      &\Leftrightarrow x \notin A \cup B \\
+      &\Leftrightarrow \neg(x \in A \ \text{หรือ}\ x \in B) \\
+      &\Leftrightarrow \neg(x \in A) \ \text{และ}\ \neg(x \in B) && \text{(เดอมอร์แกนของประพจน์!)} \\
+      &\Leftrightarrow x \in A^c \ \text{และ}\ x \in B^c \\
+      &\Leftrightarrow x \in A^c \cap B^c
+  \end{align*}
+  \vspace{0.1em}
+  \begin{exampleblock}{ข้อสังเกต}
+    ขั้นตอนสำคัญคือการ ``ยืม'' กฎเดอมอร์แกนของ \textbf{ประพจน์} มาใช้ ---
+    ทฤษฎีเซตสร้างบนตรรกศาสตร์อย่างแท้จริง
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{เดอมอร์แกนในการเขียนโปรแกรม}
+  ใช้ทุกวันโดยไม่รู้ตัว เวลา ``กลับเงื่อนไข'' ใน \texttt{if}
+  \begin{block}{ตัวอย่าง: เงื่อนไขตรวจสิทธิ์}
+    \texttt{if (!(age >= 18 \&\& hasID)) \{ reject(); \}} \\[0.3em]
+    เขียนใหม่ด้วยเดอมอร์แกนให้อ่านง่ายขึ้น: \\[0.3em]
+    \texttt{if (age < 18 || !hasID) \{ reject(); \}}
+  \end{block}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item $\neg(p \land q) \equiv \neg p \lor \neg q$ --- นิเสธทะลุวงเล็บ สลับ \texttt{\&\&} เป็น \texttt{||}
+    \item ใน SQL: \texttt{NOT (A AND B)} $\equiv$ \texttt{(NOT A) OR (NOT B)} ใช้ปรับ \texttt{WHERE} ให้ index ทำงานได้
+    \item ในวงจรดิจิทัล: แปลงเกต AND $\leftrightarrow$ OR ผ่าน NOT (จะเจอเต็ม ๆ ในบทที่ 6)
+  \end{itemize}
+\end{frame}
+
+
+%% =====================================================================
+\section{กิจกรรมในชั้นเรียน (แบบฝึกหัดทำในห้อง)}
+%% =====================================================================
+
+\begin{frame}{วิธีทำกิจกรรม}
+  \begin{block}{คำชี้แจง}
+    ให้นักศึกษาทำกิจกรรมต่อไปนี้ \textbf{ลงในใบกิจกรรม (Worksheet)} ภายในเวลาที่กำหนด
+    แล้วร่วมเฉลยและอภิปรายพร้อมกัน
+  \end{block}
+  \vspace{0.5em}
+  \begin{itemize}
+    \item ทำเดี่ยวหรือจับคู่ก็ได้ (ตามที่อาจารย์กำหนด)
+    \item เมื่อหมดเวลา อาจารย์จะคลิกเพื่อ \textbf{เฉลย} ทีละข้อ
+    \item อาสาสมัครออกมาอธิบายวิธีคิดหน้าชั้น
+  \end{itemize}
+  \vspace{0.5em}
+  \begin{exampleblock}{เกณฑ์}
+    เน้นกระบวนการคิดและการให้เหตุผล ไม่ใช่แค่คำตอบสุดท้าย
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 1: คำนวณให้ครบทุกการดำเนินการ \eng{6 นาที}}
+  กำหนด $U = \{1, 2, 3, 4, 5, 6, 7, 8\}$, \quad $A = \{1, 3, 5, 7\}$, \quad $B = \{1, 2, 3, 4\}$
+  \begin{enumerate}
+    \item $A \cup B$
+    \item $A \cap B$
+    \item $A - B$
+    \item $B - A$
+    \item $B^c$
+    \item $A \cap B^c$ \quad (เทียบกับข้อ 3 --- สังเกตอะไร?)
+  \end{enumerate}
+  \pause
+  \begin{exampleblock}{เฉลย}
+    \footnotesize
+    1) $\{1,2,3,4,5,7\}$ \quad
+    2) $\{1,3\}$ \quad
+    3) $\{5,7\}$ \quad
+    4) $\{2,4\}$ \quad
+    5) $\{5,6,7,8\}$ \quad
+    6) $\{5,7\}$ เท่ากับข้อ 3 --- ยืนยันสูตร $A - B = A \cap B^c$
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 2: จับคู่แผนภาพกับนิพจน์ \eng{6 นาที}}
+  จับคู่พื้นที่แรเงา (ก)--(ง) กับนิพจน์ $1)\ A \cap B$ \quad $2)\ B - A$ \quad $3)\ A^c$ \quad $4)\ A \cup B$
+  \begin{center}
+  \begin{tabular}{cc@{\qquad}cc}
+    \begin{tikzpicture}[scale=0.52,every node/.style={font=\scriptsize}]
+      \fill[mint] (-0.65,0) circle (1); \fill[mint] (0.65,0) circle (1);
+      \draw (-2,-1.4) rectangle (2,1.5);
+      \draw (-0.65,0) circle (1); \draw (0.65,0) circle (1);
+      \node at (-1.35,1.1) {$A$}; \node at (1.35,1.1) {$B$};
+    \end{tikzpicture} &
+    \begin{tikzpicture}[scale=0.52,every node/.style={font=\scriptsize}]
+      \fill[mint] (0.65,0) circle (1);
+      \begin{scope}\clip (-0.65,0) circle (1);\fill[white] (0.65,0) circle (1);\end{scope}
+      \draw (-2,-1.4) rectangle (2,1.5);
+      \draw (-0.65,0) circle (1); \draw (0.65,0) circle (1);
+      \node at (-1.35,1.1) {$A$}; \node at (1.35,1.1) {$B$};
+    \end{tikzpicture} &
+    \begin{tikzpicture}[scale=0.52,every node/.style={font=\scriptsize}]
+      \begin{scope}\clip (-0.65,0) circle (1);\fill[mint] (0.65,0) circle (1);\end{scope}
+      \draw (-2,-1.4) rectangle (2,1.5);
+      \draw (-0.65,0) circle (1); \draw (0.65,0) circle (1);
+      \node at (-1.35,1.1) {$A$}; \node at (1.35,1.1) {$B$};
+    \end{tikzpicture} &
+    \begin{tikzpicture}[scale=0.52,every node/.style={font=\scriptsize}]
+      \fill[mint] (-2,-1.4) rectangle (2,1.5);
+      \fill[white] (-0.65,0) circle (1);
+      \draw (-2,-1.4) rectangle (2,1.5);
+      \draw (-0.65,0) circle (1);
+      \node at (-0.65,0) {$A$};
+    \end{tikzpicture} \\
+    (ก) & (ข) & (ค) & (ง)
+  \end{tabular}
+  \end{center}
+  \pause
+  \begin{exampleblock}{เฉลย}
+    \footnotesize (ก) $= 4)\ A \cup B$ \qquad (ข) $= 2)\ B - A$ \qquad (ค) $= 1)\ A \cap B$ \qquad (ง) $= 3)\ A^c$
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 3: ลดรูปด้วยกฎพีชคณิตของเซต \eng{8 นาที}}
+  จงลดรูปนิพจน์ต่อไปนี้ให้สั้นที่สุด พร้อมอ้างชื่อกฎที่ใช้ในแต่ละขั้น
+  \begin{enumerate}
+    \item $(A \cup B) \cap (A \cup B^c)$
+    \item $A \cup (B - A)$
+  \end{enumerate}
+  \pause
+  \begin{exampleblock}{เฉลย}
+    \footnotesize
+    1) $(A \cup B) \cap (A \cup B^c) = A \cup (B \cap B^c)$ \eng{แจกแจงย้อนกลับ}
+       $= A \cup \emptyset$ \eng{คอมพลีเมนต์} $= A$ \eng{เอกลักษณ์} \\[0.3em]
+    2) $A \cup (B - A) = A \cup (B \cap A^c)$ \eng{สูตรผลต่าง}
+       $= (A \cup B) \cap (A \cup A^c)$ \eng{แจกแจง}
+       $= (A \cup B) \cap U$ \eng{คอมพลีเมนต์} $= A \cup B$ \eng{เอกลักษณ์}
+  \end{exampleblock}
+\end{frame}
+
+
+%% =====================================================================
+\section{เกมท้ายคาบ: ศึกแรเงาเวนน์}
+%% =====================================================================
+
+\begin{frame}{เกมท้ายคาบ: ``ศึกแรเงาเวนน์'' \eng{ประมาณ 10 นาที}}
+  \begin{block}{กติกา}
+    \begin{enumerate}
+      \item จับกลุ่ม 3--4 คน แต่ละกลุ่มใช้กระดาษ 1 แผ่น วาดกรอบ $U$ กับวงกลม $A, B$ ไว้ล่วงหน้า 4 ชุด
+      \item อาจารย์ฉาย \textbf{นิพจน์เซต} ทีละข้อ ให้เวลา \textbf{45 วินาที}
+      \item ทุกกลุ่ม \textbf{แรเงาพื้นที่} ของนิพจน์นั้น แล้วชูกระดาษพร้อมกัน
+      \item แรเงาถูกได้ 1 แต้ม --- รอบสุดท้าย ``เดอมอร์แกนขั้นเทพ'' ได้ 2 แต้ม
+    \end{enumerate}
+  \end{block}
+  \vspace{0.4em}
+  \begin{exampleblock}{}
+    \centering กลุ่มแต้มสูงสุด = จ้าวแห่งเวนน์ประจำสัปดาห์
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{ศึกแรเงาเวนน์: รอบที่ 1--2}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \centering
+      \textbf{รอบ 1:} {\Large $A - B$}
+      \pause
+      \begin{center}
+      \begin{tikzpicture}[scale=0.62,every node/.style={font=\scriptsize}]
+        \fill[mint] (-0.65,0) circle (1);
+        \begin{scope}\clip (0.65,0) circle (1);\fill[white] (-0.65,0) circle (1);\end{scope}
+        \draw (-2,-1.4) rectangle (2,1.5);
+        \draw (-0.65,0) circle (1); \draw (0.65,0) circle (1);
+        \node at (-1.35,1.1) {$A$}; \node at (1.35,1.1) {$B$};
+      \end{tikzpicture}\\
+      เฉพาะพระจันทร์เสี้ยวซ้าย
+      \end{center}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \centering
+      \pause
+      \textbf{รอบ 2:} {\Large $(A \cap B)^c$}
+      \pause
+      \begin{center}
+      \begin{tikzpicture}[scale=0.62,every node/.style={font=\scriptsize}]
+        \fill[mint] (-2,-1.4) rectangle (2,1.5);
+        \begin{scope}\clip (-0.65,0) circle (1);\fill[white] (0.65,0) circle (1);\end{scope}
+        \draw (-2,-1.4) rectangle (2,1.5);
+        \draw (-0.65,0) circle (1); \draw (0.65,0) circle (1);
+        \node at (-1.35,1.1) {$A$}; \node at (1.35,1.1) {$B$};
+      \end{tikzpicture}\\
+      ทุกที่ \textbf{ยกเว้น} ส่วนซ้อนทับ
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{ศึกแรเงาเวนน์: รอบที่ 3--4}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \centering
+      \textbf{รอบ 3:} {\Large $A^c \cap B$}
+      \pause
+      \begin{center}
+      \begin{tikzpicture}[scale=0.62,every node/.style={font=\scriptsize}]
+        \fill[mint] (0.65,0) circle (1);
+        \begin{scope}\clip (-0.65,0) circle (1);\fill[white] (0.65,0) circle (1);\end{scope}
+        \draw (-2,-1.4) rectangle (2,1.5);
+        \draw (-0.65,0) circle (1); \draw (0.65,0) circle (1);
+        \node at (-1.35,1.1) {$A$}; \node at (1.35,1.1) {$B$};
+      \end{tikzpicture}\\
+      = $B - A$ นั่นเอง!
+      \end{center}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \centering
+      \pause
+      \textbf{รอบ 4:} {\Large $(A - B) \cup (B - A)$}
+      \pause
+      \begin{center}
+      \begin{tikzpicture}[scale=0.62,every node/.style={font=\scriptsize}]
+        \fill[mint] (-0.65,0) circle (1);
+        \fill[mint] (0.65,0) circle (1);
+        \begin{scope}\clip (-0.65,0) circle (1);\fill[white] (0.65,0) circle (1);\end{scope}
+        \draw (-2,-1.4) rectangle (2,1.5);
+        \draw (-0.65,0) circle (1); \draw (0.65,0) circle (1);
+        \node at (-1.35,1.1) {$A$}; \node at (1.35,1.1) {$B$};
+      \end{tikzpicture}\\
+      ``อย่างใดอย่างหนึ่งแต่ไม่ทั้งคู่'' \eng{Symmetric Difference $A \Delta B$ = XOR ของเซต!}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{ศึกแรเงาเวนน์: รอบตัดสิน ``เดอมอร์แกนขั้นเทพ'' \eng{2 แต้ม}}
+  \begin{center}
+    {\Large นิพจน์ใดต่อไปนี้แรเงาแล้ว \textbf{ได้พื้นที่เดียวกัน}?} \\[0.6em]
+    {\large (ก) $(A \cup B)^c$ \qquad (ข) $A^c \cup B^c$ \qquad (ค) $A^c \cap B^c$}
+  \end{center}
+  \pause
+  \vspace{0.5em}
+  \begin{exampleblock}{เฉลย}
+    (ก) กับ (ค) เท่ากัน --- กฎเดอมอร์แกนข้อ 1: $(A \cup B)^c = A^c \cap B^c$ \\
+    ส่วน (ข) คือ $(A \cap B)^c$ ซึ่งกว้างกว่า (ทุกที่ยกเว้นส่วนซ้อนทับ)
+  \end{exampleblock}
+  \pause
+  \begin{center}
+    รวมแต้ม ประกาศจ้าวแห่งเวนน์ แล้วพบกันสัปดาห์หน้า!
+  \end{center}
+\end{frame}
+
+
+%% ====================== สรุป + แบบฝึกหัด ======================
+\begin{frame}{สรุปสัปดาห์ที่ 5}
+  \begin{itemize}
+    \item \textbf{4 การดำเนินการ}: $A \cup B$ (หรือ) \quad $A \cap B$ (และ) \quad
+          $A - B$ (อยู่ซ้ายไม่อยู่ขวา) \quad $A^c$ (ที่เหลือใน $U$)
+    \item \textbf{แผนภาพเวนน์} = เครื่องมือ ``เห็นภาพ'' นิพจน์เซต (แต่พิสูจน์จริงใช้เชิงสมาชิก)
+    \item \textbf{กฎพีชคณิตของเซต}: ชุดเดียวกับกฎประพจน์ ($\cup \leftrightarrow \lor$,
+          $\cap \leftrightarrow \land$, $^c \leftrightarrow \neg$, $U \leftrightarrow T$, $\emptyset \leftrightarrow F$)
+    \item \textbf{สูตรเปลี่ยนรูป}: $A - B = A \cap B^c$ ใช้เปิดทางลดรูป
+    \item \textbf{เดอมอร์แกน}: $(A \cup B)^c = A^c \cap B^c$ และ $(A \cap B)^c = A^c \cup B^c$
+          --- ใช้ตั้งแต่ \texttt{if} ในโปรแกรมจนถึงวงจรดิจิทัล
+  \end{itemize}
+  \begin{exampleblock}{}
+    \centering สัปดาห์ถัดไป: เพาเวอร์เซต ผลคูณคาร์ทีเซียน การนับสมาชิก และเซตในคอมพิวเตอร์
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{แบบฝึกหัดมอบหมาย (สัปดาห์ที่ 5)}
+  ทำลงสมุด ส่งต้นคาบสัปดาห์หน้า (ข้อละ 2 คะแนน รวม 10 คะแนน)
+  \begin{enumerate}\small
+    \item กำหนด $A = \{1,2,3\}$, $B = \{3,4,5\}$, $C = \{5,6\}$ จงหา
+          $A \cup B$, \ $A \cap B$, \ $A - B$, \ $(A \cup B) - C$, \ $A \cap (B \cup C)$, \ $(A-B) \cup (B-A)$
+    \item จงพิสูจน์กฎเดอมอร์แกนข้อ 2: $(A \cap B)^c = A^c \cup B^c$ โดยวิธีพิสูจน์เชิงสมาชิก
+    \item จงลดรูปพร้อมอ้างกฎ: (ก) $(A - B) \cup (A \cap B)$ \quad (ข) $A \cap (A \cup B)$
+    \item จงพิสูจน์ว่า $A - (B \cup C) = (A - B) \cap (A - C)$
+    \item \textbf{(ประยุกต์)} จงใช้กฎเดอมอร์แกนเขียนเงื่อนไขต่อไปนี้ใหม่โดยไม่มี \texttt{!} ครอบวงเล็บ
+          แล้วอธิบายว่าเงื่อนไขใหม่อ่านง่ายขึ้นอย่างไร: \\
+          \texttt{if (!(score >= 50 \&\& attendance >= 0.8)) \{ fail(); \}}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[plain]
+  \vfill
+  \centering
+  {\Large\color{navy}\textbf{จบสัปดาห์ที่ 5}}\par
+  \vspace{0.8em}
+  {\color{gray} สัปดาห์ถัดไป: สัปดาห์ที่ 6 · เพาเวอร์เซต ผลคูณคาร์ทีเซียน และการประยุกต์ในคอมพิวเตอร์}
+  \vfill
+\end{frame}

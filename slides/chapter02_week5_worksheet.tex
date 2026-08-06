@@ -1,0 +1,159 @@
+% !TeX program = xelatex
+%% =====================================================================
+%%  ใบกิจกรรมในชั้นเรียน (Worksheet) บทที่ 2 : ทฤษฎีเซต --- สัปดาห์ที่ 5
+%%  สร้างใบงานรายบุคคล: 1 หน้าต่อ 1 รหัสนักศึกษา (รายชื่อใน _students.tex)
+%%  พิมพ์รหัสนักศึกษา + QR Code (เนื้อหา QR: 4091606-W05-<รหัส>) สำหรับสแกนเก็บคะแนน
+%% =====================================================================
+\documentclass[a4paper,12pt]{article}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{qrcode}
+\usepackage{pgffor}
+
+\XeTeXlinebreaklocale "th_TH"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\setmainfont[Script=Thai,Scale=1.25]{TH Sarabun New}
+\definecolor{navy}{HTML}{1F3A93}
+\definecolor{mint}{HTML}{E8F5E9}
+\renewcommand{\arraystretch}{1.4}
+\setlist{topsep=3pt,itemsep=4pt}
+\pagestyle{empty}
+
+\input{_students}
+\qrset{height=2.1cm}
+
+%% ---------- หัวกระดาษรายบุคคล (#1 = รหัสนักศึกษา) ----------
+\newcommand{\wshead}[1]{%
+  \noindent
+  \begin{minipage}[c]{0.76\textwidth}
+    {\Large\bfseries\color{navy} ใบกิจกรรมในชั้นเรียน บทที่ 2 : ทฤษฎีเซต (สัปดาห์ที่ 5)}\\[0.2em]
+    {\normalsize รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์}\\[0.9em]
+    ชื่อ-สกุล: \dotfill\\[0.6em]
+    รหัสนักศึกษา: {\large\bfseries #1} \qquad กลุ่ม: \makebox[3cm]{\dotfill}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.2\textwidth}
+    \centering
+    \qrcode{4091606-W05-#1}\\[0.25em]
+    {\scriptsize\ttfamily #1}
+  \end{minipage}
+  \par\vspace{0.5em}\hrule\vspace{0.6em}
+}
+
+%% ---------- เนื้อหาใบกิจกรรม 1 ชุด (#1 = รหัสนักศึกษา) ----------
+\newcommand{\wsbody}[1]{%
+\wshead{#1}
+\noindent\textbf{คำชี้แจง:} ทำกิจกรรมลงในใบนี้ \textbf{ภายในเวลาที่กำหนด} แสดงวิธีคิดให้ชัดเจน
+แล้วร่วมเฉลยและอภิปรายพร้อมกันในชั้นเรียน
+\vspace{0.5em}
+
+%% ---------- กิจกรรม 1 ----------
+\noindent\textbf{กิจกรรมที่ 1 : คำนวณให้ครบทุกการดำเนินการ} \hfill \textit{(6 นาที)}\\
+กำหนด $U = \{1, 2, 3, 4, 5, 6, 7, 8\}$, \quad $A = \{1, 3, 5, 7\}$, \quad $B = \{1, 2, 3, 4\}$
+\begin{enumerate}[label=\arabic*)]
+  \item $A \cup B =$ \makebox[4.5cm]{\dotfill} \quad 2) $A \cap B =$ \makebox[4.5cm]{\dotfill}
+  \setcounter{enumi}{2}
+  \item $A - B =$ \makebox[4.5cm]{\dotfill} \quad 4) $B - A =$ \makebox[4.5cm]{\dotfill}
+  \setcounter{enumi}{4}
+  \item $B^c =$ \makebox[4.5cm]{\dotfill} \quad 6) $A \cap B^c =$ \makebox[4.5cm]{\dotfill}
+\end{enumerate}
+ข้อ 6 เท่ากับข้อใด และยืนยันสูตรอะไร: \makebox[8.5cm]{\dotfill}
+\vspace{0.3em}
+
+%% ---------- กิจกรรม 2 ----------
+\noindent\textbf{กิจกรรมที่ 2 : จับคู่แผนภาพเวนน์กับนิพจน์} \hfill \textit{(6 นาที)}\\
+จับคู่พื้นที่แรเงา (ก)--(ง) กับนิพจน์ \quad
+$1)\ A \cap B$ \quad $2)\ B - A$ \quad $3)\ A^c$ \quad $4)\ A \cup B$
+\begin{center}
+\begin{tabular}{c@{\qquad}c@{\qquad}c@{\qquad}c}
+  \begin{tikzpicture}[scale=0.5,every node/.style={font=\scriptsize}]
+    \fill[mint] (-0.65,0) circle (1); \fill[mint] (0.65,0) circle (1);
+    \draw (-2,-1.4) rectangle (2,1.5);
+    \draw (-0.65,0) circle (1); \draw (0.65,0) circle (1);
+    \node at (-1.35,1.1) {$A$}; \node at (1.35,1.1) {$B$};
+  \end{tikzpicture} &
+  \begin{tikzpicture}[scale=0.5,every node/.style={font=\scriptsize}]
+    \fill[mint] (0.65,0) circle (1);
+    \begin{scope}\clip (-0.65,0) circle (1);\fill[white] (0.65,0) circle (1);\end{scope}
+    \draw (-2,-1.4) rectangle (2,1.5);
+    \draw (-0.65,0) circle (1); \draw (0.65,0) circle (1);
+    \node at (-1.35,1.1) {$A$}; \node at (1.35,1.1) {$B$};
+  \end{tikzpicture} &
+  \begin{tikzpicture}[scale=0.5,every node/.style={font=\scriptsize}]
+    \begin{scope}\clip (-0.65,0) circle (1);\fill[mint] (0.65,0) circle (1);\end{scope}
+    \draw (-2,-1.4) rectangle (2,1.5);
+    \draw (-0.65,0) circle (1); \draw (0.65,0) circle (1);
+    \node at (-1.35,1.1) {$A$}; \node at (1.35,1.1) {$B$};
+  \end{tikzpicture} &
+  \begin{tikzpicture}[scale=0.5,every node/.style={font=\scriptsize}]
+    \fill[mint] (-2,-1.4) rectangle (2,1.5);
+    \fill[white] (-0.65,0) circle (1);
+    \draw (-2,-1.4) rectangle (2,1.5);
+    \draw (-0.65,0) circle (1);
+    \node at (-0.65,0) {$A$};
+  \end{tikzpicture} \\
+  (ก) ตอบ \makebox[1.2cm]{\dotfill} & (ข) ตอบ \makebox[1.2cm]{\dotfill} &
+  (ค) ตอบ \makebox[1.2cm]{\dotfill} & (ง) ตอบ \makebox[1.2cm]{\dotfill}
+\end{tabular}
+\end{center}
+\vspace{0.2em}
+
+%% ---------- กิจกรรม 3 ----------
+\noindent\textbf{กิจกรรมที่ 3 : ลดรูปด้วยกฎพีชคณิตของเซต} \hfill \textit{(8 นาที)}\\
+จงลดรูปให้สั้นที่สุด พร้อม \textbf{อ้างชื่อกฎ} ที่ใช้ในแต่ละขั้น
+\begin{enumerate}[label=\arabic*)]
+  \item $(A \cup B) \cap (A \cup B^c)$\\[0.4em]
+        \textcolor{gray!60}{\hrulefill}\\[0.8em]
+        \textcolor{gray!60}{\hrulefill}
+  \item $A \cup (B - A)$ \quad (คำใบ้: เริ่มจาก $B - A = B \cap A^c$)\\[0.4em]
+        \textcolor{gray!60}{\hrulefill}\\[0.8em]
+        \textcolor{gray!60}{\hrulefill}
+\end{enumerate}
+
+\clearpage
+\wshead{#1}
+\noindent\textbf{คำชี้แจง:} แบบฝึกเสริมหน้านี้ให้วาดแผนภาพหรือแสดงกฎที่ใช้ประกอบคำตอบทุกข้อ
+\vspace{0.5em}
+
+\noindent\textbf{กิจกรรมที่ 4 : โจทย์ประยุกต์การดำเนินการของเซต} \hfill \textit{(8 นาที)}\\
+กำหนด $U=\{1,2,\ldots,12\}$, $P=\{2,4,6,8,10,12\}$ และ $Q=\{3,6,9,12\}$
+\begin{enumerate}[label=\arabic*)]
+  \item $P\cup Q=$ \makebox[9cm]{\dotfill}
+  \item $P\cap Q=$ \makebox[9cm]{\dotfill}
+  \item $P-Q=$ \makebox[9cm]{\dotfill}
+  \item $(P\cup Q)^c=$ \makebox[8cm]{\dotfill}
+\end{enumerate}
+
+\noindent\textbf{กิจกรรมที่ 5 : ตรวจสอบกฎเดอมอร์แกน} \hfill \textit{(8 นาที)}\\
+ใช้เซต $P,Q$ ข้างต้น คำนวณทั้งสองข้างแล้วเปรียบเทียบ
+\begin{enumerate}[label=\arabic*)]
+  \item $(P\cup Q)^c$ และ $P^c\cap Q^c$\\[0.2em]
+  \textcolor{gray!60}{\hrulefill}\\[0.7em]
+  \textcolor{gray!60}{\hrulefill}\\[0.7em]
+  \item $(P\cap Q)^c$ และ $P^c\cup Q^c$\\[0.2em]
+  \textcolor{gray!60}{\hrulefill}\\[0.7em]
+  \textcolor{gray!60}{\hrulefill}
+\end{enumerate}
+
+\noindent\textbf{กิจกรรมที่ 6 : แก้ปัญหาจากสถานการณ์} \hfill \textit{(8 นาที)}\\
+นักศึกษา 40 คน ใช้ Android 25 คน ใช้ iOS 20 คน และใช้ทั้งสองระบบ 8 คน
+\begin{enumerate}[label=\arabic*)]
+  \item ใช้อย่างน้อยหนึ่งระบบกี่คน พร้อมเขียนสูตร\\[0.2em]
+  \textcolor{gray!60}{\hrulefill}\\[0.7em]
+  \item ไม่ใช้ทั้งสองระบบกี่คน\\[0.2em]
+  \textcolor{gray!60}{\hrulefill}\\[0.7em]
+  \item ใช้ Android อย่างเดียวกี่คน และใช้ iOS อย่างเดียวกี่คน\\[0.2em]
+  \textcolor{gray!60}{\hrulefill}
+\end{enumerate}
+}
+
+\begin{document}
+\foreach \sid in \studentlist {%
+  \expandafter\wsbody\expandafter{\sid}%
+  \clearpage
+}
+\end{document}

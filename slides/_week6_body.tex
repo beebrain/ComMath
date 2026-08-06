@@ -1,0 +1,513 @@
+
+%% ====================== ปก ======================
+\begin{frame}[plain]
+  \maketitle
+\end{frame}
+
+%% ====================== ทบทวน ======================
+\begin{frame}{ทบทวนสัปดาห์ที่ 5}
+  \begin{itemize}
+    \item \textbf{4 การดำเนินการ}: $A \cup B$, \ $A \cap B$, \ $A - B$, \ $A^c$ \quad
+          และสูตร $A - B = A \cap B^c$
+    \item \textbf{กฎพีชคณิตของเซต} ชุดเดียวกับกฎประพจน์ ($\cup \leftrightarrow \lor$, $\cap \leftrightarrow \land$, $^c \leftrightarrow \neg$)
+    \item \textbf{เดอมอร์แกน}: $(A \cup B)^c = A^c \cap B^c$ \quad และ \quad $(A \cap B)^c = A^c \cup B^c$
+  \end{itemize}
+  \vspace{0.4em}
+  \begin{exampleblock}{สัปดาห์นี้ = สัปดาห์ปิดบทที่ 2}
+    เครื่องมือนับและสร้างเซตขั้นสูง: \textbf{เพาเวอร์เซต} $\mathcal{P}(A)$,
+    \textbf{ผลคูณคาร์ทีเซียน} $A \times B$, \textbf{หลักการรวม-การแยก}
+    แล้วปิดท้ายด้วยการใช้เซตจริง ๆ ในคอมพิวเตอร์ (bit vector, SQL, hash)
+  \end{exampleblock}
+\end{frame}
+
+%% ====================== วัตถุประสงค์ ======================
+\begin{frame}{วัตถุประสงค์การเรียนรู้ (สัปดาห์ที่ 6)}
+  เมื่อเรียนจบสัปดาห์นี้ นักศึกษาจะสามารถ
+  \begin{enumerate}
+    \item หา \textbf{เพาเวอร์เซต} ของเซตที่กำหนด และใช้สูตร $|\mathcal{P}(A)| = 2^{|A|}$ ได้
+    \item หา \textbf{ผลคูณคาร์ทีเซียน} $A \times B$ และใช้สูตร $|A \times B| = |A| \cdot |B|$ ได้
+    \item ใช้ \textbf{หลักการรวม-การแยก} แก้โจทย์การนับสมาชิกได้
+    \item อธิบายการแทนเซตด้วย \textbf{bit vector} และเชื่อมโยงเซตกับ \textbf{SQL} และโครงสร้างข้อมูลได้
+  \end{enumerate}
+\end{frame}
+
+%% ====================== หัวข้อ ======================
+\begin{frame}{หัวข้อที่จะศึกษาในสัปดาห์นี้}
+  \tableofcontents
+\end{frame}
+
+
+%% =====================================================================
+\section{เพาเวอร์เซต (Power Set)}
+%% =====================================================================
+
+\begin{frame}{เพาเวอร์เซต: เซตของเซตย่อยทั้งหมด}
+  \begin{block}{นิยาม}
+    \textbf{เพาเวอร์เซต} ของ $A$ เขียน $\mathcal{P}(A)$ คือเซตที่มีสมาชิกเป็น
+    \textbf{เซตย่อยทุกตัว} ของ $A$: \quad $\mathcal{P}(A) = \{B \mid B \subseteq A\}$
+  \end{block}
+  \vspace{0.3em}
+  ตัวอย่าง: $A = \{1, 2\}$
+  \[ \mathcal{P}(A) = \bigl\{\, \emptyset,\ \{1\},\ \{2\},\ \{1,2\} \,\bigr\} \]
+  \begin{itemize}
+    \item สมาชิกของ $\mathcal{P}(A)$ เป็น \textbf{เซต} ทุกตัว --- เพาเวอร์เซตคือ ``เซตของเซต''
+    \item $\emptyset \in \mathcal{P}(A)$ และ $A \in \mathcal{P}(A)$ เสมอ (เซตย่อยเล็กสุดและใหญ่สุด)
+  \end{itemize}
+  \vspace{0.3em}
+  \begin{alertblock}{ระวัง}
+    $\mathcal{P}(\emptyset) = \{\emptyset\}$ --- \textbf{ไม่ใช่} เซตว่าง! มันมีสมาชิก 1 ตัวคือ $\emptyset$
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{ทำไม $|\mathcal{P}(A)| = 2^{|A|}$}
+  สมาชิกแต่ละตัวของ $A$ ตัดสินใจได้ 2 ทาง: \textbf{อยู่} หรือ \textbf{ไม่อยู่} ในเซตย่อย
+  \begin{center}
+  \begin{tabular}{|c|c|c|c|l|}
+    \hline
+    & $1$ & $2$ & $3$ & \textbf{เซตย่อยที่ได้} \\ \hline
+    & 0 & 0 & 0 & $\emptyset$ \\ \hline
+    & 1 & 0 & 0 & $\{1\}$ \\ \hline
+    & 0 & 1 & 0 & $\{2\}$ \\ \hline
+    & 0 & 0 & 1 & $\{3\}$ \\ \hline
+    & 1 & 1 & 0 & $\{1,2\}$ \\ \hline
+    & 1 & 0 & 1 & $\{1,3\}$ \\ \hline
+    & 0 & 1 & 1 & $\{2,3\}$ \\ \hline
+    & 1 & 1 & 1 & $\{1,2,3\}$ \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  $2 \times 2 \times 2 = 2^3 = 8$ แบบพอดี --- และแต่ละแถวคือ \textbf{bit string} หนึ่งชุด!
+  \par\footnotesize (นี่คือสะพานเชื่อมไปหัวข้อ bit vector ท้ายคาบ และเหตุผลที่สัญกรณ์ $2^A$ ก็หมายถึงเพาเวอร์เซต)
+\end{frame}
+
+\begin{frame}{เช็กความเข้าใจเร็ว: เพาเวอร์เซต}
+  \begin{enumerate}
+    \item จงหา $\mathcal{P}(\{a\})$
+    \item จงหา $|\mathcal{P}(\{1,2,3,4,5\})|$ (ไม่ต้องแจกแจง)
+    \item จริงหรือเท็จ: $\{1\} \in \mathcal{P}(\{1,2\})$
+    \item จริงหรือเท็จ: $|\mathcal{P}(\mathcal{P}(\emptyset))| = 2$
+  \end{enumerate}
+  \pause
+  \begin{exampleblock}{เฉลย}
+    \footnotesize
+    1) $\{\emptyset, \{a\}\}$ \quad
+    2) $2^5 = 32$ \quad
+    3) \TT\ (เพราะ $\{1\} \subseteq \{1,2\}$) \quad
+    4) \TT\ ($\mathcal{P}(\emptyset) = \{\emptyset\}$ มี 1 ตัว จึงได้ $2^1 = 2$)
+  \end{exampleblock}
+  \vspace{0.3em}
+  \footnotesize เกร็ด: เพาเวอร์เซตโตเร็วมาก --- เพิ่มสมาชิก 1 ตัว เพาเวอร์เซตโต \textbf{2 เท่า}
+  (ชุดคุณลักษณะ 20 อย่างมีวิธีเลือกมากกว่า 1 ล้านแบบ)
+\end{frame}
+
+
+%% =====================================================================
+\section{ผลคูณคาร์ทีเซียน (Cartesian Product)}
+%% =====================================================================
+
+\begin{frame}{คู่อันดับ และผลคูณคาร์ทีเซียน}
+  \begin{block}{นิยาม}
+    \textbf{คู่อันดับ (Ordered Pair)} $(a, b)$ --- \textbf{ลำดับสำคัญ}: $(a,b) \neq (b,a)$ ยกเว้น $a = b$ \\[0.3em]
+    \textbf{ผลคูณคาร์ทีเซียน}: $A \times B = \{(a, b) \mid a \in A \text{ และ } b \in B\}$
+  \end{block}
+  \vspace{0.3em}
+  ตัวอย่าง: $A = \{1, 2\}$, $B = \{a, b\}$
+  \[ A \times B = \{(1,a),\ (1,b),\ (2,a),\ (2,b)\} \]
+  \begin{itemize}
+    \item เทียบกับเซต: $\{a, b\} = \{b, a\}$ แต่ $(a, b) \neq (b, a)$ --- นี่คือความต่างสำคัญ
+    \item $A \times B \neq B \times A$ โดยทั่วไป (ไม่มีสมบัติสลับที่)
+    \item $\emptyset \times A = \emptyset$ (ไม่มีคู่ใดสร้างได้จากเซตว่าง)
+  \end{itemize}
+  \vspace{0.2em}
+  \footnotesize ตั้งชื่อตาม \textbf{Ren\'e Descartes} ผู้ให้กำเนิดเรขาคณิตวิเคราะห์ --- $\mathbb{R} \times \mathbb{R} = \mathbb{R}^2$ คือระนาบพิกัดที่เราใช้กันทุกวัน
+\end{frame}
+
+\begin{frame}{นับจำนวนคู่: $|A \times B| = |A| \cdot |B|$}
+  ทุกสมาชิกของ $A$ จับคู่กับทุกสมาชิกของ $B$ ได้หมด --- วาดเป็นตารางได้เลย
+  \begin{center}
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    $\times$ & $a$ & $b$ & $c$ \\ \hline
+    $1$ & $(1,a)$ & $(1,b)$ & $(1,c)$ \\ \hline
+    $2$ & $(2,a)$ & $(2,b)$ & $(2,c)$ \\ \hline
+  \end{tabular}
+  \end{center}
+  \centering $|A| = 2$ แถว $\times$ $|B| = 3$ คอลัมน์ $= 6$ คู่
+  \vspace{0.5em}
+  \begin{exampleblock}{ตัวอย่างใกล้ตัว}
+    เสื้อ 3 ตัว $\times$ กางเกง 2 ตัว = ชุดแต่งตัว $3 \times 2 = 6$ แบบ \\
+    เมนูอาหาร 10 อย่าง $\times$ เครื่องดื่ม 5 อย่าง = เซตอาหารกลางวัน 50 ชุด
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{คาร์ทีเซียนคือหัวใจของฐานข้อมูล}
+  \begin{itemize}
+    \item ให้ $S$ = เซตของนักศึกษา และ $C$ = เซตของรายวิชา
+    \item \textbf{ตารางลงทะเบียน} $E$ คือเซตของคู่ (นักศึกษา, วิชา) ที่ลงจริง:
+          \[ E \subseteq S \times C \]
+    \item แถวแต่ละแถวในตารางฐานข้อมูล = \textbf{tuple} หนึ่งตัวใน Cartesian Product
+    \item คำสั่ง \texttt{CROSS JOIN} ใน SQL คือ $A \times B$ ตรง ๆ
+          ส่วน \texttt{JOIN} แบบมีเงื่อนไข = เซตย่อยของมัน
+  \end{itemize}
+  \vspace{0.4em}
+  \begin{exampleblock}{มองไปข้างหน้า}
+    \textbf{ความสัมพันธ์ (Relation)} ในบทที่ 3 นิยามเป็น ``เซตย่อยของ $A \times B$'' เป๊ะ ๆ ---
+    สิ่งที่เรียนวันนี้คือประตูสู่บทถัดไปทั้งบท
+  \end{exampleblock}
+\end{frame}
+
+
+%% =====================================================================
+\section{การนับจำนวนสมาชิก และหลักการรวม-การแยก}
+%% =====================================================================
+
+\begin{frame}{คาร์ดินัลลิตี้ (Cardinality) และสูตรนับที่มีแล้ว}
+  \begin{block}{นิยาม}
+    \textbf{คาร์ดินัลลิตี้} ของเซต $A$ เขียน $|A|$ = จำนวนสมาชิกของ $A$ \\
+    เช่น $|\{a, b, c\}| = 3$, \quad $|\emptyset| = 0$
+  \end{block}
+  \vspace{0.4em}
+  สูตรนับที่ได้มาแล้ววันนี้
+  \begin{center}
+  \begin{tabular}{|l|c|}
+    \hline
+    เพาเวอร์เซต & $|\mathcal{P}(A)| = 2^{|A|}$ \\ \hline
+    ผลคูณคาร์ทีเซียน & $|A \times B| = |A| \cdot |B|$ \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.4em}
+  คำถามถัดไป: แล้ว $|A \cup B|$ ล่ะ? \quad บวกกันตรง ๆ ได้ไหม?
+\end{frame}
+
+\begin{frame}{หลักการรวม-การแยก (Inclusion--Exclusion)}
+  \begin{alertblock}{บวกตรง ๆ ไม่ได้!}
+    ถ้านับ $|A| + |B|$ สมาชิกที่อยู่ \textbf{ทั้งสองเซต} จะถูกนับ \textbf{ซ้ำสองครั้ง}
+  \end{alertblock}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      \begin{block}{สูตร}
+        \centering $|A \cup B| = |A| + |B| - |A \cap B|$
+      \end{block}
+      \vspace{0.3em}
+      ตัวอย่าง: $A = \{1,2,3,4\}$, $B = \{3,4,5,6\}$
+      \begin{itemize}\small
+        \item $|A| + |B| = 4 + 4 = 8$ แต่ $3, 4$ ถูกนับซ้ำ
+        \item $|A \cup B| = 4 + 4 - 2 = 6$ \quad ตรงกับ $|\{1,\ldots,6\}|$
+      \end{itemize}
+      \footnotesize ถ้า $A \cap B = \emptyset$ (แยกกัน): $|A \cup B| = |A| + |B|$ พอดี
+    \end{column}
+    \begin{column}{0.44\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=0.8,every node/.style={font=\small}]
+        \draw (-2.2,-1.45) rectangle (2.2,1.55);
+        \draw[fill=lightnavy,fill opacity=0.6] (-0.65,0) circle (1);
+        \draw[fill=mint,fill opacity=0.6] (0.65,0) circle (1);
+        \node at (-1.15,0) {$2$};
+        \node at (0,0) {$2$};
+        \node at (1.15,0) {$2$};
+        \node at (-1.4,1.2) {$A$};
+        \node at (1.4,1.2) {$B$};
+      \end{tikzpicture}\\
+      \footnotesize ช่องกลาง (2 ตัว) อยู่ทั้ง $A$ และ $B$ --- ต้องหักออกหนึ่งครั้ง
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{ตัวอย่าง: โจทย์นับนักศึกษา}
+  \begin{block}{โจทย์}
+    นักศึกษา 80 คน เรียนคณิตศาสตร์ 50 คน เรียนคอมพิวเตอร์ 40 คน
+    และเรียน \textbf{ทั้งสองวิชา} 20 คน \\
+    (ก) มีกี่คนที่เรียน \textbf{อย่างน้อยหนึ่งวิชา}? \quad (ข) มีกี่คนที่ \textbf{ไม่เรียนสักวิชา}?
+  \end{block}
+  \pause
+  \textbf{วิธีทำ} \quad ให้ $M$ = เซตคนเรียนคณิต, $C$ = เซตคนเรียนคอม, $|U| = 80$
+  \begin{align*}
+    \text{(ก)}\quad |M \cup C| &= |M| + |C| - |M \cap C| = 50 + 40 - 20 = 70 \text{ คน} \\
+    \text{(ข)}\quad |(M \cup C)^c| &= |U| - |M \cup C| = 80 - 70 = 10 \text{ คน}
+  \end{align*}
+  \begin{exampleblock}{สังเกต}
+    ข้อ (ข) ใช้คอมพลีเมนต์จากสัปดาห์ที่แล้ว + เดอมอร์แกน:
+    ``ไม่เรียนสักวิชา'' $= M^c \cap C^c = (M \cup C)^c$
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กรณี 3 เซต และการจับผิดข้อมูล}
+  \begin{block}{สูตร 3 เซต}
+    \small
+    $|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|$
+  \end{block}
+  \vspace{0.3em}
+  \textbf{ตัวอย่าง (ลองจับผิด):} ห้องเรียน 20 คน เรียนคณิต 12 ฟิสิกส์ 15 เคมี 10
+  คณิต$\cap$ฟิสิกส์ 6 คณิต$\cap$เคมี 5 ฟิสิกส์$\cap$เคมี 4 และทั้งสามวิชา 2 คน
+  \pause
+  \[
+    |M \cup P \cup C| = 12 + 15 + 10 - 6 - 5 - 4 + 2 = 24
+  \]
+  \begin{alertblock}{ผิดปกติ!}
+    ได้ 24 คน แต่ห้องมีแค่ 20 คน $\Rightarrow$ \textbf{ข้อมูลขัดแย้งกันเอง}
+    --- สูตรนับไม่ใช่แค่หาคำตอบ แต่ใช้ \textbf{ตรวจสอบความสมเหตุสมผลของข้อมูล} ได้ด้วย
+    (ทักษะสำคัญของนักวิเคราะห์ข้อมูล)
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{เกร็ดปิดท้าย: โรงแรมของฮิลเบิร์ต กับอนันต์หลายระดับ}
+  \begin{block}{โรงแรมของฮิลเบิร์ต (Hilbert's Hotel)}
+    โรงแรมมีห้อง 1, 2, 3, \ldots ไม่สิ้นสุด และ \textbf{เต็มทุกห้อง}
+    มีแขกใหม่มา 1 คน --- รับได้ไหม? \\
+    \textbf{ได้!} ให้แขกห้อง $n$ ย้ายไปห้อง $n+1$ ทุกคน แล้วห้อง 1 ก็ว่าง
+  \end{block}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item เซตอนันต์จึง ``แปลก'': เพิ่มสมาชิกแล้วขนาดเท่าเดิม --- เรียกว่า \textbf{เซตนับได้} (Countable)
+          เช่น $\mathbb{N}, \mathbb{Z}$ และแม้แต่ $\mathbb{Q}$
+    \item แต่ Cantor พิสูจน์ (diagonal argument) ว่า $\mathbb{R}$ \textbf{นับไม่ได้} (Uncountable)
+          --- ต่อให้จับคู่กับห้องอย่างไรก็มีจำนวนจริง ``ตกค้าง'' เสมอ
+    \item สรุป: $|\mathbb{N}| = |\mathbb{Z}| = |\mathbb{Q}| < |\mathbb{R}|$ --- อนันต์มีหลายระดับจริง ๆ
+  \end{itemize}
+  \vspace{0.2em}
+  \footnotesize เนื้อหาส่วนนี้เป็นความรู้รอบตัว (ไม่ออกสอบละเอียด) --- อ่านเพิ่มได้ในหัวข้อ ``เซตนับได้และเซตนับไม่ได้'' ของตำรา
+\end{frame}
+
+
+%% =====================================================================
+\section{เซตในวิทยาการคอมพิวเตอร์}
+%% =====================================================================
+
+\begin{frame}{แทนเซตด้วย Bit Vector}
+  แทนเซตใน $U = \{1, 2, \ldots, 9\}$ ด้วยสตริงของบิต 9 ตำแหน่ง: ตำแหน่ง $i$ เป็น 1 $\Leftrightarrow$ $i$ อยู่ในเซต
+  \begin{block}{ตัวอย่าง: $A = \{2, 5, 7\}$}
+    \centering
+    \begin{tabular}{r|ccccccccc}
+      ตำแหน่ง & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ \hline
+      บิตของ $A$ & 0 & \textbf{\textcolor{navy}{1}} & 0 & 0 & \textbf{\textcolor{navy}{1}} & 0 & \textbf{\textcolor{navy}{1}} & 0 & 0 \\
+    \end{tabular}
+    \par\vspace{0.3em} $A = \texttt{010010100}_2$
+  \end{block}
+  \vspace{0.3em}
+  การดำเนินการเซตกลายเป็นการดำเนินการบิตที่ CPU ทำได้ทันที
+  \begin{center}\small
+  \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{เซต} & \textbf{บิต} & \textbf{ความเร็ว} \\ \hline
+    $A \cup B$ & OR \ (\texttt{|}) & $O(1)$ ต่อเวิร์ด \\ \hline
+    $A \cap B$ & AND (\texttt{\&}) & $O(1)$ ต่อเวิร์ด \\ \hline
+    $A^c$ & NOT (\texttt{\textasciitilde}) & $O(1)$ ต่อเวิร์ด \\ \hline
+  \end{tabular}
+  \end{center}
+\end{frame}
+
+\begin{frame}{เซตใน SQL: ฐานข้อมูลคือทฤษฎีเซตภาคปฏิบัติ}
+  ตาราง (relation) = เซตของแถว (tuple) --- คำสั่ง SQL จึงเป็นการดำเนินการเซตโดยตรง
+  \begin{center}\small
+  \begin{tabular}{|l|l|}
+    \hline
+    \textbf{SQL} & \textbf{ทฤษฎีเซต} \\ \hline
+    \texttt{SELECT ... UNION ...} & $A \cup B$ \\ \hline
+    \texttt{SELECT ... INTERSECT ...} & $A \cap B$ \\ \hline
+    \texttt{SELECT ... EXCEPT ...} & $A - B$ \\ \hline
+    \texttt{WHERE} (เงื่อนไขกรอง) & เซตย่อย $\{x \in A \mid P(x)\}$ \\ \hline
+    \texttt{CROSS JOIN} & $A \times B$ \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \begin{exampleblock}{ตัวอย่าง}
+    หานักศึกษาที่ลงวิชาคณิตแต่ไม่ลงวิชาคอม: \\
+    \texttt{SELECT sid FROM enroll\_math EXCEPT SELECT sid FROM enroll\_comp} \\
+    ก็คือ $M - C$ ที่เราคำนวณมือได้แล้วนั่นเอง
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Hash Set: ทดสอบสมาชิกเร็วระดับ $O(1)$}
+  โครงสร้างข้อมูลยอดนิยมสำหรับเก็บเซตคือ \textbf{ตารางแฮช (Hash Table)}
+  ใช้ฟังก์ชันแฮช $h : U \rightarrow \{0, 1, \ldots, m-1\}$ ชี้ตำแหน่งเก็บ
+  \begin{center}\small
+  \begin{tabular}{|l|c|}
+    \hline
+    \textbf{การดำเนินการ} & \textbf{เวลาโดยเฉลี่ย} \\ \hline
+    ทดสอบสมาชิก $x \in A$ & $O(1)$ \\ \hline
+    เพิ่ม / ลบสมาชิก & $O(1)$ \\ \hline
+    $A \cup B$ & $O(|A| + |B|)$ \\ \hline
+    $A \cap B$ & $O(\min(|A|, |B|))$ \\ \hline
+    ทดสอบ $A \subseteq B$ & $O(|A|)$ \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item Python \texttt{set}, Java \texttt{HashSet}, C++ \texttt{unordered\_set} ล้วนใช้หลักการนี้
+    \item เทียบกับ list ที่ต้องไล่ดูทีละตัว ($O(n)$) --- เลือกโครงสร้างถูก งานเร็วขึ้นมหาศาล
+  \end{itemize}
+\end{frame}
+
+
+%% =====================================================================
+\section{กิจกรรมในชั้นเรียน (แบบฝึกหัดทำในห้อง)}
+%% =====================================================================
+
+\begin{frame}{วิธีทำกิจกรรม}
+  \begin{block}{คำชี้แจง}
+    ให้นักศึกษาทำกิจกรรมต่อไปนี้ \textbf{ลงในใบกิจกรรม (Worksheet)} ภายในเวลาที่กำหนด
+    แล้วร่วมเฉลยและอภิปรายพร้อมกัน
+  \end{block}
+  \vspace{0.5em}
+  \begin{itemize}
+    \item ทำเดี่ยวหรือจับคู่ก็ได้ (ตามที่อาจารย์กำหนด)
+    \item เมื่อหมดเวลา อาจารย์จะคลิกเพื่อ \textbf{เฉลย} ทีละข้อ
+    \item อาสาสมัครออกมาอธิบายวิธีคิดหน้าชั้น
+  \end{itemize}
+  \vspace{0.5em}
+  \begin{exampleblock}{เกณฑ์}
+    เน้นกระบวนการคิดและการให้เหตุผล ไม่ใช่แค่คำตอบสุดท้าย
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 1: เพาเวอร์เซต \eng{6 นาที}}
+  \begin{enumerate}
+    \item จงแจกแจง $\mathcal{P}(\{x, y, z\})$ ให้ครบทุกตัว
+    \item $|\mathcal{P}(\{x, y, z\})|$ เท่ากับเท่าใด ตรงกับสูตรหรือไม่
+    \item จริงหรือเท็จ: $\emptyset \subseteq \mathcal{P}(A)$ และ $\emptyset \in \mathcal{P}(A)$
+  \end{enumerate}
+  \pause
+  \begin{exampleblock}{เฉลย}
+    \footnotesize
+    1) $\emptyset, \{x\}, \{y\}, \{z\}, \{x,y\}, \{x,z\}, \{y,z\}, \{x,y,z\}$ \\
+    2) มี 8 ตัว $= 2^3$ ตรงตามสูตร \quad
+    3) จริงทั้งคู่ --- $\emptyset$ เป็นเซตย่อยของทุกเซต และ $\emptyset$ เป็นเซตย่อยของ $A$ จึงเป็นสมาชิกของ $\mathcal{P}(A)$
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 2: ผลคูณคาร์ทีเซียน \eng{6 นาที}}
+  กำหนด $A = \{1, 2\}$ และ $B = \{a, b, c\}$
+  \begin{enumerate}
+    \item จงแจกแจง $A \times B$
+    \item $|A \times B|$ เท่ากับเท่าใด
+    \item $B \times A$ เท่ากับ $A \times B$ หรือไม่ เพราะเหตุใด
+    \item $|\{1,2\} \times \{3,4\} \times \{5,6\}|$ เท่ากับเท่าใด
+  \end{enumerate}
+  \pause
+  \begin{exampleblock}{เฉลย}
+    \footnotesize
+    1) $\{(1,a),(1,b),(1,c),(2,a),(2,b),(2,c)\}$ \quad
+    2) $2 \times 3 = 6$ \quad
+    3) ไม่เท่า เช่น $(1,a) \in A \times B$ แต่ $(1,a) \notin B \times A$ (คู่อันดับมีลำดับ) \quad
+    4) $2 \times 2 \times 2 = 8$
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{กิจกรรมที่ 3: หลักการรวม-การแยก \eng{8 นาที}}
+  \begin{block}{โจทย์}
+    ชมรมกีฬามีสมาชิก 45 คน เล่นฟุตบอล 28 คน เล่นบาสเกตบอล 19 คน
+    และเล่น \textbf{ทั้งสองอย่าง} 8 คน
+    \begin{enumerate}
+      \item มีกี่คนที่เล่นกีฬาอย่างน้อยหนึ่งอย่าง
+      \item มีกี่คนที่ไม่เล่นกีฬาเลย
+      \item มีกี่คนที่เล่นฟุตบอลอย่างเดียว
+    \end{enumerate}
+  \end{block}
+  \pause
+  \begin{exampleblock}{เฉลย}
+    \footnotesize
+    1) $|F \cup B| = 28 + 19 - 8 = 39$ คน \quad
+    2) $45 - 39 = 6$ คน \quad
+    3) $|F - B| = |F| - |F \cap B| = 28 - 8 = 20$ คน
+  \end{exampleblock}
+\end{frame}
+
+
+%% =====================================================================
+\section{เกมท้ายคาบ: ถอดรหัสลับบิต}
+%% =====================================================================
+
+\begin{frame}{เกมท้ายคาบ: ``ถอดรหัสลับบิต'' \eng{ประมาณ 10 นาที}}
+  \begin{block}{กติกา}
+    \begin{enumerate}
+      \item จับกลุ่ม 3--4 คน แข่งกัน \textbf{ถอดรหัส bit vector} เป็นเซต แล้วดำเนินการตามที่โจทย์สั่ง
+      \item รอบ 1 ได้ 1 แต้ม \quad รอบ 2 ได้ 2 แต้ม \quad รอบสุดท้าย (ถอดคำลับ) ได้ 3 แต้ม
+      \item กลุ่มแรกที่ชูคำตอบ \textbf{ถูกต้อง} ได้แต้มเต็ม กลุ่มถัดไปที่ถูกได้ครึ่งแต้ม
+    \end{enumerate}
+  \end{block}
+  \vspace{0.4em}
+  \begin{exampleblock}{}
+    \centering เกมนี้คือสิ่งที่ CPU ทำจริง ๆ เวลาคอมพิวเตอร์คำนวณเซต --- เร็วที่สุดในโลก
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{ถอดรหัสลับบิต: รอบที่ 1--2}
+  ใช้ $U = \{1, 2, 3, 4, 5, 6, 7, 8\}$ (บิตซ้ายสุด = ตำแหน่ง 1)
+  \begin{enumerate}
+    \item[\textbf{1.}] bit vector \texttt{10100110} แทนเซตใด? \eng{1 แต้ม}
+    \pause
+    \item[] \hfill \textcolor{navy}{\textbf{เฉลย:}} $\{1, 3, 6, 7\}$
+    \pause
+    \item[\textbf{2.}] กำหนด $A = \texttt{11001100}$ และ $B = \texttt{01101000}$ \\
+          จงหา $A \cap B$ (AND บิตต่อบิต) ตอบเป็น \textbf{เซต} \eng{2 แต้ม}
+    \pause
+    \item[] \hfill \textcolor{navy}{\textbf{เฉลย:}} \texttt{01001000} $= \{2, 5\}$
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{ถอดรหัสลับบิต: รอบสุดท้าย --- คำลับ! \eng{3 แต้ม}}
+  ใช้ $U = \{1, \ldots, 7\}$ แต่ละตำแหน่งแทนตัวอักษร:
+  \begin{center}
+  \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+    1 & 2 & 3 & 4 & 5 & 6 & 7 \\ \hline
+    \texttt{S} & \texttt{E} & \texttt{T} & \texttt{M} & \texttt{A} & \texttt{T} & \texttt{H} \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.3em}
+  กำหนด \quad $A = \texttt{1010100}$ \quad $B = \texttt{0110001}$ \quad $C = \texttt{0000101}$
+  \begin{center}
+    {\large จงหา $(A \cup B) - C$ แล้วอ่านตัวอักษรตามตำแหน่งที่ได้}
+  \end{center}
+  \pause
+  \begin{exampleblock}{เฉลย}
+    $A \cup B = \texttt{1110101} = \{1,2,3,5,7\}$ \quad
+    ลบ $C = \{5, 7\}$ ออก ได้ $\{1, 2, 3\}$ \\
+    \centering ตำแหน่ง 1, 2, 3 = \texttt{S}, \texttt{E}, \texttt{T} \quad
+    {\large\textbf{คำลับคือ ``SET''}}
+  \end{exampleblock}
+  \pause
+  \centering รวมแต้มทั้ง 3 สัปดาห์ ประกาศแชมป์บทที่ 2!
+\end{frame}
+
+
+%% ====================== สรุป + แบบฝึกหัด ======================
+\begin{frame}{สรุปสัปดาห์ที่ 6 และภาพรวมบทที่ 2}
+  \begin{itemize}\small
+    \item \textbf{เพาเวอร์เซต} $\mathcal{P}(A)$ = เซตของเซตย่อยทั้งหมด \quad $|\mathcal{P}(A)| = 2^{|A|}$
+    \item \textbf{ผลคูณคาร์ทีเซียน} $A \times B$ = เซตของคู่อันดับ \quad $|A \times B| = |A| \cdot |B|$
+          --- รากฐานของความสัมพันธ์ (บทที่ 3) และฐานข้อมูล
+    \item \textbf{หลักการรวม-การแยก}: $|A \cup B| = |A| + |B| - |A \cap B|$ (สามเซตก็มีสูตรขยาย)
+    \item \textbf{เซตในคอมพิวเตอร์}: bit vector (บิตต่อสมาชิก), SQL (\texttt{UNION}/\texttt{INTERSECT}/\texttt{EXCEPT}), hash set ($O(1)$)
+  \end{itemize}
+  \vspace{0.3em}
+  \begin{exampleblock}{บทที่ 2 ทั้งบทใน 3 บรรทัด}
+    สัปดาห์ 4: เซตคืออะไร เขียนอย่างไร ใครเป็นเซตย่อยใคร \\
+    สัปดาห์ 5: เอาเซตมา $\cup\ \cap\ -\ ^c$ กัน พร้อมกฎครบชุด (รวมเดอมอร์แกน) \\
+    สัปดาห์ 6: เครื่องมือนับ ($\mathcal{P}$, $\times$, รวม-แยก) และเซตในโลกจริงของคอมพิวเตอร์
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{แบบฝึกหัดมอบหมาย (สัปดาห์ที่ 6)}
+  ทำลงสมุด ส่งต้นคาบสัปดาห์หน้า (ข้อละ 2 คะแนน รวม 10 คะแนน)
+  \begin{enumerate}\small
+    \item จงหา $\mathcal{P}(\{a, b, c\})$ และ $|\mathcal{P}(\mathcal{P}(\emptyset))|$
+    \item จงหา $\{1, 2\} \times \{3, 4, 5\}$ และ $|\{1,2\} \times \{3,4\} \times \{5,6\}|$
+    \item ถ้า $|A| = 3$ และ $|B| = 4$ จงหา $|A \times B|$, \ $|\mathcal{P}(A)|$, \ $|\mathcal{P}(A) \times \mathcal{P}(B)|$
+    \item นักศึกษา 120 คน เรียนวิชา A 70 คน เรียนวิชา B 60 คน ถ้า \textbf{ทุกคน} เรียนอย่างน้อยหนึ่งวิชา
+          จงหาจำนวนคนที่เรียนทั้งสองวิชา
+    \item \textbf{(ประยุกต์)} กำหนด $U = \{1, \ldots, 10\}$, $A = \{1,2,3,4,5\}$, $B = \{4,5,6,7\}$
+          จงเขียน bit vector ของ $A$, $B$, $A \cup B$, $A \cap B$, $A^c$
+          และตรวจว่า OR/AND/NOT ของบิตให้ผลตรงกับการดำเนินการเซตจริง
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[plain]
+  \vfill
+  \centering
+  {\Large\color{navy}\textbf{จบบทที่ 2 : ทฤษฎีเซต}}\par
+  \vspace{0.8em}
+  {\color{gray} สัปดาห์ถัดไป: บทที่ 3 · ความสัมพันธ์และฟังก์ชัน (สร้างจาก $A \times B$ ที่เรียนวันนี้!)}
+  \vfill
+\end{frame}

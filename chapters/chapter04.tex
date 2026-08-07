@@ -52,21 +52,13 @@ $$d_n d_{n-1} \ldots d_1 d_0 . d_{-1} d_{-2} \ldots d_{-m} = \sum_{i=-m}^{n} d_i
 จงแสดงการกระจายค่าประจำหลักของจำนวนเต็ม $4729$ และจำนวนทศนิยม $53.847$ ในระบบเลขฐานสิบ
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{กระจายจำนวนเต็ม $4729$ ตามค่าน้ำหนัก $10^i$:}
-    \begin{align*}
-    4729 &= (4\times10^3)+(7\times10^2)+(2\times10^1)+(9\times10^0)\\
-         &= 4000+700+20+9
-    \end{align*}
-    ดังนั้น ผลการกระจายคือ \mathoval{4729 = 4000 + 700 + 20 + 9}
-
-    \item \textbf{กระจายจำนวนทศนิยม $53.847$ ตามค่าน้ำหนัก $10^i$:}
-    \begin{align*}
-    53.847 &= (5\times10^1)+(3\times10^0)+(8\times10^{-1})+(4\times10^{-2})+(7\times10^{-3})\\
-           &= 50+3+0.8+0.04+0.007
-    \end{align*}
-    ดังนั้น ผลการกระจายคือ \mathoval{53.847 = 50 + 3 + 0.8 + 0.04 + 0.007}
-\end{solsteps}
+\begin{align*}
+4729 &= (4\times10^3)+(7\times10^2)+(2\times10^1)+(9\times10^0)\\
+&= 4000+700+20+9\\
+53.847 &= (5\times10^1)+(3\times10^0)+(8\times10^{-1})+(4\times10^{-2})+(7\times10^{-3})\\
+&= 50+3+0.8+0.04+0.007
+\end{align*}
+$\therefore 4729 = 4000+700+20+9$ และ $53.847 = 50+3+0.8+0.04+0.007$ \solhere
 \end{solution}
 
 \section{ระบบเลขฐานสอง (Binary System)}
@@ -102,26 +94,22 @@ $$(b_n b_{n-1} \ldots b_1 b_0)_2 = \sum_{i=0}^{n} b_i \times 2^i$$
 แปลง $(1101)_2$ เป็นฐานสิบ
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{กระจายตามค่าน้ำหนักประจำหลัก $2^i$:}
-    \[ (1101)_2 = (1\times2^3)+(1\times2^2)+(0\times2^1)+(1\times2^0) \]
-    \item \textbf{คำนวณผลบวกค่าประจำหลัก:}
-    \[ = 8 + 4 + 0 + 1 = 13 \]
-    \item ดังนั้น สรุปผลการแปลงได้คือ \mathoval{(1101)_2 = (13)_{10}}
-\end{solsteps}
+\begin{align*}
+(1101)_2 &= (1\times2^3)+(1\times2^2)+(0\times2^1)+(1\times2^0)\\
+&= 8 + 4 + 0 + 1 = 13
+\end{align*}
+$\therefore (1101)_2 = (13)_{10}$ \solhere
 \end{solution}
 
 \begin{ex}
 แปลง $(10110)_2$ เป็นฐานสิบ
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{กระจายตามค่าน้ำหนักประจำหลัก $2^i$:}
-    \[ (10110)_2 = (1\times2^4)+(0\times2^3)+(1\times2^2)+(1\times2^1)+(0\times2^0) \]
-    \item \textbf{คำนวณผลบวกค่าประจำหลัก:}
-    \[ = 16 + 0 + 4 + 2 + 0 = 22 \]
-    \item ดังนั้น สรุปผลการแปลงได้คือ \mathoval{(10110)_2 = (22)_{10}}
-\end{solsteps}
+\begin{align*}
+(10110)_2 &= (1\times2^4)+(0\times2^3)+(1\times2^2)+(1\times2^1)+(0\times2^0)\\
+&= 16 + 0 + 4 + 2 + 0 = 22
+\end{align*}
+$\therefore (10110)_2 = (22)_{10}$ \solhere
 \end{solution}
 
 \begin{thrm}
@@ -136,26 +124,22 @@ $$(0.b_1 b_2 \ldots b_m)_2 = \sum_{i=1}^{m} b_i \times 2^{-i}$$
 แปลง $(0.101)_2$ เป็นฐานสิบ
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{กระจายทศนิยมตามค่าน้ำหนัก $2^{-i}$:}
-    \[ (0.101)_2 = (1\times2^{-1})+(0\times2^{-2})+(1\times2^{-3}) \]
-    \item \textbf{คำนวณผลบวกเศษส่วน:}
-    \[ = \frac{1}{2} + 0 + \frac{1}{8} = 0.5 + 0.125 = 0.625 \]
-    \item ดังนั้น สรุปผลการแปลงได้คือ \mathoval{(0.101)_2 = (0.625)_{10}}
-\end{solsteps}
+\begin{align*}
+(0.101)_2 &= (1\times2^{-1})+(0\times2^{-2})+(1\times2^{-3})\\
+&= \frac{1}{2} + 0 + \frac{1}{8} = 0.5 + 0.125 = 0.625
+\end{align*}
+$\therefore (0.101)_2 = (0.625)_{10}$ \solhere
 \end{solution}
 
 \begin{ex}
 แปลง $(10.011)_2$ เป็นฐานสิบ
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{แยกกระจายส่วนจำนวนเต็มและทศนิยมตามค่าน้ำหนัก $2^i$:}
-    \[ (10.011)_2 = (1\times2^1)+(0\times2^0)+(0\times2^{-1})+(1\times2^{-2})+(1\times2^{-3}) \]
-    \item \textbf{คำนวณผลบวก:}
-    \[ = 2 + 0 + 0 + 0.25 + 0.125 = 2.375 \]
-    \item ดังนั้น สรุปผลการแปลงได้คือ \mathoval{(10.011)_2 = (2.375)_{10}}
-\end{solsteps}
+\begin{align*}
+(10.011)_2 &= (1\times2^1)+(0\times2^0)+(0\times2^{-1})+(1\times2^{-2})+(1\times2^{-3})\\
+&= 2 + 0 + 0 + 0.25 + 0.125 = 2.375
+\end{align*}
+$\therefore (10.011)_2 = (2.375)_{10}$ \solhere
 \end{solution}
 
 \section{ระบบเลขฐานแปด (Octal System)}
@@ -174,26 +158,23 @@ $$(0.b_1 b_2 \ldots b_m)_2 = \sum_{i=1}^{m} b_i \times 2^{-i}$$
 แปลง $(110101)_2$ เป็นฐานแปด
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{จัดกลุ่มเลขฐานสองทีละ 3 บิตนับจากขวาไปซ้าย:}
-    \[ (110101)_2 = \underbrace{110}_{6}\ \underbrace{101}_{5} \]
-    \item \textbf{แปลงแต่ละกลุ่มบิตเป็นเลขฐานแปด:}
-    \[ 110_2 = (1\times4+1\times2+0\times1) = 6, \qquad 101_2 = (1\times4+0\times2+1\times1) = 5 \]
-    \item ดังนั้น สรุปผลการแปลงได้คือ \mathoval{(110101)_2 = (65)_8}
-\end{solsteps}
+\begin{align*}
+(110101)_2 &= \underbrace{110}_{6}\ \underbrace{101}_{5}\\
+110_2 &= (1\times4)+(1\times2)+(0\times1) = 6\\
+101_2 &= (1\times4)+(0\times2)+(1\times1) = 5
+\end{align*}
+$\therefore (110101)_2 = (65)_8$ \solhere
 \end{solution}
 
 \begin{ex}
 แปลง $(472)_8$ เป็นฐานสิบ
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{กระจายตามค่าน้ำหนักประจำหลัก $8^i$:}
-    \[ (472)_8 = (4\times8^2)+(7\times8^1)+(2\times8^0) \]
-    \item \textbf{คำนวณผลบวก:}
-    \[ = (4 \times 64) + (7 \times 8) + (2 \times 1) = 256 + 56 + 2 = 314 \]
-    \item ดังนั้น สรุปผลการแปลงได้คือ \mathoval{(472)_8 = (314)_{10}}
-\end{solsteps}
+\begin{align*}
+(472)_8 &= (4\times8^2)+(7\times8^1)+(2\times8^0)\\
+&= (4 \times 64) + (7 \times 8) + (2 \times 1) = 256 + 56 + 2 = 314
+\end{align*}
+$\therefore (472)_8 = (314)_{10}$ \solhere
 \end{solution}
 
 \begin{rem}
@@ -253,26 +234,23 @@ $$(0.b_1 b_2 \ldots b_m)_2 = \sum_{i=1}^{m} b_i \times 2^{-i}$$
 แปลง $(11010110)_2$ เป็นฐานสิบหก
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{จัดกลุ่มเลขฐานสองทีละ 4 บิตนับจากขวาไปซ้าย:}
-    \[ (11010110)_2 = \underbrace{1101}_{\mathrm{D}}\ \underbrace{0110}_{6} \]
-    \item \textbf{แปลงแต่ละกลุ่มบิตเป็นเลขฐานสิบหก:}
-    \[ 1101_2 = 13_{10} = \mathrm{D}_{16}, \qquad 0110_2 = 6_{10} = 6_{16} \]
-    \item ดังนั้น สรุปผลการแปลงได้คือ \mathoval{(11010110)_2 = (\mathrm{D}6)_{16}}
-\end{solsteps}
+\begin{align*}
+(11010110)_2 &= \underbrace{1101}_{\mathrm{D}}\ \underbrace{0110}_{6}\\
+1101_2 &= 13_{10} = \mathrm{D}_{16}\\
+0110_2 &= 6_{10} = 6_{16}
+\end{align*}
+$\therefore (11010110)_2 = (\mathrm{D}6)_{16}$ \solhere
 \end{solution}
 
 \begin{ex}
 แปลง $(3\mathrm{A}.\mathrm{F})_{16}$ เป็นฐานสิบ
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{กระจายตามค่าน้ำหนักประจำหลัก $16^i$ (โดย $\mathrm{A}=10, \mathrm{F}=15$):}
-    \[ (3\mathrm{A}.\mathrm{F})_{16} = (3\times16^1)+(10\times16^0)+(15\times16^{-1}) \]
-    \item \textbf{คำนวณผลบวก:}
-    \[ = 48 + 10 + \frac{15}{16} = 58 + 0.9375 = 58.9375 \]
-    \item ดังนั้น สรุปผลการแปลงได้คือ \mathoval{(3\mathrm{A}.\mathrm{F})_{16} = (58.9375)_{10}}
-\end{solsteps}
+\begin{align*}
+(3\mathrm{A}.\mathrm{F})_{16} &= (3\times16^1)+(10\times16^0)+(15\times16^{-1}) \quad (\mathrm{A}=10,\ \mathrm{F}=15)\\
+&= 48 + 10 + \frac{15}{16} = 58 + 0.9375 = 58.9375
+\end{align*}
+$\therefore (3\mathrm{A}.\mathrm{F})_{16} = (58.9375)_{10}$ \solhere
 \end{solution}
 
 
@@ -301,13 +279,12 @@ $$(d_n d_{n-1} \ldots d_1 d_0)_b = \sum_{i=0}^{n} d_i \times b^i$$
 แปลง $(2\mathrm{B}3)_{16}$ เป็นฐานสิบ และ $(57)_8$ เป็นฐานสิบ
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{แปลง $(2\mathrm{B}3)_{16}$ เป็นฐานสิบ (โดย $\mathrm{B}=11$):}
-    \[ (2\mathrm{B}3)_{16} = (2\times16^2)+(11\times16^1)+(3\times16^0) = (2 \times 256) + 176 + 3 = 512 + 176 + 3 = 691 \]
-    \item \textbf{แปลง $(57)_8$ เป็นฐานสิบ:}
-    \[ (57)_8 = (5\times8^1)+(7\times8^0) = 40 + 7 = 47 \]
-    \item ดังนั้น สรุปผลการแปลงคือ \mathoval{(2\mathrm{B}3)_{16} = (691)_{10}} และ \mathoval{(57)_8 = (47)_{10}}
-\end{solsteps}
+\begin{align*}
+(2\mathrm{B}3)_{16} &= (2\times16^2)+(11\times16^1)+(3\times16^0) \quad (\mathrm{B}=11)\\
+&= 512 + 176 + 3 = 691\\
+(57)_8 &= (5\times8^1)+(7\times8^0) = 40 + 7 = 47
+\end{align*}
+$\therefore (2\mathrm{B}3)_{16} = (691)_{10}$ และ $(57)_8 = (47)_{10}$ \solhere
 \end{solution}
 
 \subsection{การแปลงจากฐานสิบเป็นฐานใดๆ}
@@ -329,54 +306,45 @@ $$(d_n d_{n-1} \ldots d_1 d_0)_b = \sum_{i=0}^{n} d_i \times b^i$$
 แปลง $45$ ฐานสิบเป็นฐานสอง
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{ดำเนินการหารด้วย 2 อย่างต่อเนื่องและจดเศษ:}
-    \begin{align*}
-    45 \div 2 &= 22 \quad \text{เศษ } 1 \quad (\text{บิตนัยสำคัญน้อยสุด LSB})\\
-    22 \div 2 &= 11 \quad \text{เศษ } 0\\
-    11 \div 2 &= 5  \quad \text{เศษ } 1\\
-     5 \div 2 &= 2  \quad \text{เศษ } 1\\
-     2 \div 2 &= 1  \quad \text{เศษ } 0\\
-     1 \div 2 &= 0  \quad \text{เศษ } 1 \quad (\text{บิตนัยสำคัญมากสุด MSB})
-    \end{align*}
-    \item \textbf{อ่านเศษย้อนกลับจากล่างขึ้นบน:}
-    \[ \mathoval{(45)_{10} = (101101)_2} \]
-    (ตรวจสอบ: $(101101)_2 = 32+8+4+1 = 45$ \checkmark)
-\end{solsteps}
+\begin{align*}
+45 \div 2 &= 22 \quad \text{เศษ } 1 \quad (\text{บิตนัยสำคัญน้อยสุด})\\
+22 \div 2 &= 11 \quad \text{เศษ } 0\\
+11 \div 2 &= 5  \quad \text{เศษ } 1\\
+ 5 \div 2 &= 2  \quad \text{เศษ } 1\\
+ 2 \div 2 &= 1  \quad \text{เศษ } 0\\
+ 1 \div 2 &= 0  \quad \text{เศษ } 1 \quad (\text{บิตนัยสำคัญมากสุด})
+\end{align*}
+อ่านเศษจากล่างขึ้นบน และตรวจสอบได้ว่า $(101101)_2 = 32+8+4+1 = 45$ \checkmark
+
+$\therefore (45)_{10} = (101101)_2$ \solhere
 \end{solution}
 
 \begin{ex}
 แปลง $158$ ฐานสิบเป็นฐานแปด
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{ดำเนินการหารด้วย 8 อย่างต่อเนื่องและจดเศษ:}
-    \begin{align*}
-    158 \div 8 &= 19 \quad \text{เศษ } 6\\
-     19 \div 8 &= 2  \quad \text{เศษ } 3\\
-      2 \div 8 &= 0  \quad \text{เศษ } 2
-    \end{align*}
-    \item \textbf{อ่านเศษย้อนกลับจากล่างขึ้นบน:}
-    \[ \mathoval{(158)_{10} = (236)_8} \]
-    (ตรวจสอบ: $(236)_8 = (2 \times 64) + (3 \times 8) + 6 = 128 + 24 + 6 = 158$ \checkmark)
-\end{solsteps}
+\begin{align*}
+158 \div 8 &= 19 \quad \text{เศษ } 6\\
+ 19 \div 8 &= 2  \quad \text{เศษ } 3\\
+  2 \div 8 &= 0  \quad \text{เศษ } 2
+\end{align*}
+อ่านเศษจากล่างขึ้นบน และตรวจสอบได้ว่า $(236)_8 = (2 \times 64) + (3 \times 8) + 6 = 158$ \checkmark
+
+$\therefore (158)_{10} = (236)_8$ \solhere
 \end{solution}
 
 \begin{ex}
 แปลง $2543$ ฐานสิบเป็นฐานสิบหก
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{ดำเนินการหารด้วย 16 อย่างต่อเนื่องและจดเศษ (โดย $15=\mathrm{F}, 14=\mathrm{E}$):}
-    \begin{align*}
-    2543 \div 16 &= 158 \quad \text{เศษ } 15 \implies \mathrm{F}\\
-     158 \div 16 &= 9   \quad \text{เศษ } 14 \implies \mathrm{E}\\
-       9 \div 16 &= 0   \quad \text{เศษ } 9  \implies 9
-    \end{align*}
-    \item \textbf{อ่านเศษย้อนกลับจากล่างขึ้นบน:}
-    \[ \mathoval{(2543)_{10} = (9\mathrm{EF})_{16}} \]
-    (ตรวจสอบ: $(9\mathrm{EF})_{16} = (9 \times 256) + (14 \times 16) + 15 = 2304 + 224 + 15 = 2543$ \checkmark)
-\end{solsteps}
+\begin{align*}
+2543 \div 16 &= 158 \quad \text{เศษ } 15 \implies \mathrm{F}\\
+ 158 \div 16 &= 9   \quad \text{เศษ } 14 \implies \mathrm{E}\\
+   9 \div 16 &= 0   \quad \text{เศษ } 9  \implies 9
+\end{align*}
+อ่านเศษจากล่างขึ้นบน และตรวจสอบได้ว่า $(9\mathrm{EF})_{16} = 2304 + 224 + 15 = 2543$ \checkmark
+
+$\therefore (2543)_{10} = (9\mathrm{EF})_{16}$ \solhere
 \end{solution}
 
 \section{การแปลงจำนวนทศนิยมระหว่างฐาน}
@@ -406,54 +374,46 @@ $$(d_n d_{n-1} \ldots d_1 d_0)_b = \sum_{i=0}^{n} d_i \times b^i$$
 แปลง $0.625$ ฐานสิบเป็นฐานสอง
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{คูณส่วนทศนิยมด้วย 2 และจดส่วนจำนวนเต็ม:}
-    \begin{align*}
-    0.625 \times 2 &= 1.25 \quad \implies \text{บันทึก } 1 \text{ (ส่วนทศนิยมเหลือ } 0.25\text{)}\\
-    0.25  \times 2 &= 0.5  \quad \implies \text{บันทึก } 0 \text{ (ส่วนทศนิยมเหลือ } 0.5\text{)}\\
-    0.5   \times 2 &= 1.0  \quad \implies \text{บันทึก } 1 \text{ (ส่วนทศนิยมเหลือ } 0.0\text{)}
-    \end{align*}
-    \item \textbf{อ่านหลักจำนวนเต็มจากบนลงล่าง:}
-    \[ \mathoval{(0.625)_{10} = (0.101)_2} \]
-    (ตรวจสอบ: $(0.101)_2 = 0.5 + 0.125 = 0.625$ \checkmark)
-\end{solsteps}
+\begin{align*}
+0.625 \times 2 &= 1.25 \quad \implies \text{หลัก } 1 \quad (\text{เหลือ } 0.25)\\
+0.25  \times 2 &= 0.5  \quad \implies \text{หลัก } 0 \quad (\text{เหลือ } 0.5)\\
+0.5   \times 2 &= 1.0  \quad \implies \text{หลัก } 1 \quad (\text{เหลือ } 0.0)
+\end{align*}
+อ่านหลักจากบนลงล่าง และตรวจสอบได้ว่า $(0.101)_2 = 0.5 + 0.125 = 0.625$ \checkmark
+
+$\therefore (0.625)_{10} = (0.101)_2$ \solhere
 \end{solution}
 
 \begin{ex}
 แปลง $0.7$ ฐานสิบเป็นฐานสอง (แสดง 8 หลัก)
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{คูณส่วนทศนิยมด้วย 2 และจดส่วนจำนวนเต็ม:}
-    \begin{align*}
-    0.7 \times 2 &= 1.4 \quad \implies \text{บันทึก } 1\\
-    0.4 \times 2 &= 0.8 \quad \implies \text{บันทึก } 0\\
-    0.8 \times 2 &= 1.6 \quad \implies \text{บันทึก } 1\\
-    0.6 \times 2 &= 1.2 \quad \implies \text{บันทึก } 1\\
-    0.2 \times 2 &= 0.4 \quad \implies \text{บันทึก } 0\\
-    0.4 \times 2 &= 0.8 \quad \implies \text{บันทึก } 0\\
-    0.8 \times 2 &= 1.6 \quad \implies \text{บันทึก } 1\\
-    0.6 \times 2 &= 1.2 \quad \implies \text{บันทึก } 1
-    \end{align*}
-    \item \textbf{พิจารณาผลลัพธ์ทศนิยมซ้ำ:} สังเกตว่าส่วนทศนิยม $0.4$ เกิดการวนซ้ำ ทำให้ได้ทศนิยมซ้ำไม่รู้จบ $(0.7)_{10} = (0.1\overline{0110})_2$
-    \item ดังนั้น สรุปผลลัพธ์เมื่อแสดง 8 หลักคือ \mathoval{(0.7)_{10} \approx (0.10110011)_2}
-\end{solsteps}
+\begin{align*}
+0.7 \times 2 &= 1.4 \quad \implies \text{หลัก } 1\\
+0.4 \times 2 &= 0.8 \quad \implies \text{หลัก } 0\\
+0.8 \times 2 &= 1.6 \quad \implies \text{หลัก } 1\\
+0.6 \times 2 &= 1.2 \quad \implies \text{หลัก } 1\\
+0.2 \times 2 &= 0.4 \quad \implies \text{หลัก } 0\\
+0.4 \times 2 &= 0.8 \quad \implies \text{หลัก } 0\\
+0.8 \times 2 &= 1.6 \quad \implies \text{หลัก } 1\\
+0.6 \times 2 &= 1.2 \quad \implies \text{หลัก } 1
+\end{align*}
+ส่วนทศนิยม $0.4$ วนกลับมาซ้ำ ทำให้ได้ทศนิยมซ้ำไม่รู้จบ $(0.7)_{10} = (0.1\overline{0110})_2$
+
+$\therefore (0.7)_{10} \approx (0.10110011)_2$ เมื่อแสดงผล 8 หลัก \solhere
 \end{solution}
 
 \begin{ex}
 แปลง $0.3125$ ฐานสิบเป็นฐานแปด
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{คูณส่วนทศนิยมด้วย 8 และจดส่วนจำนวนเต็ม:}
-    \begin{align*}
-    0.3125 \times 8 &= 2.5 \quad \implies \text{บันทึก } 2 \text{ (ส่วนทศนิยมเหลือ } 0.5\text{)}\\
-    0.5    \times 8 &= 4.0 \quad \implies \text{บันทึก } 4 \text{ (ส่วนทศนิยมเหลือ } 0.0\text{)}
-    \end{align*}
-    \item \textbf{อ่านหลักจำนวนเต็มจากบนลงล่าง:}
-    \[ \mathoval{(0.3125)_{10} = (0.24)_8} \]
-    (ตรวจสอบ: $(0.24)_8 = \frac{2}{8} + \frac{4}{64} = 0.25 + 0.0625 = 0.3125$ \checkmark)
-\end{solsteps}
+\begin{align*}
+0.3125 \times 8 &= 2.5 \quad \implies \text{หลัก } 2 \quad (\text{เหลือ } 0.5)\\
+0.5    \times 8 &= 4.0 \quad \implies \text{หลัก } 4 \quad (\text{เหลือ } 0.0)
+\end{align*}
+อ่านหลักจากบนลงล่าง และตรวจสอบได้ว่า $(0.24)_8 = \frac{2}{8} + \frac{4}{64} = 0.3125$ \checkmark
+
+$\therefore (0.3125)_{10} = (0.24)_8$ \solhere
 \end{solution}
 
 \section{การบวกและลบเลขฐานสอง}
@@ -484,38 +444,34 @@ $$(d_n d_{n-1} \ldots d_1 d_0)_b = \sum_{i=0}^{n} d_i \times b^i$$
 บวก $(1011)_2$ กับ $(1101)_2$:
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{ตั้งหลักบวกทีละตำแหน่งจากขวาไปซ้าย:}
-    \[
-    \begin{array}{r}
-    1011 \\
-    +\,1101 \\
-    \hline
-    11000
-    \end{array}
-    \]
-    \item ดังนั้น สรุปผลบวกคือ \mathoval{(1011)_2 + (1101)_2 = (11000)_2}
-    (ตรวจสอบ: $11_{10} + 13_{10} = 24_{10} = (11000)_2$ \checkmark)
-\end{solsteps}
+\[
+\begin{array}{r}
+1011 \\
++\,1101 \\
+\hline
+11000
+\end{array}
+\]
+ตรวจสอบได้ว่า $11_{10} + 13_{10} = 24_{10} = (11000)_2$ \checkmark
+
+$\therefore (1011)_2 + (1101)_2 = (11000)_2$ \solhere
 \end{solution}
 
 \begin{ex}
 บวก $(1111)_2$ กับ $(0001)_2$:
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{ตั้งหลักบวกทีละตำแหน่งจากขวาไปซ้ายพร้อมบิตทด:}
-    \[
-    \begin{array}{r}
-    1111 \\
-    +\,0001 \\
-    \hline
-    10000
-    \end{array}
-    \]
-    \item ดังนั้น สรุปผลบวกคือ \mathoval{(1111)_2 + (0001)_2 = (10000)_2}
-    (ตรวจสอบ: $15_{10} + 1_{10} = 16_{10} = (10000)_2$ \checkmark)
-\end{solsteps}
+\[
+\begin{array}{r}
+1111 \\
++\,0001 \\
+\hline
+10000
+\end{array}
+\]
+ตรวจสอบได้ว่า $15_{10} + 1_{10} = 16_{10} = (10000)_2$ \checkmark
+
+$\therefore (1111)_2 + (0001)_2 = (10000)_2$ \solhere
 \end{solution}
 
 \subsection{การลบเลขฐานสอง}
@@ -537,19 +493,17 @@ $$(d_n d_{n-1} \ldots d_1 d_0)_b = \sum_{i=0}^{n} d_i \times b^i$$
 ลบ $(1100)_2$ ด้วย $(0101)_2$:
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{ตั้งหลักลบทีละตำแหน่งจากขวาไปซ้าย:}
-    \[
-    \begin{array}{r}
-    1100 \\
-    -\,0101 \\
-    \hline
-    0111
-    \end{array}
-    \]
-    \item ดังนั้น สรุปผลลบคือ \mathoval{(1100)_2 - (0101)_2 = (0111)_2}
-    (ตรวจสอบ: $12_{10} - 5_{10} = 7_{10} = (0111)_2$ \checkmark)
-\end{solsteps}
+\[
+\begin{array}{r}
+1100 \\
+-\,0101 \\
+\hline
+0111
+\end{array}
+\]
+ตรวจสอบได้ว่า $12_{10} - 5_{10} = 7_{10} = (0111)_2$ \checkmark
+
+$\therefore (1100)_2 - (0101)_2 = (0111)_2$ \solhere
 \end{solution}
 
 \begin{ex}
@@ -601,24 +555,22 @@ $\therefore (1000)_2 - (0001)_2 = (0111)_2$
 คูณ $(1011)_2$ ด้วย $(1101)_2$:
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{ตั้งคูณและเลื่อนตำแหน่งบิตผลคูณย่อยตามตัวคูณ:}
-    \[
-    \begin{array}{r}
-    1011 \\
-    \times\,1101 \\
-    \hline
-    1011 \\
-    0000\phantom{0} \\
-    1011\phantom{00} \\
-    1011\phantom{000} \\
-    \hline
-    10001111
-    \end{array}
-    \]
-    \item ดังนั้น สรุปผลคูณคือ \mathoval{(1011)_2 \times (1101)_2 = (10001111)_2}
-    (ตรวจสอบ: $11_{10} \times 13_{10} = 143_{10} = (10001111)_2$ \checkmark)
-\end{solsteps}
+\[
+\begin{array}{r}
+1011 \\
+\times\,1101 \\
+\hline
+1011 \\
+0000\phantom{0} \\
+1011\phantom{00} \\
+1011\phantom{000} \\
+\hline
+10001111
+\end{array}
+\]
+ตรวจสอบได้ว่า $11_{10} \times 13_{10} = 143_{10} = (10001111)_2$ \checkmark
+
+$\therefore (1011)_2 \times (1101)_2 = (10001111)_2$ \solhere
 \end{solution}
 
 \begin{rem}
@@ -672,14 +624,11 @@ $\therefore (1000)_2 - (0001)_2 = (0111)_2$
 จงแสดงรหัสบิตฐานสิบหกของคำว่า ``Hi'' ในระบบ ASCII
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{สืบค้นรหัส ASCII ของแต่ละตัวอักษร:}
-    \begin{align*}
-    \text{'H'} &= 72_{10} = (48)_{16} = \texttt{0x48}\\
-    \text{'i'} &= 105_{10} = (69)_{16} = \texttt{0x69}
-    \end{align*}
-    \item ดังนั้น สรุปผลการเข้ารหัสคือ \mathoval{\text{``Hi''} = \texttt{0x4869}}
-\end{solsteps}
+\begin{align*}
+\text{'H'} &= 72_{10} = (48)_{16} = \texttt{0x48}\\
+\text{'i'} &= 105_{10} = (69)_{16} = \texttt{0x69}
+\end{align*}
+$\therefore$ ข้อความ ``Hi'' เข้ารหัสได้เป็น \texttt{0x4869} \solhere
 \end{solution}
 
 \begin{rem}
@@ -706,14 +655,11 @@ $\therefore (1000)_2 - (0001)_2 = (0111)_2$
 จงแสดงการเข้ารหัสอักขระไทย `ก' (U+0E01) และ `ข' (U+0E02) ในระบบ UTF-8 แบบ 3 ไบต์
 \end{ex}
 \begin{solution}
-\begin{solsteps}
-    \item \textbf{สืบค้นรหัสบิตของอักขระไทยในตาราง UTF-8:}
-    \begin{align*}
-    \text{`ก' (U+0E01)} &= \texttt{0xE0 0xB8 0x81} \quad (\text{3 ไบต์})\\
-    \text{`ข' (U+0E02)} &= \texttt{0xE0 0xB8 0x82} \quad (\text{3 ไบต์})
-    \end{align*}
-    \item ดังนั้น สรุปผลการเข้ารหัสคำว่า ``กข'' คือ \mathoval{\text{``กข''} = \texttt{0xE0B881E0B882}}
-\end{solsteps}
+\begin{align*}
+\text{`ก' (U+0E01)} &= \texttt{0xE0 0xB8 0x81} \quad (\text{3 ไบต์})\\
+\text{`ข' (U+0E02)} &= \texttt{0xE0 0xB8 0x82} \quad (\text{3 ไบต์})
+\end{align*}
+$\therefore$ คำว่า ``กข'' เข้ารหัสได้เป็น \texttt{0xE0B881E0B882} \solhere
 \end{solution}
 
 \sectionbanner{สรุปบทเรียน}

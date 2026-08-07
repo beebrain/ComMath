@@ -1,30 +1,30 @@
 \noaddvspace 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1}{\ignorespaces วงจรสวิตช์ไฟฟ้าแบบอนุกรม แสดงการทำงานของ $p \land q$}}{12}{figure.caption.9}%
-\contentsline {figure}{\numberline {2}{\ignorespaces วงจรสวิตช์ไฟฟ้าแบบขนาน แสดงการทำงานของ $p \lor q$}}{13}{figure.caption.11}%
-\contentsline {figure}{\numberline {3}{\ignorespaces ตารางค่าความจริงและสัญลักษณ์ของลอจิกเกต XOR}}{22}{figure.caption.22}%
+\contentsline {figure}{\numberline {1}{\ignorespaces วงจรสวิตช์ไฟฟ้าแบบอนุกรม แสดงการทำงานของ $p \land q$}}{14}{figure.caption.9}%
+\contentsline {figure}{\numberline {2}{\ignorespaces วงจรสวิตช์ไฟฟ้าแบบขนาน แสดงการทำงานของ $p \lor q$}}{15}{figure.caption.11}%
+\contentsline {figure}{\numberline {3}{\ignorespaces ตารางค่าความจริงและสัญลักษณ์ของลอจิกเกต XOR}}{24}{figure.caption.22}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4}{\ignorespaces แผนภาพเวนน์แสดงการดำเนินการยูเนียน $A \cup B$}}{56}{figure.caption.34}%
-\contentsline {figure}{\numberline {5}{\ignorespaces แผนภาพแสดงเซตไม่ทับซ้อน เมื่อ $A\cap B=\emptyset $}}{57}{figure.caption.35}%
-\contentsline {figure}{\numberline {6}{\ignorespaces แผนภาพเวนน์แสดงการดำเนินการอินเตอร์เซกชัน $A \cap B$}}{58}{figure.caption.36}%
-\contentsline {figure}{\numberline {7}{\ignorespaces แผนภาพเวนน์แสดง Distributive Law $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$}}{59}{figure.caption.37}%
-\contentsline {figure}{\numberline {8}{\ignorespaces แผนภาพเวนน์แสดงผลต่างของเซต $A - B$}}{61}{figure.caption.38}%
-\contentsline {figure}{\numberline {9}{\ignorespaces แผนภาพเวนน์แสดงส่วนเติมเต็ม (Complement) $A^c$ ของเซต $A$}}{63}{figure.caption.39}%
-\contentsline {figure}{\numberline {10}{\ignorespaces กฎของเดมอร์แกน: แผนภาพเวนน์แสดง $(A \cup B)^c = A^c \cap B^c$ และ $(A \cap B)^c = A^c \cup B^c$}}{64}{figure.caption.40}%
-\contentsline {figure}{\numberline {11}{\ignorespaces แผนภาพประกอบหลักการรวม-การแยก แสดงการหักส่วนซ้ำ $A\cap B$ ออกจาก $|A|+|B|$}}{68}{figure.caption.41}%
+\contentsline {figure}{\numberline {4}{\ignorespaces แผนภาพเวนน์แสดงการดำเนินการยูเนียน $A \cup B$}}{58}{figure.caption.34}%
+\contentsline {figure}{\numberline {5}{\ignorespaces แผนภาพแสดงเซตไม่ทับซ้อน เมื่อ $A\cap B=\emptyset $}}{59}{figure.caption.35}%
+\contentsline {figure}{\numberline {6}{\ignorespaces แผนภาพเวนน์แสดงการดำเนินการอินเตอร์เซกชัน $A \cap B$}}{60}{figure.caption.36}%
+\contentsline {figure}{\numberline {7}{\ignorespaces แผนภาพเวนน์แสดง Distributive Law $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$}}{61}{figure.caption.37}%
+\contentsline {figure}{\numberline {8}{\ignorespaces แผนภาพเวนน์แสดงผลต่างของเซต $A - B$}}{63}{figure.caption.38}%
+\contentsline {figure}{\numberline {9}{\ignorespaces แผนภาพเวนน์แสดงส่วนเติมเต็ม (Complement) $A^c$ ของเซต $A$}}{65}{figure.caption.39}%
+\contentsline {figure}{\numberline {10}{\ignorespaces กฎของเดมอร์แกน: แผนภาพเวนน์แสดง $(A \cup B)^c = A^c \cap B^c$ และ $(A \cap B)^c = A^c \cup B^c$}}{66}{figure.caption.40}%
+\contentsline {figure}{\numberline {11}{\ignorespaces แผนภาพประกอบหลักการรวม-การแยก แสดงการหักส่วนซ้ำ $A\cap B$ ออกจาก $|A|+|B|$}}{70}{figure.caption.41}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {12}{\ignorespaces แผนภาพเปรียบเทียบลักษณะการจับคู่ของฟังก์ชันหนึ่งต่อหนึ่ง ฟังก์ชันทั่วถึง และฟังก์ชันหนึ่งต่อหนึ่งทั่วถึง}}{99}{figure.caption.49}%
-\contentsline {figure}{\numberline {13}{\ignorespaces แผนภาพแสดงการประกอบฟังก์ชัน $(g \circ f)(a) = g(f(a))$ ที่ส่งผ่านข้อมูลจากเซต $A$ ผ่าน $B$ ไปยัง $C$}}{100}{figure.caption.50}%
+\contentsline {figure}{\numberline {12}{\ignorespaces แผนภาพเปรียบเทียบลักษณะการจับคู่ของฟังก์ชันหนึ่งต่อหนึ่ง ฟังก์ชันทั่วถึง และฟังก์ชันหนึ่งต่อหนึ่งทั่วถึง}}{101}{figure.caption.49}%
+\contentsline {figure}{\numberline {13}{\ignorespaces แผนภาพแสดงการประกอบฟังก์ชัน $(g \circ f)(a) = g(f(a))$ ที่ส่งผ่านข้อมูลจากเซต $A$ ผ่าน $B$ ไปยัง $C$}}{102}{figure.caption.50}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {14}{\ignorespaces แผนภาพแสดงค่าประจำหลักของเลขฐานสิบ}}{122}{figure.caption.55}%
-\contentsline {figure}{\numberline {15}{\ignorespaces แผนภาพแสดงค่าประจำหลักของเลขฐานสอง}}{124}{figure.caption.56}%
-\contentsline {figure}{\numberline {16}{\ignorespaces แผนภาพแสดงการจัดกลุ่มเลขฐานสองเป็นเลขฐานสิบหก}}{128}{figure.caption.57}%
+\contentsline {figure}{\numberline {14}{\ignorespaces แผนภาพแสดงค่าประจำหลักของเลขฐานสิบ}}{124}{figure.caption.55}%
+\contentsline {figure}{\numberline {15}{\ignorespaces แผนภาพแสดงค่าประจำหลักของเลขฐานสอง}}{126}{figure.caption.56}%
+\contentsline {figure}{\numberline {16}{\ignorespaces แผนภาพแสดงการจัดกลุ่มเลขฐานสองเป็นเลขฐานสิบหก}}{130}{figure.caption.57}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {17}{\ignorespaces แผนภาพแสดงมิติของเมทริกซ์และตำแหน่งสมาชิก}}{152}{figure.caption.64}%
-\contentsline {figure}{\numberline {18}{\ignorespaces แผนภาพแสดงประเภทของเมทริกซ์ที่สำคัญ}}{154}{figure.caption.65}%
-\contentsline {figure}{\numberline {19}{\ignorespaces แผนภาพแสดงการคูณแถวของเมทริกซ์กับหลักของเมทริกซ์}}{159}{figure.caption.66}%
-\contentsline {figure}{\numberline {20}{\ignorespaces แผนภาพแสดงดีเทอร์มิแนนต์ของเมทริกซ์ $2\times 2$}}{163}{figure.caption.67}%
-\contentsline {figure}{\numberline {21}{\ignorespaces แผนภาพแสดงการหมุน การขยาย และการเฉือนด้วยเมทริกซ์}}{178}{figure.caption.68}%
+\contentsline {figure}{\numberline {17}{\ignorespaces แผนภาพแสดงมิติของเมทริกซ์และตำแหน่งสมาชิก}}{154}{figure.caption.64}%
+\contentsline {figure}{\numberline {18}{\ignorespaces แผนภาพแสดงประเภทของเมทริกซ์ที่สำคัญ}}{156}{figure.caption.65}%
+\contentsline {figure}{\numberline {19}{\ignorespaces แผนภาพแสดงการคูณแถวของเมทริกซ์กับหลักของเมทริกซ์}}{161}{figure.caption.66}%
+\contentsline {figure}{\numberline {20}{\ignorespaces แผนภาพแสดงดีเทอร์มิแนนต์ของเมทริกซ์ $2\times 2$}}{165}{figure.caption.67}%
+\contentsline {figure}{\numberline {21}{\ignorespaces แผนภาพแสดงการหมุน การขยาย และการเฉือนด้วยเมทริกซ์}}{180}{figure.caption.68}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {22}{\ignorespaces การแมปแบบหนึ่งต่อหนึ่ง (One-to-One) และแบบทั่วถึง (Onto) ของฟังก์ชัน}}{206}{figure.caption.74}%
+\contentsline {figure}{\numberline {22}{\ignorespaces การแมปแบบหนึ่งต่อหนึ่ง (One-to-One) และแบบทั่วถึง (Onto) ของฟังก์ชัน}}{208}{figure.caption.74}%
 \contentsfinish 

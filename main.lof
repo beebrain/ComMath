@@ -13,21 +13,18 @@
 \contentsline {figure}{\numberline {10}{\ignorespaces กฎของเดมอร์แกน: แผนภาพเวนน์แสดง $(A \cup B)^c = A^c \cap B^c$ และ $(A \cap B)^c = A^c \cup B^c$}}{63}{figure.caption.40}%
 \contentsline {figure}{\numberline {11}{\ignorespaces แผนภาพประกอบหลักการรวม-การแยก แสดงการหักส่วนซ้ำ $A\cap B$ ออกจาก $|A|+|B|$}}{66}{figure.caption.41}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {12}{\ignorespaces คุณสมบัติ 4 ประการของความสัมพันธ์ทวิภาค}}{91}{figure.caption.48}%
-\contentsline {figure}{\numberline {13}{\ignorespaces แผนภาพเปรียบเทียบลักษณะการจับคู่ของฟังก์ชันหนึ่งต่อหนึ่ง ฟังก์ชันทั่วถึง และฟังก์ชันหนึ่งต่อหนึ่งทั่วถึง}}{96}{figure.caption.49}%
-\contentsline {figure}{\numberline {14}{\ignorespaces แผนภาพแสดงการประกอบฟังก์ชัน $(g \circ f)(a) = g(f(a))$ ที่ส่งผ่านข้อมูลจากเซต $A$ ผ่าน $B$ ไปยัง $C$}}{97}{figure.caption.50}%
+\contentsline {figure}{\numberline {12}{\ignorespaces แผนภาพเปรียบเทียบลักษณะการจับคู่ของฟังก์ชันหนึ่งต่อหนึ่ง ฟังก์ชันทั่วถึง และฟังก์ชันหนึ่งต่อหนึ่งทั่วถึง}}{97}{figure.caption.49}%
+\contentsline {figure}{\numberline {13}{\ignorespaces แผนภาพแสดงการประกอบฟังก์ชัน $(g \circ f)(a) = g(f(a))$ ที่ส่งผ่านข้อมูลจากเซต $A$ ผ่าน $B$ ไปยัง $C$}}{98}{figure.caption.50}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {15}{\ignorespaces แผนภาพแสดงค่าประจำหลักของเลขฐานสิบ}}{117}{figure.caption.55}%
-\contentsline {figure}{\numberline {16}{\ignorespaces แผนภาพแสดงค่าประจำหลักของเลขฐานสอง}}{119}{figure.caption.56}%
-\contentsline {figure}{\numberline {17}{\ignorespaces แผนภาพแสดงการจัดกลุ่มเลขฐานสองเป็นเลขฐานสิบหก}}{123}{figure.caption.57}%
-\contentsline {figure}{\numberline {18}{\ignorespaces แผนภาพแสดงขั้นตอนการสร้างส่วนเติมเต็มสอง}}{134}{figure.caption.59}%
-\contentsline {figure}{\numberline {19}{\ignorespaces แผนภาพแสดงโครงสร้างการแทนเลขแบบ IEEE 754 ความละเอียดเดี่ยว}}{137}{figure.caption.60}%
+\contentsline {figure}{\numberline {14}{\ignorespaces แผนภาพแสดงค่าประจำหลักของเลขฐานสิบ}}{120}{figure.caption.55}%
+\contentsline {figure}{\numberline {15}{\ignorespaces แผนภาพแสดงค่าประจำหลักของเลขฐานสอง}}{122}{figure.caption.56}%
+\contentsline {figure}{\numberline {16}{\ignorespaces แผนภาพแสดงการจัดกลุ่มเลขฐานสองเป็นเลขฐานสิบหก}}{126}{figure.caption.57}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {20}{\ignorespaces แผนภาพแสดงมิติของเมทริกซ์และตำแหน่งสมาชิก}}{156}{figure.caption.66}%
-\contentsline {figure}{\numberline {21}{\ignorespaces แผนภาพแสดงประเภทของเมทริกซ์ที่สำคัญ}}{157}{figure.caption.67}%
-\contentsline {figure}{\numberline {22}{\ignorespaces แผนภาพแสดงการคูณแถวของเมทริกซ์กับหลักของเมทริกซ์}}{163}{figure.caption.68}%
-\contentsline {figure}{\numberline {23}{\ignorespaces แผนภาพแสดงดีเทอร์มิแนนต์ของเมทริกซ์ $2\times 2$}}{170}{figure.caption.69}%
-\contentsline {figure}{\numberline {24}{\ignorespaces แผนภาพแสดงการหมุน การขยาย และการเฉือนด้วยเมทริกซ์}}{185}{figure.caption.70}%
+\contentsline {figure}{\numberline {17}{\ignorespaces แผนภาพแสดงมิติของเมทริกซ์และตำแหน่งสมาชิก}}{152}{figure.caption.64}%
+\contentsline {figure}{\numberline {18}{\ignorespaces แผนภาพแสดงประเภทของเมทริกซ์ที่สำคัญ}}{154}{figure.caption.65}%
+\contentsline {figure}{\numberline {19}{\ignorespaces แผนภาพแสดงการคูณแถวของเมทริกซ์กับหลักของเมทริกซ์}}{160}{figure.caption.66}%
+\contentsline {figure}{\numberline {20}{\ignorespaces แผนภาพแสดงดีเทอร์มิแนนต์ของเมทริกซ์ $2\times 2$}}{164}{figure.caption.67}%
+\contentsline {figure}{\numberline {21}{\ignorespaces แผนภาพแสดงการหมุน การขยาย และการเฉือนด้วยเมทริกซ์}}{180}{figure.caption.68}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {25}{\ignorespaces การแมปแบบหนึ่งต่อหนึ่ง (One-to-One) และแบบทั่วถึง (Onto) ของฟังก์ชัน}}{213}{figure.caption.76}%
+\contentsline {figure}{\numberline {22}{\ignorespaces การแมปแบบหนึ่งต่อหนึ่ง (One-to-One) และแบบทั่วถึง (Onto) ของฟังก์ชัน}}{209}{figure.caption.74}%
 \contentsfinish 

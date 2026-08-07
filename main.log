@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  7 AUG 2026 09:25
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  7 AUG 2026 15:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2074,15 +2074,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[5]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[6])
+[5])
 \tf@toc=\write7
 \openout7 = `main.toc'.
 
@@ -2094,10 +2086,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[7] [8
-
-
-]
+[6]
 Package biblatex Info: Reference segment=2 on input line 195.
 Package biblatex Info: Setting label 'refsegment:02' on input line 195.
  (./main.lot
@@ -2132,7 +2121,10 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
 \tf@lot=\write8
 \openout8 = `main.lot'.
 
- [9] [10
+ [7
+
+
+] [8
 
 
 ]
@@ -2142,7 +2134,7 @@ Package biblatex Info: Setting label 'refsegment:03' on input line 196.
 \tf@lof=\write9
 \openout9 = `main.lof'.
 
- [11]
+ [9]
 \openout2 = `organize.aux'.
 
  (./organize.tex
@@ -3026,16 +3018,6 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [89]
-Underfull \hbox (badness 7814) in paragraph at lines 104--105
-[][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 3.4 []กำหนด $\OML/cmm/m/it/10.95 A 
-\OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.
-95 ; \OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 3\OML/cmm/m/i
-t/10.95 ; \OT1/cmr/m/n/10.95 4\OMS/cmsy/m/n/10.95 g$\TU/THSarabunNew(0)/m/sc/11
- , $\OML/cmm/m/it/10.95 B \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OML/cmm/m/
-it/10.95 a; b; c\OMS/cmsy/m/n/10.95 g$ \TU/THSarabunNew(0)/m/sc/11 และ ความ สัม
-พันธ์ $\OML/cmm/m/it/10.95 R \OT1/cmr/m/n/10.95 =
- []
-
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3044,9 +3026,6 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [90]
-File: Figures/png_ready/relation-properties-thai.png Graphic file (type bmp)
-<Figures/png_ready/relation-properties-thai.png>
-
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3079,8 +3058,10 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [94]
-File: Figures/png_ready/function-types-thai.png Graphic file (type bmp)
-<Figures/png_ready/function-types-thai.png>
+Underfull \hbox (badness 2245) in paragraph at lines 275--276
+[]\TU/THSarabunNew(0)/m/sc/11 ใน ทาง คอมพิวเตอร์ ฟังก์ชัน เปรียบ เสมือน \TU/THS
+arabunNew(0)/b/n/11 โปรแกรม ย่อย หรือ ฟังก์ชัน ใน คำ สั่ง โปรแกรม
+ []
 
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
@@ -3098,9 +3079,8 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [96]
-File: Figures/png_ready/37-function-composition-manual.png Graphic file (type b
-mp)
-<Figures/png_ready/37-function-composition-manual.png>
+File: Figures/png_ready/function-types-thai.png Graphic file (type bmp)
+<Figures/png_ready/function-types-thai.png>
 
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
@@ -3110,6 +3090,10 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [97]
+File: Figures/png_ready/37-function-composition-manual.png Graphic file (type b
+mp)
+<Figures/png_ready/37-function-composition-manual.png>
+
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3173,7 +3157,23 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[105
+[105]
+
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 15.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
+
+[106]
+
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 15.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
+
+[107
 
 ]
 
@@ -3183,7 +3183,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[106
+[108
 
 
 ]
@@ -3194,8 +3194,8 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[107]
-Underfull \hbox (badness 10000) in paragraph at lines 636--637
+[109]
+Underfull \hbox (badness 10000) in paragraph at lines 728--729
 []$\OML/cmm/m/it/10.95 A \OMS/cmsy/m/n/10.95 ^^B \OML/cmm/m/it/10.95 B \OT1/cmr
 /m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; a\
 OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.
@@ -3214,24 +3214,6 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[108
-
-]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[109]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
 [110
 
 ]
@@ -3242,7 +3224,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[111])
+[111]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3250,7 +3232,25 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[112]
+[112
+
+]
+
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 15.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
+
+[113])
+
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 15.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
+
+[114]
 Underfull \hbox (badness 4132) in paragraph at lines 235--235
 [][]\TU/THSarabunNew(0)/m/sc/11 Codd, E. F. (1970). \TU/THSarabunNew(0)/m/it/11
  A relational model of data for large shared data banks\TU/THSarabunNew(0)/m/sc
@@ -3264,10 +3264,10 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[113
+[115
 
 
-] [114
+] [116
 
 ]
 \openout2 = `chapters/chapter04_or.aux'.
@@ -3280,10 +3280,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-) [115
+) [117
 
 
-] [116
+] [118
 
 
 
@@ -3297,7 +3297,7 @@ Package biblatex Info: Setting label 'refsegment:012' on input line 1.
 File: Figures/png_ready/25-decimal-place-value-manual.png Graphic file (type bm
 p)
 <Figures/png_ready/25-decimal-place-value-manual.png>
-[117
+[119
 
 
 ]
@@ -3308,27 +3308,11 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[118]
+[120]
 File: Figures/png_ready/26-binary-place-value-manual.png Graphic file (type bmp
 )
 <Figures/png_ready/26-binary-place-value-manual.png>
 
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[119]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[120]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3345,9 +3329,6 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [122]
-File: Figures/png_ready/27-hex-grouping-manual.png Graphic file (type bmp)
-<Figures/png_ready/27-hex-grouping-manual.png>
-
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3372,6 +3353,9 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [125]
+File: Figures/png_ready/27-hex-grouping-manual.png Graphic file (type bmp)
+<Figures/png_ready/27-hex-grouping-manual.png>
+
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3436,9 +3420,6 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [133]
-File: Figures/png_ready/28-2s-complement-manual.png Graphic file (type bmp)
-<Figures/png_ready/28-2s-complement-manual.png>
-
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3463,9 +3444,6 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [136]
-File: Figures/png_ready/29-ieee754-manual.png Graphic file (type bmp)
-<Figures/png_ready/29-ieee754-manual.png>
-
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3505,25 +3483,28 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[141]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[142]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[143
+[141
 
 ]
+
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 15.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
+
+[142
+
+
+]
+
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 15.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
+
+[143]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3533,7 +3514,6 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 
 [144
 
-
 ]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
@@ -3542,7 +3522,9 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[145]
+[145
+
+])
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3550,9 +3532,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[146
-
-]
+[146]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3560,44 +3540,10 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[147]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[148
-
-]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[149])
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[150]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[151
+[147
 
 
-] [152
+] [148
 
 ]
 \openout2 = `chapters/chapter05_or.aux'.
@@ -3610,10 +3556,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-) [153
+) [149
 
 
-] [154
+] [150
 
 
 
@@ -3624,13 +3570,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
  5.
 Package biblatex Info: Reference segment=14 on input line 1.
 Package biblatex Info: Setting label 'refsegment:014' on input line 1.
-File: Figures/png_ready/30-matrix-dimensions-manual.png Graphic file (type bmp)
-
-<Figures/png_ready/30-matrix-dimensions-manual.png>
-[155
+[151
 
 
 ]
+File: Figures/png_ready/30-matrix-dimensions-manual.png Graphic file (type bmp)
+
+<Figures/png_ready/30-matrix-dimensions-manual.png>
+
+
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 15.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
+
+[152]
+File: Figures/png_ready/31-matrix-types-manual.png Graphic file (type bmp)
+<Figures/png_ready/31-matrix-types-manual.png>
+
+
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 15.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
+
+[153]
+
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 15.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
+
+[154]
+
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 15.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
+
+[155]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3639,9 +3621,6 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [156]
-File: Figures/png_ready/31-matrix-types-manual.png Graphic file (type bmp)
-<Figures/png_ready/31-matrix-types-manual.png>
-
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3666,6 +3645,10 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [159]
+File: Figures/png_ready/32-matrix-multiplication-manual.png Graphic file (type 
+bmp)
+<Figures/png_ready/32-matrix-multiplication-manual.png>
+
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3690,10 +3673,6 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [162]
-File: Figures/png_ready/32-matrix-multiplication-manual.png Graphic file (type 
-bmp)
-<Figures/png_ready/32-matrix-multiplication-manual.png>
-
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3702,6 +3681,9 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [163]
+File: Figures/png_ready/33-determinant-2x2-manual.png Graphic file (type bmp)
+<Figures/png_ready/33-determinant-2x2-manual.png>
+
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3742,9 +3724,6 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [168]
-File: Figures/png_ready/33-determinant-2x2-manual.png Graphic file (type bmp)
-<Figures/png_ready/33-determinant-2x2-manual.png>
-
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3753,6 +3732,11 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [169]
+Underfull \hbox (badness 3138) in paragraph at lines 569--570
+[][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 5.21 (ตัวอย่างค้านสำหรับสมบัติการบว
+กดีเทอร์มิแนนต์) []จง แสดง ตัวอย่าง ค้าน (counter-
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3793,11 +3777,6 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [174]
-Underfull \hbox (badness 3138) in paragraph at lines 636--637
-[][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 5.24 (ตัวอย่างค้านสำหรับสมบัติการบว
-กดีเทอร์มิแนนต์) []จง แสดง ตัวอย่าง ค้าน (counter-
- []
-
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3830,6 +3809,14 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [178]
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
+(Font)              scaled to size 11.54994pt on input line 846.
+LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
+(Font)              scaled to size 8.25pt on input line 846.
+File: Figures/png_ready/34-matrix-transformation-manual.png Graphic file (type 
+bmp)
+<Figures/png_ready/34-matrix-transformation-manual.png>
+
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3854,6 +3841,12 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [181]
+Underfull \hbox (badness 4805) in paragraph at lines 924--925
+[][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 5.37 (การถดถอยเชิงเส้น - Linear Reg
+ression) []จง หา เวก เตอร์ สัมประสิทธิ์ $\OML/cmm/m/it/10.95 ^^L \OT1/cmr/m/n/1
+0.95 =
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3878,10 +3871,6 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [184]
-File: Figures/png_ready/34-matrix-transformation-manual.png Graphic file (type 
-bmp)
-<Figures/png_ready/34-matrix-transformation-manual.png>
-
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3889,7 +3878,9 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[185]
+[185
+
+]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3897,7 +3888,10 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[186]
+[186
+
+
+]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3913,12 +3907,10 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[188]
-LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
-(Font)              scaled to size 11.54994pt on input line 1079.
-LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
-(Font)              scaled to size 8.25pt on input line 1079.
+[188
 
+
+]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3944,10 +3936,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[191
-
-
-]
+[191])
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3956,51 +3945,6 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [192]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[193
-
-
-]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[194]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[195
-
-]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[196])
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[197]
 Underfull \hbox (badness 2237) in paragraph at lines 249--249
 [][]\TU/THSarabunNew(0)/m/sc/11 Anton, H., Rorres, C., & Kaul, A. (2019).  \TU/
 THSarabunNew(0)/m/it/11 Elementary linear algebra: Applications
@@ -4013,8 +3957,10 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[198
+[193
 
+
+] [194
 
 ]
 \openout2 = `chapters/chapter06_or.aux'.
@@ -4027,11 +3973,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-) [199
+) [195
 
 
-
-] [200
+] [196
 
 
 
@@ -4042,10 +3987,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
  6.
 Package biblatex Info: Reference segment=16 on input line 1.
 Package biblatex Info: Setting label 'refsegment:016' on input line 1.
-[201
+[197
 
 
 ]
+
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 15.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
+
+[198]
+
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 15.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
+
+[199]
+
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 15.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
+
+[200]
+
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 15.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
+
+[201]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -4102,6 +4079,9 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [208]
+File: Figures/png_ready/35-function-mapping-manual.png Graphic file (type bmp)
+<Figures/png_ready/35-function-mapping-manual.png>
+
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -4134,9 +4114,6 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [212]
-File: Figures/png_ready/35-function-mapping-manual.png Graphic file (type bmp)
-<Figures/png_ready/35-function-mapping-manual.png>
-
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -4296,7 +4273,9 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[232]
+[232
+
+]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -4304,7 +4283,10 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[233]
+[233
+
+
+]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -4338,8 +4320,15 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[237
+[237]
 
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 15.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
+
+[238
 
 ]
 
@@ -4349,7 +4338,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[238]
+[239])
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -4357,7 +4346,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[239]
+[240]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -4365,54 +4354,10 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[240
-
-]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[241]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[242
-
-]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[243])
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[244]
-
-Package fancyhdr Warning: \headheight is too small (14.0pt): 
-(fancyhdr)                Make it at least 15.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{15.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
-
-[245
+[241
 
 
-] [246
+] [242
 
 ]
 Underfull \hbox (badness 2237) in paragraph at lines 259--259
@@ -4433,7 +4378,7 @@ Underfull \hbox (badness 7796) in paragraph at lines 259--259
 it/11 Discrete and combinatorial mathematics: An applied
  []
 
-[247]
+[243]
 
 Package caption Warning: Unused \captionsetup[sub] on input line 13.
 See the caption package documentation for explanation.
@@ -4445,7 +4390,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[248] (./main.aux (./organize.aux) (./chapters/chapter01_or.aux)
+[244] (./main.aux (./organize.aux) (./chapters/chapter01_or.aux)
 (./chapters/chapter01.aux) (./chapters/chapter02_or.aux)
 (./chapters/chapter02.aux) (./chapters/chapter03_or.aux)
 (./chapters/chapter03.aux) (./chapters/chapter04_or.aux)
@@ -4465,18 +4410,18 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: BCE8AE9F991357241A1E9A03CEBD341C;25825.
+(rerunfilecheck)             Checksum: E3DC4AD31D81BFA4FED2A73D4FD15B87;23761.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 71223 strings out of 468168
- 1682190 string characters out of 5432815
- 2993979 words of memory out of 5000000
- 98899 multiletter control sequences out of 15000+600000
- 636719 words of font info for 113 fonts, out of 8000000 for 9000
+ 71155 strings out of 468168
+ 1680252 string characters out of 5432815
+ 2991376 words of memory out of 5000000
+ 98834 multiletter control sequences out of 15000+600000
+ 637427 words of font info for 116 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 103i,19n,118p,1238b,5294s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,19n,118p,1238b,5296s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (261 pages, 4453552 bytes).
+Output written on main.xdv (255 pages, 4246136 bytes).

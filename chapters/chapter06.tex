@@ -1239,22 +1239,22 @@ Logic gates เป็น building blocks ของวงจรดิจิทั
 \textbf{NAND Gate} เป็นเกตสากล (Universal Gate) เนื่องจากสามารถนำมาต่อเชื่อมเพื่อสร้างเกตตรรกะพื้นฐานอื่นๆ ได้ทั้งหมด โดย NAND Gate ให้ผลลัพธ์การทำงานคือ $Y = (a \cdot b)' = \overline{a \cdot b}$
 
 ค่าผลลัพธ์ของ NAND Gate ในแต่ละกรณีของสัญญาณอินพุต $(a, b)$ มีดังนี้:
-\begin{itemize}[leftmargin=1.5em,itemsep=0.3em]
+\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=1.5em,itemsep=0.3em]
     \item เมื่อ $a=0, b=0$ ได้ผลลัพธ์ $(0 \cdot 0)' = 1$
     \item เมื่อ $a=0, b=1$ ได้ผลลัพธ์ $(0 \cdot 1)' = 1$
     \item เมื่อ $a=1, b=0$ ได้ผลลัพธ์ $(1 \cdot 0)' = 1$
     \item เมื่อ $a=1, b=1$ ได้ผลลัพธ์ $(1 \cdot 1)' = 0$
-\end{itemize}
+\end{enumerate}
 
 การสร้างเกตตรรกะพื้นฐานจาก NAND Gate เพียงอย่างเดียว:
-\begin{itemize}[leftmargin=1.5em,itemsep=0.4em]
+\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=1.5em,itemsep=0.4em]
     \item \textbf{การสร้าง NOT Gate จาก NAND:} เมื่อป้อนสัญญาณอินพุตเดียวกันทั้งสองช่อง $(a, a)$ จะได้:
     \[ a' = (a \cdot a)' \]
     \item \textbf{การสร้าง AND Gate จาก NAND:} นำผลลัพธ์ของ NAND Gate มาผ่าน NOT Gate (NAND ที่ป้อนอินพุตซ้ำ):
     \[ a \cdot b = ((a \cdot b)')' \]
     \item \textbf{การสร้าง OR Gate จาก NAND:} ใช้กฎของเดมอร์แกน (De Morgan's Law) ร่วมกับการนิเสธอินพุตแต่ละตัว:
     \[ a + b = (a' \cdot b')' = ((a \cdot a)' \cdot (b \cdot b)')' \]
-\end{itemize}
+\end{enumerate}
 \end{thrm}
 
 \begin{thrm}[NOR Gate และความสมบูรณ์เชิงฟังก์ชัน (Universal Gate)]
@@ -1262,22 +1262,22 @@ Logic gates เป็น building blocks ของวงจรดิจิทั
 \textbf{NOR Gate} เป็นเกตสากล (Universal Gate) เช่นเดียวกับ NAND Gate ที่สามารถนำมาประพฤติตนสร้างเกตตรรกะอื่นๆ ทั้งหมดได้ด้วยตัวมันเอง โดย NOR Gate ให้ผลลัพธ์การทำงานคือ $Y = (a + b)'$
 
 ค่าผลลัพธ์ของ NOR Gate ในแต่ละกรณีของสัญญาณอินพุต $(a, b)$ มีดังนี้:
-\begin{itemize}[leftmargin=1.5em,itemsep=0.3em]
+\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=1.5em,itemsep=0.3em]
     \item เมื่อ $a=0, b=0$ ได้ผลลัพธ์ $(0 + 0)' = 1$
     \item เมื่อ $a=0, b=1$ ได้ผลลัพธ์ $(0 + 1)' = 0$
     \item เมื่อ $a=1, b=0$ ได้ผลลัพธ์ $(1 + 0)' = 0$
     \item เมื่อ $a=1, b=1$ ได้ผลลัพธ์ $(1 + 1)' = 0$
-\end{itemize}
+\end{enumerate}
 
 การสร้างเกตตรรกะพื้นฐานจาก NOR Gate เพียงอย่างเดียว:
-\begin{itemize}[leftmargin=1.5em,itemsep=0.4em]
+\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=1.5em,itemsep=0.4em]
     \item \textbf{การสร้าง NOT Gate จาก NOR:} เมื่อป้อนสัญญาณอินพุตเดียวกันทั้งสองช่อง $(a, a)$ จะได้:
     \[ a' = (a + a)' \]
     \item \textbf{การสร้าง OR Gate จาก NOR:} นำผลลัพธ์ของ NOR Gate มาผ่าน NOT Gate (NOR ที่ป้อนอินพุตซ้ำ):
     \[ a + b = ((a + b)')' \]
     \item \textbf{การสร้าง AND Gate จาก NOR:} ใช้กฎของเดมอร์แกน (De Morgan's Law) ร่วมกับการนิเสธอินพุตแต่ละตัว:
     \[ a \cdot b = (a' + b')' = ((a + a)' + (b + b)')' \]
-\end{itemize}
+\end{enumerate}
 \end{thrm}
 
 \begin{ex}
@@ -1454,14 +1454,14 @@ $\therefore F = x' + z$ \solhere
 \begin{definition}[ประตูตรรกะพื้นฐาน (Basic Logic Gates)]
 \index{ประตูตรรกะ!นิพจน์บูลีน}
 ประตูตรรกะพื้นฐานประเภทต่างๆ สามารถเขียนแทนด้วยนิพจน์บูลีน (Boolean Expression) ได้ดังนี้:
-\begin{itemize}[leftmargin=1.5em,itemsep=0.4em]
+\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=1.5em,itemsep=0.4em]
     \item \textbf{NOT Gate (นิเสธ):} ทำหน้าที่กลับค่าสัญญาณทางตรรกะ เขียนแทนด้วย $Y = A'$
     \item \textbf{AND Gate (และการ):} ให้ผลลัพธ์เป็น 1 เมื่อสัญญาณอินพุตทุกตัวเป็น 1 เขียนแทนด้วย $Y = A \cdot B$
     \item \textbf{OR Gate (หรือ):} ให้ผลลัพธ์เป็น 1 เมื่อสัญญาณอินพุตอย่างน้อยหนึ่งตัวเป็น 1 เขียนแทนด้วย $Y = A + B$
     \item \textbf{XOR Gate (Exclusive OR):} ให้ผลลัพธ์เป็น 1 เมื่อสัญญาณอินพุตมีค่าต่างกัน เขียนแทนด้วย $Y = A \oplus B = A'B + AB'$
     \item \textbf{NAND Gate (Not AND):} เป็นการนิเสธผลลัพธ์ของ AND Gate เขียนแทนด้วย $Y = (AB)'$
     \item \textbf{NOR Gate (Not OR):} เป็นการนิเสธผลลัพธ์ของ OR Gate เขียนแทนด้วย $Y = (A + B)'$
-\end{itemize}
+\end{enumerate}
 \end{definition}
 
 \begin{ex}[การสร้าง AND จาก NAND gates]

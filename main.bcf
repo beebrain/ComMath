@@ -2558,20 +2558,17 @@
     <bcf:citekey order="16" intorder="1">codd1970relational</bcf:citekey>
     <bcf:citekey order="17" intorder="1">codd1970relational</bcf:citekey>
     <bcf:citekey order="18" intorder="1">mano2018digital</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">patterson2020organization</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">rosen2019discrete</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">anton2019linear</bcf:citekey>
-    <bcf:citekey order="21" intorder="2">strang2023linear</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">lay2021linear</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">nakjai2019yolo</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">nakjai2019handsign</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">strang2023linear</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">boole1854investigation</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">roth2021logic</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">mano2018digital</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">wakerly2018digital</bcf:citekey>
-    <bcf:citekey order="30" intorder="1">rosen2019discrete</bcf:citekey>
-    <bcf:citekey order="31" intorder="1" nocite="1">*</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">rosen2019discrete</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">anton2019linear</bcf:citekey>
+    <bcf:citekey order="20" intorder="2">strang2023linear</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">lay2021linear</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">strang2023linear</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">boole1854investigation</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">roth2021logic</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">mano2018digital</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">wakerly2018digital</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">rosen2019discrete</bcf:citekey>
+    <bcf:citekey order="28" intorder="1" nocite="1">*</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

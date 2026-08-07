@@ -161,47 +161,47 @@
 \contentsline {chapter}{แผนการสอนประจำบทที่ 6}{187}{chapter*.72}%
 \contentsline {chapter}{\numberline {6}พีชคณิตบูลีน (Boolean Algebra)}{189}{chapter.6}%
 \contentsline {section}{\numberline {6.1}นิยามพื้นฐานของพีชคณิตบูลีน}{189}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}นิยามของ Boolean Algebra}{189}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}ค่าคงตัวบูลีน}{190}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.1}นิยามของพีชคณิตบูลีน}{190}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}ค่าคงตัวบูลีน}{191}{subsection.6.1.2}%
 \contentsline {section}{\numberline {6.2}การดำเนินการทางบูลีน (Boolean Operations)}{191}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}การดำเนินการ OR (Disjunction)}{191}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}การดำเนินการ AND (Conjunction)}{192}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}การดำเนินการ NOT (Negation)}{193}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}การดำเนินการ XOR (Exclusive OR)}{194}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.1}การดำเนินการ OR (Disjunction)}{192}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}การดำเนินการ AND (Conjunction)}{193}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}การดำเนินการ NOT (Negation)}{194}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}การดำเนินการ XOR (Exclusive OR)}{195}{subsection.6.2.4}%
 \contentsline {section}{\numberline {6.3}กฎของพีชคณิตบูลีน (Boolean Identities)}{196}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Distributive Laws}{196}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Absorption Laws}{198}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.1}กฎการแจกแจง (Distributive Laws)}{197}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}กฎการดูดกลืน (Absorption Laws)}{199}{subsection.6.3.2}%
 \contentsline {section}{\numberline {6.4}กฎของ De Morgan (De Morgan's Laws)}{200}{section.6.4}%
 \contentsline {section}{\numberline {6.5}นิพจน์บูลีนและฟังก์ชันบูลีน (Boolean Expressions and Functions)}{201}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}นิยามของนิพจน์บูลีน}{201}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}ฟังก์ชันบูลีน}{202}{subsection.6.5.2}%
-\contentsline {section}{\numberline {6.6}รูปแบบปกติ (Canonical Forms)}{203}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Minterms และ Maxterms}{204}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}Sum of Products (SOP) — ผลบวกของผลคูณ}{205}{subsection.6.6.2}%
-\contentsline {subsection}{\numberline {6.6.3}Product of Sums (POS) — ผลคูณของผลบวก}{206}{subsection.6.6.3}%
+\contentsline {subsection}{\numberline {6.5.1}นิยามของนิพจน์บูลีน}{202}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}ฟังก์ชันบูลีน}{203}{subsection.6.5.2}%
+\contentsline {section}{\numberline {6.6}รูปแบบปกติ (Canonical Forms)}{204}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}มินเทอมและแมกซ์เทอม (Minterms and Maxterms)}{204}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}ผลบวกของผลคูณ (Sum of Products -- SOP)}{205}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.3}ผลคูณของผลบวก (Product of Sums -- POS)}{206}{subsection.6.6.3}%
 \contentsline {section}{\numberline {6.7}การลดรูปนิพจน์บูลีน (Boolean Expression Simplification)}{207}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}การใช้ Boolean Identities}{207}{subsection.6.7.1}%
-\contentsline {subsection}{\numberline {6.7.2}การใช้ Consensus Theorem}{209}{subsection.6.7.2}%
-\contentsline {section}{\numberline {6.8}แผนที่คาร์นอ (Karnaugh Map)}{211}{section.6.8}%
-\contentsline {subsection}{\numberline {6.8.1}K-map สำหรับ 2 ตัวแปร}{212}{subsection.6.8.1}%
-\contentsline {subsection}{\numberline {6.8.2}K-map สำหรับ 3 ตัวแปร}{213}{subsection.6.8.2}%
-\contentsline {subsection}{\numberline {6.8.3}K-map สำหรับ 4 ตัวแปร}{214}{subsection.6.8.3}%
-\contentsline {section}{\numberline {6.9}การประยุกต์ในวงจรดิจิทัล}{215}{section.6.9}%
-\contentsline {subsection}{\numberline {6.9.1}Logic Gates}{215}{subsection.6.9.1}%
-\contentsline {subsection}{\numberline {6.9.2}การออกแบบวงจร Combination}{217}{subsection.6.9.2}%
-\contentsline {subsection}{\numberline {6.9.3}Two-level Realization}{218}{subsection.6.9.3}%
-\contentsline {subsection}{\numberline {6.9.4}Half Adder และ Full Adder}{218}{subsection.6.9.4}%
-\contentsline {subsection}{\numberline {6.9.5}สมมูลของพีชคณิตบูลีน (Boolean Algebra Equivalence)}{219}{subsection.6.9.5}%
-\contentsline {section}{\numberline {6.10}ตัวอย่างในวิทยาการคอมพิวเตอร์}{219}{section.6.10}%
-\contentsline {subsection}{\numberline {6.10.1}Karnaugh Maps สำหรับการออกแบบวงจร}{219}{subsection.6.10.1}%
-\contentsline {subsection}{\numberline {6.10.2}Logic Gates และวงจรดิจิทัล}{220}{subsection.6.10.2}%
-\contentsline {subsection}{\numberline {6.10.3}Half Adder และ Full Adder}{221}{subsection.6.10.3}%
-\contentsline {subsection}{\numberline {6.10.4}Multiplexer และ Demultiplexer}{222}{subsection.6.10.4}%
-\contentsline {subsection}{\numberline {6.10.5}FSM Implementation ด้วย Boolean Logic}{222}{subsection.6.10.5}%
-\contentsline {section}{สรุปบทเรียน}{224}{section*.75}%
-\contentsline {section}{แบบฝึกหัด}{225}{section*.76}%
-\contentsline {section}{เฉลยแบบฝึกหัด}{228}{section*.77}%
-\contentsline {section}{คำถามท้ายบทที่ 6}{230}{Item.1110}%
-\contentsline {section}{ใบงานที่ 6}{231}{Item.1118}%
-\contentsline {section}{เอกสารอ้างอิง}{233}{Item.1129}%
+\contentsline {subsection}{\numberline {6.7.1}การลดรูปด้วยกฎพีชคณิตบูลีน}{208}{subsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.7.2}การลดรูปด้วยทฤษฎีบทคอนเซนซัส (Consensus Theorem)}{210}{subsection.6.7.2}%
+\contentsline {section}{\numberline {6.8}แผนที่คาร์นอ (Karnaugh Map)}{212}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}แผนที่คาร์นอสำหรับ 2 ตัวแปร}{213}{subsection.6.8.1}%
+\contentsline {subsection}{\numberline {6.8.2}แผนที่คาร์นอสำหรับ 3 ตัวแปร}{214}{subsection.6.8.2}%
+\contentsline {subsection}{\numberline {6.8.3}แผนที่คาร์นอสำหรับ 4 ตัวแปร}{215}{subsection.6.8.3}%
+\contentsline {section}{\numberline {6.9}การประยุกต์ในวงจรดิจิทัล}{216}{section.6.9}%
+\contentsline {subsection}{\numberline {6.9.1}ประตูสัญญาณตรรกะ (Logic Gates)}{217}{subsection.6.9.1}%
+\contentsline {subsection}{\numberline {6.9.2}การออกแบบวงจรเชิงผสม (Combinational Circuit)}{219}{subsection.6.9.2}%
+\contentsline {subsection}{\numberline {6.9.3}การสร้างวงจรสองระดับ (Two-level Realization)}{219}{subsection.6.9.3}%
+\contentsline {subsection}{\numberline {6.9.4}วงจรบวกครึ่งและวงจรบวกเต็ม (Half Adder and Full Adder)}{220}{subsection.6.9.4}%
+\contentsline {subsection}{\numberline {6.9.5}สมมูลของพีชคณิตบูลีน (Boolean Algebra Equivalence)}{221}{subsection.6.9.5}%
+\contentsline {section}{\numberline {6.10}ตัวอย่างในวิทยาการคอมพิวเตอร์}{221}{section.6.10}%
+\contentsline {subsection}{\numberline {6.10.1}การใช้แผนที่คาร์นอในงานออกแบบจริง}{222}{subsection.6.10.1}%
+\contentsline {subsection}{\numberline {6.10.2}การสร้างประตูสัญญาณตรรกะด้วยทรานซิสเตอร์}{222}{subsection.6.10.2}%
+\contentsline {subsection}{\numberline {6.10.3}การต่อวงจรบวกเป็นชุดสำหรับเลขหลายบิต}{223}{subsection.6.10.3}%
+\contentsline {subsection}{\numberline {6.10.4}มัลติเพล็กเซอร์และดีมัลติเพล็กเซอร์ (Multiplexer and Demultiplexer)}{224}{subsection.6.10.4}%
+\contentsline {subsection}{\numberline {6.10.5}การสร้างเครื่องสถานะจำกัดด้วยตรรกะบูลีน (Finite State Machine)}{225}{subsection.6.10.5}%
+\contentsline {section}{สรุปบทเรียน}{226}{section*.75}%
+\contentsline {section}{แบบฝึกหัด}{227}{section*.76}%
+\contentsline {section}{เฉลยแบบฝึกหัด}{230}{section*.77}%
+\contentsline {section}{คำถามท้ายบทที่ 6}{232}{Item.1110}%
+\contentsline {section}{ใบงานที่ 6}{233}{Item.1118}%
+\contentsline {section}{เอกสารอ้างอิง}{235}{Item.1129}%
 \contentsfinish 

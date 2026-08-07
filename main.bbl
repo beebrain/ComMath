@@ -794,6 +794,36 @@
       \verb 10.1201/b18519
       \endverb
     \endentry
+    \entry{nakjai2024xmark}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9fd82f4b6c4a80d4a9ecf544062708e0}{%
+           family={Nakjai},
+           familyi={N\bibinitperiod},
+           given={Pisit},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{9fd82f4b6c4a80d4a9ecf544062708e0}
+      \strng{fullhash}{9fd82f4b6c4a80d4a9ecf544062708e0}
+      \strng{fullhashraw}{9fd82f4b6c4a80d4a9ecf544062708e0}
+      \strng{bibnamehash}{9fd82f4b6c4a80d4a9ecf544062708e0}
+      \strng{authorbibnamehash}{9fd82f4b6c4a80d4a9ecf544062708e0}
+      \strng{authornamehash}{9fd82f4b6c4a80d4a9ecf544062708e0}
+      \strng{authorfullhash}{9fd82f4b6c4a80d4a9ecf544062708e0}
+      \strng{authorfullhashraw}{9fd82f4b6c4a80d4a9ecf544062708e0}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Applied Science and Emerging Technology}
+      \field{title}{{YOLO}-Based Object Detection for Handwritten {X}-Marks}
+      \field{volume}{23}
+      \field{year}{2024}
+      \keyw{ownpub}
+    \endentry
     \entry{nakjai2018latent}{inproceedings}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=9fd82f4b6c4a80d4a9ecf544062708e0}{%
@@ -996,6 +1026,96 @@
       \field{booktitle}{Proceedings of the 11th International Conference on Computer Modeling and Simulation (ICCMS)}
       \field{title}{{Thai} Finger Spelling Localization and Classification under Complex Background Using a {YOLO}-based Deep Learning}
       \field{year}{2019}
+    \endentry
+    \entry{nakjai2026lanna}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=9fd82f4b6c4a80d4a9ecf544062708e0}{%
+           family={Nakjai},
+           familyi={N\bibinitperiod},
+           given={Pisit},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b1ee3c2501d68d849bf59ff364d4b5b5}{%
+           family={Rakwongs},
+           familyi={R\bibinitperiod},
+           given={Niyada},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=48931efc0240ee3cbba66898b5c39dae}{%
+           family={Maneerat},
+           familyi={M\bibinitperiod},
+           given={Patchree},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b1a335afb3612ab390cf19691e6a6528}
+      \strng{fullhash}{b1a335afb3612ab390cf19691e6a6528}
+      \strng{fullhashraw}{b1a335afb3612ab390cf19691e6a6528}
+      \strng{bibnamehash}{b1a335afb3612ab390cf19691e6a6528}
+      \strng{authorbibnamehash}{b1a335afb3612ab390cf19691e6a6528}
+      \strng{authornamehash}{b1a335afb3612ab390cf19691e6a6528}
+      \strng{authorfullhash}{b1a335afb3612ab390cf19691e6a6528}
+      \strng{authorfullhashraw}{b1a335afb3612ab390cf19691e6a6528}
+      \field{extraname}{1}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ICIC Express Letters, Part B: Applications}
+      \field{title}{Northern {Thailand} {Lanna} Script Localization and Classification with {YOLO} Technique}
+      \field{year}{2026}
+      \field{pages}{571\bibrangedash 579}
+      \range{pages}{9}
+      \keyw{ownpub}
+    \endentry
+    \entry{nakjai2026eggtray}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=9fd82f4b6c4a80d4a9ecf544062708e0}{%
+           family={Nakjai},
+           familyi={N\bibinitperiod},
+           given={Pisit},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b1ee3c2501d68d849bf59ff364d4b5b5}{%
+           family={Rakwongs},
+           familyi={R\bibinitperiod},
+           given={Niyada},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=48931efc0240ee3cbba66898b5c39dae}{%
+           family={Maneerat},
+           familyi={M\bibinitperiod},
+           given={Patchree},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b1a335afb3612ab390cf19691e6a6528}
+      \strng{fullhash}{b1a335afb3612ab390cf19691e6a6528}
+      \strng{fullhashraw}{b1a335afb3612ab390cf19691e6a6528}
+      \strng{bibnamehash}{b1a335afb3612ab390cf19691e6a6528}
+      \strng{authorbibnamehash}{b1a335afb3612ab390cf19691e6a6528}
+      \strng{authornamehash}{b1a335afb3612ab390cf19691e6a6528}
+      \strng{authorfullhash}{b1a335afb3612ab390cf19691e6a6528}
+      \strng{authorfullhashraw}{b1a335afb3612ab390cf19691e6a6528}
+      \field{extraname}{2}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ICIC Express Letters, Part B: Applications}
+      \field{title}{Object Detection Approach to Egg Tray Corner Counting with {YOLOv12}}
+      \field{year}{2026}
+      \field{pages}{679\bibrangedash 687}
+      \range{pages}{9}
+      \keyw{ownpub}
     \endentry
     \entry{patterson2020organization}{book}{}{}
       \name{author}{2}{}{%

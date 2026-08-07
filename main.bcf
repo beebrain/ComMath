@@ -2678,53 +2678,55 @@
     <bcf:citekey order="133" intorder="1">kolman2008discrete</bcf:citekey>
     <bcf:citekey order="134" intorder="1">gersting2014structures</bcf:citekey>
     <bcf:citekey order="135" intorder="1">rosen2019discrete</bcf:citekey>
-    <bcf:citekey order="136" intorder="1">lipschutz2009discrete</bcf:citekey>
-    <bcf:citekey order="137" intorder="1">rosen2019discrete</bcf:citekey>
-    <bcf:citekey order="138" intorder="1">strang2023linear</bcf:citekey>
-    <bcf:citekey order="139" intorder="1">nakjai2019handsign</bcf:citekey>
-    <bcf:citekey order="140" intorder="1">nakjai2019yolo</bcf:citekey>
-    <bcf:citekey order="141" intorder="1">strang2023linear</bcf:citekey>
-    <bcf:citekey order="142" intorder="1">boole1854investigation</bcf:citekey>
-    <bcf:citekey order="143" intorder="1">boole1854investigation</bcf:citekey>
+    <bcf:citekey order="136" intorder="1">anton2019linear</bcf:citekey>
+    <bcf:citekey order="137" intorder="1">nakjai2026lanna</bcf:citekey>
+    <bcf:citekey order="138" intorder="1">nakjai2026eggtray</bcf:citekey>
+    <bcf:citekey order="139" intorder="1">nakjai2024xmark</bcf:citekey>
+    <bcf:citekey order="140" intorder="1">strang2023linear</bcf:citekey>
+    <bcf:citekey order="141" intorder="1">nakjai2019handsign</bcf:citekey>
+    <bcf:citekey order="142" intorder="1">nakjai2019yolo</bcf:citekey>
+    <bcf:citekey order="143" intorder="1">strang2023linear</bcf:citekey>
     <bcf:citekey order="144" intorder="1">boole1854investigation</bcf:citekey>
     <bcf:citekey order="145" intorder="1">boole1854investigation</bcf:citekey>
     <bcf:citekey order="146" intorder="1">boole1854investigation</bcf:citekey>
-    <bcf:citekey order="147" intorder="1">mano2018digital</bcf:citekey>
-    <bcf:citekey order="148" intorder="1">roth2021logic</bcf:citekey>
-    <bcf:citekey order="149" intorder="1">wakerly2018digital</bcf:citekey>
-    <bcf:citekey order="150" intorder="1">kolman2008discrete</bcf:citekey>
-    <bcf:citekey order="151" intorder="1">boole1854investigation</bcf:citekey>
-    <bcf:citekey order="152" intorder="1">gersting2014structures</bcf:citekey>
-    <bcf:citekey order="153" intorder="1">rosen2019discrete</bcf:citekey>
-    <bcf:citekey order="154" intorder="1">mano2018digital</bcf:citekey>
-    <bcf:citekey order="155" intorder="1">boole1854investigation</bcf:citekey>
-    <bcf:citekey order="156" intorder="1">boole1854investigation</bcf:citekey>
+    <bcf:citekey order="147" intorder="1">boole1854investigation</bcf:citekey>
+    <bcf:citekey order="148" intorder="1">boole1854investigation</bcf:citekey>
+    <bcf:citekey order="149" intorder="1">mano2018digital</bcf:citekey>
+    <bcf:citekey order="150" intorder="1">roth2021logic</bcf:citekey>
+    <bcf:citekey order="151" intorder="1">wakerly2018digital</bcf:citekey>
+    <bcf:citekey order="152" intorder="1">kolman2008discrete</bcf:citekey>
+    <bcf:citekey order="153" intorder="1">boole1854investigation</bcf:citekey>
+    <bcf:citekey order="154" intorder="1">gersting2014structures</bcf:citekey>
+    <bcf:citekey order="155" intorder="1">rosen2019discrete</bcf:citekey>
+    <bcf:citekey order="156" intorder="1">mano2018digital</bcf:citekey>
     <bcf:citekey order="157" intorder="1">boole1854investigation</bcf:citekey>
-    <bcf:citekey order="158" intorder="1">roth2021logic</bcf:citekey>
-    <bcf:citekey order="159" intorder="1">wakerly2018digital</bcf:citekey>
-    <bcf:citekey order="160" intorder="1">kolman2008discrete</bcf:citekey>
-    <bcf:citekey order="161" intorder="1">gersting2014structures</bcf:citekey>
-    <bcf:citekey order="162" intorder="1">boole1854investigation</bcf:citekey>
-    <bcf:citekey order="163" intorder="1">boole1854investigation</bcf:citekey>
-    <bcf:citekey order="164" intorder="1">rosen2019discrete</bcf:citekey>
-    <bcf:citekey order="165" intorder="1">mano2018digital</bcf:citekey>
-    <bcf:citekey order="166" intorder="1">roth2021logic</bcf:citekey>
-    <bcf:citekey order="167" intorder="1">wakerly2018digital</bcf:citekey>
-    <bcf:citekey order="168" intorder="1">kolman2008discrete</bcf:citekey>
-    <bcf:citekey order="169" intorder="1">gersting2014structures</bcf:citekey>
-    <bcf:citekey order="170" intorder="1">wakerly2018digital</bcf:citekey>
-    <bcf:citekey order="171" intorder="1">wakerly2018digital</bcf:citekey>
+    <bcf:citekey order="158" intorder="1">boole1854investigation</bcf:citekey>
+    <bcf:citekey order="159" intorder="1">boole1854investigation</bcf:citekey>
+    <bcf:citekey order="160" intorder="1">roth2021logic</bcf:citekey>
+    <bcf:citekey order="161" intorder="1">wakerly2018digital</bcf:citekey>
+    <bcf:citekey order="162" intorder="1">kolman2008discrete</bcf:citekey>
+    <bcf:citekey order="163" intorder="1">gersting2014structures</bcf:citekey>
+    <bcf:citekey order="164" intorder="1">boole1854investigation</bcf:citekey>
+    <bcf:citekey order="165" intorder="1">boole1854investigation</bcf:citekey>
+    <bcf:citekey order="166" intorder="1">rosen2019discrete</bcf:citekey>
+    <bcf:citekey order="167" intorder="1">mano2018digital</bcf:citekey>
+    <bcf:citekey order="168" intorder="1">roth2021logic</bcf:citekey>
+    <bcf:citekey order="169" intorder="1">wakerly2018digital</bcf:citekey>
+    <bcf:citekey order="170" intorder="1">kolman2008discrete</bcf:citekey>
+    <bcf:citekey order="171" intorder="1">gersting2014structures</bcf:citekey>
     <bcf:citekey order="172" intorder="1">wakerly2018digital</bcf:citekey>
     <bcf:citekey order="173" intorder="1">wakerly2018digital</bcf:citekey>
-    <bcf:citekey order="174" intorder="1">boole1854investigation</bcf:citekey>
-    <bcf:citekey order="175" intorder="1">gersting2014structures</bcf:citekey>
-    <bcf:citekey order="176" intorder="1">roth2021logic</bcf:citekey>
-    <bcf:citekey order="177" intorder="1">mano2018digital</bcf:citekey>
-    <bcf:citekey order="178" intorder="1">wakerly2018digital</bcf:citekey>
-    <bcf:citekey order="179" intorder="1">wakerly2018digital</bcf:citekey>
+    <bcf:citekey order="174" intorder="1">wakerly2018digital</bcf:citekey>
+    <bcf:citekey order="175" intorder="1">wakerly2018digital</bcf:citekey>
+    <bcf:citekey order="176" intorder="1">boole1854investigation</bcf:citekey>
+    <bcf:citekey order="177" intorder="1">gersting2014structures</bcf:citekey>
+    <bcf:citekey order="178" intorder="1">roth2021logic</bcf:citekey>
+    <bcf:citekey order="179" intorder="1">mano2018digital</bcf:citekey>
     <bcf:citekey order="180" intorder="1">wakerly2018digital</bcf:citekey>
-    <bcf:citekey order="181" intorder="1">rosen2019discrete</bcf:citekey>
-    <bcf:citekey order="182" intorder="1" nocite="1">*</bcf:citekey>
+    <bcf:citekey order="181" intorder="1">wakerly2018digital</bcf:citekey>
+    <bcf:citekey order="182" intorder="1">wakerly2018digital</bcf:citekey>
+    <bcf:citekey order="183" intorder="1">rosen2019discrete</bcf:citekey>
+    <bcf:citekey order="184" intorder="1" nocite="1">*</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

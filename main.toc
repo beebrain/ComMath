@@ -149,15 +149,14 @@
 \contentsline {subsection}{\numberline {5.5.4}การแก้ระบบสมการโดยวิธีการกำจัดแบบเกาส์ (Gaussian Elimination)}{178}{subsection.5.5.4}%
 \contentsline {section}{\numberline {5.6}การประยุกต์ในวิทยาการคอมพิวเตอร์}{179}{section.5.6}%
 \contentsline {subsection}{\numberline {5.6.1}การแปลงในคอมพิวเตอร์กราฟิกส์ (Computer Graphics)}{180}{subsection.5.6.1}%
-\contentsline {subsection}{\numberline {5.6.2}การเข้ารหัส Hill Cipher}{181}{subsection.5.6.2}%
-\contentsline {subsection}{\numberline {5.6.3}เมทริกซ์ประชิดในทฤษฎีกราฟ}{182}{subsection.5.6.3}%
-\contentsline {subsection}{\numberline {5.6.4}เมทริกซ์ในการเรียนรู้ของเครื่อง}{182}{subsection.5.6.4}%
+\contentsline {subsection}{\numberline {5.6.2}การประมวลผลภาพด้วยเมทริกซ์}{180}{subsection.5.6.2}%
+\contentsline {subsection}{\numberline {5.6.3}เมทริกซ์ในการเรียนรู้ของเครื่อง}{182}{subsection.5.6.3}%
 \contentsline {section}{สรุปบทเรียน}{184}{section*.69}%
 \contentsline {section}{แบบฝึกหัด}{185}{section*.70}%
 \contentsline {section}{เฉลยแบบฝึกหัด}{187}{section*.71}%
-\contentsline {section}{คำถามท้ายบทที่ 5}{189}{Item.854}%
-\contentsline {section}{ใบงานที่ 5}{190}{Item.870}%
-\contentsline {section}{เอกสารอ้างอิง}{192}{Item.880}%
+\contentsline {section}{คำถามท้ายบทที่ 5}{189}{Item.853}%
+\contentsline {section}{ใบงานที่ 5}{190}{Item.869}%
+\contentsline {section}{เอกสารอ้างอิง}{192}{Item.879}%
 \contentsline {chapter}{แผนการสอนประจำบทที่ 6}{193}{chapter*.72}%
 \contentsline {chapter}{\numberline {6}พีชคณิตบูลีน (Boolean Algebra)}{195}{chapter.6}%
 \contentsline {section}{\numberline {6.1}นิยามพื้นฐานของพีชคณิตบูลีน}{195}{section.6.1}%
@@ -201,7 +200,7 @@
 \contentsline {section}{สรุปบทเรียน}{233}{section*.75}%
 \contentsline {section}{แบบฝึกหัด}{234}{section*.76}%
 \contentsline {section}{เฉลยแบบฝึกหัด}{237}{section*.77}%
-\contentsline {section}{คำถามท้ายบทที่ 6}{239}{Item.1117}%
-\contentsline {section}{ใบงานที่ 6}{240}{Item.1125}%
-\contentsline {section}{เอกสารอ้างอิง}{242}{Item.1136}%
+\contentsline {section}{คำถามท้ายบทที่ 6}{239}{Item.1116}%
+\contentsline {section}{ใบงานที่ 6}{240}{Item.1124}%
+\contentsline {section}{เอกสารอ้างอิง}{242}{Item.1135}%
 \contentsfinish 

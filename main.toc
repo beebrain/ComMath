@@ -1,5 +1,5 @@
-\contentsline {chapter}{สารบัญตาราง}{(7)}{chapter*.2}%
-\contentsline {chapter}{สารบัญภาพ}{(9)}{chapter*.3}%
+\contentsline {chapter}{สารบัญตาราง}{(9)}{chapter*.2}%
+\contentsline {chapter}{สารบัญภาพ}{(11)}{chapter*.3}%
 \contentsline {chapter}{แผนบริหารการสอนประจำวิชา}{1}{chapter*.4}%
 \contentsline {chapter}{แผนการสอนประจำบทที่ 1}{7}{chapter*.6}%
 \contentsline {chapter}{\numberline {1}ตรรกศาสตร์ (Logic)}{9}{chapter.1}%
@@ -77,31 +77,28 @@
 \contentsline {chapter}{แผนการสอนประจำบทที่ 3}{85}{chapter*.47}%
 \contentsline {chapter}{\numberline {3}ความสัมพันธ์และฟังก์ชัน (Relations and Functions)}{87}{chapter.3}%
 \contentsline {section}{\numberline {3.1}พื้นฐานความสัมพันธ์และคู่อันดับ}{87}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}โดเมน เรนจ์ และความสัมพันธ์ผกผัน}{89}{subsection.3.1.1}%
-\contentsline {section}{\numberline {3.2}คุณสมบัติและการขยายความสัมพันธ์}{90}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}คุณสมบัติพื้นฐาน 4 ประการ}{90}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}การประกอบความสัมพันธ์}{92}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}การขยายและการปิดคุณสมบัติ}{93}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}ฟังก์ชัน (Functions)}{94}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}นิยามฟังก์ชัน โดเมน โคโดเมน และเรนจ์}{94}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}ฟังก์ชันหนึ่งต่อหนึ่ง ทั่วถึง และหนึ่งต่อหนึ่งทั่วถึง}{95}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}การประกอบฟังก์ชันและฟังก์ชันผกผัน}{96}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}ฟังก์ชันพิเศษในทางคอมพิวเตอร์}{98}{subsection.3.3.4}%
-\contentsline {section}{\numberline {3.4}ลำดับและอนุกรม (Sequences and Series)}{99}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}ลำดับเลขคณิต (Arithmetic Sequence)}{99}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}ลำดับเรขาคณิต (Geometric Sequence)}{100}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}อนุกรมเลขคณิต (Arithmetic Series)}{101}{subsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.4.4}อนุกรมเรขาคณิต (Geometric Series)}{102}{subsection.3.4.4}%
-\contentsline {section}{\numberline {3.5}การประยุกต์ใช้ในวิทยาการคอมพิวเตอร์}{103}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}ฐานข้อมูลเชิงสัมพันธ์และพีชคณิตเชิงสัมพันธ์}{103}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}การจัดลำดับการทำงานของโปรแกรม}{103}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}การจัดเก็บข้อมูลด้วยตารางแฮชและการแก้ปัญหาการชนกัน}{104}{subsection.3.5.3}%
+\contentsline {section}{\numberline {3.2}โดเมน เรนจ์ และความสัมพันธ์ผกผัน}{89}{section.3.2}%
+\contentsline {section}{\numberline {3.3}คุณสมบัติของความสัมพันธ์ทวิภาค}{90}{section.3.3}%
+\contentsline {section}{\numberline {3.4}การประกอบความสัมพันธ์}{92}{section.3.4}%
+\contentsline {section}{\numberline {3.5}การปิดคุณสมบัติของความสัมพันธ์}{93}{section.3.5}%
+\contentsline {section}{\numberline {3.6}ฟังก์ชัน โดเมน โคโดเมน และเรนจ์ (Functions)}{94}{section.3.6}%
+\contentsline {section}{\numberline {3.7}ประเภทของฟังก์ชัน}{95}{section.3.7}%
+\contentsline {section}{\numberline {3.8}การประกอบฟังก์ชันและฟังก์ชันผกผัน}{96}{section.3.8}%
+\contentsline {section}{\numberline {3.9}ฟังก์ชันพิเศษในทางคอมพิวเตอร์}{98}{section.3.9}%
+\contentsline {section}{\numberline {3.10}ลำดับเลขคณิต (Arithmetic Sequence)}{99}{section.3.10}%
+\contentsline {section}{\numberline {3.11}ลำดับเรขาคณิต (Geometric Sequence)}{100}{section.3.11}%
+\contentsline {section}{\numberline {3.12}อนุกรมเลขคณิต (Arithmetic Series)}{101}{section.3.12}%
+\contentsline {section}{\numberline {3.13}อนุกรมเรขาคณิต (Geometric Series)}{102}{section.3.13}%
+\contentsline {section}{\numberline {3.14}การประยุกต์ใช้ในวิทยาการคอมพิวเตอร์}{103}{section.3.14}%
+\contentsline {subsection}{\numberline {3.14.1}ฐานข้อมูลเชิงสัมพันธ์และพีชคณิตเชิงสัมพันธ์}{103}{subsection.3.14.1}%
+\contentsline {subsection}{\numberline {3.14.2}การจัดลำดับการทำงานของโปรแกรม}{103}{subsection.3.14.2}%
+\contentsline {subsection}{\numberline {3.14.3}การจัดเก็บข้อมูลด้วยตารางแฮชและการแก้ปัญหาการชนกัน}{104}{subsection.3.14.3}%
 \contentsline {section}{สรุปบทเรียน}{105}{section*.51}%
 \contentsline {section}{แบบฝึกหัด}{106}{section*.52}%
 \contentsline {section}{เฉลยแบบฝึกหัด}{108}{section*.53}%
-\contentsline {section}{คำถามท้ายบทที่ 3}{110}{Item.570}%
-\contentsline {section}{ใบงานที่ 3}{111}{Item.578}%
-\contentsline {section}{เอกสารอ้างอิง}{113}{Item.588}%
+\contentsline {section}{คำถามท้ายบทที่ 3}{110}{Item.563}%
+\contentsline {section}{ใบงานที่ 3}{111}{Item.571}%
+\contentsline {section}{เอกสารอ้างอิง}{113}{Item.581}%
 \contentsline {chapter}{แผนการสอนประจำบทที่ 4}{115}{chapter*.54}%
 \contentsline {chapter}{\numberline {4}ระบบเลขฐาน (Number Bases)}{117}{chapter.4}%
 \contentsline {section}{\numberline {4.1}ระบบเลขฐานสิบ (Decimal System)}{117}{section.4.1}%
@@ -133,9 +130,9 @@
 \contentsline {section}{สรุปบทเรียน}{143}{section*.62}%
 \contentsline {section}{แบบฝึกหัดท้ายบท}{144}{section*.63}%
 \contentsline {section}{เฉลยแบบฝึกหัด}{146}{section*.64}%
-\contentsline {section}{คำถามท้ายบทที่ 4}{148}{Item.726}%
-\contentsline {section}{ใบงานที่ 4}{149}{Item.734}%
-\contentsline {section}{เอกสารอ้างอิง}{151}{Item.744}%
+\contentsline {section}{คำถามท้ายบทที่ 4}{148}{Item.719}%
+\contentsline {section}{ใบงานที่ 4}{149}{Item.727}%
+\contentsline {section}{เอกสารอ้างอิง}{151}{Item.737}%
 \contentsline {chapter}{แผนการสอนประจำบทที่ 5}{153}{chapter*.65}%
 \contentsline {chapter}{\numberline {5}เมทริกซ์และดีเทอร์มิแนนต์ (Matrices \& Determinants)}{155}{chapter.5}%
 \contentsline {section}{\numberline {5.1}นิยามพื้นฐานของเมทริกซ์}{155}{section.5.1}%
@@ -165,9 +162,9 @@
 \contentsline {section}{สรุปบทเรียน}{190}{section*.71}%
 \contentsline {section}{แบบฝึกหัด}{191}{section*.72}%
 \contentsline {section}{เฉลยแบบฝึกหัด}{193}{section*.73}%
-\contentsline {section}{คำถามท้ายบทที่ 5}{195}{Item.870}%
-\contentsline {section}{ใบงานที่ 5}{196}{Item.886}%
-\contentsline {section}{เอกสารอ้างอิง}{198}{Item.896}%
+\contentsline {section}{คำถามท้ายบทที่ 5}{195}{Item.863}%
+\contentsline {section}{ใบงานที่ 5}{196}{Item.879}%
+\contentsline {section}{เอกสารอ้างอิง}{198}{Item.889}%
 \contentsline {chapter}{แผนการสอนประจำบทที่ 6}{199}{chapter*.74}%
 \contentsline {chapter}{\numberline {6}พีชคณิตบูลีน (Boolean Algebra)}{201}{chapter.6}%
 \contentsline {section}{\numberline {6.1}นิยามพื้นฐานของพีชคณิตบูลีน}{201}{section.6.1}%
@@ -211,7 +208,7 @@
 \contentsline {section}{สรุปบทเรียน}{236}{section*.77}%
 \contentsline {section}{แบบฝึกหัด}{237}{section*.78}%
 \contentsline {section}{เฉลยแบบฝึกหัด}{240}{section*.79}%
-\contentsline {section}{คำถามท้ายบทที่ 6}{242}{Item.1113}%
-\contentsline {section}{ใบงานที่ 6}{243}{Item.1121}%
-\contentsline {section}{เอกสารอ้างอิง}{245}{Item.1132}%
+\contentsline {section}{คำถามท้ายบทที่ 6}{242}{Item.1106}%
+\contentsline {section}{ใบงานที่ 6}{243}{Item.1114}%
+\contentsline {section}{เอกสารอ้างอิง}{245}{Item.1125}%
 \contentsfinish 

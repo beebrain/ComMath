@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  6 AUG 2026 16:27
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  7 AUG 2026 09:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2074,7 +2074,15 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[5])
+[5]
+
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 15.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
+
+[6])
 \tf@toc=\write7
 \openout7 = `main.toc'.
 
@@ -2086,7 +2094,10 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[6]
+[7] [8
+
+
+]
 Package biblatex Info: Reference segment=2 on input line 195.
 Package biblatex Info: Setting label 'refsegment:02' on input line 195.
  (./main.lot
@@ -2121,10 +2132,7 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
 \tf@lot=\write8
 \openout8 = `main.lot'.
 
- [7
-
-
-] [8
+ [9] [10
 
 
 ]
@@ -2134,7 +2142,7 @@ Package biblatex Info: Setting label 'refsegment:03' on input line 196.
 \tf@lof=\write9
 \openout9 = `main.lof'.
 
- [9]
+ [11]
 \openout2 = `organize.aux'.
 
  (./organize.tex
@@ -3018,7 +3026,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [89]
-Underfull \hbox (badness 7814) in paragraph at lines 102--103
+Underfull \hbox (badness 7814) in paragraph at lines 104--105
 [][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 3.4 []กำหนด $\OML/cmm/m/it/10.95 A 
 \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.
 95 ; \OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 3\OML/cmm/m/i
@@ -3187,7 +3195,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [107]
-Underfull \hbox (badness 10000) in paragraph at lines 629--630
+Underfull \hbox (badness 10000) in paragraph at lines 636--637
 []$\OML/cmm/m/it/10.95 A \OMS/cmsy/m/n/10.95 ^^B \OML/cmm/m/it/10.95 B \OT1/cmr
 /m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; a\
 OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.
@@ -4457,18 +4465,18 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9A5925C8E7D81ADFE32B8FCB5F77B326;23212.
+(rerunfilecheck)             Checksum: BCE8AE9F991357241A1E9A03CEBD341C;25825.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 71214 strings out of 468168
- 1681978 string characters out of 5432815
- 2990551 words of memory out of 5000000
- 98890 multiletter control sequences out of 15000+600000
+ 71223 strings out of 468168
+ 1682190 string characters out of 5432815
+ 2994979 words of memory out of 5000000
+ 98899 multiletter control sequences out of 15000+600000
  636719 words of font info for 113 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,19n,118p,1238b,5294s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (259 pages, 4432396 bytes).
+Output written on main.xdv (261 pages, 4454836 bytes).

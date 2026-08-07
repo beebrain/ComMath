@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  7 AUG 2026 19:40
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  7 AUG 2026 19:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2341,6 +2341,9 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 
 [17]
 
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
 (fancyhdr)                \setlength{\headheight}{15.49998pt}.
@@ -2389,6 +2392,9 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [22]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -2477,6 +2483,9 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [33]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -2577,6 +2586,11 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [43]
+Underfull \hbox (badness 7796) in paragraph at lines 221--221
+[][]\TU/THSarabunNew(0)/m/sc/11 Grimaldi, R. P. (2004).  \TU/THSarabunNew(0)/m/
+it/11 Discrete and combinatorial mathematics: An applied
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -2979,6 +2993,12 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [85]
+Underfull \hbox (badness 4132) in paragraph at lines 228--228
+[][]\TU/THSarabunNew(0)/m/sc/11 Codd, E. F. (1970). \TU/THSarabunNew(0)/m/it/11
+ A relational model of data for large shared data banks\TU/THSarabunNew(0)/m/sc
+/11 .
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -3279,6 +3299,19 @@ Underfull \hbox (badness 4132) in paragraph at lines 235--235
 [][]\TU/THSarabunNew(0)/m/sc/11 Codd, E. F. (1970). \TU/THSarabunNew(0)/m/it/11
  A relational model of data for large shared data banks\TU/THSarabunNew(0)/m/sc
 /11 .
+ []
+
+
+Underfull \hbox (badness 7796) in paragraph at lines 235--235
+[][]\TU/THSarabunNew(0)/m/sc/11 Grimaldi, R. P. (2004).  \TU/THSarabunNew(0)/m/
+it/11 Discrete and combinatorial mathematics: An applied
+ []
+
+
+Underfull \hbox (badness 5217) in paragraph at lines 235--235
+[][]\TU/THSarabunNew(0)/m/sc/11 Nakjai, P., & Katanyukul, T. (2021). \TU/THSara
+bunNew(0)/m/it/11 Automatic Thai finger spelling transcription\TU/THSarabunNew(
+0)/m/sc/11 .
  []
 
 
@@ -3805,9 +3838,6 @@ LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
 (Font)              scaled to size 11.54994pt on input line 817.
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
 (Font)              scaled to size 8.25pt on input line 817.
-File: Figures/png_ready/34-matrix-transformation-manual.png Graphic file (type 
-bmp)
-<Figures/png_ready/34-matrix-transformation-manual.png>
 
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
@@ -3817,6 +3847,10 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
 [177]
+File: Figures/png_ready/34-matrix-transformation-manual.png Graphic file (type 
+bmp)
+<Figures/png_ready/34-matrix-transformation-manual.png>
+
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -4272,9 +4306,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[230
-
-]
+[230]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -4284,7 +4316,6 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 
 [231
 
-
 ]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
@@ -4293,7 +4324,10 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[232]
+[232
+
+
+]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -4309,7 +4343,15 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[234
+[234]
+
+Package fancyhdr Warning: \headheight is too small (14.0pt): 
+(fancyhdr)                Make it at least 15.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
+
+[235
 
 ]
 
@@ -4319,7 +4361,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[235]
+[236]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -4327,7 +4369,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[236
+[237
 
 ]
 
@@ -4337,7 +4379,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[237])
+[238])
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -4345,7 +4387,7 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[238]
+[239]
 
 Package fancyhdr Warning: \headheight is too small (14.0pt): 
 (fancyhdr)                Make it at least 15.49998pt, for example:
@@ -4353,10 +4395,8 @@ Package fancyhdr Warning: \headheight is too small (14.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.49998pt}.
 
-[239
+[240
 
-
-] [240
 
 ]
 Underfull \hbox (badness 2237) in paragraph at lines 259--259
@@ -4377,7 +4417,15 @@ Underfull \hbox (badness 7796) in paragraph at lines 259--259
 it/11 Discrete and combinatorial mathematics: An applied
  []
 
-[241]
+[241
+
+]
+Underfull \hbox (badness 5217) in paragraph at lines 259--259
+[][]\TU/THSarabunNew(0)/m/sc/11 Nakjai, P., & Katanyukul, T. (2021). \TU/THSara
+bunNew(0)/m/it/11 Automatic Thai finger spelling transcription\TU/THSarabunNew(
+0)/m/sc/11 .
+ []
+
 
 Package caption Warning: Unused \captionsetup[sub] on input line 13.
 See the caption package documentation for explanation.
@@ -4415,12 +4463,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 71149 strings out of 468168
- 1680050 string characters out of 5432815
- 2992475 words of memory out of 5000000
- 98828 multiletter control sequences out of 15000+600000
+ 71354 strings out of 468168
+ 1682951 string characters out of 5432815
+ 2994644 words of memory out of 5000000
+ 99033 multiletter control sequences out of 15000+600000
  637427 words of font info for 116 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 103i,19n,118p,1238b,5296s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,19n,118p,1238b,5290s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (253 pages, 4423896 bytes).
+Output written on main.xdv (253 pages, 4525556 bytes).

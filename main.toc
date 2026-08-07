@@ -37,7 +37,7 @@
 \contentsline {subsubsection}{การประยุกต์ใช้ในทางวิทยาการคอมพิวเตอร์และซอฟต์แวร์}{31}{Item.81}%
 \contentsline {subsection}{\numberline {1.9.3}การอ้างเหตุผลแบบมีเงื่อนไข (Hypothetical Syllogism)}{31}{subsection.1.9.3}%
 \contentsline {subsection}{\numberline {1.9.4}การอ้างเหตุผลแบบแยก (Disjunctive Syllogism)}{32}{subsection.1.9.4}%
-\contentsline {section}{\numberline {1.10}การพิสูจน์ด้วยตารางค่าความจริง}{32}{section.1.10}%
+\contentsline {section}{\numberline {1.10}การพิสูจน์ด้วยตารางค่าความจริง}{33}{section.1.10}%
 \contentsline {section}{สรุปบทเรียน}{36}{section*.30}%
 \contentsline {section}{แบบฝึกหัดท้ายบท}{37}{section*.31}%
 \contentsline {section}{เฉลยแบบฝึกหัด}{39}{section*.32}%
@@ -61,7 +61,7 @@
 \contentsline {subsection}{\numberline {2.4.4}คอมพลีเมนต์ (Complement)}{61}{subsection.2.4.4}%
 \contentsline {section}{\numberline {2.5}กฎของเดมอร์แกน (De Morgan's Laws)}{63}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}เพาเวอร์เซต (Power Set)}{65}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}ผลคูณคาร์ทีเซียน (Cartesian Product)}{66}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.2}ผลคูณคาร์ทีเซียน (Cartesian Product)}{65}{subsection.2.5.2}%
 \contentsline {section}{\numberline {2.6}การนับจำนวนสมาชิกของเซต (Cardinality)}{67}{section.2.6}%
 \contentsline {section}{\numberline {2.7}การประยุกต์ในวิทยาการคอมพิวเตอร์}{70}{section.2.7}%
 \contentsline {subsection}{\numberline {2.7.1}การแทนเซตในโครงสร้างข้อมูล}{70}{subsection.2.7.1}%
@@ -118,7 +118,7 @@
 \contentsline {section}{\numberline {4.8}การคูณและการหารเลขฐานสอง}{137}{section.4.8}%
 \contentsline {subsection}{\numberline {4.8.1}การคูณเลขฐานสอง}{137}{subsection.4.8.1}%
 \contentsline {section}{\numberline {4.9}การแทนข้อมูลในคอมพิวเตอร์}{138}{section.4.9}%
-\contentsline {subsection}{\numberline {4.9.1}รหัสแอสกี (ASCII)}{138}{subsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.9.1}รหัสแอสกี (ASCII)}{139}{subsection.4.9.1}%
 \contentsline {subsection}{\numberline {4.9.2}รหัสยูนิโคด (Unicode)}{140}{subsection.4.9.2}%
 \contentsline {section}{สรุปบทเรียน}{141}{section*.60}%
 \contentsline {section}{แบบฝึกหัดท้ายบท}{142}{section*.61}%
@@ -149,7 +149,7 @@
 \contentsline {subsection}{\numberline {5.5.4}การแก้ระบบสมการโดยวิธีการกำจัดแบบเกาส์ (Gaussian Elimination)}{176}{subsection.5.5.4}%
 \contentsline {section}{\numberline {5.6}การประยุกต์ในวิทยาการคอมพิวเตอร์}{177}{section.5.6}%
 \contentsline {subsection}{\numberline {5.6.1}การแปลงในคอมพิวเตอร์กราฟิกส์ (Computer Graphics)}{178}{subsection.5.6.1}%
-\contentsline {subsection}{\numberline {5.6.2}การเข้ารหัส Hill Cipher}{178}{subsection.5.6.2}%
+\contentsline {subsection}{\numberline {5.6.2}การเข้ารหัส Hill Cipher}{179}{subsection.5.6.2}%
 \contentsline {subsection}{\numberline {5.6.3}เมทริกซ์ประชิดในทฤษฎีกราฟ}{180}{subsection.5.6.3}%
 \contentsline {subsection}{\numberline {5.6.4}เมทริกซ์ในการเรียนรู้ของเครื่อง}{180}{subsection.5.6.4}%
 \contentsline {section}{สรุปบทเรียน}{182}{section*.69}%
@@ -186,22 +186,22 @@
 \contentsline {subsection}{\numberline {6.8.1}แผนที่คาร์นอสำหรับ 2 ตัวแปร}{217}{subsection.6.8.1}%
 \contentsline {subsection}{\numberline {6.8.2}แผนที่คาร์นอสำหรับ 3 ตัวแปร}{218}{subsection.6.8.2}%
 \contentsline {subsection}{\numberline {6.8.3}แผนที่คาร์นอสำหรับ 4 ตัวแปร}{219}{subsection.6.8.3}%
-\contentsline {section}{\numberline {6.9}การประยุกต์ในวงจรดิจิทัล}{220}{section.6.9}%
+\contentsline {section}{\numberline {6.9}การประยุกต์ในวงจรดิจิทัล}{221}{section.6.9}%
 \contentsline {subsection}{\numberline {6.9.1}ประตูสัญญาณตรรกะ (Logic Gates)}{221}{subsection.6.9.1}%
 \contentsline {subsection}{\numberline {6.9.2}การออกแบบวงจรเชิงผสม (Combinational Circuit)}{223}{subsection.6.9.2}%
-\contentsline {subsection}{\numberline {6.9.3}การสร้างวงจรสองระดับ (Two-level Realization)}{223}{subsection.6.9.3}%
+\contentsline {subsection}{\numberline {6.9.3}การสร้างวงจรสองระดับ (Two-level Realization)}{224}{subsection.6.9.3}%
 \contentsline {subsection}{\numberline {6.9.4}วงจรบวกครึ่งและวงจรบวกเต็ม (Half Adder and Full Adder)}{224}{subsection.6.9.4}%
 \contentsline {subsection}{\numberline {6.9.5}สมมูลของพีชคณิตบูลีน (Boolean Algebra Equivalence)}{225}{subsection.6.9.5}%
-\contentsline {section}{\numberline {6.10}ตัวอย่างในวิทยาการคอมพิวเตอร์}{225}{section.6.10}%
+\contentsline {section}{\numberline {6.10}ตัวอย่างในวิทยาการคอมพิวเตอร์}{226}{section.6.10}%
 \contentsline {subsection}{\numberline {6.10.1}การใช้แผนที่คาร์นอในงานออกแบบจริง}{226}{subsection.6.10.1}%
-\contentsline {subsection}{\numberline {6.10.2}การสร้างประตูสัญญาณตรรกะด้วยทรานซิสเตอร์}{226}{subsection.6.10.2}%
-\contentsline {subsection}{\numberline {6.10.3}การต่อวงจรบวกเป็นชุดสำหรับเลขหลายบิต}{227}{subsection.6.10.3}%
+\contentsline {subsection}{\numberline {6.10.2}การสร้างประตูสัญญาณตรรกะด้วยทรานซิสเตอร์}{227}{subsection.6.10.2}%
+\contentsline {subsection}{\numberline {6.10.3}การต่อวงจรบวกเป็นชุดสำหรับเลขหลายบิต}{228}{subsection.6.10.3}%
 \contentsline {subsection}{\numberline {6.10.4}มัลติเพล็กเซอร์และดีมัลติเพล็กเซอร์ (Multiplexer and Demultiplexer)}{228}{subsection.6.10.4}%
 \contentsline {subsection}{\numberline {6.10.5}การสร้างเครื่องสถานะจำกัดด้วยตรรกะบูลีน (Finite State Machine)}{229}{subsection.6.10.5}%
-\contentsline {section}{สรุปบทเรียน}{230}{section*.75}%
-\contentsline {section}{แบบฝึกหัด}{231}{section*.76}%
-\contentsline {section}{เฉลยแบบฝึกหัด}{234}{section*.77}%
-\contentsline {section}{คำถามท้ายบทที่ 6}{236}{Item.1110}%
-\contentsline {section}{ใบงานที่ 6}{237}{Item.1118}%
-\contentsline {section}{เอกสารอ้างอิง}{239}{Item.1129}%
+\contentsline {section}{สรุปบทเรียน}{231}{section*.75}%
+\contentsline {section}{แบบฝึกหัด}{232}{section*.76}%
+\contentsline {section}{เฉลยแบบฝึกหัด}{235}{section*.77}%
+\contentsline {section}{คำถามท้ายบทที่ 6}{237}{Item.1110}%
+\contentsline {section}{ใบงานที่ 6}{238}{Item.1118}%
+\contentsline {section}{เอกสารอ้างอิง}{240}{Item.1129}%
 \contentsfinish 

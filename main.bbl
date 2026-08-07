@@ -321,7 +321,6 @@
       \field{isbn}{9781337694193}
       \field{title}{Discrete Mathematics with Applications}
       \field{year}{2019}
-      \true{nocite}
     \endentry
     \entry{frege1879begriffsschrift}{book}{}{}
       \name{author}{1}{}{%
@@ -388,7 +387,6 @@
       \field{isbn}{9781429215107}
       \field{title}{Mathematical Structures for Computer Science}
       \field{year}{2014}
-      \true{nocite}
     \endentry
     \entry{grimaldi2004discrete}{book}{}{}
       \name{author}{1}{}{%
@@ -421,7 +419,6 @@
       \field{isbn}{9780201726343}
       \field{title}{Discrete and Combinatorial Mathematics: An Applied Introduction}
       \field{year}{2004}
-      \true{nocite}
     \endentry
     \entry{halmos1974naive}{book}{}{}
       \name{author}{1}{}{%
@@ -524,7 +521,6 @@
       \field{isbn}{9780321964687}
       \field{title}{Discrete Mathematics}
       \field{year}{2016}
-      \true{nocite}
     \endentry
     \entry{katanyukul2022awareness}{article}{}{}
       \name{author}{2}{}{%
@@ -561,7 +557,6 @@
       \field{title}{Recognition Awareness: Adding Awareness to Pattern Recognition Using Latent Cognizance}
       \field{volume}{8}
       \field{year}{2022}
-      \true{nocite}
       \field{pages}{e09240}
       \range{pages}{-1}
       \verb{doi}
@@ -611,7 +606,6 @@
       \field{isbn}{9780132297516}
       \field{title}{Discrete Mathematical Structures}
       \field{year}{2008}
-      \true{nocite}
     \endentry
     \entry{lay2021linear}{book}{}{}
       \name{author}{3}{}{%
@@ -726,7 +720,6 @@
       \field{isbn}{9780071615860}
       \field{title}{Schaum's Outline of Discrete Mathematics}
       \field{year}{2009}
-      \true{nocite}
     \endentry
     \entry{mano2018digital}{book}{}{}
       \name{author}{2}{}{%
@@ -797,7 +790,6 @@
       \field{isbn}{9781482237726}
       \field{title}{Introduction to Mathematical Logic}
       \field{year}{2015}
-      \true{nocite}
       \verb{doi}
       \verb 10.1201/b18519
       \endverb
@@ -838,7 +830,6 @@
       \field{title}{Automatic Hand Sign Recognition: Identify Unusuality through Latent Cognizance}
       \field{volume}{11081}
       \field{year}{2018}
-      \true{nocite}
       \verb{doi}
       \verb 10.1007/978-3-319-99978-4_20
       \endverb
@@ -884,6 +875,87 @@
       \verb{doi}
       \verb 10.1007/s11265-018-1375-6
       \endverb
+    \endentry
+    \entry{nakjai2021transcription}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=9fd82f4b6c4a80d4a9ecf544062708e0}{%
+           family={Nakjai},
+           familyi={N\bibinitperiod},
+           given={Pisit},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ddecaf88fcf0d5c2fe87924eaa33fd0d}{%
+           family={Katanyukul},
+           familyi={K\bibinitperiod},
+           given={Tatpong},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{fullhash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{fullhashraw}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{bibnamehash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{authorbibnamehash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{authornamehash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{authorfullhash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{authorfullhashraw}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \field{extraname}{3}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Walailak Journal of Science and Technology}
+      \field{number}{10}
+      \field{title}{Automatic {Thai} Finger Spelling Transcription}
+      \field{volume}{18}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.48048/wjst.2021.11233
+      \endverb
+      \keyw{ownpub}
+    \endentry
+    \entry{nakjai2022openset}{incollection}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=9fd82f4b6c4a80d4a9ecf544062708e0}{%
+           family={Nakjai},
+           familyi={N\bibinitperiod},
+           given={Pisit},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ddecaf88fcf0d5c2fe87924eaa33fd0d}{%
+           family={Katanyukul},
+           familyi={K\bibinitperiod},
+           given={Tatpong},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{fullhash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{fullhashraw}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{bibnamehash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{authorbibnamehash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{authornamehash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{authorfullhash}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \strng{authorfullhashraw}{83d9f7ae7261ab3ab66f10a197a72f4d}
+      \field{extraname}{4}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Intelligent Information and Database Systems}
+      \field{series}{Lecture Notes in Computer Science}
+      \field{title}{Toward Latent Cognizance on Open-Set Recognition}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.1007/978-3-030-98018-4_20
+      \endverb
+      \keyw{ownpub}
     \endentry
     \entry{nakjai2019yolo}{inproceedings}{}{}
       \name{author}{3}{}{%
@@ -1108,7 +1180,6 @@
       \field{isbn}{9780070651425}
       \field{title}{Discrete Mathematical Structures with Applications to Computer Science}
       \field{year}{1975}
-      \true{nocite}
     \endentry
     \entry{velleman2019prove}{book}{}{}
       \name{author}{1}{}{%

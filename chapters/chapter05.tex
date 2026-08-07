@@ -11,7 +11,7 @@
 \section{นิยามพื้นฐานของเมทริกซ์}
 \zlabel{sec:matrix-definition}
 
-ในการทำงานทางวิทยาการคอมพิวเตอร์และคณิตศาสตร์ประยุกต์ ข้อมูลมักไม่ได้ดำรงอยู่ในรูปตัวเลขเดี่ยว ๆ แต่ถูกจัดเก็บเป็นกลุ่มก้อนอย่างเป็นระบบ ผู้อ่านสามารถพิจารณามโนภาพของ \textbf{เมทริกซ์ (Matrix)} เปรียบเสมือน \textbf{``ตารางพิกเซลของภาพดิจิทัล (Digital Image Raster Grid)''} หรือ \textbf{``ตารางตารางข้อมูลฟีเจอร์ในสเปรดชีต''} 
+ในงานวิทยาการคอมพิวเตอร์และคณิตศาสตร์ประยุกต์ ข้อมูลมักไม่ได้อยู่ในรูปตัวเลขเดี่ยว แต่ถูกจัดเก็บเป็นกลุ่มก้อนอย่างเป็นระบบ \textbf{เมทริกซ์ (Matrix)} คือการจัดเรียงข้อมูลเป็นตารางสองมิติ ตัวอย่างที่พบบ่อยคือตารางพิกเซลของภาพดิจิทัล และตารางข้อมูลคุณลักษณะในสเปรดชีต
 
 โครงสร้างตารางสองมิตินี้ประกอบด้วย:
 \begin{enumerate}[label=\textbf{\arabic*.}]
@@ -679,9 +679,9 @@ $(AB)^{-1} = B^{-1} A^{-1}$ สำหรับเมทริกซ์ invertibl
 $(AB)^{-1} = B^{-1} A^{-1}$ ไม่ใช่ $A^{-1} B^{-1}$ ต้องระวังลำดับการคูณเป็นอย่างยิ่ง เนื่องจากการคูณเมทริกซ์ไม่มีสมบัติการสลับที่
 \end{prop}
 
-\begin{cor}
-ข้อควรระวังในการใช้ตัวผกผัน: สำหรับเมทริกซ์ $n \times n$ invertible ทั้งหมด จะได้ว่า $(A^{-1})^{-1} = A$ และ $(A^T)^{-1} = (A^{-1})^T$
-\end{cor}
+\begin{rem}
+สำหรับเมทริกซ์จตุรัสขนาด $n \times n$ ที่หาตัวผกผันได้ทุกตัว จะได้ $(A^{-1})^{-1} = A$ และ $(A^T)^{-1} = (A^{-1})^T$
+\end{rem}
 
 \section{ระบบสมการเชิงเส้น (Systems of Linear Equations)}
 \zlabel{sec:linear-systems}
@@ -1014,14 +1014,14 @@ $\therefore$ $f(\mathbf{z}) = \begin{pmatrix} 0.45 & 0.65 \end{pmatrix}$ \solher
 
 \exercisepart{ส่วนที่ 1: พื้นฐานเมทริกซ์}
 \begin{enumerate}[label={},leftmargin=0pt]
-    \item ขนาด
+    \item
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
         \item $2\times 3$
         \item $3\times 2$
         \item $1\times 1$
     \end{enumerate}
 
-    \item ประเภท
+    \item
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
         \item จตุรัส เส้นทแยงมุม (และเป็นสมมาตร สามเหลี่ยมบน สามเหลี่ยมล่างพร้อมกัน)
         \item จตุรัส สมมาตร
@@ -1031,7 +1031,7 @@ $\therefore$ $f(\mathbf{z}) = \begin{pmatrix} 0.45 & 0.65 \end{pmatrix}$ \solher
 
 \exercisepart{ส่วนที่ 2: การดำเนินการระหว่างเมทริกซ์}
 \begin{enumerate}[label={},leftmargin=0pt,start=3]
-    \item การดำเนินการ
+    \item
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
         \item $A+B = \begin{pmatrix}6 & 8\\ 10 & 12\end{pmatrix}$
         \item $A-B = \begin{pmatrix}-4 & -4\\ -4 & -4\end{pmatrix}$
@@ -1040,7 +1040,7 @@ $\therefore$ $f(\mathbf{z}) = \begin{pmatrix} 0.45 & 0.65 \end{pmatrix}$ \solher
         \item $BA = \begin{pmatrix}23 & 34\\ 31 & 46\end{pmatrix}$ (ยืนยันว่า $AB\neq BA$)
     \end{enumerate}
 
-    \item เมทริกซ์สลับเปลี่ยน
+    \item
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
         \item $A^T = \begin{pmatrix}1 & 4\\ 2 & 5\\ 3 & 6\end{pmatrix}$
         \item $B^T = \begin{pmatrix}1 & 3 & 5\\ 2 & 4 & 6\end{pmatrix}$
@@ -1049,33 +1049,42 @@ $\therefore$ $f(\mathbf{z}) = \begin{pmatrix} 0.45 & 0.65 \end{pmatrix}$ \solher
 
 \exercisepart{ส่วนที่ 3: ดีเทอร์มิแนนต์}
 \begin{enumerate}[label={},leftmargin=0pt,start=5]
-    \item ดีเทอร์มิแนนต์
+    \item
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
         \item $\det = (1)(4)-(2)(3) = -2$
         \item กระจายตามแถวที่ 1: $1\cdot(1-24) - 0 + 2\cdot(18-5) = -23 + 26 = 3$
     \end{enumerate}
-    \item Sarrus: $aei+bfg+cdh-ceg-bdi-afh = 45+84+96-105-72-48 = 0$
+    \item
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item Sarrus: $aei+bfg+cdh-ceg-bdi-afh = 45+84+96-105-72-48 = 0$
+    \end{enumerate}
 \end{enumerate}
 
 \exercisepart{ส่วนที่ 4: ตัวผกผันของเมทริกซ์}
 \begin{enumerate}[label={},leftmargin=0pt,start=7]
-    \item การหาตัวผกผัน
+    \item
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
         \item $\det(A) = -2 \neq 0$, $A^{-1} = -\frac{1}{2}\begin{pmatrix}4 & -2\\ -3 & 1\end{pmatrix} = \begin{pmatrix}-2 & 1\\ \frac{3}{2} & -\frac{1}{2}\end{pmatrix}$
         \item $\det(B) = 0$ จึงไม่มีตัวผกผัน
         \item $I^{-1} = I$
     \end{enumerate}
-    \item $A\cdot A^{-1} = \begin{pmatrix}1 & 2\\ 3 & 4\end{pmatrix}\begin{pmatrix}-2 & 1\\ \frac{3}{2} & -\frac{1}{2}\end{pmatrix} = \begin{pmatrix}1 & 0\\ 0 & 1\end{pmatrix} = I$ และตรวจ $A^{-1}\cdot A = I$ เช่นกัน
+    \item
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item $A\cdot A^{-1} = \begin{pmatrix}1 & 2\\ 3 & 4\end{pmatrix}\begin{pmatrix}-2 & 1\\ \frac{3}{2} & -\frac{1}{2}\end{pmatrix} = \begin{pmatrix}1 & 0\\ 0 & 1\end{pmatrix} = I$ และตรวจ $A^{-1}\cdot A = I$ เช่นกัน
+    \end{enumerate}
 \end{enumerate}
 
 \exercisepart{ส่วนที่ 5: การแก้ระบบสมการเชิงเส้น}
 \begin{enumerate}[label={},leftmargin=0pt,start=9]
-    \item การแก้ระบบสมการด้วยตัวผกผัน
+    \item
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
         \item $A^{-1}b = \begin{pmatrix}-2 & 1\\ \frac{3}{2} & -\frac{1}{2}\end{pmatrix}\begin{pmatrix}5\\ 6\end{pmatrix} = \begin{pmatrix}-4\\ \frac{9}{2}\end{pmatrix}$ ดังนั้น $x=-4, y=\frac{9}{2}$
         \item $\det(A) = -3$, $A^{-1} = -\frac{1}{3}\begin{pmatrix}-1 & -1\\ -1 & 2\end{pmatrix} = \begin{pmatrix}\frac{1}{3} & \frac{1}{3}\\ \frac{1}{3} & -\frac{2}{3}\end{pmatrix}$ ดังนั้น $\begin{pmatrix}x\\y\end{pmatrix} = A^{-1}b = \begin{pmatrix}\frac{1}{3} & \frac{1}{3}\\ \frac{1}{3} & -\frac{2}{3}\end{pmatrix}\begin{pmatrix}3\\1\end{pmatrix} = \begin{pmatrix}\frac{4}{3}\\ \frac{1}{3}\end{pmatrix}$
     \end{enumerate}
-    \item กฎคราเมอร์ $\det A = 1$, $\det A_x = \begin{vmatrix}2 & 1\\ 5 & 3\end{vmatrix} = 1$, $\det A_y = \begin{vmatrix}1 & 2\\ 2 & 5\end{vmatrix} = 1$ ดังนั้น $x = 1, y = 1$
+    \item
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item กฎคราเมอร์ $\det A = 1$, $\det A_x = \begin{vmatrix}2 & 1\\ 5 & 3\end{vmatrix} = 1$, $\det A_y = \begin{vmatrix}1 & 2\\ 2 & 5\end{vmatrix} = 1$ ดังนั้น $x = 1, y = 1$
+    \end{enumerate}
 \end{enumerate}
 
 \newpage

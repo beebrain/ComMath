@@ -7,7 +7,7 @@
 \contentsline {section}{\numberline {1.2}ประพจน์ (Propositions)}{9}{section.1.2}%
 \contentsline {subsection}{\numberline {1.2.1}ความหมายและค่าความจริงของประพจน์}{10}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}ตัวอย่างประพจน์และการวิเคราะห์}{10}{subsection.1.2.2}%
-\contentsline {section}{\numberline {1.3}ตัวเชื่อมประพจน์ (Logical Connectives)}{10}{section.1.3}%
+\contentsline {section}{\numberline {1.3}ตัวเชื่อมประพจน์ (Logical Connectives)}{11}{section.1.3}%
 \contentsline {section}{\numberline {1.4}ตารางค่าความจริง (Truth Tables)}{11}{section.1.4}%
 \contentsline {subsection}{\numberline {1.4.1}ประพจน์เชื่อม (Conjunction / AND, $\land $)}{11}{subsection.1.4.1}%
 \contentsline {subsection}{\numberline {1.4.2}ประพจน์เลือก (Disjunction / OR, $\lor $)}{12}{subsection.1.4.2}%
@@ -21,29 +21,29 @@
 \contentsline {section}{\numberline {1.6}ความสมมูลเชิงตรรกะและกฎพีชคณิตของประพจน์}{19}{section.1.6}%
 \contentsline {subsection}{\numberline {1.6.1}กฎพีชคณิตของประพจน์ (Laws of Propositional Algebra)}{19}{subsection.1.6.1}%
 \contentsline {subsection}{\numberline {1.6.2}ประพจน์กลับ ประพจน์ผกผัน และประพจน์แย้งสลับที่ (Converse, Inverse, Contrapositive)}{20}{subsection.1.6.2}%
-\contentsline {section}{\numberline {1.7}ตัวเชื่อมเพิ่มเติม XOR, NAND, NOR}{21}{section.1.7}%
-\contentsline {subsection}{\numberline {1.7.1}ประพจน์เลือกเฉพาะ (Exclusive OR, XOR, $\oplus $)}{21}{subsection.1.7.1}%
+\contentsline {section}{\numberline {1.7}ตัวเชื่อมเพิ่มเติม XOR, NAND, NOR}{22}{section.1.7}%
+\contentsline {subsection}{\numberline {1.7.1}ประพจน์เลือกเฉพาะ (Exclusive OR, XOR, $\oplus $)}{22}{subsection.1.7.1}%
 \contentsline {subsection}{\numberline {1.7.2}แนนด์และนอร์ (NAND $\uparrow $, NOR $\downarrow $)}{23}{subsection.1.7.2}%
-\contentsline {section}{\numberline {1.8}ประพจน์เปิดและตัวบ่งปริมาณ (Predicates and Quantifiers)}{23}{section.1.8}%
-\contentsline {subsection}{\numberline {1.8.1}นิเสธของตัวบ่งปริมาณ}{24}{subsection.1.8.1}%
+\contentsline {section}{\numberline {1.8}ประพจน์เปิดและตัวบ่งปริมาณ (Predicates and Quantifiers)}{24}{section.1.8}%
+\contentsline {subsection}{\numberline {1.8.1}นิเสธของตัวบ่งปริมาณ}{25}{subsection.1.8.1}%
 \contentsline {section}{\numberline {1.9}การอนุมาน (Inference Rules)}{25}{section.1.9}%
-\contentsline {subsection}{\numberline {1.9.1}กฎการยืนยันเงื่อนไขนำ (Modus Ponens)}{25}{subsection.1.9.1}%
+\contentsline {subsection}{\numberline {1.9.1}กฎการยืนยันเงื่อนไขนำ (Modus Ponens)}{26}{subsection.1.9.1}%
 \contentsline {subsubsection}{โครงสร้างเชิงตรรกศาสตร์ของกฎการยืนยันเงื่อนไขนำ}{26}{table.caption.25}%
-\contentsline {subsubsection}{การพิสูจน์ความสมเหตุสมผลด้วยตารางค่าความจริง}{26}{Item.68}%
-\contentsline {subsubsection}{การประยุกต์ใช้ในทางวิทยาการคอมพิวเตอร์และปัญญาประดิษฐ์}{27}{Item.72}%
-\contentsline {subsection}{\numberline {1.9.2}กฎการปฏิเสธเงื่อนไขตาม (Modus Tollens)}{27}{subsection.1.9.2}%
-\contentsline {subsubsection}{โครงสร้างเชิงตรรกศาสตร์ของกฎการปฏิเสธเงื่อนไขตาม}{28}{table.caption.27}%
-\contentsline {subsubsection}{การพิสูจน์ความสมเหตุสมผลด้วยตารางค่าความจริง}{28}{Item.77}%
-\contentsline {subsubsection}{การประยุกต์ใช้ในทางวิทยาการคอมพิวเตอร์และซอฟต์แวร์}{29}{Item.81}%
-\contentsline {subsection}{\numberline {1.9.3}การอ้างเหตุผลแบบมีเงื่อนไข (Hypothetical Syllogism)}{30}{subsection.1.9.3}%
-\contentsline {subsection}{\numberline {1.9.4}การอ้างเหตุผลแบบแยก (Disjunctive Syllogism)}{31}{subsection.1.9.4}%
-\contentsline {section}{\numberline {1.10}การพิสูจน์ด้วยตารางค่าความจริง}{31}{section.1.10}%
-\contentsline {section}{สรุปบทเรียน}{35}{section*.30}%
-\contentsline {section}{แบบฝึกหัดท้ายบท}{36}{section*.31}%
-\contentsline {section}{เฉลยแบบฝึกหัด}{38}{section*.32}%
-\contentsline {section}{คำถามท้ายบทที่ 1}{40}{Item.168}%
-\contentsline {section}{ใบงานที่ 1}{41}{Item.176}%
-\contentsline {section}{เอกสารอ้างอิง}{43}{Item.186}%
+\contentsline {subsubsection}{การพิสูจน์ความสมเหตุสมผลด้วยตารางค่าความจริง}{27}{Item.68}%
+\contentsline {subsubsection}{การประยุกต์ใช้ในทางวิทยาการคอมพิวเตอร์และปัญญาประดิษฐ์}{28}{Item.72}%
+\contentsline {subsection}{\numberline {1.9.2}กฎการปฏิเสธเงื่อนไขตาม (Modus Tollens)}{28}{subsection.1.9.2}%
+\contentsline {subsubsection}{โครงสร้างเชิงตรรกศาสตร์ของกฎการปฏิเสธเงื่อนไขตาม}{29}{table.caption.27}%
+\contentsline {subsubsection}{การพิสูจน์ความสมเหตุสมผลด้วยตารางค่าความจริง}{29}{Item.77}%
+\contentsline {subsubsection}{การประยุกต์ใช้ในทางวิทยาการคอมพิวเตอร์และซอฟต์แวร์}{31}{Item.81}%
+\contentsline {subsection}{\numberline {1.9.3}การอ้างเหตุผลแบบมีเงื่อนไข (Hypothetical Syllogism)}{31}{subsection.1.9.3}%
+\contentsline {subsection}{\numberline {1.9.4}การอ้างเหตุผลแบบแยก (Disjunctive Syllogism)}{32}{subsection.1.9.4}%
+\contentsline {section}{\numberline {1.10}การพิสูจน์ด้วยตารางค่าความจริง}{32}{section.1.10}%
+\contentsline {section}{สรุปบทเรียน}{36}{section*.30}%
+\contentsline {section}{แบบฝึกหัดท้ายบท}{37}{section*.31}%
+\contentsline {section}{เฉลยแบบฝึกหัด}{39}{section*.32}%
+\contentsline {section}{คำถามท้ายบทที่ 1}{41}{Item.168}%
+\contentsline {section}{ใบงานที่ 1}{42}{Item.176}%
+\contentsline {section}{เอกสารอ้างอิง}{44}{Item.186}%
 \contentsline {chapter}{แผนการสอนประจำบทที่ 2}{45}{chapter*.33}%
 \contentsline {chapter}{\numberline {2}ทฤษฎีเซต (Set Theory)}{47}{chapter.2}%
 \contentsline {section}{\numberline {2.1}ความเป็นมาและความสำคัญของทฤษฎีเซต}{47}{section.2.1}%
@@ -54,154 +54,154 @@
 \contentsline {subsection}{\numberline {2.2.3}เซตพิเศษ}{51}{subsection.2.2.3}%
 \contentsline {section}{\numberline {2.3}ความสัมพันธ์ระหว่างเซต}{52}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}เซตย่อย (Subset) และเซตย่อยแท้ (Proper Subset)}{52}{subsection.2.3.1}%
-\contentsline {section}{\numberline {2.4}การดำเนินการระหว่างเซต (Set Operations)}{53}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}ยูเนียน (Union)}{53}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}อินเตอร์เซกชัน (Intersection)}{55}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}ผลต่าง (Set Difference)}{58}{subsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.4.4}คอมพลีเมนต์ (Complement)}{60}{subsection.2.4.4}%
-\contentsline {section}{\numberline {2.5}กฎของเดมอร์แกน (De Morgan's Laws)}{62}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}เพาเวอร์เซต (Power Set)}{64}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}ผลคูณคาร์ทีเซียน (Cartesian Product)}{64}{subsection.2.5.2}%
-\contentsline {section}{\numberline {2.6}การนับจำนวนสมาชิกของเซต (Cardinality)}{66}{section.2.6}%
-\contentsline {section}{\numberline {2.7}การประยุกต์ในวิทยาการคอมพิวเตอร์}{69}{section.2.7}%
-\contentsline {subsection}{\numberline {2.7.1}การแทนเซตในโครงสร้างข้อมูล}{69}{subsection.2.7.1}%
-\contentsline {subsection}{\numberline {2.7.2}การประยุกต์ในฐานข้อมูล}{69}{subsection.2.7.2}%
-\contentsline {subsection}{\numberline {2.7.3}Hash Tables และ Functions}{70}{subsection.2.7.3}%
-\contentsline {section}{\numberline {2.8}เซตที่นับได้และเซตที่นับไม่ได้}{71}{section.2.8}%
-\contentsline {section}{สรุปบทเรียน}{73}{section*.44}%
-\contentsline {section}{แบบฝึกหัด}{74}{section*.45}%
-\contentsline {section}{เฉลยแบบฝึกหัด}{78}{section*.46}%
-\contentsline {section}{คำถามท้ายบทที่ 2}{81}{Item.429}%
-\contentsline {section}{ใบงานที่ 2}{82}{Item.437}%
-\contentsline {section}{เอกสารอ้างอิง}{84}{Item.447}%
-\contentsline {chapter}{แผนการสอนประจำบทที่ 3}{85}{chapter*.47}%
-\contentsline {chapter}{\numberline {3}ความสัมพันธ์และฟังก์ชัน (Relations and Functions)}{87}{chapter.3}%
-\contentsline {section}{\numberline {3.1}พื้นฐานความสัมพันธ์และคู่อันดับ}{87}{section.3.1}%
-\contentsline {section}{\numberline {3.2}โดเมน เรนจ์ และความสัมพันธ์ผกผัน}{90}{section.3.2}%
-\contentsline {section}{\numberline {3.3}การประกอบความสัมพันธ์}{93}{section.3.3}%
-\contentsline {section}{\numberline {3.4}การปิดคุณสมบัติของความสัมพันธ์}{93}{section.3.4}%
-\contentsline {section}{\numberline {3.5}พื้นฐานฟังก์ชัน โดเมน โคโดเมน และเรนจ์}{95}{section.3.5}%
-\contentsline {section}{\numberline {3.6}ประเภทของฟังก์ชันและการประกอบฟังก์ชัน}{96}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}ประเภทของฟังก์ชัน (Injective, Surjective, Bijective)}{96}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}การประกอบฟังก์ชันและฟังก์ชันผกผัน}{97}{subsection.3.6.2}%
-\contentsline {section}{\numberline {3.7}ฟังก์ชันพิเศษในทางคอมพิวเตอร์}{99}{section.3.7}%
-\contentsline {section}{\numberline {3.8}ลำดับและอนุกรม (Sequences and Series)}{100}{section.3.8}%
-\contentsline {subsection}{\numberline {3.8.1}ลำดับเลขคณิต (Arithmetic Sequence)}{101}{subsection.3.8.1}%
-\contentsline {subsection}{\numberline {3.8.2}ลำดับเรขาคณิต (Geometric Sequence)}{102}{subsection.3.8.2}%
-\contentsline {subsection}{\numberline {3.8.3}อนุกรมเลขคณิต (Arithmetic Series)}{102}{subsection.3.8.3}%
-\contentsline {subsection}{\numberline {3.8.4}อนุกรมเรขาคณิต (Geometric Series)}{103}{subsection.3.8.4}%
-\contentsline {section}{\numberline {3.9}การประยุกต์ใช้ในวิทยาการคอมพิวเตอร์}{104}{section.3.9}%
-\contentsline {subsection}{\numberline {3.9.1}ฐานข้อมูลเชิงสัมพันธ์และพีชคณิตเชิงสัมพันธ์}{104}{subsection.3.9.1}%
-\contentsline {subsection}{\numberline {3.9.2}การจัดลำดับการทำงานของโปรแกรม}{105}{subsection.3.9.2}%
-\contentsline {subsection}{\numberline {3.9.3}การจัดเก็บข้อมูลด้วยตารางแฮชและการแก้ปัญหาการชนกัน}{105}{subsection.3.9.3}%
-\contentsline {section}{สรุปบทเรียน}{107}{section*.51}%
-\contentsline {section}{แบบฝึกหัด}{108}{section*.52}%
-\contentsline {section}{เฉลยแบบฝึกหัด}{110}{section*.53}%
-\contentsline {section}{คำถามท้ายบทที่ 3}{112}{Item.590}%
-\contentsline {section}{ใบงานที่ 3}{113}{Item.598}%
-\contentsline {section}{เอกสารอ้างอิง}{115}{Item.608}%
-\contentsline {chapter}{แผนการสอนประจำบทที่ 4}{117}{chapter*.54}%
-\contentsline {chapter}{\numberline {4}ระบบเลขฐาน (Number Bases)}{119}{chapter.4}%
-\contentsline {section}{\numberline {4.1}ระบบเลขฐานสิบ (Decimal System)}{119}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}ค่าประจำตำแหน่ง}{120}{subsection.4.1.1}%
-\contentsline {section}{\numberline {4.2}ระบบเลขฐานสอง (Binary System)}{121}{section.4.2}%
-\contentsline {section}{\numberline {4.3}ระบบเลขฐานแปด (Octal System)}{124}{section.4.3}%
-\contentsline {section}{\numberline {4.4}ระบบเลขฐานสิบหก (Hexadecimal System)}{125}{section.4.4}%
-\contentsline {section}{\numberline {4.5}การแปลงฐานทั่วไป}{127}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}การแปลงจากฐานใดๆ เป็นฐานสิบ}{127}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}การแปลงจากฐานสิบเป็นฐานใดๆ}{128}{subsection.4.5.2}%
-\contentsline {section}{\numberline {4.6}การแปลงจำนวนทศนิยมระหว่างฐาน}{129}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}การแปลงส่วนทศนิยมจากฐานสิบเป็นฐานอื่น}{130}{subsection.4.6.1}%
-\contentsline {section}{\numberline {4.7}การบวกและลบเลขฐานสอง}{131}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}การบวกเลขฐานสอง}{132}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}การลบเลขฐานสอง}{133}{subsection.4.7.2}%
-\contentsline {section}{\numberline {4.8}การคูณและการหารเลขฐานสอง}{134}{section.4.8}%
-\contentsline {subsection}{\numberline {4.8.1}การคูณเลขฐานสอง}{134}{subsection.4.8.1}%
-\contentsline {section}{\numberline {4.9}การแทนข้อมูลในคอมพิวเตอร์}{135}{section.4.9}%
-\contentsline {subsection}{\numberline {4.9.1}ASCII (American Standard Code for Information Interchange)}{135}{subsection.4.9.1}%
-\contentsline {subsection}{\numberline {4.9.2}Unicode}{136}{subsection.4.9.2}%
-\contentsline {section}{สรุปบทเรียน}{138}{section*.60}%
-\contentsline {section}{แบบฝึกหัดท้ายบท}{139}{section*.61}%
-\contentsline {section}{เฉลยแบบฝึกหัด}{141}{section*.62}%
-\contentsline {section}{คำถามท้ายบทที่ 4}{142}{Item.714}%
-\contentsline {section}{ใบงานที่ 4}{143}{Item.719}%
-\contentsline {section}{เอกสารอ้างอิง}{144}{Item.726}%
-\contentsline {chapter}{แผนการสอนประจำบทที่ 5}{145}{chapter*.63}%
-\contentsline {chapter}{\numberline {5}เมทริกซ์และดีเทอร์มิแนนต์ (Matrices \& Determinants)}{147}{chapter.5}%
-\contentsline {section}{\numberline {5.1}นิยามพื้นฐานของเมทริกซ์}{147}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}นิยามของเมทริกซ์}{148}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}ประเภทของเมทริกซ์}{149}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}การดำเนินการระหว่างเมทริกซ์}{152}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}ความเท่ากันของเมทริกซ์}{152}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}การบวกและการลบเมทริกซ์}{152}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}การคูณเมทริกซ์ด้วยสเกลาร์}{154}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}การคูณเมทริกซ์ด้วยเมทริกซ์}{155}{subsection.5.2.4}%
-\contentsline {subsection}{\numberline {5.2.5}เมทริกซ์สลับเปลี่ยน (Transpose)}{157}{subsection.5.2.5}%
-\contentsline {section}{\numberline {5.3}ดีเทอร์มิแนนต์ (Determinants)}{158}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}นิยามของดีเทอร์มิแนนต์}{158}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}การกระจายโคแฟกเตอร์ (Cofactor Expansion)}{160}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}สมบัติของดีเทอร์มิแนนต์}{162}{subsection.5.3.3}%
-\contentsline {section}{\numberline {5.4}ตัวผกผันของเมทริกซ์ (Matrix Inverse)}{165}{section.5.4}%
-\contentsline {section}{\numberline {5.5}ระบบสมการเชิงเส้น (Systems of Linear Equations)}{169}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}การเขียนระบบสมการในรูปเมทริกซ์}{169}{subsection.5.5.1}%
-\contentsline {subsection}{\numberline {5.5.2}การแก้ระบบสมการโดยใช้ตัวผกผันเมทริกซ์}{170}{subsection.5.5.2}%
-\contentsline {subsection}{\numberline {5.5.3}การแก้ระบบสมการโดยใช้กฎของคราเมอร์ (Cramer's Rule)}{170}{subsection.5.5.3}%
-\contentsline {subsection}{\numberline {5.5.4}การแก้ระบบสมการโดยวิธีการกำจัดแบบเกาส์ (Gaussian Elimination)}{171}{subsection.5.5.4}%
-\contentsline {section}{\numberline {5.6}การประยุกต์ในวิทยาการคอมพิวเตอร์}{172}{section.5.6}%
-\contentsline {subsection}{\numberline {5.6.1}การแปลงในคอมพิวเตอร์กราฟิกส์ (Computer Graphics)}{173}{subsection.5.6.1}%
-\contentsline {subsection}{\numberline {5.6.2}การเข้ารหัส Hill Cipher}{174}{subsection.5.6.2}%
-\contentsline {subsection}{\numberline {5.6.3}เมทริกซ์ประชิดในทฤษฎีกราฟ}{175}{subsection.5.6.3}%
-\contentsline {subsection}{\numberline {5.6.4}เมทริกซ์ในการเรียนรู้ของเครื่อง}{175}{subsection.5.6.4}%
-\contentsline {section}{สรุปบทเรียน}{177}{section*.69}%
-\contentsline {section}{แบบฝึกหัด}{178}{section*.70}%
-\contentsline {section}{เฉลยแบบฝึกหัด}{180}{section*.71}%
-\contentsline {section}{คำถามท้ายบทที่ 5}{182}{Item.847}%
-\contentsline {section}{ใบงานที่ 5}{183}{Item.863}%
-\contentsline {section}{เอกสารอ้างอิง}{185}{Item.873}%
-\contentsline {chapter}{แผนการสอนประจำบทที่ 6}{187}{chapter*.72}%
-\contentsline {chapter}{\numberline {6}พีชคณิตบูลีน (Boolean Algebra)}{189}{chapter.6}%
-\contentsline {section}{\numberline {6.1}นิยามพื้นฐานของพีชคณิตบูลีน}{189}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}นิยามของพีชคณิตบูลีน}{190}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}ค่าคงตัวบูลีน}{191}{subsection.6.1.2}%
-\contentsline {section}{\numberline {6.2}การดำเนินการทางบูลีน (Boolean Operations)}{191}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}การดำเนินการ OR (Disjunction)}{192}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}การดำเนินการ AND (Conjunction)}{193}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}การดำเนินการ NOT (Negation)}{194}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}การดำเนินการ XOR (Exclusive OR)}{195}{subsection.6.2.4}%
-\contentsline {section}{\numberline {6.3}กฎของพีชคณิตบูลีน (Boolean Identities)}{196}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}กฎการแจกแจง (Distributive Laws)}{197}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}กฎการดูดกลืน (Absorption Laws)}{199}{subsection.6.3.2}%
-\contentsline {section}{\numberline {6.4}กฎของ De Morgan (De Morgan's Laws)}{200}{section.6.4}%
-\contentsline {section}{\numberline {6.5}นิพจน์บูลีนและฟังก์ชันบูลีน (Boolean Expressions and Functions)}{201}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}นิยามของนิพจน์บูลีน}{202}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}ฟังก์ชันบูลีน}{203}{subsection.6.5.2}%
-\contentsline {section}{\numberline {6.6}รูปแบบปกติ (Canonical Forms)}{204}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}มินเทอมและแมกซ์เทอม (Minterms and Maxterms)}{204}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}ผลบวกของผลคูณ (Sum of Products -- SOP)}{205}{subsection.6.6.2}%
-\contentsline {subsection}{\numberline {6.6.3}ผลคูณของผลบวก (Product of Sums -- POS)}{206}{subsection.6.6.3}%
-\contentsline {section}{\numberline {6.7}การลดรูปนิพจน์บูลีน (Boolean Expression Simplification)}{207}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}การลดรูปด้วยกฎพีชคณิตบูลีน}{208}{subsection.6.7.1}%
-\contentsline {subsection}{\numberline {6.7.2}การลดรูปด้วยทฤษฎีบทคอนเซนซัส (Consensus Theorem)}{210}{subsection.6.7.2}%
-\contentsline {section}{\numberline {6.8}แผนที่คาร์นอ (Karnaugh Map)}{212}{section.6.8}%
-\contentsline {subsection}{\numberline {6.8.1}แผนที่คาร์นอสำหรับ 2 ตัวแปร}{213}{subsection.6.8.1}%
-\contentsline {subsection}{\numberline {6.8.2}แผนที่คาร์นอสำหรับ 3 ตัวแปร}{214}{subsection.6.8.2}%
-\contentsline {subsection}{\numberline {6.8.3}แผนที่คาร์นอสำหรับ 4 ตัวแปร}{215}{subsection.6.8.3}%
-\contentsline {section}{\numberline {6.9}การประยุกต์ในวงจรดิจิทัล}{216}{section.6.9}%
-\contentsline {subsection}{\numberline {6.9.1}ประตูสัญญาณตรรกะ (Logic Gates)}{217}{subsection.6.9.1}%
-\contentsline {subsection}{\numberline {6.9.2}การออกแบบวงจรเชิงผสม (Combinational Circuit)}{219}{subsection.6.9.2}%
-\contentsline {subsection}{\numberline {6.9.3}การสร้างวงจรสองระดับ (Two-level Realization)}{219}{subsection.6.9.3}%
-\contentsline {subsection}{\numberline {6.9.4}วงจรบวกครึ่งและวงจรบวกเต็ม (Half Adder and Full Adder)}{220}{subsection.6.9.4}%
-\contentsline {subsection}{\numberline {6.9.5}สมมูลของพีชคณิตบูลีน (Boolean Algebra Equivalence)}{221}{subsection.6.9.5}%
-\contentsline {section}{\numberline {6.10}ตัวอย่างในวิทยาการคอมพิวเตอร์}{221}{section.6.10}%
-\contentsline {subsection}{\numberline {6.10.1}การใช้แผนที่คาร์นอในงานออกแบบจริง}{222}{subsection.6.10.1}%
-\contentsline {subsection}{\numberline {6.10.2}การสร้างประตูสัญญาณตรรกะด้วยทรานซิสเตอร์}{222}{subsection.6.10.2}%
-\contentsline {subsection}{\numberline {6.10.3}การต่อวงจรบวกเป็นชุดสำหรับเลขหลายบิต}{223}{subsection.6.10.3}%
-\contentsline {subsection}{\numberline {6.10.4}มัลติเพล็กเซอร์และดีมัลติเพล็กเซอร์ (Multiplexer and Demultiplexer)}{224}{subsection.6.10.4}%
-\contentsline {subsection}{\numberline {6.10.5}การสร้างเครื่องสถานะจำกัดด้วยตรรกะบูลีน (Finite State Machine)}{225}{subsection.6.10.5}%
-\contentsline {section}{สรุปบทเรียน}{226}{section*.75}%
-\contentsline {section}{แบบฝึกหัด}{227}{section*.76}%
-\contentsline {section}{เฉลยแบบฝึกหัด}{230}{section*.77}%
-\contentsline {section}{คำถามท้ายบทที่ 6}{232}{Item.1110}%
-\contentsline {section}{ใบงานที่ 6}{233}{Item.1118}%
-\contentsline {section}{เอกสารอ้างอิง}{235}{Item.1129}%
+\contentsline {section}{\numberline {2.4}การดำเนินการระหว่างเซต (Set Operations)}{54}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}ยูเนียน (Union)}{54}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}อินเตอร์เซกชัน (Intersection)}{56}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}ผลต่าง (Set Difference)}{59}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}คอมพลีเมนต์ (Complement)}{61}{subsection.2.4.4}%
+\contentsline {section}{\numberline {2.5}กฎของเดมอร์แกน (De Morgan's Laws)}{63}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}เพาเวอร์เซต (Power Set)}{65}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}ผลคูณคาร์ทีเซียน (Cartesian Product)}{66}{subsection.2.5.2}%
+\contentsline {section}{\numberline {2.6}การนับจำนวนสมาชิกของเซต (Cardinality)}{67}{section.2.6}%
+\contentsline {section}{\numberline {2.7}การประยุกต์ในวิทยาการคอมพิวเตอร์}{70}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}การแทนเซตในโครงสร้างข้อมูล}{70}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}การประยุกต์ในฐานข้อมูล}{71}{subsection.2.7.2}%
+\contentsline {subsection}{\numberline {2.7.3}ตารางแฮชและฟังก์ชันแฮช (Hash Table)}{72}{subsection.2.7.3}%
+\contentsline {section}{\numberline {2.8}เซตที่นับได้และเซตที่นับไม่ได้}{73}{section.2.8}%
+\contentsline {section}{สรุปบทเรียน}{75}{section*.44}%
+\contentsline {section}{แบบฝึกหัด}{76}{section*.45}%
+\contentsline {section}{เฉลยแบบฝึกหัด}{80}{section*.46}%
+\contentsline {section}{คำถามท้ายบทที่ 2}{83}{Item.429}%
+\contentsline {section}{ใบงานที่ 2}{84}{Item.437}%
+\contentsline {section}{เอกสารอ้างอิง}{86}{Item.447}%
+\contentsline {chapter}{แผนการสอนประจำบทที่ 3}{87}{chapter*.47}%
+\contentsline {chapter}{\numberline {3}ความสัมพันธ์และฟังก์ชัน (Relations and Functions)}{89}{chapter.3}%
+\contentsline {section}{\numberline {3.1}พื้นฐานความสัมพันธ์และคู่อันดับ}{89}{section.3.1}%
+\contentsline {section}{\numberline {3.2}โดเมน เรนจ์ และความสัมพันธ์ผกผัน}{92}{section.3.2}%
+\contentsline {section}{\numberline {3.3}การประกอบความสัมพันธ์}{95}{section.3.3}%
+\contentsline {section}{\numberline {3.4}การปิดคุณสมบัติของความสัมพันธ์}{95}{section.3.4}%
+\contentsline {section}{\numberline {3.5}พื้นฐานฟังก์ชัน โดเมน โคโดเมน และเรนจ์}{97}{section.3.5}%
+\contentsline {section}{\numberline {3.6}ประเภทของฟังก์ชันและการประกอบฟังก์ชัน}{98}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}ประเภทของฟังก์ชัน (Injective, Surjective, Bijective)}{98}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}การประกอบฟังก์ชันและฟังก์ชันผกผัน}{99}{subsection.3.6.2}%
+\contentsline {section}{\numberline {3.7}ฟังก์ชันพิเศษในทางคอมพิวเตอร์}{101}{section.3.7}%
+\contentsline {section}{\numberline {3.8}ลำดับและอนุกรม (Sequences and Series)}{102}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}ลำดับเลขคณิต (Arithmetic Sequence)}{103}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.2}ลำดับเรขาคณิต (Geometric Sequence)}{104}{subsection.3.8.2}%
+\contentsline {subsection}{\numberline {3.8.3}อนุกรมเลขคณิต (Arithmetic Series)}{105}{subsection.3.8.3}%
+\contentsline {subsection}{\numberline {3.8.4}อนุกรมเรขาคณิต (Geometric Series)}{105}{subsection.3.8.4}%
+\contentsline {section}{\numberline {3.9}การประยุกต์ใช้ในวิทยาการคอมพิวเตอร์}{106}{section.3.9}%
+\contentsline {subsection}{\numberline {3.9.1}ฐานข้อมูลเชิงสัมพันธ์และพีชคณิตเชิงสัมพันธ์}{107}{subsection.3.9.1}%
+\contentsline {subsection}{\numberline {3.9.2}การจัดลำดับการทำงานของโปรแกรม}{107}{subsection.3.9.2}%
+\contentsline {subsection}{\numberline {3.9.3}การจัดเก็บข้อมูลด้วยตารางแฮชและการแก้ปัญหาการชนกัน}{107}{subsection.3.9.3}%
+\contentsline {section}{สรุปบทเรียน}{109}{section*.51}%
+\contentsline {section}{แบบฝึกหัด}{110}{section*.52}%
+\contentsline {section}{เฉลยแบบฝึกหัด}{112}{section*.53}%
+\contentsline {section}{คำถามท้ายบทที่ 3}{114}{Item.590}%
+\contentsline {section}{ใบงานที่ 3}{115}{Item.598}%
+\contentsline {section}{เอกสารอ้างอิง}{117}{Item.608}%
+\contentsline {chapter}{แผนการสอนประจำบทที่ 4}{119}{chapter*.54}%
+\contentsline {chapter}{\numberline {4}ระบบเลขฐาน (Number Bases)}{121}{chapter.4}%
+\contentsline {section}{\numberline {4.1}ระบบเลขฐานสิบ (Decimal System)}{121}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}ค่าประจำตำแหน่ง}{122}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}ระบบเลขฐานสอง (Binary System)}{123}{section.4.2}%
+\contentsline {section}{\numberline {4.3}ระบบเลขฐานแปด (Octal System)}{126}{section.4.3}%
+\contentsline {section}{\numberline {4.4}ระบบเลขฐานสิบหก (Hexadecimal System)}{127}{section.4.4}%
+\contentsline {section}{\numberline {4.5}การแปลงฐานทั่วไป}{130}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}การแปลงจากฐานใดๆ เป็นฐานสิบ}{130}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}การแปลงจากฐานสิบเป็นฐานใดๆ}{131}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}การแปลงจำนวนทศนิยมระหว่างฐาน}{132}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}การแปลงส่วนทศนิยมจากฐานสิบเป็นฐานอื่น}{133}{subsection.4.6.1}%
+\contentsline {section}{\numberline {4.7}การบวกและลบเลขฐานสอง}{134}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}การบวกเลขฐานสอง}{135}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}การลบเลขฐานสอง}{136}{subsection.4.7.2}%
+\contentsline {section}{\numberline {4.8}การคูณและการหารเลขฐานสอง}{137}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}การคูณเลขฐานสอง}{137}{subsection.4.8.1}%
+\contentsline {section}{\numberline {4.9}การแทนข้อมูลในคอมพิวเตอร์}{138}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}รหัสแอสกี (ASCII)}{138}{subsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.9.2}รหัสยูนิโคด (Unicode)}{140}{subsection.4.9.2}%
+\contentsline {section}{สรุปบทเรียน}{141}{section*.60}%
+\contentsline {section}{แบบฝึกหัดท้ายบท}{142}{section*.61}%
+\contentsline {section}{เฉลยแบบฝึกหัด}{144}{section*.62}%
+\contentsline {section}{คำถามท้ายบทที่ 4}{145}{Item.714}%
+\contentsline {section}{ใบงานที่ 4}{146}{Item.719}%
+\contentsline {section}{เอกสารอ้างอิง}{147}{Item.726}%
+\contentsline {chapter}{แผนการสอนประจำบทที่ 5}{149}{chapter*.63}%
+\contentsline {chapter}{\numberline {5}เมทริกซ์และดีเทอร์มิแนนต์ (Matrices \& Determinants)}{151}{chapter.5}%
+\contentsline {section}{\numberline {5.1}นิยามพื้นฐานของเมทริกซ์}{151}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}นิยามของเมทริกซ์}{152}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}ประเภทของเมทริกซ์}{153}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}การดำเนินการระหว่างเมทริกซ์}{156}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}ความเท่ากันของเมทริกซ์}{156}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}การบวกและการลบเมทริกซ์}{156}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}การคูณเมทริกซ์ด้วยสเกลาร์}{158}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}การคูณเมทริกซ์ด้วยเมทริกซ์}{159}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.5}เมทริกซ์สลับเปลี่ยน (Transpose)}{161}{subsection.5.2.5}%
+\contentsline {section}{\numberline {5.3}ดีเทอร์มิแนนต์ (Determinants)}{163}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}นิยามของดีเทอร์มิแนนต์}{163}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}การกระจายโคแฟกเตอร์ (Cofactor Expansion)}{165}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}สมบัติของดีเทอร์มิแนนต์}{167}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.4}ตัวผกผันของเมทริกซ์ (Matrix Inverse)}{170}{section.5.4}%
+\contentsline {section}{\numberline {5.5}ระบบสมการเชิงเส้น (Systems of Linear Equations)}{173}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}การเขียนระบบสมการในรูปเมทริกซ์}{174}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}การแก้ระบบสมการโดยใช้ตัวผกผันเมทริกซ์}{174}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}การแก้ระบบสมการโดยใช้กฎของคราเมอร์ (Cramer's Rule)}{175}{subsection.5.5.3}%
+\contentsline {subsection}{\numberline {5.5.4}การแก้ระบบสมการโดยวิธีการกำจัดแบบเกาส์ (Gaussian Elimination)}{176}{subsection.5.5.4}%
+\contentsline {section}{\numberline {5.6}การประยุกต์ในวิทยาการคอมพิวเตอร์}{177}{section.5.6}%
+\contentsline {subsection}{\numberline {5.6.1}การแปลงในคอมพิวเตอร์กราฟิกส์ (Computer Graphics)}{178}{subsection.5.6.1}%
+\contentsline {subsection}{\numberline {5.6.2}การเข้ารหัส Hill Cipher}{178}{subsection.5.6.2}%
+\contentsline {subsection}{\numberline {5.6.3}เมทริกซ์ประชิดในทฤษฎีกราฟ}{180}{subsection.5.6.3}%
+\contentsline {subsection}{\numberline {5.6.4}เมทริกซ์ในการเรียนรู้ของเครื่อง}{180}{subsection.5.6.4}%
+\contentsline {section}{สรุปบทเรียน}{182}{section*.69}%
+\contentsline {section}{แบบฝึกหัด}{183}{section*.70}%
+\contentsline {section}{เฉลยแบบฝึกหัด}{185}{section*.71}%
+\contentsline {section}{คำถามท้ายบทที่ 5}{187}{Item.847}%
+\contentsline {section}{ใบงานที่ 5}{188}{Item.863}%
+\contentsline {section}{เอกสารอ้างอิง}{190}{Item.873}%
+\contentsline {chapter}{แผนการสอนประจำบทที่ 6}{191}{chapter*.72}%
+\contentsline {chapter}{\numberline {6}พีชคณิตบูลีน (Boolean Algebra)}{193}{chapter.6}%
+\contentsline {section}{\numberline {6.1}นิยามพื้นฐานของพีชคณิตบูลีน}{193}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}นิยามของพีชคณิตบูลีน}{194}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}ค่าคงตัวบูลีน}{195}{subsection.6.1.2}%
+\contentsline {section}{\numberline {6.2}การดำเนินการทางบูลีน (Boolean Operations)}{195}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}การดำเนินการ OR (Disjunction)}{196}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}การดำเนินการ AND (Conjunction)}{197}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}การดำเนินการ NOT (Negation)}{198}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}การดำเนินการ XOR (Exclusive OR)}{199}{subsection.6.2.4}%
+\contentsline {section}{\numberline {6.3}กฎของพีชคณิตบูลีน (Boolean Identities)}{200}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}กฎการแจกแจง (Distributive Laws)}{201}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}กฎการดูดกลืน (Absorption Laws)}{203}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}กฎของ De Morgan (De Morgan's Laws)}{204}{section.6.4}%
+\contentsline {section}{\numberline {6.5}นิพจน์บูลีนและฟังก์ชันบูลีน (Boolean Expressions and Functions)}{205}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}นิยามของนิพจน์บูลีน}{206}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}ฟังก์ชันบูลีน}{207}{subsection.6.5.2}%
+\contentsline {section}{\numberline {6.6}รูปแบบปกติ (Canonical Forms)}{208}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}มินเทอมและแมกซ์เทอม (Minterms and Maxterms)}{208}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}ผลบวกของผลคูณ (Sum of Products -- SOP)}{209}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.3}ผลคูณของผลบวก (Product of Sums -- POS)}{210}{subsection.6.6.3}%
+\contentsline {section}{\numberline {6.7}การลดรูปนิพจน์บูลีน (Boolean Expression Simplification)}{211}{section.6.7}%
+\contentsline {subsection}{\numberline {6.7.1}การลดรูปด้วยกฎพีชคณิตบูลีน}{212}{subsection.6.7.1}%
+\contentsline {subsection}{\numberline {6.7.2}การลดรูปด้วยทฤษฎีบทคอนเซนซัส (Consensus Theorem)}{214}{subsection.6.7.2}%
+\contentsline {section}{\numberline {6.8}แผนที่คาร์นอ (Karnaugh Map)}{216}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}แผนที่คาร์นอสำหรับ 2 ตัวแปร}{217}{subsection.6.8.1}%
+\contentsline {subsection}{\numberline {6.8.2}แผนที่คาร์นอสำหรับ 3 ตัวแปร}{218}{subsection.6.8.2}%
+\contentsline {subsection}{\numberline {6.8.3}แผนที่คาร์นอสำหรับ 4 ตัวแปร}{219}{subsection.6.8.3}%
+\contentsline {section}{\numberline {6.9}การประยุกต์ในวงจรดิจิทัล}{220}{section.6.9}%
+\contentsline {subsection}{\numberline {6.9.1}ประตูสัญญาณตรรกะ (Logic Gates)}{221}{subsection.6.9.1}%
+\contentsline {subsection}{\numberline {6.9.2}การออกแบบวงจรเชิงผสม (Combinational Circuit)}{223}{subsection.6.9.2}%
+\contentsline {subsection}{\numberline {6.9.3}การสร้างวงจรสองระดับ (Two-level Realization)}{223}{subsection.6.9.3}%
+\contentsline {subsection}{\numberline {6.9.4}วงจรบวกครึ่งและวงจรบวกเต็ม (Half Adder and Full Adder)}{224}{subsection.6.9.4}%
+\contentsline {subsection}{\numberline {6.9.5}สมมูลของพีชคณิตบูลีน (Boolean Algebra Equivalence)}{225}{subsection.6.9.5}%
+\contentsline {section}{\numberline {6.10}ตัวอย่างในวิทยาการคอมพิวเตอร์}{225}{section.6.10}%
+\contentsline {subsection}{\numberline {6.10.1}การใช้แผนที่คาร์นอในงานออกแบบจริง}{226}{subsection.6.10.1}%
+\contentsline {subsection}{\numberline {6.10.2}การสร้างประตูสัญญาณตรรกะด้วยทรานซิสเตอร์}{226}{subsection.6.10.2}%
+\contentsline {subsection}{\numberline {6.10.3}การต่อวงจรบวกเป็นชุดสำหรับเลขหลายบิต}{227}{subsection.6.10.3}%
+\contentsline {subsection}{\numberline {6.10.4}มัลติเพล็กเซอร์และดีมัลติเพล็กเซอร์ (Multiplexer and Demultiplexer)}{228}{subsection.6.10.4}%
+\contentsline {subsection}{\numberline {6.10.5}การสร้างเครื่องสถานะจำกัดด้วยตรรกะบูลีน (Finite State Machine)}{229}{subsection.6.10.5}%
+\contentsline {section}{สรุปบทเรียน}{230}{section*.75}%
+\contentsline {section}{แบบฝึกหัด}{231}{section*.76}%
+\contentsline {section}{เฉลยแบบฝึกหัด}{234}{section*.77}%
+\contentsline {section}{คำถามท้ายบทที่ 6}{236}{Item.1110}%
+\contentsline {section}{ใบงานที่ 6}{237}{Item.1118}%
+\contentsline {section}{เอกสารอ้างอิง}{239}{Item.1129}%
 \contentsfinish 

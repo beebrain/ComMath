@@ -39,7 +39,8 @@
 
 \linespread{1.2}
 \defaultfontfeatures{Scale=1.35}
-\usepackage{hyperref} 
+\usepackage{hyperref}
+\hypersetup{hidelinks}
 \usepackage{emptypage}
 
 
@@ -261,7 +262,7 @@ eprint=false
 
 
 % Layout packages
-\RequirePackage[a4paper, twoside, top=30mm, bottom=25mm, inner=30mm, outer=20mm, headheight=14pt]{geometry}
+\RequirePackage[a4paper, twoside, top=30mm, bottom=25mm, inner=30mm, outer=20mm, headheight=16pt]{geometry}
 \RequirePackage{fancyhdr}
 \RequirePackage{calc}
 \RequirePackage{indentfirst}                                                                                                          

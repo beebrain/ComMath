@@ -15,8 +15,12 @@
   \node[black,font=\bfseries] at (2.4,0.7) {7};
   \node[black,font=\bfseries] at (2.9,-0.2) {8};
   \node[black,font=\bfseries] at (2.2,-0.9) {9};
-  % label A^c with arrow into green region
-  \node[navy,font=\itshape\Large] (ac) at (2.6,1.8) {$A^{c}$};
-  \draw[navy,->,line width=1pt] (ac) to[bend left=15] (1.0,1.0);
-  \node[formula,font=\itshape\large] at (2.2,-2.1) {$A^{c} = U - A$};
+  % Direct label for the shaded region: no ambiguous long arrow.
+  \node[navy,fill=white,fill opacity=.88,text opacity=1,
+        rounded corners=3pt,inner xsep=8pt,inner ysep=4pt,
+        font=\itshape\Large] at (2.35,1.55) {$A^{c}$};
+  \node[navy,font=\small,fill=white,fill opacity=.88,text opacity=1,
+        rounded corners=2pt,inner xsep=5pt,inner ysep=2pt] at (2.35,1.08)
+        {พื้นที่ที่ไม่อยู่ใน $A$};
+  \node[formula,font=\itshape\large] at (2.15,-2.05) {$A^{c}=U-A$};
 \end{tikzpicture}

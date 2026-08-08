@@ -29,6 +29,7 @@
   \par\vspace{1em}%
   \noindent\textcolor{gray!40}{\rule{\textwidth}{0.5pt}}%
   \par\vspace{1.5em}%
+  \normalcolor
 }
 
 %% Environment สำหรับขั้นตอนวิธีทำ (เน้นกึ่งกลางและขยับย่อหน้าให้อ่านง่าย)
@@ -111,12 +112,36 @@
     colframe=thrmBar,
     boxrule=0.5pt,
     arc=2pt, outer arc=2pt,
-    left=10pt, right=10pt, top=8pt, bottom=8pt,
+    left=10pt, right=10pt, top=3pt, bottom=6pt,
     before skip=12pt, after skip=12pt,
     colbacktitle=thrmTitle,
     coltitle=white,
     fonttitle=\bfseries,
     title={ทฤษฎีบท~\thethrm\@tttl}
+  ]%
+  \def\[{\begin{center}$\displaystyle}%
+  \def\]{$\end{center}}%
+}{%
+  \end{tcolorbox}%
+}
+
+%% ── หลักการ (principle) — กล่องแถบหัวเข้ม ใช้ตัวนับเดียวกับทฤษฎีบท ──
+\renewenvironment{principle}[1][]{%
+  \par\refstepcounter{thrm}%
+  \def\@prsub{#1}%
+  \ifx\@prsub\@empty\def\@prttl{}\else\def\@prttl{\quad #1}\fi
+  \begin{tcolorbox}[
+    enhanced, breakable,
+    colback=white,
+    colframe=thrmBar,
+    boxrule=0.5pt,
+    arc=2pt, outer arc=2pt,
+    left=10pt, right=10pt, top=3pt, bottom=6pt,
+    before skip=12pt, after skip=12pt,
+    colbacktitle=thrmTitle,
+    coltitle=white,
+    fonttitle=\bfseries,
+    title={หลักการ~\thethrm\@prttl}
   ]%
   \def\[{\begin{center}$\displaystyle}%
   \def\]{$\end{center}}%
@@ -182,9 +207,9 @@
   \end{tcolorbox}%
 }
 
-%% ── หมายเหตุ (rem) — กล่องแถบหัวเข้ม "หมายเหตุ X.Y" (สไตล์เดียวกับนิยาม) ──
+%% ── หมายเหตุ (rem) — กล่องแถบหัวเข้ม "หมายเหตุ" โดยไม่ใช้เลขกำกับ ──
 \renewenvironment{rem}[1][]{%
-  \par\refstepcounter{thrm}%
+  \par
   \def\@rsub{#1}%
   \ifx\@rsub\@empty\def\@rttl{}\else\def\@rttl{\quad #1}\fi
   \begin{tcolorbox}[
@@ -198,7 +223,7 @@
     colbacktitle=remTitle,
     coltitle=white,
     fonttitle=\bfseries,
-    title={หมายเหตุ~\thethrm\@rttl}
+    title={หมายเหตุ\@rttl}
   ]%
   \def\[{\begin{center}$\displaystyle}%
   \def\]{$\end{center}}%

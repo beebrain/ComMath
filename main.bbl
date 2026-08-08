@@ -63,89 +63,6 @@
       \field{title}{Elementary Linear Algebra: Applications Version}
       \field{year}{2019}
     \endentry
-    \entry{aristotle_organon}{book}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=798a01f212a8e620a6940400717a56d9}{%
-           family={Aristotle},
-           familyi={A\bibinitperiod}}}%
-      }
-      \name{editor}{2}{}{%
-        {{hash=ef9c0e115802f5350d72da31114abdf4}{%
-           family={Cooke},
-           familyi={C\bibinitperiod},
-           given={Harold\bibnamedelima P.},
-           giveni={H\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
-        {{hash=0552b8faeae4a96cd125e013569c606c}{%
-           family={Tredennick},
-           familyi={T\bibinitperiod},
-           given={Hugh},
-           giveni={H\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Cambridge, MA}%
-      }
-      \list{publisher}{1}{%
-        {Harvard University Press}%
-      }
-      \strng{namehash}{798a01f212a8e620a6940400717a56d9}
-      \strng{fullhash}{798a01f212a8e620a6940400717a56d9}
-      \strng{fullhashraw}{798a01f212a8e620a6940400717a56d9}
-      \strng{bibnamehash}{798a01f212a8e620a6940400717a56d9}
-      \strng{authorbibnamehash}{798a01f212a8e620a6940400717a56d9}
-      \strng{authornamehash}{798a01f212a8e620a6940400717a56d9}
-      \strng{authorfullhash}{798a01f212a8e620a6940400717a56d9}
-      \strng{authorfullhashraw}{798a01f212a8e620a6940400717a56d9}
-      \strng{editorbibnamehash}{b2f39137832441834b4a45ef71cd106e}
-      \strng{editornamehash}{b2f39137832441834b4a45ef71cd106e}
-      \strng{editorfullhash}{b2f39137832441834b4a45ef71cd106e}
-      \strng{editorfullhashraw}{b2f39137832441834b4a45ef71cd106e}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{ฉบับแปลคลาสสิก (Loeb)}
-      \field{series}{Loeb Classical Library}
-      \field{title}{The Organon}
-      \field{year}{1938}
-    \endentry
-    \entry{boole1854investigation}{book}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=11e54e87435aa3c53aa25a448424f022}{%
-           family={Boole},
-           familyi={B\bibinitperiod},
-           given={George},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{location}{1}{%
-        {London}%
-      }
-      \list{publisher}{2}{%
-        {Walton}%
-        {Maberly}%
-      }
-      \strng{namehash}{11e54e87435aa3c53aa25a448424f022}
-      \strng{fullhash}{11e54e87435aa3c53aa25a448424f022}
-      \strng{fullhashraw}{11e54e87435aa3c53aa25a448424f022}
-      \strng{bibnamehash}{11e54e87435aa3c53aa25a448424f022}
-      \strng{authorbibnamehash}{11e54e87435aa3c53aa25a448424f022}
-      \strng{authornamehash}{11e54e87435aa3c53aa25a448424f022}
-      \strng{authorfullhash}{11e54e87435aa3c53aa25a448424f022}
-      \strng{authorfullhashraw}{11e54e87435aa3c53aa25a448424f022}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{หนังสือคลาสสิกก่อนยุค ISBN}
-      \field{title}{An Investigation of the Laws of Thought}
-      \field{year}{1854}
-    \endentry
     \entry{codd1970relational}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=575e6ec8dab1a34c19f7021664baaccc}{%
@@ -321,40 +238,6 @@
       \field{isbn}{9781337694193}
       \field{title}{Discrete Mathematics with Applications}
       \field{year}{2019}
-    \endentry
-    \entry{frege1879begriffsschrift}{book}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=1c468d5fce77082669983ce899030b96}{%
-           family={Frege},
-           familyi={F\bibinitperiod},
-           given={Gottlob},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{location}{1}{%
-        {Halle}%
-      }
-      \list{publisher}{1}{%
-        {Louis Nebert}%
-      }
-      \strng{namehash}{1c468d5fce77082669983ce899030b96}
-      \strng{fullhash}{1c468d5fce77082669983ce899030b96}
-      \strng{fullhashraw}{1c468d5fce77082669983ce899030b96}
-      \strng{bibnamehash}{1c468d5fce77082669983ce899030b96}
-      \strng{authorbibnamehash}{1c468d5fce77082669983ce899030b96}
-      \strng{authornamehash}{1c468d5fce77082669983ce899030b96}
-      \strng{authorfullhash}{1c468d5fce77082669983ce899030b96}
-      \strng{authorfullhashraw}{1c468d5fce77082669983ce899030b96}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{หนังสือคลาสสิกก่อนยุค ISBN}
-      \field{title}{Begriffsschrift: Eine der arithmetischen nachgebildete Formelsprache des reinen Denkens}
-      \field{year}{1879}
     \endentry
     \entry{gersting2014structures}{book}{}{}
       \name{author}{1}{}{%
@@ -557,6 +440,7 @@
       \field{title}{Recognition Awareness: Adding Awareness to Pattern Recognition Using Latent Cognizance}
       \field{volume}{8}
       \field{year}{2022}
+      \true{nocite}
       \field{pages}{e09240}
       \range{pages}{-1}
       \verb{doi}
@@ -787,7 +671,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{6}
-      \field{isbn}{9781482237726}
+      \field{isbn}{9781482237788}
       \field{title}{Introduction to Mathematical Logic}
       \field{year}{2015}
       \verb{doi}
@@ -860,6 +744,7 @@
       \field{title}{Automatic Hand Sign Recognition: Identify Unusuality through Latent Cognizance}
       \field{volume}{11081}
       \field{year}{2018}
+      \true{nocite}
       \verb{doi}
       \verb 10.1007/978-3-319-99978-4_20
       \endverb
@@ -900,6 +785,7 @@
       \field{title}{Hand Sign Recognition for {Thai} Finger Spelling: An Application of Convolution Neural Network}
       \field{volume}{91}
       \field{year}{2019}
+      \true{nocite}
       \field{pages}{131\bibrangedash 146}
       \range{pages}{16}
       \verb{doi}
@@ -982,6 +868,7 @@
       \field{series}{Lecture Notes in Computer Science}
       \field{title}{Toward Latent Cognizance on Open-Set Recognition}
       \field{year}{2022}
+      \true{nocite}
       \verb{doi}
       \verb 10.1007/978-3-030-98018-4_20
       \endverb
@@ -1026,6 +913,7 @@
       \field{booktitle}{Proceedings of the 11th International Conference on Computer Modeling and Simulation (ICCMS)}
       \field{title}{{Thai} Finger Spelling Localization and Classification under Complex Background Using a {YOLO}-based Deep Learning}
       \field{year}{2019}
+      \true{nocite}
     \endentry
     \entry{nakjai2026lanna}{article}{}{}
       \name{author}{3}{}{%
@@ -1364,144 +1252,6 @@
       \field{isbn}{9780134460093}
       \field{title}{Digital Design: Principles and Practices}
       \field{year}{2018}
-    \endentry
-    \entry{russell1910principia}{book}{}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=9131dcc0b7c52c07d7d95e489ba0a0f6}{%
-           family={Whitehead},
-           familyi={W\bibinitperiod},
-           given={Alfred\bibnamedelima North},
-           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c58c42b6f7e7e1f78dbbdc65ed8e5384}{%
-           family={Russell},
-           familyi={R\bibinitperiod},
-           given={Bertrand},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{location}{1}{%
-        {Cambridge}%
-      }
-      \list{publisher}{1}{%
-        {Cambridge University Press}%
-      }
-      \strng{namehash}{048cf9054c2e7dc9fef3172a79679690}
-      \strng{fullhash}{048cf9054c2e7dc9fef3172a79679690}
-      \strng{fullhashraw}{048cf9054c2e7dc9fef3172a79679690}
-      \strng{bibnamehash}{048cf9054c2e7dc9fef3172a79679690}
-      \strng{authorbibnamehash}{048cf9054c2e7dc9fef3172a79679690}
-      \strng{authornamehash}{048cf9054c2e7dc9fef3172a79679690}
-      \strng{authorfullhash}{048cf9054c2e7dc9fef3172a79679690}
-      \strng{authorfullhashraw}{048cf9054c2e7dc9fef3172a79679690}
-      \field{sortinit}{W}
-      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{หนังสือคลาสสิกก่อนยุค ISBN}
-      \field{title}{Principia Mathematica}
-      \field{year}{1910}
-    \endentry
-    \entry{saovon2553compmath}{book}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=0fafd5fbd5850a40c72a0d9b32aa1276}{%
-           family={{คณะกรรมการโครงการตำราวิทยาศาสตร์และคณิตศาสตร์ มูลนิธิ สอวน.}},
-           familyi={ค\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {กรุงเทพฯ}%
-      }
-      \list{publisher}{1}{%
-        {บริษัท ด่านสุทธาการพิมพ์ จำกัด}%
-      }
-      \strng{namehash}{0fafd5fbd5850a40c72a0d9b32aa1276}
-      \strng{fullhash}{0fafd5fbd5850a40c72a0d9b32aa1276}
-      \strng{fullhashraw}{0fafd5fbd5850a40c72a0d9b32aa1276}
-      \strng{bibnamehash}{0fafd5fbd5850a40c72a0d9b32aa1276}
-      \strng{authorbibnamehash}{0fafd5fbd5850a40c72a0d9b32aa1276}
-      \strng{authornamehash}{0fafd5fbd5850a40c72a0d9b32aa1276}
-      \strng{authorfullhash}{0fafd5fbd5850a40c72a0d9b32aa1276}
-      \strng{authorfullhashraw}{0fafd5fbd5850a40c72a0d9b32aa1276}
-      \field{extraname}{1}
-      \field{sortinit}{ค}
-      \field{sortinithash}{b9457bd0856d24aa4054ac614be061ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{พิมพ์ครั้งที่ 3}
-      \field{title}{คณิตศาสตร์พื้นฐานสำหรับคอมพิวเตอร์}
-      \field{year}{2553}
-      \true{nocite}
-    \endentry
-    \entry{saovon2556compmath}{book}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=0fafd5fbd5850a40c72a0d9b32aa1276}{%
-           family={{คณะกรรมการโครงการตำราวิทยาศาสตร์และคณิตศาสตร์ มูลนิธิ สอวน.}},
-           familyi={ค\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {กรุงเทพฯ}%
-      }
-      \list{publisher}{1}{%
-        {บริษัท ด่านสุทธาการพิมพ์ จำกัด}%
-      }
-      \strng{namehash}{0fafd5fbd5850a40c72a0d9b32aa1276}
-      \strng{fullhash}{0fafd5fbd5850a40c72a0d9b32aa1276}
-      \strng{fullhashraw}{0fafd5fbd5850a40c72a0d9b32aa1276}
-      \strng{bibnamehash}{0fafd5fbd5850a40c72a0d9b32aa1276}
-      \strng{authorbibnamehash}{0fafd5fbd5850a40c72a0d9b32aa1276}
-      \strng{authornamehash}{0fafd5fbd5850a40c72a0d9b32aa1276}
-      \strng{authorfullhash}{0fafd5fbd5850a40c72a0d9b32aa1276}
-      \strng{authorfullhashraw}{0fafd5fbd5850a40c72a0d9b32aa1276}
-      \field{extraname}{2}
-      \field{sortinit}{ค}
-      \field{sortinithash}{b9457bd0856d24aa4054ac614be061ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{พิมพ์ครั้งที่ 4}
-      \field{title}{คณิตศาสตร์พื้นฐานสำหรับคอมพิวเตอร์}
-      \field{year}{2556}
-      \true{nocite}
-    \endentry
-    \entry{limtrakul2538commath}{book}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=bd35ed0d60f28e9028603b9a49ddca3c}{%
-           family={{อุ่นใจ ลิมตระกูล}},
-           familyi={อุ่\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {กรุงเทพฯ}%
-      }
-      \list{publisher}{1}{%
-        {สำนักพิมพ์ภูมิบัณฑิต}%
-      }
-      \strng{namehash}{bd35ed0d60f28e9028603b9a49ddca3c}
-      \strng{fullhash}{bd35ed0d60f28e9028603b9a49ddca3c}
-      \strng{fullhashraw}{bd35ed0d60f28e9028603b9a49ddca3c}
-      \strng{bibnamehash}{bd35ed0d60f28e9028603b9a49ddca3c}
-      \strng{authorbibnamehash}{bd35ed0d60f28e9028603b9a49ddca3c}
-      \strng{authornamehash}{bd35ed0d60f28e9028603b9a49ddca3c}
-      \strng{authorfullhash}{bd35ed0d60f28e9028603b9a49ddca3c}
-      \strng{authorfullhashraw}{bd35ed0d60f28e9028603b9a49ddca3c}
-      \field{sortinit}{อุ่}
-      \field{sortinithash}{b34055ef4650e7dc88c0b05e9b513f19}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{พิมพ์ครั้งที่ 1}
-      \field{title}{คณิตศาสตร์คอมพิวเตอร์}
-      \field{year}{2538}
-      \true{nocite}
     \endentry
   \enddatalist
 \endrefsection

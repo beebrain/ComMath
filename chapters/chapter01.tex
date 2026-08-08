@@ -188,13 +188,11 @@ F & F & F & F & T & T \\ \hline
     \end{tabular}
 \end{table}
 
-ตารางที่~\ref{tab:and-truth} แสดงว่าแถวแรกเท่านั้นที่ให้ผลลัพธ์เป็นจริง จึงควรตีความคำว่า ``และ'' ว่าเป็นข้อกำหนดที่ต้องผ่านครบทุกข้อ รูปที่~\ref{fig:and-gate-circuit} แสดงแนวคิดเดียวกันด้วยวงจรสวิตช์แบบอนุกรม กระแสไฟผ่านได้เมื่อสวิตช์ทั้งสองปิดเท่านั้น
-
-\bigskip
+ตารางที่~\ref{tab:and-truth} แสดงว่าแถวแรกเท่านั้นที่ให้ผลลัพธ์เป็นจริง จึงควรตีความคำว่า ``และ'' ว่าเป็นข้อกำหนดที่ต้องผ่านครบทุกข้อ แนวคิดเดียวกันนี้อธิบายด้วยวงจรสวิตช์แบบอนุกรมได้ ดังรูปที่~\ref{fig:and-gate-circuit} ซึ่งเทียบสองกรณีให้เห็นว่ากระแสไฟครบวงจรและหลอดไฟติดได้ก็ต่อเมื่อสวิตช์ทั้งสองปิดพร้อมกัน หากสวิตช์ตัวใดตัวหนึ่งเปิด วงจรจะขาดและหลอดไฟดับทันที
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.78\textwidth]{Figures/png_ready/02-and-gate-circuit.png}
+    \input{Figures/tikz/02-and-gate-circuit}
     \caption{วงจรสวิตช์ไฟฟ้าแบบอนุกรม แสดงการทำงานของ $p \land q$}
     \label{fig:and-gate-circuit}
 \end{figure}
@@ -699,15 +697,14 @@ XOR ใช้เปรียบเทียบค่าความจริง�
 
 NAND และ NOR เป็นนิเสธของ AND และ OR ตามลำดับ ทั้งสองเป็นตัวเชื่อมสากล กล่าวคือ สามารถนิยามตัวเชื่อมพื้นฐานอื่นจาก NAND เพียงอย่างเดียว หรือจาก NOR เพียงอย่างเดียวได้~\cite{mendelson2015introduction}
 
-\begin{definition}[แนนด์และนอร์ (NAND และ NOR)]
 \index{NAND!นิยาม}
 \index{NOR!นิยาม}
-สำหรับประพจน์ $p$ และ $q$ ใดๆ
+สำหรับประพจน์ $p$ และ $q$ ใดๆ ตัวเชื่อมทั้งสองเขียนนิยามจากตัวเชื่อมพื้นฐานได้ดังนี้
 \begin{align*}
 p \uparrow q &\equiv \neg(p \land q) \quad \text{(NAND, Sheffer stroke)} \\
 p \downarrow q &\equiv \neg(p \lor q) \quad \text{(NOR, Peirce arrow)}
 \end{align*}
-\end{definition}
+บทนี้กล่าวถึง NAND และ NOR เพียงเท่าที่ใช้อ่านและแปลงนิพจน์เชิงตรรกะ ส่วนการนิยามอย่างเป็นทางการในฐานะการดำเนินการของพีชคณิตบูลีนและการนำไปสร้างวงจรจริงอยู่ใน\autoref{ch:boolean}
 
 \begin{table}[H]
     \centering
@@ -1394,6 +1391,47 @@ p \rightarrow q \equiv \neg p \lor q
 ให้นักศึกษาอธิบายความแตกต่างระหว่างสัจนิรันดร์ ข้อขัดแย้ง และประพจน์กลาง พร้อมยกตัวอย่างประกอบแต่ละประเภทอย่างน้อย 2 ตัวอย่าง
 \end{exercise}
 
+\begin{exercise}
+จงลดรูปประพจน์ต่อไปนี้โดยใช้กฎพีชคณิตของประพจน์ พร้อมระบุชื่อกฎที่ใช้ในทุกขั้น
+\begin{enumerate}
+    \item $\neg(\neg p \lor q)$
+    \item $p \land (p \lor q)$
+    \item $(p \land q) \lor (p \land \neg q)$
+    \item $\neg p \rightarrow (p \rightarrow q)$
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+กำหนดประพจน์ ``ถ้าจำนวนเต็ม $n$ ลงท้ายด้วยเลข 0 แล้ว $n$ หารด้วย 5 ลงตัว'' จงเขียนประพจน์กลับ ประพจน์ผกผัน และประพจน์แย้งสลับที่ พร้อมระบุค่าความจริงของทั้งสี่ประพจน์ และยกตัวอย่างค้านสำหรับข้อที่เป็นเท็จ
+\end{exercise}
+
+\begin{exercise}
+จงตอบคำถามเกี่ยวกับตัวเชื่อมเพิ่มเติมต่อไปนี้
+\begin{enumerate}
+    \item จงหาค่าความจริงของ $(p \oplus q) \oplus (p \oplus q)$ สำหรับทุกค่าของ $p$ และ $q$
+    \item จงแสดงว่า $p \oplus q \equiv (p \land \neg q) \lor (\neg p \land q)$ ด้วยตารางค่าความจริง
+    \item จงเขียน $p \lor q$ โดยใช้ตัวเชื่อม NAND เพียงอย่างเดียว
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+กำหนดเอกภพสัมพัทธ์เป็นเซตของจำนวนเต็ม $\mathbb{Z}$ จงพิจารณาค่าความจริงของประพจน์ในข้อ 1 และ 2 แล้วหานิเสธพร้อมระบุค่าความจริงของนิเสธในข้อ 3 และ 4
+\begin{enumerate}
+    \item $\forall x\, (x^2 \geq x)$
+    \item $\exists x\, (x + 3 = 3)$
+    \item $\forall x\, (x > 0)$
+    \item $\exists x\, (x^2 = 2)$
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+จงใช้การอ้างเหตุผลแบบมีเงื่อนไขหรือการอ้างเหตุผลแบบแยกเพื่อหาผลสรุป พร้อมระบุว่าใช้กฎใด
+\begin{enumerate}
+    \item ถ้าข้อมูลนำเข้าถูกต้อง แล้วโปรแกรมประมวลผลได้ และถ้าโปรแกรมประมวลผลได้ แล้วระบบจะสร้างรายงาน $\therefore$ ?
+    \item แฟ้มข้อมูลเสียหายหรือรหัสผ่านไม่ถูกต้อง แต่ตรวจแล้วพบว่าแฟ้มข้อมูลไม่เสียหาย $\therefore$ ?
+\end{enumerate}
+\end{exercise}
+
 \clearpage
 \answerkeyhead
 ในส่วนนี้แสดงเฉลยอย่างย่อสำหรับแบบฝึกหัดท้ายบทตามลำดับข้างต้น เพื่อให้ผู้เรียนใช้ตรวจคำตอบของตนเอง
@@ -1458,6 +1496,43 @@ p \rightarrow q \equiv \neg p \lor q
     \end{enumerate}
 
     \item สัจนิรันดร์คือประพจน์ที่จริงทุกกรณี (เช่น $p \lor \neg p$), ข้อขัดแย้งคือประพจน์ที่เท็จทุกกรณี (เช่น $p \land \neg p$), ประพจน์กลางคือประพจน์ที่มีทั้งกรณีที่เป็นจริงและเท็จขึ้นกับตัวแปรย่อย (เช่น $p \land q$)
+
+    \item
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item $\neg(\neg p \lor q) \equiv \neg(\neg p) \land \neg q$ (กฎเดอมอร์แกน) $\equiv p \land \neg q$ (กฎนิเสธซ้อน)
+        \item $p \land (p \lor q) \equiv p$ (กฎการดูดกลืน)
+        \item $(p \land q) \lor (p \land \neg q) \equiv p \land (q \lor \neg q)$ (กฎการแจกแจง อ่านจากขวาไปซ้าย) $\equiv p \land T$ (กฎนิเสธ) $\equiv p$ (กฎเอกลักษณ์)
+        \item $\neg p \rightarrow (p \rightarrow q) \equiv \neg(\neg p) \lor (\neg p \lor q)$ (กฎเงื่อนไข ใช้สองครั้ง) $\equiv p \lor \neg p \lor q \equiv T \lor q \equiv T$ (กฎนิเสธ และกฎครอบงำ) จึงเป็นสัจนิรันดร์
+    \end{enumerate}
+
+    \item
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item ประพจน์เดิม ถ้า $n$ ลงท้ายด้วย 0 แล้ว $n$ หารด้วย 5 ลงตัว (เป็นจริง)
+        \item ประพจน์กลับ ถ้า $n$ หารด้วย 5 ลงตัว แล้ว $n$ ลงท้ายด้วย 0 (เป็นเท็จ ตัวอย่างค้าน $n=15$)
+        \item ประพจน์ผกผัน ถ้า $n$ ไม่ลงท้ายด้วย 0 แล้ว $n$ ไม่หารด้วย 5 ลงตัว (เป็นเท็จ ตัวอย่างค้าน $n=15$)
+        \item ประพจน์แย้งสลับที่ ถ้า $n$ ไม่หารด้วย 5 ลงตัว แล้ว $n$ ไม่ลงท้ายด้วย 0 (เป็นจริง สมมูลกับประพจน์เดิม)
+    \end{enumerate}
+
+    \item
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item เป็นเท็จทุกกรณี เพราะ $r \oplus r$ เป็นเท็จเสมอเมื่อสองข้างเป็นประพจน์เดียวกัน จึงมีค่าความจริงเหมือนกันเสมอ
+        \item ทั้งสองประพจน์ให้ค่า F, T, T, F ตามลำดับแถว $(T,T), (T,F), (F,T), (F,F)$ จึงสมมูลกัน
+        \item $p \lor q \equiv (p \uparrow p) \uparrow (q \uparrow q)$ เพราะ $p \uparrow p \equiv \neg p$ และ $q \uparrow q \equiv \neg q$ จึงได้ $\neg(\neg p \land \neg q)$ ซึ่งเท่ากับ $p \lor q$ ตามกฎเดอมอร์แกน
+    \end{enumerate}
+
+    \item
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item เป็นจริง เพราะ $x^2 - x = x(x-1)$ เป็นผลคูณของจำนวนเต็มที่อยู่ติดกัน จึงไม่ติดลบเสมอ
+        \item เป็นจริง เช่น $x = 0$
+        \item นิเสธคือ $\exists x\, (x \leq 0)$ ประพจน์เดิมเป็นเท็จ ส่วนนิเสธเป็นจริง เช่น $x = 0$
+        \item นิเสธคือ $\forall x\, (x^2 \neq 2)$ ประพจน์เดิมเป็นเท็จบนจำนวนเต็ม ส่วนนิเสธเป็นจริง
+    \end{enumerate}
+
+    \item
+    \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
+        \item สรุปว่า ``ถ้าข้อมูลนำเข้าถูกต้อง แล้วระบบจะสร้างรายงาน'' (การอ้างเหตุผลแบบมีเงื่อนไข)
+        \item สรุปว่า ``รหัสผ่านไม่ถูกต้อง'' (การอ้างเหตุผลแบบแยก)
+    \end{enumerate}
 \end{enumerate}
 
 \QAChapter

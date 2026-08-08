@@ -666,9 +666,11 @@ INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
-INPUT ./Figures/png_ready/02-and-gate-circuit.png
-INPUT ./Figures/png_ready/02-and-gate-circuit.png
-INPUT ./Figures/png_ready/02-and-gate-circuit.png
+INPUT ./Figures/tikz/02-and-gate-circuit.tex
+INPUT ./Figures/tikz/02-and-gate-circuit.tex
+INPUT ./Figures/tikz/02-and-gate-circuit.tex
+INPUT ./Figures/tikz/02-and-gate-circuit.tex
+INPUT Figures/tikz/02-and-gate-circuit.tex
 INPUT ./Figures/png_ready/03-or-gate-circuit.png
 INPUT ./Figures/png_ready/03-or-gate-circuit.png
 INPUT ./Figures/png_ready/03-or-gate-circuit.png

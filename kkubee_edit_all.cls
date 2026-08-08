@@ -562,7 +562,6 @@ eprint=false
 				\textbf{\@academicyearth}}
 		\end{center}
 		\newpage
-		\cleardoublepage
 	\end{titlepage}%
 
 		\thispagestyle{empty}

@@ -11,9 +11,25 @@
 
 คู่อันดับและความสัมพันธ์ใช้ระบุโครงสร้างการจับคู่สมาชิกจากเซตหนึ่งไปยังอีกเซตหนึ่ง คู่อันดับ $(a,b)$ ระบุทิศทางระหว่างสมาชิก $a \in A$ กับ $b \in B$ โดยลำดับมีผลต่อความหมาย ส่วนความสัมพันธ์ $R \subseteq A \times B$ คือเซตย่อยของผลคูณคาร์ทีเซียนที่เก็บเฉพาะคู่อันดับซึ่งสอดคล้องกับเงื่อนไขที่กำหนด โครงสร้างนี้ใช้แทนตารางในฐานข้อมูลเชิงสัมพันธ์และใช้แทนเส้นเชื่อมในกราฟ~\cite{rosen2019discrete}
 
-แนวคิดเรื่องความสัมพันธ์มีรากฐานมาจากทฤษฎีเซตที่เกออร์ก คันทอร์ (Georg Cantor) พัฒนาขึ้นในช่วงปลายศตวรรษที่ 19~\cite{halmos1974naive} ต่อมาในผลงาน Principia Mathematica ซึ่งเผยแพร่ในปี ค.ศ. 1910 อัลเฟรด นอร์ธ วิทเฮด (Alfred North Whitehead) และเบอร์ทรันด์ รัสเซลล์ (Bertrand Russell) ได้ผนวกแนวคิดความสัมพันธ์เข้ากับตรรกศาสตร์สัญลักษณ์ โดยนิยามความสัมพันธ์ในรูปเซตของคู่อันดับ~\cite{russell1910principia} ในสาขาวิทยาการคอมพิวเตอร์ เอ็ดการ์ คอดด์ (Edgar F. Codd) ได้นำทฤษฎีความสัมพันธ์มาสร้างแบบจำลองฐานข้อมูลเชิงสัมพันธ์ (Relational Model) ในปี ค.ศ. 1970 ซึ่งกลายเป็นรากฐานของระบบฐานข้อมูลในปัจจุบัน~\cite{codd1970relational}
+แนวคิดเรื่องความสัมพันธ์มีรากฐานมาจากทฤษฎีเซตที่เกออร์ก คันทอร์ (Georg Cantor) พัฒนาขึ้นในช่วงปลายศตวรรษที่ 19~\cite{halmos1974naive} ต่อมาในผลงาน Principia Mathematica ซึ่งเผยแพร่ในปี ค.ศ. 1910 อัลเฟรด นอร์ธ วิทเฮด (Alfred North Whitehead) และเบอร์ทรันด์ รัสเซลล์ (Bertrand Russell) ได้ผนวกแนวคิดความสัมพันธ์เข้ากับตรรกศาสตร์สัญลักษณ์ โดยนิยามความสัมพันธ์ในรูปเซตของคู่อันดับ~\cite{rosen2019discrete} ในสาขาวิทยาการคอมพิวเตอร์ เอ็ดการ์ คอดด์ (Edgar F. Codd) ได้นำทฤษฎีความสัมพันธ์มาสร้างแบบจำลองฐานข้อมูลเชิงสัมพันธ์ (Relational Model) ในปี ค.ศ. 1970 ซึ่งกลายเป็นรากฐานของระบบฐานข้อมูลในปัจจุบัน~\cite{codd1970relational}
+
+ความสัมพันธ์สามารถมองเห็นได้เป็นจุดบนระนาบคาร์ทีเซียน โดยแต่ละจุดแทนคู่อันดับหนึ่งคู่ ดังแสดงในรูปที่~\ref{fig:relation-cartesian-graph}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{Figures/png_ready/relation-cartesian-graph-generated.png}
+    \caption{กราฟแสดงคู่อันดับของความสัมพันธ์บนระนาบคาร์ทีเซียน}
+    \label{fig:relation-cartesian-graph}
+\end{figure}
 
 \textbf{คู่อันดับ (Ordered Pair)} ใช้ระบุการจับคู่ที่มีทิศทางจากจุดเริ่มต้นไปยังจุดปลายทาง เช่น พิกัดบนแผนที่ $(x,y)$ หรือการเชื่อมโยงระหว่างรหัสผู้ใช้กับรายการสินค้าที่สั่งซื้อ ลำดับของสมาชิกมีผลต่อความหมาย กล่าวคือ $(a,b) \neq (b,a)$ เมื่อ $a \neq b$ เมื่อนำสมาชิกทุกตัวในเซตต้นทาง $A$ มาจับคู่กับสมาชิกทุกตัวในเซตปลายทาง $B$ จะได้เซตของการจับคู่ที่เป็นไปได้ทั้งหมด เรียกว่า \textbf{ผลคูณคาร์ทีเซียน (Cartesian Product)} เขียนแทนด้วย $A \times B$ และเมื่อคัดเฉพาะคู่ที่สอดคล้องกับเงื่อนไขที่สนใจ จะได้ \textbf{ความสัมพันธ์ (Relation)} ซึ่งใช้เป็นแบบจำลองของการจัดเก็บข้อมูลเชิงตารางและกราฟเชื่อมโยงในระบบคอมพิวเตอร์
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.68\textwidth]{Figures/png_ready/relation-arrow-generated.png}
+    \caption{แผนภาพลูกศรแสดงความสัมพันธ์ $R$ จากเซต $A$ ไปยังเซต $B$}
+    \label{fig:relation-arrow}
+\end{figure}
 
 \begin{definition}[ความสัมพันธ์]
 \index{ความสัมพันธ์!นิยาม}
@@ -99,6 +115,13 @@ R_1 - R_2 &= \{(1,a)\}\\
 \end{table}
 
 \textbf{ข้อสังเกตเพิ่มเติม:} ตารางแสดงค่า 0 และ 1 ข้างต้นเรียกว่า ตารางตรรกศาสตร์ของความสัมพันธ์ ซึ่งการนำเฉพาะตัวเลขภายในตารางไปเขียนจัดเรียงในรูปวงเล็บใหญ่จะถูกเรียกว่า เมทริกซ์บูลีน (Boolean Matrix) ในวิชาพีชคณิตขั้นสูงต่อไป
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.78\textwidth]{Figures/png_ready/relation-matrix-generated.png}
+    \caption{การเชื่อมโยงระหว่างแผนภาพความสัมพันธ์กับเมทริกซ์บูลีน}
+    \label{fig:relation-matrix}
+\end{figure}
 \solhere
 \end{solution}
 
@@ -133,8 +156,15 @@ R_1 - R_2 &= \{(1,a)\}\\
 
 ในทางคณิตศาสตร์ โดเมนเป็นเซตย่อยของเซตต้นทางเสมอ นั่นคือ $\mathcal{D}(R) \subseteq A$ และเรนจ์เป็นเซตย่อยของเซตปลายทางเสมอ นั่นคือ $\mathcal{R}(R) \subseteq B$ สมาชิก $a \in A$ ที่ไม่ปรากฏในองค์ประกอบแรกของคู่อันดับใดเลยจะไม่อยู่ใน $\mathcal{D}(R)$ และสมาชิก $b \in B$ ที่ไม่ปรากฏในองค์ประกอบที่สองของคู่อันดับใดเลยจะไม่อยู่ใน $\mathcal{R}(R)$
 
-\begin{thrm}[สมบัติทางโครงสร้างของความสัมพันธ์ผกผัน]
-\label{thm:inverse-relation-properties}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.68\textwidth]{Figures/png_ready/domain-range-generated.png}
+    \caption{แผนภาพแสดงโดเมนและเรนจ์ของความสัมพันธ์}
+    \label{fig:domain-range}
+\end{figure}
+
+\begin{prop}[สมบัติทางโครงสร้างของความสัมพันธ์ผกผัน]
+\label{prop:inverse-relation-properties}
 ให้ $R, R_1, R_2 \subseteq A \times B$ เป็นความสัมพันธ์จากเซต $A$ ไปยังเซต $B$ จะได้สมบัติทางคณิตศาสตร์ดังต่อไปนี้
 \begin{enumerate}[label=\textbf{\arabic*.}]
     \item $\mathcal{D}(R^{-1}) = \mathcal{R}(R)$ และ $\mathcal{R}(R^{-1}) = \mathcal{D}(R)$
@@ -142,7 +172,7 @@ R_1 - R_2 &= \{(1,a)\}\\
     \item ถ้า $R_1 \subseteq R_2$ แล้ว $R_1^{-1} \subseteq R_2^{-1}$
     \item $(R_1 \cup R_2)^{-1} = R_1^{-1} \cup R_2^{-1}$ และ $(R_1 \cap R_2)^{-1} = R_1^{-1} \cap R_2^{-1}$
 \end{enumerate}
-\end{thrm}
+\end{prop}
 
 \begin{ex}
 \label{ex:domain-range-inverse-basic}
@@ -274,6 +304,15 @@ $\therefore R$ มีคุณสมบัติสะท้อน สมมา�
 
 ในทางคอมพิวเตอร์ ฟังก์ชันเปรียบเสมือน \textbf{โปรแกรมย่อยหรือฟังก์ชันในคำสั่งโปรแกรม (Subroutine/Method)} ที่รับข้อมูลอินพุตเข้ามา แล้วประมวลผลคืนค่าผลลัพธ์ออกไปอย่างแน่นอนเพียงค่าเดียว ข้อแตกต่างสำคัญระหว่าง ``ความสัมพันธ์ทั่วไป'' กับ ``ฟังก์ชัน'' คือ ความสัมพันธ์ทั่วไปยินยอมให้อินพุตตัวเดิมจับคู่กับผลลัพธ์ได้หลายค่า แต่ฟังก์ชันบังคับว่าอินพุตตัวเดียวกันป้อนเข้ามาเมื่อใด จะต้องให้ผลลัพธ์เดิมเพียงค่าเดียวเสมอ ($f(a) = b$) คุณสมบัติความแน่นอนนี้ส่งผลให้ฟังก์ชันเป็นเครื่องมือพื้นฐานในการคำนวณและแปลงค่าข้อมูลในซอฟต์แวร์~\cite{epp2019discrete}
 
+ตัวอย่างกราฟของฟังก์ชันเชิงเส้น $y=2x+1$ แสดงให้เห็นว่าค่าอินพุตแต่ละค่าบนแกน $x$ ให้ผลลัพธ์เพียงค่าเดียวบนแกน $y$ ดังแสดงในรูปที่~\ref{fig:linear-function-graph}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{Figures/png_ready/linear-function-graph-generated.png}
+    \caption{กราฟตัวอย่างฟังก์ชันเชิงเส้น $y=2x+1$}
+    \label{fig:linear-function-graph}
+\end{figure}
+
 องค์ประกอบสำคัญของฟังก์ชันที่ผู้อ่านต้องทำความเข้าใจประกอบด้วย:
 \begin{enumerate}[label=\textbf{\arabic*.}]
     \item \textbf{โดเมน (Domain - $\mathcal{D}(f)$):} เซตของอินพุตที่เป็นไปได้ทั้งหมดที่ป้อนเข้าฟังก์ชันได้
@@ -334,13 +373,27 @@ $\therefore R_1$ เป็นฟังก์ชัน แต่ $R_2$ ไม่�
 \end{enumerate}
 \end{definition}
 
-ความแตกต่างของฟังก์ชันทั้งสามประเภทสังเกตได้จากรูปแบบของลูกศรที่ลากจากโดเมนไปยังโคโดเมน ฟังก์ชันหนึ่งต่อหนึ่งจะไม่มีสมาชิกใดในโคโดเมนที่รับลูกศรมากกว่าหนึ่งเส้น ฟังก์ชันทั่วถึงจะไม่มีสมาชิกใดในโคโดเมนที่ไม่ได้รับลูกศรเลย และฟังก์ชันหนึ่งต่อหนึ่งทั่วถึงจะมีลูกศรเข้าสู่สมาชิกทุกตัวของโคโดเมนพอดีหนึ่งเส้น ดังแสดงใน~\autoref{fig:function-types-thai}
+ความแตกต่างของฟังก์ชันทั้งสามประเภทสังเกตได้จากรูปแบบของลูกศรที่ลากจากโดเมนไปยังโคโดเมน ฟังก์ชันหนึ่งต่อหนึ่งจะไม่มีสมาชิกใดในโคโดเมนที่รับลูกศรมากกว่าหนึ่งเส้น ฟังก์ชันทั่วถึงจะไม่มีสมาชิกใดในโคโดเมนที่ไม่ได้รับลูกศรเลย และฟังก์ชันหนึ่งต่อหนึ่งทั่วถึงจะมีลูกศรเข้าสู่สมาชิกทุกตัวของโคโดเมนพอดีหนึ่งเส้น ภาพในรูปที่~\autoref{fig:function-types-visual} เรียงจากซ้ายไปขวาเป็นตัวอย่างของฟังก์ชันหนึ่งต่อหนึ่ง ฟังก์ชันทั่วถึง และฟังก์ชันหนึ่งต่อหนึ่งทั่วถึงตามลำดับ
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.68\textwidth]{Figures/png_ready/function-types-thai.png}
-    \caption{แผนภาพเปรียบเทียบลักษณะการจับคู่ของฟังก์ชันหนึ่งต่อหนึ่ง ฟังก์ชันทั่วถึง และฟังก์ชันหนึ่งต่อหนึ่งทั่วถึง}
-    \label{fig:function-types-thai}
+    \begin{minipage}[t]{0.30\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/png_ready/function-injective-generated.png}\\[-0.2em]
+        \small\textbf{หนึ่งต่อหนึ่ง}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.30\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/png_ready/function-surjective-generated.png}\\[-0.2em]
+        \small\textbf{ทั่วถึง}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.30\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/png_ready/function-bijective-generated.png}\\[-0.2em]
+        \small\textbf{หนึ่งต่อหนึ่งทั่วถึง}
+    \end{minipage}
+    \caption{ตัวอย่างรูปแบบการจับคู่ของฟังก์ชันสามชนิด}
+    \label{fig:function-types-visual}
 \end{figure}
 
 \begin{ex}
@@ -376,7 +429,7 @@ $\therefore f$ เป็นทั้งฟังก์ชันหนึ่ง�
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.62\textwidth]{Figures/png_ready/37-function-composition-manual.png}
+    \includegraphics[width=0.62\textwidth]{Figures/png_ready/37-function-composition-generated.png}
     \caption{แผนภาพแสดงการประกอบฟังก์ชัน $(g \circ f)(a) = g(f(a))$ ที่ส่งผ่านข้อมูลจากเซต $A$ ผ่าน $B$ ไปยัง $C$}
     \label{fig:function-composition}
 \end{figure}
@@ -454,6 +507,15 @@ h(108) &= 108 \bmod 11 = 9 \quad (108 = 9 \times 11 + 9)
 \label{sec:sequences-and-series}
 
 ในการเขียนโปรแกรมและการวิเคราะห์ประสิทธิภาพของอัลกอริทึม การประมวลผลมักทำงานซ้ำเป็นรอบผ่านคำสั่งวนลูป (Loop) \textbf{ลำดับ (Sequence)} ใช้แทนชุดข้อมูลหรือจำนวนรอบการทำงานที่เกิดขึ้นในแต่ละรอบของวนลูป โดยพจน์ที่ $n$ ระบุค่าของการทำงาน ณ รอบนั้น และเมื่อนำจำนวนรอบการทำงานในแต่ละรอบมาบวกสะสมกัน จะได้ \textbf{อนุกรม (Series)} ซึ่งใช้คำนวณภาระงานรวมทั้งหมดของโปรแกรม~\cite{kolman2008discrete}
+
+รูปที่~\ref{fig:sequence-partial-sum-graph} แสดงความแตกต่างระหว่างค่าพจน์ของลำดับที่พิจารณาเป็นจุดแยกกัน กับค่าผลรวมบางส่วนที่สะสมเพิ่มขึ้นตามจำนวนพจน์
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.78\textwidth]{Figures/png_ready/sequence-partial-sum-graph-generated.png}
+    \caption{กราฟแสดงพจน์ของลำดับและผลรวมบางส่วน}
+    \label{fig:sequence-partial-sum-graph}
+\end{figure}
 
 การคำนวณลำดับและอนุกรมแบ่งออกเป็น 2 รูปแบบหลักที่สอดคล้องกับโครงสร้างโปรแกรมดังนี้
 \begin{enumerate}[label=\textbf{\arabic*.}]

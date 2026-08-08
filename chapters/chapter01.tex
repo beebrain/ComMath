@@ -11,7 +11,7 @@
 
 ตรรกศาสตร์ คือ ศาสตร์ที่ศึกษาเกี่ยวกับการให้เหตุผล การคิดอย่างมีระบบ และหลักการสรุปผลที่ถูกต้องตามหลักเหตุผล โดยมีจุดมุ่งหมายสำคัญในการแยกแยะการให้เหตุผลที่สมเหตุสมผลออกจากข้อโต้แย้งที่มีข้อบกพร่อง การเข้าใจตรรกศาสตร์อย่างถ่องแท้ช่วยให้สามารถวิเคราะห์โครงสร้างของเงื่อนไข ตรวจสอบความถูกต้องของข้อสรุป และสร้างขั้นตอนวิธีที่มีความเสถียรได้~\cite{rosen2019discrete}
 
-ในทางประวัติศาสตร์ ตรรกศาสตร์มีรากฐานมาจากปรัชญากรีกโบราณ โดยอริสโตเติลเป็นผู้พัฒนาระบบตรรกศาสตร์เชิงรูปนัยเป็นครั้งแรก ผ่านการอ้างเหตุผลที่เรียกว่า ตรรกบท~\cite{aristotle_organon} ต่อมาในศตวรรษที่ 19 และ 20 ตรรกศาสตร์สัญลักษณ์ได้รับการพัฒนาอย่างก้าวกระโดดโดยนักคณิตศาสตร์ ได้แก่ George Boole~\cite{boole1854investigation}, Gottlob Frege~\cite{frege1879begriffsschrift}, และ Bertrand Russell~\cite{russell1910principia} จนกลายเป็นรากฐานของวิทยาการคอมพิวเตอร์ในปัจจุบัน
+ในทางประวัติศาสตร์ ตรรกศาสตร์มีรากฐานมาจากปรัชญากรีกโบราณ โดยอริสโตเติลเป็นผู้พัฒนาระบบตรรกศาสตร์เชิงรูปนัยเป็นครั้งแรก ผ่านการอ้างเหตุผลที่เรียกว่า ตรรกบท~\cite{rosen2019discrete} ต่อมาในศตวรรษที่ 19 และ 20 ตรรกศาสตร์สัญลักษณ์ได้รับการพัฒนาอย่างก้าวกระโดดโดยนักคณิตศาสตร์ ได้แก่ George Boole~\cite{mano2018digital}, Gottlob Frege~\cite{rosen2019discrete}, และ Bertrand Russell~\cite{rosen2019discrete} จนกลายเป็นรากฐานของวิทยาการคอมพิวเตอร์ในปัจจุบัน
 
 ในทางวิศวกรรมคอมพิวเตอร์ ตรรกศาสตร์นำไปประยุกต์ใช้ใน 3 ด้านหลัก ได้แก่ การออกแบบวงจรดิจิทัลที่ใช้ลอจิกเกตในการประมวลผลบิตข้อมูล การเขียนโปรแกรมที่ใช้โครงสร้างเงื่อนไขในการควบคุมลำดับการทำงาน และการตรวจสอบความถูกต้องของขั้นตอนวิธีเพื่อยืนยันว่าโปรแกรมทำงานได้ถูกต้องตามข้อกำหนด
 
@@ -70,8 +70,9 @@
 
 ตารางค่าความจริง เป็นเครื่องมือเชิงระบบที่ใช้แสดงค่าความจริงทั้งหมดที่เป็นไปได้ของประพจน์เชิงประกอบ โดยพิจารณาจากค่าความจริงของประพจน์ย่อยแต่ละตัว สำหรับประพจน์เชิงประกอบที่มี $n$ ตัวแปร จะมีกรณีที่เป็นไปได้ทั้งหมด $2^n$ กรณี ตารางที่~\ref{tab:connectives} สรุปค่าความจริงของตัวเชื่อมพื้นฐานทั้ง 5 ชนิดในทุกกรณี~\cite{velleman2019prove}
 
-\begin{table}[ht]
+\begin{table}[H]
     \centering
+    \small
     \caption{ตารางค่าความจริงของตัวเชื่อมประพจน์พื้นฐาน 5 ชนิด}
     \label{tab:connectives}
     \begin{tabular}{|c|c|c|c|c|c|c|}
@@ -106,12 +107,12 @@
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.80\textwidth]{Figures/png_ready/02-and-gate-circuit.png}
-    \caption{วงจรสวิตช์ไฟฟ้าแบบอนุกรม แสดงการทำงานของ $p \land q$}
+    \includegraphics[width=0.78\textwidth]{Figures/png_ready/02-and-gate-circuit.png}
+    \caption{การรวมค่าความจริงของ $p$ และ $q$ ด้วยประพจน์เชื่อม $p\land q$}
     \label{fig:and-gate-circuit}
 \end{figure}
 
-\noindent พิจารณาตัวอย่างค่าความจริงของการเชื่อมด้วยคำว่า ``และ'':
+\noindent พิจารณาตัวอย่างค่าความจริงของการเชื่อมด้วยคำว่า ``และ'' ดังต่อไปนี้
 \begin{align*}
 (2>1) \land (4<5) &\equiv \text{T} \land \text{T} \equiv \text{T}\\
 (2+2=5) \land (\text{คนปกติมี 6 ขา}) &\equiv \text{F} \land \text{F} \equiv \text{F}
@@ -144,7 +145,7 @@
     \label{fig:or-gate-circuit}
 \end{figure}
 
-\noindent พิจารณาตัวอย่างค่าความจริงของการเชื่อมด้วยคำว่า ``หรือ'':
+\noindent พิจารณาตัวอย่างค่าความจริงของการเชื่อมด้วยคำว่า ``หรือ'' ดังต่อไปนี้
 \begin{align*}
 (\text{ประเทศไทยอยู่ในทวีปยุโรป}) \lor (2+5>4) &\equiv \text{F} \lor \text{T} \equiv \text{T}\\
 (2+2=5) \lor (\text{คนปกติมี 6 ขา}) &\equiv \text{F} \lor \text{F} \equiv \text{F}
@@ -178,7 +179,7 @@
         \hline
         \textbf{$p$} & \textbf{$q$} & \textbf{$p \rightarrow q$} \\ \hline
         T & T & T \\ \hline
-        \rowcolor{lred}\textbf{T} & \textbf{F} & \textbf{F} \\ \hline
+        \cellcolor{lred}\textbf{T} & \cellcolor{lred}\textbf{F} & \cellcolor{lred}\textbf{F} \\ \hline
         F & T & T \\ \hline
         F & F & T \\ \hline
     \end{tabular}
@@ -211,7 +212,7 @@
 
 \bigskip
 
-\noindent พิจารณาตัวอย่างค่าความจริงของการเชื่อมด้วยคำว่า ``ก็ต่อเมื่อ'':
+\noindent พิจารณาตัวอย่างค่าความจริงของการเชื่อมด้วยคำว่า ``ก็ต่อเมื่อ'' ดังต่อไปนี้
 \begin{align*}
 (2+2=4) \leftrightarrow (3<5) &\equiv \text{T} \leftrightarrow \text{T} \equiv \text{T}\\
 (2+2=5) \leftrightarrow (\text{คนปกติมี 6 ขา}) &\equiv \text{F} \leftrightarrow \text{F} \equiv \text{T}\\
@@ -229,7 +230,7 @@ p \leftrightarrow q \equiv (p \rightarrow q) \land (q \rightarrow p)
 โดยที่ $p$ และ $q$ เป็นประพจน์ใดๆ, $\rightarrow$ คือตัวเชื่อมแบบถ้า...แล้วที่จะเท็จเพียงกรณีเดียวคือเมื่อเงื่อนไขนำเป็นจริงแต่เงื่อนไขตามเป็นเท็จ และ $\land$ คือตัวเชื่อมแบบและที่จะจริงเมื่อทั้งสองประพจน์เป็นจริง
 \end{prop}
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption{ตารางพิสูจน์ความสมมูลของ Biconditional}
     \label{tab:biconditional-equiv}
@@ -284,9 +285,9 @@ p \leftrightarrow q \equiv (p \rightarrow q) \land (q \rightarrow p)
 สัจนิรันดร์ (Tautology) คือ ประพจน์เชิงประกอบที่มีค่าความจริงเป็นจริงในทุกกรณีของการกำหนดค่าความจริงของตัวแปรย่อย
 \end{definition}
 
-ตัวอย่างที่ง่ายที่สุดของสัจนิรันดร์คือ $p \lor \neg p$ ซึ่งอ่านว่า $p$ หรือไม่ $p$ ประพจน์นี้เป็นจริงเสมอ เนื่องจากในทุกสถานการณ์ $p$ จะต้องเป็นจริงหรือเท็จอย่างใดอย่างหนึ่ง จึงทำให้ $p \lor \neg p$ เป็นจริงในทุกกรณี ผลลัพธ์นี้สอดคล้องกับกฎกีดกันกลาง (Law of Excluded Middle) ของอริสโตเติล~\cite{aristotle_organon} ซึ่งระบุว่าสำหรับทุกประพจน์ $p$ แล้ว $p$ หรือ $\neg p$ จะต้องเป็นจริงอย่างน้อยหนึ่งอย่าง
+ตัวอย่างที่ง่ายที่สุดของสัจนิรันดร์คือ $p \lor \neg p$ ซึ่งอ่านว่า $p$ หรือไม่ $p$ ประพจน์นี้เป็นจริงเสมอ เนื่องจากในทุกสถานการณ์ $p$ จะต้องเป็นจริงหรือเท็จอย่างใดอย่างหนึ่ง จึงทำให้ $p \lor \neg p$ เป็นจริงในทุกกรณี ผลลัพธ์นี้สอดคล้องกับกฎกีดกันกลาง (Law of Excluded Middle) ของอริสโตเติล~\cite{rosen2019discrete} ซึ่งระบุว่าสำหรับทุกประพจน์ $p$ แล้ว $p$ หรือ $\neg p$ จะต้องเป็นจริงอย่างน้อยหนึ่งอย่าง
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption{ตารางแสดงว่า $p \lor \neg p$ เป็นสัจนิรันดร์}
     \label{tab:tautology-law-excluded}
@@ -302,7 +303,7 @@ p \leftrightarrow q \equiv (p \rightarrow q) \land (q \rightarrow p)
 
 ตัวอย่างสัจนิรันดร์อื่นๆ ได้แก่ $p \rightarrow p$ ซึ่งหมายความว่าถ้า $p$ แล้ว $p$ ย่อมจริงเสมอ $p \leftrightarrow p$ ซึ่งหมายความว่า $p$ ก็ต่อเมื่อ $p$ และ $(p \land q) \rightarrow p$ ซึ่งหมายความว่าถ้า $p$ และ $q$ เป็นจริง แล้ว $p$ ย่อมจริง
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption{ตารางแสดงว่า $(p \land q) \rightarrow p$ เป็นสัจนิรันดร์}
     \label{tab:tautology-absorption}
@@ -347,7 +348,7 @@ a = 2c \ &\Rightarrow\ (2c)^2 = 2b^2 \ \Rightarrow\ b^2 = 2c^2 \quad (b^2 \text{
 
 หลักการนี้สอดคล้องกับกฎแห่งการไม่ขัดแย้ง (Law of Non-Contradiction) ซึ่งระบุว่า $p$ กับ $\neg p$ ไม่อาจเป็นจริงพร้อมกันได้ การเข้าใจข้อขัดแย้งมีความสำคัญในการพิสูจน์ทางคณิตศาสตร์ เนื่องจากเมื่อแสดงว่าข้อสันนิษฐานหนึ่งนำไปสู่ข้อขัดแย้ง ย่อมสรุปได้ว่าข้อสันนิษฐานนั้นต้องเป็นเท็จ
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption{ตารางแสดงว่า $p \land \neg p$ เป็นข้อขัดแย้ง}
     \label{tab:contradiction}
@@ -371,7 +372,7 @@ a = 2c \ &\Rightarrow\ (2c)^2 = 2b^2 \ \Rightarrow\ b^2 = 2c^2 \quad (b^2 \text{
 
 ประพจน์กลาง (Contingency) คือ ประพจน์เชิงประกอบที่มีค่าความจริงเป็นจริงบ้างและเป็นเท็จบ้าง ขึ้นอยู่กับค่าความจริงของตัวแปรย่อย กล่าวคือ ไม่เป็นสัจนิรันดร์ก็ไม่เป็นข้อขัดแย้ง แต่มีค่าความจริงขึ้นกับการกำหนดค่าของตัวแปรย่อย ประพจน์ส่วนใหญ่ในชีวิตประจำวันและในคณิตศาสตร์เป็นประพจน์กลาง~\cite{enderton2001logic}
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption{ตารางแสดงว่า $p \land q$ เป็นประพจน์กลาง}
     \label{tab:contingency-example}
@@ -410,7 +411,7 @@ a = 2c \ &\Rightarrow\ (2c)^2 = 2b^2 \ \Rightarrow\ b^2 = 2c^2 \quad (b^2 \text{
 
 กฎพีชคณิตของประพจน์เป็นชุดของความสมมูลพื้นฐานที่ใช้บ่อยในการลดรูปและพิสูจน์ทฤษฎีบทเชิงตรรกะ อันที่จริงกฎเหล่านี้เป็น \emph{กรณีรูปธรรม} ของกฎในพีชคณิตบูลีน (Boolean Algebra) ซึ่งเป็นโครงสร้างนามธรรมที่จะได้ศึกษาอย่างละเอียดใน\autoref{ch:boolean} (กฎชุดเดียวกันนี้ยังปรากฏในทฤษฎีเซตอีกด้วย ดังจะเห็นใน\autoref{ch:set}) ตารางที่ \ref{tab:propositional-laws} สรุปกฎที่สำคัญทั้งหมด~\cite{rosen2019discrete}
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption{กฎพีชคณิตของประพจน์ (โดยที่ $T$ แทนสัจนิรันดร์ และ $F$ แทนข้อขัดแย้ง)}
     \label{tab:propositional-laws}
@@ -472,7 +473,7 @@ a = 2c \ &\Rightarrow\ (2c)^2 = 2b^2 \ \Rightarrow\ b^2 = 2c^2 \quad (b^2 \text{
 
 ความสัมพันธ์ที่สำคัญที่สุดของประพจน์ทั้งสี่นี้คือ ประพจน์เงื่อนไขกับแย้งสลับที่สมมูลกันเสมอ ในขณะที่ส่วนกลับและผกผันก็สมมูลกันเสมอ แต่ประพจน์เงื่อนไขกับส่วนกลับ \textbf{ไม่สมมูล} กันโดยทั่วไป การสับสนระหว่างประพจน์เงื่อนไขกับส่วนกลับเป็นข้อผิดพลาดเชิงตรรกะที่พบบ่อย (เรียกว่า Affirming the Consequent)
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption{ตารางพิสูจน์ความสมมูลของประพจน์เงื่อนไขและแย้งสลับที่}
     \label{tab:contrapositive}
@@ -532,7 +533,7 @@ p \oplus q \equiv (p \lor q) \land \neg(p \land q) \equiv (p \land \neg q) \lor 
 
 รูปที่ \ref{fig:xor-logic} แสดงตารางค่าความจริงและสัญลักษณ์ของลอจิกเกต XOR ซึ่งให้ผลลัพธ์เป็นจริงเฉพาะเมื่ออินพุตทั้งสองต่างกัน
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption{ตารางค่าความจริงของ XOR ($p \oplus q$)}
     \label{tab:xor-truth}
@@ -571,7 +572,7 @@ p \downarrow q &\equiv \neg(p \lor q) \quad \text{(NOR, Peirce arrow)}
 \end{align*}
 \end{definition}
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \caption{ตารางค่าความจริงของ NAND และ NOR}
     \label{tab:nand-nor-truth}
@@ -587,7 +588,7 @@ p \downarrow q &\equiv \neg(p \lor q) \quad \text{(NOR, Peirce arrow)}
 
 ตารางที่ \ref{tab:nand-nor-truth} แสดงค่าความจริงของ NAND และ NOR สังเกตว่า NAND เป็นเท็จเพียงกรณีเดียวคือเมื่อ $p$ และ $q$ จริงทั้งคู่ ส่วน NOR เป็นจริงเพียงกรณีเดียวคือเมื่อ $p$ และ $q$ เท็จทั้งคู่
 
-ตัวอย่างการสร้าง NOT จาก NAND เพียงอย่างเดียว: $\neg p \equiv p \uparrow p$ เพราะ $p \uparrow p \equiv \neg(p \land p) \equiv \neg p$ และการสร้าง AND จาก NAND ทำได้โดย $p \land q \equiv (p \uparrow q) \uparrow (p \uparrow q)$ รายละเอียดของการประยุกต์เพิ่มเติมและการออกแบบวงจรลอจิกจะกล่าวถึงใน\autoref{ch:boolean} ว่าด้วยพีชคณิตบูลีน
+ตัวอย่างการสร้าง NOT จาก NAND เพียงอย่างเดียวมีดังนี้ $\neg p \equiv p \uparrow p$ เพราะ $p \uparrow p \equiv \neg(p \land p) \equiv \neg p$ และการสร้าง AND จาก NAND ทำได้โดย $p \land q \equiv (p \uparrow q) \uparrow (p \uparrow q)$ รายละเอียดของการประยุกต์เพิ่มเติมและการออกแบบวงจรลอจิกจะกล่าวถึงใน\autoref{ch:boolean} ว่าด้วยพีชคณิตบูลีน
 
 \section{ประพจน์เปิดและตัวบ่งปริมาณ (Predicates and Quantifiers)}
 \index{ตัวบ่งปริมาณ}
@@ -677,7 +678,7 @@ p \downarrow q &\equiv \neg(p \lor q) \quad \text{(NOR, Peirce arrow)}
     \renewcommand{\arraystretch}{1.4}
     \begin{tabular}{|c|l|}
         \hline
-        \rowcolor{navy}\color{white}\textbf{รูปสัญลักษณ์} & \color{white}\textbf{ตัวอย่าง} \\
+        \cellcolor{navy}\textcolor{white}{\textbf{รูปสัญลักษณ์}} & \cellcolor{navy}\textcolor{white}{\textbf{ตัวอย่าง}} \\
         \hline
         $\begin{array}{c}
             p \rightarrow q \\
@@ -792,7 +793,7 @@ p \downarrow q &\equiv \neg(p \lor q) \quad \text{(NOR, Peirce arrow)}
     \renewcommand{\arraystretch}{1.4}
     \begin{tabular}{|c|l|}
         \hline
-        \rowcolor{navy}\color{white}\textbf{รูปสัญลักษณ์} & \color{white}\textbf{ตัวอย่าง} \\
+        \cellcolor{navy}\textcolor{white}{\textbf{รูปสัญลักษณ์}} & \cellcolor{navy}\textcolor{white}{\textbf{ตัวอย่าง}} \\
         \hline
         $\begin{array}{c}
             p \rightarrow q \\
@@ -1048,7 +1049,7 @@ p \rightarrow q \equiv \neg p \lor q
 
 ตัวอย่างการพิสูจน์ พิสูจน์ว่า $p \rightarrow q$ และ $\neg p \lor q$ มีค่าความจริงเหมือนกัน (สมมูลกัน)
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
 \caption{ตารางพิสูจน์ว่า $p \rightarrow q \equiv \neg p \lor q$}
 \label{tab:implies-equiv-proof}

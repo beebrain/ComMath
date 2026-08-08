@@ -69,7 +69,17 @@
   \renewcommand{\subsubsectionautorefname}{หัวข้อที่}%
   \renewcommand{\figureautorefname}{ภาพที่}%
   \renewcommand{\tableautorefname}{ตารางที่}%
+  %% ป้องกันการรั่วของสี (Color Leak Protection): คืนค่าสีดำมาตรฐานเสมอ
+  \normalcolor
 }
+%% ป้องกันการรั่วของสีข้ามส่วนต่างๆ ของเอกสาร
+\pretocmd{\chapter}{\normalcolor}{}{}
+\pretocmd{\section}{\normalcolor}{}{}
+\pretocmd{\subsection}{\normalcolor}{}{}
+\pretocmd{\subsubsection}{\normalcolor}{}{}
+% ไม่รีเซ็ตสีอัตโนมัติหลัง tabular เพราะอาจทำให้ color stack ของ XeTeX ไม่สมดุล
+\AtEndEnvironment{table}{\normalcolor}
+\AtEndEnvironment{figure}{\normalcolor}
 \makeatother
 
 %% ==============================================================================
@@ -108,6 +118,8 @@
 \newtheorem{warning}[thrm]{คำเตือน}
 \newtheorem{prop}[thrm]{บทแทรก}
 \newtheorem{cor}[thrm]{บทสรุป}
+\newtheorem{law}[thrm]{กฎ}
+\newtheorem{principle}[thrm]{หลักการ}
 %% definition เป็น tcolorbox แถบหัวเข้ม (บทนิยาม X.Y: ชื่อ) ใน mathstyle.sty
 %% ใช้ตัวนับ defn ของตัวเอง รันเลขต่อกันในแต่ละบท (บทนิยาม 1.1, 1.2, ...) แยกจาก thrm
 %% อ้างอิงด้วย \label{def:...} + \autoref/\ref ได้เลขอัตโนมัติ
@@ -190,7 +202,6 @@
 	
 	%\include{acc}
 	\thispagestyle{empty}
-	\mbox{}
 	\tableofcontents
 	\listoftables
 	\listoffigures

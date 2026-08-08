@@ -3,69 +3,60 @@ name: commath-write-example
 description: Guide for writing mathematical examples, solutions, and step-by-step equations using the custom mathstyle.sty for the Computer Math textbook.
 ---
 
-# Writing Computer Math Examples
+# การเขียนตัวอย่างและวิธีทำในตำรา ComMath
 
-When the user asks you to write, format, or generate an example (ตัวอย่าง) and its solution (วิธีทำ) for the Computer Mathematics textbook, you MUST strictly follow these guidelines.
+เมื่อผู้ใช้ขอให้เขียน จัดรูปแบบ หรือสร้างตัวอย่าง (ตัวอย่างที่) และวิธีทำ
+สำหรับตำราคณิตศาสตร์สำหรับคอมพิวเตอร์ ให้ทำตามข้อกำหนดต่อไปนี้อย่างเคร่งครัด
 
-## 1. Core Environments
-Always use the `ex` environment for the problem statement and the `solution` environment for the answer. These are defined in `mathstyle.sty`.
+## 1. environment หลัก
+
+ใช้ `ex` สำหรับโจทย์ และ `solution` สำหรับวิธีทำ ทั้งคู่นิยามไว้ใน `mathstyle.sty`
+โจทย์ต้องระบุชื่อเรื่องในวงเล็บเหลี่ยมเสมอ
 
 ```latex
-\begin{ex}[ชื่อตัวอย่าง หรือ หัวข้อ]
-จงหาค่าของ ...
+\begin{ex}[การหาค่าความจริง]
+จงหาค่าความจริงของประพจน์ $(p \wedge q) \rightarrow p$
 \end{ex}
 
 \begin{solution}
-% เนื้อหาวิธีทำ
+...
 \end{solution}
 ```
 
-## 2. Step-by-Step Solutions (`solsteps`)
-For calculations, proofs, or logical deductions that require multiple steps, use the `solsteps` environment inside the `solution` block. 
-- It has been custom-styled to have **no bullet points** and **reduced line spacing** for a clean, modern look.
-- Use `\item` for each new step.
+## 2. วิธีทำต้องเป็นขั้นตอนคณิตศาสตร์ ไม่ใช่รายการ 1-2-3
+
+**ห้ามใช้ `solsteps`** environment นี้ถูกเลิกใช้และลบออกจากเล่มหมดแล้ว (ทั้งเล่ม = 0 จุด)
+เช่นเดียวกับ **`\mathoval` ที่ห้ามใช้** (ถูกตัดออก 61 จุดแล้ว)
+
+ให้เขียนวิธีทำด้วย `align*` จัดแนวเครื่องหมาย `=` `\equiv` หรือ `\Leftrightarrow`
+ให้ตรงกันในแนวตั้ง ปิดท้ายด้วย `\therefore` และ `\solhere` ซึ่งวางสัญลักษณ์
+$\blacksquare$ ไว้บนบรรทัดคำตอบ
 
 ```latex
 \begin{solution}
-\begin{solsteps}
-    \item จากสมการ $2x + 5 = 15$
-    \item นำ $5$ ไปลบทั้งสองข้าง: $2x = 15 - 5$
-    \item จะได้ $2x = 10$
-\end{solsteps}
+\begin{align*}
+(p \wedge q) \rightarrow p
+  &\equiv \neg(p \wedge q) \vee p       && \text{(นิยามของเงื่อนไข)} \\
+  &\equiv (\neg p \vee \neg q) \vee p   && \text{(กฎเดอมอร์แกน)} \\
+  &\equiv \mathrm{T}
+\end{align*}
+ดังนั้น ประพจน์นี้เป็นสัจนิรันดร์ \solhere
 \end{solution}
 ```
 
-## 3. Highlighting the Final Answer (`\mathoval`)
-Always wrap the final result equation in the custom `\mathoval{...}` command. This will draw a clean oval border around the final answer without relying on complex TikZ code.
+รูปแบบตามชนิดโจทย์ที่ใช้ทั้งเล่ม คือ ประเมินค่าความจริงใช้ `\equiv \mathrm{T}/\mathrm{F}$`
+การคำนวณหรือหาผลเซตใช้ `= \{...\}` พร้อมวงเล็บเหตุผลสั้นทางขวา การพิสูจน์ใช้โซ่ `\Leftrightarrow`
+การตรวจสมบัติเขียน `R = \{...\} \Rightarrow` แล้วตามด้วยสมบัติ ส่วนตัวอย่างเชิงคำอธิบาย
+ใช้ร้อยแก้วกระชับได้ แต่ต้องไม่ใช่รายการเลขข้อ
 
-```latex
-    \item ดังนั้นคำตอบคือ \mathoval{x = 5}
-```
+## 3. ห้ามพิมพ์อักษรไทยในโหมดคณิตศาสตร์
 
-## 4. CRITICAL: Thai Text in Math Mode
-**NEVER** type Thai characters directly inside math mode (e.g., `$ทด1$` or `$x_{พจน์}$`). This will cause a "Missing character" font error during XeLaTeX compilation.
-**ALWAYS** wrap Thai text inside math mode with `\text{...}`.
+XeLaTeX จะเรียกฟอนต์คณิต (cmmi10) ซึ่งไม่มีอักขระไทย ทำให้เกิด Missing character
+ต้องครอบด้วย `\text{...}` เสมอ เขียน `$x_{\text{รวม}} = 10$` ไม่ใช่ `$x_{รวม} = 10$`
 
-* **Incorrect:** $x_{รวม} = 10$
-* **Correct:** $x_{\text{รวม}} = 10$
+## 4. ข้อกำหนดร่วมของทั้งเล่ม
 
-## 5. End of Solution Formatting
-The `solution` environment automatically inserts a subtle horizontal gray line and a blank line spacing at the end. You **do not** need to manually add `\hrule`, `\rule`, or `\vspace` after the `\end{solution}`.
-
-## Full Example Template
-
-```latex
-\begin{ex}[การแก้สมการเชิงเส้น]
-จงหาค่าของ $x$ จากสมการ $2x + 5 = 15$
-\end{ex}
-
-\begin{solution}
-\begin{solsteps}
-    \item จากสมการ $2x + 5 = 15$
-    \item นำ $5$ ไปลบทั้งสองข้าง: $2x = 15 - 5$
-    \item จะได้ $2x = 10$
-    \item นำ $2$ ไปหารทั้งสองข้าง: $x = \frac{10}{2}$
-    \item ดังนั้นคำตอบคือ \mathoval{x = 5}
-\end{solsteps}
-\end{solution}
-```
+รายการย่อยใช้ `enumerate` ไม่ใช้ `itemize` เพราะต้องอ้างอิง "ตามข้อ 2" ได้
+ห้ามใช้ markdown `**...**` ใน `.tex` ให้ใช้ `\textbf{}` ห้ามใช้เครื่องหมาย `:`
+ในข้อความภาษาไทย และห้ามใช้คำว่า "มโนภาพ" หรือสำนวนเปรียบเทียบเชิงนวนิยาย
+ศัพท์เทคนิคเขียนไทยตัวหนาแล้วตามด้วยอังกฤษในวงเล็บเฉพาะครั้งแรกที่ปรากฏในบท

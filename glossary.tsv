@@ -1,0 +1,25 @@
+english	thai_used	orst_official	domain	decision	notes
+associative	กฎการเปลี่ยนหมู่	เปลี่ยนหมู่	math	adopt	ch1 เดิมใช้ "กฎเปลี่ยนกลุ่ม" ไม่ตรงกับ ch5
+commutative	กฎการสลับที่	สลับที่	math	adopt	ปรับรูปให้ตรงกับกฎอื่นในตารางเดียวกัน
+distributive	กฎการแจกแจง	—	math	keep	ราชบัณฑิตไม่มีข้อมูล เลือกให้ตรงรูปกับกฎอื่น
+absorption	กฎการดูดกลืน	การดูดกลืน	comp	adopt	ch6 ใช้อยู่แล้ว ch1 เดิมใช้ "กฎดูดกลืน"
+identity	กฎเอกลักษณ์	เอกลักษณ์	math	adopt
+negation	นิเสธ	นิเสธ	math	adopt
+tautology	สัจนิรันดร์	สัจนิรันดร์	math	adopt
+contradiction	ข้อขัดแย้ง	ข้อขัดแย้ง	math	adopt
+contingency	ประพจน์กลาง	—	math	keep	ราชบัณฑิตมีเฉพาะสาขาเศรษฐศาสตร์ คนละความหมาย
+proposition	ประพจน์	ประพจน์ / ทิฐบท	math	adopt
+truth table	ตารางค่าความจริง	ตารางค่าความจริง	math	adopt
+quantifier	ตัวบ่งปริมาณ	ตัวบ่งปริมาณ	math	adopt
+predicate	ภาคแสดง	เพรดิเคต	comp	keep	ตำราตรรกศาสตร์ไทยใช้ "ภาคแสดง" เป็นมาตรฐาน
+implication	ประพจน์มีเงื่อนไข	ประพจน์มีเงื่อนไข	math	adopt
+contrapositive	ประพจน์แย้งสลับที่	ประพจน์แย้งสลับที่	math	adopt
+converse	ประพจน์กลับ	—	math	keep	ราชบัณฑิตไม่มีข้อมูล
+inverse (proposition)	ประพจน์ผกผัน	ตัวผกผัน	math	keep	"ตัวผกผัน" ใช้กับตัวผกผันการคูณ ไม่ใช่ประพจน์
+canonical form	รูปแบบบัญญัติ	รูปแบบบัญญัติ	math	adopt	ch6 เดิมปนกับ "รูปแบบปกติ"
+cartesian product	ผลคูณคาร์ทีเซียน	ผลคูณคาร์ทีเซียน	math	adopt	ch2 เดิมมี "คาร์ทีเซียนพรอแดกต์" ปนอยู่
+complement	—	ส่วนเติมเต็ม	math	escalate	เล่มตั้ง "คอมพลีเมนต์" เป็นมาตรฐาน แต่ ch2 ปนกับ "ส่วนเติมเต็ม" รอผู้เขียนตัดสิน
+matrix	เมทริกซ์	เมทริกซ์ / แมทริกซ์	math	adopt
+cofactor	โคแฟกเตอร์	ตัวประกอบร่วมเกี่ยว	math	keep	ศัพท์ราชบัณฑิตเก่า ตำราสมัยใหม่ใช้ทับศัพท์
+hexadecimal	ฐานสิบหก	ฐานสิบหก / โสฬสนิยม	comp	adopt
+algorithm	ขั้นตอนวิธี	ขั้นตอนวิธี	math	adopt

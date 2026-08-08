@@ -49,7 +49,7 @@ Cantor เริ่มศึกษาทฤษฎีเซตจากปัญ�
 
 สัญลักษณ์ $\in$ มาจากอักษรกรีก epsilon ($\varepsilon$) ซึ่งคันทอร์นำมาใช้แทนความหมาย ``เป็นสมาชิกของ'' (element of) ข้อควรสังเกตคือความสัมพันธ์ $a \in A$ เป็นความสัมพันธ์ระหว่างวัตถุกับเซต ไม่ใช่ความสัมพันธ์ระหว่างเซตกับเซต~\cite{lipschutz1998settheory}
 
-\begin{ex}
+\begin{ex}[เซตในบริบทต่าง ๆ และสัญลักษณ์มาตรฐาน]
 พิจารณาตัวอย่างต่อไปนี้ซึ่งแสดงเซตในบริบทที่แตกต่างกัน
 
 \begin{enumerate}
@@ -65,7 +65,7 @@ Cantor เริ่มศึกษาทฤษฎีเซตจากปัญ�
 \end{ex}
 
 \begin{rem}
-\textbf{ความสัมพันธ์ระหว่างเซตของจำนวนต่าง ๆ:}
+ความสัมพันธ์ระหว่างเซตของจำนวนต่าง ๆ เป็นดังนี้
 \[
 \mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}
 \]
@@ -73,7 +73,7 @@ Cantor เริ่มศึกษาทฤษฎีเซตจากปัญ�
 \label{warn:number-sets}
 \end{rem}
 
-\begin{ex}
+\begin{ex}[การตรวจสอบการเป็นสมาชิกของเซต]
 จงพิจารณาว่าประโยคต่อไปนี้เป็นจริงหรือเท็จ พร้อมให้เหตุผลประกอบ
 \begin{enumerate}
     \item $3 \in \{1, 2, 3, 4, 5\}$
@@ -105,10 +105,10 @@ Cantor เริ่มศึกษาทฤษฎีเซตจากปัญ�
 
     \begin{enumerate}[leftmargin=2.5em,label=\arabic*.]
         \item $A = \{1, 2, 3\}$ แสดงเซตที่มีสมาชิกสามตัว $B = \{a, e, i, o, u\}$ แสดงเซตของสระในภาษาอังกฤษ สังเกตว่าลำดับไม่สำคัญ $\{a, e, i, o, u\} = \{e, a, i, o, u\}$ และไม่มีสมาชิกซ้ำ $\{1, 1, 2, 2, 3\} = \{1, 2, 3\}$
-        \item \textbf{การใช้ ... (ellipsis):} เมื่อเซตมีสมาชิกมากแต่มีรูปแบบที่ชัดเจน เช่น $\{1, 2, 3, \ldots, 100\}$ แสดงเซตของจำนวนเต็มตั้งแต่ 1 ถึง 100 ข้อควรระวัง: ต้องมีสมาชิกอย่างน้อย 2 ตัวก่อน ellipsis เพื่อให้ผู้อ่านเข้าใจรูปแบบ
+        \item \textbf{การใช้ ... (ellipsis):} เมื่อเซตมีสมาชิกมากแต่มีรูปแบบที่ชัดเจน เช่น $\{1, 2, 3, \ldots, 100\}$ แสดงเซตของจำนวนเต็มตั้งแต่ 1 ถึง 100 ข้อควรระวังคือต้องเขียนสมาชิกอย่างน้อย 2 ตัวก่อนจุดไข่ปลา เพื่อให้ผู้อ่านเข้าใจรูปแบบ
     \end{enumerate}
 
-    \item \textbf{แจกแจงโดยกำหนดคุณสมบัติ (Set-builder Notation)} คือการเขียนในรูป $\{x \mid \text{เงื่อนไขที่ } x \text{ ต้อง satisfy}\}$ วิธีนี้เหมาะกับเซตที่มีจำนวนสมาชิกมากหรืออนันต์ พิจารณาตัวอย่างต่อไปนี้
+    \item \textbf{แจกแจงโดยกำหนดคุณสมบัติ (Set-builder Notation)} คือการเขียนในรูป $\{x \mid \text{เงื่อนไขที่ } x \text{ ต้องสอดคล้อง}\}$ วิธีนี้เหมาะกับเซตที่มีจำนวนสมาชิกมากหรืออนันต์ พิจารณาตัวอย่างต่อไปนี้
     \begin{enumerate}[leftmargin=2.5em,label=\arabic*.]
         \item $A = \{x \in \mathbb{Z} \mid x > 0\}$. เซตนี้คือเซตของจำนวนเต็มบวก เขียนแบบย่อได้เป็น $\mathbb{Z}^+$
         \item $B = \{n^2 \mid n \in \mathbb{N} \text{ และ } n < 5\} = \{0, 1, 4, 9, 16\}$. สมาชิกของเซตนี้คือกำลังสองของจำนวนนับที่น้อยกว่า 5
@@ -120,7 +120,7 @@ Cantor เริ่มศึกษาทฤษฎีเซตจากปัญ�
 \end{enumerate}
 
 \begin{rem}
-\textbf{คุณสมบัติสำคัญของเซต:}
+เซตมีคุณสมบัติสำคัญสองประการดังนี้
 \begin{enumerate}
     \item ไม่มีลำดับ (Unordered) คือลำดับของสมาชิกไม่สำคัญ $\{1, 2\} = \{2, 1\}$ หากต้องการลำดับ ต้องใช้ tuple หรือ sequence แทน
     \item ไม่มีสมาชิกซ้ำ (No Duplicates) คือ $\{1, 1, 2\} = \{1, 2\}$ หากต้องซ้ำ ต้องใช้ multiset หรือ list แทน
@@ -147,15 +147,22 @@ Cantor เริ่มศึกษาทฤษฎีเซตจากปัญ�
 
 \begin{rem}[ข้อสังเกตเกี่ยวกับเซตว่าง]
 \index{เซตว่าง!ข้อสังเกต}
-ความเข้าใจผิดที่พบบ่อยเกี่ยวกับเซตว่าง:
+ความเข้าใจผิดที่พบบ่อยเกี่ยวกับเซตว่างมีสองเรื่องดังนี้
 \begin{enumerate}[label=\textbf{\arabic*.},leftmargin=1.5em,itemsep=0.3em]
     \item \textbf{ความแตกต่างของสัญลักษณ์:} $\emptyset$ คือเซตที่ไม่มีสมาชิกเลย ($|\emptyset| = 0$) แต่ $\{\emptyset\}$ คือเซตที่มีสมาชิก 1 ตัว คือ $\emptyset$ ($|\{\emptyset\}| = 1$) ดังนั้น $\emptyset \neq \{\emptyset\} \neq \{\{\emptyset\}\}$
     \item \textbf{ความแตกต่างระหว่างสมาชิกกับเซตย่อย:} $\emptyset \in \{\emptyset\}$ เป็นจริง เพราะ $\emptyset$ เป็นสมาชิกของ $\{\emptyset\}$ และ $\emptyset \subseteq \{\emptyset\}$ ก็เป็นจริงด้วย (เซตว่างเป็นเซตย่อยของทุกเซต) แสดงว่า $\in$ (เป็นสมาชิก) และ $\subseteq$ (เป็นเซตย่อย) เป็นความสัมพันธ์ที่ต่างกัน แต่สามารถเป็นจริงทั้งคู่พร้อมกันได้
 \end{enumerate}
 \end{rem}
 
-\begin{ex}
-เพื่อเข้าใจความแตกต่างระหว่าง $\in$ และ $\subseteq$: $1 \in \{1, 2, 3\}$ ถูกต้อง แต่ $\{1\} \in \{1, 2, 3\}$ ไม่ถูกต้อง ส่วน $\{1\} \subseteq \{1, 2, 3\}$ ถูกต้องเพราะทุกสมาชิกของ $\{1\}$ (คือ 1) อยู่ใน $\{1, 2, 3\}$ และ $\emptyset \subseteq \{1, 2, 3\}$ ถูกต้อง (เซตว่างเป็นเซตย่อยของทุกเซต) แต่ $\emptyset \in \{1, 2, 3\}$ ไม่ถูกต้อง สรุปคือ $\in$ และ $\subseteq$ เป็นความสัมพันธ์ที่ต่างกันแต่สามารถเป็นจริงทั้งคู่พร้อมกันได้ และในชีวิตจริง: ฐานข้อมูลนักศึกษา $U$ = นักศึกษาทั้งหมด, $A$ = นักศึกษาคณิตศาสตร์, $B$ = นักศึกษาฟิสิกส์ แล้ว $A \cap B$ = นักศึกษาที่เรียนทั้งสองวิชา
+\begin{ex}[การแยกความแตกต่างระหว่างการเป็นสมาชิกกับการเป็นเซตย่อย]
+จงพิจารณาว่าข้อความต่อไปนี้เป็นจริงหรือเท็จ พร้อมให้เหตุผล
+\begin{enumerate}
+    \item $1 \in \{1, 2, 3\}$
+    \item $\{1\} \in \{1, 2, 3\}$
+    \item $\{1\} \subseteq \{1, 2, 3\}$
+    \item $\emptyset \subseteq \{1, 2, 3\}$
+    \item $\emptyset \in \{1, 2, 3\}$
+\end{enumerate}
 \end{ex}
 \begin{solution}
 \begin{align*}
@@ -165,7 +172,7 @@ Cantor เริ่มศึกษาทฤษฎีเซตจากปัญ�
 \emptyset \subseteq \{1,2,3\} &\equiv \text{T} \quad (\text{เซตว่างเป็นเซตย่อยของทุกเซต})\\
 \emptyset \in \{1,2,3\} &\equiv \text{F}
 \end{align*}
-สรุปว่า $\in$ (เป็นสมาชิก) และ $\subseteq$ (เป็นเซตย่อย) เป็นความสัมพันธ์ต่างกัน แต่เป็นจริงพร้อมกันได้ เช่น $1 \in \{1\}$ และ $\{1\} \subseteq \{1\}$ \solhere
+หลักที่ใช้แยกสองความสัมพันธ์นี้คือ $\in$ เปรียบเทียบวัตถุกับเซต ส่วน $\subseteq$ เปรียบเทียบเซตกับเซต ข้อ 2 จึงเป็นเท็จ เพราะสมาชิกของ $\{1,2,3\}$ คือจำนวน 1, 2 และ 3 ไม่ใช่เซต $\{1\}$ ขณะที่ข้อ 3 เป็นจริงเพราะสมาชิกทุกตัวของ $\{1\}$ อยู่ใน $\{1,2,3\}$ ทั้งสองความสัมพันธ์เป็นจริงพร้อมกันได้ในบางกรณี เช่น $1 \in \{1\}$ และ $\{1\} \subseteq \{1\}$ \solhere
 \end{solution}
 
 \section{ความสัมพันธ์ระหว่างเซต}
@@ -181,27 +188,34 @@ Cantor เริ่มศึกษาทฤษฎีเซตจากปัญ�
 เซต $A$ เป็นเซตย่อยของเซต $B$ เขียนแทนด้วย $A \subseteq B$ ก็ต่อเมื่อทุกสมาชิกของ $A$ เป็นสมาชิกของ $B$ กล่าวคือ $\forall x, (x \in A \rightarrow x \in B)$ นอกจากนี้ $\emptyset \subseteq A$ และ $A \subseteq A$ สำหรับทุกเซต $A$ เซต $A$ และ $B$ เท่ากันก็ต่อเมื่อ $A \subseteq B$ และ $B \subseteq A$ ส่วน $A \subseteq B$ และ $B \not\subseteq A$ หมายถึง $A \subsetneq B$ หรือ $A$ เป็นเซตย่อยแท้ของ $B$ ตัวอย่างเช่น $\{1, 2\} \subsetneq \{1, 2, 3\}$ เพราะ $\{1, 2\} \subseteq \{1, 2, 3\}$ แต่ $\{1, 2, 3\} \not\subseteq \{1, 2\}$
 \end{definition}
 
-\begin{ex}
-$\{1, 2\} \subseteq \{1, 2, 3\}$ ถูกต้องเพราะ 1 และ 2 ต่างก็อยู่ใน $\{1, 2, 3\}$ และ $\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}$ เป็นความจริงพื้นฐานที่แสดงความสัมพันธ์ระหว่างเซตของจำนวน $\emptyset \subseteq \{1, 2\}$ ถูกต้องเพราะเซตว่างเป็นเซตย่อยของทุกเซต ส่วน $\{1, 2\} \not\subseteq \{2, 3\}$ ไม่ถูกต้องเพราะ $1 \in \{1, 2\}$ แต่ $1 \notin \{2, 3\}$
+\begin{ex}[การตรวจสอบความเป็นเซตย่อย]
+จงพิจารณาว่าข้อความต่อไปนี้เป็นจริงหรือเท็จ พร้อมให้เหตุผล
+\begin{enumerate}
+    \item $\{1, 2\} \subseteq \{1, 2, 3\}$
+    \item $\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}$
+    \item $\emptyset \subseteq \{1, 2\}$
+    \item $\{1, 2\} \not\subseteq \{2, 3\}$
+\end{enumerate}
 \end{ex}
 
 \begin{solution}
+ตรวจทีละข้อโดยไล่ดูว่าสมาชิกทุกตัวของเซตทางซ้ายอยู่ในเซตทางขวาหรือไม่
 \begin{align*}
 \{1,2\} \subseteq \{1,2,3\} &\equiv \text{T} \quad (1,2 \in \{1,2,3\})\\
 \mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R} &\equiv \text{T}\\
-\emptyset \subseteq \{1,2\} &\equiv \text{T}\\
-\{1,2\} \not\subseteq \{2,3\} &\equiv \text{T} \quad (1 \in \{1,2\},\ 1 \notin \{2,3\})
+\emptyset \subseteq \{1,2\} &\equiv \text{T} \quad (\text{เซตว่างเป็นเซตย่อยของทุกเซต})\\
+\{1,2\} \not\subseteq \{2,3\} &\equiv \text{T} \quad (1 \in \{1,2\} \text{ แต่ } 1 \notin \{2,3\})
 \end{align*}
-\solhere
+ข้อ 4 ต้องอ่านให้ตรงว่าข้อความที่ถามคือ ``$\{1,2\}$ ไม่เป็นเซตย่อยของ $\{2,3\}$'' ซึ่งเป็นจริง เพราะพบสมาชิกอย่างน้อยหนึ่งตัวที่ขัดเงื่อนไข การหักล้างความเป็นเซตย่อยจึงต้องการตัวอย่างค้านเพียงตัวเดียวเท่านั้น \solhere
 \end{solution}
 
 \begin{principle}
-ในการพิสูจน์ว่า $A = B$ เราต้องพิสูจน์ทั้ง $A \subseteq B$ และ $B \subseteq A$ นั่นคือต้องแสดงว่า: (1) ทุก $x \in A \Rightarrow x \in B$ (แสดง $A \subseteq B$) และ (2) ทุก $x \in B \Rightarrow x \in A$ (แสดง $B \subseteq A$) วิธีนี้เรียกว่า ``proof by double inclusion'' เป็นเทคนิคมาตรฐานในการพิสูจน์ความเท่ากันของเซต
+ในการพิสูจน์ว่า $A = B$ เราต้องพิสูจน์ทั้ง $A \subseteq B$ และ $B \subseteq A$ นั่นคือต้องแสดงสองข้อ ข้อแรก ทุก $x \in A \Rightarrow x \in B$ (แสดง $A \subseteq B$) และข้อที่สอง ทุก $x \in B \Rightarrow x \in A$ ซึ่งแสดงว่า $B \subseteq A$ วิธีนี้เรียกว่าการพิสูจน์ด้วยการบรรจุสองทาง (double inclusion) เป็นเทคนิคมาตรฐานในการพิสูจน์ความเท่ากันของเซต
 \label{thrm:double-inclusion}
 \end{principle}
 
-\begin{ex}
-พิสูจน์ว่า $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ (Distributive Law)
+\begin{ex}[การพิสูจน์กฎการแจกแจงของเซต]
+พิสูจน์ว่า $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ (กฎการแจกแจง)
 \end{ex}
 \begin{solution}
 พิสูจน์แบบสมาชิก โดยแสดงว่า $x$ อยู่ในเซตด้านซ้ายก็ต่อเมื่ออยู่ในเซตด้านขวา
@@ -236,24 +250,30 @@ $\therefore A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ \solhere
 
 สมาชิกจะเข้ามาอยู่ในผลลัพธ์ก็ต่อเมื่อมันอยู่ใน $A$ หรืออยู่ใน $B$ อย่างน้อยหนึ่งเซต และสมาชิกที่อยู่ทั้งสองเซตจะปรากฏในผลลัพธ์เพียงครั้งเดียว เพราะเซตไม่มีสมาชิกซ้ำ ยูเนียนมีสมบัติสำคัญดังนี้
 \begin{enumerate}
-    \item $A \cup A = A$ (Idempotent Law)
-    \item $A \cup \emptyset = A$ (Identity Law)
-    \item $A \cup U = U$ (Domination Law)
-    \item $A \cup B = B \cup A$ (Commutative Law)
-    \item $(A \cup B) \cup C = A \cup (B \cup C)$ (Associative Law)
+    \item $A \cup A = A$ (กฎนิจพล)
+    \item $A \cup \emptyset = A$ (กฎเอกลักษณ์)
+    \item $A \cup U = U$ (กฎครอบงำ)
+    \item $A \cup B = B \cup A$ (กฎการสลับที่)
+    \item $(A \cup B) \cup C = A \cup (B \cup C)$ (กฎการเปลี่ยนหมู่)
 \end{enumerate}
 นอกจากนี้ยังได้ว่า $A \subseteq A \cup B$ และ $B \subseteq A \cup B$ สำหรับทุกเซต $A$, $B$, $C$
 
-\begin{ex}
-พิจารณาตัวอย่างต่อไปนี้เพื่อเข้าใจ union: $\{1, 2\} \cup \{2, 3\} = \{1, 2, 3\}$ --- สังเกตว่า 2 อยู่ทั้งสองเซต แต่ในผลลัพธ์ 2 ปรากฏเพียงครั้งเดียว $\{1, 2\} \cup \emptyset = \{1, 2\}$ --- union กับเซตว่างไม่เปลี่ยนเซตเดิม $\{x \mid x \text{ เป็นจำนวนคู่}\} \cup \{x \mid x \text{ เป็นจำนวนคี่}\} = \mathbb{Z}$ --- ทุกจำนวนเต็มเป็นได้ทั้งคู่หรือคี่อย่างใดอย่างหนึ่ง $A \cup A = A$ และ $A \cup B = B \cup A$ แสดงสมบัติ idempotent และ commutative ตามลำดับ
+\begin{ex}[การหายูเนียนในกรณีต่าง ๆ]
+จงหาผลของยูเนียนต่อไปนี้ พร้อมระบุสมบัติที่แต่ละข้อแสดงให้เห็น
+\begin{enumerate}
+    \item $\{1, 2\} \cup \{2, 3\}$
+    \item $\{1, 2\} \cup \emptyset$
+    \item $\{x \mid x \text{ เป็นจำนวนคู่}\} \cup \{x \mid x \text{ เป็นจำนวนคี่}\}$
+    \item $A \cup A$ และ $A \cup B$ เทียบกับ $B \cup A$
+\end{enumerate}
 \end{ex}
 \begin{solution}
 \begin{align*}
 \{1,2\} \cup \{2,3\} &= \{1,2,3\} \quad (2 \text{ อยู่ทั้งสองเซต ปรากฏครั้งเดียว})\\
-\{1,2\} \cup \emptyset &= \{1,2\} \quad (\text{Identity Law})\\
+\{1,2\} \cup \emptyset &= \{1,2\} \quad (\text{กฎเอกลักษณ์})\\
 \{x \mid x \text{ คู่}\} \cup \{x \mid x \text{ คี่}\} &= \mathbb{Z}\\
-A \cup A &= A \quad (\text{Idempotent Law})\\
-A \cup B &= B \cup A \quad (\text{Commutative Law})
+A \cup A &= A \quad (\text{กฎนิจพล})\\
+A \cup B &= B \cup A \quad (\text{กฎการสลับที่})
 \end{align*}
 \solhere
 \end{solution}
@@ -283,7 +303,7 @@ A \cup B &= \{1,2,3,4\} \cup \{3,4,5,6\}\\
 รูปที่ \ref{fig:venn-union} แสดงแผนภาพเวนน์ของยูเนียน $A \cup B$ โดยพื้นที่ที่แรเงาคือผลลัพธ์ของการรวมเซต $A$ และเซต $B$
 
 \subsection{อินเตอร์เซกชัน (Intersection)}
-อินเตอร์เซกชัน (Intersection) คือเซตของสมาชิกที่อยู่ในทั้งสองเซต การที่ $x \in A \cap B$ หมายความว่า $x$ เป็นสมาชิกของ $A$ และเป็นสมาชิกของ $B$ ในทางตรรกศาสตร์สอดคล้องกับตัวเชื่อม ``และ'' (AND) ถ้า $A \cap B = \emptyset$ จะเรียก $A$ และ $B$ ว่า \textbf{เซตไม่ทับซ้อน (Disjoint Sets)}~\cite{rosen2019discrete}
+อินเตอร์เซกชัน (Intersection) คือเซตของสมาชิกที่อยู่ในทั้งสองเซต การที่ $x \in A \cap B$ หมายความว่า $x$ เป็นสมาชิกของ $A$ และเป็นสมาชิกของ $B$ ในทางตรรกศาสตร์สอดคล้องกับตัวเชื่อม ``และ'' (AND) ถ้า $A \cap B = \emptyset$ จะเรียก $A$ และ $B$ ว่า \textbf{เซตไม่มีสมาชิกร่วม (Disjoint Sets)}~\cite{rosen2019discrete}
 
 \begin{definition}[อินเตอร์เซกชัน]
 \index{อินเตอร์เซกชัน!นิยาม}
@@ -293,21 +313,27 @@ A \cup B &= \{1,2,3,4\} \cup \{3,4,5,6\}\\
 
 อินเตอร์เซกชันมีสมบัติสำคัญดังนี้
 \begin{enumerate}
-    \item $A \cap A = A$ (Idempotent Law)
-    \item $A \cap \emptyset = \emptyset$ (Domination Law)
-    \item $A \cap U = A$ (Identity Law)
-    \item $A \cap B = B \cap A$ (Commutative Law)
-    \item $(A \cap B) \cap C = A \cap (B \cap C)$ (Associative Law)
+    \item $A \cap A = A$ (กฎนิจพล)
+    \item $A \cap \emptyset = \emptyset$ (กฎครอบงำ)
+    \item $A \cap U = A$ (กฎเอกลักษณ์)
+    \item $A \cap B = B \cap A$ (กฎการสลับที่)
+    \item $(A \cap B) \cap C = A \cap (B \cap C)$ (กฎการเปลี่ยนหมู่)
 \end{enumerate}
 นอกจากนี้ยังได้ว่า $A \cap B \subseteq A$ และ $A \cap B \subseteq B$
 
-\begin{ex}
-$\{1, 2\} \cap \{2, 3\} = \{2\}$ --- 2 เป็นสมาชิกเพียงตัวเดียวที่อยู่ทั้งสองเซต $\{1, 2\} \cap \{3, 4\} = \emptyset$ --- ไม่มีสมาชิกใดที่อยู่ทั้งสองเซตจึงเป็น disjoint $\mathbb{Z} \cap \mathbb{R} = \mathbb{Z}$ เพราะทุกจำนวนเต็มเป็นจำนวนจริง และ $\{x \mid x \text{ เป็นจำนวนคู่}\} \cap \{x \mid x \text{ เป็นจำนวนคี่}\} = \emptyset$ เพราะไม่มีจำนวนใดเป็นได้ทั้งคู่และคี่พร้อมกัน
+\begin{ex}[การหาอินเตอร์เซกชันในกรณีต่าง ๆ]
+จงหาผลของอินเตอร์เซกชันต่อไปนี้ พร้อมระบุว่าคู่ใดเป็นเซตไม่มีสมาชิกร่วม
+\begin{enumerate}
+    \item $\{1, 2\} \cap \{2, 3\}$
+    \item $\{1, 2\} \cap \{3, 4\}$
+    \item $\mathbb{Z} \cap \mathbb{R}$
+    \item $\{x \mid x \text{ เป็นจำนวนคู่}\} \cap \{x \mid x \text{ เป็นจำนวนคี่}\}$
+\end{enumerate}
 \end{ex}
 \begin{solution}
 \begin{align*}
 \{1,2\} \cap \{2,3\} &= \{2\} \quad (2 \text{ อยู่ทั้งสองเซต})\\
-\{1,2\} \cap \{3,4\} &= \emptyset \quad (\text{disjoint})\\
+\{1,2\} \cap \{3,4\} &= \emptyset \quad (\text{เซตไม่มีสมาชิกร่วม})\\
 \mathbb{Z} \cap \mathbb{R} &= \mathbb{Z} \quad (\mathbb{Z} \subseteq \mathbb{R})\\
 \{x \mid x \text{ คู่}\} \cap \{x \mid x \text{ คี่}\} &= \emptyset
 \end{align*}
@@ -317,7 +343,7 @@ $\{1, 2\} \cap \{2, 3\} = \{2\}$ --- 2 เป็นสมาชิกเพี�
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.62\textwidth]{Figures/png_ready/12-venn-disjoint-generated.png}
-    \caption{แผนภาพแสดงเซตไม่ทับซ้อน เมื่อ $A\cap B=\emptyset$}
+    \caption{แผนภาพแสดงเซตไม่มีสมาชิกร่วม เมื่อ $A\cap B=\emptyset$}
     \label{fig:venn-disjoint}
 \end{figure}
 
@@ -331,7 +357,7 @@ $\{1, 2\} \cap \{2, 3\} = \{2\}$ --- 2 เป็นสมาชิกเพี�
 A \cap B &= \{2,4,6,8,10\} \cap \{3,6,9,12\}\\
          &= \{6\}
 \end{align*}
-มีเพียง 6 ที่อยู่ทั้งสองเซต สมาชิกตัวอื่นไม่เป็นสมาชิกร่วม (ถ้า $A \cap B = \emptyset$ จะเรียกว่าเซตแยกกัน)
+มีเพียง 6 ที่อยู่ทั้งสองเซต สมาชิกตัวอื่นไม่เป็นสมาชิกร่วม (ถ้า $A \cap B = \emptyset$ จะเรียกว่าเซตไม่มีสมาชิกร่วม)
 \label{ex:intersection-step-by-step}
 \solhere
 \end{solution}
@@ -346,23 +372,23 @@ A \cap B &= \{2,4,6,8,10\} \cap \{3,6,9,12\}\\
 รูปที่ \ref{fig:venn-intersection} แสดงอินเตอร์เซกชัน $A \cap B$ โดยพื้นที่ที่แรเงาคือส่วนที่ทับซ้อนกันของเซต $A$ และเซต $B$ ซึ่งเป็นสมาชิกที่อยู่ทั้งสองเซต
 
 \begin{law}[กฎพีชคณิตของการดำเนินการกับเซต (Algebraic Laws for Set Operations)]
-สำหรับเซต $A, B, C$ ใดๆ ใน universal set $U$ การดำเนินการระหว่างเซตมีสมบัติดังต่อไปนี้
+สำหรับเซต $A, B, C$ ใดๆ ในเอกภพสัมพัทธ์ $U$ การดำเนินการระหว่างเซตมีสมบัติดังต่อไปนี้
 
 \begin{enumerate}
-    \item Idempotent Laws $A \cup A = A$ และ $A \cap A = A$
-    \item Identity Laws $A \cup \emptyset = A$ และ $A \cap U = A$
-    \item Domination Laws $A \cup U = U$ และ $A \cap \emptyset = \emptyset$
-    \item Commutative Laws $A \cup B = B \cup A$ และ $A \cap B = B \cap A$
-    \item Associative Laws $(A \cup B) \cup C = A \cup (B \cup C)$ และ $(A \cap B) \cap C = A \cap (B \cap C)$
-    \item Distributive Laws $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ และ $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
-    \item Absorption Laws $A \cup (A \cap B) = A$ และ $A \cap (A \cup B) = A$
-    \item Complement Laws $A \cup A^c = U$, $A \cap A^c = \emptyset$, $(A^c)^c = A$, $\emptyset^c = U$, และ $U^c = \emptyset$
+    \item กฎนิจพล (Idempotent Laws) $A \cup A = A$ และ $A \cap A = A$
+    \item กฎเอกลักษณ์ (Identity Laws) $A \cup \emptyset = A$ และ $A \cap U = A$
+    \item กฎครอบงำ (Domination Laws) $A \cup U = U$ และ $A \cap \emptyset = \emptyset$
+    \item กฎการสลับที่ (Commutative Laws) $A \cup B = B \cup A$ และ $A \cap B = B \cap A$
+    \item กฎการเปลี่ยนหมู่ (Associative Laws) $(A \cup B) \cup C = A \cup (B \cup C)$ และ $(A \cap B) \cap C = A \cap (B \cap C)$
+    \item กฎการแจกแจง (Distributive Laws) $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ และ $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+    \item กฎการดูดกลืน (Absorption Laws) $A \cup (A \cap B) = A$ และ $A \cap (A \cup B) = A$
+    \item กฎคอมพลีเมนต์ (Complement Laws) $A \cup A^c = U$, $A \cap A^c = \emptyset$, $(A^c)^c = A$, $\emptyset^c = U$, และ $U^c = \emptyset$
 \end{enumerate}
 \label{thrm:set-algebraic-laws}
 \end{law}
 
-\begin{ex}
-การพิสูจน์ Absorption Law $A \cup (A \cap B) = A$ โดย double inclusion
+\begin{ex}[การพิสูจน์กฎการดูดกลืน]
+จงพิสูจน์กฎการดูดกลืน $A \cup (A \cap B) = A$ โดยใช้การพิสูจน์แบบสมาชิก
 \label{ex:absorption-proof}
 \end{ex}
 \begin{solution}
@@ -396,7 +422,7 @@ $\therefore A \cup (A \cap B) = A$ \solhere
 
 ในทางตรรกศาสตร์ผลต่างสอดคล้องกับ ``$A$ และไม่ $B$'' และโดยทั่วไป $A - B \neq B - A$ กล่าวคือผลต่างไม่มีสมบัติสลับที่ ตัวอย่างเช่น $\{1, 2\} - \{2, 3\} = \{1\}$ ในขณะที่ $\{2, 3\} - \{1, 2\} = \{3\}$
 
-\begin{ex}
+\begin{ex}[การหาผลต่างของเซต]
 จงหาผลต่างของเซตต่อไปนี้
 \begin{enumerate}
     \item $\{1, 2, 3\} - \{2, 4\}$
@@ -416,7 +442,7 @@ $\therefore A \cup (A \cap B) = A$ \solhere
 \end{solution}
 
 \begin{rem}
-การประยุกต์: ให้ $U$ เป็นเซตของนักศึกษาทั้งหมด และ $A$ เป็นเซตของนักศึกษาที่สอบผ่าน แล้ว $U - A$ คือเซตของนักศึกษาที่สอบตก
+ตัวอย่างการนำไปใช้ ให้ $U$ เป็นเซตของนักศึกษาทั้งหมด และ $A$ เป็นเซตของนักศึกษาที่สอบผ่าน แล้ว $U - A$ คือเซตของนักศึกษาที่สอบตก
 \end{rem}
 
 \begin{ex}[การหาผลต่างของเซต]
@@ -455,25 +481,36 @@ $b$ และ $d$ ถูกนำออกเพราะอยู่ใน $B$;
 
 คอมพลีเมนต์มีสมบัติสำคัญดังนี้
 \begin{enumerate}
-    \item $A \cup A^c = U$ (Complement Law)
-    \item $A \cap A^c = \emptyset$ (Non-Contradiction Law)
-    \item $(A^c)^c = A$ (Double Complement Law)
-    \item $A - B = A \cap B^c$ (Set Difference as Intersection with Complement)
+    \item $A \cup A^c = U$ (กฎคอมพลีเมนต์)
+    \item $A \cap A^c = \emptyset$ (กฎการไม่ขัดแย้ง)
+    \item $(A^c)^c = A$ (กฎคอมพลีเมนต์ซ้อน)
+    \item $A - B = A \cap B^c$ (ผลต่างในรูปอินเตอร์เซกชันกับคอมพลีเมนต์)
 \end{enumerate}
-สมบัติข้อสุดท้ายมีประโยชน์มาก เพราะช่วยเปลี่ยนผลต่างให้อยู่ในรูปอินเตอร์เซกชันกับคอมพลีเมนต์ ทำให้นำกฎการแจกแจง (distributive law) มาใช้ต่อได้
-
-\begin{ex}
-ถ้า $U = \{1, 2, 3, 4, 5\}$ และ $A = \{1, 2\}$ แล้ว $A^c = \{3, 4, 5\}$ เพราะ $3 \in U$ และ $3 \notin A$ ในขณะที่ $1 \notin A^c$ เพราะ $1 \in A$ แต่ถ้าเปลี่ยน Universal Set เป็น $U = \{1, 2, 3, 4, 5, 6, 7\}$ แล้ว $A^c = \{3, 4, 5, 6, 7\}$ --- เซตเดียวกัน $A$ มี complement ต่างกันเพราะ Universal Set ต่างกัน
-\end{ex}
-\begin{solution}
-พิสูจน์แบบสมาชิก
+สมบัติข้อสุดท้ายมีประโยชน์มาก เพราะช่วยเปลี่ยนผลต่างให้อยู่ในรูปอินเตอร์เซกชันกับคอมพลีเมนต์ ทำให้นำกฎการแจกแจงมาใช้ต่อได้ พิสูจน์สมบัติข้อนี้ได้โดยไล่ตามนิยามของผลต่างและคอมพลีเมนต์ทีละขั้น
 \begin{align*}
 x \in A - B
-&\Leftrightarrow x \in A \ \land\ x \notin B\\
-&\Leftrightarrow x \in A \ \land\ x \in B^c\\
-&\Leftrightarrow x \in A \cap B^c
+&\Leftrightarrow x \in A \ \land\ x \notin B \quad (\text{นิยามของผลต่าง})\\
+&\Leftrightarrow x \in A \ \land\ x \in B^c \quad (\text{นิยามของคอมพลีเมนต์})\\
+&\Leftrightarrow x \in A \cap B^c \quad (\text{นิยามของอินเตอร์เซกชัน})
 \end{align*}
-$\therefore A - B = A \cap B^c$ \solhere
+จึงได้ว่า $A - B = A \cap B^c$ สำหรับทุกเซต $A$ และ $B$ ในเอกภพสัมพัทธ์เดียวกัน
+
+ประเด็นที่ผู้เรียนมักมองข้ามคือคอมพลีเมนต์ไม่ได้ขึ้นกับเซต $A$ เพียงอย่างเดียว แต่ขึ้นกับเอกภพสัมพัทธ์ที่เลือกด้วย ตัวอย่างต่อไปนี้แสดงให้เห็นว่าเซต $A$ ชุดเดิมให้คอมพลีเมนต์คนละคำตอบเมื่อเปลี่ยนเอกภพสัมพัทธ์
+
+\begin{ex}[ผลของการเปลี่ยนเอกภพสัมพัทธ์ต่อคอมพลีเมนต์]
+กำหนดให้ $A = \{1, 2\}$ จงหา $A^c$ เมื่อกำหนดเอกภพสัมพัทธ์เป็น
+\begin{enumerate}
+    \item $U_1 = \{1, 2, 3, 4, 5\}$
+    \item $U_2 = \{1, 2, 3, 4, 5, 6, 7\}$
+\end{enumerate}
+\end{ex}
+\begin{solution}
+คอมพลีเมนต์คือสมาชิกทั้งหมดในเอกภพสัมพัทธ์ที่ไม่อยู่ใน $A$ จึงคำนวณจาก $U - A$ ในแต่ละกรณี
+\begin{align*}
+A^c &= U_1 - A = \{1,2,3,4,5\} - \{1,2\} = \{3,4,5\}\\
+A^c &= U_2 - A = \{1,2,3,4,5,6,7\} - \{1,2\} = \{3,4,5,6,7\}
+\end{align*}
+เซต $A$ เป็นชุดเดิมทั้งสองกรณี แต่คอมพลีเมนต์ต่างกันเพราะเอกภพสัมพัทธ์ต่างกัน ด้วยเหตุนี้การเขียน $A^c$ โดยไม่ระบุเอกภพสัมพัทธ์จึงไม่มีความหมายที่ชัดเจน ในทางปฏิบัติของงานข้อมูล เอกภพสัมพัทธ์คือขอบเขตของชุดข้อมูลที่กำลังพิจารณา การเปลี่ยนขอบเขตจากทั้งตารางเป็นเฉพาะแถวที่ผ่านการกรองย่อมเปลี่ยนผลของการหาส่วนที่เหลือไปด้วย \solhere
 \end{solution}
 
 \begin{ex}[การหาคอมพลีเมนต์ของเซต]
@@ -494,30 +531,28 @@ A^c &= U - A = \{1,2,3,4,5,6,7,8\} - \{2,4,6,8\}\\
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.65\textwidth]{Figures/png_ready/14-venn-complement-generated.png}
-    \caption{แผนภาพเวนน์แสดงส่วนเติมเต็ม (Complement) $A^c$ ของเซต $A$}
+    \caption{แผนภาพเวนน์แสดงคอมพลีเมนต์ $A^c$ ของเซต $A$}
     \label{fig:venn-complement}
 \end{figure}
 
-รูปที่ \ref{fig:venn-complement} แสดงส่วนเติมเต็ม $A^c$ ซึ่งคือพื้นที่ทั้งหมดใน Universal Set $U$ ที่ไม่อยู่ในเซต $A$ พื้นที่ที่แรเงาคือ $A^c$
+รูปที่ \ref{fig:venn-complement} แสดงคอมพลีเมนต์ $A^c$ ซึ่งคือพื้นที่ทั้งหมดในเอกภพสัมพัทธ์ $U$ ที่ไม่อยู่ในเซต $A$ พื้นที่ที่แรเงาคือ $A^c$
 
-\section{กฎของเดมอร์แกน (De Morgan's Laws)}
+\section{กฎเดอมอร์แกน (De Morgan's Laws)}
 
-กฎของเดมอร์แกนตั้งชื่อตาม Augustus De Morgan (1806--1871) นักคณิตศาสตร์ชาวอังกฤษ กฎนี้ระบุความสัมพันธ์ระหว่างส่วนเติมเต็ม (complement) ยูเนียน และอินเตอร์เซกชัน ใช้ในการพิสูจน์ทางคณิตศาสตร์และการแปลงนิพจน์ของวงจรดิจิทัล~\cite{halmos1974naive}
+กฎเดอมอร์แกนตั้งชื่อตาม Augustus De Morgan (1806--1871) นักคณิตศาสตร์ชาวอังกฤษ กฎนี้ระบุความสัมพันธ์ระหว่างคอมพลีเมนต์ ยูเนียน และอินเตอร์เซกชัน ใช้ในการพิสูจน์ทางคณิตศาสตร์และการแปลงนิพจน์ของวงจรดิจิทัล~\cite{halmos1974naive}
 
-\begin{thrm}[De Morgan's Laws สำหรับเซต]
-สำหรับทุกเซต $A$ และ $B$:
+\begin{thrm}[กฎเดอมอร์แกนสำหรับเซต]
+สำหรับทุกเซต $A$ และ $B$ จะได้ว่า
 \begin{enumerate}
-    \item $(A \cup B)^c = A^c \cap B^c$ \hfill (Complement ของ Union = Intersection ของ Complements)
-    \item $(A \cap B)^c = A^c \cup B^c$ \hfill (Complement ของ Intersection = Union ของ Complements)
+    \item $(A \cup B)^c = A^c \cap B^c$ นั่นคือคอมพลีเมนต์ของยูเนียนเท่ากับอินเตอร์เซกชันของคอมพลีเมนต์
+    \item $(A \cap B)^c = A^c \cup B^c$ นั่นคือคอมพลีเมนต์ของอินเตอร์เซกชันเท่ากับยูเนียนของคอมพลีเมนต์
 \end{enumerate}
 \end{thrm}
 
-กฎข้อ 1 พูดว่า ``ไม่ (A หรือ B)'' เท่ากับ ``(ไม่ A) และ (ไม่ B)''
-
-กฎข้อ 2 พูดว่า ``ไม่ (A และ B)'' เท่ากับ ``(ไม่ A) หรือ (ไม่ B)''
+อ่านกฎทั้งสองข้อเป็นภาษาพูดได้ว่า ข้อแรกคือ ``ไม่อยู่ใน $A$ หรือ $B$'' มีความหมายเดียวกับ ``ไม่อยู่ใน $A$ และไม่อยู่ใน $B$'' ส่วนข้อที่สองคือ ``ไม่อยู่ในทั้ง $A$ และ $B$ พร้อมกัน'' มีความหมายเดียวกับ ``ไม่อยู่ใน $A$ หรือไม่อยู่ใน $B$'' ข้อสังเกตสำคัญคือเมื่อกระจายคอมพลีเมนต์เข้าไปข้างใน ตัวดำเนินการจะสลับชนิดเสมอ ยูเนียนกลายเป็นอินเตอร์เซกชัน และอินเตอร์เซกชันกลายเป็นยูเนียน
 
 \begin{rem}
-สังเกตความสอดคล้องกับ De Morgan's Laws ในตรรกศาสตร์
+สังเกตความสอดคล้องกับกฎเดอมอร์แกนในตรรกศาสตร์
 
 \begin{enumerate}
     \item $\neg(p \land q) \equiv \neg p \lor \neg q$ สอดคล้องกับ $(A \cap B)^c = A^c \cup B^c$
@@ -529,15 +564,15 @@ A^c &= U - A = \{1,2,3,4,5,6,7,8\} - \{2,4,6,8\}\\
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.65\textwidth]{Figures/png_ready/15-de-morgan-laws-generated.png}
-    \caption{กฎของเดมอร์แกน: แผนภาพเวนน์แสดง $(A \cup B)^c = A^c \cap B^c$ และ $(A \cap B)^c = A^c \cup B^c$}
+    \caption{แผนภาพเวนน์แสดงกฎเดอมอร์แกน $(A \cup B)^c = A^c \cap B^c$ และ $(A \cap B)^c = A^c \cup B^c$}
     \label{fig:de-morgan-laws}
 \end{figure}
 
-รูปที่ \ref{fig:de-morgan-laws} แสดงกฎของเดมอร์แกนทั้งสองข้อ โดยฝั่งบนแสดง complement ของ union เท่ากับ intersection ของ complements และฝั่งล่างแสดง complement ของ intersection เท่ากับ union ของ complements
+รูปที่ \ref{fig:de-morgan-laws} แสดงกฎเดอมอร์แกนทั้งสองข้อ โดยฝั่งบนแสดงว่าคอมพลีเมนต์ของยูเนียนเท่ากับอินเตอร์เซกชันของคอมพลีเมนต์ และฝั่งล่างแสดงว่าคอมพลีเมนต์ของอินเตอร์เซกชันเท่ากับยูเนียนของคอมพลีเมนต์
 
-De Morgan's Laws มีการประยุกต์ใช้มากในวงจรดิจิทัล ในการออกแบบวงจร เรามักต้องการแปลง AND gates เป็น OR gates หรือในทางกลับกัน โดยใช้ NOT gates De Morgan's Laws บอกเราว่าวิธีที่ถูกต้องคืออะไร
+กฎเดอมอร์แกนถูกนำไปใช้มากในการออกแบบวงจรดิจิทัล เพราะบางครั้งวงจรที่ออกแบบไว้ใช้ประตูตรรกะชนิดหนึ่ง แต่ชิ้นส่วนที่มีอยู่จริงเป็นอีกชนิดหนึ่ง กฎนี้ระบุวิธีแปลงประตูตรรกะแบบและให้เป็นประตูตรรกะแบบหรือโดยเพิ่มการนิเสธที่ขาเข้าและขาออก และแปลงย้อนกลับได้เช่นกัน โดยผลลัพธ์ของวงจรไม่เปลี่ยน รายละเอียดของการแปลงอยู่ใน\autoref{ch:boolean}
 
-\begin{ex}
+\begin{ex}[การพิสูจน์กฎเดอมอร์แกนข้อที่หนึ่ง]
 พิสูจน์ $(A \cup B)^c = A^c \cap B^c$
 \end{ex}
 \begin{solution}
@@ -546,7 +581,7 @@ De Morgan's Laws มีการประยุกต์ใช้มากใน
 x \in (A \cup B)^c
 &\Leftrightarrow x \notin A \cup B\\
 &\Leftrightarrow \neg(x \in A \lor x \in B)\\
-&\Leftrightarrow \neg(x \in A) \land \neg(x \in B) \quad (\text{De Morgan ตรรกศาสตร์})\\
+&\Leftrightarrow \neg(x \in A) \land \neg(x \in B) \quad (\text{กฎเดอมอร์แกนของตรรกศาสตร์})\\
 &\Leftrightarrow x \in A^c \land x \in B^c\\
 &\Leftrightarrow x \in A^c \cap B^c
 \end{align*}
@@ -565,7 +600,7 @@ $\therefore (A \cup B)^c = A^c \cap B^c$ \solhere
 
 เพาเวอร์เซตเป็น ``เซตของเซต'' เพราะสมาชิกของมันคือเซตย่อยของ $A$ สมบัติสำคัญคือ ถ้า $|A| = n$ แล้ว $|\mathcal{P}(A)| = 2^n$ เหตุผลคือในการสร้างเซตย่อยหนึ่ง สมาชิกแต่ละตัวของ $A$ มีทางเลือก 2 ทาง คือ ``อยู่'' หรือ ``ไม่อยู่'' ในเซตย่อยนั้น จำนวนเซตย่อยทั้งหมดจึงเท่ากับ $2^n$ ด้วยเหตุนี้สัญลักษณ์ $2^A$ จึงสื่อความหมายได้ตรง เพราะ $|\mathcal{P}(A)| = 2^{|A|}$
 
-\begin{ex}
+\begin{ex}[การหาเพาเวอร์เซต]
 จงหาเพาเวอร์เซตของเซตต่อไปนี้
 \begin{enumerate}
     \item $\{1, 2\}$
@@ -587,7 +622,7 @@ $\therefore (A \cup B)^c = A^c \cap B^c$ \solhere
 
 \subsection{ผลคูณคาร์ทีเซียน (Cartesian Product)}
 \label{sec:cartesian-product}
-คู่อันดับ $(a, b)$ แตกต่างจากเซต $\{a, b\}$ ตรงที่มีลำดับ กล่าวคือ $(a, b) \neq (b, a)$ ยกเว้นกรณี $a = b$ และ $(a, b) = (c, d)$ ก็ต่อเมื่อ $a = c$ และ $b = d$ สัญลักษณ์ Cartesian Product มาจากชื่อนักคณิตศาสตร์ Rene Descartes ผู้ที่พัฒนาเรขาคณิตวิเคราะห์ $\mathbb{R} \times \mathbb{R} = \mathbb{R}^2$ คือระนาบ 2 มิติที่เราใช้กันทั่วไป~\cite{lipschutz1998settheory}
+คู่อันดับ $(a, b)$ แตกต่างจากเซต $\{a, b\}$ ตรงที่มีลำดับ กล่าวคือ $(a, b) \neq (b, a)$ ยกเว้นกรณี $a = b$ และ $(a, b) = (c, d)$ ก็ต่อเมื่อ $a = c$ และ $b = d$ ชื่อผลคูณคาร์ทีเซียนมาจากชื่อของ Rene Descartes นักคณิตศาสตร์ผู้พัฒนาเรขาคณิตวิเคราะห์ $\mathbb{R} \times \mathbb{R} = \mathbb{R}^2$ คือระนาบ 2 มิติที่เราใช้กันทั่วไป~\cite{lipschutz1998settheory}
 
 \begin{definition}[ผลคูณคาร์ทีเซียน]
 \index{ผลคูณคาร์ทีเซียน!นิยาม}
@@ -595,7 +630,7 @@ $\therefore (A \cup B)^c = A^c \cap B^c$ \solhere
 \[ A \times B = \{(a, b) \mid a \in A \text{ และ } b \in B\} \]
 \end{definition}
 
-\begin{ex}
+\begin{ex}[การหาผลคูณคาร์ทีเซียน]
 จงหาผลคูณคาร์ทีเซียนต่อไปนี้
 \begin{enumerate}
     \item $\{1, 2\} \times \{a, b\}$
@@ -605,19 +640,19 @@ $\therefore (A \cup B)^c = A^c \cap B^c$ \solhere
 \end{ex}
 \begin{solution}
 \begin{align*}
-\{1,2\} \times \{a,b\} &= \{(1,a),(1,b),(2,a),(2,b)\} \quad (\text{ลำดับสำคัญ: } (1,a) \neq (a,1))\\
+\{1,2\} \times \{a,b\} &= \{(1,a),(1,b),(2,a),(2,b)\} \quad (\text{ลำดับสำคัญ เพราะ } (1,a) \neq (a,1))\\
 \mathbb{R} \times \mathbb{R} &= \mathbb{R}^2 \quad (\text{ระนาบ 2 มิติ})\\
 \emptyset \times A &= A \times \emptyset = \emptyset
 \end{align*}
 \solhere
 \end{solution}
 
-\begin{rem}[ข้อสังเกตเรื่องจำนวนสมาชิกของคาร์ทีเซียนพรอแดกต์]
+\begin{rem}[ข้อสังเกตเรื่องจำนวนสมาชิกของผลคูณคาร์ทีเซียน]
 ถ้า $|A| = m$ และ $|B| = n$ แล้ว $|A \times B| = m \cdot n$ เพราะทุกสมาชิกใน $A$ สามารถจับคู่กับทุกสมาชิกใน $B$ ได้ จึงมี $m \times n$ คู่ และ $\mathbb{R} \times \mathbb{R}$ มี cardinality เท่ากับ $|\mathbb{R}|^2$ ซึ่งเป็น uncountable เช่นเดียวกับ $\mathbb{R}$
 \end{rem}
 
-\begin{prop}[สมบัติของคาร์ทีเซียนพรอแดกต์]
-สมบัติของ Cartesian Product:
+\begin{prop}[สมบัติของผลคูณคาร์ทีเซียน]
+ผลคูณคาร์ทีเซียนมีสมบัติดังนี้
 \begin{enumerate}
     \item $A \times (B \cup C) = (A \times B) \cup (A \times C)$
     \item $A \times (B \cap C) = (A \times B) \cap (A \times C)$
@@ -641,7 +676,7 @@ $\therefore (A \cup B)^c = A^c \cap B^c$ \solhere
 การนับจำนวนสมาชิกเป็นพื้นฐานของการนับเชิงการจัด (combinatorics) และใช้มากในการนับจำนวนโอกาสทั้งหมดที่เป็นไปได้
 
 \begin{principle}[หลักการรวม-การแยก (Inclusion-Exclusion Principle)]
-สำหรับเซตจำกัด $A$ และ $B$:
+สำหรับเซตจำกัด $A$ และ $B$ ใด ๆ จะได้ว่า
 \begin{enumerate}
     \item $|A \cup B| = |A| + |B| - |A \cap B|$
     \item ถ้า $A$ และ $B$ แยกกัน (disjoint, คือ $A \cap B = \emptyset$) แล้ว $|A \cup B| = |A| + |B|$
@@ -657,7 +692,7 @@ $\therefore (A \cup B)^c = A^c \cap B^c$ \solhere
 
 หลักการรวม-การแยกใช้เมื่อต้องการนับจำนวนสมาชิกของ union ถ้านับ $|A| + |B|$ โดยตรง สมาชิกที่อยู่ทั้งสองเซต (intersection) จะถูกนับซ้ำ จึงต้องลบออก
 
-\begin{ex}
+\begin{ex}[การนับสมาชิกของยูเนียนด้วยหลักการเพิ่มเข้าตัดออก]
 ถ้า $A = \{1, 2, 3, 4\}$, $B = \{3, 4, 5, 6\}$ จงหา $|A \cup B|$
 \end{ex}
 \begin{solution}
@@ -665,7 +700,7 @@ $\therefore (A \cup B)^c = A^c \cap B^c$ \solhere
 A \cap B &= \{3,4\} \Rightarrow |A \cap B| = 2\\
 |A \cup B| &= |A| + |B| - |A \cap B| = 4 + 4 - 2 = 6
 \end{align*}
-ตรวจสอบ: $|\{1,2,3,4,5,6\}| = 6$; ถ้านับ $|A|+|B| = 8$ โดยไม่หัก intersection จะเกินจริงเพราะ 3 และ 4 ถูกนับซ้ำ \solhere
+ตรวจคำตอบได้จาก $|\{1,2,3,4,5,6\}| = 6$ ถ้านับ $|A|+|B| = 8$ โดยไม่หักส่วนที่ซ้อนกันออก ผลจะเกินจริง เพราะ 3 และ 4 ถูกนับสองครั้ง \solhere
 \end{solution}
 
 การประยุกต์ใช้ในชีวิตจริง ดังนี้
@@ -696,13 +731,13 @@ A \cap B &= \{3,4\} \Rightarrow |A \cap B| = 2\\
 แต่ $24 > 20$ (จำนวนนักเรียนทั้งหมด) เป็นไปไม่ได้ แสดงว่าข้อมูลที่ให้มาไม่สอดคล้องกัน ควรย้อนกลับไปตรวจแหล่งข้อมูลก่อนสรุปผล \solhere
 \end{solution}
 
-\begin{thrm}[จำนวนสมาชิกของคาร์ทีเซียนพรอแดกต์ (Cardinality of Cartesian Product)]
+\begin{thrm}[จำนวนสมาชิกของผลคูณคาร์ทีเซียน (Cardinality of Cartesian Product)]
 \label{thrm:cardinality-cartesian}
-ให้ $A$ และ $B$ เป็นเซตจำกัด (finite sets) ใด ๆ จำนวนสมาชิกของคาร์ทีเซียนพรอแดกต์ $A \times B$ จะเท่ากับผลคูณของจำนวนสมาชิกของเซต $A$ และเซต $B$ นั่นคือ
+ให้ $A$ และ $B$ เป็นเซตจำกัด (finite sets) ใด ๆ จำนวนสมาชิกของผลคูณคาร์ทีเซียน $A \times B$ จะเท่ากับผลคูณของจำนวนสมาชิกของเซต $A$ และเซต $B$ นั่นคือ
 \[
 |A \times B| = |A| \cdot |B|
 \]
-\textbf{แนวคิดการพิสูจน์:} คู่อันดับ $(a, b) \in A \times B$ เกิดจากการเลือกสมาชิกตัวแรก $a$ จากเซต $A$ ซึ่งมีทางเลือก $|A|$ วิธี และเลือกสมาชิกตัวที่สอง $b$ จากเซต $B$ ซึ่งมีทางเลือก $|B|$ วิธี โดยการเลือกแต่ละตำแหน่งเป็นอิสระต่อกัน ตามหลักการคูณ (Multiplication Principle) ทางการนับ จะได้จำนวนคู่อันดับทั้งหมดเท่ากับ $|A| \cdot |B|$ ตัว
+แนวคิดการพิสูจน์มีดังนี้ คู่อันดับ $(a, b) \in A \times B$ เกิดจากการเลือกสมาชิกตัวแรก $a$ จากเซต $A$ ซึ่งมีทางเลือก $|A|$ วิธี และเลือกสมาชิกตัวที่สอง $b$ จากเซต $B$ ซึ่งมีทางเลือก $|B|$ วิธี โดยการเลือกแต่ละตำแหน่งเป็นอิสระต่อกัน ตามหลักการคูณ (Multiplication Principle) ทางการนับ จะได้จำนวนคู่อันดับทั้งหมดเท่ากับ $|A| \cdot |B|$ ตัว
 \end{thrm}
 
 \begin{thrm}[จำนวนสมาชิกของเพาเวอร์เซต (Cardinality of Power Set)]
@@ -711,11 +746,11 @@ A \cap B &= \{3,4\} \Rightarrow |A \cap B| = 2\\
 \[
 |\mathcal{P}(A)| = 2^{|A|}
 \]
-\textbf{แนวคิดการพิสูจน์:} ในการสร้างสับเซต $S \subseteq A$ สมาชิกแต่ละตัวใน $A$ มีทางเลือก 2 ทางเสมอ คือ ``เลือกให้อยู่ใน $S$'' หรือ ``ไม่เลือกให้อยู่ใน $S$'' เมื่อมีสมาชิกทั้งหมด $n$ ตัว การสร้างสับเซตจึงประกอบด้วยการตัดสินใจ $n$ ครั้งติดต่อกัน ตามหลักการคูณ จะได้จำนวนสับเซตที่เป็นไปได้ทั้งหมดเท่ากับ
+แนวคิดการพิสูจน์มีดังนี้ ในการสร้างสับเซต $S \subseteq A$ สมาชิกแต่ละตัวใน $A$ มีทางเลือก 2 ทางเสมอ คือ ``เลือกให้อยู่ใน $S$'' หรือ ``ไม่เลือกให้อยู่ใน $S$'' เมื่อมีสมาชิกทั้งหมด $n$ ตัว การสร้างสับเซตจึงประกอบด้วยการตัดสินใจ $n$ ครั้งติดต่อกัน ตามหลักการคูณ จะได้จำนวนสับเซตที่เป็นไปได้ทั้งหมดเท่ากับ
 \[
 \underbrace{2 \times 2 \times \cdots \times 2}_{n \text{ ครั้ง}} = 2^n
 \]
-นอกจากนี้ ยังสามารถพิสูจน์ด้วยอนุกรมทวินาม (Binomial Theorem) จากการรวมจำนวนสับเซตที่มีขนาด $k$ (เลือกสมาชิก $k$ ตัวจาก $n$ ตัว) สำหรับ $k = 0, 1, \ldots, n$:
+นอกจากนี้ ยังสามารถพิสูจน์ด้วยอนุกรมทวินาม (Binomial Theorem) จากการรวมจำนวนสับเซตที่มีขนาด $k$ (เลือกสมาชิก $k$ ตัวจาก $n$ ตัว) สำหรับ $k = 0, 1, \ldots, n$ จะได้
 \[
 |\mathcal{P}(A)| = \sum_{k=0}^{n} \binom{n}{k} = (1 + 1)^n = 2^n
 \]
@@ -740,7 +775,7 @@ A \cap B &= \{3,4\} \Rightarrow |A \cap B| = 2\\
 $U$:\quad \texttt{1 2 3 4 5 6 7 8 9}\\[2pt]
 $A$:\quad \texttt{0 1 0 0 1 0 1 0 0}
 \end{center}
-ได้เวกเตอร์บิต $\texttt{010010100}$ ซึ่งมีค่าเท่ากับ $148_{10}$ เมื่อมองเป็นจำนวนฐานสอง การตรวจสอบสมาชิกทำได้โดยอ่านบิตที่ตำแหน่งนั้น จึงใช้เวลา $O(1)$ การยูเนียน อินเตอร์เซกชัน และส่วนเติมเต็มดำเนินการแบบบิตต่อบิต จึงใช้เวลา $O(n)$ สำหรับเวกเตอร์ที่มีความยาว $n$ \solhere
+ได้เวกเตอร์บิต $\texttt{010010100}$ ซึ่งมีค่าเท่ากับ $148_{10}$ เมื่อมองเป็นจำนวนฐานสอง การตรวจสอบสมาชิกทำได้โดยอ่านบิตที่ตำแหน่งนั้น จึงใช้เวลา $O(1)$ การยูเนียน อินเตอร์เซกชัน และคอมพลีเมนต์ดำเนินการแบบบิตต่อบิต จึงใช้เวลา $O(n)$ สำหรับเวกเตอร์ที่มีความยาว $n$ \solhere
 \end{solution}
 
 \begin{principle}[การดำเนินการของเซตในรูปพีชคณิตบูลีน (Set Operations as Boolean Algebra)]
@@ -773,7 +808,7 @@ $A$:\quad \texttt{0 1 0 0 1 0 1 0 0}
 Union ($\cup$) & การยูเนียน (Union) \\
 Selection ($\sigma$) & การกรองด้วยเงื่อนไข / สับเซต (Filtering / Subset) \\
 Projection ($\pi$) & การเลือกเฉพาะคอมโพเนนต์ (Domain Restriction) \\
-Cartesian Product ($\times$) & คาร์ทีเซียนพรอแดกต์ (Cartesian Product) \\
+Cartesian Product ($\times$) & ผลคูณคาร์ทีเซียน (Cartesian Product) \\
 Join ($\bowtie$) & การรวมเซตแบบมีเงื่อนไข (Complex Combination) \\
 \hline
 \end{tabular}
@@ -792,17 +827,17 @@ Join ($\bowtie$) & การรวมเซตแบบมีเงื่อน�
 \begin{definition}[ฟังก์ชันแฮชในฐานะฟังก์ชันทางคณิตศาสตร์ (Hash Function)]
 ฟังก์ชันแฮช $h: U \rightarrow \{0, 1, \ldots, m-1\}$ เป็นฟังก์ชันจากเอกภพของคีย์ $U$ ไปยังเซตของตำแหน่งจัดเก็บ $\{0, 1, \ldots, m-1\}$
 
-สมบัติที่พึงประสงค์:
+ฟังก์ชันแฮชที่ดีควรมีสมบัติดังนี้
 \begin{enumerate}
-    \item ให้ผลแน่นอน (Deterministic): ถ้า $k_1 = k_2$ แล้ว $h(k_1) = h(k_2)$
-    \item กระจายคีย์สม่ำเสมอ (Uniformly Distributed): ค่าของ $h(k)$ ควรกระจายทั่ว $\{0, 1, \ldots, m-1\}$
-    \item คำนวณได้รวดเร็ว (Efficiently Computable): คำนวณค่าแฮชของคีย์หนึ่งตัวได้ในเวลา $O(1)$
+    \item ให้ผลแน่นอน (deterministic) ถ้า $k_1 = k_2$ แล้ว $h(k_1) = h(k_2)$
+    \item กระจายคีย์สม่ำเสมอ (uniformly distributed) ค่าของ $h(k)$ ควรกระจายทั่ว $\{0, 1, \ldots, m-1\}$
+    \item คำนวณได้รวดเร็ว (efficiently computable) คำนวณค่าแฮชของคีย์หนึ่งตัวได้ในเวลา $O(1)$
 \end{enumerate}
 
 เมื่อเกิดการชนกัน (collision) ที่ $h(k_1) = h(k_2)$ สำหรับ $k_1 \neq k_2$ สามารถจัดการได้ดังนี้
 \begin{enumerate}
-    \item การเชื่อมโยงรายการ (Chaining): $T[i] = \{k \in K \mid h(k) = i\}$ โดยแต่ละตำแหน่งเก็บคีย์ที่มีค่าแฮชเดียวกัน
-    \item การกำหนดตำแหน่งเปิด (Open Addressing): ใช้ลำดับการตรวจตำแหน่ง $h(k, i) = (h'(k) + i) \mod m$ สำหรับ $i = 0, 1, 2, \ldots$
+    \item การเชื่อมโยงรายการ (chaining) $T[i] = \{k \in K \mid h(k) = i\}$ โดยแต่ละตำแหน่งเก็บคีย์ที่มีค่าแฮชเดียวกัน
+    \item การกำหนดตำแหน่งเปิด (open addressing) ใช้ลำดับการตรวจตำแหน่ง $h(k, i) = (h'(k) + i) \mod m$ สำหรับ $i = 0, 1, 2, \ldots$
 \end{enumerate}
 \label{theo:hash-function}
 \end{definition}
@@ -818,12 +853,12 @@ Join ($\bowtie$) & การรวมเซตแบบมีเงื่อน�
 \hline
 \cellcolor{navy}\textcolor{white}{\textbf{การดำเนินการ (Operation)}} & \cellcolor{navy}\textcolor{white}{\textbf{ความซับซ้อนเชิงเวลา (Time Complexity)}} \\
 \hline
-การตรวจสอบสมาชิก (Membership Test: $x \in A$) & $O(1)$ \\
-การเพิ่มสมาชิก (Add: $A \cup \{x\}$) & $O(1)$ \\
-การลบสมาชิก (Remove: $A - \{x\}$) & $O(1)$ \\
-การยูเนียน (Union: $A \cup B$) & $O(|A| + |B|)$ \\
-การอินเตอร์เซกชัน (Intersection: $A \cap B$) & $O(\min(|A|, |B|))$ \\
-การทดสอบสับเซต (Subset Test: $A \subseteq B$) & $O(|A|)$ \\
+การตรวจสอบสมาชิก ($x \in A$) & $O(1)$ \\
+การเพิ่มสมาชิก ($A \cup \{x\}$) & $O(1)$ \\
+การลบสมาชิก ($A - \{x\}$) & $O(1)$ \\
+การยูเนียน ($A \cup B$) & $O(|A| + |B|)$ \\
+การอินเตอร์เซกชัน ($A \cap B$) & $O(\min(|A|, |B|))$ \\
+การทดสอบเซตย่อย ($A \subseteq B$) & $O(|A|)$ \\
 \hline
 \end{tabular}
 \end{table}
@@ -849,8 +884,8 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
 ช่วงเปิด $(0, 1)$ ของจำนวนจริงเป็นเซตนับไม่ได้
 \end{thrm}
 
-\begin{ex}
-จงจำแนกว่าเซตใดนับได้และเซตใดนับไม่ได้:
+\begin{ex}[การจำแนกเซตนับได้และเซตนับไม่ได้]
+จงจำแนกว่าเซตใดนับได้และเซตใดนับไม่ได้
 \end{ex}
 \begin{solution}
 \begin{align*}
@@ -863,16 +898,16 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
 \end{solution}
 
 \sectionbanner{สรุปบทเรียน}
-บทนี้ปูพื้นฐานของทฤษฎีเซต เริ่มจากนิยามของเซตและสมาชิก วิธีเขียนเซตแบบ roster method และ set-builder notation รวมถึงเซตพิเศษอย่าง empty set และ universal set จากนั้นศึกษาความสัมพันธ์ระหว่างเซต ได้แก่ เซตย่อย เซตย่อยแท้ ความเท่ากันของเซต และการพิสูจน์แบบ double inclusion ต่อด้วยการดำเนินการ union, intersection, difference และ complement พร้อมสมบัติที่เกี่ยวข้อง กฎของเดมอร์แกนที่โยง complement เข้ากับ union และ intersection เพาเวอร์เซตและผลคูณคาร์ทีเซียนพร้อมความเชื่อมโยงกับฟังก์ชัน หลักการรวม-การแยก ($|A \cup B| = |A| + |B| - |A \cap B|$) และการจำแนกเซตนับได้กับเซตนับไม่ได้ ก่อนปิดท้ายด้วยการประยุกต์ในวิทยาการคอมพิวเตอร์ทั้งด้านโครงสร้างข้อมูล ฐานข้อมูล และ Hash Table
+บทนี้ปูพื้นฐานของทฤษฎีเซต เริ่มจากนิยามของเซตและสมาชิก วิธีเขียนเซตแบบ roster method และ set-builder notation รวมถึงเซตพิเศษอย่าง empty set และ เอกภพสัมพัทธ์ จากนั้นศึกษาความสัมพันธ์ระหว่างเซต ได้แก่ เซตย่อย เซตย่อยแท้ ความเท่ากันของเซต และการพิสูจน์แบบ double inclusion ต่อด้วยการดำเนินการ union, intersection, difference และ complement พร้อมสมบัติที่เกี่ยวข้อง กฎเดอมอร์แกนที่โยง complement เข้ากับ union และ intersection เพาเวอร์เซตและผลคูณคาร์ทีเซียนพร้อมความเชื่อมโยงกับฟังก์ชัน หลักการรวม-การแยก ($|A \cup B| = |A| + |B| - |A \cap B|$) และการจำแนกเซตนับได้กับเซตนับไม่ได้ ก่อนปิดท้ายด้วยการประยุกต์ในวิทยาการคอมพิวเตอร์ทั้งด้านโครงสร้างข้อมูล ฐานข้อมูล และ Hash Table
 
 ทฤษฎีเซตเป็นพื้นฐานของบทถัดไป โดยเฉพาะความสัมพันธ์ (relations) ซึ่งอาศัยผลคูณคาร์ทีเซียน และฟังก์ชัน (functions) ซึ่งเป็นกรณีเฉพาะของความสัมพันธ์ ภาษาของเซตยังเป็นภาษาที่ใช้ร่วมกันในทุกสาขาของคณิตศาสตร์~\cite{rosen2019discrete}
 
 \clearpage
 \sectionbanner{แบบฝึกหัด}
 
-\exercisepart{ส่วนที่ 1: นิยามพื้นฐาน}
+\exercisepart{ส่วนที่ 1 นิยามพื้นฐาน}
 \begin{exercise}
-เขียนเซตต่อไปนี้โดยใช้ทั้ง roster method และ set-builder notation:
+เขียนเซตต่อไปนี้โดยใช้ทั้งวิธีแจกแจงสมาชิกและวิธีกำหนดคุณสมบัติ
 \begin{enumerate}
     \item เซตของจำนวนเต็มบวกที่น้อยกว่า 10
     \item เซตของจำนวนเฉพาะที่น้อยกว่า 20
@@ -883,7 +918,7 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
 \end{exercise}
 
 \begin{exercise}
-กำหนดให้ $A = \{1, 2, 3\}$, $B = \{3, 4, 5\}$, $C = \{5, 6\}$ จงหา:
+กำหนดให้ $A = \{1, 2, 3\}$, $B = \{3, 4, 5\}$, $C = \{5, 6\}$ จงหาผลของการดำเนินการต่อไปนี้
 \begin{enumerate}
     \item $A \cup B$
     \item $A \cap B$
@@ -898,7 +933,7 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
 \end{exercise}
 
 \begin{exercise}
-พิจารณาว่าข้อความต่อไปนี้จริงหรือเท็จ พร้อมอธิบายเหตุผล:
+จงพิจารณาว่าข้อความต่อไปนี้จริงหรือเท็จ พร้อมอธิบายเหตุผล
 \begin{enumerate}
     \item $\emptyset \in \{\emptyset\}$
     \item $\emptyset \subseteq \{\emptyset\}$
@@ -915,9 +950,9 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
 อธิบายความแตกต่างระหว่าง $\in$ และ $\subseteq$ พร้อมยกตัวอย่างที่แสดงความแตกต่างนั้น
 \end{exercise}
 
-\exercisepart{ส่วนที่ 2: การพิสูจน์}
+\exercisepart{ส่วนที่ 2 การพิสูจน์}
 \begin{exercise}
-พิสูจน์โดยตรง (Direct Proof):
+จงพิสูจน์ข้อความต่อไปนี้ด้วยการพิสูจน์ตรง
 \begin{enumerate}
     \item ถ้า $A \subseteq B$ และ $B \subseteq C$ แล้ว $A \subseteq C$ (Transitivity ของ $\subseteq$)
     \item ถ้า $A \subseteq B$ แล้ว $A \cup C \subseteq B \cup C$
@@ -927,7 +962,7 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
 \end{exercise}
 
 \begin{exercise}
-พิสูจน์โดย contraposition:
+จงพิสูจน์ข้อความต่อไปนี้ด้วยการพิสูจน์แบบแย้งสลับที่
 \begin{enumerate}
     \item ถ้า $A \cup B \neq A$ แล้ว $B \not\subseteq A$
     \item ถ้า $A \cap B = \emptyset$ แล้ว $A \subseteq B^c$
@@ -936,7 +971,7 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
 \end{exercise}
 
 \begin{exercise}
-พิสูจน์โดยขัดแย้ง (Proof by Contradiction):
+จงพิสูจน์ข้อความต่อไปนี้ด้วยการพิสูจน์โดยข้อขัดแย้ง
 \begin{enumerate}
     \item ถ้า $A \subseteq B$ แล้ว $B^c \subseteq A^c$
     \item ถ้า $A \cup B = A \cap B$ แล้ว $A = B$
@@ -945,7 +980,7 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
 \end{exercise}
 
 \begin{exercise}
-พิสูจน์ว่าเซตต่อไปนี้เท่ากัน:
+จงพิสูจน์ว่าเซตต่อไปนี้เท่ากัน
 \begin{enumerate}
     \item $A - (B \cup C) = (A - B) \cap (A - C)$
     \item $A \Delta B = (A \cup B) - (A \cap B)$ (Symmetric Difference)
@@ -953,9 +988,9 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
 \end{enumerate}
 \end{exercise}
 
-\exercisepart{ส่วนที่ 3: กฎของเดมอร์แกนและการดำเนินการ}
+\exercisepart{ส่วนที่ 3 กฎเดอมอร์แกนและการดำเนินการ}
 \begin{exercise}
-พิสูจน์ De Morgan's Laws:
+จงพิสูจน์กฎเดอมอร์แกนต่อไปนี้
 \begin{enumerate}
     \item $(A \cap B)^c = A^c \cup B^c$
     \item $(A \cup B)^c = A^c \cap B^c$
@@ -963,7 +998,7 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
 \end{exercise}
 
 \begin{exercise}
-ลดรูปเซตต่อไปนี้ (แสดงว่าเท่ากับเซตที่ง่ายกว่า):
+จงลดรูปเซตต่อไปนี้ให้อยู่ในรูปที่ง่ายที่สุด
 \begin{enumerate}
     \item $(A \cup B) \cap (A \cup B^c)$
     \item $(A - B) \cup (A \cap B)$
@@ -975,7 +1010,7 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
 \end{exercise}
 
 \begin{exercise}
-กำหนดให้ $A$, $B$, $C$ เป็นเซตย่อยของ universal set $U$ พิจารณาว่าข้อความต่อไปนี้จริงหรือเท็จ พร้อมพิสูจน์หรือหักล้าง:
+กำหนดให้ $A$, $B$, $C$ เป็นเซตย่อยของเอกภพสัมพัทธ์ $U$ พิจารณาว่าข้อความต่อไปนี้จริงหรือเท็จ พร้อมพิสูจน์หรือยกตัวอย่างค้าน
 \begin{enumerate}
     \item $A - B = B - A$
     \item $A \cup B = A \cap B$ แก้สมการนี้
@@ -983,9 +1018,9 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
 \end{enumerate}
 \end{exercise}
 
-\exercisepart{ส่วนที่ 4: เพาเวอร์เซตและคาร์ทีเซียน}
+\exercisepart{ส่วนที่ 4 เพาเวอร์เซตและคาร์ทีเซียน}
 \begin{exercise}
-จงหา:
+จงหาผลลัพธ์ต่อไปนี้
 \begin{enumerate}
     \item $\mathcal{P}(\{a, b, c\})$
     \item $|\mathcal{P}(\mathcal{P}(\emptyset))|$
@@ -997,16 +1032,16 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
 \end{exercise}
 
 \begin{exercise}
-พิสูจน์:
+จงพิสูจน์ข้อความต่อไปนี้
 \begin{enumerate}
     \item $\mathcal{P}(A) \cup \mathcal{P}(B) \subseteq \mathcal{P}(A \cup B)$
-    \item พิสูจน์หรือหักล้าง: $\mathcal{P}(A \cup B) \subseteq \mathcal{P}(A) \cup \mathcal{P}(B)$
+    \item จงพิสูจน์หรือยกตัวอย่างค้านของ $\mathcal{P}(A \cup B) \subseteq \mathcal{P}(A) \cup \mathcal{P}(B)$
     \item $(A \times B) \cap (C \times D) = (A \cap C) \times (B \cap D)$
 \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-ถ้า $|A| = 3$ และ $|B| = 4$ จงหา:
+ถ้า $|A| = 3$ และ $|B| = 4$ จงหาผลลัพธ์ต่อไปนี้
 \begin{enumerate}
     \item $|A \times B|$
     \item $|\mathcal{P}(A)|$
@@ -1019,9 +1054,9 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
 อธิบายว่าทำไม $|\mathcal{P}(A)| > |A|$ สำหรับทุกเซต $A$ ที่ไม่ใช่เซตว่าง (Cantor's Theorem)
 \end{exercise}
 
-\exercisepart{ส่วนที่ 5: การประยุกต์และการเชื่อมโยงทางคณิตศาสตร์}
+\exercisepart{ส่วนที่ 5 การประยุกต์และการเชื่อมโยงทางคณิตศาสตร์}
 \begin{exercise}
-กำหนดให้ $A = \{10, 20, 30, 40\}$ และ $B = \{25, 30, 35, 40\}$ ในฐานข้อมูล จงเขียนในรูปแบบคณิตศาสตร์:
+กำหนดให้ $A = \{10, 20, 30, 40\}$ และ $B = \{25, 30, 35, 40\}$ ในฐานข้อมูล จงเขียนในรูปแบบคณิตศาสตร์
 \begin{enumerate}
     \item จงหา $A \cup B$, $A \cap B$, $A - B$, $A \Delta B$ (Symmetric Difference)
     \item แสดงว่า $A \Delta B = (A \cup B) - (A \cap B)$
@@ -1037,16 +1072,16 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
 \end{exercise}
 
 \begin{exercise}
-อธิบายความสัมพันธ์ระหว่าง:
+จงอธิบายความสัมพันธ์ระหว่างสิ่งต่อไปนี้
 \begin{enumerate}
-    \item De Morgan's Laws ในทฤษฎีเซต และ De Morgan's Laws ในตรรกศาสตร์ (Propositional Logic)
+    \item กฎเดอมอร์แกนในทฤษฎีเซต และกฎเดอมอร์แกนในตรรกศาสตร์
     \item Cartesian Product $A \times B$ และ relations ระหว่างเซต
     \item Power Set $\mathcal{P}(A)$ และ cardinality $|\mathcal{P}(A)| = 2^{|A|}$
 \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-พิสูจน์โดยใช้ทฤษฎีเซต:
+จงพิสูจน์ข้อความต่อไปนี้โดยใช้ทฤษฎีเซต
 \begin{enumerate}
     \item ถ้า $A \subseteq B$ แล้ว $\mathcal{P}(A) \subseteq \mathcal{P}(B)$
     \item ถ้า $A \times B = A \times C$ และ $A \neq \emptyset$ แล้ว $B = C$
@@ -1054,7 +1089,7 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
 \end{exercise}
 
 \answerkeyhead
-\exercisepart{เฉลยส่วนที่ 1: แนวคิดพื้นฐานและการระบุเซต}
+\exercisepart{เฉลยส่วนที่ 1 แนวคิดพื้นฐานและการระบุเซต}
 \begin{enumerate}[label={},leftmargin=0pt,itemsep=0.6em]
     \item
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
@@ -1091,7 +1126,7 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
     \end{enumerate}
 \end{enumerate}
 
-\exercisepart{เฉลยส่วนที่ 2: การดำเนินการบนเซตและสับเซต}
+\exercisepart{เฉลยส่วนที่ 2 การดำเนินการบนเซตและสับเซต}
 \begin{enumerate}[label={},leftmargin=0pt,itemsep=0.6em]
     \setcounter{enumi}{3}
     \item
@@ -1108,7 +1143,7 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
     \end{enumerate}
 \end{enumerate}
 
-\exercisepart{เฉลยส่วนที่ 3: กฎของเดมอร์แกนและการดำเนินการ}
+\exercisepart{เฉลยส่วนที่ 3 กฎเดอมอร์แกนและการดำเนินการ}
 \begin{enumerate}[label={},leftmargin=0pt,itemsep=0.6em]
     \setcounter{enumi}{5}
     \item
@@ -1123,19 +1158,19 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
         \item $(A - B) \cup (A \cap B) = (A \cap B^c) \cup (A \cap B) = A \cap (B^c \cup B) = A \cap U = A$
         \item $A \cup (B - A) = A \cup (B \cap A^c) = (A \cup B) \cap (A \cup A^c) = A \cup B$
         \item $(A \cap B) \cup (A - B) = (A \cap B) \cup (A \cap B^c) = A \cap (B \cup B^c) = A$
-        \item $A \cap (A \cup B) = A$ (Absorption Law)
-        \item $(A^c)^c = A$ (Double Complement Law)
+        \item $A \cap (A \cup B) = A$ (กฎการดูดกลืน)
+        \item $(A^c)^c = A$ (กฎคอมพลีเมนต์ซ้อน)
     \end{enumerate}
 
     \item
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
-        \item เท็จ (ตัวอย่างค้าน: $A=\{1\}, B=\emptyset \implies A-B=\{1\}$ แต่ $B-A=\emptyset$)
+        \item เท็จ (ตัวอย่างค้านคือ $A=\{1\}, B=\emptyset \implies A-B=\{1\}$ แต่ $B-A=\emptyset$)
         \item จริง ($A \cup B = A \cap B \iff A = B$)
-        \item เท็จ (ตัวอย่างค้าน: $A=\{1\}, B=\{1\}, C=\{1\} \implies (A-B)-C=\emptyset$ แต่ $A-(B-C)=\{1\}$)
+        \item เท็จ (ตัวอย่างค้านคือ $A=\{1\}, B=\{1\}, C=\{1\} \implies (A-B)-C=\emptyset$ แต่ $A-(B-C)=\{1\}$)
     \end{enumerate}
 \end{enumerate}
 
-\exercisepart{เฉลยส่วนที่ 4: เพาเวอร์เซตและคาร์ทีเซียน}
+\exercisepart{เฉลยส่วนที่ 4 เพาเวอร์เซตและคาร์ทีเซียน}
 \begin{enumerate}[label={},leftmargin=0pt,itemsep=0.6em]
     \setcounter{enumi}{8}
     \item
@@ -1151,7 +1186,7 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
     \item
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
         \item $X \in \mathcal{P}(A) \cup \mathcal{P}(B) \implies X \subseteq A \lor X \subseteq B \implies X \subseteq A \cup B \implies X \in \mathcal{P}(A \cup B)$
-        \item เท็จ (ตัวอย่างค้าน: $A=\{1\}, B=\{2\} \implies \{1,2\} \in \mathcal{P}(A \cup B)$ แต่ $\{1,2\} \notin \mathcal{P}(A) \cup \mathcal{P}(B)$)
+        \item เท็จ (ตัวอย่างค้านคือ $A=\{1\}, B=\{2\} \implies \{1,2\} \in \mathcal{P}(A \cup B)$ แต่ $\{1,2\} \notin \mathcal{P}(A) \cup \mathcal{P}(B)$)
         \item $(x,y) \in (A \times B) \cap (C \times D) \iff (x \in A \land y \in B) \land (x \in C \land y \in D) \iff (x \in A \cap C) \land (y \in B \cap D) \iff (x,y) \in (A \cap C) \times (B \cap D)$
     \end{enumerate}
 
@@ -1169,7 +1204,7 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
     \end{enumerate}
 \end{enumerate}
 
-\exercisepart{เฉลยส่วนที่ 5: การประยุกต์และการเชื่อมโยงทางคณิตศาสตร์}
+\exercisepart{เฉลยส่วนที่ 5 การประยุกต์และการเชื่อมโยงทางคณิตศาสตร์}
 \begin{enumerate}[label={},leftmargin=0pt,itemsep=0.6em]
     \setcounter{enumi}{12}
     \item
@@ -1205,7 +1240,7 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
     \item จงพิสูจน์กฎการกระจาย $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$ โดยวิธีพิสูจน์เชิงสมาชิก
     \item จงหาเพาเวอร์เซตของ $\{1, 2, 3\}$ และพิสูจน์ว่า $|\mathcal{P}(A)| = 2^{|A|}$
     \item กำหนด $A = \{1, 2\}$ และ $B = \{a, b, c\}$ จงหา $A \times B$, $B \times A$ และอธิบายว่าทั้งสองเท่ากันหรือไม่
-    \item จงพิสูจน์กฎของเดมอร์แกน $(A \cup B)' = A' \cap B'$ โดยวิธีพิสูจน์เชิงสมาชิก
+    \item จงพิสูจน์กฎเดอมอร์แกน $(A \cup B)' = A' \cap B'$ โดยวิธีพิสูจน์เชิงสมาชิก
     \item นักศึกษา 80 คน เรียนวิชาคณิตศาสตร์ 50 คน เรียนวิชาคอมพิวเตอร์ 40 คน และเรียนทั้งสองวิชา 20 คน จงหาจำนวนนักศึกษาที่เรียนอย่างน้อยหนึ่งวิชา และจำนวนที่ไม่ได้เรียนวิชาใดเลย
     \item จงอธิบายความแตกต่างระหว่างเซตนับได้และเซตนับไม่ได้ พร้อมยกตัวอย่างอย่างละ 2 เซต
     \item จงอธิบายความสัมพันธ์ระหว่างการดำเนินการเซตกับ SQL operations (UNION, INTERSECT, EXCEPT) พร้อมยกตัวอย่าง
@@ -1216,7 +1251,7 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
 \section*{วัตถุประสงค์}
 \begin{enumerate}
     \item เพื่อให้ผู้เรียนดำเนินการระหว่างเซตและตีความผลลัพธ์ได้
-    \item เพื่อให้ผู้เรียนพิสูจน์และประยุกต์ใช้กฎของเดมอร์แกนสำหรับเซตได้
+    \item เพื่อให้ผู้เรียนพิสูจน์และประยุกต์ใช้กฎเดอมอร์แกนสำหรับเซตได้
     \item เพื่อให้ผู้เรียนคำนวณเพาเวอร์เซตและผลคูณคาร์ทีเซียนได้
     \item เพื่อให้ผู้เรียนประยุกต์ใช้หลักการรวม-การแยกในการแก้ปัญหาได้
 \end{enumerate}
@@ -1226,7 +1261,7 @@ Cantor พิสูจน์ว่าช่วงเปิด $(0, 1)$ ของ
     \Pointilles{3}
     \item กำหนด $A = \{1, 3, 5, 7\}$ และ $B = \{1, 2, 3, 4\}$ จงหา $A \cup B$, $A \cap B$, $A - B$ และ $B - A$
     \Pointilles{3}
-    \item จงพิสูจน์กฎของเดมอร์แกน $(A \cap B)' = A' \cup B'$ โดยวิธีพิสูจน์เชิงสมาชิก
+    \item จงพิสูจน์กฎเดอมอร์แกน $(A \cap B)' = A' \cup B'$ โดยวิธีพิสูจน์เชิงสมาชิก
     \Pointilles{3}
     \item จงหาเพาเวอร์เซตของ $\{a, b, c\}$ และบอกจำนวนสมาชิกทั้งหมด
     \Pointilles{3}

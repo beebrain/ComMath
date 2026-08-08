@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  8 AUG 2026 19:06
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  9 AUG 2026 06:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2299,63 +2299,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 111--112
 [60] [61] [62] [63] [64]
 File: Figures/png_ready/10-venn-union-generated.png Graphic file (type bmp)
 <Figures/png_ready/10-venn-union-generated.png>
- [65]
+ [65] [66]
 File: Figures/png_ready/12-venn-disjoint-generated.png Graphic file (type bmp)
 <Figures/png_ready/12-venn-disjoint-generated.png>
- [66]
+ [67]
 File: Figures/png_ready/11-venn-intersection-generated.png Graphic file (type b
 mp)
 <Figures/png_ready/11-venn-intersection-generated.png>
- [67]
+ [68]
 File: Figures/png_ready/16-distributive-law-sets-generated.png Graphic file (ty
 pe bmp)
 <Figures/png_ready/16-distributive-law-sets-generated.png>
- [68] [69]
+ [69]
 File: Figures/png_ready/set-operations-generated.png Graphic file (type bmp)
 <Figures/png_ready/set-operations-generated.png>
- [70]
+ [70] [71] [72]
 File: Figures/png_ready/14-venn-complement-generated.png Graphic file (type bmp
 )
 <Figures/png_ready/14-venn-complement-generated.png>
- [71]
+ [73]
 File: Figures/png_ready/15-de-morgan-laws-generated.png Graphic file (type bmp)
 
 <Figures/png_ready/15-de-morgan-laws-generated.png>
- [72] [73] [74]
-[75]
+ [74]
+[75] [76] [77]
 File: Figures/png_ready/17-venn-inclusion-exclusion-generated.png Graphic file 
 (type bmp)
 <Figures/png_ready/17-venn-inclusion-exclusion-generated.png>
- [76] [77] [78] [79]
-Underfull \hbox (badness 5119) in paragraph at lines 798--799
-[]\TU/THSarabunNew(0)/m/sc/11 กระจาย คีย์ สม่ำเสมอ (Uniformly Distributed): ค่า
- ของ $\OML/cmm/m/it/10.95 h\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 k\OT1/cmr/m/
-n/10.95 )$ \TU/THSarabunNew(0)/m/sc/11 ควร กระจาย ทั่ว
- []
-
-[80] [81]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 861
+ [78] [79] [80] [81] [82]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 896
 .
- (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd
+
+(/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-)
-[82] [83
+) [83] [84]
+[85
 
-] [84
+] [86
 
 
-] [85] [86] [87] [88
+] [87] [88] [89] [90
 
-] [89] [90] [91
+] [91] [92] [93
 
-] [92]) [93]
+] [94]) [95]
 Underfull \hbox (badness 4132) in paragraph at lines 239--239
 [][]\TU/THSarabunNew(0)/m/sc/11 Codd, E. F. (1970). \TU/THSarabunNew(0)/m/it/11
  A relational model of data for large shared data banks\TU/THSarabunNew(0)/m/sc
 /11 .
  []
 
-[94
+[96
 
 
 ]
@@ -2369,11 +2363,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-) [95
+) [97
 
 
 
-] [96
+] [98
 
 
 
@@ -2387,23 +2381,23 @@ Package biblatex Info: Setting label 'refsegment:010' on input line 1.
 File: Figures/png_ready/relation-cartesian-graph-generated.png Graphic file (ty
 pe bmp)
 <Figures/png_ready/relation-cartesian-graph-generated.png>
-[97
+[99
 
 
 ]
 File: Figures/png_ready/relation-arrow-generated.png Graphic file (type bmp)
 <Figures/png_ready/relation-arrow-generated.png>
- [98] [99] [100]
+ [100] [101] [102]
 File: Figures/png_ready/relation-matrix-generated.png Graphic file (type bmp)
 <Figures/png_ready/relation-matrix-generated.png>
- [101]
+ [103]
 File: Figures/png_ready/domain-range-generated.png Graphic file (type bmp)
 <Figures/png_ready/domain-range-generated.png>
- [102] [103] [104] [105] [106]
+ [104] [105] [106] [107] [108]
 File: Figures/png_ready/linear-function-graph-generated.png Graphic file (type 
 bmp)
 <Figures/png_ready/linear-function-graph-generated.png>
- [107] [108]
+ [109] [110]
 File: Figures/png_ready/function-injective-generated.png Graphic file (type bmp
 )
 <Figures/png_ready/function-injective-generated.png>
@@ -2413,22 +2407,22 @@ p)
 File: Figures/png_ready/function-bijective-generated.png Graphic file (type bmp
 )
 <Figures/png_ready/function-bijective-generated.png>
- [109]
+ [111]
 File: Figures/png_ready/37-function-composition-generated.png Graphic file (typ
 e bmp)
 <Figures/png_ready/37-function-composition-generated.png>
 
-[110] [111] [112]
+[112] [113] [114]
 File: Figures/png_ready/sequence-partial-sum-graph-generated.png Graphic file (
 type bmp)
 <Figures/png_ready/sequence-partial-sum-graph-generated.png>
- [113] [114] [115] [116] [117] [118] [119] [120
+ [115] [116] [117] [118] [119] [120] [121] [122
 
-] [121
+] [123
 
 
 ]
-[122]
+[124]
 Underfull \hbox (badness 10000) in paragraph at lines 800--801
 []$\OML/cmm/m/it/10.95 A \OMS/cmsy/m/n/10.95 ^^B \OML/cmm/m/it/10.95 B \OT1/cmr
 /m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; a\
@@ -2441,11 +2435,11 @@ L/cmm/m/it/10.95 ; b\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.9
 /THSarabunNew(0)/m/sc/11 ,
  []
 
-[123
+[125
 
-] [124] [125
+] [126] [127
 
-] [126]) [127]
+] [128]) [129]
 Underfull \hbox (badness 4132) in paragraph at lines 246--246
 [][]\TU/THSarabunNew(0)/m/sc/11 Codd, E. F. (1970). \TU/THSarabunNew(0)/m/it/11
  A relational model of data for large shared data banks\TU/THSarabunNew(0)/m/sc
@@ -2465,7 +2459,7 @@ bunNew(0)/m/it/11 Automatic Thai finger spelling transcription\TU/THSarabunNew(
 0)/m/sc/11 .
  []
 
-[128
+[130
 
 
 ]
@@ -2479,11 +2473,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-) [129
+) [131
 
 
 
-] [130
+] [132
 
 
 
@@ -2494,32 +2488,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
  4.
 Package biblatex Info: Reference segment=12 on input line 1.
 Package biblatex Info: Setting label 'refsegment:012' on input line 1.
-[131
+[133
 
 
 ]
 File: Figures/png_ready/binary-conversion-labeled.png Graphic file (type bmp)
 <Figures/png_ready/binary-conversion-labeled.png>
- [132] [133] [134] [135]
+ [134] [135] [136] [137]
 File: Figures/png_ready/27-hex-grouping-manual.png Graphic file (type bmp)
 <Figures/png_ready/27-hex-grouping-manual.png>
- [136] [137] [138] [139] [140] [141] [142]
+ [138] [139] [140] [141] [142] [143] [144]
 Underfull \hbox (badness 2103) in paragraph at lines 412--413
 []\TU/THSarabunNew(0)/m/sc/11 การ บวก และ การ ลบ ใน ระบบ เลข ฐาน สอง เป็นการ ดำ
 เนิน การ ที่ หน่วย คำนวณ และ ตรรกะ
  []
 
-[143] [144] [145] [146] [147] [148] [149] [150
+[145] [146] [147] [148] [149] [150] [151] [152
 
-] [151
+] [153
 
 
-] [152] [153
+] [154] [155
 
-] [154
+] [156
 
 ])
-[155] [156
+[157] [158
 
 
 ]
@@ -2533,11 +2527,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-) [157
+) [159
 
 
 
-] [158
+] [160
 
 
 
@@ -2551,27 +2545,27 @@ Package biblatex Info: Setting label 'refsegment:014' on input line 1.
 File: Figures/png_ready/30-matrix-dimensions-manual.png Graphic file (type bmp)
 
 <Figures/png_ready/30-matrix-dimensions-manual.png>
-[159
+[161
 
 
-] [160]
+] [162]
 File: Figures/png_ready/31-matrix-types-manual.png Graphic file (type bmp)
 <Figures/png_ready/31-matrix-types-manual.png>
- [161] [162] [163] [164] [165]
+ [163] [164] [165] [166] [167]
 File: Figures/png_ready/matrix-multiplication-labeled.png Graphic file (type bm
 p)
 <Figures/png_ready/matrix-multiplication-labeled.png>
- [166] [167] [168] [169]
+ [168] [169] [170] [171]
 File: Figures/png_ready/33-determinant-2x2-manual.png Graphic file (type bmp)
 <Figures/png_ready/33-determinant-2x2-manual.png>
- [170]
-[171] [172] [173] [174] [175] [176]
+ [172]
+[173] [174] [175] [176] [177] [178]
 Underfull \hbox (badness 3138) in paragraph at lines 550--551
 [][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 5.21 (ตัวอย่างค้านสำหรับสมบัติการบว
 กดีเทอร์มิแนนต์) []จง แสดง ตัวอย่าง ค้าน (counter-
  []
 
-[177] [178] [179] [180] [181] [182] [183] [184]
+[179] [180] [181] [182] [183] [184] [185] [186]
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
 (Font)              scaled to size 11.54994pt on input line 807.
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
@@ -2579,24 +2573,24 @@ LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
 File: Figures/png_ready/34-matrix-transformation-manual.png Graphic file (type 
 bmp)
 <Figures/png_ready/34-matrix-transformation-manual.png>
- [185] [186]
+ [187] [188]
 Underfull \hbox (badness 4805) in paragraph at lines 867--868
 [][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 5.35 (การถดถอยเชิงเส้น - Linear Reg
 ression) []จง หา เวก เตอร์ สัมประสิทธิ์ $\OML/cmm/m/it/10.95 ^^L \OT1/cmr/m/n/1
 0.95 =
  []
 
-[187] [188] [189
+[189] [190] [191
 
-] [190
-
-
-] [191] [192
+] [192
 
 
 ] [193] [194
 
-] [195]) [196]
+
+] [195] [196
+
+] [197]) [198]
 Underfull \hbox (badness 2237) in paragraph at lines 260--260
 [][]\TU/THSarabunNew(0)/m/sc/11 Anton, H., Rorres, C., & Kaul, A. (2019).  \TU/
 THSarabunNew(0)/m/it/11 Elementary linear algebra: Applications
@@ -2609,10 +2603,10 @@ YOLO-based object detection for handwritten X-marks\TU/THSarabunNew(0)/m/sc/11
 .
  []
 
-[197
+[199
 
 
-] [198
+] [200
 
 ]
 \openout2 = `chapters/chapter06_or.aux'.
@@ -2625,52 +2619,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
  []
 
-[199
+[201
 
 
-]) [200]
+]) [202]
 \openout2 = `chapters/chapter06.aux'.
 
  (./chapters/chapter06.tex
  6.
 Package biblatex Info: Reference segment=16 on input line 1.
 Package biblatex Info: Setting label 'refsegment:016' on input line 1.
-[201
+[203
 
 
 
 
 
-] [202] [203] [204] [205] [206] [207] [208] [209] [210] [211]
+] [204] [205] [206] [207] [208] [209] [210] [211] [212] [213]
 File: Figures/png_ready/demorgan-laws-generated.png Graphic file (type bmp)
 <Figures/png_ready/demorgan-laws-generated.png>
- [212]
+ [214]
 File: Figures/png_ready/boolean-function-flow-labeled.png Graphic file (type bm
 p)
 <Figures/png_ready/boolean-function-flow-labeled.png>
 
-[213] [214] [215] [216] [217] [218] [219] [220] [221] [222] [223] [224]
-[225] [226]
+[215] [216] [217] [218] [219] [220] [221] [222] [223] [224] [225] [226]
+[227] [228]
 File: Figures/png_ready/kmap-grouping-generated.png Graphic file (type bmp)
 <Figures/png_ready/kmap-grouping-generated.png>
- [227] [228] [229] [230]
+ [229] [230] [231] [232]
 File: Figures/png_ready/universal-gates-generated.png Graphic file (type bmp)
 <Figures/png_ready/universal-gates-generated.png>
- [231] [232] [233] [234]
+ [233] [234] [235] [236]
 File: Figures/png_ready/adders-comparison-generated.png Graphic file (type bmp)
 
 <Figures/png_ready/adders-comparison-generated.png>
- [235] [236]
-[237] [238] [239
+ [237] [238]
+[239] [240] [241
 
-] [240
+] [242
 
 
-] [241] [242] [243
+] [243] [244] [245
 
-] [244] [245
+] [246] [247
 
-] [246]) [247] [248
+] [248]) [249] [250
 
 
 ]
@@ -2699,7 +2693,7 @@ YOLO-based object detection for handwritten X-marks\TU/THSarabunNew(0)/m/sc/11
 .
  []
 
-[249
+[251
 
 ]
 Underfull \hbox (badness 5217) in paragraph at lines 270--270
@@ -2712,7 +2706,7 @@ bunNew(0)/m/it/11 Automatic Thai finger spelling transcription\TU/THSarabunNew(
 Package caption Warning: Unused \captionsetup[sub] on input line 13.
 See the caption package documentation for explanation.
 
-[250] (./main.aux (./organize.aux) (./chapters/chapter01_or.aux)
+[252] (./main.aux (./organize.aux) (./chapters/chapter01_or.aux)
 (./chapters/chapter01.aux) (./chapters/chapter02_or.aux)
 (./chapters/chapter02.aux) (./chapters/chapter03_or.aux)
 (./chapters/chapter03.aux) (./chapters/chapter04_or.aux)
@@ -2732,18 +2726,18 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2B58F6994CEF0F800F5F346CE4158678;23761.
+(rerunfilecheck)             Checksum: AC02FAB36A98C4F5E3D8B94BBE7DDDC1;23745.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 71893 strings out of 468168
- 1699830 string characters out of 5432815
- 2994432 words of memory out of 5000000
- 99560 multiletter control sequences out of 15000+600000
+ 71894 strings out of 468168
+ 1699847 string characters out of 5432815
+ 2994459 words of memory out of 5000000
+ 99561 multiletter control sequences out of 15000+600000
  637427 words of font info for 116 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,19n,118p,1181b,5297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (261 pages, 4675532 bytes).
+Output written on main.xdv (263 pages, 4697860 bytes).

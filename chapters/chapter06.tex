@@ -524,14 +524,14 @@ $a$ & $b$ & $a + b$ & $a \cdot (a + b)$ & $a$ \\
 คอลัมน์ $a \cdot (a + b)$ ตรงกับ $a$ ทุกแถว $\therefore a \cdot (a + b) = a$ \solhere
 \end{solution}
 
-\section{กฎของ De Morgan (De Morgan's Laws)}
+\section{กฎเดอมอร์แกน (De Morgan's Laws)}
 
 
 \label{sec:demorgans-laws}
 
-กฎของ De Morganตั้งชื่อตาม Augustus De Morgan (1806--1871) นักคณิตศาสตร์ชาวอังกฤษ เช่นเดียวกับในทฤษฎีเซต กฎของ De Morgan เป็นหนึ่งในกฎที่สำคัญที่สุดของพีชคณิตบูลีน เนื่องจากเป็นเครื่องมือในการหา complement ของนิพจน์บูลีนที่ซับซ้อน หลักการพื้นฐานของกฎของ De Morgan คือ complement ของผลลัพธ์จะเท่ากับผลลัพธ์ของ complements แต่ต้องสลับเครื่องหมายการดำเนินการด้วย~\cite{mano2018digital}
+กฎเดอมอร์แกนตั้งชื่อตาม Augustus De Morgan (1806--1871) นักคณิตศาสตร์ชาวอังกฤษ เช่นเดียวกับในทฤษฎีเซต กฎเดอมอร์แกนเป็นหนึ่งในกฎที่สำคัญที่สุดของพีชคณิตบูลีน เนื่องจากเป็นเครื่องมือในการหา complement ของนิพจน์บูลีนที่ซับซ้อน หลักการพื้นฐานของกฎเดอมอร์แกนคือ complement ของผลลัพธ์จะเท่ากับผลลัพธ์ของ complements แต่ต้องสลับเครื่องหมายการดำเนินการด้วย~\cite{mano2018digital}
 
-\begin{thrm}[De Morgan's Laws สำหรับพีชคณิตบูลีน]
+\begin{thrm}[กฎเดอมอร์แกนสำหรับพีชคณิตบูลีน]
 สำหรับทุก $a, b \in \{0, 1\}$ โดยที่ $a$ และ $b$ แทนค่าบูลีนใดๆ ดังนี้
 
 \begin{enumerate}
@@ -587,12 +587,12 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.82\textwidth]{Figures/png_ready/demorgan-laws-generated.png}
-    \caption{กฎของเดมอร์แกน}
+    \caption{กฎเดอมอร์แกน}
     \label{fig:boolean-demorgan-flow}
 \end{figure}
 
 \begin{rem}
-สังเกตความสอดคล้องกับ De Morgan's Laws ในตรรกศาสตร์และทฤษฎีเซต ดังนี้
+สังเกตความสอดคล้องกับกฎเดอมอร์แกนในตรรกศาสตร์และทฤษฎีเซต ดังนี้
 
 \begin{enumerate}
     \item $\neg(p \lor q) \equiv \neg p \land \neg q$ สอดคล้องกับ $(a + b)' = a' \cdot b'$
@@ -1271,7 +1271,7 @@ $\therefore f = w'x' + xz' + x'y'$ \solhere
     \[ a' = (a \cdot a)' \]
     \item \textbf{การสร้าง AND Gate จาก NAND:} นำผลลัพธ์ของ NAND Gate มาผ่าน NOT Gate (NAND ที่ป้อนอินพุตซ้ำ):
     \[ a \cdot b = ((a \cdot b)')' \]
-    \item \textbf{การสร้าง OR Gate จาก NAND:} ใช้กฎของเดมอร์แกน (De Morgan's Law) ร่วมกับการนิเสธอินพุตแต่ละตัว:
+    \item \textbf{การสร้าง OR Gate จาก NAND:} ใช้กฎเดอมอร์แกน (De Morgan's Law) ร่วมกับการนิเสธอินพุตแต่ละตัว:
     \[ a + b = (a' \cdot b')' = ((a \cdot a)' \cdot (b \cdot b)')' \]
 \end{enumerate}
 \end{principle}
@@ -1294,7 +1294,7 @@ $\therefore f = w'x' + xz' + x'y'$ \solhere
     \[ a' = (a + a)' \]
     \item \textbf{การสร้าง OR Gate จาก NOR:} นำผลลัพธ์ของ NOR Gate มาผ่าน NOT Gate (NOR ที่ป้อนอินพุตซ้ำ):
     \[ a + b = ((a + b)')' \]
-    \item \textbf{การสร้าง AND Gate จาก NOR:} ใช้กฎของเดมอร์แกน (De Morgan's Law) ร่วมกับการนิเสธอินพุตแต่ละตัว:
+    \item \textbf{การสร้าง AND Gate จาก NOR:} ใช้กฎเดอมอร์แกน (De Morgan's Law) ร่วมกับการนิเสธอินพุตแต่ละตัว:
     \[ a \cdot b = (a' + b')' = ((a + a)' + (b + b)')' \]
 \end{enumerate}
 \end{principle}
@@ -1435,7 +1435,7 @@ Distributive & $x + yz = (x + y)(x + z)$ & $x(y + z) = xy + xz$ \\
 \hline
 Absorption & $x + xy = x$ & $x(x + y) = x$ \\
 \hline
-De Morgan & $(x + y)' = x' y'$ & $(xy)' = x' + y'$ \\
+กฎเดอมอร์แกน & $(x + y)' = x' y'$ & $(xy)' = x' + y'$ \\
 \hline
 \end{tabular}
 \end{center}
@@ -1587,7 +1587,7 @@ Q_1^+ = Q_0X', \qquad Q_0^+ = X, \qquad Y = Q_1Q_0'
 
 \sectionbanner{สรุปบทเรียน}
 \label{sec:chapter-summary}
-บทนี้เริ่มจากนิยามของพีชคณิตบูลีน $(B, +, \cdot, ', 0, 1)$ พร้อมสัจพจน์ แล้วศึกษาการดำเนินการพื้นฐานสามตัว คือ OR ($+$), AND ($\cdot$) และ NOT ($'$) พร้อมตารางค่าความจริง ต่อด้วยกฎพื้นฐานของพีชคณิตบูลีน (Boolean Identities) ได้แก่ กฎเอกนัย กฎเอกลักษณ์ กฎการครอบงำ กฎคอมพลีเมนต์ กฎการสลับที่ กฎการเปลี่ยนกลุ่ม กฎการแจกแจง และกฎการดูดกลืน รวมทั้งกฎของ De Morgan คือ $(a + b)' = a' \cdot b'$ และ $(a \cdot b)' = a' + b'$ จากนั้นนำเสนอฟังก์ชันบูลีนและนิพจน์บูลีน รูปแบบบัญญัติ (Canonical Forms) ทั้งแบบผลบวกของผลคูณ (SOP) และผลคูณของผลบวก (POS) และการลดรูปฟังก์ชันบูลีนด้วยแผนที่คาร์นอ (Karnaugh Map) ก่อนปิดท้ายด้วยการประยุกต์ในวงจรดิจิทัล เช่น ประตูตรรกะ วงจรบวก มัลติเพล็กเซอร์/ดีมัลติเพล็กเซอร์ และเครื่องสถานะจำกัด (FSM)
+บทนี้เริ่มจากนิยามของพีชคณิตบูลีน $(B, +, \cdot, ', 0, 1)$ พร้อมสัจพจน์ แล้วศึกษาการดำเนินการพื้นฐานสามตัว คือ OR ($+$), AND ($\cdot$) และ NOT ($'$) พร้อมตารางค่าความจริง ต่อด้วยกฎพื้นฐานของพีชคณิตบูลีน (Boolean Identities) ได้แก่ กฎเอกนัย กฎเอกลักษณ์ กฎการครอบงำ กฎคอมพลีเมนต์ กฎการสลับที่ กฎการเปลี่ยนกลุ่ม กฎการแจกแจง และกฎการดูดกลืน รวมทั้งกฎเดอมอร์แกน คือ $(a + b)' = a' \cdot b'$ และ $(a \cdot b)' = a' + b'$ จากนั้นนำเสนอฟังก์ชันบูลีนและนิพจน์บูลีน รูปแบบบัญญัติ (Canonical Forms) ทั้งแบบผลบวกของผลคูณ (SOP) และผลคูณของผลบวก (POS) และการลดรูปฟังก์ชันบูลีนด้วยแผนที่คาร์นอ (Karnaugh Map) ก่อนปิดท้ายด้วยการประยุกต์ในวงจรดิจิทัล เช่น ประตูตรรกะ วงจรบวก มัลติเพล็กเซอร์/ดีมัลติเพล็กเซอร์ และเครื่องสถานะจำกัด (FSM)
 
 พีชคณิตบูลีนเป็นพื้นฐานสำหรับการศึกษาทฤษฎีการคำนวณและการออกแบบวงจรดิจิทัล ซึ่งใช้วงจรบูลีนและนิพจน์บูลีนโดยตรง
 
@@ -1597,7 +1597,7 @@ Q_1^+ = Q_0X', \qquad Q_0^+ = X, \qquad Y = Q_1Q_0'
 \sectionbanner{แบบฝึกหัด}
 \label{sec:exercises}
 
-\exercisepart{ส่วนที่ 1: การดำเนินการพื้นฐาน}
+\exercisepart{ส่วนที่ 1 การดำเนินการพื้นฐาน}
 \begin{exercise}
 จงหาค่าของนิพจน์ต่อไปนี้
 \begin{enumerate}
@@ -1634,7 +1634,7 @@ Q_1^+ = Q_0X', \qquad Q_0^+ = X, \qquad Y = Q_1Q_0'
 \end{enumerate}
 \end{exercise}
 
-\exercisepart{ส่วนที่ 2: Boolean Identities}
+\exercisepart{ส่วนที่ 2 Boolean Identities}
 \begin{exercise}
 พิสูจน์โดยใช้ truth table:
 \begin{enumerate}
@@ -1664,9 +1664,9 @@ Q_1^+ = Q_0X', \qquad Q_0^+ = X, \qquad Y = Q_1Q_0'
 \end{enumerate}
 \end{exercise}
 
-\exercisepart{ส่วนที่ 3: De Morgan's Laws}
+\exercisepart{ส่วนที่ 3 กฎเดอมอร์แกน}
 \begin{exercise}
-พิสูจน์ De Morgan's Laws:
+จงพิสูจน์กฎเดอมอร์แกนต่อไปนี้
 \begin{enumerate}
     \item $(x + y)' = x' y'$
     \item $(x y)' = x' + y'$
@@ -1674,7 +1674,7 @@ Q_1^+ = Q_0X', \qquad Q_0^+ = X, \qquad Y = Q_1Q_0'
 \end{exercise}
 
 \begin{exercise}
-ใช้ De Morgan's Laws เพื่อเขียน complement ของ ดังนี้
+ใช้กฎเดอมอร์แกนเพื่อเขียน complement ของ ดังนี้
 \begin{enumerate}
     \item $x y + x' z$
     \item $(x + y + z)(x' y' z')'$
@@ -1683,7 +1683,7 @@ Q_1^+ = Q_0X', \qquad Q_0^+ = X, \qquad Y = Q_1Q_0'
 \end{enumerate}
 \end{exercise}
 
-\exercisepart{ส่วนที่ 4: ฟังก์ชันบูลีนและ Canonical Forms}
+\exercisepart{ส่วนที่ 4 ฟังก์ชันบูลีนและ Canonical Forms}
 \begin{exercise}
 เขียน truth table สำหรับ ดังนี้
 \begin{enumerate}
@@ -1709,7 +1709,7 @@ Q_1^+ = Q_0X', \qquad Q_0^+ = X, \qquad Y = Q_1Q_0'
 \end{enumerate}
 \end{exercise}
 
-\exercisepart{ส่วนที่ 5: Karnaugh Maps}
+\exercisepart{ส่วนที่ 5 Karnaugh Maps}
 \begin{exercise}
 ใช้ K-map ลดรูป ดังนี้
 \begin{enumerate}
@@ -1733,7 +1733,7 @@ Q_1^+ = Q_0X', \qquad Q_0^+ = X, \qquad Y = Q_1Q_0'
 \answerkeyhead
 \label{sec:exercises-solutions}
 
-\exercisepart{เฉลยส่วนที่ 1: การดำเนินการพื้นฐาน}
+\exercisepart{เฉลยส่วนที่ 1 การดำเนินการพื้นฐาน}
 \begin{enumerate}[label={},leftmargin=0pt,itemsep=0.6em]
     \item
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
@@ -1766,7 +1766,7 @@ Q_1^+ = Q_0X', \qquad Q_0^+ = X, \qquad Y = Q_1Q_0'
     \end{enumerate}
 \end{enumerate}
 
-\exercisepart{เฉลยส่วนที่ 2: กฎและทฤษฎีบทพีชคณิตบูลีน}
+\exercisepart{เฉลยส่วนที่ 2 กฎและทฤษฎีบทพีชคณิตบูลีน}
 \begin{enumerate}[label={},leftmargin=0pt,itemsep=0.6em]
     \setcounter{enumi}{3}
     \item
@@ -1793,7 +1793,7 @@ Q_1^+ = Q_0X', \qquad Q_0^+ = X, \qquad Y = Q_1Q_0'
     \end{enumerate}
 \end{enumerate}
 
-\exercisepart{เฉลยส่วนที่ 3: กฎของ De Morgan}
+\exercisepart{เฉลยส่วนที่ 3 กฎเดอมอร์แกน}
 \begin{enumerate}[label={},leftmargin=0pt,itemsep=0.6em]
     \setcounter{enumi}{6}
     \item
@@ -1812,7 +1812,7 @@ Q_1^+ = Q_0X', \qquad Q_0^+ = X, \qquad Y = Q_1Q_0'
 
 \end{enumerate}
 
-\exercisepart{เฉลยส่วนที่ 4: ฟังก์ชันบูลีนและการแทนมาตรฐาน}
+\exercisepart{เฉลยส่วนที่ 4 ฟังก์ชันบูลีนและการแทนมาตรฐาน}
 \begin{enumerate}[label={},leftmargin=0pt,itemsep=0.6em]
     \setcounter{enumi}{8}
     \item
@@ -1856,7 +1856,7 @@ Q_1^+ = Q_0X', \qquad Q_0^+ = X, \qquad Y = Q_1Q_0'
     \end{enumerate}
 \end{enumerate}
 
-\exercisepart{เฉลยส่วนที่ 5: Karnaugh Maps และวงจรตรรกะ}
+\exercisepart{เฉลยส่วนที่ 5 Karnaugh Maps และวงจรตรรกะ}
 \begin{enumerate}[label={},leftmargin=0pt,itemsep=0.6em]
     \label{sec:kmap-solutions}
     \setcounter{enumi}{11}
@@ -1882,7 +1882,7 @@ Q_1^+ = Q_0X', \qquad Q_0^+ = X, \qquad Y = Q_1Q_0'
 \begin{enumerate}
     \item จงอธิบายความหมายของพีชคณิตบูลีนและยกตัวอย่างการประยุกต์ใช้ในวิทยาการคอมพิวเตอร์
     \item จงเขียน truth table ของการดำเนินการ OR, AND และ NOT
-    \item จงพิสูจน์ De Morgan's Laws โดยใช้ truth table
+    \item จงพิสูจน์กฎเดอมอร์แกนโดยใช้ตารางค่าความจริง
     \item จงลดรูปนิพจน์บูลีนต่อไปนี้ $f(x,y,z) = xy + x'y + xyz'$
     \item จงเขียนฟังก์ชันบูลีน $f(x,y) = x + y'$ ในรูปแบบ canonical SOP และ POS
     \item จงใช้ K-map ลดรูปฟังก์ชัน $f(w,x,y,z) = \sum(0,2,4,6,8,10,12,14)$
@@ -1896,7 +1896,7 @@ Q_1^+ = Q_0X', \qquad Q_0^+ = X, \qquad Y = Q_1Q_0'
 \begin{enumerate}
     \item เพื่อให้นักศึกษาสามารถอธิบายความหมายและความสำคัญของพีชคณิตบูลีนได้
     \item เพื่อให้นักศึกษาสามารถดำเนินการ OR, AND, NOT และ XOR พร้อมอธิบายผลลัพธ์ได้
-    \item เพื่อให้นักศึกษาสามารถพิสูจน์กฎของ De Morgan และใช้กฎพีชคณิตบูลีนเพื่อลดรูปนิพจน์ได้
+    \item เพื่อให้นักศึกษาสามารถพิสูจน์กฎเดอมอร์แกนและใช้กฎพีชคณิตบูลีนเพื่อลดรูปนิพจน์ได้
     \item เพื่อให้นักศึกษาสามารถเขียนฟังก์ชันบูลีนในรูปแบบผลบวกของผลคูณและผลคูณของผลบวกได้
     \item เพื่อให้นักศึกษาสามารถใช้แผนที่คาร์นอเพื่อลดรูปฟังก์ชันบูลีนได้
     \item เพื่อให้นักศึกษาสามารถวิเคราะห์และออกแบบวงจรเชิงผสม ได้แก่ เกตสากล วงจรบวก และมัลติเพล็กเซอร์ได้

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  9 AUG 2026 06:17
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  9 AUG 2026 06:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2326,16 +2326,16 @@ File: Figures/png_ready/15-de-morgan-laws-generated.png Graphic file (type bmp)
 File: Figures/png_ready/17-venn-inclusion-exclusion-generated.png Graphic file 
 (type bmp)
 <Figures/png_ready/17-venn-inclusion-exclusion-generated.png>
- [78] [79] [80] [81] [82]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 898
+ [78] [79] [80] [81] [82] [83]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 901
 .
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [83] [84]
-[85
+) [84] [85
 
-] [86
+]
+[86
 
 
 ] [87] [88] [89] [90
@@ -2726,18 +2726,18 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: AC02FAB36A98C4F5E3D8B94BBE7DDDC1;23745.
+(rerunfilecheck)             Checksum: 5DD6FE2BB9C5F19F59439CFB58731ED2;24258.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 71894 strings out of 468168
- 1699847 string characters out of 5432815
- 2994459 words of memory out of 5000000
- 99561 multiletter control sequences out of 15000+600000
+ 71895 strings out of 468168
+ 1699864 string characters out of 5432815
+ 2994989 words of memory out of 5000000
+ 99562 multiletter control sequences out of 15000+600000
  637427 words of font info for 116 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,19n,118p,1181b,5297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (263 pages, 4711556 bytes).
+Output written on main.xdv (263 pages, 4725260 bytes).

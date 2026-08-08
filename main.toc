@@ -54,14 +54,14 @@
 \contentsline {subsection}{\numberline {2.4.3}ผลต่าง (Set Difference)}{69}{subsection.2.4.3}%
 \contentsline {subsection}{\numberline {2.4.4}คอมพลีเมนต์ (Complement)}{71}{subsection.2.4.4}%
 \contentsline {section}{\numberline {2.5}กฎเดอมอร์แกน (De Morgan's Laws)}{73}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}เพาเวอร์เซต (Power Set)}{75}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}ผลคูณคาร์ทีเซียน (Cartesian Product)}{76}{subsection.2.5.2}%
-\contentsline {section}{\numberline {2.6}การนับจำนวนสมาชิกของเซต (Cardinality)}{77}{section.2.6}%
-\contentsline {section}{\numberline {2.7}การประยุกต์ในวิทยาการคอมพิวเตอร์}{80}{section.2.7}%
-\contentsline {subsection}{\numberline {2.7.1}การแทนเซตในโครงสร้างข้อมูล}{80}{subsection.2.7.1}%
-\contentsline {subsection}{\numberline {2.7.2}การประยุกต์ในฐานข้อมูล}{81}{subsection.2.7.2}%
-\contentsline {subsection}{\numberline {2.7.3}ตารางแฮชและฟังก์ชันแฮช (Hash Table)}{82}{subsection.2.7.3}%
-\contentsline {section}{\numberline {2.8}เซตที่นับได้และเซตที่นับไม่ได้}{83}{section.2.8}%
+\contentsline {section}{\numberline {2.6}เพาเวอร์เซต (Power Set)}{75}{section.2.6}%
+\contentsline {section}{\numberline {2.7}ผลคูณคาร์ทีเซียน (Cartesian Product)}{76}{section.2.7}%
+\contentsline {section}{\numberline {2.8}การนับจำนวนสมาชิกของเซต (Cardinality)}{77}{section.2.8}%
+\contentsline {section}{\numberline {2.9}การประยุกต์ในวิทยาการคอมพิวเตอร์}{80}{section.2.9}%
+\contentsline {subsection}{\numberline {2.9.1}การแทนเซตในโครงสร้างข้อมูล}{80}{subsection.2.9.1}%
+\contentsline {subsection}{\numberline {2.9.2}การประยุกต์ในฐานข้อมูล}{81}{subsection.2.9.2}%
+\contentsline {subsection}{\numberline {2.9.3}ตารางแฮชและฟังก์ชันแฮช (Hash Table)}{82}{subsection.2.9.3}%
+\contentsline {section}{\numberline {2.10}เซตที่นับได้และเซตที่นับไม่ได้}{83}{section.2.10}%
 \contentsline {section}{สรุปบทเรียน}{85}{section*.46}%
 \contentsline {section}{แบบฝึกหัด}{86}{section*.47}%
 \contentsline {section}{เฉลยแบบฝึกหัด}{90}{section*.48}%

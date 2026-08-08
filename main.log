@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  8 AUG 2026 18:31
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  8 AUG 2026 18:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2064,32 +2064,32 @@ LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
 Package biblatex Info: Reference segment=2 on input line 206.
 Package biblatex Info: Setting label 'refsegment:02' on input line 206.
  (./main.lot
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 4.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 3.
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
-(Font)              scaled to size 11.54994pt on input line 4.
+(Font)              scaled to size 11.54994pt on input line 3.
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
-(Font)              scaled to size 8.25pt on input line 4.
+(Font)              scaled to size 8.25pt on input line 3.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 4.
+(Font)              size <5> substituted on input line 3.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 4.
+(Font)              size <5> substituted on input line 3.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 4.
+(Font)              size <5> substituted on input line 3.
 
 )
 \tf@lot=\write8
@@ -2202,56 +2202,60 @@ LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
 LaTeX Font Warning: Font shape `TU/THSarabunNew(0)/m/sc' undefined
 (Font)              using `TU/THSarabunNew(0)/m/n' instead on input line 45.
 
-[10]
+[10] [11]
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/sc' will be
-(Font)              scaled to size 16.5pt on input line 79.
- [11] [12]
-File: Figures/png_ready/02-and-gate-circuit.png Graphic file (type bmp)
-<Figures/png_ready/02-and-gate-circuit.png>
- [13]
-File: Figures/png_ready/03-or-gate-circuit.png Graphic file (type bmp)
-<Figures/png_ready/03-or-gate-circuit.png>
- [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24]
-File: Figures/png_ready/09-xor-logic.png Graphic file (type bmp)
-<Figures/png_ready/09-xor-logic.png>
-
-[25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37]
+(Font)              scaled to size 16.5pt on input line 91.
+ [12]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1129.
+(caption)                particular \caption on input line 139.
 See the caption package documentation for explanation.
 
-[38] [39] [40] [41
+[13]
+File: Figures/png_ready/02-and-gate-circuit.png Graphic file (type bmp)
+<Figures/png_ready/02-and-gate-circuit.png>
+ [14]
+File: Figures/png_ready/03-or-gate-circuit.png Graphic file (type bmp)
+<Figures/png_ready/03-or-gate-circuit.png>
+ [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26]
+File: Figures/png_ready/09-xor-logic.png Graphic file (type bmp)
+<Figures/png_ready/09-xor-logic.png>
+ [27]
+[28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40]
 
-] [42
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1249.
+See the caption package documentation for explanation.
+
+[41] [42] [43] [44
+
+] [45
 
 
-] [43] [44
+] [46] [47
 
 
-] [45]
+] [48]
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/sc' will be
-(Font)              scaled to size 18.0pt on input line 1352.
+(Font)              scaled to size 18.0pt on input line 1463.
 
 
 LaTeX Font Warning: Font shape `TU/THSarabunNew(0)/b/sc' undefined
-(Font)              using `TU/THSarabunNew(0)/b/n' instead on input line 1352.
+(Font)              using `TU/THSarabunNew(0)/b/n' instead on input line 1463.
 
-[46
+[49
 
 ]
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/sc' will be
-(Font)              scaled to size 18.0pt on input line 1365.
- [47]) [48]
+(Font)              scaled to size 18.0pt on input line 1476.
+ [50]) [51]
 Underfull \hbox (badness 7796) in paragraph at lines 232--232
 [][]\TU/THSarabunNew(0)/m/sc/11 Grimaldi, R. P. (2004).  \TU/THSarabunNew(0)/m/
 it/11 Discrete and combinatorial mathematics: An applied
  []
 
-[49
+[52
 
-
-] [50
 
 ]
 \openout2 = `chapters/chapter02_or.aux'.
@@ -2264,94 +2268,95 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-) [51
+) [53
 
 
-] [52]
+
+] [54]
 \openout2 = `chapters/chapter02.aux'.
 
  (./chapters/chapter02.tex
  2.
 Package biblatex Info: Reference segment=8 on input line 1.
 Package biblatex Info: Setting label 'refsegment:08' on input line 1.
-[53
+[55
 
 
 
 
 
-] [54]
+] [56]
 Underfull \hbox (badness 10000) in paragraph at lines 72--74
 \TU/THSarabunNew(0)/m/sc/11 จำนวนนับ เป็น เซต ย่อย ของ จำนวนเต็ม จำนวนเต็ม เป็น
  เซต ย่อย ของ จำนวนตรรกยะ และ
  []
 
-[55]
+[57]
 Underfull \hbox (badness 10000) in paragraph at lines 111--112
 []\TU/THSarabunNew(0)/b/n/11 แจกแจง โดย กำหนด คุณสมบัติ (Set-builder Notation) 
 \TU/THSarabunNew(0)/m/sc/11 คือ การ เขียน ใน รูป
  []
 
-[56] [57] [58] [59] [60]
+[58] [59] [60] [61] [62]
 File: Figures/png_ready/10-venn-union-generated.png Graphic file (type bmp)
 <Figures/png_ready/10-venn-union-generated.png>
- [61]
+ [63]
 File: Figures/png_ready/12-venn-disjoint-generated.png Graphic file (type bmp)
 <Figures/png_ready/12-venn-disjoint-generated.png>
- [62]
+ [64]
 File: Figures/png_ready/11-venn-intersection-generated.png Graphic file (type b
 mp)
 <Figures/png_ready/11-venn-intersection-generated.png>
- [63]
+ [65]
 File: Figures/png_ready/16-distributive-law-sets-generated.png Graphic file (ty
 pe bmp)
 <Figures/png_ready/16-distributive-law-sets-generated.png>
- [64] [65]
+ [66] [67]
 File: Figures/png_ready/set-operations-generated.png Graphic file (type bmp)
 <Figures/png_ready/set-operations-generated.png>
- [66]
+ [68]
 File: Figures/png_ready/14-venn-complement-generated.png Graphic file (type bmp
 )
 <Figures/png_ready/14-venn-complement-generated.png>
- [67]
+ [69]
 File: Figures/png_ready/15-de-morgan-laws-generated.png Graphic file (type bmp)
 
 <Figures/png_ready/15-de-morgan-laws-generated.png>
- [68] [69] [70]
-[71]
+ [70] [71] [72]
+[73]
 File: Figures/png_ready/17-venn-inclusion-exclusion-generated.png Graphic file 
 (type bmp)
 <Figures/png_ready/17-venn-inclusion-exclusion-generated.png>
- [72] [73] [74] [75]
+ [74] [75] [76] [77]
 Underfull \hbox (badness 5119) in paragraph at lines 798--799
 []\TU/THSarabunNew(0)/m/sc/11 กระจาย คีย์ สม่ำเสมอ (Uniformly Distributed): ค่า
  ของ $\OML/cmm/m/it/10.95 h\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 k\OT1/cmr/m/
 n/10.95 )$ \TU/THSarabunNew(0)/m/sc/11 ควร กระจาย ทั่ว
  []
 
-[76] [77]
+[78] [79]
 LaTeX Font Info:    Trying to load font information for U+euf on input line 861
 .
  (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
-[78] [79
+[80] [81
 
-] [80
+] [82
 
 
-] [81] [82] [83] [84
+] [83] [84] [85] [86
 
-] [85] [86] [87
+] [87] [88] [89
 
-] [88]) [89]
+] [90]) [91]
 Underfull \hbox (badness 4132) in paragraph at lines 239--239
 [][]\TU/THSarabunNew(0)/m/sc/11 Codd, E. F. (1970). \TU/THSarabunNew(0)/m/it/11
  A relational model of data for large shared data banks\TU/THSarabunNew(0)/m/sc
 /11 .
  []
 
-[90
+[92
 
 
 ]
@@ -2365,11 +2370,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-) [91
+) [93
 
 
 
-] [92
+] [94
 
 
 
@@ -2383,23 +2388,23 @@ Package biblatex Info: Setting label 'refsegment:010' on input line 1.
 File: Figures/png_ready/relation-cartesian-graph-generated.png Graphic file (ty
 pe bmp)
 <Figures/png_ready/relation-cartesian-graph-generated.png>
-[93
+[95
 
 
 ]
 File: Figures/png_ready/relation-arrow-generated.png Graphic file (type bmp)
 <Figures/png_ready/relation-arrow-generated.png>
- [94] [95] [96]
+ [96] [97] [98]
 File: Figures/png_ready/relation-matrix-generated.png Graphic file (type bmp)
 <Figures/png_ready/relation-matrix-generated.png>
- [97]
+ [99]
 File: Figures/png_ready/domain-range-generated.png Graphic file (type bmp)
 <Figures/png_ready/domain-range-generated.png>
- [98] [99] [100] [101] [102]
+ [100] [101] [102] [103] [104]
 File: Figures/png_ready/linear-function-graph-generated.png Graphic file (type 
 bmp)
 <Figures/png_ready/linear-function-graph-generated.png>
- [103] [104]
+ [105] [106]
 File: Figures/png_ready/function-injective-generated.png Graphic file (type bmp
 )
 <Figures/png_ready/function-injective-generated.png>
@@ -2409,21 +2414,22 @@ p)
 File: Figures/png_ready/function-bijective-generated.png Graphic file (type bmp
 )
 <Figures/png_ready/function-bijective-generated.png>
- [105]
+ [107]
 File: Figures/png_ready/37-function-composition-generated.png Graphic file (typ
 e bmp)
 <Figures/png_ready/37-function-composition-generated.png>
- [106]
-[107] [108]
+
+[108] [109] [110]
 File: Figures/png_ready/sequence-partial-sum-graph-generated.png Graphic file (
 type bmp)
 <Figures/png_ready/sequence-partial-sum-graph-generated.png>
- [109] [110] [111] [112] [113] [114] [115] [116
+ [111] [112] [113] [114] [115] [116] [117] [118
 
-] [117
+] [119
 
 
-] [118]
+]
+[120]
 Underfull \hbox (badness 10000) in paragraph at lines 800--801
 []$\OML/cmm/m/it/10.95 A \OMS/cmsy/m/n/10.95 ^^B \OML/cmm/m/it/10.95 B \OT1/cmr
 /m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; a\
@@ -2436,11 +2442,11 @@ L/cmm/m/it/10.95 ; b\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.9
 /THSarabunNew(0)/m/sc/11 ,
  []
 
-[119
+[121
 
-] [120] [121
+] [122] [123
 
-] [122]) [123]
+] [124]) [125]
 Underfull \hbox (badness 4132) in paragraph at lines 246--246
 [][]\TU/THSarabunNew(0)/m/sc/11 Codd, E. F. (1970). \TU/THSarabunNew(0)/m/it/11
  A relational model of data for large shared data banks\TU/THSarabunNew(0)/m/sc
@@ -2460,7 +2466,7 @@ bunNew(0)/m/it/11 Automatic Thai finger spelling transcription\TU/THSarabunNew(
 0)/m/sc/11 .
  []
 
-[124
+[126
 
 
 ]
@@ -2474,11 +2480,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-) [125
+) [127
 
 
 
-] [126
+] [128
 
 
 
@@ -2489,32 +2495,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
  4.
 Package biblatex Info: Reference segment=12 on input line 1.
 Package biblatex Info: Setting label 'refsegment:012' on input line 1.
-[127
+[129
 
 
 ]
 File: Figures/png_ready/binary-conversion-labeled.png Graphic file (type bmp)
 <Figures/png_ready/binary-conversion-labeled.png>
- [128] [129] [130] [131]
+ [130] [131] [132] [133]
 File: Figures/png_ready/27-hex-grouping-manual.png Graphic file (type bmp)
 <Figures/png_ready/27-hex-grouping-manual.png>
- [132] [133] [134] [135] [136] [137] [138]
+ [134] [135] [136] [137] [138] [139] [140]
 Underfull \hbox (badness 2103) in paragraph at lines 412--413
 []\TU/THSarabunNew(0)/m/sc/11 การ บวก และ การ ลบ ใน ระบบ เลข ฐาน สอง เป็นการ ดำ
 เนิน การ ที่ หน่วย คำนวณ และ ตรรกะ
  []
 
-[139] [140] [141] [142] [143] [144] [145] [146
+[141] [142] [143] [144] [145] [146] [147] [148
 
-] [147
+] [149
 
 
-] [148] [149
+] [150] [151
 
-] [150
+] [152
 
 ])
-[151] [152
+[153] [154
 
 
 ]
@@ -2528,11 +2534,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-) [153
+) [155
 
 
 
-] [154
+] [156
 
 
 
@@ -2546,27 +2552,27 @@ Package biblatex Info: Setting label 'refsegment:014' on input line 1.
 File: Figures/png_ready/30-matrix-dimensions-manual.png Graphic file (type bmp)
 
 <Figures/png_ready/30-matrix-dimensions-manual.png>
-[155
+[157
 
 
-] [156]
+] [158]
 File: Figures/png_ready/31-matrix-types-manual.png Graphic file (type bmp)
 <Figures/png_ready/31-matrix-types-manual.png>
- [157] [158] [159] [160] [161]
+ [159] [160] [161] [162] [163]
 File: Figures/png_ready/matrix-multiplication-labeled.png Graphic file (type bm
 p)
 <Figures/png_ready/matrix-multiplication-labeled.png>
- [162] [163] [164] [165]
+ [164] [165] [166] [167]
 File: Figures/png_ready/33-determinant-2x2-manual.png Graphic file (type bmp)
 <Figures/png_ready/33-determinant-2x2-manual.png>
- [166]
-[167] [168] [169] [170] [171] [172]
+ [168]
+[169] [170] [171] [172] [173] [174]
 Underfull \hbox (badness 3138) in paragraph at lines 550--551
 [][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 5.21 (ตัวอย่างค้านสำหรับสมบัติการบว
 กดีเทอร์มิแนนต์) []จง แสดง ตัวอย่าง ค้าน (counter-
  []
 
-[173] [174] [175] [176] [177] [178] [179] [180]
+[175] [176] [177] [178] [179] [180] [181] [182]
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
 (Font)              scaled to size 11.54994pt on input line 807.
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
@@ -2574,24 +2580,24 @@ LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
 File: Figures/png_ready/34-matrix-transformation-manual.png Graphic file (type 
 bmp)
 <Figures/png_ready/34-matrix-transformation-manual.png>
- [181] [182]
+ [183] [184]
 Underfull \hbox (badness 4805) in paragraph at lines 867--868
 [][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 5.35 (การถดถอยเชิงเส้น - Linear Reg
 ression) []จง หา เวก เตอร์ สัมประสิทธิ์ $\OML/cmm/m/it/10.95 ^^L \OT1/cmr/m/n/1
 0.95 =
  []
 
-[183] [184] [185
+[185] [186] [187
 
-] [186
-
-
-] [187] [188
+] [188
 
 
 ] [189] [190
 
-] [191]) [192]
+
+] [191] [192
+
+] [193]) [194]
 Underfull \hbox (badness 2237) in paragraph at lines 260--260
 [][]\TU/THSarabunNew(0)/m/sc/11 Anton, H., Rorres, C., & Kaul, A. (2019).  \TU/
 THSarabunNew(0)/m/it/11 Elementary linear algebra: Applications
@@ -2604,10 +2610,10 @@ YOLO-based object detection for handwritten X-marks\TU/THSarabunNew(0)/m/sc/11
 .
  []
 
-[193
+[195
 
 
-] [194
+] [196
 
 ]
 \openout2 = `chapters/chapter06_or.aux'.
@@ -2620,52 +2626,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
  []
 
-[195
+[197
 
 
-]) [196]
+]) [198]
 \openout2 = `chapters/chapter06.aux'.
 
  (./chapters/chapter06.tex
  6.
 Package biblatex Info: Reference segment=16 on input line 1.
 Package biblatex Info: Setting label 'refsegment:016' on input line 1.
-[197
+[199
 
 
 
 
 
-] [198] [199] [200] [201] [202] [203] [204] [205] [206] [207]
+] [200] [201] [202] [203] [204] [205] [206] [207] [208] [209]
 File: Figures/png_ready/demorgan-laws-generated.png Graphic file (type bmp)
 <Figures/png_ready/demorgan-laws-generated.png>
- [208]
+ [210]
 File: Figures/png_ready/boolean-function-flow-labeled.png Graphic file (type bm
 p)
 <Figures/png_ready/boolean-function-flow-labeled.png>
 
-[209] [210] [211] [212] [213] [214] [215] [216] [217] [218] [219] [220]
-[221] [222]
+[211] [212] [213] [214] [215] [216] [217] [218] [219] [220] [221] [222]
+[223] [224]
 File: Figures/png_ready/kmap-grouping-generated.png Graphic file (type bmp)
 <Figures/png_ready/kmap-grouping-generated.png>
- [223] [224] [225] [226]
+ [225] [226] [227] [228]
 File: Figures/png_ready/universal-gates-generated.png Graphic file (type bmp)
 <Figures/png_ready/universal-gates-generated.png>
- [227] [228] [229] [230]
+ [229] [230] [231] [232]
 File: Figures/png_ready/adders-comparison-generated.png Graphic file (type bmp)
 
 <Figures/png_ready/adders-comparison-generated.png>
- [231] [232]
-[233] [234] [235
+ [233] [234]
+[235] [236] [237
 
-] [236
+] [238
 
 
-] [237] [238] [239
+] [239] [240] [241
 
-] [240] [241
+] [242] [243
 
-] [242]) [243] [244
+] [244]) [245] [246
 
 
 ]
@@ -2694,7 +2700,7 @@ YOLO-based object detection for handwritten X-marks\TU/THSarabunNew(0)/m/sc/11
 .
  []
 
-[245
+[247
 
 ]
 Underfull \hbox (badness 5217) in paragraph at lines 270--270
@@ -2707,7 +2713,7 @@ bunNew(0)/m/it/11 Automatic Thai finger spelling transcription\TU/THSarabunNew(
 Package caption Warning: Unused \captionsetup[sub] on input line 13.
 See the caption package documentation for explanation.
 
-[246] (./main.aux (./organize.aux) (./chapters/chapter01_or.aux)
+[248] (./main.aux (./organize.aux) (./chapters/chapter01_or.aux)
 (./chapters/chapter01.aux) (./chapters/chapter02_or.aux)
 (./chapters/chapter02.aux) (./chapters/chapter03_or.aux)
 (./chapters/chapter03.aux) (./chapters/chapter04_or.aux)
@@ -2727,18 +2733,18 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0F656D57EE667A94C23886E39C0FCA54;23761.
+(rerunfilecheck)             Checksum: BD612B1FC0061934D7738F5D5C256587;23761.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 71422 strings out of 468168
- 1687512 string characters out of 5432815
- 2994132 words of memory out of 5000000
- 99091 multiletter control sequences out of 15000+600000
+ 71429 strings out of 468168
+ 1687635 string characters out of 5432815
+ 2994428 words of memory out of 5000000
+ 99098 multiletter control sequences out of 15000+600000
  637427 words of font info for 116 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,19n,118p,1181b,5297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (257 pages, 4527536 bytes).
+Output written on main.xdv (259 pages, 4619556 bytes).

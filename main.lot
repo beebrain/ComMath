@@ -24,15 +24,15 @@
 \contentsline {table}{\numberline {22}{\ignorespaces ผลการตัดสินใจอนุมัติสินเชื่อในทุกกรณีของรายได้และหนี้ค้างชำระ}}{40}{table.1.22}%
 \contentsline {table}{\numberline {23}{\ignorespaces ตารางพิสูจน์ว่า $p \rightarrow q \equiv \neg p \lor q$}}{41}{table.caption.30}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {24}{\ignorespaces ความสัมพันธ์ระหว่าง Relational Algebra และ Set Theory}}{80}{table.caption.44}%
-\contentsline {table}{\numberline {25}{\ignorespaces ความซับซ้อนเชิงเวลา (Time Complexity) ของ Hash Set Operations}}{81}{table.caption.45}%
+\contentsline {table}{\numberline {24}{\ignorespaces การดำเนินการของพีชคณิตเชิงสัมพันธ์เทียบกับการดำเนินการของทฤษฎีเซต}}{80}{table.caption.44}%
+\contentsline {table}{\numberline {25}{\ignorespaces ความซับซ้อนเชิงเวลาของการดำเนินการเซตเมื่อใช้ตารางแฮช}}{81}{table.caption.45}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {26}{\ignorespaces ตารางความสัมพันธ์การหารลงตัวบนเซต $A = \{1,2,3,4\}$}}{101}{table.3.26}%
+\contentsline {table}{\numberline {26}{\ignorespaces ตารางความสัมพันธ์การหารลงตัวบนเซต $A = \{1,2,3,4\}$}}{103}{table.3.26}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {27}{\ignorespaces ตารางเปรียบเทียบฐานสิบ ฐานสอง และฐานสิบหก}}{143}{table.caption.65}%
-\contentsline {table}{\numberline {28}{\ignorespaces ตาราง ASCII Code แสดงการเปรียบเทียบรหัสฐานสิบและฐานสิบหก}}{154}{table.caption.66}%
+\contentsline {table}{\numberline {27}{\ignorespaces ตารางเปรียบเทียบฐานสิบ ฐานสอง และฐานสิบหก}}{145}{table.caption.66}%
+\contentsline {table}{\numberline {28}{\ignorespaces ตาราง ASCII Code แสดงการเปรียบเทียบรหัสฐานสิบและฐานสิบหก}}{156}{table.caption.67}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {29}{\ignorespaces ความสัมพันธ์ระหว่างพีชคณิตบูลีน ทฤษฎีเซต และตรรกศาสตร์}}{207}{table.caption.80}%
-\contentsline {table}{\numberline {30}{\ignorespaces ตารางค่าความจริงของ NAND และ NOR เทียบกับ AND และ OR}}{237}{table.caption.84}%
+\contentsline {table}{\numberline {29}{\ignorespaces ความสัมพันธ์ระหว่างพีชคณิตบูลีน ทฤษฎีเซต และตรรกศาสตร์}}{209}{table.caption.81}%
+\contentsline {table}{\numberline {30}{\ignorespaces ตารางค่าความจริงของ NAND และ NOR เทียบกับ AND และ OR}}{239}{table.caption.85}%
 \contentsfinish 

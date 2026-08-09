@@ -168,7 +168,7 @@
 \contentsline {section}{\numberline {6.5}นิพจน์บูลีนและฟังก์ชันบูลีน (Boolean Expressions and Functions)}{215}{section.6.5}%
 \contentsline {subsection}{\numberline {6.5.1}นิยามของนิพจน์บูลีน}{216}{subsection.6.5.1}%
 \contentsline {subsection}{\numberline {6.5.2}ฟังก์ชันบูลีน}{217}{subsection.6.5.2}%
-\contentsline {section}{\numberline {6.6}รูปแบบปกติ (Canonical Forms)}{218}{section.6.6}%
+\contentsline {section}{\numberline {6.6}รูปแบบบัญญัติ (Canonical Forms)}{218}{section.6.6}%
 \contentsline {subsection}{\numberline {6.6.1}มินเทอมและแมกซ์เทอม (Minterms and Maxterms)}{218}{subsection.6.6.1}%
 \contentsline {subsection}{\numberline {6.6.2}ผลบวกของผลคูณ (Sum of Products -- SOP)}{219}{subsection.6.6.2}%
 \contentsline {subsection}{\numberline {6.6.3}ผลคูณของผลบวก (Product of Sums -- POS)}{221}{subsection.6.6.3}%

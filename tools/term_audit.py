@@ -16,8 +16,18 @@ from pathlib import Path
 CHAPTERS = sorted(Path("chapters").glob("chapter0[1-6].tex"))
 
 # ไทยติดกันอย่างน้อย 2 ตัว ตามด้วยวงเล็บอังกฤษ  เช่น  ตัวดำเนินการ (operator)
-PAIR = re.compile(r"([\u0E00-\u0E7F][\u0E00-\u0E7F\s]{1,40}?)\s*\(([A-Za-z][A-Za-z0-9\s\-'/,\.]{1,40})\)")
+# lookbehind กันไม่ให้เริ่มจับกลางคำ เพราะภาษาไทยไม่มีช่องว่างคั่นคำ
+# ถ้าไม่มีบรรทัดนี้จะได้ขยะอย่าง "รกะที่พบบ่อย เรียกว่าการยืนยันเงื่อนไขตาม"
+PAIR = re.compile(
+    r"(?<![\u0E00-\u0E7F])"
+    r"([\u0E00-\u0E7F][\u0E00-\u0E7F\s]{1,40}?)\s*\(([A-Za-z][A-Za-z0-9\s\-'/,\.]{1,40})\)"
+)
 STRIP_CMD = re.compile(r"\\[a-zA-Z]+\*?(\[[^\]]*\])?")
+# คำเชื่อมที่มักติดมาหน้าศัพท์จริง ตัดทิ้งก่อนบันทึก
+LEAD = re.compile(
+    r"^(และ|หรือ|คือ|เป็น|ที่|ของ|ใน|จึง|แต่|ตาม|เรียกว่า|ได้แก่|กับ|โดย|ให้|มี|ทั้ง"
+    r"|ส่วน|จาก|เมื่อ|ถ้า|ซึ่ง|นั่นคือ|ยัง|ก็|จะ|ต้อง|กล่าวคือ|พร้อม|อีก)\s*"
+)
 
 
 def norm_en(s):
@@ -25,7 +35,12 @@ def norm_en(s):
 
 
 def norm_th(s):
-    return re.sub(r"\s+", " ", s).strip()
+    s = re.sub(r"\s+", " ", s).strip()
+    while True:
+        stripped = LEAD.sub("", s)
+        if stripped == s:
+            return s
+        s = stripped
 
 
 def collect():

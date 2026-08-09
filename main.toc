@@ -73,7 +73,7 @@
 \contentsline {section}{\numberline {3.1}พื้นฐานความสัมพันธ์และคู่อันดับ}{99}{section.3.1}%
 \contentsline {section}{\numberline {3.2}โดเมน เรนจ์ และความสัมพันธ์ผกผัน}{103}{section.3.2}%
 \contentsline {section}{\numberline {3.3}การประกอบความสัมพันธ์}{107}{section.3.3}%
-\contentsline {section}{\numberline {3.4}การปิดคุณสมบัติของความสัมพันธ์}{107}{section.3.4}%
+\contentsline {section}{\numberline {3.4}การปิดสมบัติของความสัมพันธ์}{107}{section.3.4}%
 \contentsline {section}{\numberline {3.5}พื้นฐานฟังก์ชัน โดเมน โคโดเมน และเรนจ์}{109}{section.3.5}%
 \contentsline {section}{\numberline {3.6}ประเภทของฟังก์ชันและการประกอบฟังก์ชัน}{110}{section.3.6}%
 \contentsline {subsection}{\numberline {3.6.1}ประเภทของฟังก์ชัน (Injective, Surjective, Bijective)}{110}{subsection.3.6.1}%

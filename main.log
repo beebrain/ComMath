@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  9 AUG 2026 07:24
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  9 AUG 2026 08:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2292,8 +2292,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--74
 
 [59]
 Underfull \hbox (badness 10000) in paragraph at lines 111--112
-[]\TU/THSarabunNew(0)/b/n/11 แจกแจง โดย กำหนด คุณสมบัติ (Set-builder Notation) 
-\TU/THSarabunNew(0)/m/sc/11 คือ การ เขียน ใน รูป
+[]\TU/THSarabunNew(0)/b/n/11 แจกแจง โดย กำหนด สมบัติ (Set-builder Notation) \TU
+/THSarabunNew(0)/m/sc/11 คือ การ เขียน ใน รูป
  []
 
 [60] [61] [62] [63] [64]
@@ -2726,18 +2726,18 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: CC58A59D436928D9F81E43378295DF79;24282.
+(rerunfilecheck)             Checksum: 327FB9FB6B8DF4820CF2860D7D63139B;24258.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 71895 strings out of 468168
- 1699864 string characters out of 5432815
- 2995016 words of memory out of 5000000
- 99562 multiletter control sequences out of 15000+600000
+ 71896 strings out of 468168
+ 1699881 string characters out of 5432815
+ 2994989 words of memory out of 5000000
+ 99563 multiletter control sequences out of 15000+600000
  637427 words of font info for 116 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,19n,118p,1181b,5297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (263 pages, 4725540 bytes).
+Output written on main.xdv (263 pages, 4726228 bytes).

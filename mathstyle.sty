@@ -9,6 +9,10 @@
 \usepackage{centernot}
 \usepackage{fancybox} % ใช้สำหรับวาดกรอบวงรีโดยไม่พึ่ง tikz
 
+%% ผลต่างสมมาตร ใช้ \symdiff แทน \Delta เปล่า เพราะ \Delta เป็น \mathord
+%% จึงได้ระยะห่างแบบตัวแปร ไม่ใช่แบบตัวดำเนินการทวิภาคอย่าง \cup \cap
+\newcommand{\symdiff}{\mathbin{\Delta}}
+
 %% ─────────────── New Macros for Examples ───────────────
 %% Macro สำหรับคำตอบ (ยกเลิกการวาดกรอบรูปสี่เหลี่ยม/วงรีล้อมรอบคำตอบ)
 \newcommand{\mathoval}[1]{\ensuremath{\displaystyle #1}}

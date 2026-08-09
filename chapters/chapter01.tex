@@ -40,6 +40,15 @@
 
 สัญลักษณ์ $\text{T}$ และ $\text{F}$ แทนผลการประเมินข้อความ ไม่ได้แทนค่าทางศีลธรรมหรือความสำคัญของข้อความ เช่น ``7 เป็นจำนวนเฉพาะ'' มีค่า $\text{T}$ เพราะตรวจสอบได้ว่า 7 หารลงตัวด้วย 1 และ 7 เท่านั้น ส่วน ``9 เป็นจำนวนเฉพาะ'' มีค่า $\text{F}$ เพราะ 9 หารลงตัวด้วย 3 ด้วย
 
+นอกจากใช้แทนค่าความจริงแล้ว ตำราตรรกศาสตร์ยังต้องการสัญลักษณ์สำหรับแทน \emph{ประพจน์} ที่เป็นจริงเสมอและประพจน์ที่เป็นเท็จเสมอด้วย เล่มนี้ใช้ $\top$ แทนประพจน์ที่เป็นจริงเสมอ ซึ่งเรียกว่าสัจนิรันดร์ และใช้ $\bot$ แทนประพจน์ที่เป็นเท็จเสมอ ซึ่งเรียกว่าข้อขัดแย้ง รายละเอียดของทั้งสองอยู่ใน\autoref{sec:tautology}
+
+การแยกสัญลักษณ์สองชุดนี้จำเป็น เพราะค่าความจริงกับประพจน์เป็นสิ่งคนละชนิดกัน จึงใช้เครื่องหมายคนละตัว ดังนี้
+\begin{enumerate}
+    \item \textbf{การประเมินค่า} ใช้เครื่องหมาย $=$ ระหว่างประพจน์กับค่าความจริงที่ได้ เช่น $(2>1) \land (4<5) = \text{T}$ อ่านว่าประพจน์นี้ประเมินแล้วได้ค่าจริง การเขียนเช่นนี้เป็นการเขียนอย่างย่อของ ``ค่าความจริงของประพจน์นี้เท่ากับ T'' ซึ่งเป็นธรรมเนียมที่ใช้กันทั่วไป
+    \item \textbf{ความสมมูล} ใช้เครื่องหมาย $\equiv$ ระหว่างประพจน์สองประพจน์ เช่น $p \land \top \equiv p$ อ่านว่าสองประพจน์นี้มีค่าความจริงตรงกันทุกกรณี ทั้งสองข้างของ $\equiv$ ต้องเป็นประพจน์เสมอ จึงเขียน $p \land \top$ ได้ แต่เขียน $p \land \text{T}$ ไม่ได้ เพราะ T เป็นค่า ไม่ใช่ประพจน์ที่จะนำมาเชื่อมด้วยตัวเชื่อม
+\end{enumerate}
+ข้อสังเกตคือช่องในตารางค่าความจริงแสดงค่าความจริงของแต่ละแถว จึงใช้ $\text{T}$ และ $\text{F}$ ส่วนตารางกฎพีชคณิตของประพจน์ใน\autoref{sec:equivalence} เป็นความสมมูลระหว่างประพจน์ จึงใช้ $\top$ และ $\bot$
+
 ประพจน์ที่มีค่าความจริงแน่นอนไม่เปลี่ยนแปลงตามสถานการณ์ เรียกว่า ประพจน์ค่าคงตัว ส่วนข้อความที่มีตัวแปรแฝงอยู่และค่าความจริงเปลี่ยนไปตามค่าของตัวแปร เรียกว่า ประพจน์เปิด ซึ่งจะกลายเป็นประพจน์สมบูรณ์เมื่อได้รับการแทนค่าตัวแปรแล้ว
 
 \subsection{ตัวอย่างประพจน์และการวิเคราะห์}
@@ -206,8 +215,8 @@ F & F & F & F & T & T \\ \hline
 
 \noindent พิจารณาตัวอย่างค่าความจริงของการเชื่อมด้วยคำว่า ``และ'' ดังต่อไปนี้
 \begin{align*}
-(2>1) \land (4<5) &\equiv \text{T} \land \text{T} \equiv \text{T}\\
-(2+2=5) \land (\text{คนปกติมี 6 ขา}) &\equiv \text{F} \land \text{F} \equiv \text{F}
+(2>1) \land (4<5) &= \text{T} \land \text{T} = \text{T}\\
+(2+2=5) \land (\text{คนปกติมี 6 ขา}) &= \text{F} \land \text{F} = \text{F}
 \end{align*}
 
 \subsection{ประพจน์เลือก (Disjunction / OR, $\lor$)}
@@ -241,8 +250,8 @@ F & F & F & F & T & T \\ \hline
 
 \noindent พิจารณาตัวอย่างค่าความจริงของการเชื่อมด้วยคำว่า ``หรือ'' ดังต่อไปนี้
 \begin{align*}
-(\text{ประเทศไทยอยู่ในทวีปยุโรป}) \lor (2+5>4) &\equiv \text{F} \lor \text{T} \equiv \text{T}\\
-(2+2=5) \lor (\text{คนปกติมี 6 ขา}) &\equiv \text{F} \lor \text{F} \equiv \text{F}
+(\text{ประเทศไทยอยู่ในทวีปยุโรป}) \lor (2+5>4) &= \text{F} \lor \text{T} = \text{T}\\
+(2+2=5) \lor (\text{คนปกติมี 6 ขา}) &= \text{F} \lor \text{F} = \text{F}
 \end{align*}
 
 \subsection{นิเสธ (Negation / NOT, $\neg$)}
@@ -296,9 +305,9 @@ F & F & F & F & T & T \\ \hline
 
 \noindent พิจารณาตัวอย่างค่าความจริงของประพจน์มีเงื่อนไข
 \begin{align*}
-(\text{เป็นคนปกติ}) \rightarrow (\text{มี 2 ตา}) &\equiv \text{T} \rightarrow \text{T} \equiv \text{T}\\
-(\text{เป็นคนปกติ}) \rightarrow (\text{มี 6 ขา}) &\equiv \text{T} \rightarrow \text{F} \equiv \text{F}\\
-(2+2=5) \rightarrow (7>3) &\equiv \text{F} \rightarrow \text{T} \equiv \text{T}\quad (\text{เงื่อนไขนำเป็นเท็จ})
+(\text{เป็นคนปกติ}) \rightarrow (\text{มี 2 ตา}) &= \text{T} \rightarrow \text{T} = \text{T}\\
+(\text{เป็นคนปกติ}) \rightarrow (\text{มี 6 ขา}) &= \text{T} \rightarrow \text{F} = \text{F}\\
+(2+2=5) \rightarrow (7>3) &= \text{F} \rightarrow \text{T} = \text{T}\quad (\text{เงื่อนไขนำเป็นเท็จ})
 \end{align*}
 
 \subsection{ประพจน์เงื่อนไขสองทาง (Biconditional / IFF, $\leftrightarrow$)}
@@ -327,9 +336,9 @@ F & F & F & F & T & T \\ \hline
 
 \noindent พิจารณาตัวอย่างค่าความจริงของการเชื่อมด้วยคำว่า ``ก็ต่อเมื่อ'' ดังต่อไปนี้
 \begin{align*}
-(2+2=4) \leftrightarrow (3<5) &\equiv \text{T} \leftrightarrow \text{T} \equiv \text{T}\\
-(2+2=5) \leftrightarrow (\text{คนปกติมี 6 ขา}) &\equiv \text{F} \leftrightarrow \text{F} \equiv \text{T}\\
-(2+2=4) \leftrightarrow (\text{คนปกติมี 6 ขา}) &\equiv \text{T} \leftrightarrow \text{F} \equiv \text{F}
+(2+2=4) \leftrightarrow (3<5) &= \text{T} \leftrightarrow \text{T} = \text{T}\\
+(2+2=5) \leftrightarrow (\text{คนปกติมี 6 ขา}) &= \text{F} \leftrightarrow \text{F} = \text{T}\\
+(2+2=4) \leftrightarrow (\text{คนปกติมี 6 ขา}) &= \text{T} \leftrightarrow \text{F} = \text{F}
 \end{align*}
 
 \noindent ในทางตรรกศาสตร์ การเชื่อมแบบก็ต่อเมื่อมีความสัมพันธ์อย่างใกล้ชิดกับการเชื่อมแบบถ้า...แล้วสองทิศทาง กล่าวคือ $p \leftrightarrow q$ สมมูลกับ $(p \rightarrow q) \land (q \rightarrow p)$ ความสมมูลนี้มีความสำคัญในการพิสูจน์ทางคณิตศาสตร์และการแปลงประพจน์เชิงตรรกศาสตร์
@@ -369,10 +378,10 @@ p \leftrightarrow q \equiv (p \rightarrow q) \land (q \rightarrow p)
 \begin{solution}
 แทนค่า $p = \text{F}$, $q = \text{T}$, และ $r = \text{F}$ ลงในประพจน์เพื่อหาค่าความจริงได้ผลลัพธ์ดังนี้
 \begin{align*}
-    (\neg p \land q) \rightarrow r &\equiv (\neg \text{F} \land \text{T}) \rightarrow \text{F} \\
-    &\equiv (\text{T} \land \text{T}) \rightarrow \text{F} \\
-    &\equiv \text{T} \rightarrow \text{F} \\
-    &\equiv \text{F}
+    (\neg p \land q) \rightarrow r &= (\neg \text{F} \land \text{T}) \rightarrow \text{F} \\
+    &= (\text{T} \land \text{T}) \rightarrow \text{F} \\
+    &= \text{T} \rightarrow \text{F} \\
+    &= \text{F}
 \end{align*}
 ดังนั้น ประพจน์มีค่าความจริงเป็น เท็จ (F) \solhere
 \end{solution}
@@ -443,10 +452,10 @@ p \leftrightarrow q \equiv (p \rightarrow q) \land (q \rightarrow p)
 \begin{solution}
 ประพจน์นี้มีตัวแปรย่อยสองตัว จึงต้องตรวจ $2^2 = 4$ กรณี ในแต่ละกรณีให้คำนวณ $p \land q$ และ $p \lor q$ ก่อน แล้วจึงนำผลทั้งสองมาประกอบเป็นประพจน์มีเงื่อนไข
 \begin{align*}
-p=\text{T},\ q=\text{T} &\ \Rightarrow\ (p \land q) \rightarrow (p \lor q) \equiv \text{T} \rightarrow \text{T} \equiv \text{T}\\
-p=\text{T},\ q=\text{F} &\ \Rightarrow\ (p \land q) \rightarrow (p \lor q) \equiv \text{F} \rightarrow \text{T} \equiv \text{T}\\
-p=\text{F},\ q=\text{T} &\ \Rightarrow\ (p \land q) \rightarrow (p \lor q) \equiv \text{F} \rightarrow \text{T} \equiv \text{T}\\
-p=\text{F},\ q=\text{F} &\ \Rightarrow\ (p \land q) \rightarrow (p \lor q) \equiv \text{F} \rightarrow \text{F} \equiv \text{T}
+p=\text{T},\ q=\text{T} &\ \Rightarrow\ (p \land q) \rightarrow (p \lor q) = \text{T} \rightarrow \text{T} = \text{T}\\
+p=\text{T},\ q=\text{F} &\ \Rightarrow\ (p \land q) \rightarrow (p \lor q) = \text{F} \rightarrow \text{T} = \text{T}\\
+p=\text{F},\ q=\text{T} &\ \Rightarrow\ (p \land q) \rightarrow (p \lor q) = \text{F} \rightarrow \text{T} = \text{T}\\
+p=\text{F},\ q=\text{F} &\ \Rightarrow\ (p \land q) \rightarrow (p \lor q) = \text{F} \rightarrow \text{F} = \text{T}
 \end{align*}
 ผลลัพธ์เป็นจริงทั้งสี่กรณี ดังนั้น $(p \land q) \rightarrow (p \lor q)$ เป็นสัจนิรันดร์ ข้อสังเกตคือไม่มีกรณีใดที่เงื่อนไขนำเป็นจริงแต่เงื่อนไขตามเป็นเท็จ เพราะเมื่อ $p$ และ $q$ จริงพร้อมกัน ย่อมมีอย่างน้อยหนึ่งตัวเป็นจริงเสมอ \solhere
 \end{solution}
@@ -528,6 +537,7 @@ a = 2c \ &\Rightarrow\ (2c)^2 = 2b^2 \ \Rightarrow\ b^2 = 2c^2 \quad (b^2 \text{
 การแยกสามประเภทนี้มีประโยชน์เมื่อออกแบบเงื่อนไขของโปรแกรม เงื่อนไขที่เป็นข้อขัดแย้งจะไม่มีทางให้ผลผ่าน ส่วนเงื่อนไขที่เป็นสัจนิรันดร์จะไม่ช่วยคัดกรองข้อมูล เพราะให้ผลผ่านทุกกรณี เงื่อนไขที่ใช้ตัดสินใจส่วนใหญ่จึงเป็นประพจน์กลาง ซึ่งผลลัพธ์เปลี่ยนตามข้อมูลนำเข้า
 
 \section{ความสมมูลเชิงตรรกะและกฎพีชคณิตของประพจน์}
+\label{sec:equivalence}
 \index{ความสมมูลเชิงตรรกะ}
 \index{Logical Equivalence}
 \label{sec:logical-equivalence}
@@ -548,17 +558,17 @@ a = 2c \ &\Rightarrow\ (2c)^2 = 2b^2 \ \Rightarrow\ b^2 = 2c^2 \quad (b^2 \text{
 
 กฎพีชคณิตของประพจน์เป็นชุดของความสมมูลพื้นฐานที่ใช้บ่อยในการลดรูปและพิสูจน์ทฤษฎีบทเชิงตรรกะ อันที่จริงกฎเหล่านี้เป็น \emph{กรณีรูปธรรม} ของกฎในพีชคณิตบูลีน (Boolean Algebra) ซึ่งเป็นโครงสร้างนามธรรมที่จะได้ศึกษาอย่างละเอียดใน\autoref{ch:boolean} (กฎชุดเดียวกันนี้ยังปรากฏในทฤษฎีเซตอีกด้วย ดังจะเห็นใน\autoref{ch:set}) ตารางที่ \ref{tab:propositional-laws} สรุปกฎที่สำคัญทั้งหมด~\cite{rosen2019discrete}
 
-ตารางที่ \ref{tab:propositional-laws} ไม่ใช่รายการที่ต้องจำทุกบรรทัดก่อนเริ่มทำโจทย์ ให้ใช้ตารางโดยเลือกส่วนของนิพจน์ที่มีรูปตรงกับด้านใดด้านหนึ่งของกฎ แล้วแทนด้วยอีกด้านหนึ่ง ตัวอย่างเช่น $p\land \text{T}$ มีรูปตรงกับกฎเอกลักษณ์ จึงแทนด้วย $p$ ได้ การแทนต้องรักษาเครื่องหมายสมมูล $\equiv$ ไว้ทุกขั้น เพื่อแสดงว่าค่าความจริงก่อนและหลังแปลงยังเหมือนกัน
+ตารางที่ \ref{tab:propositional-laws} ไม่ใช่รายการที่ต้องจำทุกบรรทัดก่อนเริ่มทำโจทย์ ให้ใช้ตารางโดยเลือกส่วนของนิพจน์ที่มีรูปตรงกับด้านใดด้านหนึ่งของกฎ แล้วแทนด้วยอีกด้านหนึ่ง ตัวอย่างเช่น $p\land \top$ มีรูปตรงกับกฎเอกลักษณ์ จึงแทนด้วย $p$ ได้ การแทนต้องรักษาเครื่องหมายสมมูล $\equiv$ ไว้ทุกขั้น เพื่อแสดงว่าค่าความจริงก่อนและหลังแปลงยังเหมือนกัน
 
 \begin{table}[H]
     \centering
-    \caption{กฎพีชคณิตของประพจน์ (โดยที่ $T$ แทนสัจนิรันดร์ และ $F$ แทนข้อขัดแย้ง)}
+    \caption{กฎพีชคณิตของประพจน์}
     \label{tab:propositional-laws}
     \begin{tabular}{|l|l|}
         \hline
         \textbf{ชื่อกฎ} & \textbf{รูปสมมูล} \\ \hline
-        กฎเอกลักษณ์ (Identity) & $p \land T \equiv p$, \quad $p \lor F \equiv p$ \\ \hline
-        กฎครอบงำ (Domination) & $p \lor T \equiv T$, \quad $p \land F \equiv F$ \\ \hline
+        กฎเอกลักษณ์ (Identity) & $p \land \top \equiv p$, \quad $p \lor \bot \equiv p$ \\ \hline
+        กฎครอบงำ (Domination) & $p \lor \top \equiv \top$, \quad $p \land \bot \equiv \bot$ \\ \hline
         กฎนิจพล (Idempotent) & $p \lor p \equiv p$, \quad $p \land p \equiv p$ \\ \hline
         กฎนิเสธซ้อน (Double Negation) & $\neg(\neg p) \equiv p$ \\ \hline
         กฎการสลับที่ (Commutative) & $p \lor q \equiv q \lor p$, \quad $p \land q \equiv q \land p$ \\ \hline
@@ -569,7 +579,7 @@ a = 2c \ &\Rightarrow\ (2c)^2 = 2b^2 \ \Rightarrow\ b^2 = 2c^2 \quad (b^2 \text{
         กฎเดอมอร์แกน (De Morgan) & $\neg(p \land q) \equiv \neg p \lor \neg q$ \\ \hline
                                  & $\neg(p \lor q) \equiv \neg p \land \neg q$ \\ \hline
         กฎการดูดกลืน (Absorption) & $p \lor (p \land q) \equiv p$, \quad $p \land (p \lor q) \equiv p$ \\ \hline
-        กฎนิเสธ (Negation) & $p \lor \neg p \equiv T$, \quad $p \land \neg p \equiv F$ \\ \hline
+        กฎนิเสธ (Negation) & $p \lor \neg p \equiv \top$, \quad $p \land \neg p \equiv \bot$ \\ \hline
         กฎเงื่อนไข (Implication) & $p \rightarrow q \equiv \neg p \lor q$ \\ \hline
         กฎแยกเงื่อนไข (Exportation) & $(p \land q) \rightarrow r \equiv p \rightarrow (q \rightarrow r)$ \\ \hline
     \end{tabular}
@@ -611,7 +621,7 @@ $\therefore p \land (p \lor q) \equiv p$ \solhere
 \begin{align*}
 \neg(p \lor q) \lor (\neg p \land q) &\equiv (\neg p \land \neg q) \lor (\neg p \land q) \quad \text{(กฎเดอมอร์แกน)} \\
 &\equiv \neg p \land (\neg q \lor q) \quad \text{(กฎการแจกแจง ใช้ย้อนทิศ)} \\
-&\equiv \neg p \land T \quad \text{(กฎนิเสธ)} \\
+&\equiv \neg p \land \top \quad \text{(กฎนิเสธ)} \\
 &\equiv \neg p \quad \text{(กฎเอกลักษณ์)}
 \end{align*}
 $\therefore \neg(p \lor q) \lor (\neg p \land q) \equiv \neg p$ · จุดที่ต้องสังเกตคือขั้นที่สอง ซึ่งอ่านกฎการแจกแจงจากขวาไปซ้าย เนื่องจากทั้งสองก้อนมี $\neg p$ เป็นตัวร่วม จึงดึงออกมานอกวงเล็บได้ เทียบได้กับการดึงตัวประกอบร่วมในพีชคณิตของจำนวน \solhere
@@ -728,9 +738,9 @@ XOR ใช้เปรียบเทียบค่าความจริง�
 \begin{solution}
 แทนค่าความจริงที่กำหนด แล้วคำนวณจากวงเล็บด้านในออกมาด้านนอก โดยใช้หลักว่า XOR ให้ค่าจริงเมื่อสองข้างมีค่าความจริงต่างกัน
 \begin{align*}
-(p \oplus q) \oplus r &\equiv (\text{T} \oplus \text{F}) \oplus \text{T}\\
-&\equiv \text{T} \oplus \text{T} \quad (\text{T กับ F ต่างกัน จึงได้ T})\\
-&\equiv \text{F} \quad (\text{T กับ T เหมือนกัน จึงได้ F})
+(p \oplus q) \oplus r &= (\text{T} \oplus \text{F}) \oplus \text{T}\\
+&= \text{T} \oplus \text{T} \quad (\text{T กับ F ต่างกัน จึงได้ T})\\
+&= \text{F} \quad (\text{T กับ T เหมือนกัน จึงได้ F})
 \end{align*}
 ดังนั้น $(p \oplus q) \oplus r$ มีค่าความจริงเป็นเท็จ \solhere
 \end{solution}
@@ -769,9 +779,9 @@ XOR ใช้เปรียบเทียบค่าความจริง�
 \end{ex}
 \begin{solution}
 \begin{align*}
-\forall x\,(x^2 \geq 0) &\equiv \text{T} \quad (\text{กำลังสองของจำนวนจริงใด ๆ ไม่ติดลบ})\\
-\exists x\,(x^2 = 4) &\equiv \text{T} \quad (\text{เช่น } x = 2)\\
-\forall x\,(x^2 = 4) &\equiv \text{F} \quad (\text{ตัวอย่างค้าน } x = 0 \text{ ให้ } 0 \neq 4)
+\forall x\,(x^2 \geq 0) &= \text{T} \quad (\text{กำลังสองของจำนวนจริงใด ๆ ไม่ติดลบ})\\
+\exists x\,(x^2 = 4) &= \text{T} \quad (\text{เช่น } x = 2)\\
+\forall x\,(x^2 = 4) &= \text{F} \quad (\text{ตัวอย่างค้าน } x = 0 \text{ ให้ } 0 \neq 4)
 \end{align*}
 \solhere
 \end{solution}
@@ -1007,9 +1017,9 @@ XOR ใช้เปรียบเทียบค่าความจริง�
 
 การตรวจทำได้โดยหาแถวที่ข้อตั้งต้นเป็นจริงพร้อมกันแต่ข้อสรุปเป็นเท็จ พิจารณาแถวที่ $p = \text{F}$ และ $q = \text{T}$
 \begin{align*}
-p \rightarrow q &\equiv \text{F} \rightarrow \text{T} \equiv \text{T} \quad (\text{ข้อตั้งต้นที่ 1 เป็นจริง})\\
-q &\equiv \text{T} \quad (\text{ข้อตั้งต้นที่ 2 เป็นจริง})\\
-p &\equiv \text{F} \quad (\text{แต่ข้อสรุปเป็นเท็จ})
+p \rightarrow q &= \text{F} \rightarrow \text{T} = \text{T} \quad (\text{ข้อตั้งต้นที่ 1 เป็นจริง})\\
+q &= \text{T} \quad (\text{ข้อตั้งต้นที่ 2 เป็นจริง})\\
+p &= \text{F} \quad (\text{แต่ข้อสรุปเป็นเท็จ})
 \end{align*}
 มีแถวที่ข้อตั้งต้นจริงทั้งคู่แต่ข้อสรุปเท็จ การอนุมานนี้จึงไม่สมเหตุสมผล ข้อผิดพลาดรูปแบบนี้เรียกว่าการยืนยันเงื่อนไขตาม (Affirming the Consequent) ในทางปฏิบัติหมายความว่าการทดสอบที่ไม่ผ่านอาจเกิดจากสาเหตุอื่นนอกจากบักในโปรแกรม เช่น ชุดข้อมูลทดสอบผิด หรือสภาพแวดล้อมที่ใช้ทดสอบไม่ถูกต้อง \solhere
 \end{solution}
@@ -1470,7 +1480,7 @@ p \rightarrow q \equiv \neg p \lor q
     \item
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
         \item เป็นข้อขัดแย้ง ($p \land \neg p$ เป็นเท็จทุกกรณี)
-        \item เป็นข้อขัดแย้ง (เพราะ $\neg(p \lor \neg p) \equiv \neg(T) \equiv F$)
+        \item เป็นข้อขัดแย้ง (เพราะ $\neg(p \lor \neg p) \equiv \neg\top \equiv \bot$)
         \item เป็นข้อขัดแย้ง (ถ้า $p \rightarrow q$ เป็นจริง และ $p$ เป็นจริง แล้ว $q$ ต้องเป็นจริง ขัดกับ $\neg q$)
     \end{enumerate}
 
@@ -1503,8 +1513,8 @@ p \rightarrow q \equiv \neg p \lor q
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
         \item $\neg(\neg p \lor q) \equiv \neg(\neg p) \land \neg q$ (กฎเดอมอร์แกน) $\equiv p \land \neg q$ (กฎนิเสธซ้อน)
         \item $p \land (p \lor q) \equiv p$ (กฎการดูดกลืน)
-        \item $(p \land q) \lor (p \land \neg q) \equiv p \land (q \lor \neg q)$ (กฎการแจกแจง อ่านจากขวาไปซ้าย) $\equiv p \land T$ (กฎนิเสธ) $\equiv p$ (กฎเอกลักษณ์)
-        \item $\neg p \rightarrow (p \rightarrow q) \equiv \neg(\neg p) \lor (\neg p \lor q)$ (กฎเงื่อนไข ใช้สองครั้ง) $\equiv p \lor \neg p \lor q \equiv T \lor q \equiv T$ (กฎนิเสธ และกฎครอบงำ) จึงเป็นสัจนิรันดร์
+        \item $(p \land q) \lor (p \land \neg q) \equiv p \land (q \lor \neg q)$ (กฎการแจกแจง อ่านจากขวาไปซ้าย) $\equiv p \land \top$ (กฎนิเสธ) $\equiv p$ (กฎเอกลักษณ์)
+        \item $\neg p \rightarrow (p \rightarrow q) \equiv \neg(\neg p) \lor (\neg p \lor q)$ (กฎเงื่อนไข ใช้สองครั้ง) $\equiv p \lor \neg p \lor q \equiv \top \lor q \equiv \top$ (กฎนิเสธ และกฎครอบงำ) จึงเป็นสัจนิรันดร์
     \end{enumerate}
 
     \item
@@ -1519,7 +1529,7 @@ p \rightarrow q \equiv \neg p \lor q
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
         \item เป็นเท็จทุกกรณี เพราะ $r \oplus r$ เป็นเท็จเสมอเมื่อสองข้างเป็นประพจน์เดียวกัน จึงมีค่าความจริงเหมือนกันเสมอ
         \item ทั้งสองประพจน์ให้ค่า F, T, T, F ตามลำดับแถว $(T,T), (T,F), (F,T), (F,F)$ จึงสมมูลกัน
-        \item $(p \oplus q) \oplus q \equiv p$ เพราะ XOR มีสมบัติการเปลี่ยนหมู่ จึงจัดกลุ่มใหม่เป็น $p \oplus (q \oplus q)$ และ $q \oplus q \equiv \text{F}$ เนื่องจากสองข้างมีค่าความจริงเหมือนกันเสมอ สุดท้าย $p \oplus \text{F} \equiv p$ สมบัติข้อนี้คือเหตุผลที่การนำข้อมูลไป XOR ด้วยค่าเดิมสองครั้งจะได้ข้อมูลตั้งต้นกลับคืนมา
+        \item $(p \oplus q) \oplus q \equiv p$ เพราะ XOR มีสมบัติการเปลี่ยนหมู่ จึงจัดกลุ่มใหม่เป็น $p \oplus (q \oplus q)$ และ $q \oplus q \equiv \bot$ เนื่องจากสองข้างมีค่าความจริงเหมือนกันเสมอ สุดท้าย $p \oplus \bot \equiv p$ สมบัติข้อนี้คือเหตุผลที่การนำข้อมูลไป XOR ด้วยค่าเดิมสองครั้งจะได้ข้อมูลตั้งต้นกลับคืนมา
     \end{enumerate}
 
     \item
@@ -1557,7 +1567,7 @@ p \rightarrow q \equiv \neg p \lor q
 
     \item ตารางทั้งสี่แถวให้ค่า $\text{T}, \text{F}, \text{T}, \text{T}$ เหมือนกันทั้งสองประพจน์ จึงสมมูลกัน ตรงกับกฎเงื่อนไขที่ว่า $p \rightarrow q \equiv \neg p \lor q$ ในความหมายเชิงสถานการณ์คือ ``ถ้าฝนตกแล้วถนนเปียก'' มีความหมายเดียวกับ ``ฝนไม่ตก หรือ ถนนเปียก''
 
-    \item คอลัมน์ผลลัพธ์ของ $(p \land q) \lor (p \land \neg q)$ ได้ $\text{T}, \text{T}, \text{F}, \text{F}$ ซึ่งตรงกับคอลัมน์ของ $p$ ทุกแถว จึงสมมูลกัน อธิบายด้วยกฎได้ว่า $(p \land q) \lor (p \land \neg q) \equiv p \land (q \lor \neg q) \equiv p \land \text{T} \equiv p$
+    \item คอลัมน์ผลลัพธ์ของ $(p \land q) \lor (p \land \neg q)$ ได้ $\text{T}, \text{T}, \text{F}, \text{F}$ ซึ่งตรงกับคอลัมน์ของ $p$ ทุกแถว จึงสมมูลกัน อธิบายด้วยกฎได้ว่า $(p \land q) \lor (p \land \neg q) \equiv p \land (q \lor \neg q) \equiv p \land \top \equiv p$
 
     \item (ก) สัจนิรันดร์ ตามกฎกีดกันกลาง (ข) ข้อขัดแย้ง เพราะประพจน์เดียวกันเป็นทั้งจริงและเท็จพร้อมกันไม่ได้ (ค) สัจนิรันดร์ เพราะเงื่อนไขตาม $\neg q \rightarrow \neg p$ สมมูลกับเงื่อนไขนำ $p \rightarrow q$ อยู่แล้ว ประพจน์รวมจึงอยู่ในรูป $X \rightarrow X$
 

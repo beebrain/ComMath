@@ -15,23 +15,23 @@
 \contentsline {table}{\numberline {13}{\ignorespaces กฎพีชคณิตของประพจน์ (โดยที่ $T$ แทนสัจนิรันดร์ และ $F$ แทนข้อขัดแย้ง)}}{24}{table.caption.20}%
 \contentsline {table}{\numberline {14}{\ignorespaces ตารางพิสูจน์ความสมมูลของประพจน์เงื่อนไขและแย้งสลับที่}}{26}{table.caption.21}%
 \contentsline {table}{\numberline {15}{\ignorespaces ตารางค่าความจริงของ XOR ($p \oplus q$)}}{27}{table.caption.22}%
-\contentsline {table}{\numberline {16}{\ignorespaces ตารางค่าความจริงของ NAND และ NOR}}{28}{table.caption.24}%
-\contentsline {table}{\numberline {17}{\ignorespaces ตารางแสดงกฎการอนุมานแบบ Modus Ponens}}{32}{table.caption.25}%
-\contentsline {table}{\numberline {18}{\ignorespaces ตารางค่าความจริงพิสูจน์ความสมเหตุสมผลของกฎการยืนยันเงื่อนไขนำ}}{33}{table.caption.26}%
-\contentsline {table}{\numberline {19}{\ignorespaces ตารางแสดงกฎการอนุมานแบบ Modus Tollens}}{35}{table.caption.27}%
-\contentsline {table}{\numberline {20}{\ignorespaces ตารางค่าความจริงพิสูจน์ความสมเหตุสมผลของกฎการปฏิเสธเงื่อนไขตาม}}{36}{table.caption.28}%
-\contentsline {table}{\numberline {21}{\ignorespaces ตารางค่าความจริงพิสูจน์ความสมเหตุสมผลของการอ้างเหตุผลแบบมีเงื่อนไข}}{38}{table.caption.29}%
-\contentsline {table}{\numberline {22}{\ignorespaces ตารางค่าความจริงพิสูจน์ความสมเหตุสมผลของการอ้างเหตุผลแบบแยก}}{40}{table.caption.30}%
-\contentsline {table}{\numberline {23}{\ignorespaces ผลการตัดสินใจอนุมัติสินเชื่อในทุกกรณีของรายได้และหนี้ค้างชำระ}}{41}{table.1.23}%
-\contentsline {table}{\numberline {24}{\ignorespaces ตารางพิสูจน์ว่า $p \rightarrow q \equiv \neg p \lor q$}}{42}{table.caption.31}%
+\contentsline {table}{\numberline {16}{\ignorespaces ตารางแสดงกฎการอนุมานแบบ Modus Ponens}}{31}{table.caption.24}%
+\contentsline {table}{\numberline {17}{\ignorespaces ตารางค่าความจริงพิสูจน์ความสมเหตุสมผลของกฎการยืนยันเงื่อนไขนำ}}{32}{table.caption.25}%
+\contentsline {table}{\numberline {18}{\ignorespaces ตารางแสดงกฎการอนุมานแบบ Modus Tollens}}{34}{table.caption.26}%
+\contentsline {table}{\numberline {19}{\ignorespaces ตารางค่าความจริงพิสูจน์ความสมเหตุสมผลของกฎการปฏิเสธเงื่อนไขตาม}}{35}{table.caption.27}%
+\contentsline {table}{\numberline {20}{\ignorespaces ตารางค่าความจริงพิสูจน์ความสมเหตุสมผลของการอ้างเหตุผลแบบมีเงื่อนไข}}{37}{table.caption.28}%
+\contentsline {table}{\numberline {21}{\ignorespaces ตารางค่าความจริงพิสูจน์ความสมเหตุสมผลของการอ้างเหตุผลแบบแยก}}{38}{table.caption.29}%
+\contentsline {table}{\numberline {22}{\ignorespaces ผลการตัดสินใจอนุมัติสินเชื่อในทุกกรณีของรายได้และหนี้ค้างชำระ}}{40}{table.1.22}%
+\contentsline {table}{\numberline {23}{\ignorespaces ตารางพิสูจน์ว่า $p \rightarrow q \equiv \neg p \lor q$}}{41}{table.caption.30}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {25}{\ignorespaces ความสัมพันธ์ระหว่าง Relational Algebra และ Set Theory}}{82}{table.caption.44}%
-\contentsline {table}{\numberline {26}{\ignorespaces ความซับซ้อนเชิงเวลา (Time Complexity) ของ Hash Set Operations}}{83}{table.caption.45}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {27}{\ignorespaces ตารางเปรียบเทียบฐานสิบ ฐานสอง และฐานสิบหก}}{139}{table.caption.65}%
-\contentsline {table}{\numberline {28}{\ignorespaces ตาราง ASCII Code แสดงการเปรียบเทียบรหัสฐานสิบและฐานสิบหก}}{150}{table.caption.66}%
+\contentsline {table}{\numberline {24}{\ignorespaces ความสัมพันธ์ระหว่าง Relational Algebra และ Set Theory}}{80}{table.caption.43}%
+\contentsline {table}{\numberline {25}{\ignorespaces ความซับซ้อนเชิงเวลา (Time Complexity) ของ Hash Set Operations}}{81}{table.caption.44}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {29}{\ignorespaces ความสัมพันธ์ระหว่างพีชคณิตบูลีน ทฤษฎีเซต และตรรกศาสตร์}}{203}{table.caption.80}%
+\contentsline {table}{\numberline {26}{\ignorespaces ตารางเปรียบเทียบฐานสิบ ฐานสอง และฐานสิบหก}}{137}{table.caption.64}%
+\contentsline {table}{\numberline {27}{\ignorespaces ตาราง ASCII Code แสดงการเปรียบเทียบรหัสฐานสิบและฐานสิบหก}}{148}{table.caption.65}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {28}{\ignorespaces ความสัมพันธ์ระหว่างพีชคณิตบูลีน ทฤษฎีเซต และตรรกศาสตร์}}{201}{table.caption.79}%
+\contentsline {table}{\numberline {29}{\ignorespaces ตารางค่าความจริงของ NAND และ NOR เทียบกับ AND และ OR}}{231}{table.caption.83}%
 \contentsfinish 

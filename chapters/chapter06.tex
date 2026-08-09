@@ -1257,13 +1257,7 @@ $\therefore f = w'x' + xz' + x'y'$ \solhere
 \index{ประตูตรรกะ!NAND Gate}
 \textbf{NAND Gate} เป็นเกตสากล (Universal Gate) เนื่องจากสามารถนำมาต่อเชื่อมเพื่อสร้างเกตตรรกะพื้นฐานอื่นๆ ได้ทั้งหมด โดย NAND Gate ให้ผลลัพธ์การทำงานคือ $Y = (a \cdot b)' = \overline{a \cdot b}$
 
-ค่าผลลัพธ์ของ NAND Gate ในแต่ละกรณีของสัญญาณอินพุต $(a, b)$ มีดังนี้:
-\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=1.5em,itemsep=0.3em]
-    \item เมื่อ $a=0, b=0$ ได้ผลลัพธ์ $(0 \cdot 0)' = 1$
-    \item เมื่อ $a=0, b=1$ ได้ผลลัพธ์ $(0 \cdot 1)' = 1$
-    \item เมื่อ $a=1, b=0$ ได้ผลลัพธ์ $(1 \cdot 0)' = 1$
-    \item เมื่อ $a=1, b=1$ ได้ผลลัพธ์ $(1 \cdot 1)' = 0$
-\end{enumerate}
+ค่าผลลัพธ์ในทุกกรณีของสัญญาณอินพุต $(a, b)$ แสดงไว้ในตารางที่~\ref{tab:nand-nor-truth} จุดที่ควรสังเกตคือ NAND ให้ผลเป็น 0 เพียงกรณีเดียว คือเมื่ออินพุตทั้งสองเป็น 1 ซึ่งตรงข้ามกับ AND ทุกแถวพอดี
 
 การสร้างเกตตรรกะพื้นฐานจาก NAND Gate เพียงอย่างเดียว:
 \begin{enumerate}[label=\textbf{\arabic*.},leftmargin=1.5em,itemsep=0.4em]
@@ -1280,13 +1274,7 @@ $\therefore f = w'x' + xz' + x'y'$ \solhere
 \index{ประตูตรรกะ!NOR Gate}
 \textbf{NOR Gate} เป็นเกตสากล (Universal Gate) เช่นเดียวกับ NAND Gate เนื่องจากสามารถนำมาต่อเพื่อสร้างเกตตรรกะอื่นๆ ได้ทั้งหมด โดย NOR Gate ให้ผลลัพธ์การทำงานคือ $Y = (a + b)'$
 
-ค่าผลลัพธ์ของ NOR Gate ในแต่ละกรณีของสัญญาณอินพุต $(a, b)$ มีดังนี้:
-\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=1.5em,itemsep=0.3em]
-    \item เมื่อ $a=0, b=0$ ได้ผลลัพธ์ $(0 + 0)' = 1$
-    \item เมื่อ $a=0, b=1$ ได้ผลลัพธ์ $(0 + 1)' = 0$
-    \item เมื่อ $a=1, b=0$ ได้ผลลัพธ์ $(1 + 0)' = 0$
-    \item เมื่อ $a=1, b=1$ ได้ผลลัพธ์ $(1 + 1)' = 0$
-\end{enumerate}
+ค่าผลลัพธ์ในทุกกรณีแสดงไว้ในตารางที่~\ref{tab:nand-nor-truth} เช่นเดียวกัน โดย NOR ให้ผลเป็น 1 เพียงกรณีเดียว คือเมื่ออินพุตทั้งสองเป็น 0 ซึ่งตรงข้ามกับ OR ทุกแถวพอดี
 
 การสร้างเกตตรรกะพื้นฐานจาก NOR Gate เพียงอย่างเดียว:
 \begin{enumerate}[label=\textbf{\arabic*.},leftmargin=1.5em,itemsep=0.4em]
@@ -1298,6 +1286,22 @@ $\therefore f = w'x' + xz' + x'y'$ \solhere
     \[ a \cdot b = (a' + b')' = ((a + a)' + (b + b)')' \]
 \end{enumerate}
 \end{principle}
+
+\begin{table}[H]
+    \centering
+    \caption{ตารางค่าความจริงของ NAND และ NOR เทียบกับ AND และ OR}
+    \label{tab:nand-nor-truth}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ (NAND) & $a + b$ & $(a + b)'$ (NOR) \\ \hline
+        0 & 0 & 0 & 1 & 0 & 1 \\ \hline
+        0 & 1 & 0 & 1 & 1 & 0 \\ \hline
+        1 & 0 & 0 & 1 & 1 & 0 \\ \hline
+        1 & 1 & 1 & 0 & 1 & 0 \\ \hline
+    \end{tabular}
+\end{table}
+
+ตารางที่~\ref{tab:nand-nor-truth} วางคอลัมน์ของ AND และ OR ไว้ข้างคอลัมน์ของ NAND และ NOR เพื่อให้เห็นว่าเกตทั้งสองคู่ให้ผลตรงข้ามกันทุกแถว เหตุที่เกตทั้งสองสร้างเกตอื่นได้ทั้งหมดก็เพราะรวมการนิเสธไว้ในตัวเองแล้ว จึงไม่ต้องอาศัย NOT Gate แยกต่างหาก ส่วนสัญลักษณ์และการต่อวงจรของเกตสากลทั้งสองแสดงในรูปที่~\ref{fig:universal-gates}
 
 \begin{figure}[H]
     \centering

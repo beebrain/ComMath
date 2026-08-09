@@ -1,0 +1,36 @@
+# ไฟล์ระหว่างทางของ LaTeX สร้างใหม่ได้ทุกครั้งที่ build จึงไม่ต้องเก็บใน git
+*.aux
+*.log
+*.toc
+*.out
+*.lof
+*.lot
+*.idx
+*.ilg
+*.ind
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+
+# biber / biblatex
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*-SAVE-ERROR
+
+# beamer (สไลด์ใน slides/)
+*.nav
+*.snm
+*.vrb
+
+# ไฟล์ระหว่างทางของการเรนเดอร์รูป
+temp_render/
+temp_render_ch3/
+_render_tmp.*
+
+# macOS
+.DS_Store
+
+# หมายเหตุ main.pdf ยังคง track ไว้ เพราะเป็นผลงานที่ส่งมอบ ไม่ใช่ไฟล์ระหว่างทาง

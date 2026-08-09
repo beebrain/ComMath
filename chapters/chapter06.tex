@@ -23,7 +23,7 @@
         \hline
         AND ($\cdot$) & Intersection ($\cap$) & AND ($\land$) \\
         \hline
-        NOT ($\overline{x}$) & Complement ($A^c$) & NOT ($\neg$) \\
+        NOT ($\overline{x}$) & คอมพลีเมนต์ ($A^c$) & NOT ($\neg$) \\
         \hline
     \end{tabular}
 \end{table}
@@ -66,7 +66,7 @@
         \item $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$
         \item $a + (b \cdot c) = (a + b) \cdot (a + c)$
     \end{enumerate}
-    \item Complement Laws
+    \item กฎคอมพลีเมนต์
     \begin{enumerate}
         \item $a + a' = 1$
         \item $a \cdot a' = 0$
@@ -143,7 +143,7 @@ Truth table ของการดำเนินการ OR
     \item $a + a = a$ \hfill (Idempotent Law)
     \item $a + 0 = a$ \hfill (Identity Law)
     \item $a + 1 = 1$ \hfill (Domination Law)
-    \item $a + a' = 1$ \hfill (Complement Law)
+    \item $a + a' = 1$ \hfill (กฎคอมพลีเมนต์)
     \item $a + b = b + a$ \hfill (Commutative Law)
     \item $(a + b) + c = a + (b + c)$ \hfill (Associative Law)
 \end{enumerate}
@@ -192,7 +192,7 @@ $a$ & $b$ & $a \cdot b$ \\
     \item $a \cdot a = a$ \hfill (Idempotent Law)
     \item $a \cdot 0 = 0$ \hfill (Domination Law)
     \item $a \cdot 1 = a$ \hfill (Identity Law)
-    \item $a \cdot a' = 0$ \hfill (Complement Law)
+    \item $a \cdot a' = 0$ \hfill (กฎคอมพลีเมนต์)
     \item $a \cdot b = b \cdot a$ \hfill (Commutative Law)
     \item $(a \cdot b) \cdot c = a \cdot (b \cdot c)$ \hfill (Associative Law)
 \end{enumerate}
@@ -234,8 +234,8 @@ Truth table ของการดำเนินการ NOT
 สำหรับทุก $a \in \{0, 1\}$ โดยที่ $a$ แทนค่าบูลีนใดๆ ดังนี้
 
 \begin{enumerate}
-    \item $a + a' = 1$ \hfill (Complement Law ข้อ 1)
-    \item $a \cdot a' = 0$ \hfill (Complement Law ข้อ 2)
+    \item $a + a' = 1$ \hfill (กฎคอมพลีเมนต์ ข้อ 1)
+    \item $a \cdot a' = 0$ \hfill (กฎคอมพลีเมนต์ ข้อ 2)
     \item $(a')' = a$ \hfill (Double Negation)
     \item $0' = 1$ และ $1' = 0$
 \end{enumerate}
@@ -529,14 +529,14 @@ $a$ & $b$ & $a + b$ & $a \cdot (a + b)$ & $a$ \\
 
 \label{sec:demorgans-laws}
 
-กฎเดอมอร์แกนตั้งชื่อตาม Augustus De Morgan (1806--1871) นักคณิตศาสตร์ชาวอังกฤษ เช่นเดียวกับในทฤษฎีเซต กฎเดอมอร์แกนเป็นหนึ่งในกฎที่สำคัญที่สุดของพีชคณิตบูลีน เนื่องจากเป็นเครื่องมือในการหา complement ของนิพจน์บูลีนที่ซับซ้อน หลักการพื้นฐานของกฎเดอมอร์แกนคือ complement ของผลลัพธ์จะเท่ากับผลลัพธ์ของ complements แต่ต้องสลับเครื่องหมายการดำเนินการด้วย~\cite{mano2018digital}
+กฎเดอมอร์แกนตั้งชื่อตาม Augustus De Morgan (1806--1871) นักคณิตศาสตร์ชาวอังกฤษ เช่นเดียวกับในทฤษฎีเซต กฎเดอมอร์แกนเป็นหนึ่งในกฎที่สำคัญที่สุดของพีชคณิตบูลีน เนื่องจากเป็นเครื่องมือในการหาคอมพลีเมนต์ของนิพจน์บูลีนที่ซับซ้อน หลักการพื้นฐานของกฎเดอมอร์แกนคือคอมพลีเมนต์ของผลลัพธ์จะเท่ากับผลลัพธ์ของคอมพลีเมนต์ แต่ต้องสลับเครื่องหมายการดำเนินการด้วย~\cite{mano2018digital}
 
 \begin{thrm}[กฎเดอมอร์แกนสำหรับพีชคณิตบูลีน]
 สำหรับทุก $a, b \in \{0, 1\}$ โดยที่ $a$ และ $b$ แทนค่าบูลีนใดๆ ดังนี้
 
 \begin{enumerate}
-    \item $(a + b)' = a' \cdot b'$ \hfill (Complement ของ OR = AND ของ Complements)
-    \item $(a \cdot b)' = a' + b'$ \hfill (Complement ของ AND = OR ของ Complements)
+    \item $(a + b)' = a' \cdot b'$ \hfill (คอมพลีเมนต์ของ OR เท่ากับ AND ของคอมพลีเมนต์)
+    \item $(a \cdot b)' = a' + b'$ \hfill (คอมพลีเมนต์ของ AND เท่ากับ OR ของคอมพลีเมนต์)
 \end{enumerate}
 \end{thrm}
 
@@ -717,11 +717,11 @@ $x$ & $y$ & $z$ & $y'$ & $x + y'$ & $(x + y') \cdot z$ & $x \cdot y$ & $f$ \\
 รูปแบบปกติ (Canonical Forms) เป็นวิธีมาตรฐานในการเขียนฟังก์ชันบูลีนให้อยู่ในรูปแบบที่ชัดเจนและเป็นระบบ ฟังก์ชันบูลีนใดๆ สามารถเขียนได้สองแบบหลัก คือ Sum of Products (SOP) ซึ่งเป็นผลบวกของผลคูณ และ Product of Sums (POS) ซึ่งเป็นผลคูณของผลบวก การเขียนฟังก์ชันในรูปแบบปกติทำให้ง่ายต่อการเปรียบเทียบฟังก์ชันสองฟังก์ชัน และเป็นจุดเริ่มต้นสำหรับการลดรูปโดยใช้ Karnaugh Map~\cite{roth2021logic}
 
 \subsection{มินเทอมและแมกซ์เทอม (Minterms and Maxterms)}
-เพื่อให้สามารถเขียนฟังก์ชันบูลีนในรูปแบบมาตรฐานที่ชัดเจน เราต้องเข้าใจแนวคิดของ Minterm และ Maxterm ก่อน Minterm คือ term ที่เกิดจากการ AND ตัวแปรทุกตัว โดยแต่ละตัวแปรจะปรากฏเพียงครั้งเดียวในรูปแบบปกติ (ถ้าตัวแปรมีค่า 1 ใช้ตัวแปรเดี่ยว ถ้ามีค่า 0 ใช้ complement) ในทางตรงข้าม Maxterm คือ term ที่เกิดจากการ OR ตัวแปรทุกตัว โดยใช้กฎเกณฑ์เดียวกันแต่กลับกัน การเข้าใจความสัมพันธ์ระหว่าง Minterm และ Maxterm จะช่วยให้สามารถแปลงฟังก์ชันบูลีนระหว่างรูปแบบ SOP และ POS ได้อย่างง่ายดาย~\cite{wakerly2018digital}
+เพื่อให้สามารถเขียนฟังก์ชันบูลีนในรูปแบบมาตรฐานที่ชัดเจน เราต้องเข้าใจแนวคิดของ Minterm และ Maxterm ก่อน Minterm คือ term ที่เกิดจากการ AND ตัวแปรทุกตัว โดยแต่ละตัวแปรจะปรากฏเพียงครั้งเดียวในรูปแบบปกติ (ถ้าตัวแปรมีค่า 1 ใช้ตัวแปรเดี่ยว ถ้ามีค่า 0 ใช้คอมพลีเมนต์) ในทางตรงข้าม Maxterm คือ term ที่เกิดจากการ OR ตัวแปรทุกตัว โดยใช้กฎเกณฑ์เดียวกันแต่กลับกัน การเข้าใจความสัมพันธ์ระหว่าง Minterm และ Maxterm จะช่วยให้สามารถแปลงฟังก์ชันบูลีนระหว่างรูปแบบ SOP และ POS ได้อย่างง่ายดาย~\cite{wakerly2018digital}
 
 \begin{definition}[มินเทอม]
 \index{มินเทอม!นิยาม}
-มินเทอม ของตัวแปร $n$ ตัวคือ AND term ที่มีตัวแปรทุกตัวปรากฏเพียงครั้งเดียวในรูปแบบปกติ (ถ้าตัวแปรเป็น 1 ใช้ตัวแปรเดี่ยว ถ้าตัวแปรเป็น 0 ใช้ complement)
+มินเทอม ของตัวแปร $n$ ตัวคือ AND term ที่มีตัวแปรทุกตัวปรากฏเพียงครั้งเดียวในรูปแบบปกติ (ถ้าตัวแปรเป็น 1 ใช้ตัวแปรเดี่ยว ถ้าตัวแปรเป็น 0 ใช้คอมพลีเมนต์)
 
 สำหรับ 2 ตัวแปร $x, y$:
 \begin{enumerate}
@@ -734,7 +734,7 @@ $x$ & $y$ & $z$ & $y'$ & $x + y'$ & $(x + y') \cdot z$ & $x \cdot y$ & $f$ \\
 
 \begin{definition}[แมกซ์เทอม]
 \index{แมกซ์เทอม!นิยาม}
-แมกซ์เทอม ของตัวแปร $n$ ตัวคือ OR term ที่มีตัวแปรทุกตัวปรากฏเพียงครั้งเดียวในรูปแบบปกติ (ถ้าตัวแปรเป็น 0 ใช้ตัวแปรเดี่ยว ถ้าตัวแปรเป็น 1 ใช้ complement)
+แมกซ์เทอม ของตัวแปร $n$ ตัวคือ OR term ที่มีตัวแปรทุกตัวปรากฏเพียงครั้งเดียวในรูปแบบปกติ (ถ้าตัวแปรเป็น 0 ใช้ตัวแปรเดี่ยว ถ้าตัวแปรเป็น 1 ใช้คอมพลีเมนต์)
 
 สำหรับ 2 ตัวแปร $x, y$:
 \begin{enumerate}
@@ -858,7 +858,7 @@ $x$ & $y$ & $x + y$ & $x' + y'$ & $f$ \\
 \begin{align*}
 f &= x y + x' y + x y' \\
   &= y(x + x') + x y' \quad \text{(Distributive ย้อนกลับ)} \\
-  &= y \cdot 1 + x y' \quad \text{(Complement: } x + x' = 1) \\
+  &= y \cdot 1 + x y' \quad \text{(กฎคอมพลีเมนต์ } x + x' = 1) \\
   &= y + x y' \\
   &= (y + x)(y + y') \quad \text{(Distributive)} \\
   &= (y + x) \cdot 1 \quad \text{(Complement)} \\
@@ -892,7 +892,7 @@ $\therefore f = b + a c$ \solhere
 \begin{align*}
 f &= (x + y) \cdot (x + y') \\
   &= x + y \cdot y' \quad \text{(Distribution: } x + yz = (x+y)(x+z)) \\
-  &= x + 0 \quad \text{(Complement: } y \cdot y' = 0) \\
+  &= x + 0 \quad \text{(กฎคอมพลีเมนต์ } y \cdot y' = 0) \\
   &= x
 \end{align*}
 $\therefore f = x$ \solhere
@@ -906,7 +906,7 @@ $\therefore f = x$ \solhere
 \begin{align*}
 f &= (a + b)(a' + c) + (b + c) \\
   &= a a' + b a' + a c + b c + b + c \quad \text{(Distributive)} \\
-  &= b a' + a c + b c + b + c \quad \text{(Complement: } a a' = 0) \\
+  &= b a' + a c + b c + b + c \quad \text{(กฎคอมพลีเมนต์ } a a' = 0) \\
   &= b a' + a c + b(1 + c) + c \\
   &= b a' + a c + b + c \quad \text{(Domination: } 1 + c = 1) \\
   &= b(a' + 1) + a c + c \\
@@ -945,7 +945,7 @@ $a$ & $b$ & $c$ & $(a + b) \cdot (a' + c)$ & $b + c$ & $f$ (เดิม) & $b +
 ดังนั้น $f = b + c$ ซึ่งเป็นรูปแบบที่ง่ายกว่านิพจน์เดิมมาก
 
 \subsection{การลดรูปด้วยทฤษฎีบทคอนเซนซัส (Consensus Theorem)}
-Consensus Theorem เป็นทฤษฎีที่ได้รับการพิสูจน์แล้วว่ามีประโยชน์อย่างยิ่งในการลดรูปนิพจน์บูลีน ทฤษฎีนี้กล่าวว่าในนิพจน์ที่ประกอบด้วยพจน์สามพจน์ ถ้าพจน์หนึ่งเป็น consensus (ตัวแปรตัวหนึ่งเป็น complement ของอีกตัวแปรหนึ่งในสองพจน์แรก) แล้ว พจน์ consensus นั้นสามารถตัดออกได้โดยไม่เปลี่ยนค่าของนิพจน์ การตัดพจน์ที่ไม่จำเป็นออกจะช่วยลดความซับซ้อนของวงจรได้อย่างมาก~\cite{rosen2019discrete}
+Consensus Theorem เป็นทฤษฎีที่ได้รับการพิสูจน์แล้วว่ามีประโยชน์อย่างยิ่งในการลดรูปนิพจน์บูลีน ทฤษฎีนี้กล่าวว่าในนิพจน์ที่ประกอบด้วยพจน์สามพจน์ ถ้าพจน์หนึ่งเป็น consensus (ตัวแปรตัวหนึ่งเป็นคอมพลีเมนต์ของอีกตัวแปรหนึ่งในสองพจน์แรก) แล้ว พจน์ consensus นั้นสามารถตัดออกได้โดยไม่เปลี่ยนค่าของนิพจน์ การตัดพจน์ที่ไม่จำเป็นออกจะช่วยลดความซับซ้อนของวงจรได้อย่างมาก~\cite{rosen2019discrete}
 
 \begin{thrm}[Consensus Theorem]
 \begin{enumerate}
@@ -961,7 +961,7 @@ Consensus Theorem เป็นทฤษฎีที่ได้รับกา�
 
 \begin{align*}
 a b + a' c + b c &= a b + a' c + b c \cdot 1 \\
-                &= a b + a' c + b c (a + a') \quad \text{(Complement: } a + a' = 1 \text{)} \\
+                &= a b + a' c + b c (a + a') \quad \text{(กฎคอมพลีเมนต์ } a + a' = 1 \text{)} \\
                 &= a b + a' c + a b c + a' b c \\
                 &= a b(1 + c) + a' c(1 + b) \\
                 &= a b + a' c \quad \text{(Domination: } 1 + c = 1 \text{)}
@@ -1225,7 +1225,7 @@ $\therefore f = w'x' + xz' + x'y'$ \solhere
     \item จัดกลุ่ม (group) เซลล์ที่มี 1 ร่วมกันเป็นกลุ่มขนาด $2^n$ ($n = 0, 1, 2, 3, \ldots$)
     \item กลุ่มควรมีขนาดใหญ่ที่สุดเท่าที่เป็นไปได้
     \item กลุ่มสามารถ overlap ได้และสามารถ wrap around ได้
-    \item หาตัวแปรที่ไม่เปลี่ยนแปลงในกลุ่ม (คงที่) ตัวแปรที่เป็น 1 ใช้ตัวแปรเดี่ยว ส่วนตัวแปรที่เป็น 0 ใช้ complement
+    \item หาตัวแปรที่ไม่เปลี่ยนแปลงในกลุ่ม (คงที่) ตัวแปรที่เป็น 1 ใช้ตัวแปรเดี่ยว ส่วนตัวแปรที่เป็น 0 ใช้คอมพลีเมนต์
     \item OR terms ที่ได้จากแต่ละกลุ่ม
 \end{enumerate}
 \end{rem}
@@ -1674,7 +1674,7 @@ Q_1^+ = Q_0X', \qquad Q_0^+ = X, \qquad Y = Q_1Q_0'
 \end{exercise}
 
 \begin{exercise}
-ใช้กฎเดอมอร์แกนเพื่อเขียน complement ของ ดังนี้
+จงใช้กฎเดอมอร์แกนเขียนคอมพลีเมนต์ของนิพจน์ต่อไปนี้
 \begin{enumerate}
     \item $x y + x' z$
     \item $(x + y + z)(x' y' z')'$

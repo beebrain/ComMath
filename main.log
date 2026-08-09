@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  9 AUG 2026 09:56
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  9 AUG 2026 10:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2434,13 +2434,13 @@ Underfull \hbox (badness 2762) in paragraph at lines 675--676
 11 ) ของ อนุกรม
  []
 
-[119] [120] [121] [122
+[119] [120] [121] [122] [123
 
-] [123
+] [124
 
 
-] [124]
-Underfull \hbox (badness 10000) in paragraph at lines 832--833
+] [125]
+Underfull \hbox (badness 10000) in paragraph at lines 870--871
 []$\OML/cmm/m/it/10.95 A \OMS/cmsy/m/n/10.95 ^^B \OML/cmm/m/it/10.95 B \OT1/cmr
 /m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; a\
 OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.
@@ -2452,11 +2452,11 @@ L/cmm/m/it/10.95 ; b\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.9
 /THSarabunNew(0)/m/sc/11 ,
  []
 
-[125
+[126
 
-] [126] [127
+] [127] [128
 
-] [128]) [129]
+] [129]) [130]
 Underfull \hbox (badness 4132) in paragraph at lines 246--246
 [][]\TU/THSarabunNew(0)/m/sc/11 Codd, E. F. (1970). \TU/THSarabunNew(0)/m/it/11
  A relational model of data for large shared data banks\TU/THSarabunNew(0)/m/sc
@@ -2476,8 +2476,10 @@ bunNew(0)/m/it/11 Automatic Thai finger spelling transcription\TU/THSarabunNew(
 0)/m/sc/11 .
  []
 
-[130
+[131
 
+
+] [132
 
 ]
 \openout2 = `chapters/chapter04_or.aux'.
@@ -2490,11 +2492,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-) [131
+) [133
 
 
-
-] [132
+] [134
 
 
 
@@ -2505,32 +2506,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
  4.
 Package biblatex Info: Reference segment=12 on input line 1.
 Package biblatex Info: Setting label 'refsegment:012' on input line 1.
-[133
+[135
 
 
 ]
 File: Figures/png_ready/binary-conversion-labeled.png Graphic file (type bmp)
 <Figures/png_ready/binary-conversion-labeled.png>
- [134] [135] [136] [137]
+ [136] [137] [138] [139]
 File: Figures/png_ready/27-hex-grouping-manual.png Graphic file (type bmp)
 <Figures/png_ready/27-hex-grouping-manual.png>
- [138] [139] [140] [141] [142] [143] [144]
+ [140] [141] [142] [143] [144] [145] [146]
 Underfull \hbox (badness 2103) in paragraph at lines 412--413
 []\TU/THSarabunNew(0)/m/sc/11 การ บวก และ การ ลบ ใน ระบบ เลข ฐาน สอง เป็นการ ดำ
 เนิน การ ที่ หน่วย คำนวณ และ ตรรกะ
  []
 
-[145] [146] [147] [148] [149] [150] [151] [152
+[147] [148] [149] [150] [151] [152] [153] [154
 
-] [153
+] [155
 
 
-] [154] [155
+] [156] [157
 
-] [156
+] [158
 
 ])
-[157] [158
+[159] [160
 
 
 ]
@@ -2544,11 +2545,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-) [159
+) [161
 
 
 
-] [160
+] [162
 
 
 
@@ -2562,27 +2563,27 @@ Package biblatex Info: Setting label 'refsegment:014' on input line 1.
 File: Figures/png_ready/30-matrix-dimensions-manual.png Graphic file (type bmp)
 
 <Figures/png_ready/30-matrix-dimensions-manual.png>
-[161
+[163
 
 
-] [162]
+] [164]
 File: Figures/png_ready/31-matrix-types-manual.png Graphic file (type bmp)
 <Figures/png_ready/31-matrix-types-manual.png>
- [163] [164] [165] [166] [167] [168]
+ [165] [166] [167] [168] [169] [170]
 File: Figures/png_ready/matrix-multiplication-labeled.png Graphic file (type bm
 p)
 <Figures/png_ready/matrix-multiplication-labeled.png>
- [169] [170] [171] [172]
+ [171] [172] [173] [174]
 File: Figures/png_ready/33-determinant-2x2-manual.png Graphic file (type bmp)
 <Figures/png_ready/33-determinant-2x2-manual.png>
 
-[173] [174] [175] [176] [177] [178]
+[175] [176] [177] [178] [179] [180]
 Underfull \hbox (badness 3138) in paragraph at lines 552--553
 [][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 5.21 (ตัวอย่างค้านสำหรับสมบัติการบว
 กดีเทอร์มิแนนต์) []จง แสดง ตัวอย่าง ค้าน (counter-
  []
 
-[179] [180] [181] [182] [183] [184] [185] [186]
+[181] [182] [183] [184] [185] [186] [187] [188]
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
 (Font)              scaled to size 11.54994pt on input line 809.
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
@@ -2590,24 +2591,24 @@ LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
 File: Figures/png_ready/34-matrix-transformation-manual.png Graphic file (type 
 bmp)
 <Figures/png_ready/34-matrix-transformation-manual.png>
- [187] [188]
+ [189] [190]
 Underfull \hbox (badness 4805) in paragraph at lines 869--870
 [][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 5.35 (การถดถอยเชิงเส้น - Linear Reg
 ression) []จง หา เวก เตอร์ สัมประสิทธิ์ $\OML/cmm/m/it/10.95 ^^L \OT1/cmr/m/n/1
 0.95 =
  []
 
-[189] [190] [191
+[191] [192] [193
 
-] [192
-
-
-] [193] [194
+] [194
 
 
 ] [195] [196
 
-] [197]) [198]
+
+] [197] [198
+
+] [199]) [200]
 Underfull \hbox (badness 2237) in paragraph at lines 260--260
 [][]\TU/THSarabunNew(0)/m/sc/11 Anton, H., Rorres, C., & Kaul, A. (2019).  \TU/
 THSarabunNew(0)/m/it/11 Elementary linear algebra: Applications
@@ -2620,10 +2621,10 @@ YOLO-based object detection for handwritten X-marks\TU/THSarabunNew(0)/m/sc/11
 .
  []
 
-[199
+[201
 
 
-] [200
+] [202
 
 ]
 \openout2 = `chapters/chapter06_or.aux'.
@@ -2636,52 +2637,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
  []
 
-[201
+[203
 
 
-]) [202]
+]) [204]
 \openout2 = `chapters/chapter06.aux'.
 
  (./chapters/chapter06.tex
  6.
 Package biblatex Info: Reference segment=16 on input line 1.
 Package biblatex Info: Setting label 'refsegment:016' on input line 1.
-[203
+[205
 
 
 
 
 
-] [204] [205] [206] [207] [208] [209] [210] [211] [212] [213]
+] [206] [207] [208] [209] [210] [211] [212] [213] [214] [215]
 File: Figures/png_ready/demorgan-laws-generated.png Graphic file (type bmp)
 <Figures/png_ready/demorgan-laws-generated.png>
- [214]
+ [216]
 File: Figures/png_ready/boolean-function-flow-labeled.png Graphic file (type bm
 p)
 <Figures/png_ready/boolean-function-flow-labeled.png>
 
-[215] [216] [217] [218] [219] [220] [221] [222] [223] [224] [225] [226]
-[227] [228]
+[217] [218] [219] [220] [221] [222] [223] [224] [225] [226] [227] [228]
+[229] [230]
 File: Figures/png_ready/kmap-grouping-generated.png Graphic file (type bmp)
 <Figures/png_ready/kmap-grouping-generated.png>
- [229] [230] [231] [232]
+ [231] [232] [233] [234]
 File: Figures/png_ready/universal-gates-generated.png Graphic file (type bmp)
 <Figures/png_ready/universal-gates-generated.png>
- [233] [234] [235] [236] [237]
+ [235] [236] [237] [238] [239]
 File: Figures/png_ready/adders-comparison-generated.png Graphic file (type bmp)
 
 <Figures/png_ready/adders-comparison-generated.png>
- [238]
-[239] [240] [241
+ [240]
+[241] [242] [243
 
-] [242
+] [244
 
 
-] [243] [244] [245
+] [245] [246] [247
 
-] [246] [247
+] [248] [249
 
-] [248]) [249] [250
+] [250]) [251] [252
 
 
 ]
@@ -2710,7 +2711,7 @@ YOLO-based object detection for handwritten X-marks\TU/THSarabunNew(0)/m/sc/11
 .
  []
 
-[251
+[253
 
 ]
 Underfull \hbox (badness 5217) in paragraph at lines 270--270
@@ -2723,7 +2724,7 @@ bunNew(0)/m/it/11 Automatic Thai finger spelling transcription\TU/THSarabunNew(
 Package caption Warning: Unused \captionsetup[sub] on input line 13.
 See the caption package documentation for explanation.
 
-[252] (./main.aux (./organize.aux) (./chapters/chapter01_or.aux)
+[254] (./main.aux (./organize.aux) (./chapters/chapter01_or.aux)
 (./chapters/chapter01.aux) (./chapters/chapter02_or.aux)
 (./chapters/chapter02.aux) (./chapters/chapter03_or.aux)
 (./chapters/chapter03.aux) (./chapters/chapter04_or.aux)
@@ -2749,12 +2750,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 71892 strings out of 468168
- 1699806 string characters out of 5432815
+ 71894 strings out of 468168
+ 1699840 string characters out of 5432815
  2995880 words of memory out of 5000000
- 99559 multiletter control sequences out of 15000+600000
+ 99561 multiletter control sequences out of 15000+600000
  637427 words of font info for 116 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,19n,118p,1181b,5297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (263 pages, 4754876 bytes).
+Output written on main.xdv (265 pages, 4780356 bytes).

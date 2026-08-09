@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  9 AUG 2026 11:18
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  9 AUG 2026 11:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2395,15 +2395,15 @@ File: Figures/png_ready/relation-arrow-generated.png Graphic file (type bmp)
  [98] [99] [100]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 115.
+(caption)                particular \caption on input line 114.
 See the caption package documentation for explanation.
 
 File: Figures/png_ready/relation-matrix-generated.png Graphic file (type bmp)
 <Figures/png_ready/relation-matrix-generated.png>
-[101]
+[101] [102]
 File: Figures/png_ready/domain-range-generated.png Graphic file (type bmp)
 <Figures/png_ready/domain-range-generated.png>
- [102] [103]
+ [103]
 Underfull \hbox (badness 10000) in paragraph at lines 206--207
 [][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 3.5 (การหาโดเมนและเรนจ์จากความสัมพั
 นธ์ที่กำหนดด้วยเงื่อนไข) []กำหนด เซต
@@ -2432,16 +2432,21 @@ p)
 File: Figures/png_ready/function-bijective-generated.png Graphic file (type bmp
 )
 <Figures/png_ready/function-bijective-generated.png>
- [110] [111]
+ [110]
+Overfull \hbox (70.91344pt too wide) detected at line 466
+[]
+ []
+
+[111]
 File: Figures/png_ready/37-function-composition-generated.png Graphic file (typ
 e bmp)
 <Figures/png_ready/37-function-composition-generated.png>
- [112] [113]
+ [112] [113] [114]
 File: Figures/png_ready/sequence-partial-sum-graph-generated.png Graphic file (
 type bmp)
 <Figures/png_ready/sequence-partial-sum-graph-generated.png>
- [114] [115] [116] [117] [118]
-Underfull \hbox (badness 2762) in paragraph at lines 699--700
+ [115] [116] [117] [118]
+Underfull \hbox (badness 2762) in paragraph at lines 701--702
 [][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 3.22 (การหาผลรวมอนันต์ของอนุกรมเรขา
 คณิต) []จง หา ผล รวม อนันต์ ($\OML/cmm/m/it/10.95 S[]$\TU/THSarabunNew(0)/m/sc/
 11 ) ของ อนุกรม
@@ -2453,7 +2458,7 @@ Underfull \hbox (badness 2762) in paragraph at lines 699--700
 
 
 ] [125]
-Underfull \hbox (badness 10000) in paragraph at lines 897--898
+Underfull \hbox (badness 10000) in paragraph at lines 899--900
 []$\OML/cmm/m/it/10.95 A \OMS/cmsy/m/n/10.95 ^^B \OML/cmm/m/it/10.95 B \OT1/cmr
 /m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; a\
 OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.
@@ -2763,12 +2768,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 71918 strings out of 468168
- 1700099 string characters out of 5432815
- 2997170 words of memory out of 5000000
- 99585 multiletter control sequences out of 15000+600000
+ 71917 strings out of 468168
+ 1700079 string characters out of 5432815
+ 2997097 words of memory out of 5000000
+ 99584 multiletter control sequences out of 15000+600000
  637427 words of font info for 116 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,19n,118p,1181b,5297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (265 pages, 4807180 bytes).
+Output written on main.xdv (265 pages, 4813104 bytes).

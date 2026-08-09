@@ -19,9 +19,6 @@
 \newsavebox{\bigleftbox}
 \usepackage{varwidth}
 \usepackage{tabularx}
-\usepackage{karnaugh-map}
-\usepackage{tikz}
-\usetikzlibrary{arrows,shapes.gates.logic.US,shapes.gates.logic.IEC,calc}
 
 \usepackage{amsthm}
 \usepackage{amsfonts}
@@ -36,14 +33,11 @@
 \setlength{\abovedisplayshortskip}{0pt}
 \setlength{\belowdisplayshortskip}{0pt}
 
-\usepackage{circuitikz}
-\usepackage{tikz-timing}
-
 \usepackage{multicol}
 \usepackage{mathtools}
 
-%% Shared styles for native TikZ figures (replaces AI-generated Figures/*.jpg)
-\input{Figures/tikz/_styles}
+%% รูปประกอบทุกรูปเป็นไฟล์ PNG ใน Figures/png_ready เล่มนี้เลิกใช้ TikZ แล้ว
+%% สีที่ตารางในเนื้อหาใช้ (navy, lred) ย้ายไปนิยามใน mathstyle.sty
 
 %% ==============================================================================
 %% แก้ปัญหา: คลาสตั้ง \linespread{2.25}/\baselinestretch{2.2} ทำให้ strut ของแต่ละแถว

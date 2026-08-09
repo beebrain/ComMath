@@ -1,6 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{mathstyle}[2026/05/01 Modern Math Style (Muted Pastel, Rounded, Drop Shadow)]
 
+%% tikz โหลดไว้เพราะ tcolorbox ที่ใช้วาดกล่องบทนิยามต้องพึ่ง ไม่ได้ใช้วาดรูปประกอบ
 \RequirePackage{tikz}
 \RequirePackage[most]{tcolorbox}
 \tcbuselibrary{skins,breakable,theorems}
@@ -49,6 +50,11 @@
 }
 
 %% ─────────────── Color Palette (Muted Pastel Theme) ───────────────
+
+%% สีสำหรับตารางในเนื้อหา ย้ายมาจาก Figures/tikz/_styles.tex ตอนเลิกใช้ TikZ
+\definecolor{navy}{HTML}{1F3A93}      % หัวตาราง
+\definecolor{lred}{HTML}{FCE4E4}      % แถวที่ต้องการเน้น
+
 \definecolor{thrmBar}{HTML}{5499C7}   % Muted Blue
 \definecolor{thrmBg}{HTML}{EBF5FB}
 \definecolor{thrmTitle}{HTML}{1A5276} % Darker Blue for text

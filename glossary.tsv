@@ -3,9 +3,8 @@ absorption	กฎการดูดกลืน	การดูดกลืน	c
 absorption laws	กฎการดูดกลืน	—	ch02,ch06	adopt	
 adjacent	อยู่ติดกัน	—	ch06	adopt	
 adjacent cells	เซลล์ที่อยู่ติดกัน	—	ch06	adopt	
-affirming the consequent	รกะที่พบบ่อย เรียกว่าการยืนยันเงื่อนไขตาม	—	ch01	adopt	
+affirming the consequent	การยืนยันเงื่อนไขตาม	—	ch01	adopt	
 algebraic laws for set operations	กฎพีชคณิตของการดำเนินการกับเซต	—	ch02	adopt	
-and	การนำผลคูณ	—	ch06	escalate	ขัดกัน การนำผลคูณ / ตัวแปรหลายๆ พจน์มาคูณ
 antecedent	เงื่อนไขนำ	—	ch01	adopt	
 antisymmetric	ปฏิสมมาตร	—	ch03	adopt	
 area/volume scaling factor	ปริมาตร	—	ch05	adopt	
@@ -15,34 +14,34 @@ arithmetic series	อนุกรมเลขคณิต	—	ch03	adopt
 ascii	รหัสแอสกี	—	ch04	adopt	
 associative	กฎการเปลี่ยนหมู่	เปลี่ยนหมู่	ch01,ch05	adopt	"ch1 เดิมใช้ ""กฎเปลี่ยนกลุ่ม"" ไม่ตรงกับ ch5"
 associative laws	กฎการเปลี่ยนหมู่	—	ch02,ch06	adopt	
-attribute	ามสัมพันธ์ ส่วนแต่ละคอลัมน์คือแอตทริบิวต์	—	ch03	adopt	
-axiom	่าและการดำเนินการไม่กี่อย่าง พร้อมสัจพจน์	—	ch06	adopt	
+attribute	ละคอลัมน์คือแอตทริบิวต์	—	ch03	adopt	
+axiom	สัจพจน์	—	ch06	adopt	
 biconditional, iff	ประพจน์เงื่อนไขสองทาง	—	ch01	adopt	
 bijective	ฟังก์ชันหนึ่งต่อหนึ่งทั่วถึง	—	ch03	adopt	
 binary system	ระบบเลขฐานสอง	—	ch04	adopt	
-binomial theorem	กจากนี้ ยังสามารถพิสูจน์ด้วยทฤษฎีบททวินาม	—	ch02	adopt	
-bit - binary digit	ระดับ โดยสัญลักษณ์แต่ละหลักเรียกว่า บิต	—	ch04	adopt	
+binomial theorem	สามารถพิสูจน์ด้วยทฤษฎีบททวินาม	—	ch02	adopt	
+bit - binary digit	สัญลักษณ์แต่ละหลักเรียกว่า บิต	—	ch04	adopt	
 bit vector representation	การแทนด้วยเวกเตอร์บิต	—	ch02	adopt	
 boolean algebra	พีชคณิตบูลีน	—	ch01,ch06	adopt	
 boolean algebra equivalence	สมมูลของพีชคณิตบูลีน	—	ch06	adopt	
 boolean expression simplification	การลดรูปนิพจน์บูลีน	—	ch06	adopt	
 boolean expressions and functions	นิพจน์บูลีนและฟังก์ชันบูลีน	—	ch06	adopt	
-boolean identities	กฎของพีชคณิตบูลีน	—	ch06	escalate	ขัดกัน กฎของพีชคณิตบูลีน / ต่อด้วยกฎพื้นฐานของพีชคณิตบูลีน
-boolean matrix	นรูปวงเล็บใหญ่จะถูกเรียกว่า เมทริกซ์บูลีน	—	ch03	adopt	
+boolean identities	กฎของพีชคณิตบูลีน	—	ch06	adopt	
+boolean matrix	เมทริกซ์บูลีน	—	ch03	adopt	
 boolean operations	การดำเนินการทางบูลีน	—	ch06	adopt	
 borrow bit	บิตยืม	—	ch04	adopt	
 canonical forms	รูปแบบบัญญัติ	—	ch06	adopt	
 cantor's theorem	ไม่ใช่เซตว่าง	—	ch02	adopt	
-cardinality	การนับจำนวนสมาชิกของเซต	—	ch02	adopt	
+cardinality	จำนวนสมาชิกของเซต	—	ch02	adopt	
 cardinality of cartesian product	จำนวนสมาชิกของผลคูณคาร์ทีเซียน	—	ch02	adopt	
 cardinality of power set	จำนวนสมาชิกของเพาเวอร์เซต	—	ch02	adopt	
 carry bit	บิตทด	—	ch04	adopt	
 cartesian product	ผลคูณคาร์ทีเซียน	ผลคูณคาร์ทีเซียน	ch02,ch03	adopt	"ch2 เดิมมี ""คาร์ทีเซียนพรอแดกต์"" ปนอยู่"
 ceiling	ฟังก์ชันปัดขึ้น	—	ch03	adopt	
 chaining	การเชื่อมโยงรายการ	—	ch02	adopt	
-character encoding table	อักษรอาศัย ตารางเทียบรหัสประจำตัวอักขระ	—	ch04	adopt	
-circular buffer	บวนรอบ เช่น วันในสัปดาห์หรือบัฟเฟอร์วงกลม	—	ch03	adopt	
-closure	บัติที่การประมวลผลต้องการ การปิดคุณสมบัติ	—	ch03	adopt	
+character encoding table	ตารางเทียบรหัสประจำตัวอักขระ	—	ch04	adopt	
+circular buffer	เช่น วันในสัปดาห์หรือบัฟเฟอร์วงกลม	—	ch03	adopt	
+closure	การปิดสมบัติ	—	ch03	adopt	
 code point	กำหนดจุดรหัส	—	ch04	adopt	
 codomain	โคโดเมน	—	ch03	adopt	
 cofactor expansion	การกระจายโคแฟกเตอร์	—	ch05	adopt	
@@ -50,8 +49,8 @@ collision	เกิดการชนกัน	—	ch02	adopt
 column	คอลัมน์	—	ch03	adopt	
 column matrix	เมทริกซ์คอลัมน์	—	ch05	adopt	
 combinational circuit	การออกแบบวงจรเชิงผสม	—	ch06	adopt	
-common difference	่อยู่ติดกันมีค่าคงตัว เรียกว่า ผลต่างร่วม	—	ch03	adopt	
-common ratio	อนหน้าด้วยค่าคงตัว เรียกว่า อัตราส่วนร่วม	—	ch03	adopt	
+common difference	ผลต่างร่วม	—	ch03	adopt	
+common ratio	อัตราส่วนร่วม	—	ch03	adopt	
 commutative	กฎการสลับที่	สลับที่	ch01,ch05	adopt	ปรับรูปให้ตรงกับกฎอื่นในตารางเดียวกัน
 commutative laws	กฎการสลับที่	—	ch02,ch06	adopt	
 complement	คอมพลีเมนต์	ส่วนเติมเต็ม	ch02	keep	ผู้เขียนตัดสิน 2026-08-09 ใช้คอมพลีเมนต์ทั้งเล่ม สอดคล้องกับ ch6 กฎคอมพลีเมนต์
@@ -68,9 +67,9 @@ contingency	ประพจน์กลาง	—	ch01	keep	ราชบัณ�
 contradiction	ข้อขัดแย้ง	ข้อขัดแย้ง	ch01	adopt	
 contrapositive	ประพจน์แย้งสลับที่	ประพจน์แย้งสลับที่	ch01	adopt	
 converse	ประพจน์กลับ	—	ch01	keep	ราชบัณฑิตไม่มีข้อมูล
-converse, inverse, contrapositive	น์กลับ ประพจน์ผกผัน และประพจน์แย้งสลับที่	—	ch01	adopt	
-countable	เซตอนันต์แบ่งเป็นเซตนับได้	—	ch02	adopt	
-counter-example	เท็จ ทำได้โดยยกตัวอย่างค้าน	—	ch01,ch05	escalate	ขัดกัน จงแสดงตัวอย่างค้าน / เท็จ ทำได้โดยยกตัวอย่างค้าน
+converse, inverse, contrapositive	ประพจน์ผกผัน และประพจน์แย้งสลับที่	—	ch01	adopt	
+countable	เซตนับได้	—	ch02	adopt	
+counter-example	จงแสดงตัวอย่างค้าน	—	ch01,ch05	adopt	
 counterexample	กำหนดเมทริกซ์ตัวอย่างค้าน	—	ch05	adopt	
 covariance matrix	พบบ่อยในเมทริกซ์ความแปรปรวนร่วมเกี่ยว	—	ch05	adopt	
 cramer's rule	กฎของคราเมอร์	—	ch05	adopt	
@@ -78,10 +77,10 @@ data pipeline	มุมมองของการประมวลผลท่
 de morgan	กฎเดอมอร์แกน	—	ch01	adopt	
 de morgan's law	ใช้กฎเดอมอร์แกน	—	ch06	adopt	
 de morgan's laws	กฎเดอมอร์แกน	—	ch02,ch06	keep	ถอดเสียง De = เดอ รวมทั้งเล่มแล้ว เดิม ch2/ch6 ใช้ เดมอร์แกน
-deadlock	ัดแย้งของข้อกำหนดลำดับก่อนหลัง ภาวะติดตาย	—	ch03	adopt	
+deadlock	ภาวะติดตาย	—	ch03	adopt	
 decimal system	ระบบเลขฐานสิบ	—	ch04	adopt	
 demultiplexer	ตัวกระจายข้อมูล	—	ch06	adopt	
-determinant	ข้อมูลทางคอมพิวเตอร์ ค่า ดีเทอร์มิแนนต์	—	ch05	adopt	
+determinant	ค่า ดีเทอร์มิแนนต์	—	ch05	adopt	
 determinants	ดีเทอร์มิแนนต์	—	ch05	adopt	
 deterministic	ผลแน่นอน	—	ch02	adopt	
 diagonal matrix	เมทริกซ์ทแยงมุม	—	ch05	adopt	
@@ -97,10 +96,10 @@ domain	โดเมน	—	ch03	adopt
 domain restriction	การเลือกเฉพาะคอมโพเนนต์	—	ch02	adopt	
 domination	กฎครอบงำ	—	ch01	keep	ch6 เดิมใช้กฎปกครอง และกฎการครอบงำ
 domination laws	กฎครอบงำ	—	ch02,ch06	adopt	
-don't care	งเกิดขึ้นได้ในระบบ จึงกำหนดเป็นค่าไม่สนใจ	—	ch06	adopt	
-dot product	การคูณระหว่างสองเมทริกซ์อาศัยผลรวมคูณสะสม	—	ch05	escalate	ขัดกัน คำนวณผลรวมคูณสะสม / การคูณระหว่างสองเมทริกซ์อาศัยผลรวมคูณสะสม
+don't care	กำหนดเป็นค่าไม่สนใจ	—	ch06	adopt	
+dot product	คำนวณผลรวมคูณสะสม	—	ch05	adopt	
 double negation	กฎนิเสธซ้อน	—	ch01	adopt	
-dual	อเรียกมาตรฐาน โดยจัดคู่กฎที่เป็นคู่ทวิภาค	—	ch06	adopt	
+dual	จัดคู่กฎที่เป็นคู่ทวิภาค	—	ch06	adopt	
 edge detection kernel	เคอร์เนลกลุ่มหลังนี้คือเคอร์เนลตรวจจับขอบ	—	ch05	adopt	
 efficiently computable	คำนวณได้รวดเร็ว	—	ch02	adopt	
 even	เลขคู่	—	ch06	adopt	
@@ -115,11 +114,11 @@ finite state machine	การสร้างเครื่องสถาน�
 finite state machine -- fsm	เครื่องสถานะจำกัด	—	ch06	adopt	
 first component	องค์ประกอบแรก	—	ch03	adopt	
 floor	ฟังก์ชันปัดลง	—	ch03	adopt	
-foreign key	ต์ที่ระบุทูเพิลได้เฉพาะเจาะจง ส่วนคีย์นอก	—	ch02	adopt	
+foreign key	คีย์นอก	—	ch02	adopt	
 fsm	ดีมัลติเพล็กเซอร์ และเครื่องสถานะจำกัด	—	ch06	adopt	
 function	เซต ฟังก์ชัน	—	ch03	adopt	
 function composition	การประกอบฟังก์ชัน	—	ch03	adopt	
-gaussian elimination	ิวเตอร์ จึงนิยมใช้วิธี การกำจัดแบบเกาส์	—	ch05	adopt	
+gaussian elimination	การกำจัดแบบเกาส์	—	ch05	adopt	
 general term	พจน์ทั่วไป	—	ch03	adopt	
 geometric	รูปแบบเรขาคณิต	—	ch03	adopt	
 geometric sequence	ลำดับเรขาคณิต	—	ch03	adopt	
@@ -127,10 +126,10 @@ geometric series	อนุกรมเรขาคณิต	—	ch03	adopt
 group	จัดกลุ่ม	—	ch06	adopt	
 half adder	ออกแบบวงจรบวกครึ่ง	—	ch06	adopt	
 half adder and full adder	วงจรบวกครึ่งและวงจรบวกเต็ม	—	ch06	adopt	
-hash function	ฟังก์ชันแฮชในฐานะฟังก์ชันทางคณิตศาสตร์	—	ch02,ch03	adopt	
-hash table	ตารางแฮช	—	ch02,ch03	adopt	
+hash function	ฟังก์ชันแฮช	—	ch02,ch03	adopt	ขัดกัน ฟังก์ชันแฮช / ฟังก์ชันแฮชในฐานะฟังก์ชันทางคณิตศาสตร์
+hash table	ตารางแฮช	—	ch02,ch03	adopt	ขัดกัน ตารางแฮช / ตารางแฮชและฟังก์ชันแฮช
 hexadecimal system	ระบบเลขฐานสิบหก	—	ch04	adopt	
-homogeneous coordinates	การประยุกต์ใช้เมทริกซ์การแปลง	—	ch05	escalate	ขัดกัน อาศัยระบบพิกัดเอกพันธุ์ / การประยุกต์ใช้เมทริกซ์การแปลง
+homogeneous coordinates	อาศัยระบบพิกัดเอกพันธุ์	—	ch05	adopt	
 hypothetical syllogism	การอ้างเหตุผลแบบมีเงื่อนไข	—	ch01	adopt	
 idempotent	กฎนิจพล	—	ch01	keep	ch6 เดิมเรียกว่ากฎเอกลักษณ์ซ้ำกับ Identity และเรียกกฎเอกนัยในสรุปบท
 idempotent laws	กฎนิจพล	—	ch02,ch06	adopt	
@@ -142,26 +141,26 @@ inclusion-exclusion principle	การแยก	—	ch02	adopt
 inclusive or	แบบรวม	—	ch01	adopt	
 inconsistent system	ระบบสมการนี้ไม่มีคำตอบ	—	ch05	adopt	
 inference rules	การอนุมาน	—	ch01	adopt	
-infinite sum	นจะลู่เข้าสู่ค่าจำกัด เรียกว่าผลรวมอนันต์	—	ch03	adopt	
+infinite sum	ผลรวมอนันต์	—	ch03	adopt	
 injective	ฟังก์ชันหนึ่งต่อหนึ่ง	—	ch03	adopt	
 injective, surjective, bijective	ประเภทของฟังก์ชัน	—	ch03	adopt	
 integers	เซตนี้คือเซตของจำนวนเต็ม	—	ch02	adopt	
 intersection	อินเตอร์เซกชัน	—	ch02	adopt	
-inverse	ผกผัน	—	ch01,ch05	adopt	
+inverse	ผกผัน	—	ch01,ch05	adopt	ขัดกัน ผกผัน / สมบัติผกผันการบวก
 inverse function	ฟังก์ชันผกผัน	—	ch03	adopt	
 inverse relation	ความสัมพันธ์ผกผัน	—	ch03	adopt	
 irrational numbers	รวมจำนวนตรรกยะและจำนวนอตรรกยะ	—	ch02	adopt	
 karnaugh map	แผนที่คาร์นอ	—	ch06	adopt	
 kernel	ใช้เมทริกซ์ขนาดเล็กเรียกว่าเคอร์เนล	—	ch05	adopt	
-law of excluded middle	างใดอย่างหนึ่ง กฎนี้เรียกว่า กฎกีดกันกลาง	—	ch01	escalate	ขัดกัน สัจนิรันดร์ / กฎนี้เรียกว่า กฎกีดกันกลาง
+law of excluded middle	สัจนิรันดร์	—	ch01	escalate	ขัดกัน สัจนิรันดร์ / กฎนี้เรียกว่า กฎกีดกันกลาง
 law of non-contradiction	หลักการนี้สอดคล้องกับกฎแห่งการไม่ขัดแย้ง	—	ch01	adopt	
 law of simplification	สัจนิรันดร์	—	ch01	adopt	
 laws of propositional algebra	กฎพีชคณิตของประพจน์	—	ch01	adopt	
-linear algebra	าขาคณิตศาสตร์ขั้นสูง เช่น พีชคณิตเชิงเส้น	—	ch05	adopt	
+linear algebra	เช่น พีชคณิตเชิงเส้น	—	ch05	adopt	
 logic	ตรรกศาสตร์	—	ch01	adopt	
 logic gates	ประตูตรรกะ	—	ch06	adopt	
 logical connectives	ตัวเชื่อมประพจน์	—	ch01	adopt	
-logical equivalence	วามสัมพันธ์นี้เรียกว่า ความสมมูลเชิงตรรกะ	—	ch01	adopt	
+logical equivalence	ความสมมูลเชิงตรรกะ	—	ch01	adopt	
 logically equivalent	สมมูลเชิงตรรกะ	—	ch01	adopt	
 loop complexity	การคำนวณการวนลูป	—	ch03	adopt	
 lower triangular matrix	เมทริกซ์สามเหลี่ยมล่าง	—	ch05	adopt	
@@ -169,33 +168,32 @@ lsb	บิตต่ำสุด	—	ch06	adopt
 matrix	เมทริกซ์	เมทริกซ์ / แมทริกซ์	ch05	adopt	
 matrix inverse	ตัวผกผันของเมทริกซ์	—	ch05	adopt	
 memory address	ตำแหน่งที่อยู่หน่วยความจำ	—	ch04	adopt	
-minor	นวณหาค่าดีเทอร์มิแนนต์ โดยแยกเมทริกซ์ย่อย	—	ch05	adopt	
+minor	แยกเมทริกซ์ย่อย	—	ch05	adopt	
 minterms and maxterms	มินเทอมและแมกซ์เทอม	—	ch06	adopt	
 modulo	ฟังก์ชันมอดูโล	—	ch03	adopt	
 modus ponens	กฎการยืนยันเงื่อนไขนำ	—	ch01	adopt	
 modus tollens	กฎการปฏิเสธเงื่อนไขตาม	—	ch01	adopt	
-moore machine	าณเข้า ตัวอย่างต่อไปนี้ใช้เครื่องแบบมัวร์	—	ch06	adopt	
+moore machine	ตัวอย่างต่อไปนี้ใช้เครื่องแบบมัวร์	—	ch06	adopt	
 multiplexer	ตัวเลือกข้อมูล	—	ch06	adopt	
 multiplexer and demultiplexer	มัลติเพล็กเซอร์และดีมัลติเพล็กเซอร์	—	ch06	adopt	
-natural join	กันตามความหมายแบบเซต การเชื่อมตามธรรมชาติ	—	ch03	adopt	
+natural join	การเชื่อมตามธรรมชาติ	—	ch03	adopt	
 natural numbers	เซตนี้คือเซตของจำนวนนับ	—	ch02	adopt	
 negation	นิเสธ	นิเสธ	ch01	adopt	
 neural network layer pass	การคำนวณผลคูณสะสมของประสาทเทียม	—	ch05	adopt	
 no duplicates	ไม่มีสมาชิกซ้ำ	—	ch02	adopt	
 number bases	ระบบเลขฐาน	—	ch04	adopt	
-numeric code points	ง จึงต้องถูกแปลงให้อยู่ในรูป ตัวเลขรหัส	—	ch04	adopt	
+numeric code points	ถูกแปลงให้อยู่ในรูป ตัวเลขรหัส	—	ch04	adopt	
 numerical analysis	การวิเคราะห์เชิงตัวเลข	—	ch05	adopt	
 octal system	ระบบเลขฐานแปด	—	ch04	adopt	
-odometer	ฏ ทำงานแบบเดียวกับมาตรวัดระยะทางของรถยนต์	—	ch04	adopt	
+odometer	ทำงานแบบเดียวกับมาตรวัดระยะทางของรถยนต์	—	ch04	adopt	
 off / low voltage	แรงดันต่ำ	—	ch04	adopt	
 on / high voltage	แรงดันสูง	—	ch04	adopt	
 open addressing	การกำหนดตำแหน่งเปิด	—	ch02	adopt	
 operation	การดำเนินการ	—	ch02	adopt	
-or	ตัวแปรหลายๆ พจน์มาบวก	—	ch06	escalate	ขัดกัน การนำผลบวก / ตัวแปรหลายๆ พจน์มาบวก
 ordered pair	คู่อันดับ	—	ch03	adopt	
 parsing	ตัวแปลภาษา การวิเคราะห์ไวยากรณ์	—	ch03	adopt	
 path reachability	อัลกอริทึมการหาเส้นทางเชื่อมต่อ	—	ch03	adopt	
-pos	รูปแบบผลคูณของผลบวก	—	ch06	adopt	
+pos	ผลคูณของผลบวก	—	ch06	adopt	
 positional notation	การพิสูจน์ค่าประจำตำแหน่งในระบบเลขตำแหน่ง	—	ch04	adopt	
 positional notation system	ระบบเลขตำแหน่ง	—	ch04	adopt	
 power set	เพาเวอร์เซต	เซตกำลัง	ch02	keep	ผู้เขียนตัดสิน 2026-08-09 ตำราไทยระดับมหาวิทยาลัยใช้เพาเวอร์เซตทั่วไป สอดคล้องกับสัญลักษณ์ P(A)
@@ -204,46 +202,46 @@ primary key	คีย์หลัก	—	ch02	adopt
 principle of bivalence	หลักการนี้สัมพันธ์กับกฎทวิภาวะ	—	ch02	adopt	
 product of sums -- pos	ผลคูณของผลบวก	—	ch06	adopt	
 projection	การฉาย	—	ch03	adopt	
-proof by contradiction	ง วิธีนี้เรียกว่า การพิสูจน์โดยข้อขัดแย้ง	—	ch01	adopt	
-proof by contrapositive	ิตศาสตร์ โดยเฉพาะการพิสูจน์โดยแย้งสลับที่	—	ch01	adopt	
+proof by contradiction	วิธีนี้เรียกว่า การพิสูจน์โดยข้อขัดแย้ง	—	ch01	adopt	
+proof by contrapositive	เฉพาะการพิสูจน์โดยแย้งสลับที่	—	ch01	adopt	
 proper subset	เซตย่อยแท้	—	ch02	adopt	
 propositions	ประพจน์	—	ch01	adopt	
 range	เรนจ์	—	ch03	adopt	
 rational numbers	เซตนี้คือเซตของจำนวนตรรกยะ	—	ch02	adopt	
 real numbers	เซตของจำนวนจริง	—	ch02	adopt	
-reflexive	คู่อันดับโดยตรง ความสัมพันธ์เป็นสะท้อน	—	ch03	escalate	ขัดกัน เหตุใดคุณสมบัติสะท้อน / ความสัมพันธ์เป็นสะท้อน
+reflexive	เหตุใดสมบัติสะท้อน	—	ch03	adopt	
 reflexive closure	การปิดสะท้อน	—	ch03	adopt	
-relation	บบจำลองฐานข้อมูลเชิงสัมพันธ์ ความสัมพันธ์	—	ch02,ch03	adopt	
-relation table	ตจำกัดยังเขียนแทนด้วย ตารางความสัมพันธ์	—	ch03	adopt	
+relation	ความสัมพันธ์	—	ch02,ch03	adopt	
+relation table	ตารางความสัมพันธ์	—	ch03	adopt	
 relational algebra	พีชคณิตเชิงสัมพันธ์	—	ch02,ch03	adopt	
-relational model	นำไปใช้ในแบบจำลองฐานข้อมูลเชิงสัมพันธ์	—	ch03	adopt	
+relational model	แบบจำลองฐานข้อมูลเชิงสัมพันธ์	—	ch03	adopt	
 relations and functions	ความสัมพันธ์และฟังก์ชัน	—	ch03	adopt	
 roster method	แจกแจงสมาชิก	—	ch02	adopt	
 rotation	การหมุน	—	ch05	adopt	
-row	แถว	—	ch03	adopt	
-row echelon form	ินทีละชั้นเพื่อสร้าง แบบขั้นบันไดตามแถว	—	ch05	adopt	
+row	แถว	—	ch03	adopt	ขัดกัน แถว
+row echelon form	แบบขั้นบันไดตามแถว	—	ch05	adopt	
 row matrix	เมทริกซ์แถว	—	ch05	adopt	
 scaling	การขยายขนาด	—	ch05	adopt	
 second component	องค์ประกอบที่สอง	—	ch03	adopt	
-selection	นธ์เชื่อมโยงกับการดำเนินการบนเซต การเลือก	—	ch03	adopt	
+selection	การเลือก	—	ch03	adopt	
 sequence	ลำดับ	—	ch03	adopt	
 sequences and series	ลำดับและอนุกรม	—	ch03	adopt	
-series	ำงานในแต่ละรอบมาบวกสะสมกัน จะได้ อนุกรม	—	ch03	adopt	
+series	ได้ อนุกรม	—	ch03	adopt	
 set difference	ผลต่าง	—	ch02	adopt	
 set operations	การดำเนินการระหว่างเซต	—	ch02	adopt	
 set operations as boolean algebra	การดำเนินการของเซตในรูปพีชคณิตบูลีน	—	ch02	adopt	
 set theory	ทฤษฎีเซต	—	ch02	adopt	
-set-builder notation	แจกแจงโดยกำหนดคุณสมบัติ	—	ch02	adopt	
-shift-and-add	ใช้เทคนิค เลื่อนตำแหน่งบิตและบวกสะสม	—	ch04	adopt	
+set-builder notation	แจกแจงโดยกำหนดสมบัติ	—	ch02	adopt	
+shift-and-add	เลื่อนตำแหน่งบิตและบวกสะสม	—	ch04	adopt	
 simple proposition	ประพจน์เชิงเดี่ยว	—	ch01	adopt	
 simplification	ย่อมจริง กฎข้อหลังนี้เรียกว่ากฎการลดรูป	—	ch01	adopt	
 skew-symmetric matrix	เมทริกซ์เส้นทแยงมุมเฉียง	—	ch05	adopt	
-sop	รูปแบบผลบวกของผลคูณ	—	ch06	adopt	
+sop	แบบผลบวกของผลคูณ	—	ch06	adopt	
 square matrix	เมทริกซ์จตุรัส	—	ch05	adopt	
-stack	ไม่สมดุล โดยใช้โครงสร้างข้อมูลกองซ้อน	—	ch03	adopt	
+stack	ใช้โครงสร้างข้อมูลกองซ้อน	—	ch03	adopt	
 subset	เซตย่อย	—	ch02	adopt	
 successive division	ใช้วิธีหารต่อเนื่อง	—	ch04	adopt	
-successive multiplication	ำนวนเต็ม วิธีที่ใช้คือ วิธีคูณต่อเนื่อง	—	ch04	escalate	ขัดกัน วิธีที่ใช้คือ วิธีคูณต่อเนื่อง / การแปลงส่วนทศนิยมใช้วิธีคูณต่อเนื่อง
+successive multiplication	วิธีที่ใช้คือ วิธีคูณต่อเนื่อง	—	ch04	adopt	
 sum of products -- sop	ผลบวกของผลคูณ	—	ch06	adopt	
 surjective	ฟังก์ชันทั่วถึง	—	ch03	adopt	
 symmetric	สมมาตร	—	ch03	adopt	
@@ -252,7 +250,7 @@ symmetric matrix	เมทริกซ์สมมาตร	—	ch05	adopt
 systems of linear equations	ระบบสมการเชิงเส้น	—	ch05	adopt	
 tautology	สัจนิรันดร์	สัจนิรันดร์	ch01	adopt	
 time complexity	ความซับซ้อนเชิงเวลา	—	ch02	adopt	
-torque	ช้แทนปริมาณเวกเตอร์ เช่น การหมุนและแรงบิด	—	ch05	adopt	
+torque	เช่น การหมุนและแรงบิด	—	ch05	adopt	
 transformation chaining	การรวมการแปลงพิกัดเชิงเส้นหลายขั้นตอน	—	ch05	adopt	
 transformation matrix	การประยุกต์ใช้เมทริกซ์การแปลง	—	ch05	adopt	
 transitive	ถ่ายทอด	—	ch03	adopt	
@@ -260,24 +258,24 @@ transitive closure	การปิดถ่ายทอด	—	ch03	adopt
 translation	เพื่อรวมการเลื่อนตำแหน่ง	—	ch05	adopt	
 transpose	เมทริกซ์สลับเปลี่ยน	—	ch05	adopt	
 true	จริง	—	ch02	adopt	
-true, t	กำหนดค่าความจริงได้เพียงค่าเดียว คือ จริง	—	ch01	adopt	
+true, t	จริง	—	ch01	adopt	
 truth table proof	การพิสูจน์ด้วยตารางค่าความจริง	—	ch01	adopt	
 truth tables	ตารางค่าความจริง	—	ch01	adopt	
-truth value	หนดเซตอย่างชัดเจน ข้อความนี้มีค่าความจริง	—	ch02	adopt	
-tuple	เซตของคู่อันดับหรือทูเพิล	—	ch02,ch03	escalate	ขัดกัน ละแถวของตารางคือทูเพิล / เซตของคู่อันดับหรือทูเพิล
+truth value	ข้อความนี้มีค่าความจริง	—	ch02	adopt	
+tuple	ละแถวของตารางคือทูเพิล	—	ch02,ch03	adopt	
 two-level realization	การสร้างวงจรสองระดับ	—	ch06	adopt	
 unary connective	ตัวเชื่อมเอกภาค	—	ch01	adopt	
-unary operation	ียงตัวเดียว จึงเรียกว่าการดำเนินการเอกภาค	—	ch06	adopt	
+unary operation	การดำเนินการเอกภาค	—	ch06	adopt	
 uncountable	เซตนับไม่ได้	—	ch02	adopt	
 undo operation	การกู้คืนสถานะเดิมหรือการเลิกทำ	—	ch05	adopt	
 unicode	รหัสยูนิโคด	—	ch04	adopt	
 uniformly distributed	กระจายคีย์สม่ำเสมอ	—	ch02	adopt	
 union	ยูเนียน	—	ch02	adopt	
-universal gate	ฐานะเกตสากล	—	ch06	adopt	
+universal gate	เกตสากล	—	ch06	adopt	
 unordered	ไม่มีลำดับ	—	ch02	adopt	
 upper triangular matrix	เมทริกซ์สามเหลี่ยมบน	—	ch05	adopt	
 upper/lower triangular matrix	สำหรับเมทริกซ์สามเหลี่ยม	—	ch05	adopt	
 vacuous truth	จริงโดยปริยาย	—	ch02	adopt	
-variable-length encoding	ารเข้ารหัสแบบ ความยาวไบต์ปรับเปลี่ยนได้	—	ch04	adopt	
+variable-length encoding	ความยาวไบต์ปรับเปลี่ยนได้	—	ch04	adopt	
 weighted sum	แล้วรวมกัน	—	ch06	adopt	
 zero matrix	เมทริกซ์ศูนย์	—	ch05	adopt	

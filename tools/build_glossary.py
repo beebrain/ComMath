@@ -41,21 +41,20 @@ def read_decisions():
 
 
 def main():
-    terms = load_audit().collect()
+    audit = load_audit()
+    terms = audit.collect()
     prev = read_decisions()
 
     rows, conflicts = [], 0
     for en in sorted(terms):
         variants = terms[en]
-        # คำที่สั้นที่สุดคือศัพท์จริง ตัวที่ยาวกว่ามักเป็นวลีที่ครอบศัพท์นั้นอยู่
-        canonical = min(variants, key=len)
         chapters = sorted({loc.split(":")[0] for locs in variants.values() for loc in locs})
 
-        # เทียบโดยตัดช่องว่างออกก่อน เพราะ "วิธี การกำจัดแบบเกาส์" กับ
-        # "วิธีการกำจัดแบบเกาส์" เป็นคำเดียวกัน ต่างแค่การเว้นวรรค
-        squeeze = lambda t: t.replace(" ", "")
-        core = squeeze(canonical)
-        real_conflict = not all(core in squeeze(th) for th in variants)
+        # ตัวดำเนินการอย่าง and/or ไม่ใช่ศัพท์ที่ต้องบัญญัติ ข้ามไป
+        if en in {"and", "or", "not", "xor", "if", "iff"}:
+            continue
+
+        canonical, real_conflict = audit.canonical(variants)
         decision = "escalate" if real_conflict else "adopt"
         notes = ""
         if real_conflict:

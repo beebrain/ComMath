@@ -43,6 +43,25 @@ def norm_th(s):
         s = stripped
 
 
+def canonical(variants):
+    """คืน (คำที่ถือเป็นศัพท์จริง, ขัดกันจริงหรือไม่)
+
+    ศัพท์อยู่ท้ายวลีเสมอ เพราะเขียนติดหน้าวงเล็บอังกฤษ ส่วนที่ต่างกันจึงเป็น
+    คำแวดล้อมที่นำหน้ามา ถ้าทุกตัวแปรลงท้ายเหมือนกัน แปลว่าเป็นศัพท์เดียวกัน
+    """
+    squeezed = [re.sub(r"\s+", "", t) for t in variants]
+    shortest = min(squeezed, key=len)
+    n = 0
+    while n < len(shortest) and all(s[-(n + 1)] == shortest[-(n + 1)] for s in squeezed):
+        n += 1
+    suffix = shortest[-n:] if n else ""
+    if len(suffix) >= 4:
+        # เลือกตัวแปรที่สั้นที่สุดซึ่งลงท้ายด้วยส่วนท้ายร่วม
+        pick = min((t for t in variants if re.sub(r"\s+", "", t).endswith(suffix)), key=len)
+        return pick, False
+    return min(variants, key=len), True
+
+
 def collect():
     """en -> {th -> [(chapter, line)]}"""
     terms = defaultdict(lambda: defaultdict(list))

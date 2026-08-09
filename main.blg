@@ -1,18 +1,18 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'main.blg'
-[22] biber-darwin:342> INFO - === Sun Aug  9, 2026, 09:04:10
-[28] Biber.pm:421> INFO - Reading 'main.bcf'
+[24] biber-darwin:342> INFO - === Sun Aug  9, 2026, 10:16:04
+[29] Biber.pm:421> INFO - Reading 'main.bcf'
 [60] Biber.pm:999> INFO - Using all citekeys in bib section 0
 [65] Biber.pm:4487> INFO - Processing section 0
-[69] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
-[70] bibtex.pm:1713> INFO - LaTeX decoding ...
-[76] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
-[119] Biber.pm:4678> INFO - Looking for bibtex file 'author_pubs.bib' for section 0
+[68] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
+[69] bibtex.pm:1713> INFO - LaTeX decoding ...
+[74] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[118] Biber.pm:4678> INFO - Looking for bibtex file 'author_pubs.bib' for section 0
 [119] bibtex.pm:1713> INFO - LaTeX decoding ...
-[122] bibtex.pm:1519> INFO - Found BibTeX data source 'author_pubs.bib'
-[153] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[153] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[153] Biber.pm:4307> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[153] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[163] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[168] bbl.pm:779> INFO - Output to main.bbl
+[121] bibtex.pm:1519> INFO - Found BibTeX data source 'author_pubs.bib'
+[149] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[149] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[149] Biber.pm:4307> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[149] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[158] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[162] bbl.pm:779> INFO - Output to main.bbl

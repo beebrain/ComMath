@@ -80,10 +80,20 @@ def collect():
     return terms
 
 
+# ตัวดำเนินการ ไม่ใช่ศัพท์ที่ต้องบัญญัติ จึงไม่นับเป็นความขัดแย้ง
+OPERATORS = {"and", "or", "not", "xor", "if", "iff"}
+
+
 def main():
     show_all = "--all" in sys.argv
     terms = collect()
-    conflicts = {en: v for en, v in terms.items() if len(v) > 1}
+
+    conflicts = {}
+    for en, variants in terms.items():
+        if len(variants) < 2 or en in OPERATORS:
+            continue
+        if canonical(variants)[1]:
+            conflicts[en] = variants
 
     print(f"พบศัพท์อังกฤษ {len(terms)} คำ  ขัดกัน {len(conflicts)} คำ\n")
     for en in sorted(conflicts):
@@ -98,8 +108,9 @@ def main():
         for en in sorted(terms):
             if en in conflicts:
                 continue
-            (th, locs), = terms[en].items()
-            print(f"{len(locs):3d}x  {en:<34} {th}")
+            th = canonical(terms[en])[0]
+            n = sum(len(v) for v in terms[en].values())
+            print(f"{n:3d}x  {en:<34} {th}")
 
 
 if __name__ == "__main__":

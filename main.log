@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  9 AUG 2026 09:13
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  9 AUG 2026 09:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2388,12 +2388,23 @@ pe bmp)
 File: Figures/png_ready/relation-arrow-generated.png Graphic file (type bmp)
 <Figures/png_ready/relation-arrow-generated.png>
  [98] [99] [100]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 113.
+See the caption package documentation for explanation.
+
 File: Figures/png_ready/relation-matrix-generated.png Graphic file (type bmp)
 <Figures/png_ready/relation-matrix-generated.png>
- [101]
+[101]
 File: Figures/png_ready/domain-range-generated.png Graphic file (type bmp)
 <Figures/png_ready/domain-range-generated.png>
- [102] [103] [104] [105] [106]
+ [102] [103]
+Underfull \hbox (badness 10000) in paragraph at lines 204--205
+[][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 3.5 (การหาโดเมนและเรนจ์จากความสัมพั
+นธ์ที่กำหนดด้วยเงื่อนไข) []กำหนด เซต
+ []
+
+[104] [105] [106]
 File: Figures/png_ready/linear-function-graph-generated.png Graphic file (type 
 bmp)
 <Figures/png_ready/linear-function-graph-generated.png>
@@ -2411,19 +2422,25 @@ File: Figures/png_ready/function-bijective-generated.png Graphic file (type bmp
 File: Figures/png_ready/37-function-composition-generated.png Graphic file (typ
 e bmp)
 <Figures/png_ready/37-function-composition-generated.png>
-
-[110] [111] [112]
+ [110] [111] [112]
 File: Figures/png_ready/sequence-partial-sum-graph-generated.png Graphic file (
 type bmp)
 <Figures/png_ready/sequence-partial-sum-graph-generated.png>
- [113] [114] [115] [116] [117] [118] [119] [120
+ [113] [114] [115]
+[116]
+Underfull \hbox (badness 2762) in paragraph at lines 651--652
+[][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 3.20 (การหาผลรวมอนันต์ของอนุกรมเรขา
+คณิต) []จง หา ผล รวม อนันต์ ($\OML/cmm/m/it/10.95 S[]$\TU/THSarabunNew(0)/m/sc/
+11 ) ของ อนุกรม
+ []
+
+[117] [118] [119] [120
 
 ] [121
 
 
-]
-[122]
-Underfull \hbox (badness 10000) in paragraph at lines 800--801
+] [122]
+Underfull \hbox (badness 10000) in paragraph at lines 808--809
 []$\OML/cmm/m/it/10.95 A \OMS/cmsy/m/n/10.95 ^^B \OML/cmm/m/it/10.95 B \OT1/cmr
 /m/n/10.95 = \OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; a\
 OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.
@@ -2726,18 +2743,18 @@ LaTeX Font Warning: Size substitutions with differences
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B9C430CF2BA024DA70F1A2DDA0797AE2;24281.
+(rerunfilecheck)             Checksum: B98E76BED5C032607786934DE751EA7B;24281.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 71890 strings out of 468168
- 1699767 string characters out of 5432815
- 2995028 words of memory out of 5000000
- 99557 multiletter control sequences out of 15000+600000
+ 71892 strings out of 468168
+ 1699806 string characters out of 5432815
+ 2995880 words of memory out of 5000000
+ 99559 multiletter control sequences out of 15000+600000
  637427 words of font info for 116 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,19n,118p,1181b,5297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (261 pages, 4713548 bytes).
+Output written on main.xdv (261 pages, 4738848 bytes).

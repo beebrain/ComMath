@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  9 AUG 2026 11:43
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  9 AUG 2026 11:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2209,11 +2209,11 @@ LaTeX Font Warning: Font shape `TU/THSarabunNew(0)/m/sc' undefined
 
 [10] [11]
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/sc' will be
-(Font)              scaled to size 16.5pt on input line 95.
+(Font)              scaled to size 16.5pt on input line 96.
  [12]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 143.
+(caption)                particular \caption on input line 146.
 See the caption package documentation for explanation.
 
 [13] (./Figures/tikz/02-and-gate-circuit.tex) [14]
@@ -2227,7 +2227,7 @@ File: Figures/png_ready/09-xor-logic.png Graphic file (type bmp)
 [35] [36] [37] [38] [39]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1194.
+(caption)                particular \caption on input line 1212.
 See the caption package documentation for explanation.
 
 [40] [41] [42
@@ -2240,17 +2240,17 @@ See the caption package documentation for explanation.
 
 ] [47]
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/sc' will be
-(Font)              scaled to size 18.0pt on input line 1486.
+(Font)              scaled to size 18.0pt on input line 1504.
 
 
 LaTeX Font Warning: Font shape `TU/THSarabunNew(0)/b/sc' undefined
-(Font)              using `TU/THSarabunNew(0)/b/n' instead on input line 1486.
+(Font)              using `TU/THSarabunNew(0)/b/n' instead on input line 1504.
 
 [48
 
 ]
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/sc' will be
-(Font)              scaled to size 18.0pt on input line 1499.
+(Font)              scaled to size 18.0pt on input line 1517.
  [49]) [50]
 Underfull \hbox (badness 7796) in paragraph at lines 237--237
 [][]\TU/THSarabunNew(0)/m/sc/11 Grimaldi, R. P. (2004).  \TU/THSarabunNew(0)/m/
@@ -2763,12 +2763,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 71917 strings out of 468168
- 1700079 string characters out of 5432815
- 2997097 words of memory out of 5000000
- 99584 multiletter control sequences out of 15000+600000
+ 71935 strings out of 468168
+ 1700509 string characters out of 5432815
+ 2998154 words of memory out of 5000000
+ 99602 multiletter control sequences out of 15000+600000
  637427 words of font info for 116 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,19n,118p,1181b,5297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (265 pages, 4813348 bytes).
+Output written on main.xdv (265 pages, 4813340 bytes).

@@ -1,0 +1,56 @@
+% 05 — ประพจน์มีเงื่อนไข อธิบายด้วยคำสัญญา
+%   ตีความ p -> q ว่าเป็นคำสัญญา "ถ้าส่งงานครบ แล้วมีสิทธิ์เข้าสอบ"
+%   แล้วถามว่าแต่ละกรณีผิดคำสัญญาหรือไม่ ซึ่งตรงกับค่าความจริงของ p -> q พอดี
+%   จุดสำคัญคือสองแถวล่างที่ p เป็นเท็จ คำสัญญายังไม่ถูกหักล้าง เพราะยังไม่ถึงเงื่อนไขที่ต้องตรวจ
+% เรียกใช้ด้วย \input{Figures/tikz/05-conditional-promise} ภายใน figure
+\begin{tikzpicture}[line width=1pt,font=\small]
+  \def\rowh{1.15}
+  \def\cA{0}      % p
+  \def\cB{3.3}    % q
+  \def\cC{6.6}    % คำตัดสิน
+  \def\cD{9.4}    % ค่าความจริง
+
+  %% ---------- หัวตาราง ----------
+  \fill[navy] (\cA-1.7,0.45) rectangle (\cD+1.3,-0.45);
+  \node[font=\bfseries,text=white] at (\cA,0) {ส่งงานครบ ($p$)};
+  \node[font=\bfseries,text=white] at (\cB,0) {มีสิทธิ์เข้าสอบ ($q$)};
+  \node[font=\bfseries,text=white] at (\cC,0) {ผิดคำสัญญาหรือไม่};
+  \node[font=\bfseries,text=white] at (\cD,0) {$p \rightarrow q$};
+
+  %% ---------- แถวที่ 1 : T T ----------
+  \node[Tgreen,font=\bfseries] at (\cA,-\rowh) {\cmark\ ส่งครบ};
+  \node[Tgreen,font=\bfseries] at (\cB,-\rowh) {\cmark\ ได้สอบ};
+  \node[align=center,font=\footnotesize] at (\cC,-\rowh) {ทำตามที่สัญญาไว้ทุกอย่าง};
+  \node[Tgreen,font=\bfseries\large] at (\cD,-\rowh) {T};
+
+  %% ---------- แถวที่ 2 : T F  กรณีเดียวที่ผิดคำสัญญา ----------
+  \fill[lred] (\cA-1.7,-2*\rowh-0.45) rectangle (\cD+1.3,-2*\rowh+0.45);
+  \node[Tgreen,font=\bfseries] at (\cA,-2*\rowh) {\cmark\ ส่งครบ};
+  \node[Fred,font=\bfseries] at (\cB,-2*\rowh) {\xmark\ ไม่ได้สอบ};
+  \node[align=center,font=\footnotesize\bfseries,text=Fred] at (\cC,-2*\rowh) {ผิดคำสัญญา};
+  \node[Fred,font=\bfseries\large] at (\cD,-2*\rowh) {F};
+
+  %% ---------- แถวที่ 3 : F T ----------
+  \node[Fred,font=\bfseries] at (\cA,-3*\rowh) {\xmark\ ส่งไม่ครบ};
+  \node[Tgreen,font=\bfseries] at (\cB,-3*\rowh) {\cmark\ ได้สอบ};
+  \node[align=center,font=\footnotesize] at (\cC,-3*\rowh) {ยังไม่ผิด เพราะไม่ได้สัญญา\\ว่าคนส่งไม่ครบจะอดสอบ};
+  \node[Tgreen,font=\bfseries\large] at (\cD,-3*\rowh) {T};
+
+  %% ---------- แถวที่ 4 : F F ----------
+  \node[Fred,font=\bfseries] at (\cA,-4*\rowh) {\xmark\ ส่งไม่ครบ};
+  \node[Fred,font=\bfseries] at (\cB,-4*\rowh) {\xmark\ ไม่ได้สอบ};
+  \node[align=center,font=\footnotesize] at (\cC,-4*\rowh) {ยังไม่ผิด เพราะยังไม่ถึง\\เงื่อนไขที่ต้องตรวจ};
+  \node[Tgreen,font=\bfseries\large] at (\cD,-4*\rowh) {T};
+
+  %% ---------- เส้นตาราง ----------
+  \foreach \r in {0,1,2,3,4} {
+    \draw[gray!55] (\cA-1.7,-\r*\rowh-0.45) -- (\cD+1.3,-\r*\rowh-0.45);
+  }
+  \draw[gray!55] (\cA-1.7,0.45) -- (\cD+1.3,0.45);
+  \foreach \x in {1.65,4.95,8.25} {
+    \draw[gray!55] (\x,0.45) -- (\x,-4*\rowh-0.45);
+  }
+  \draw[gray!55] (\cA-1.7,0.45) -- (\cA-1.7,-4*\rowh-0.45);
+  \draw[gray!55] (\cD+1.3,0.45) -- (\cD+1.3,-4*\rowh-0.45);
+
+\end{tikzpicture}

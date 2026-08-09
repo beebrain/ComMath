@@ -4,36 +4,36 @@
 \contentsline {figure}{\numberline {2}{\ignorespaces วงจรสวิตช์ไฟฟ้าแบบขนาน แสดงการทำงานของ $p \lor q$}}{16}{figure.caption.11}%
 \contentsline {figure}{\numberline {3}{\ignorespaces ตารางค่าความจริงและสัญลักษณ์ของประตูตรรกะ XOR}}{27}{figure.caption.23}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4}{\ignorespaces แผนภาพเวนน์แสดงการดำเนินการยูเนียน $A \cup B$}}{64}{figure.caption.35}%
-\contentsline {figure}{\numberline {5}{\ignorespaces แผนภาพแสดงเซตไม่มีสมาชิกร่วม เมื่อ $A\cap B=\emptyset $}}{65}{figure.caption.36}%
-\contentsline {figure}{\numberline {6}{\ignorespaces แผนภาพเวนน์แสดงการดำเนินการอินเตอร์เซกชัน $A \cap B$}}{66}{figure.caption.37}%
-\contentsline {figure}{\numberline {7}{\ignorespaces การแรเงาพื้นที่ของยูเนียน อินเตอร์เซกชัน และผลต่างของเซต}}{68}{figure.caption.38}%
-\contentsline {figure}{\numberline {8}{\ignorespaces แผนภาพเวนน์แสดงคอมพลีเมนต์ $A^c$ ของเซต $A$}}{70}{figure.caption.39}%
-\contentsline {figure}{\numberline {9}{\ignorespaces แผนภาพเวนน์แสดงกฎการแจกแจง $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$}}{71}{figure.caption.40}%
-\contentsline {figure}{\numberline {10}{\ignorespaces แผนภาพเวนน์แสดงกฎเดอมอร์แกน $(A \cup B)^c = A^c \cap B^c$ และ $(A \cap B)^c = A^c \cup B^c$}}{72}{figure.caption.41}%
-\contentsline {figure}{\numberline {11}{\ignorespaces แผนภาพประกอบหลักการรวม-การแยก แสดงการหักส่วนซ้ำ $A\cap B$ ออกจาก $|A|+|B|$}}{76}{figure.caption.42}%
+\contentsline {figure}{\numberline {4}{\ignorespaces แผนภาพเวนน์แสดงการดำเนินการยูเนียน $A \cup B$}}{64}{figure.caption.36}%
+\contentsline {figure}{\numberline {5}{\ignorespaces แผนภาพแสดงเซตไม่มีสมาชิกร่วม เมื่อ $A\cap B=\emptyset $}}{65}{figure.caption.37}%
+\contentsline {figure}{\numberline {6}{\ignorespaces แผนภาพเวนน์แสดงการดำเนินการอินเตอร์เซกชัน $A \cap B$}}{66}{figure.caption.38}%
+\contentsline {figure}{\numberline {7}{\ignorespaces การแรเงาพื้นที่ของยูเนียน อินเตอร์เซกชัน และผลต่างของเซต}}{68}{figure.caption.39}%
+\contentsline {figure}{\numberline {8}{\ignorespaces แผนภาพเวนน์แสดงคอมพลีเมนต์ $A^c$ ของเซต $A$}}{70}{figure.caption.40}%
+\contentsline {figure}{\numberline {9}{\ignorespaces แผนภาพเวนน์แสดงกฎการแจกแจง $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$}}{71}{figure.caption.41}%
+\contentsline {figure}{\numberline {10}{\ignorespaces แผนภาพเวนน์แสดงกฎเดอมอร์แกน $(A \cup B)^c = A^c \cap B^c$ และ $(A \cap B)^c = A^c \cup B^c$}}{72}{figure.caption.42}%
+\contentsline {figure}{\numberline {11}{\ignorespaces แผนภาพประกอบหลักการรวม-การแยก แสดงการหักส่วนซ้ำ $A\cap B$ ออกจาก $|A|+|B|$}}{76}{figure.caption.43}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {12}{\ignorespaces กราฟแสดงคู่อันดับของความสัมพันธ์บนระนาบคาร์ทีเซียน}}{98}{figure.caption.49}%
-\contentsline {figure}{\numberline {13}{\ignorespaces แผนภาพลูกศรแสดงความสัมพันธ์ $R$ จากเซต $A$ ไปยังเซต $B$}}{99}{figure.caption.50}%
-\contentsline {figure}{\numberline {14}{\ignorespaces การเชื่อมโยงระหว่างแผนภาพความสัมพันธ์กับเมทริกซ์บูลีน}}{102}{figure.caption.51}%
-\contentsline {figure}{\numberline {15}{\ignorespaces แผนภาพแสดงโดเมนและเรนจ์ของความสัมพันธ์}}{103}{figure.caption.52}%
-\contentsline {figure}{\numberline {16}{\ignorespaces กราฟตัวอย่างฟังก์ชันเชิงเส้น $y=2x+1$}}{108}{figure.caption.53}%
-\contentsline {figure}{\numberline {17}{\ignorespaces ตัวอย่างรูปแบบการจับคู่ของฟังก์ชันสามชนิด}}{110}{figure.caption.54}%
-\contentsline {figure}{\numberline {18}{\ignorespaces แผนภาพแสดงการประกอบฟังก์ชัน $(g \circ f)(a) = g(f(a))$ ที่ส่งผ่านข้อมูลจากเซต $A$ ผ่าน $B$ ไปยัง $C$}}{112}{figure.caption.55}%
-\contentsline {figure}{\numberline {19}{\ignorespaces กราฟแสดงพจน์ของลำดับและผลรวมบางส่วน}}{115}{figure.caption.56}%
+\contentsline {figure}{\numberline {12}{\ignorespaces กราฟแสดงคู่อันดับของความสัมพันธ์บนระนาบคาร์ทีเซียน}}{98}{figure.caption.50}%
+\contentsline {figure}{\numberline {13}{\ignorespaces แผนภาพลูกศรแสดงความสัมพันธ์ $R$ จากเซต $A$ ไปยังเซต $B$}}{99}{figure.caption.51}%
+\contentsline {figure}{\numberline {14}{\ignorespaces การเชื่อมโยงระหว่างแผนภาพความสัมพันธ์กับเมทริกซ์บูลีน}}{102}{figure.caption.52}%
+\contentsline {figure}{\numberline {15}{\ignorespaces แผนภาพแสดงโดเมนและเรนจ์ของความสัมพันธ์}}{103}{figure.caption.53}%
+\contentsline {figure}{\numberline {16}{\ignorespaces กราฟตัวอย่างฟังก์ชันเชิงเส้น $y=2x+1$}}{108}{figure.caption.54}%
+\contentsline {figure}{\numberline {17}{\ignorespaces ตัวอย่างรูปแบบการจับคู่ของฟังก์ชันสามชนิด}}{110}{figure.caption.55}%
+\contentsline {figure}{\numberline {18}{\ignorespaces แผนภาพแสดงการประกอบฟังก์ชัน $(g \circ f)(a) = g(f(a))$ ที่ส่งผ่านข้อมูลจากเซต $A$ ผ่าน $B$ ไปยัง $C$}}{112}{figure.caption.56}%
+\contentsline {figure}{\numberline {19}{\ignorespaces กราฟแสดงพจน์ของลำดับและผลรวมบางส่วน}}{115}{figure.caption.57}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {20}{\ignorespaces การแปลง $1011_2$ เป็น $11_{10}$ ด้วยค่าน้ำหนักประจำหลัก}}{137}{figure.caption.61}%
-\contentsline {figure}{\numberline {21}{\ignorespaces แผนภาพแสดงการจัดกลุ่มเลขฐานสองเป็นเลขฐานสิบหก}}{141}{figure.caption.62}%
+\contentsline {figure}{\numberline {20}{\ignorespaces การแปลง $1011_2$ เป็น $11_{10}$ ด้วยค่าน้ำหนักประจำหลัก}}{139}{figure.caption.63}%
+\contentsline {figure}{\numberline {21}{\ignorespaces แผนภาพแสดงการจัดกลุ่มเลขฐานสองเป็นเลขฐานสิบหก}}{143}{figure.caption.64}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {22}{\ignorespaces แผนภาพแสดงมิติของเมทริกซ์และตำแหน่งสมาชิก}}{164}{figure.caption.69}%
-\contentsline {figure}{\numberline {23}{\ignorespaces แผนภาพแสดงประเภทของเมทริกซ์ที่สำคัญ}}{165}{figure.caption.70}%
-\contentsline {figure}{\numberline {24}{\ignorespaces การจับคู่แถวของ $A$ กับคอลัมน์ของ $B$ เพื่อหาสมาชิกของ $C$}}{171}{figure.caption.71}%
-\contentsline {figure}{\numberline {25}{\ignorespaces แผนภาพแสดงดีเทอร์มิแนนต์ของเมทริกซ์ $2\times 2$}}{175}{figure.caption.72}%
-\contentsline {figure}{\numberline {26}{\ignorespaces แผนภาพแสดงการหมุน การขยาย และการเฉือนด้วยเมทริกซ์}}{189}{figure.caption.73}%
+\contentsline {figure}{\numberline {22}{\ignorespaces แผนภาพแสดงมิติของเมทริกซ์และตำแหน่งสมาชิก}}{166}{figure.caption.71}%
+\contentsline {figure}{\numberline {23}{\ignorespaces แผนภาพแสดงประเภทของเมทริกซ์ที่สำคัญ}}{167}{figure.caption.72}%
+\contentsline {figure}{\numberline {24}{\ignorespaces การจับคู่แถวของ $A$ กับคอลัมน์ของ $B$ เพื่อหาสมาชิกของ $C$}}{173}{figure.caption.73}%
+\contentsline {figure}{\numberline {25}{\ignorespaces แผนภาพแสดงดีเทอร์มิแนนต์ของเมทริกซ์ $2\times 2$}}{177}{figure.caption.74}%
+\contentsline {figure}{\numberline {26}{\ignorespaces แผนภาพแสดงการหมุน การขยาย และการเฉือนด้วยเมทริกซ์}}{191}{figure.caption.75}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {27}{\ignorespaces กฎเดอมอร์แกน}}{217}{figure.caption.79}%
-\contentsline {figure}{\numberline {28}{\ignorespaces ตัวอย่างการไหลของอินพุตสำหรับฟังก์ชัน AND และ NOT แยกกัน}}{218}{figure.caption.80}%
-\contentsline {figure}{\numberline {29}{\ignorespaces การจัดกลุ่มใน K-map}}{232}{figure.caption.81}%
-\contentsline {figure}{\numberline {30}{\ignorespaces เกตสากล NAND และ NOR}}{235}{figure.caption.83}%
-\contentsline {figure}{\numberline {31}{\ignorespaces Half Adder และ Full Adder}}{240}{figure.caption.84}%
+\contentsline {figure}{\numberline {27}{\ignorespaces กฎเดอมอร์แกน}}{219}{figure.caption.81}%
+\contentsline {figure}{\numberline {28}{\ignorespaces ตัวอย่างการไหลของอินพุตสำหรับฟังก์ชัน AND และ NOT แยกกัน}}{220}{figure.caption.82}%
+\contentsline {figure}{\numberline {29}{\ignorespaces การจัดกลุ่มใน K-map}}{234}{figure.caption.83}%
+\contentsline {figure}{\numberline {30}{\ignorespaces เกตสากล NAND และ NOR}}{237}{figure.caption.85}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Half Adder และ Full Adder}}{242}{figure.caption.86}%
 \contentsfinish 

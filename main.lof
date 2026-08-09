@@ -22,18 +22,18 @@
 \contentsline {figure}{\numberline {18}{\ignorespaces แผนภาพแสดงการประกอบฟังก์ชัน $(g \circ f)(a) = g(f(a))$ ที่ส่งผ่านข้อมูลจากเซต $A$ ผ่าน $B$ ไปยัง $C$}}{111}{figure.caption.55}%
 \contentsline {figure}{\numberline {19}{\ignorespaces กราฟแสดงพจน์ของลำดับและผลรวมบางส่วน}}{114}{figure.caption.56}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {20}{\ignorespaces การแปลง $1011_2$ เป็น $11_{10}$ ด้วยค่าน้ำหนักประจำหลัก}}{133}{figure.caption.61}%
-\contentsline {figure}{\numberline {21}{\ignorespaces แผนภาพแสดงการจัดกลุ่มเลขฐานสองเป็นเลขฐานสิบหก}}{137}{figure.caption.62}%
+\contentsline {figure}{\numberline {20}{\ignorespaces การแปลง $1011_2$ เป็น $11_{10}$ ด้วยค่าน้ำหนักประจำหลัก}}{135}{figure.caption.61}%
+\contentsline {figure}{\numberline {21}{\ignorespaces แผนภาพแสดงการจัดกลุ่มเลขฐานสองเป็นเลขฐานสิบหก}}{139}{figure.caption.62}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {22}{\ignorespaces แผนภาพแสดงมิติของเมทริกซ์และตำแหน่งสมาชิก}}{160}{figure.caption.69}%
-\contentsline {figure}{\numberline {23}{\ignorespaces แผนภาพแสดงประเภทของเมทริกซ์ที่สำคัญ}}{161}{figure.caption.70}%
-\contentsline {figure}{\numberline {24}{\ignorespaces การจับคู่แถวของ $A$ กับคอลัมน์ของ $B$ เพื่อหาสมาชิกของ $C$}}{167}{figure.caption.71}%
-\contentsline {figure}{\numberline {25}{\ignorespaces แผนภาพแสดงดีเทอร์มิแนนต์ของเมทริกซ์ $2\times 2$}}{171}{figure.caption.72}%
-\contentsline {figure}{\numberline {26}{\ignorespaces แผนภาพแสดงการหมุน การขยาย และการเฉือนด้วยเมทริกซ์}}{185}{figure.caption.73}%
+\contentsline {figure}{\numberline {22}{\ignorespaces แผนภาพแสดงมิติของเมทริกซ์และตำแหน่งสมาชิก}}{162}{figure.caption.69}%
+\contentsline {figure}{\numberline {23}{\ignorespaces แผนภาพแสดงประเภทของเมทริกซ์ที่สำคัญ}}{163}{figure.caption.70}%
+\contentsline {figure}{\numberline {24}{\ignorespaces การจับคู่แถวของ $A$ กับคอลัมน์ของ $B$ เพื่อหาสมาชิกของ $C$}}{169}{figure.caption.71}%
+\contentsline {figure}{\numberline {25}{\ignorespaces แผนภาพแสดงดีเทอร์มิแนนต์ของเมทริกซ์ $2\times 2$}}{173}{figure.caption.72}%
+\contentsline {figure}{\numberline {26}{\ignorespaces แผนภาพแสดงการหมุน การขยาย และการเฉือนด้วยเมทริกซ์}}{187}{figure.caption.73}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {27}{\ignorespaces กฎเดอมอร์แกน}}{213}{figure.caption.79}%
-\contentsline {figure}{\numberline {28}{\ignorespaces ตัวอย่างการไหลของอินพุตสำหรับฟังก์ชัน AND และ NOT แยกกัน}}{214}{figure.caption.80}%
-\contentsline {figure}{\numberline {29}{\ignorespaces การจัดกลุ่มใน K-map}}{228}{figure.caption.81}%
-\contentsline {figure}{\numberline {30}{\ignorespaces เกตสากล NAND และ NOR}}{231}{figure.caption.83}%
-\contentsline {figure}{\numberline {31}{\ignorespaces Half Adder และ Full Adder}}{236}{figure.caption.84}%
+\contentsline {figure}{\numberline {27}{\ignorespaces กฎเดอมอร์แกน}}{215}{figure.caption.79}%
+\contentsline {figure}{\numberline {28}{\ignorespaces ตัวอย่างการไหลของอินพุตสำหรับฟังก์ชัน AND และ NOT แยกกัน}}{216}{figure.caption.80}%
+\contentsline {figure}{\numberline {29}{\ignorespaces การจัดกลุ่มใน K-map}}{230}{figure.caption.81}%
+\contentsline {figure}{\numberline {30}{\ignorespaces เกตสากล NAND และ NOR}}{233}{figure.caption.83}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Half Adder และ Full Adder}}{238}{figure.caption.84}%
 \contentsfinish 

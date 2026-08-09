@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  9 AUG 2026 09:04
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  9 AUG 2026 09:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2194,21 +2194,21 @@ LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
 
 ]
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 35.
+(Font)              scaled to size 12.0pt on input line 39.
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 35.
+(Font)              scaled to size 9.0pt on input line 39.
 
 
 LaTeX Font Warning: Font shape `TU/THSarabunNew(0)/m/sc' undefined
-(Font)              using `TU/THSarabunNew(0)/m/n' instead on input line 45.
+(Font)              using `TU/THSarabunNew(0)/m/n' instead on input line 49.
 
 [10] [11]
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/sc' will be
-(Font)              scaled to size 16.5pt on input line 91.
+(Font)              scaled to size 16.5pt on input line 95.
  [12]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 139.
+(caption)                particular \caption on input line 143.
 See the caption package documentation for explanation.
 
 [13] (./Figures/tikz/02-and-gate-circuit.tex) [14]
@@ -2222,7 +2222,7 @@ File: Figures/png_ready/09-xor-logic.png Graphic file (type bmp)
 [35] [36] [37] [38] [39]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 1190.
+(caption)                particular \caption on input line 1194.
 See the caption package documentation for explanation.
 
 [40] [41] [42
@@ -2235,17 +2235,17 @@ See the caption package documentation for explanation.
 
 ] [47]
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/sc' will be
-(Font)              scaled to size 18.0pt on input line 1482.
+(Font)              scaled to size 18.0pt on input line 1486.
 
 
 LaTeX Font Warning: Font shape `TU/THSarabunNew(0)/b/sc' undefined
-(Font)              using `TU/THSarabunNew(0)/b/n' instead on input line 1482.
+(Font)              using `TU/THSarabunNew(0)/b/n' instead on input line 1486.
 
 [48
 
 ]
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/sc' will be
-(Font)              scaled to size 18.0pt on input line 1495.
+(Font)              scaled to size 18.0pt on input line 1499.
  [49]) [50]
 Underfull \hbox (badness 7796) in paragraph at lines 232--232
 [][]\TU/THSarabunNew(0)/m/sc/11 Grimaldi, R. P. (2004).  \TU/THSarabunNew(0)/m/
@@ -2551,30 +2551,30 @@ File: Figures/png_ready/30-matrix-dimensions-manual.png Graphic file (type bmp)
 ] [160]
 File: Figures/png_ready/31-matrix-types-manual.png Graphic file (type bmp)
 <Figures/png_ready/31-matrix-types-manual.png>
- [161] [162] [163] [164] [165]
+ [161] [162] [163] [164] [165] [166]
 File: Figures/png_ready/matrix-multiplication-labeled.png Graphic file (type bm
 p)
 <Figures/png_ready/matrix-multiplication-labeled.png>
- [166] [167] [168] [169]
+ [167] [168] [169] [170]
 File: Figures/png_ready/33-determinant-2x2-manual.png Graphic file (type bmp)
 <Figures/png_ready/33-determinant-2x2-manual.png>
- [170]
+
 [171] [172] [173] [174] [175] [176]
-Underfull \hbox (badness 3138) in paragraph at lines 550--551
+Underfull \hbox (badness 3138) in paragraph at lines 552--553
 [][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 5.21 (ตัวอย่างค้านสำหรับสมบัติการบว
 กดีเทอร์มิแนนต์) []จง แสดง ตัวอย่าง ค้าน (counter-
  []
 
 [177] [178] [179] [180] [181] [182] [183] [184]
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
-(Font)              scaled to size 11.54994pt on input line 807.
+(Font)              scaled to size 11.54994pt on input line 809.
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
-(Font)              scaled to size 8.25pt on input line 807.
+(Font)              scaled to size 8.25pt on input line 809.
 File: Figures/png_ready/34-matrix-transformation-manual.png Graphic file (type 
 bmp)
 <Figures/png_ready/34-matrix-transformation-manual.png>
  [185] [186]
-Underfull \hbox (badness 4805) in paragraph at lines 867--868
+Underfull \hbox (badness 4805) in paragraph at lines 869--870
 [][]\TU/THSarabunNew(0)/m/sc/11 ตัวอย่างที่ 5.35 (การถดถอยเชิงเส้น - Linear Reg
 ression) []จง หา เวก เตอร์ สัมประสิทธิ์ $\OML/cmm/m/it/10.95 ^^L \OT1/cmr/m/n/1
 0.95 =
@@ -2732,12 +2732,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 71893 strings out of 468168
- 1699818 string characters out of 5432815
- 2995029 words of memory out of 5000000
- 99560 multiletter control sequences out of 15000+600000
+ 71890 strings out of 468168
+ 1699767 string characters out of 5432815
+ 2995028 words of memory out of 5000000
+ 99557 multiletter control sequences out of 15000+600000
  637427 words of font info for 116 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,19n,118p,1181b,5297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (261 pages, 4708784 bytes).
+Output written on main.xdv (261 pages, 4713548 bytes).

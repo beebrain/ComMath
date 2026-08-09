@@ -4,7 +4,7 @@
 \contentsline {chapter}{แผนการสอนประจำบทที่ 1}{7}{chapter*.6}%
 \contentsline {chapter}{\numberline {1}ตรรกศาสตร์ (Logic)}{9}{chapter.1}%
 \contentsline {section}{\numberline {1.1}ความหมายและความสำคัญของตรรกศาสตร์}{9}{section.1.1}%
-\contentsline {section}{\numberline {1.2}ประพจน์ (Propositions)}{10}{section.1.2}%
+\contentsline {section}{\numberline {1.2}ประพจน์ (Propositions)}{9}{section.1.2}%
 \contentsline {subsection}{\numberline {1.2.1}ความหมายและค่าความจริงของประพจน์}{10}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}ตัวอย่างประพจน์และการวิเคราะห์}{10}{subsection.1.2.2}%
 \contentsline {section}{\numberline {1.3}ตัวเชื่อมประพจน์ (Logical Connectives)}{11}{section.1.3}%
@@ -131,8 +131,8 @@
 \contentsline {subsection}{\numberline {5.2.4}การคูณเมทริกซ์ด้วยเมทริกซ์}{167}{subsection.5.2.4}%
 \contentsline {subsection}{\numberline {5.2.5}เมทริกซ์สลับเปลี่ยน (Transpose)}{169}{subsection.5.2.5}%
 \contentsline {section}{\numberline {5.3}ดีเทอร์มิแนนต์ (Determinants)}{170}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}นิยามของดีเทอร์มิแนนต์}{170}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}การกระจายโคแฟกเตอร์ (Cofactor Expansion)}{172}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.1}นิยามของดีเทอร์มิแนนต์}{171}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}การกระจายโคแฟกเตอร์ (Cofactor Expansion)}{173}{subsection.5.3.2}%
 \contentsline {subsection}{\numberline {5.3.3}สมบัติของดีเทอร์มิแนนต์}{174}{subsection.5.3.3}%
 \contentsline {section}{\numberline {5.4}ตัวผกผันของเมทริกซ์ (Matrix Inverse)}{177}{section.5.4}%
 \contentsline {section}{\numberline {5.5}ระบบสมการเชิงเส้น (Systems of Linear Equations)}{181}{section.5.5}%

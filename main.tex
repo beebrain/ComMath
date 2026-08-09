@@ -126,6 +126,18 @@
 \renewcommand{\thedefcnt}{\thechapter.\arabic{defcnt}}
 \def\defcntautorefname{บทนิยาม}
 
+%% ชื่อที่ \autoref เติมให้กล่องแต่ละชนิด ถ้าไม่นิยามไว้ hyperref จะพิมพ์เลขเปล่า
+%% ติดกับข้อความไทยโดยไม่มีวรรค เช่น "ใน2.2" ซึ่งชี้ได้หลายตำแหน่งในบทเดียวกัน
+\def\thrmautorefname{ทฤษฎีบท}
+\def\exautorefname{ตัวอย่างที่}
+\def\remautorefname{หมายเหตุ}
+\def\warningautorefname{คำเตือน}
+\def\propautorefname{บทแทรก}
+\def\corautorefname{บทสรุป}
+\def\lawautorefname{กฎ}
+\def\principleautorefname{หลักการ}
+\def\exerciseautorefname{แบบฝึกหัด}
+
 %% ============ Boxed Theorem Styles (tcolorbox) ============
 \usepackage[most]{tcolorbox}
 \tcbuselibrary{skins,breakable}

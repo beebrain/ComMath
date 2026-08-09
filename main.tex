@@ -112,14 +112,19 @@
 %% ==============================================================================
 
 %% ============ Theorem Environments ============
+%% แต่ละชนิดใช้ตัวนับของตัวเอง เลขจึงวิ่งตามชนิด ไม่วิ่งต่อกันข้ามชนิด
+%% ถ้าใช้ตัวนับร่วม (เช่น \newtheorem{law}[thrm]{กฎ}) กล่องที่มีชนิดละไม่กี่อัน
+%% จะได้เลขกระโดด เช่น บทที่ 2 มีกฎเพียงกล่องเดียวแต่ได้เลข "กฎ 2.2"
+%% ผู้อ่านจึงมองหา "กฎ 2.1" ที่ไม่มีอยู่จริง
+%% หมายเหตุ rem ยังผูกกับ thrm ได้ เพราะ mathstyle.sty นิยามใหม่ให้ไม่มีเลขกำกับ
 \newtheorem{thrm}{ทฤษฎีบท}[chapter]
 \newtheorem{ex}{ตัวอย่างที่}[chapter]
 \newtheorem{rem}[thrm]{หมายเหตุ}
-\newtheorem{warning}[thrm]{คำเตือน}
-\newtheorem{prop}[thrm]{บทแทรก}
-\newtheorem{cor}[thrm]{บทสรุป}
-\newtheorem{law}[thrm]{กฎ}
-\newtheorem{principle}[thrm]{หลักการ}
+\newtheorem{warning}{คำเตือน}[chapter]
+\newtheorem{prop}{บทแทรก}[chapter]
+\newtheorem{cor}{บทสรุป}[chapter]
+\newtheorem{law}{กฎ}[chapter]
+\newtheorem{principle}{หลักการ}[chapter]
 %% definition เป็น tcolorbox แถบหัวเข้ม (บทนิยาม X.Y: ชื่อ) ใน mathstyle.sty
 %% ใช้ตัวนับ defn ของตัวเอง รันเลขต่อกันในแต่ละบท (บทนิยาม 1.1, 1.2, ...) แยกจาก thrm
 %% อ้างอิงด้วย \label{def:...} + \autoref/\ref ได้เลขอัตโนมัติ

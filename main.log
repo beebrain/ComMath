@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  9 AUG 2026 10:16
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.5.16)  9 AUG 2026 10:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1699,7 +1699,12 @@ Package: needspace 2025/03/13 v1.3e reserve vertical space
 )
 \c@thrm=\count554
 \c@ex=\count555
-\c@defcnt=\count556
+\c@warning=\count556
+\c@prop=\count557
+\c@cor=\count558
+\c@law=\count559
+\c@principle=\count560
+\c@defcnt=\count561
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2025/11/28 version 6.9.0 text color boxes
@@ -1720,9 +1725,9 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \tcb@upperbox=\box145
 \tcb@lowerbox=\box146
 \tcb@phantombox=\box147
-\c@tcbbreakpart=\count557
-\c@tcblayer=\count558
-\c@tcolorbox@number=\count559
+\c@tcbbreakpart=\count562
+\c@tcblayer=\count563
+\c@tcolorbox@number=\count564
 \l__tcobox_tmpa_box=\box148
 \l__tcobox_tmpa_dim=\dimen393
 \tcb@temp=\box149
@@ -1732,10 +1737,10 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcbraster.code.tex
 Library (tcolorbox): 'tcbraster.code.tex' version '6.9.0'
-\c@tcbrastercolumn=\count560
-\c@tcbrasterrow=\count561
-\c@tcbrasternum=\count562
-\c@tcbraster=\count563
+\c@tcbrastercolumn=\count565
+\c@tcbrasterrow=\count566
+\c@tcbrasternum=\count567
+\c@tcbraster=\count568
 ) (/usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '6.9.0'
 (/usr/local/texlive/2026/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
@@ -1772,7 +1777,7 @@ Library (tcolorbox): 'tcbfitting.code.tex' version '6.9.0'
 \tcbfitdim=\dimen394
 \tcb@lowerfitdim=\dimen395
 \tcb@upperfitdim=\dimen396
-\tcb@cur@hbadness=\count564
+\tcb@cur@hbadness=\count569
 )
 (/usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcblistingsutf8.code.te
 x
@@ -1786,7 +1791,7 @@ Library (tcolorbox): 'tcblistingscore.code.tex' version '6.9.0'
 (/usr/local/texlive/2026/texmf-dist/tex/latex/tcolorbox/tcbprocessing.code.tex
 Library (tcolorbox): 'tcbprocessing.code.tex' version '6.9.0'
 )
-\c@tcblisting=\count565
+\c@tcblisting=\count570
 ))
 Package tcolorbox Info: Library `listingsutf8' is compatible with pdftex only. 
 Library `listings` is loaded instead. on input line 29.
@@ -1829,14 +1834,14 @@ Style option: `fancybox' v1.4 <2010/05/15> (tvz)
 \Verbatim@Outfile=\write5
 \Verbatim@Infile=\read5
 ))
-\c@exercise=\count566
-\@quotelevel=\count567
-\@quotereset=\count568
+\c@exercise=\count571
+\@quotelevel=\count572
+\@quotereset=\count573
 
 
 Package biblatex Warning: Conflicting options.
 (biblatex)                '<namepart>inits' conflicts with 'uniquename=full'.
-(biblatex)                Setting 'uniquename=init' on input line 198.
+(biblatex)                Setting 'uniquename=init' on input line 203.
 
 
 LaTeX Warning: Unused global option(s):
@@ -1851,36 +1856,36 @@ LaTeX Warning: Unused global option(s):
 (./chapters/chapter06.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 198.
-LaTeX Font Info:    ... okay on input line 198.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 198.
-LaTeX Font Info:    ... okay on input line 198.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 198.
-LaTeX Font Info:    ... okay on input line 198.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 198.
-LaTeX Font Info:    ... okay on input line 198.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 198.
-LaTeX Font Info:    ... okay on input line 198.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 198.
-LaTeX Font Info:    ... okay on input line 198.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 198.
-LaTeX Font Info:    ... okay on input line 198.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 198.
-LaTeX Font Info:    ... okay on input line 198.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 198.
-LaTeX Font Info:    Trying to load font information for T3+cmr on input line 19
-8.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 203.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 203.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 203.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 203.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 203.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 203.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 203.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 203.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 203.
+LaTeX Font Info:    Trying to load font information for T3+cmr on input line 20
+3.
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 198.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 198.
-LaTeX Font Info:    ... okay on input line 198.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 198.
-LaTeX Font Info:    ... okay on input line 198.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 203.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 203.
+LaTeX Font Info:    ... okay on input line 203.
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
-(Font)              scaled to size 16.5pt on input line 198.
+(Font)              scaled to size 16.5pt on input line 203.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -1888,69 +1893,69 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 198.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 198.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 198.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 198.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 198.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 198.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 198.
-LaTeX Font Info:    Redeclaring math accent \check on input line 198.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 198.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 198.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 198.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 198.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 198.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 198.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 198.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 198.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 198.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 198.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 198.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 198.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 198.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 198.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 198.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 198.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 203.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 203.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 203.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 203.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 203.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 203.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 203.
+LaTeX Font Info:    Redeclaring math accent \check on input line 203.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 203.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 203.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 203.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 203.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 203.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 203.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 203.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 203.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 203.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 203.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 203.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 203.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 203.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 203.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 203.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 203.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 198.
+(Font)              `operators' in the math version `normal' on input line 203.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/THSarabunNew(0)/m/n on input line 19
-8.
+(Font)                  OT1/cmr/m/n --> TU/THSarabunNew(0)/m/n on input line 20
+3.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 198.
+(Font)              `operators' in the math version `bold' on input line 203.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/THSarabunNew(0)/m/n on input line 1
-98.
+(Font)                  OT1/cmr/bx/n --> TU/THSarabunNew(0)/m/n on input line 2
+03.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/THSarabunNew(0)/m/n --> TU/THSarabunNew(0)/m/n on in
-put line 198.
+put line 203.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/THSarabunNew(0)/m/it on input line 
-198.
+203.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/THSarabunNew(0)/b/n on input line 1
-98.
+(Font)                  OT1/cmr/bx/n --> TU/THSarabunNew(0)/b/n on input line 2
+03.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 198.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 203.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 198.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 203.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/THSarabunNew(0)/m/n --> TU/THSarabunNew(0)/b/n on in
-put line 198.
+put line 203.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/THSarabunNew(0)/b/it on input line
- 198.
+ 203.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 198.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 203.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 198.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 203.
 
 *** you should *not* be loading the inputenc package
 *** XeTeX expects the source to be in UTF8 encoding
 *** some features of other encodings may conflict, resulting in poor output.
-Package hyperref Info: Link coloring OFF on input line 198.
+Package hyperref Info: Link coloring OFF on input line 203.
 (./main.out) (./main.out)
 \@outlinefile=\write6
 \openout6 = `main.out'.
@@ -2002,8 +2007,8 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
 
 (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 198.
-Package biblatex Info: Reference segment=0 on input line 198.
+Package biblatex Info: Reference section=0 on input line 203.
+Package biblatex Info: Reference segment=0 on input line 203.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -2039,30 +2044,30 @@ Package biblatex Info: Reference segment=0 on input line 198.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count569
+\c@lstlisting=\count574
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
-(Font)              scaled to size 24.0pt on input line 199.
+(Font)              scaled to size 24.0pt on input line 204.
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
-(Font)              scaled to size 24.0pt on input line 199.
+(Font)              scaled to size 24.0pt on input line 204.
 [1
 
 
 ] [1] [2
 
 ]
-Package biblatex Info: Reference segment=1 on input line 205.
-Package biblatex Info: Setting label 'refsegment:01' on input line 205.
+Package biblatex Info: Reference segment=1 on input line 210.
+Package biblatex Info: Setting label 'refsegment:01' on input line 210.
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
-(Font)              scaled to size 18.0pt on input line 205.
+(Font)              scaled to size 18.0pt on input line 210.
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/n' will be
-(Font)              scaled to size 16.5pt on input line 205.
+(Font)              scaled to size 16.5pt on input line 210.
  (./main.toc [3] [4] [5])
 \tf@toc=\write7
 \openout7 = `main.toc'.
 
  [6]
-Package biblatex Info: Reference segment=2 on input line 206.
-Package biblatex Info: Setting label 'refsegment:02' on input line 206.
+Package biblatex Info: Reference segment=2 on input line 211.
+Package biblatex Info: Setting label 'refsegment:02' on input line 211.
  (./main.lot
 LaTeX Font Info:    Calculating math sizes for size <11> on input line 3.
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/m/n' will be
@@ -2102,8 +2107,8 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
 
 
 ]
-Package biblatex Info: Reference segment=3 on input line 207.
-Package biblatex Info: Setting label 'refsegment:03' on input line 207.
+Package biblatex Info: Reference segment=3 on input line 212.
+Package biblatex Info: Setting label 'refsegment:03' on input line 212.
  (./main.lof [9])
 \tf@lof=\write9
 \openout9 = `main.lof'.
@@ -2247,7 +2252,7 @@ LaTeX Font Warning: Font shape `TU/THSarabunNew(0)/b/sc' undefined
 LaTeX Font Info:    Font shape `TU/THSarabunNew(0)/b/sc' will be
 (Font)              scaled to size 18.0pt on input line 1499.
  [49]) [50]
-Underfull \hbox (badness 7796) in paragraph at lines 232--232
+Underfull \hbox (badness 7796) in paragraph at lines 237--237
 [][]\TU/THSarabunNew(0)/m/sc/11 Grimaldi, R. P. (2004).  \TU/THSarabunNew(0)/m/
 it/11 Discrete and combinatorial mathematics: An applied
  []
@@ -2306,17 +2311,17 @@ File: Figures/png_ready/12-venn-disjoint-generated.png Graphic file (type bmp)
 File: Figures/png_ready/11-venn-intersection-generated.png Graphic file (type b
 mp)
 <Figures/png_ready/11-venn-intersection-generated.png>
- [66]
-File: Figures/png_ready/16-distributive-law-sets-generated.png Graphic file (ty
-pe bmp)
-<Figures/png_ready/16-distributive-law-sets-generated.png>
- [67] [68]
+ [66] [67]
 File: Figures/png_ready/set-operations-generated.png Graphic file (type bmp)
 <Figures/png_ready/set-operations-generated.png>
- [69] [70]
+ [68] [69]
 File: Figures/png_ready/14-venn-complement-generated.png Graphic file (type bmp
 )
 <Figures/png_ready/14-venn-complement-generated.png>
+ [70]
+File: Figures/png_ready/16-distributive-law-sets-generated.png Graphic file (ty
+pe bmp)
+<Figures/png_ready/16-distributive-law-sets-generated.png>
  [71]
 File: Figures/png_ready/15-de-morgan-laws-generated.png Graphic file (type bmp)
 
@@ -2327,7 +2332,7 @@ File: Figures/png_ready/17-venn-inclusion-exclusion-generated.png Graphic file
 (type bmp)
 <Figures/png_ready/17-venn-inclusion-exclusion-generated.png>
  [76] [77] [78] [79] [80] [81]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 901
+LaTeX Font Info:    Trying to load font information for U+euf on input line 904
 .
 
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/ueuf.fd
@@ -2343,7 +2348,7 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ] [89] [90] [91
 
 ] [92]) [93]
-Underfull \hbox (badness 4132) in paragraph at lines 239--239
+Underfull \hbox (badness 4132) in paragraph at lines 244--244
 [][]\TU/THSarabunNew(0)/m/sc/11 Codd, E. F. (1970). \TU/THSarabunNew(0)/m/it/11
  A relational model of data for large shared data banks\TU/THSarabunNew(0)/m/sc
 /11 .
@@ -2457,20 +2462,20 @@ L/cmm/m/it/10.95 ; b\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.9
 ] [127] [128
 
 ] [129]) [130]
-Underfull \hbox (badness 4132) in paragraph at lines 246--246
+Underfull \hbox (badness 4132) in paragraph at lines 251--251
 [][]\TU/THSarabunNew(0)/m/sc/11 Codd, E. F. (1970). \TU/THSarabunNew(0)/m/it/11
  A relational model of data for large shared data banks\TU/THSarabunNew(0)/m/sc
 /11 .
  []
 
 
-Underfull \hbox (badness 7796) in paragraph at lines 246--246
+Underfull \hbox (badness 7796) in paragraph at lines 251--251
 [][]\TU/THSarabunNew(0)/m/sc/11 Grimaldi, R. P. (2004).  \TU/THSarabunNew(0)/m/
 it/11 Discrete and combinatorial mathematics: An applied
  []
 
 
-Underfull \hbox (badness 5217) in paragraph at lines 246--246
+Underfull \hbox (badness 5217) in paragraph at lines 251--251
 [][]\TU/THSarabunNew(0)/m/sc/11 Nakjai, P., & Katanyukul, T. (2021). \TU/THSara
 bunNew(0)/m/it/11 Automatic Thai finger spelling transcription\TU/THSarabunNew(
 0)/m/sc/11 .
@@ -2609,13 +2614,13 @@ ression) []จง หา เวก เตอร์ สัมประสิท�
 ] [197] [198
 
 ] [199]) [200]
-Underfull \hbox (badness 2237) in paragraph at lines 260--260
+Underfull \hbox (badness 2237) in paragraph at lines 265--265
 [][]\TU/THSarabunNew(0)/m/sc/11 Anton, H., Rorres, C., & Kaul, A. (2019).  \TU/
 THSarabunNew(0)/m/it/11 Elementary linear algebra: Applications
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 260--260
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
 [][]\TU/THSarabunNew(0)/m/sc/11 Nakjai, P. (2024). \TU/THSarabunNew(0)/m/it/11 
 YOLO-based object detection for handwritten X-marks\TU/THSarabunNew(0)/m/sc/11 
 .
@@ -2686,26 +2691,26 @@ File: Figures/png_ready/adders-comparison-generated.png Graphic file (type bmp)
 
 
 ]
-Underfull \hbox (badness 2237) in paragraph at lines 270--270
+Underfull \hbox (badness 2237) in paragraph at lines 275--275
 [][]\TU/THSarabunNew(0)/m/sc/11 Anton, H., Rorres, C., & Kaul, A. (2019).  \TU/
 THSarabunNew(0)/m/it/11 Elementary linear algebra: Applications
  []
 
 
-Underfull \hbox (badness 4132) in paragraph at lines 270--270
+Underfull \hbox (badness 4132) in paragraph at lines 275--275
 [][]\TU/THSarabunNew(0)/m/sc/11 Codd, E. F. (1970). \TU/THSarabunNew(0)/m/it/11
  A relational model of data for large shared data banks\TU/THSarabunNew(0)/m/sc
 /11 .
  []
 
 
-Underfull \hbox (badness 7796) in paragraph at lines 270--270
+Underfull \hbox (badness 7796) in paragraph at lines 275--275
 [][]\TU/THSarabunNew(0)/m/sc/11 Grimaldi, R. P. (2004).  \TU/THSarabunNew(0)/m/
 it/11 Discrete and combinatorial mathematics: An applied
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 270--270
+Underfull \hbox (badness 10000) in paragraph at lines 275--275
 [][]\TU/THSarabunNew(0)/m/sc/11 Nakjai, P. (2024). \TU/THSarabunNew(0)/m/it/11 
 YOLO-based object detection for handwritten X-marks\TU/THSarabunNew(0)/m/sc/11 
 .
@@ -2714,7 +2719,7 @@ YOLO-based object detection for handwritten X-marks\TU/THSarabunNew(0)/m/sc/11
 [253
 
 ]
-Underfull \hbox (badness 5217) in paragraph at lines 270--270
+Underfull \hbox (badness 5217) in paragraph at lines 275--275
 [][]\TU/THSarabunNew(0)/m/sc/11 Nakjai, P., & Katanyukul, T. (2021). \TU/THSara
 bunNew(0)/m/it/11 Automatic Thai finger spelling transcription\TU/THSarabunNew(
 0)/m/sc/11 .
@@ -2750,12 +2755,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 71894 strings out of 468168
- 1699840 string characters out of 5432815
- 2995880 words of memory out of 5000000
- 99561 multiletter control sequences out of 15000+600000
+ 71913 strings out of 468168
+ 1699982 string characters out of 5432815
+ 2996897 words of memory out of 5000000
+ 99580 multiletter control sequences out of 15000+600000
  637427 words of font info for 116 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  103i,19n,118p,1181b,5297s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (265 pages, 4780356 bytes).
+Output written on main.xdv (265 pages, 4784320 bytes).

@@ -7,9 +7,9 @@
 \contentsline {figure}{\numberline {4}{\ignorespaces แผนภาพเวนน์แสดงการดำเนินการยูเนียน $A \cup B$}}{64}{figure.caption.35}%
 \contentsline {figure}{\numberline {5}{\ignorespaces แผนภาพแสดงเซตไม่มีสมาชิกร่วม เมื่อ $A\cap B=\emptyset $}}{65}{figure.caption.36}%
 \contentsline {figure}{\numberline {6}{\ignorespaces แผนภาพเวนน์แสดงการดำเนินการอินเตอร์เซกชัน $A \cap B$}}{66}{figure.caption.37}%
-\contentsline {figure}{\numberline {7}{\ignorespaces แผนภาพเวนน์แสดง Distributive Law $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$}}{67}{figure.caption.38}%
-\contentsline {figure}{\numberline {8}{\ignorespaces การแรเงาพื้นที่ของยูเนียน อินเตอร์เซกชัน และผลต่างของเซต}}{69}{figure.caption.39}%
-\contentsline {figure}{\numberline {9}{\ignorespaces แผนภาพเวนน์แสดงคอมพลีเมนต์ $A^c$ ของเซต $A$}}{71}{figure.caption.40}%
+\contentsline {figure}{\numberline {7}{\ignorespaces การแรเงาพื้นที่ของยูเนียน อินเตอร์เซกชัน และผลต่างของเซต}}{68}{figure.caption.38}%
+\contentsline {figure}{\numberline {8}{\ignorespaces แผนภาพเวนน์แสดงคอมพลีเมนต์ $A^c$ ของเซต $A$}}{70}{figure.caption.39}%
+\contentsline {figure}{\numberline {9}{\ignorespaces แผนภาพเวนน์แสดงกฎการแจกแจง $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$}}{71}{figure.caption.40}%
 \contentsline {figure}{\numberline {10}{\ignorespaces แผนภาพเวนน์แสดงกฎเดอมอร์แกน $(A \cup B)^c = A^c \cap B^c$ และ $(A \cap B)^c = A^c \cup B^c$}}{72}{figure.caption.41}%
 \contentsline {figure}{\numberline {11}{\ignorespaces แผนภาพประกอบหลักการรวม-การแยก แสดงการหักส่วนซ้ำ $A\cap B$ ออกจาก $|A|+|B|$}}{76}{figure.caption.42}%
 \addvspace {10\p@ }

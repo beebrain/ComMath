@@ -127,7 +127,7 @@
 
 %% ── หลักการ (principle) — กล่องแถบหัวเข้ม ใช้ตัวนับเดียวกับทฤษฎีบท ──
 \renewenvironment{principle}[1][]{%
-  \par\refstepcounter{thrm}%
+  \par\refstepcounter{principle}%
   \def\@prsub{#1}%
   \ifx\@prsub\@empty\def\@prttl{}\else\def\@prttl{\quad #1}\fi
   \begin{tcolorbox}[
@@ -141,7 +141,7 @@
     colbacktitle=thrmTitle,
     coltitle=white,
     fonttitle=\bfseries,
-    title={หลักการ~\thethrm\@prttl}
+    title={หลักการ~\theprinciple\@prttl}
   ]%
   \def\[{\begin{center}$\displaystyle}%
   \def\]{$\end{center}}%
@@ -185,7 +185,7 @@
 
 %% ── บทแทรก (prop) — กล่องแถบหัวเข้ม "บทแทรก X.Y" (สไตล์เดียวกับนิยาม) ──
 \renewenvironment{prop}[1][]{%
-  \par\refstepcounter{thrm}%
+  \par\refstepcounter{prop}%
   \def\@psub{#1}%
   \ifx\@psub\@empty\def\@pttl{}\else\def\@pttl{\quad #1}\fi
   \begin{tcolorbox}[
@@ -199,7 +199,7 @@
     colbacktitle=propTitle,
     coltitle=white,
     fonttitle=\bfseries,
-    title={บทแทรก~\thethrm\@pttl}
+    title={บทแทรก~\theprop\@pttl}
   ]%
   \def\[{\begin{center}$\displaystyle}%
   \def\]{$\end{center}}%

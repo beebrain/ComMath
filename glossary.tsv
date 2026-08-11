@@ -1,8 +1,7 @@
 english	thai_used	orst_official	chapters	decision	notes
-a,a	เฉพาะ	—	ch03	adopt	
 absorption	กฎการดูดกลืน	การดูดกลืน	ch01,ch06	adopt	"ch6 ใช้อยู่แล้ว ch1 เดิมใช้ ""กฎดูดกลืน"""
 absorption laws	กฎการดูดกลืน	—	ch02,ch06	adopt	
-adjacency matrix	สิ่งเดียวกับเมทริกซ์ประชิด	—	ch03	adopt	
+adjacency matrix	เมทริกซ์ประชิด	—	ch03	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 adjacent	อยู่ติดกัน	—	ch06	adopt	
 adjacent cells	เซลล์ที่อยู่ติดกัน	—	ch06	adopt	
 adjugate	เมทริกซ์ผูกพัน	—	ch05	adopt	
@@ -17,17 +16,17 @@ arithmetic series	อนุกรมเลขคณิต	—	ch03	adopt
 ascii	รหัสแอสกี	—	ch04	adopt	
 associative	กฎการเปลี่ยนหมู่	เปลี่ยนหมู่	ch01,ch05	adopt	"ch1 เดิมใช้ ""กฎเปลี่ยนกลุ่ม"" ไม่ตรงกับ ch5"
 associative laws	กฎการเปลี่ยนหมู่	—	ch02,ch06	adopt	
-attribute	ละคอลัมน์คือแอตทริบิวต์	—	ch03	adopt	
+attribute	แอตทริบิวต์	—	ch03	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 augustus de morgan, 1806--1871	เดอมอร์แกน	—	ch02,ch06	adopt	
 axiom	สัจพจน์	—	ch06	adopt	
 biconditional, iff	ประพจน์เงื่อนไขสองทาง	—	ch01	adopt	
 bijective	ฟังก์ชันหนึ่งต่อหนึ่งทั่วถึง	—	ch03	adopt	
 binary relation	ความสัมพันธ์ทวิภาค	—	ch03	adopt	
 binary system	ระบบเลขฐานสอง	—	ch04	adopt	
-binomial theorem	สามารถพิสูจน์ด้วยทฤษฎีบททวินาม	—	ch02	adopt	
-bit	สัญลักษณ์แต่ละหลักเรียกว่า บิต	—	ch04	adopt	
+binomial theorem	ทฤษฎีบททวินาม	—	ch02	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
+bit	บิต	—	ch04	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 bit vector representation	การแทนด้วยเวกเตอร์บิต	—	ch02	adopt	
-bitmask	อธิบายได้จากการแทนด้วย บิตมาสก์	—	ch02	adopt	
+bitmask	บิตมาสก์	—	ch02	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 boolean algebra	พีชคณิตบูลีน	—	ch01,ch06	adopt	
 boolean algebra equivalence	สมมูลของพีชคณิตบูลีน	—	ch06	adopt	
 boolean expression simplification	การลดรูปนิพจน์บูลีน	—	ch06	adopt	
@@ -38,14 +37,14 @@ borrow	จำเป็นต้องมีการยืม	—	ch04	adopt
 borrow bit	บิตยืม	—	ch04	adopt	
 byte	ไบต์	—	ch04	adopt	
 canonical forms	รูปแบบบัญญัติ	—	ch06	adopt	
-cantor's diagonal argument	บางกรณีต้องใช้วิธีทแยงมุมของคันทอร์	—	ch02	adopt	
+cantor's diagonal argument	วิธีทแยงมุมของคันทอร์	—	ch02	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 cardinality	จำนวนสมาชิกของเซต	—	ch02	adopt	
 carry bit	บิตทด	—	ch04	adopt	
 cartesian product	ผลคูณคาร์ทีเซียน	ผลคูณคาร์ทีเซียน	ch02,ch03	adopt	"ch2 เดิมมี ""คาร์ทีเซียนพรอแดกต์"" ปนอยู่"
 ceiling	ฟังก์ชันปัดขึ้น	—	ch03	adopt	
 chaining	การเชื่อมโยงรายการ	—	ch02	adopt	
 character encoding table	ตารางเทียบรหัสประจำตัวอักขระ	—	ch04	adopt	
-circular buffer	เช่น วันในสัปดาห์หรือบัฟเฟอร์วงกลม	—	ch03	adopt	
+circular buffer	บัฟเฟอร์วงกลม	—	ch03	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 closure	การปิดสมบัติ	—	ch03	adopt	
 code point	กำหนดจุดรหัส	—	ch04	adopt	
 codomain	โคโดเมน	—	ch03	adopt	
@@ -53,7 +52,6 @@ cofactor expansion	การกระจายโคแฟกเตอร์	—
 collision	เกิดการชนกัน	—	ch02	adopt	
 column	คอลัมน์	—	ch03	adopt	
 column matrix	เมทริกซ์คอลัมน์	—	ch05	adopt	
-column space	ร่วมกับปริภูมิคอลัมน์	—	ch05	adopt	
 combinational circuit	การออกแบบวงจรเชิงผสม	—	ch06	adopt	
 common difference	ผลต่างร่วม	—	ch03	adopt	
 common ratio	อัตราส่วนร่วม	—	ch03	adopt	
@@ -63,64 +61,64 @@ complement	คอมพลีเมนต์	ส่วนเติมเต็�
 complement laws	กฎคอมพลีเมนต์	—	ch02,ch06	adopt	
 composition of relations	การประกอบความสัมพันธ์	—	ch03	adopt	
 compound proposition	ประพจน์เชิงประกอบ	—	ch01	adopt	
-computer graphics	การแปลงในคอมพิวเตอร์กราฟิกส์	—	ch05	adopt	
+computer graphics	คอมพิวเตอร์กราฟิกส์	—	ch05	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 conditional, implies	ประพจน์มีเงื่อนไข	—	ch01	adopt	
 conjunction, and	ประพจน์เชื่อม	—	ch01	adopt	
-consensus theorem	การลดรูปด้วยทฤษฎีบทคอนเซนซัส	—	ch06	adopt	
+consensus theorem	ทฤษฎีบทคอนเซนซัส	—	ch06	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 consequent	เงื่อนไขตาม	—	ch01	adopt	
 contingency	ประพจน์กลาง	—	ch01	keep	ราชบัณฑิตมีเฉพาะสาขาเศรษฐศาสตร์ คนละความหมาย
 contradiction	ข้อขัดแย้ง	ข้อขัดแย้ง	ch01	adopt	
 contrapositive	ประพจน์แย้งสลับที่	ประพจน์แย้งสลับที่	ch01	adopt	
 control characters	อักขระควบคุมระบบ	—	ch04	adopt	
 converse	ประพจน์กลับ	—	ch01	keep	ราชบัณฑิตไม่มีข้อมูล
-converse, inverse, contrapositive	ประพจน์ผกผัน และประพจน์แย้งสลับที่	—	ch01	adopt	
+converse, inverse, contrapositive	ประพจน์กลับ ประพจน์ผกผัน และประพจน์แย้งสลับที่	—	ch01	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 countable	เซตนับได้	—	ch02	adopt	
 counter-example	จงแสดงตัวอย่างค้าน	—	ch01,ch05	adopt	
 counterexample	กำหนดเมทริกซ์ตัวอย่างค้าน	—	ch05	adopt	
-covariance matrix	พบบ่อยในเมทริกซ์ความแปรปรวนร่วมเกี่ยว	—	ch05	adopt	
+covariance matrix	เมทริกซ์ความแปรปรวนร่วมเกี่ยว	—	ch05	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 cramer's rule	กฎของคราเมอร์	—	ch05	adopt	
-data pipeline	มุมมองของการประมวลผลท่อส่งข้อมูล	—	ch03	adopt	
+data pipeline	ท่อส่งข้อมูล	—	ch03	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 de morgan	กฎเดอมอร์แกน	—	ch01	adopt	
-de morgan's law	ใช้กฎเดอมอร์แกน	—	ch06	adopt	
+de morgan's law	กฎเดอมอร์แกน	—	ch06	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 de morgan's laws	กฎเดอมอร์แกน	—	ch02,ch06	keep	ถอดเสียง De = เดอ รวมทั้งเล่มแล้ว เดิม ch2/ch6 ใช้ เดมอร์แกน
 deadlock	ภาวะติดตาย	—	ch03	adopt	
 decimal system	ระบบเลขฐานสิบ	—	ch04	adopt	
 demultiplexer	ตัวกระจายข้อมูล	—	ch06	adopt	
-determinant	ค่า ดีเทอร์มิแนนต์	—	ch05	adopt	
+determinant	ดีเทอร์มิแนนต์	—	ch05	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 determinants	ดีเทอร์มิแนนต์	—	ch05	adopt	
 deterministic	ผลแน่นอน	—	ch02	adopt	
 diagonal matrix	เมทริกซ์ทแยงมุม	—	ch05	adopt	
-direct proof	วิธีนี้เรียกว่าการพิสูจน์ตรง	—	ch02	adopt	
-disjoint sets	ว่า เซตไม่มีสมาชิกร่วม	—	ch02	adopt	
+direct proof	การพิสูจน์ตรง	—	ch02	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
+disjoint sets	เซตไม่มีสมาชิกร่วม	—	ch02	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 disjunction, or	ประพจน์เลือก	—	ch01	adopt	
 disjunctive syllogism	การอ้างเหตุผลแบบแยก	—	ch01	adopt	
 distributive	กฎการแจกแจง	—	ch01	keep	ราชบัณฑิตไม่มีข้อมูล เลือกให้ตรงรูปกับกฎอื่น
 distributive laws	กฎการแจกแจง	—	ch02,ch06	adopt	
-divide and conquer	อัลกอริทึมแบบแบ่งแยกและเอาชนะ	—	ch03	adopt	
+divide and conquer	แบ่งแยกและเอาชนะ	—	ch03	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 domain	โดเมน	—	ch03	adopt	
 domination	กฎครอบงำ	—	ch01	keep	ch6 เดิมใช้กฎปกครอง และกฎการครอบงำ
 domination laws	กฎครอบงำ	—	ch02,ch06	adopt	
-don't care	กำหนดเป็นค่าไม่สนใจ	—	ch06	adopt	
-dot product	คำนวณผลรวมคูณสะสม	—	ch05	adopt	
+don't care	ค่าไม่สนใจ	—	ch06	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
+dot product	ผลคูณจุด	—	ch05	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 double negation	กฎนิเสธซ้อน	—	ch01	adopt	
-dual	จัดคู่กฎที่เป็นคู่ทวิภาค	—	ch06	adopt	
+dual	คู่ทวิภาค	—	ch06	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 dummy dimension	การเพิ่มมิติช่วย	—	ch05	adopt	
-edge detection kernel	เคอร์เนลกลุ่มหลังนี้คือเคอร์เนลตรวจจับขอบ	—	ch05	adopt	
-efficiently computable	คำนวณได้รวดเร็ว	—	ch02	adopt	
-ellipsis	การใช้จุดไข่ปลา	—	ch02	adopt	
+edge detection kernel	เคอร์เนลตรวจจับขอบ	—	ch05	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
+efficiently computable	คำนวณได้รวดเร็ว	—	ch02	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
+ellipsis	จุดไข่ปลา	—	ch02	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 even	เลขคู่	—	ch06	adopt	
-excluded middle	สัจนิรันดร์ ตามกฎกีดกันกลาง	—	ch01	adopt	
+excluded middle	กฎกีดกันกลาง	—	ch01	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 exclusive or	ประพจน์เลือกเฉพาะ	—	ch01,ch02	adopt	
 exclusive or, xor	ประพจน์เลือกเฉพาะ	—	ch01	adopt	
 exportation	กฎแยกเงื่อนไข	—	ch01	adopt	
 expression	ทางคณิตศาสตร์ นิพจน์	—	ch06	adopt	
 false	เท็จ	—	ch02	adopt	
-finite state machine	การสร้างเครื่องสถานะจำกัดด้วยตรรกะบูลีน	—	ch06	adopt	
+finite state machine	เครื่องสถานะจำกัด	—	ch06	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 finite state machine -- fsm	เครื่องสถานะจำกัด	—	ch06	adopt	
 first component	องค์ประกอบแรก	—	ch03	adopt	
 floor	ฟังก์ชันปัดลง	—	ch03	adopt	
 foreign key	คีย์นอก	—	ch02	adopt	
-fsm	ดีมัลติเพล็กเซอร์ และเครื่องสถานะจำกัด	—	ch06	adopt	
+fsm	เครื่องสถานะจำกัด	—	ch06	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 function	เซต ฟังก์ชัน	—	ch03	adopt	
 function composition	การประกอบฟังก์ชัน	—	ch03	adopt	
 gaussian elimination	การกำจัดแบบเกาส์	—	ch05	adopt	
@@ -130,13 +128,13 @@ geometric sequence	ลำดับเรขาคณิต	—	ch03	adopt
 geometric series	อนุกรมเรขาคณิต	—	ch03	adopt	
 georg cantor, 1845--1918	คันทอร์	—	ch02	adopt	
 gpu	ทำให้ระบบประมวลผลกราฟิกส์	—	ch05	adopt	
-group	จัดกลุ่ม	—	ch06	adopt	
+group	กลุ่ม	—	ch06	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 half adder	ออกแบบวงจรบวกครึ่ง	—	ch06	adopt	
 half adder and full adder	วงจรบวกครึ่งและวงจรบวกเต็ม	—	ch06	adopt	
 hash function	ฟังก์ชันแฮช	—	ch02,ch03	adopt	ขัดกัน ฟังก์ชันแฮช / ฟังก์ชันแฮชในฐานะฟังก์ชันทางคณิตศาสตร์
 hash table	ตารางแฮช	—	ch02,ch03	adopt	ขัดกัน ตารางแฮช / ตารางแฮชและฟังก์ชันแฮช
 hexadecimal system	ระบบเลขฐานสิบหก	—	ch04	adopt	
-homogeneous coordinates	อาศัยระบบพิกัดเอกพันธุ์	—	ch05	adopt	
+homogeneous coordinates	ระบบพิกัดเอกพันธุ์	—	ch05	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 hypothetical syllogism	การอ้างเหตุผลแบบมีเงื่อนไข	—	ch01	adopt	
 idempotent	กฎนิจพล	—	ch01	keep	ch6 เดิมเรียกว่ากฎเอกลักษณ์ซ้ำกับ Identity และเรียกกฎเอกนัยในสรุปบท
 idempotent laws	กฎนิจพล	—	ch02,ch06	adopt	
@@ -157,11 +155,11 @@ intersection	อินเตอร์เซกชัน	—	ch02	adopt
 inverse	ผกผัน	—	ch01	adopt	ขัดกัน ผกผัน / สมบัติผกผันการบวก
 inverse function	ฟังก์ชันผกผัน	—	ch03	adopt	
 inverse relation	ความสัมพันธ์ผกผัน	—	ch03	adopt	
-irrational numbers	รวมจำนวนตรรกยะและจำนวนอตรรกยะ	—	ch02	adopt	
+irrational numbers	จำนวนอตรรกยะ	—	ch02	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 karnaugh map	แผนที่คาร์นอ	—	ch06	adopt	
-kernel	ใช้เมทริกซ์ขนาดเล็กเรียกว่าเคอร์เนล	—	ch05	adopt	
+kernel	เคอร์เนล	—	ch05	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 law of excluded middle	กฎกีดกันกลาง	—	ch01,ch02	adopt	
-law of non-contradiction	หลักการนี้สอดคล้องกับกฎแห่งการไม่ขัดแย้ง	—	ch01	adopt	
+law of non-contradiction	กฎแห่งการไม่ขัดแย้ง	—	ch01	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 laws of propositional algebra	กฎพีชคณิตของประพจน์	—	ch01	adopt	
 linear algebra	เช่น พีชคณิตเชิงเส้น	—	ch05	adopt	
 logic	ตรรกศาสตร์	—	ch01	adopt	
@@ -175,45 +173,45 @@ lsb	บิตต่ำสุด	—	ch06	adopt
 matrix	เมทริกซ์	เมทริกซ์ / แมทริกซ์	ch05	adopt	
 matrix inverse	ตัวผกผันของเมทริกซ์	—	ch05	adopt	
 memory address	ตำแหน่งที่อยู่หน่วยความจำ	—	ch04	adopt	
-minor	แยกเมทริกซ์ย่อย	—	ch05	adopt	
+minor	ไมเนอร์	—	ch05	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 minterms and maxterms	มินเทอมและแมกซ์เทอม	—	ch06	adopt	
 modulo	ฟังก์ชันมอดูโล	—	ch03	adopt	
 modus ponens	กฎการยืนยันเงื่อนไขนำ	—	ch01	adopt	
 modus tollens	กฎการปฏิเสธเงื่อนไขตาม	—	ch01	adopt	
-moore machine	ตัวอย่างต่อไปนี้ใช้เครื่องแบบมัวร์	—	ch06	adopt	
+moore machine	เครื่องแบบมัวร์	—	ch06	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 multiplexer	ตัวเลือกข้อมูล	—	ch06	adopt	
 multiplexer and demultiplexer	มัลติเพล็กเซอร์และดีมัลติเพล็กเซอร์	—	ch06	adopt	
 natural join	การเชื่อมตามธรรมชาติ	—	ch03	adopt	
-natural numbers	เซตนี้คือเซตของจำนวนนับ	—	ch02	adopt	
+natural numbers	จำนวนนับ	—	ch02	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 negation	นิเสธ	นิเสธ	ch01	adopt	
-neural network layer pass	การคำนวณผลคูณสะสมของประสาทเทียม	—	ch05	adopt	
-nibble	บิต และ นิบเบิล	—	ch04	adopt	
+neural network layer pass	การคำนวณผลคูณสะสมของประสาทเทียม	—	ch05	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
+nibble	นิบเบิล	—	ch04	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 no duplicates	ไม่มีสมาชิกซ้ำ	—	ch02	adopt	
 no solution	ไม่มีคำตอบ	—	ch05	adopt	
 number bases	ระบบเลขฐาน	—	ch04	adopt	
-numeric code points	ถูกแปลงให้อยู่ในรูป ตัวเลขรหัส	—	ch04	adopt	
+numeric code points	ตัวเลขรหัส	—	ch04	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 numerical analysis	การวิเคราะห์เชิงตัวเลข	—	ch05	adopt	
 octal system	ระบบเลขฐานแปด	—	ch04	adopt	
-odometer	ทำงานแบบเดียวกับมาตรวัดระยะทางของรถยนต์	—	ch04	adopt	
+odometer	มาตรวัดระยะทาง	—	ch04	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 off / low voltage	แรงดันต่ำ	—	ch04	adopt	
 on / high voltage	แรงดันสูง	—	ch04	adopt	
 open addressing	การกำหนดตำแหน่งเปิด	—	ch02	adopt	
 operation	การดำเนินการ	—	ch02	adopt	
 ordered pair	คู่อันดับ	—	ch02,ch03	adopt	
-orientation	แปลว่าการแปลงพลิกด้านของรูป	—	ch05	adopt	
-parity bit	ใช้คำนวณบิตภาวะเสมอภาค	—	ch01	adopt	
-parsing	ตัวแปลภาษา การวิเคราะห์ไวยากรณ์	—	ch03	adopt	
-path reachability	อัลกอริทึมการหาเส้นทางเชื่อมต่อ	—	ch03	adopt	
+orientation	การแปลงพลิกด้านของรูป	—	ch05	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
+parity bit	บิตภาวะเสมอภาค	—	ch01	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
+parsing	การวิเคราะห์ไวยากรณ์	—	ch03	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
+path reachability	การหาเส้นทางเชื่อมต่อ	—	ch03	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 pos	ผลคูณของผลบวก	—	ch06	adopt	
 positional notation system	ระบบเลขตำแหน่ง	—	ch04	adopt	
 power set	เพาเวอร์เซต	เซตกำลัง	ch02	keep	ผู้เขียนตัดสิน 2026-08-09 ตำราไทยระดับมหาวิทยาลัยใช้เพาเวอร์เซตทั่วไป สอดคล้องกับสัญลักษณ์ P(A)
 predicates and quantifiers	ประพจน์เปิดและตัวบ่งปริมาณ	—	ch01	adopt	
 primary key	คีย์หลัก	—	ch02	adopt	
-principle of bivalence	หลักการนี้สัมพันธ์กับกฎทวิภาวะ	—	ch02	adopt	
+principle of bivalence	กฎทวิภาวะ	—	ch02	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 product of sums -- pos	ผลคูณของผลบวก	—	ch06	adopt	
 projection	การฉาย	—	ch03	adopt	
-proof by contradiction	วิธีนี้เรียกว่า การพิสูจน์โดยข้อขัดแย้ง	—	ch01	adopt	
-proof by contrapositive	เฉพาะการพิสูจน์โดยแย้งสลับที่	—	ch01	adopt	
+proof by contradiction	การพิสูจน์โดยข้อขัดแย้ง	—	ch01	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
+proof by contrapositive	การพิสูจน์โดยแย้งสลับที่	—	ch01	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 proper subset	เซตย่อยแท้	—	ch02	adopt	
 propositions	ประพจน์	—	ch01	adopt	
 range	เรนจ์	—	ch03	adopt	
@@ -238,24 +236,24 @@ second component	องค์ประกอบที่สอง	—	ch03	adopt
 selection	การเลือก	—	ch03	adopt	
 sequence	ลำดับ	—	ch03	adopt	
 sequences and series	ลำดับและอนุกรม	—	ch03	adopt	
-series	ได้ อนุกรม	—	ch03	adopt	
+series	อนุกรม	—	ch03	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 set difference	ผลต่าง	—	ch02	adopt	
 set operations	การดำเนินการระหว่างเซต	—	ch02	adopt	
 set operations as boolean algebra	การดำเนินการของเซตในรูปพีชคณิตบูลีน	—	ch02	adopt	
 set theory	ทฤษฎีเซต	—	ch02	adopt	
-set-builder notation	แจกแจงโดยกำหนดเงื่อนไข	—	ch02	adopt
+set-builder notation	แจกแจงโดยกำหนดเงื่อนไข	—	ch02	adopt	
 shift-and-add	เลื่อนตำแหน่งบิตและบวกสะสม	—	ch04	adopt	
 simple proposition	ประพจน์เชิงเดี่ยว	—	ch01	adopt	
-simplification	ย่อมจริง กฎข้อหลังนี้เรียกว่ากฎการลดรูป	—	ch01	adopt	
-singular matrix	เรียกเมทริกซ์ลักษณะนี้ว่าเมทริกซ์เอกฐาน	—	ch05	adopt	
+simplification	กฎการลดรูป	—	ch01	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
+singular matrix	เมทริกซ์เอกฐาน	—	ch05	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 skew-symmetric	เมทริกซ์ปฏิสมมาตร	—	ch05	adopt	
-skew-symmetric matrix	เมทริกซ์เส้นทแยงมุมเฉียง	—	ch05	adopt	
+skew-symmetric matrix	เมทริกซ์ปฏิสมมาตร	—	ch05	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 sop	แบบผลบวกของผลคูณ	—	ch06	adopt	
 square matrix	เมทริกซ์จัตุรัส	—	ch05	adopt	
-stack	ใช้โครงสร้างข้อมูลกองซ้อน	—	ch03	adopt	
+stack	กองซ้อน	—	ch03	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 subset	เซตย่อย	—	ch02	adopt	
-successive division	ใช้วิธีหารต่อเนื่อง	—	ch04	adopt	
-successive multiplication	วิธีที่ใช้คือ วิธีคูณต่อเนื่อง	—	ch04	adopt	
+successive division	วิธีหารต่อเนื่อง	—	ch04	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
+successive multiplication	วิธีคูณต่อเนื่อง	—	ch04	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 sum of products -- sop	ผลบวกของผลคูณ	—	ch06	adopt	
 surjective	ฟังก์ชันทั่วถึง	—	ch03	adopt	
 symmetric	สมมาตร	—	ch03	adopt	
@@ -266,7 +264,7 @@ tautology	สัจนิรันดร์	สัจนิรันดร์	ch
 time complexity	ความซับซ้อนเชิงเวลา	—	ch02	adopt	
 torque	เช่น การหมุนและแรงบิด	—	ch05	adopt	
 transformation chaining	การรวมการแปลงพิกัดเชิงเส้นหลายขั้นตอน	—	ch05	adopt	
-transformation matrix	การประยุกต์ใช้เมทริกซ์การแปลง	—	ch05	adopt	
+transformation matrix	เมทริกซ์การแปลง	—	ch05	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 transitive	ถ่ายทอด	—	ch03	adopt	
 transitive closure	การปิดถ่ายทอด	—	ch03	adopt	
 translation	เพื่อรวมการเลื่อนตำแหน่ง	—	ch05	adopt	
@@ -275,25 +273,25 @@ true	จริง	—	ch02	adopt
 truth table proof	การพิสูจน์ด้วยตารางค่าความจริง	—	ch01	adopt	
 truth tables	ตารางค่าความจริง	—	ch01	adopt	
 truth value	ข้อความนี้มีค่าความจริง	—	ch02	adopt	
-tuple	ละแถวของตารางคือทูเพิล	—	ch02,ch03	adopt	
+tuple	ทูเพิล	—	ch02,ch03	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 two-level realization	การสร้างวงจรสองระดับ	—	ch06	adopt	
 unary connective	ตัวเชื่อมเอกภาค	—	ch01	adopt	
 unary operation	การดำเนินการเอกภาค	—	ch06	adopt	
 uncountable	เซตนับไม่ได้	—	ch02	adopt	
-undo operation	การกู้คืนสถานะเดิมหรือการเลิกทำ	—	ch05	adopt	
+undo operation	การกู้คืนสถานะเดิม	—	ch05	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 unicode	รหัสยูนิโคด	—	ch04	adopt	
 uniformly distributed	กระจายคีย์สม่ำเสมอ	—	ch02	adopt	
 union	ยูเนียน	—	ch02	adopt	
-unique solution	ทำให้ระบบสมการมี คำตอบเดียวเสมอ	—	ch05	adopt	
+unique solution	มีคำตอบเดียว	—	ch05	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 universal gate	เกตสากล	—	ch06	adopt	
 unordered	ไม่มีลำดับ	—	ch02	adopt	
 upper triangular	เมทริกซ์สามเหลี่ยมบน	—	ch05	adopt	
 upper triangular matrix	เมทริกซ์สามเหลี่ยมบน	—	ch05	adopt	
 upper/lower triangular matrix	สำหรับเมทริกซ์สามเหลี่ยม	—	ch05	adopt	
-vacuous truth	จริงโดยปริยาย	—	ch02	adopt	
-vacuously true	ค่าความจริงจึงเป็นจริงโดยปริยาย	—	ch01	adopt	
+vacuous truth	จริงโดยว่างเปล่า	—	ch02	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
+vacuously true	จริงโดยว่างเปล่า	—	ch01	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 variable-length encoding	ความยาวไบต์ปรับเปลี่ยนได้	—	ch04	adopt	
-vertices	มิติ วัตถุถูกสร้างขึ้นจากจุดพิกัด	—	ch05	adopt	
+vertices	จุดพิกัด	—	ch05	adopt	แก้คำไทยที่ตัวสกัดจับวลีมาผิด 2026-08-12
 web color	เช่น รหัสสีบนเว็บ	—	ch04	adopt	
 weighted sum	แล้วรวมกัน	—	ch06	adopt	
 zero matrix	เมทริกซ์ศูนย์	—	ch05	adopt	

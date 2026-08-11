@@ -41,7 +41,7 @@
 พีชคณิตบูลีน คือ โครงสร้างเชิงพีชคณิต $(B, +, \cdot, ', 0, 1)$ โดยที่ $B$ เป็นเซตที่มีสองสมาชิกคือ $\{0, 1\}$ พร้อมการดำเนินการทวิภาค $+$ และ $\cdot$ และการดำเนินการเอกภาค $'$ โดยสอดคล้องกับสัจพจน์ต่อไปนี้
 
 \begin{enumerate}
-    \item Closure สำหรับทุก $a, b \in B$:
+    \item Closure สำหรับทุก $a, b \in B$ ได้ว่า
     \begin{enumerate}
         \item $a + b \in B$
         \item $a \cdot b \in B$
@@ -307,7 +307,7 @@ $a$ & $b$ & $a \oplus b$ \\
 
 \begin{ex}[การหาค่าของ XOR ที่ต่อกันหลายชั้น]
 \label{ex:eval-xor-chain}
-คำนวณ $1 \oplus 0 \oplus 1$:
+จงคำนวณ $1 \oplus 0 \oplus 1$ โดยใช้สมบัติการเปลี่ยนหมู่
 \end{ex}
 \begin{solution}
 \begin{align*}
@@ -506,14 +506,14 @@ $\therefore a + a'b = a + b$ \solhere
 พิสูจน์กฎการดูดกลืน $a + (a \cdot b) = a$ โดยใช้พีชคณิตบูลีนและ ตารางค่าความจริง
 \end{ex}
 \begin{solution}
-\textbf{วิธีที่ 1 (การพิสูจน์เชิงพีชคณิต):}
+\textbf{วิธีที่ 1 การพิสูจน์เชิงพีชคณิต}
 \begin{align*}
 a + (a \cdot b) &= (a \cdot 1) + (a \cdot b) \quad \text{(กฎเอกลักษณ์ } a \cdot 1 = a\text{)} \\
                 &= a \cdot (1 + b) \quad \text{(กฎการแจกแจงย้อนกลับ)} \\
                 &= a \cdot 1 \quad \text{(กฎครอบงำ } 1 + b = 1\text{)} \\
                 &= a \quad \text{(กฎเอกลักษณ์)}
 \end{align*}
-\textbf{วิธีที่ 2 (ตารางค่าความจริง):}
+\textbf{วิธีที่ 2 ตารางค่าความจริง}
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
@@ -537,13 +537,13 @@ $a$ & $b$ & $a \cdot b$ & $a + (a \cdot b)$ & $a$ \\
 พิสูจน์กฎการดูดกลืน $a \cdot (a + b) = a$ โดยใช้พีชคณิตบูลีนและ ตารางค่าความจริง
 \end{ex}
 \begin{solution}
-\textbf{วิธีที่ 1 (การพิสูจน์เชิงพีชคณิต):}
+\textbf{วิธีที่ 1 การพิสูจน์เชิงพีชคณิต}
 \begin{align*}
 a \cdot (a + b) &= (a \cdot a) + (a \cdot b) \quad \text{(กฎการแจกแจง)} \\
                 &= a + (a \cdot b) \quad \text{(กฎนิจพล } a \cdot a = a\text{)} \\
                 &= a \quad \text{(จากกฎการดูดกลืนข้อ 1)}
 \end{align*}
-\textbf{วิธีที่ 2 (ตารางค่าความจริง):}
+\textbf{วิธีที่ 2 ตารางค่าความจริง}
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
@@ -579,7 +579,7 @@ $a$ & $b$ & $a + b$ & $a \cdot (a + b)$ & $a$ \\
 \end{thrm}
 
 \begin{proof}
-พิสูจน์โดยใช้ตารางค่าความจริง พิจารณาทุกกรณีของ $a$ และ $b$:
+พิสูจน์โดยใช้ตารางค่าความจริง พิจารณาทุกกรณีของ $a$ และ $b$ ดังนี้
 
 สำหรับข้อ 1: $(a + b)' = a' \cdot b'$
 
@@ -767,7 +767,7 @@ $\therefore$ ตารางค่าความจริงของ $f$ ค�
 \index{มินเทอม!นิยาม}
 มินเทอม ของตัวแปร $n$ ตัวคือ AND term ที่มีตัวแปรทุกตัวปรากฏเพียงครั้งเดียวในรูปแบบบัญญัติ (ถ้าตัวแปรเป็น 1 ใช้ตัวแปรเดี่ยว ถ้าตัวแปรเป็น 0 ใช้คอมพลีเมนต์)
 
-สำหรับ 2 ตัวแปร $x, y$:
+สำหรับ 2 ตัวแปร $x, y$ ได้ดังนี้
 \begin{enumerate}
     \item $m_0 = x' \cdot y'$ (ทั้ง $x = 0, y = 0$)
     \item $m_1 = x' \cdot y$ (ทั้ง $x = 0, y = 1$)
@@ -780,7 +780,7 @@ $\therefore$ ตารางค่าความจริงของ $f$ ค�
 \index{แมกซ์เทอม!นิยาม}
 แมกซ์เทอม ของตัวแปร $n$ ตัวคือ OR term ที่มีตัวแปรทุกตัวปรากฏเพียงครั้งเดียวในรูปแบบบัญญัติ (ถ้าตัวแปรเป็น 0 ใช้ตัวแปรเดี่ยว ถ้าตัวแปรเป็น 1 ใช้คอมพลีเมนต์)
 
-สำหรับ 2 ตัวแปร $x, y$:
+สำหรับ 2 ตัวแปร $x, y$ ได้ดังนี้
 \begin{enumerate}
     \item $M_0 = x + y$ (ทั้ง $x = 0, y = 0$)
     \item $M_1 = x + y'$ (ทั้ง $x = 0, y = 1$)
@@ -790,7 +790,7 @@ $\therefore$ ตารางค่าความจริงของ $f$ ค�
 \end{definition}
 
 \begin{prop}
-ความสัมพันธ์ระหว่าง Minterm และ Maxterm โดยที่ $m_i$ และ $M_i$ แทน minterm และ maxterm ลำดับที่ $i$:
+ความสัมพันธ์ระหว่าง Minterm และ Maxterm โดยที่ $m_i$ และ $M_i$ แทนมินเทอมและแมกซ์เทอมลำดับที่ $i$ ตามลำดับ
 \begin{enumerate}
     \item $m_i = M_i'$
     \item $M_i = m_i'$
@@ -1431,7 +1431,7 @@ $\therefore f(w, x, y, z) = w + xy + xz$ \solhere
 \begin{enumerate}[label=\textbf{\arabic*.},leftmargin=1.5em,itemsep=0.4em]
     \item \textbf{การสร้างประตู NOT จาก NAND} เมื่อป้อนสัญญาณเข้าเดียวกันทั้งสองช่อง $(a, a)$ จะได้
     \[ a' = (a \cdot a)' \]
-    \item \textbf{การสร้าง AND Gate จาก NAND:} นำผลลัพธ์ของ NAND Gate มาผ่าน NOT Gate (NAND ที่ป้อนอินพุตซ้ำ):
+    \item \textbf{การสร้าง AND Gate จาก NAND:} นำผลลัพธ์ของ NAND Gate มาผ่าน NOT Gate (NAND ที่ป้อนอินพุตซ้ำ) ได้ว่า
     \[ a \cdot b = ((a \cdot b)')' \]
     \item \textbf{การสร้างประตู OR จาก NAND} ใช้กฎเดอมอร์แกนร่วมกับการนิเสธสัญญาณเข้าแต่ละตัว
     \[ a + b = (a' \cdot b')' = ((a \cdot a)' \cdot (b \cdot b)')' \]
@@ -1448,7 +1448,7 @@ $\therefore f(w, x, y, z) = w + xy + xz$ \solhere
 \begin{enumerate}[label=\textbf{\arabic*.},leftmargin=1.5em,itemsep=0.4em]
     \item \textbf{การสร้างประตู NOT จาก NOR} เมื่อป้อนสัญญาณเข้าเดียวกันทั้งสองช่อง $(a, a)$ จะได้
     \[ a' = (a + a)' \]
-    \item \textbf{การสร้าง OR Gate จาก NOR:} นำผลลัพธ์ของ NOR Gate มาผ่าน NOT Gate (NOR ที่ป้อนอินพุตซ้ำ):
+    \item \textbf{การสร้าง OR Gate จาก NOR:} นำผลลัพธ์ของ NOR Gate มาผ่าน NOT Gate (NOR ที่ป้อนอินพุตซ้ำ) ได้ว่า
     \[ a + b = ((a + b)')' \]
     \item \textbf{การสร้างประตู AND จาก NOR} ใช้กฎเดอมอร์แกนร่วมกับการนิเสธสัญญาณเข้าแต่ละตัว
     \[ a \cdot b = (a' + b')' = ((a + a)' + (b + b)')' \]
@@ -1946,10 +1946,10 @@ $\therefore$ เครื่องสถานะจำกัดนี้สร�
 
     \item
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
-        \item $f(x,y)=x+y'$: สำหรับ $(x,y)=00,01,10,11$ ได้ค่า $1,0,1,1$
-        \item $f(x,y)=(x+y)'$: สำหรับ $(x,y)=00,01,10,11$ ได้ค่า $1,0,0,0$
-        \item $f(x,y)=xy+x'y'$: สำหรับ $(x,y)=00,01,10,11$ ได้ค่า $1,0,0,1$
-        \item $f(x,y)=(x\oplus y)'$: สำหรับ $(x,y)=00,01,10,11$ ได้ค่า $1,0,0,1$
+        \item $f(x,y)=x+y'$ · สำหรับ $(x,y)=00,01,10,11$ ได้ค่า $1,0,1,1$
+        \item $f(x,y)=(x+y)'$ · สำหรับ $(x,y)=00,01,10,11$ ได้ค่า $1,0,0,0$
+        \item $f(x,y)=xy+x'y'$ · สำหรับ $(x,y)=00,01,10,11$ ได้ค่า $1,0,0,1$
+        \item $f(x,y)=(x\oplus y)'$ · สำหรับ $(x,y)=00,01,10,11$ ได้ค่า $1,0,0,1$
     \end{enumerate}
 
     \item

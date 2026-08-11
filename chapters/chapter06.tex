@@ -583,6 +583,8 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 เนื่องจากคอลัมน์ $(a \cdot b)'$ และ $a' + b'$ มีค่าเท่ากันทุกแถว ดังนั้น $(a \cdot b)' = a' + b'$
 \end{proof}
 
+สาระสำคัญของกฎทั้งสองข้อคือ การนิเสธนิพจน์ทั้งก้อนเท่ากับการนิเสธตัวแปรทีละตัวแล้วสลับตัวดำเนินการระหว่าง $+$ กับ $\cdot$ รูปที่~\ref{fig:boolean-demorgan-flow} แสดงการสลับนี้ในรูปแผนภาพ โดยอ่านจากซ้ายไปขวาได้ว่าประตูที่ต่อนิเสธไว้ที่ขาออกเทียบเท่ากับประตูอีกชนิดหนึ่งที่ต่อนิเสธไว้ที่ขาเข้าทุกขา
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.82\textwidth]{Figures/png_ready/demorgan-laws-generated.png}
@@ -633,7 +635,7 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 
 \begin{ex}[การจำแนกนิพจน์บูลีนที่ถูกต้องตามกฎการสร้าง]
 \label{ex:valid-expressions}
-นิพจน์บูลีนที่ถูกต้อง ดังนี้
+จงตรวจสอบว่านิพจน์ต่อไปนี้เป็นนิพจน์บูลีนที่ถูกต้องตามกฎการสร้างหรือไม่ พร้อมระบุลำดับการดำเนินการ
 
 \begin{enumerate}
     \item $x + y$
@@ -659,7 +661,7 @@ $a$ & $b$ & $a \cdot b$ & $(a \cdot b)'$ & $a'$ & $b'$ & $a' + b'$ \\
 
 \begin{ex}[การสร้างตารางค่าความจริงของฟังก์ชันสองตัวแปร]
 \label{ex:truth-table-2var}
-ฟังก์ชันบูลีน $f(x, y) = x \cdot y + x' \cdot y'$
+จงสร้างตารางค่าความจริงของ $f(x, y) = x \cdot y + x' \cdot y'$ แล้วระบุว่าฟังก์ชันนี้ตรงกับการดำเนินการมาตรฐานชนิดใด
 \end{ex}
 \begin{solution}
 สร้าง ตารางค่าความจริง ของฟังก์ชัน
@@ -683,7 +685,7 @@ $f = 1$ เมื่อ $x = y$ และ $f = 0$ เมื่อ $x \neq y$ $\t
 
 \begin{ex}[การสร้างตารางค่าความจริงของฟังก์ชันสามตัวแปร]
 \label{ex:truth-table-3var}
-ฟังก์ชันบูลีน $f(x, y, z) = (x + y') \cdot z + x \cdot y$
+จงสร้างตารางค่าความจริงของ $f(x, y, z) = (x + y') \cdot z + x \cdot y$ โดยแยกคอลัมน์ของแต่ละพจน์ย่อยเพื่อลดความผิดพลาด
 \end{ex}
 \begin{solution}
 สร้าง ตารางค่าความจริง ของฟังก์ชัน
@@ -796,7 +798,7 @@ $x$ & $y$ & $x \cdot y$ & $x'$ & $f$ \\
 
 \begin{ex}[การเขียน SOP จากรายการมินเทอม]
 \label{ex:sop-from-minterms}
-จาก ตารางค่าความจริง ของ $f(x, y, z)$ ที่ $f = 1$ สำหรับ minterms $m_1, m_3, m_5, m_7$:
+กำหนดให้ตารางค่าความจริงของ $f(x, y, z)$ มีค่า $f = 1$ ที่มินเทอม $m_1, m_3, m_5, m_7$ จงเขียน $f$ ในรูปแบบบัญญัติ SOP
 \end{ex}
 \begin{solution}
 \begin{align*}
@@ -964,16 +966,16 @@ Consensus Theorem เป็นทฤษฎีที่ได้รับกา�
 \end{thrm}
 
 \begin{proof}
-พิสูจน์ข้อ 1: $a b + a' c + b c = a b + a' c$
+\textbf{พิสูจน์ข้อ 1} $a b + a' c + b c = a b + a' c$
 
-โดยการเพิ่ม $bc$ เข้าไปใน $abc$ และใช้ Distributive Law:
+แนวคิดคือขยายพจน์ $bc$ ด้วยกฎคอมพลีเมนต์แล้วใช้กฎการแจกแจง ดังนี้
 
 \begin{align*}
 a b + a' c + b c &= a b + a' c + b c \cdot 1 \\
                 &= a b + a' c + b c (a + a') \quad \text{(กฎคอมพลีเมนต์ } a + a' = 1 \text{)} \\
                 &= a b + a' c + a b c + a' b c \\
                 &= a b(1 + c) + a' c(1 + b) \\
-                &= a b + a' c \quad \text{(Domination: } 1 + c = 1 \text{)}
+                &= a b + a' c \quad \text{(กฎครอบงำ } 1 + c = 1 \text{)}
 \end{align*}
 
 ดังนั้น $a b + a' c + b c = a b + a' c$ พิสูจน์แล้ว
@@ -1005,6 +1007,24 @@ $a$ & $b$ & $c$ & $ab$ & $a'c$ & $bc$ & $ab+a'c+bc$ & $ab+a'c$ \\
 \end{center}
 
 เนื่องจากคอลัมน์ $ab + a'c + bc$ และ $ab + a'c$ มีค่าเท่ากันทุกแถว ดังนั้น $a b + a' c + b c = a b + a' c$
+
+\medskip
+\textbf{พิสูจน์ข้อ 2} $(a + b)(a' + c)(b + c) = (a + b)(a' + c)$
+
+ข้อนี้เป็นคู่ทวิภาคของข้อ 1 พอดี เพราะได้จากการสลับ $+$ กับ $\cdot$ ทุกตำแหน่งโดยไม่เปลี่ยนตัวแปร ตามหลักการทวิภาคจึงเป็นจริงทันทีเมื่อข้อ 1 เป็นจริง อย่างไรก็ตาม การกระจายพจน์ตรง ๆ ก็ให้ผลเดียวกัน ดังนี้
+
+เริ่มจากขยายตัวประกอบ $(b + c)$ ด้วยกฎคอมพลีเมนต์ $a a' = 0$ แล้วใช้กฎการแจกแจง
+\begin{align*}
+(b + c) = (b + c) + a a' = (a + b + c)(a' + b + c)
+\end{align*}
+แทนค่ากลับเข้าไปแล้วจัดหมู่ตัวประกอบใหม่ ได้
+\begin{align*}
+(a + b)(a' + c)(b + c) &= \bigl[(a + b)(a + b + c)\bigr]\bigl[(a' + c)(a' + b + c)\bigr]\\
+                       &= (a + b)(a' + c)
+\end{align*}
+โดยขั้นสุดท้ายใช้กฎการดูดกลืนรูป $X(X + Y) = X$ สองครั้ง ครั้งแรกที่ $X = a + b$ กับ $Y = c$ และครั้งที่สองที่ $X = a' + c$ กับ $Y = b$
+
+ดังนั้น $(a + b)(a' + c)(b + c) = (a + b)(a' + c)$ พิสูจน์แล้ว
 \end{proof}
 
 \begin{ex}[การลดรูปด้วยทฤษฎีบทคอนเซนซัส]
@@ -1211,6 +1231,8 @@ $wx = 10$ & $m_8$ & $m_9$ & $m_{11}$ & $m_{10}$ \\
 การ wrap สามารถทำได้ทั้งในแนวนอนและแนวตั้ง (เช่น $m_0$ ติดกับ $m_1, m_2, m_4, m_8$)
 \end{principle}
 
+รูปที่~\ref{fig:kmap-grouping} เปรียบเทียบการจับกลุ่มที่ทำได้กับที่ทำไม่ได้ ให้สังเกตว่ากลุ่มต้องเป็นรูปสี่เหลี่ยมที่มีจำนวนช่องเป็นกำลังของสองเท่านั้น
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.82\textwidth]{Figures/png_ready/kmap-grouping-generated.png}
@@ -1329,7 +1351,7 @@ $\therefore f = w'x' + xz' + x'y'$ \solhere
 
 \begin{ex}[การวาดวงจรจากนิพจน์บูลีน]
 \label{ex:draw-circuit}
-วงจรสำหรับ $f(x, y, z) = x y + x' z$:
+จงอธิบายลำดับการต่อประตูตรรกะเพื่อสร้างวงจรของ $f(x, y, z) = x y + x' z$ พร้อมนับจำนวนประตูแต่ละชนิดที่ใช้
 \end{ex}
 \begin{solution}
 \begin{align*}
@@ -1386,7 +1408,7 @@ $\therefore$ วงจรตรวจสอบจำนวนคู่ใช้�
 
 \begin{ex}[การสร้างวงจรสองระดับแบบ SOP]
 \label{ex:two-level-sop}
-realization SOP สำหรับ $f(x, y, z) = y' + x y + x' y' z$
+จงอธิบายการสร้างวงจรสองระดับแบบ SOP ของ $f(x, y, z) = y' + x y + x' y' z$ พร้อมระบุว่าความหน่วงเวลาของวงจรขึ้นกับสิ่งใด
 \end{ex}
 \begin{solution}
 ระดับแรก $(x,y) \xrightarrow{\text{AND}} xy$ และ $(x',y',z) \xrightarrow{\text{AND}} x'y'z$ (ใช้ NOT สร้าง $x', y'$); ระดับที่สอง $(y',\ xy,\ x'y'z) \xrightarrow{\text{OR}} f$
@@ -1430,11 +1452,12 @@ $\therefore$ วงจรบวกเต็มต่างจากวงจร�
 \label{sec:boolean-equivalence}
 กฎที่ศึกษามาตลอดบทนี้มีจำนวนมากจนจดจำได้ยาก การรวบรวมไว้ในที่เดียวช่วยให้เปรียบเทียบและเลือกใช้ได้สะดวกขณะลดรูปนิพจน์ ตารางต่อไปนี้สรุปกฎทั้งหมดพร้อมชื่อเรียกมาตรฐาน โดยจัดคู่กฎที่เป็นคู่ทวิภาค (Dual) ไว้ในแถวเดียวกัน ซึ่งได้จากการสลับ AND กับ OR และสลับ 0 กับ 1 พร้อมกัน~\parencite{mano2018digital}
 
-\begin{rem}
-ตารางสรุป Boolean Identities:
+ตารางที่~\ref{tab:boolean-op-summary} สรุปเงื่อนไขที่ทำให้การดำเนินการพื้นฐานแต่ละตัวให้ผลลัพธ์เป็น 1 หรือ 0 และตารางที่~\ref{tab:boolean-identities} สรุปกฎทั้งหมดโดยจัดคู่ทวิภาคไว้ในแถวเดียวกัน
 
-\textbf{การดำเนินการพื้นฐาน}
-\begin{center}
+\begin{table}[!htb]
+\centering
+\caption{เงื่อนไขที่ทำให้การดำเนินการพื้นฐานให้ผลลัพธ์เป็น 1 และ 0}
+\label{tab:boolean-op-summary}
 \begin{tabular}{|c|c|c|c|}
 \hline
 การดำเนินการ & สัญลักษณ์ & ผลลัพธ์เป็น 1 เมื่อ & ผลลัพธ์เป็น 0 เมื่อ \\
@@ -1446,10 +1469,12 @@ AND & $\cdot$ & อินพุตทุกตัวเป็น 1 & มีอ�
 NOT & $'$ & อินพุตเป็น 0 & อินพุตเป็น 1 \\
 \hline
 \end{tabular}
-\end{center}
+\end{table}
 
-\textbf{กฎทางพีชคณิต}
-\begin{center}
+\begin{table}[!htb]
+\centering
+\caption{สรุปกฎของพีชคณิตบูลีน โดยกฎในแถวเดียวกันเป็นคู่ทวิภาคของกันและกัน}
+\label{tab:boolean-identities}
 \begin{tabular}{|c|c|c|}
 \hline
 กฎทางพีชคณิต & รูปแบบ OR & รูปแบบ AND \\
@@ -1473,8 +1498,7 @@ NOT & $'$ & อินพุตเป็น 0 & อินพุตเป็น 1 
 กฎเดอมอร์แกน (De Morgan's) & $(x + y)' = x' y'$ & $(xy)' = x' + y'$ \\
 \hline
 \end{tabular}
-\end{center}
-\end{rem}
+\end{table}
 
 \section{ตัวอย่างในวิทยาการคอมพิวเตอร์}
 \label{sec:computer-science-examples}
@@ -1517,8 +1541,7 @@ $\therefore F = x' + z$ \solhere
 
 \begin{ex}[การสร้างประตู AND จากประตู NAND]
 \label{ex:and-from-nand}
-$$Y = ((AB)')' = AB$$
-นำ output ของ NAND gate มาเข้า NOT gate (ซึ่งก็คือ NAND gate ที่ input ทั้งสองเท่ากัน)
+จงแสดงวิธีสร้างประตู AND ที่ให้ผลลัพธ์ $Y = A \cdot B$ โดยใช้ประตู NAND เพียงชนิดเดียว พร้อมระบุจำนวนประตูที่ใช้
 \end{ex}
 \begin{solution}
 \begin{align*}
@@ -1526,11 +1549,11 @@ $$Y = ((AB)')' = AB$$
 \text{AND จาก NAND สองตัว}\quad ((AB)')' &= AB
 \end{align*}
 
-$\therefore$ ประตู NAND สร้างประตูพื้นฐานได้ทุกชนิด จึงเรียกว่าประตูสากล \solhere
+$\therefore$ สร้างประตู AND ได้ด้วยประตู NAND 2 ตัว คือตัวแรกให้ $(AB)'$ และตัวที่สองทำหน้าที่เป็นตัวนิเสธโดยป้อนสัญญาณเดียวกันเข้าทั้งสองขา ประตู NAND จึงสร้างประตูพื้นฐานได้ทุกชนิด และเรียกว่าประตูสากล \solhere
 \end{solution}
 
 \subsection{การต่อวงจรบวกเป็นชุดสำหรับเลขหลายบิต}
-วงจรบวกครึ่งและวงจรบวกเต็มใน~\autoref{sec:adders} นำมาต่อเรียงกันเพื่อบวกเลขฐานสองหลายบิต โดยส่งบิตทดจากหลักหนึ่งไปเป็นข้อมูลเข้าของหลักถัดไป โครงสร้างนี้เป็นแกนของหน่วยคำนวณและตรรกะในหน่วยประมวลผลกลาง~\parencite{wakerly2018digital} ตัวอย่างต่อไปนี้แสดงการสร้างวงจรบวกเต็มจากวงจรบวกครึ่งสองชุด
+วงจรบวกครึ่งและวงจรบวกเต็มใน~\autoref{sec:adders} นำมาต่อเรียงกันเพื่อบวกเลขฐานสองหลายบิต โดยส่งบิตทดจากหลักหนึ่งไปเป็นข้อมูลเข้าของหลักถัดไป โครงสร้างนี้เป็นแกนของหน่วยคำนวณและตรรกะในหน่วยประมวลผลกลาง~\parencite{wakerly2018digital} ตัวอย่างต่อไปนี้แสดงการสร้างวงจรบวกเต็มจากวงจรบวกครึ่งสองชุด รูปที่~\ref{fig:adders-comparison} วางวงจรทั้งสองไว้เทียบกัน จุดต่างที่ควรสังเกตคือขาเข้าที่สามของวงจรบวกเต็มซึ่งรับบิตทดจากหลักก่อนหน้า และประตู OR ที่รวมบิตทดจากวงจรบวกครึ่งทั้งสองชุด
 
 \begin{figure}[H]
     \centering
@@ -1656,7 +1679,7 @@ $\therefore$ เครื่องสถานะจำกัดนี้สร�
 \end{exercise}
 
 \begin{exercise}
-เขียน ตารางค่าความจริง สำหรับ ดังนี้
+จงเขียนตารางค่าความจริงของฟังก์ชันต่อไปนี้
 \begin{enumerate}
     \item $f(x, y) = x + y'$
     \item $f(x, y) = (x + y)'$
@@ -1666,7 +1689,7 @@ $\therefore$ เครื่องสถานะจำกัดนี้สร�
 \end{exercise}
 
 \begin{exercise}
-พิจารณาว่าข้อความต่อไปนี้จริงหรือเท็จ
+จงพิจารณาว่าข้อความต่อไปนี้จริงหรือเท็จ พร้อมให้เหตุผล
 \begin{enumerate}
     \item $1 + 1 = 2$
     \item $1 \cdot 1 = 1$
@@ -1679,16 +1702,16 @@ $\therefore$ เครื่องสถานะจำกัดนี้สร�
 
 \exercisepart{ส่วนที่ 2 กฎของพีชคณิตบูลีน}
 \begin{exercise}
-พิสูจน์โดยใช้ตารางค่าความจริง
+จงพิสูจน์เอกลักษณ์ต่อไปนี้โดยใช้ตารางค่าความจริง
 \begin{enumerate}
     \item $x \cdot (x + y) = x$
     \item $x + x' y = x + y$
-    \item $(x + y)' = x' y'$
+    \item $(x + y)(x + z) = x + y z$
 \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-ลดรูปนิพจน์ต่อไปนี้โดยใช้ Boolean identities:
+จงลดรูปนิพจน์ต่อไปนี้โดยใช้กฎของพีชคณิตบูลีนในตารางที่~\ref{tab:boolean-identities}
 \begin{enumerate}
     \item $x + x y$
     \item $x \cdot (x' + y)$
@@ -1700,10 +1723,12 @@ $\therefore$ เครื่องสถานะจำกัดนี้สร�
 \end{exercise}
 
 \begin{exercise}
-พิสูจน์ Consensus Laws:
+จงใช้ทฤษฎีบทคอนเซนซัสตัดพจน์ที่ไม่จำเป็นออกจากนิพจน์ต่อไปนี้ พร้อมระบุว่าพจน์ใดเป็นพจน์คอนเซนซัสและเกิดจากตัวแปรคู่ใด
 \begin{enumerate}
-    \item $(a \cdot b) + (a' \cdot c) + (b \cdot c) = (a \cdot b) + (a' \cdot c)$
-    \item $(a + b)(a' + c)(b + c) = (a + b)(a' + c)$
+    \item $a' b + a c + b c$
+    \item $w x + w' y + x y$
+    \item $(p + q)(p' + r)(q + r)$
+    \item $x y + x' z + y z w$
 \end{enumerate}
 \end{exercise}
 
@@ -1728,7 +1753,7 @@ $\therefore$ เครื่องสถานะจำกัดนี้สร�
 
 \exercisepart{ส่วนที่ 4 ฟังก์ชันบูลีนและรูปแบบบัญญัติ}
 \begin{exercise}
-เขียน ตารางค่าความจริง สำหรับ ดังนี้
+จงเขียนตารางค่าความจริงของฟังก์ชันต่อไปนี้
 \begin{enumerate}
     \item $f(x, y, z) = x y + y z + x z$
     \item $f(x, y, z) = (x + y)(y + z)(x + z)$
@@ -1737,7 +1762,7 @@ $\therefore$ เครื่องสถานะจำกัดนี้สร�
 \end{exercise}
 
 \begin{exercise}
-เขียนในรูปแบบ canonical SOP ($\sum$ notation) ดังนี้
+จงเขียนฟังก์ชันต่อไปนี้ในรูปแบบบัญญัติ SOP (สัญกรณ์ $\sum$)
 \begin{enumerate}
     \item $f(x, y) = x + y'$
     \item $f(x, y, z) = x y + x' z$
@@ -1745,7 +1770,7 @@ $\therefore$ เครื่องสถานะจำกัดนี้สร�
 \end{exercise}
 
 \begin{exercise}
-เขียนในรูปแบบ canonical POS ($\prod$ notation) ดังนี้
+จงเขียนฟังก์ชันต่อไปนี้ในรูปแบบบัญญัติ POS (สัญกรณ์ $\prod$)
 \begin{enumerate}
     \item $f(x, y) = x \cdot y$
     \item $f(x, y, z) = (x + y')(x' + z)$
@@ -1754,7 +1779,7 @@ $\therefore$ เครื่องสถานะจำกัดนี้สร�
 
 \exercisepart{ส่วนที่ 5 แผนที่คาร์นอ}
 \begin{exercise}
-ใช้ K-map ลดรูป ดังนี้
+จงใช้แผนที่คาร์นอลดรูปฟังก์ชันต่อไปนี้
 \begin{enumerate}
     \item $f(x, y) = \sum(1, 2, 3)$
     \item $f(x, y) = \sum(0, 1, 2)$
@@ -1765,11 +1790,11 @@ $\therefore$ เครื่องสถานะจำกัดนี้สร�
 \end{exercise}
 
 \begin{exercise}
-ออกแบบวงจรสำหรับ
+จงออกแบบวงจรต่อไปนี้ พร้อมเขียนนิพจน์บูลีนของสัญญาณออกทุกตัว
 \begin{enumerate}
-    \item Half Adder (Sum และ Carry)
-    \item 2-to-1 Multiplexer: $f = s' \cdot d_0 + s \cdot d_1$
-    \item วงจรที่ตรวจสอบว่า input 3 bits มีเพียง 2 bits ที่เป็น 1
+    \item วงจรบวกครึ่ง โดยเขียนนิพจน์ของทั้งบิตผลบวกและบิตทด
+    \item มัลติเพล็กเซอร์ 2-to-1 ที่มีสัญญาณเลือก $s$ และข้อมูลเข้า $d_0, d_1$
+    \item วงจรที่ให้ผลลัพธ์เป็น 1 เมื่อข้อมูลเข้า 3 บิตมีบิตที่เป็น 1 อยู่ 2 บิตพอดี
 \end{enumerate}
 \end{exercise}
 
@@ -1815,7 +1840,7 @@ $\therefore$ เครื่องสถานะจำกัดนี้สร�
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
         \item $x(x+y)$ และ $x$ ให้ผลลัพธ์ $0,0,1,1$ ตามลำดับค่า $xy=00,01,10,11$
         \item $x+x'y$ และ $x+y$ ให้ผลลัพธ์ $0,1,1,1$
-        \item $(x+y)'$ และ $x'y'$ ให้ผลลัพธ์ $1,0,0,0$
+        \item $(x+y)(x+z)$ และ $x+yz$ ให้ผลลัพธ์ $0,0,0,1,1,1,1,1$ ตามลำดับค่า $xyz=000,001,010,011,100,101,110,111$ (นี่คือคู่ทวิภาคของกฎการแจกแจงที่คุ้นเคย จึงไม่ควรอ่านว่าเป็นการ ``บวกแล้วคูณ'' แบบเลขคณิตปกติ)
     \end{enumerate}
 
     \item
@@ -1830,8 +1855,10 @@ $\therefore$ เครื่องสถานะจำกัดนี้สร�
 
     \item
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
-        \item $ab+a'c+bc=ab+a'c$
-        \item $(a+b)(a'+c)(b+c)=(a+b)(a'+c)$
+        \item พจน์คอนเซนซัสคือ $bc$ ซึ่งเกิดจากคู่ $a'b$ กับ $ac$ (ตัวแปร $a$ ปรากฏต่างขั้วกัน จึงนำตัวที่เหลือคือ $b$ กับ $c$ มาคูณกัน) $\therefore a'b+ac+bc=a'b+ac$
+        \item พจน์คอนเซนซัสคือ $xy$ ซึ่งเกิดจากคู่ $wx$ กับ $w'y$ (ตัวแปร $w$ ต่างขั้วกัน) $\therefore wx+w'y+xy=wx+w'y$
+        \item รูปแบบ POS ใช้คู่ทวิภาคของทฤษฎีบท ตัวประกอบคอนเซนซัสคือ $(q+r)$ ซึ่งเกิดจากคู่ $(p+q)$ กับ $(p'+r)$ $\therefore (p+q)(p'+r)(q+r)=(p+q)(p'+r)$
+        \item พจน์คอนเซนซัสของ $xy$ กับ $x'z$ คือ $yz$ แม้โจทย์จะให้มาเป็น $yzw$ ก็ตัดออกได้ เพราะเมื่อ $yzw=1$ ย่อมมี $y=z=1$ ทำให้ $xy+x'z=x+x'=1$ อยู่แล้ว พจน์นี้จึงไม่เคยเพิ่มค่า 1 ที่ไหนเลย $\therefore xy+x'z+yzw=xy+x'z$
     \end{enumerate}
 \end{enumerate}
 
@@ -1839,8 +1866,8 @@ $\therefore$ เครื่องสถานะจำกัดนี้สร�
 \begin{enumerate}[resume*=anskey]
     \item
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
-        \item $(x+y)'=x'y'$
-        \item $(xy)'=x'+y'$
+        \item ไล่ค่า $xy=00,01,10,11$ ได้ $(x+y)'$ เป็น $1,0,0,0$ และ $x'y'$ เป็น $1,0,0,0$ เท่ากันทุกแถว $\therefore (x+y)'=x'y'$ (ตีความได้ว่า ผลรวมเป็นเท็จก็ต่อเมื่อทุกตัวเป็นเท็จ)
+        \item ไล่ค่า $xy=00,01,10,11$ ได้ $(xy)'$ เป็น $1,1,1,0$ และ $x'+y'$ เป็น $1,1,1,0$ เท่ากันทุกแถว $\therefore (xy)'=x'+y'$ (ตีความได้ว่า ผลคูณเป็นเท็จก็ต่อเมื่อมีตัวใดตัวหนึ่งเป็นเท็จ)
     \end{enumerate}
 
     \item
@@ -1910,9 +1937,9 @@ $\therefore$ เครื่องสถานะจำกัดนี้สร�
 
     \item
     \begin{enumerate}[label=\textbf{\thechapter.\arabic{enumi}.\arabic*}]
-        \item Half Adder: $\text{Sum} = x \oplus y = x y' + x' y$, $\text{Carry} = x \cdot y$
-        \item 2-to-1 Multiplexer: $f = s' \cdot d_0 + s \cdot d_1$
-        \item วงจรตรวจ 2 bits เป็น 1 จาก 3 bits: $f(x, y, z) = x y z' + x y' z + x' y z = \sum m(3, 5, 6)$
+        \item วงจรบวกครึ่ง มีบิตผลบวก $S = x \oplus y = x y' + x' y$ และบิตทด $C = x \cdot y$ จึงใช้ประตู XOR 1 ตัวกับ AND 1 ตัว
+        \item มัลติเพล็กเซอร์ 2-to-1 ได้ $f = s' d_0 + s d_1$ เมื่อ $s=0$ พจน์แรกเหลือ $d_0$ และพจน์หลังเป็น 0 จึงส่ง $d_0$ ออก เมื่อ $s=1$ กลับกันเป็นส่ง$d_1$ ออก
+        \item วงจรที่มีบิตเป็น 1 อยู่ 2 บิตพอดีจาก 3 บิต ได้ $f(x, y, z) = x y z' + x y' z + x' y z = \sum m(3, 5, 6)$ (ไม่รวม $m_7$ เพราะกรณีนั้นมีบิตที่เป็น 1 ครบสามบิต)
     \end{enumerate}
 \end{enumerate}
 

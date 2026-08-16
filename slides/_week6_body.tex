@@ -24,7 +24,7 @@
     \begin{itemize}\small
       \item \textbf{เพาเวอร์เซต} $\mathcal{P}(A)$ : รวบรวมเซตย่อยทั้งหมด และการเติบโต $2^{|A|}$
       \item \textbf{ผลคูณคาร์ทีเซียน} $A \times B$ : การจับคู่สร้างคู่อันดับ รากฐานของฐานข้อมูลและฟังก์ชัน
-      \item \textbf{จำนวนสมาชิก (Cardinality)} : หลักการรวม-การแยก (Inclusion-Exclusion) ทั้ง 2 และ 3 เซต
+      \item \textbf{จำนวนสมาชิก (Cardinality)} : หลักการรวม-การแยกแบบเจาะลึก $|A \cup B|$ และ $|A \cup B \cup C|$
       \item \textbf{เซตในคอมพิวเตอร์} : Bit Vector, SQL CROSS JOIN, Hash Set $O(1)$ และเซตอนันต์
     \end{itemize}
   \end{exampleblock}
@@ -36,7 +36,7 @@
   \begin{enumerate}
     \item หา \textbf{เพาเวอร์เซต} $\mathcal{P}(A)$ อธิบายที่มาของสูตร $|\mathcal{P}(A)| = 2^{|A|}$ และเชื่อมโยงกับการเติบโตเชิงเลขชี้กำลังและบิตมาสก์ได้
     \item หา \textbf{ผลคูณคาร์ทีเซียน} $A \times B$ เขียนตารางคาร์ทีเซียน ใช้สมบัติการกระจาย และคำนวณจำนวนสมาชิก $|A \times B| = |A| \cdot |B|$ ได้
-    \item คำนวณ \textbf{จำนวนสมาชิกของเซต (Cardinality)} โดยใช้ \textbf{หลักการรวม-การแยก (Inclusion-Exclusion Principle)} สำหรับ 2 และ 3 เซต พร้อมตรวจความสอดคล้องของข้อมูลได้
+    \item เข้าใจกระบวนการคำนวณ \textbf{จำนวนสมาชิกของเซต (Cardinality)} หาค่า \textbf{$|A \cup B|$} และ \textbf{$|A \cup B \cup C|$} ทั้งด้วยสูตรและแผนภาพเวนน์เป็นขั้นตอน พร้อมตรวจความสอดคล้องของข้อมูลได้
     \item อธิบายการแทนเซตด้วย \textbf{Bit Vector} การทำงานของ \textbf{SQL / Hash Set} และเข้าใจแนวคิด \textbf{เซตนับได้/นับไม่ได้} ได้
   \end{enumerate}
 \end{frame}
@@ -106,7 +106,7 @@
     \end{column}
     \begin{column}{0.48\textwidth}
       \begin{block}{2. ทฤษฎีบททวินาม (Binomial)}
-        นับแยกตามขนาดเซตย่อย:
+        นับแยกตามขนาดเซตย่อย $k$:
         \begin{itemize}\small
           \item เซตย่อยขนาด $0$ มี $\binom{n}{0}$ เซต
           \item เซตย่อยขนาด $k$ มี $\binom{n}{k}$ เซต
@@ -325,7 +325,7 @@
 
 
 %% =====================================================================
-\section{จำนวนสมาชิกและหลักการรวม-การแยก}
+\section{\texorpdfstring{การหาจำนวนสมาชิก $|A \cup B|$ และ $|A \cup B \cup C|$}{การหาจำนวนสมาชิก AUB และ AUBUC}}
 %% =====================================================================
 
 \begin{frame}{จำนวนสมาชิกของเซต (Cardinality)}
@@ -350,7 +350,7 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{หลักการรวม-การแยกสำหรับ 2 เซต (Inclusion--Exclusion Principle)}
+\begin{frame}{การหา $|A \cup B|$ (หลักการรวม-การแยกสำหรับ 2 เซต)}
   \begin{alertblock}{ทำไม $|A \cup B| \neq |A| + |B|$ โดยทั่วไป ?}
     ถ้านับ $|A| + |B|$ สมาชิกที่อยู่ในส่วนซ้อนทับ ($A \cap B$) จะถูก \textbf{นับซ้ำ 2 ครั้ง} จึงต้องลบออก 1 ครั้ง
   \end{alertblock}
@@ -361,17 +361,17 @@
       \end{block}
       \begin{block}{สูตรอนุพันธ์ที่ใช้บ่อย}
         \begin{itemize}\small
-          \item $|A \cap B| = |A| + |B| - |A \cup B|$
-          \item เฉพาะ $A$: $|A - B| = |A| - |A \cap B|$
-          \item เฉพาะ $B$: $|B - A| = |B| - |A \cap B|$
-          \item คอมพลีเมนต์: $|A^c| = |U| - |A|$
-          \item นอกทั้งคู่: $|(A \cup B)^c| = |U| - |A \cup B|$
+          \item \textbf{หาส่วนซ้ำ}: $|A \cap B| = |A| + |B| - |A \cup B|$
+          \item \textbf{เฉพาะ $A$}: $|A - B| = |A| - |A \cap B|$
+          \item \textbf{เฉพาะ $B$}: $|B - A| = |B| - |A \cap B|$
+          \item \textbf{นอกทั้งคู่}: $|(A \cup B)^c| = |U| - |A \cup B|$
+          \item \textbf{อยู่เซตเดียว}: $|A \oplus B| = |A| + |B| - 2|A \cap B|$
         \end{itemize}
       \end{block}
     \end{column}
     \begin{column}{0.44\textwidth}
       \begin{center}
-      \begin{tikzpicture}[scale=0.8,every node/.style={font=\small}]
+      \begin{tikzpicture}[scale=0.82,every node/.style={font=\small}]
         \draw[thick] (-2.2,-1.4) rectangle (2.2,1.5);
         \node at (1.9,1.2) {$U$};
         \draw[fill=lightnavy,fill opacity=0.7] (-0.7,0) circle (1.1);
@@ -384,66 +384,152 @@
         \node at (-1.4,1.2) {$A$};
         \node at (1.4,1.2) {$B$};
       \end{tikzpicture}\\
-      \footnotesize ส่วนซ้ำตรงกลางนับซ้ำ ต้องหักออกหนึ่งครั้ง
+      \footnotesize $|A \cup B| = |A-B| + |A\cap B| + |B-A|$
       \end{center}
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}{ตัวอย่าง : การแก้โจทย์ 2 เซตอย่างเป็นระบบ}
-  \begin{block}{โจทย์}
-    ในการสำรวจนักศึกษา 100 คน พบว่า:
-    มีผู้ใช้ภาษา Python 65 คน, ใช้ภาษา Java 45 คน, และใช้ \textbf{ทั้งสองภาษา} 25 คน
-    \begin{enumerate}
-      \item มีนักศึกษากี่คนที่ใช้ \textbf{อย่างน้อยหนึ่งภาษา}?
-      \item มีนักศึกษากี่คนที่ \textbf{ไม่ใช้ทั้งสองภาษาเลย}?
-      \item มีนักศึกษากี่คนที่ใช้ \textbf{ภาษา Python เพียงภาษาเดียว}?
-    \end{enumerate}
-  \end{block}
-  \pause
-  \textbf{วิธีทำ} \quad ให้ $|U| = 100$, $P$ = กลุ่มที่ใช้ Python ($|P| = 65$), $J$ = กลุ่มที่ใช้ Java ($|J| = 45$), $|P \cap J| = 25$
-  \begin{align*}
-    \text{1.}\quad |P \cup J| &= |P| + |J| - |P \cap J| = 65 + 45 - 25 = \mathbf{85} \text{ คน} \\
-    \text{2.}\quad |(P \cup J)^c| &= |U| - |P \cup J| = 100 - 85 = \mathbf{15} \text{ คน} \\
-    \text{3.}\quad |P - J| &= |P| - |P \cap J| = 65 - 25 = \mathbf{40} \text{ คน}
-  \end{align*}
-  \begin{exampleblock}{ตรวจคำตอบด้วยแผนภาพเวนน์}
-    ช่องซ้าย ($40$) + ช่องกลาง ($25$) + ช่องขวา ($20$) + ช่องนอก ($15$) $= 100$ คน พอดี!
+\begin{frame}{กระบวนการ 4 ขั้นตอนในการแก้โจทย์ 2 เซต ($|A \cup B|$)}
+  \begin{enumerate}
+    \item \textbf{ขั้นที่ 1: กำหนดสัญลักษณ์และดึงค่าตัวแปรจากโจทย์}
+          ระบุค่า $|U|, |A|, |B|, |A \cap B|$ หรือ $|(A \cup B)^c|$ ให้ชัดเจน
+    \item \textbf{ขั้นที่ 2: เติมช่องตรงกลางสุดก่อน ($|A \cap B|$)}
+          หากโจทย์ไม่ได้ให้ตรงกลางมา ให้ใช้สูตร $|A \cap B| = |A| + |B| - |A \cup B|$
+    \item \textbf{ขั้นที่ 3: หักลบเพื่อหาบริเวณเฉพาะเซตเดี่ยว}
+          เฉพาะ $A$ คือ $|A| - |A \cap B|$ \ และ \ เฉพาะ $B$ คือ $|B| - |A \cap B|$
+    \item \textbf{ขั้นที่ 4: หาบริเวณนอกสุดและตอบคำถาม}
+          $|(A \cup B)^c| = |U| - (|A - B| + |A \cap B| + |B - A|)$
+  \end{enumerate}
+  \vspace{0.2em}
+  \begin{exampleblock}{หัวใจสำคัญ}
+    การคิดแบบแบ่งชิ้นส่วนไม่ซ้อนทับ (Disjoint Regions) ช่วยป้องกันการนับซ้ำได้ 100\%
   \end{exampleblock}
 \end{frame}
 
-\begin{frame}{หลักการรวม-การแยกสำหรับ 3 เซต (Inclusion--Exclusion for 3 Sets)}
+\begin{frame}{ตัวอย่างการคำนวณ $|A \cup B|$ (2 วิธี : ใช้สูตร vs แผนภาพเวนน์)}
+  \begin{block}{โจทย์}
+    นักศึกษา 80 คน: ลงทะเบียนวิชาคณิตศาสตร์ ($M$) 50 คน, คอมพิวเตอร์ ($C$) 40 คน, และลงทั้งสองวิชา 20 คน \\
+    จงหา: (1) จำนวนคนที่ลงอย่างน้อยหนึ่งวิชา ($|M \cup C|$) \ (2) จำนวนคนที่ไม่ลงวิชาใดเลย ($|(M \cup C)^c|$)
+  \end{block}
+  \pause
+  \begin{columns}[T]
+    \begin{column}{0.50\textwidth}
+      \textbf{วิธีที่ 1: ใช้สูตรคณิตศาสตร์}
+      \begin{align*}
+        |M \cup C| &= |M| + |C| - |M \cap C| \\
+                   &= 50 + 40 - 20 = \mathbf{70} \text{ คน} \\[0.3em]
+        |(M \cup C)^c| &= |U| - |M \cup C| \\
+                       &= 80 - 70 = \mathbf{10} \text{ คน}
+      \end{align*}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{วิธีที่ 2: เติมแผนภาพเวนน์จากตรงกลาง}
+      \begin{itemize}\small
+        \item ช่องตรงกลาง ($M \cap C$) = \textbf{20} คน
+        \item ช่องซ้าย (เฉพาะ $M$) = $50 - 20 = \mathbf{30}$ คน
+        \item ช่องขวา (เฉพาะ $C$) = $40 - 20 = \mathbf{20}$ คน
+        \item รวมในวงกลม $= 30 + 20 + 20 = \mathbf{70}$ คน
+        \item ด้านนอก $= 80 - 70 = \mathbf{10}$ คน
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{การหา $|A \cup B \cup C|$ (หลักการรวม-การแยกสำหรับ 3 เซต)}
   \begin{block}{ทฤษฎีบท : สูตร 3 เซต}
     สำหรับเซตจำกัด $A, B, C$ ใด ๆ
     \[
-      |A \cup B \cup C| = \underbrace{(|A| + |B| + |C|)}_{\text{บวกเซตเดี่ยว}} - \underbrace{(|A \cap B| + |A \cap C| + |B \cap C|)}_{\text{ลบส่วนซ้อน 2 เซต}} + \underbrace{|A \cap B \cap C|}_{\text{บวกส่วนซ้อน 3 เซตกลับคืน}}
+      |A \cup B \cup C| = \underbrace{(|A| + |B| + |C|)}_{\text{บวกเซตเดี่ยว 3 เซต}} - \underbrace{(|A \cap B| + |A \cap C| + |B \cap C|)}_{\text{ลบส่วนซ้อน 2 เซต 3 คู่}} + \underbrace{|A \cap B \cap C|}_{\text{บวกส่วนซ้อน 3 เซตกลับคืน}}
     \]
   \end{block}
   \vspace{0.2em}
-  \textbf{ทำไมต้องบวกกลับในขั้นตอนสุดท้าย? (Logic Trace)}
+  \textbf{Logic Trace : ตรวจสอบจำนวนครั้งที่แต่ละบริเวณถูกนับ}
+  \begin{center}\small
+  \begin{tabular}{|l|c|c|c|c|}
+    \hline
+    \textbf{บริเวณในแผนภาพ} & \textbf{บวกเดี่ยว (+)} & \textbf{ลบคู่ (-)} & \textbf{บวกสาม (+)} & \textbf{ผลลัพธ์สุทธิ} \\ \hline
+    เซตเดี่ยวเท่านั้น (เช่น เฉพาะ $A$) & $+1$ & $0$ & $0$ & \textbf{1 ครั้งพอดี} \\ \hline
+    ซ้อน 2 เซตเท่านั้น (เช่น เฉพาะ $A \cap B$) & $+2$ & $-1$ & $0$ & \textbf{1 ครั้งพอดี} \\ \hline
+    ซ้อน 3 เซตตรงกลาง ($A \cap B \cap C$) & $+3$ & $-3$ & $+1$ & \textbf{1 ครั้งพอดี} \\ \hline
+  \end{tabular}
+  \end{center}
+  \vspace{0.1em}
+  \footnotesize หากไม่บวก $|A \cap B \cap C|$ กลับเข้าไปในขั้นตอนสุดท้าย ส่วนซ้อน 3 เซตจะถูกหักออกจนเหลือ $0$ ($+3 - 3 = 0$)
+\end{frame}
+
+\begin{frame}{โครงสร้าง 8 บริเวณของแผนภาพเวนน์ 3 เซต}
+  \begin{columns}[T]
+    \begin{column}{0.50\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=0.8,every node/.style={font=\scriptsize}]
+        \draw[thick] (-2.5,-2.2) rectangle (2.5,2.2);
+        \node at (2.2,1.9) {$U$};
+        \draw[thick,fill=lightnavy,fill opacity=0.4] (-0.8,0.6) circle (1.2);
+        \draw[thick,fill=mint,fill opacity=0.4] (0.8,0.6) circle (1.2);
+        \draw[thick,fill=lyellow,fill opacity=0.4] (0,-0.6) circle (1.2);
+        \node at (-1.4,1.4) {$A$};
+        \node at (1.4,1.4) {$B$};
+        \node at (0,-1.5) {$C$};
+        \node at (-1.1,0.8) {$r_1$};
+        \node at (1.1,0.8) {$r_2$};
+        \node at (0,-1.0) {$r_3$};
+        \node at (0,1.1) {$r_4$};
+        \node at (-0.6,-0.1) {$r_5$};
+        \node at (0.6,-0.1) {$r_6$};
+        \node at (0,0.3) {\textbf{$r_7$}};
+        \node at (1.8,-1.8) {$r_8$};
+      \end{tikzpicture}
+      \end{center}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{ขั้นตอนการกรอกข้อมูล 3 เซต}:
+      \begin{enumerate}\small
+        \item เติม \textbf{$r_7 = |A \cap B \cap C|$} (กึ่งกลางสุด) ก่อนเสมอ!
+        \item หาบริเวณ 2 เซต:
+              $r_4 = |A \cap B| - r_7$ \\
+              $r_5 = |A \cap C| - r_7$ \\
+              $r_6 = |B \cap C| - r_7$
+        \item หาบริเวณเซตเดี่ยว:
+              $r_1 = |A| - (r_4 + r_5 + r_7)$
+        \item หาบริเวณนอกสุด:
+              $r_8 = |U| - |A \cup B \cup C|$
+      \end{enumerate}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{กระบวนการ 5 ขั้นตอนในการแก้โจทย์ 3 เซต ($|A \cup B \cup C|$)}
   \begin{enumerate}\small
-    \item เมื่อบวก $|A| + |B| + |C|$ : ส่วน $A \cap B \cap C$ ถูกบวก \textbf{3 ครั้ง}
-    \item เมื่อลบส่วนซ้อนคู่ 3 คู่ : ส่วน $A \cap B \cap C$ ถูกลบออก \textbf{3 ครั้ง} ($+3 - 3 = 0$) ทำให้ส่วนกลาง \textbf{หายไปหมด!}
-    \item จึงจำเป็นต้อง \textbf{บวก $|A \cap B \cap C|$ กลับเข้าไป 1 ครั้ง} เพื่อให้นับครบพอดี
+    \item \textbf{ขั้นที่ 1: ตรวจสอบและตั้งชื่อเซต} กำหนด $A, B, C$ และเอกภพสัมพัทธ์ $U$
+    \item \textbf{ขั้นที่ 2: บันทึกค่าที่โจทย์ระบุ} ทั้งขนาดเซตเดี่ยว 3 เซต, ซ้อน 2 เซต 3 คู่, และซ้อน 3 เซต
+    \item \textbf{ขั้นที่ 3: เลือกเส้นทางการแก้ปัญหา}
+          \begin{itemize}\footnotesize
+            \item \emph{เส้นทาง A (สูตรตรง)}: เมื่อต้องการหา $|A \cup B \cup C|$ หรือ $|A \cap B \cap C|$ โดยตรง
+            \item \emph{เส้นทาง B (แผนภาพเวนน์)}: เมื่อต้องการหาบริเวณย่อย เช่น ``ชอบเพียง 1 วิชา'' หรือ ``ชอบอย่างน้อย 2 วิชา''
+          \end{itemize}
+    \item \textbf{ขั้นที่ 4: คำนวณทีละชั้นจากในออกนอก} ($r_7 \to r_{4,5,6} \to r_{1,2,3} \to r_8$)
+    \item \textbf{ขั้นที่ 5: ตรวจสอบความสมเหตุสมผล} ตรวจว่า $|A \cup B \cup C| \leq |U|$ และไม่มีช่องใดติดลบ
   \end{enumerate}
 \end{frame}
 
-\begin{frame}{ตัวอย่าง : โจทย์ 3 เซต (วิชาเรียน)}
+\begin{frame}{ตัวอย่างการคำนวณ $|A \cup B \cup C|$ (โจทย์ 3 วิชา)}
   \begin{block}{โจทย์}
     ห้องเรียน 40 คน: เรียนคณิต ($M$) 22 คน, ฟิสิกส์ ($P$) 20 คน, เคมี ($C$) 15 คน \\
     เรียนคณิตและฟิสิกส์ 10 คน, คณิตและเคมี 7 คน, ฟิสิกส์และเคมี 6 คน, และเรียนทั้งสามวิชา 3 คน \\
-    จงหาจำนวนผู้ที่เรียนอย่างน้อยหนึ่งวิชา และจำนวนผู้ที่ไม่เรียนวิชาใดเลย
+    จงหา: (1) ผู้ที่เรียนอย่างน้อยหนึ่งวิชา ($|M \cup P \cup C|$) \ (2) ผู้ที่เรียนคณิตศาสตร์เพียงวิชาเดียว
   \end{block}
   \pause
-  \textbf{วิธีทำ} \quad แทนค่าลงในสูตร 3 เซตโดยตรง:
+  \textbf{วิธีทำ}
   \begin{align*}
-    |M \cup P \cup C| &= |M| + |P| + |C| - |M \cap P| - |M \cap C| - |P \cap C| + |M \cap P \cap C| \\
-                      &= 22 + 20 + 15 - 10 - 7 - 6 + 3 = \mathbf{37} \text{ คน}
+    \text{(1)}\quad |M \cup P \cup C| &= (|M| + |P| + |C|) - (|M \cap P| + |M \cap C| + |P \cap C|) + |M \cap P \cap C| \\
+                                      &= (22 + 20 + 15) - (10 + 7 + 6) + 3 \\
+                                      &= 57 - 23 + 3 = \mathbf{37} \text{ คน}
   \end{align*}
-  \begin{itemize}
-    \item ผู้ที่เรียนอย่างน้อยหนึ่งวิชา $= \mathbf{37}$ คน
-    \item ผู้ที่ไม่เรียนวิชาใดเลย $= |U| - |M \cup P \cup C| = 40 - 37 = \mathbf{3}$ คน
-  \end{itemize}
+  \begin{align*}
+    \text{(2)}\quad \text{เฉพาะคณิตศาสตร์} &= |M| - (|M \cap P| + |M \cap C| - |M \cap P \cap C|) \\
+                                           &= 22 - (10 + 7 - 3) = 22 - 14 = \mathbf{8} \text{ คน}
+  \end{align*}
 \end{frame}
 
 \begin{frame}{การตรวจสอบความสอดคล้องของข้อมูล (Data Validation)}
@@ -607,24 +693,25 @@
   \end{exampleblock}
 \end{frame}
 
-\begin{frame}{กิจกรรมที่ 3 : การนับสมาชิกและตรวจความสอดคล้อง \eng{8 นาที}}
+\begin{frame}{กิจกรรมที่ 3 : การนับสมาชิก 2 และ 3 เซต \eng{8 นาที}}
   \begin{block}{โจทย์กิจกรรม}
-    ชมรมคอมพิวเตอร์มีสมาชิก 50 คน พบว่า:
-    ชอบเขียนโปรแกรม ($P$) 30 คน, ชอบระบบเครือข่าย ($N$) 25 คน, และชอบทั้งสองอย่าง 12 คน
+    ชมรมคอมพิวเตอร์มีสมาชิก 50 คน:
+    \begin{itemize}\small
+      \item ชอบเขียนโปรแกรม ($P$) 30 คน, เครือข่าย ($N$) 25 คน, ฐานข้อมูล ($D$) 20 คน
+      \item ชอบ $P \cap N = 12$ คน, $P \cap D = 10$ คน, $N \cap D = 8$ คน, และชอบทั้งสามด้าน 5 คน
+    \end{itemize}
     \begin{enumerate}
-      \item มีกี่คนที่ชอบอย่างน้อยหนึ่งอย่าง?
-      \item มีกี่คนที่ไม่ชอบทั้งสองอย่างนี้เลย?
-      \item มีกี่คนที่ชอบเขียนโปรแกรมเพียงอย่างเดียว?
-      \item ถ้ามีผู้รายงานเพิ่มว่ามีคนชอบฐานข้อมูล 20 คน โดยชอบทั้ง 3 ด้าน 5 คน และชอบเครือข่ายกับฐานข้อมูล 15 คน ข้อมูลนี้เป็นไปได้หรือไม่
+      \item มีกี่คนที่ชอบอย่างน้อยหนึ่งด้าน ($|P \cup N \cup D|$)
+      \item มีกี่คนที่ไม่ชอบทั้งสามด้านนี้เลย
+      \item มีกี่คนที่ชอบเฉพาะเขียนโปรแกรมเพียงอย่างเดียว
     \end{enumerate}
   \end{block}
   \pause
   \begin{exampleblock}{เฉลยกิจกรรมที่ 3}
     \footnotesize
-    \textbf{1.} $|P \cup N| = 30 + 25 - 12 = \mathbf{43}$ คน \quad
-    \textbf{2.} $50 - 43 = \mathbf{7}$ คน \quad
-    \textbf{3.} $|P - N| = 30 - 12 = \mathbf{18}$ คน \\
-    \textbf{4.} ตรวจสอบ: $|N \cap D| = 15 \leq |N| = 25$ และ $15 \leq |D| = 20$ (เป็นไปได้ในเบื้องต้น แต่ต้องตรวจทั้งระบบว่าไม่เกิน $|U|=50$)
+    \textbf{1.} $|P \cup N \cup D| = (30 + 25 + 20) - (12 + 10 + 8) + 5 = 75 - 30 + 5 = \mathbf{50}$ คน \\
+    \textbf{2.} $|U| - |P \cup N \cup D| = 50 - 50 = \mathbf{0}$ คน (ทุกคนชอบอย่างน้อย 1 ด้าน) \\
+    \textbf{3.} เฉพาะ $P = |P| - (|P \cap N| + |P \cap D| - |P \cap N \cap D|) = 30 - (12 + 10 - 5) = 30 - 17 = \mathbf{13}$ คน
   \end{exampleblock}
 \end{frame}
 

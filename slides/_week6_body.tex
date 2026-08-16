@@ -24,7 +24,7 @@
     \begin{itemize}\small
       \item \textbf{เพาเวอร์เซต} $\mathcal{P}(A)$ : รวบรวมเซตย่อยทั้งหมด และการเติบโต $2^{|A|}$
       \item \textbf{ผลคูณคาร์ทีเซียน} $A \times B$ : การจับคู่สร้างคู่อันดับ รากฐานของฐานข้อมูลและฟังก์ชัน
-      \item \textbf{จำนวนสมาชิก (Cardinality)} : หลักการรวม-การแยกแบบเจาะลึก $|A \cup B|$ และ $|A \cup B \cup C|$
+      \item \textbf{จำนวนสมาชิก (Cardinality)} : เจาะลึกกระบวนการคิดและภาพส่วนซ้อนทับ $|A \cup B|$ และ $|A \cup B \cup C|$
       \item \textbf{เซตในคอมพิวเตอร์} : Bit Vector, SQL CROSS JOIN, Hash Set $O(1)$ และเซตอนันต์
     \end{itemize}
   \end{exampleblock}
@@ -36,7 +36,7 @@
   \begin{enumerate}
     \item หา \textbf{เพาเวอร์เซต} $\mathcal{P}(A)$ อธิบายที่มาของสูตร $|\mathcal{P}(A)| = 2^{|A|}$ และเชื่อมโยงกับการเติบโตเชิงเลขชี้กำลังและบิตมาสก์ได้
     \item หา \textbf{ผลคูณคาร์ทีเซียน} $A \times B$ เขียนตารางคาร์ทีเซียน ใช้สมบัติการกระจาย และคำนวณจำนวนสมาชิก $|A \times B| = |A| \cdot |B|$ ได้
-    \item เข้าใจกระบวนการคำนวณ \textbf{จำนวนสมาชิกของเซต (Cardinality)} หาค่า \textbf{$|A \cup B|$} และ \textbf{$|A \cup B \cup C|$} ทั้งด้วยสูตรและแผนภาพเวนน์เป็นขั้นตอน พร้อมตรวจความสอดคล้องของข้อมูลได้
+    \item เข้าใจกระบวนการคำนวณ \textbf{จำนวนสมาชิกของเซต (Cardinality)} หาค่า \textbf{$|A \cup B|$} และ \textbf{$|A \cup B \cup C|$} พร้อมเห็นภาพชัดเจนว่าทำไมต้องลบส่วนซ้อนทับออก
     \item อธิบายการแทนเซตด้วย \textbf{Bit Vector} การทำงานของ \textbf{SQL / Hash Set} และเข้าใจแนวคิด \textbf{เซตนับได้/นับไม่ได้} ได้
   \end{enumerate}
 \end{frame}
@@ -390,6 +390,40 @@
   \end{columns}
 \end{frame}
 
+\begin{frame}{เจาะลึกภาพ 2 เซต : ทำไมต้องลบส่วนซ้อนทับ $|A \cap B|$ ออก?}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      \textbf{การแจงนับทีละชิ้นส่วน}:
+      \begin{enumerate}\small
+        \item \textbf{ขั้น 1 (นับ $|A|$)}:
+              พื้นที่เฉพาะ $A$ นับ 1 ครั้ง, ตรงกลาง ($A \cap B$) นับ 1 ครั้ง
+        \item \textbf{ขั้น 2 (บวก $|B|$)}:
+              พื้นที่เฉพาะ $B$ นับ 1 ครั้ง, แต่ตรงกลาง ($A \cap B$) โดนบวกเพิ่มอีก กลายเป็น \textbf{\textcolor{Fred}{นับ 2 ครั้ง (ซ้ำเกินจริง!)}}
+        \item \textbf{ขั้น 3 (ลบ $|A \cap B|$)}:
+              หักส่วนซ้อนทับตรงกลางออก 1 ครั้ง $\Rightarrow$ ทุกชิ้นส่วนถูกนับ \textbf{\textcolor{Tgreen}{1 ครั้งพอดี}}
+      \end{enumerate}
+    \end{column}
+    \begin{column}{0.46\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=0.85,every node/.style={font=\scriptsize}]
+        \draw[thick] (-2.2,-1.4) rectangle (2.2,1.5);
+        \node at (1.9,1.2) {$U$};
+        \draw[fill=lightnavy,fill opacity=0.5] (-0.7,0) circle (1.1);
+        \draw[fill=mint,fill opacity=0.5] (0.7,0) circle (1.1);
+        \draw[thick] (-0.7,0) circle (1.1);
+        \draw[thick] (0.7,0) circle (1.1);
+        \node[circle,fill=Tgreen,text=white,inner sep=2pt] at (-1.1,0) {\textbf{1}};
+        \node[circle,fill=Fred,text=white,inner sep=2pt] at (0,0) {\textbf{2$\to$1}};
+        \node[circle,fill=Tgreen,text=white,inner sep=2pt] at (1.1,0) {\textbf{1}};
+        \node at (-1.4,1.2) {$A$};
+        \node at (1.4,1.2) {$B$};
+      \end{tikzpicture}\\
+      \footnotesize ส่วนซ้ำตรงกลางโดนบวก 2 ครั้ง จึงต้องหักออก 1 ครั้ง
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
 \begin{frame}{กระบวนการ 4 ขั้นตอนในการแก้โจทย์ 2 เซต ($|A \cup B|$)}
   \begin{enumerate}
     \item \textbf{ขั้นที่ 1: กำหนดสัญลักษณ์และดึงค่าตัวแปรจากโจทย์}
@@ -455,7 +489,39 @@
   \end{tabular}
   \end{center}
   \vspace{0.1em}
-  \footnotesize หากไม่บวก $|A \cap B \cap C|$ กลับเข้าไปในขั้นตอนสุดท้าย ส่วนซ้อน 3 เซตจะถูกหักออกจนเหลือ $0$ ($+3 - 3 = 0$)
+  \footnotesize หากไม่บวก $|A \cap B \cap C|$ กลับเข้าไปในขั้นตอนสุดท้าย ส่วนซ้อน 3 เซตจะถูกหักออกจนหายหมด ($+3 - 3 = 0$)
+\end{frame}
+
+\begin{frame}{เจาะลึกภาพ 3 เซต : ทำไมต้องลบคู่ 3 คู่แล้วบวก 3 เซตกลับคืน?}
+  \begin{columns}[T]
+    \begin{column}{0.50\textwidth}
+      \begin{enumerate}\small
+        \item \textbf{ขั้น 1 (+บวกเดี่ยว 3 เซต)}:
+              เซตเดี่ยวโดนนับ 1, ซ้อน 2 เซตโดนนับ 2, และ \textbf{กึ่งกลางสุดโดนนับถึง 3 ครั้ง!}
+        \item \textbf{ขั้น 2 (−ลบคู่ 3 คู่)}:
+              ซ้อน 2 เซตหักออก 1 เหลือ 1 ครั้งพอดี แต่ \textbf{กึ่งกลางสุดโดนลบ 3 ครั้ง ($3-3=0$) กลายเป็นรูกลวง!}
+        \item \textbf{ขั้น 3 (+บวกสามกลับคืน)}:
+              เติม $|A \cap B \cap C|$ กลับคืน 1 ครั้ง $\Rightarrow$ ทุกบริเวณนับ \textbf{1 ครั้งพอดีอย่างสมบูรณ์!}
+      \end{enumerate}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{center}
+      \begin{tikzpicture}[scale=0.75,every node/.style={font=\tiny}]
+        \draw[thick] (-2.5,-2.2) rectangle (2.5,2.2);
+        \draw[thick,fill=lightnavy,fill opacity=0.3] (-0.8,0.6) circle (1.2);
+        \draw[thick,fill=mint,fill opacity=0.3] (0.8,0.6) circle (1.2);
+        \draw[thick,fill=lyellow,fill opacity=0.3] (0,-0.6) circle (1.2);
+        \node[circle,fill=Tgreen,text=white,inner sep=1.5pt] at (-1.1,0.8) {1};
+        \node[circle,fill=Tgreen,text=white,inner sep=1.5pt] at (1.1,0.8) {1};
+        \node[circle,fill=Tgreen,text=white,inner sep=1.5pt] at (0,-1.0) {1};
+        \node[circle,fill=Tgreen,text=white,inner sep=1.5pt] at (0,1.1) {1};
+        \node[circle,fill=Tgreen,text=white,inner sep=1.5pt] at (-0.6,-0.1) {1};
+        \node[circle,fill=Tgreen,text=white,inner sep=1.5pt] at (0.6,-0.1) {1};
+        \node[circle,fill=Fred,text=white,inner sep=1.5pt] at (0,0.3) {\textbf{+3-3+1=1}};
+      \end{tikzpicture}
+      \end{center}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{โครงสร้าง 8 บริเวณของแผนภาพเวนน์ 3 เซต}

@@ -81,11 +81,11 @@ body{
 .body{position:absolute;top:0;left:0;right:0;bottom:0;
   padding:13.5cqh 5.4cqw 5.8cqh;display:flex;flex-direction:column;justify-content:center;gap:2.2cqh;
   font-size:2.9cqh;line-height:1.45;overflow:hidden}
-.body.tight{gap:1.4cqh}
+.body.tight{gap:1.3cqh}
 .body.top{justify-content:flex-start;padding-top:14.5cqh}
 .lead{color:var(--ink)}
 .muted{color:#6a7796}
-.tiny{font-size:2.25cqh;line-height:1.36}
+.tiny{font-size:2.2cqh;line-height:1.36}
 
 .foot{position:absolute;left:0;right:0;bottom:0;height:5cqh;
   display:flex;align-items:center;justify-content:space-between;
@@ -177,6 +177,36 @@ table.tt td .vf{background:var(--pink);color:var(--red2);box-shadow:inset 0 0 0 
 table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
 .tt-cap{font-size:2cqh;color:#6a7796;margin-top:.3cqh;font-family:var(--f-head);text-align:center}
 
+/* ===================== process cards (step-by-step) ===================== */
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2cqw;margin-top:.4cqh}
+.proc-grid.five{grid-template-columns:repeat(5,1fr);gap:.8cqw}
+.proc-card{background:#fff;border-radius:10px;padding:1.3cqh 1.1cqw;border:1px solid var(--line2);
+  box-shadow:0 6px 16px -10px rgba(31,58,147,.3);display:flex;flex-direction:column;gap:.5cqh}
+.proc-card .p-num{font-family:var(--f-mono);font-size:1.8cqh;font-weight:700;background:var(--navy);
+  color:#fff;border-radius:6px;padding:.15em .5em;align-self:flex-start}
+.proc-card .p-title{font-family:var(--f-head);font-size:2.1cqh;font-weight:700;color:var(--navy2)}
+.proc-card .p-desc{font-size:1.8cqh;color:var(--ink-soft);line-height:1.35}
+
+/* ===================== interactive venn visualizer ===================== */
+.v-step-box{display:grid;grid-template-columns:1.1fr 1fr;gap:2.2cqw;align-items:center;background:#fff;
+  border-radius:12px;padding:2cqh 2cqw;border:1px solid var(--line2);box-shadow:0 10px 24px -14px rgba(31,58,147,.4)}
+.v-nav{display:flex;gap:.8cqw;margin-bottom:1cqh}
+.v-btn{font-family:var(--f-head);font-size:2cqh;font-weight:600;padding:.4cqh 1.2cqw;border-radius:20px;
+  border:1px solid var(--line2);background:var(--lnavy);color:var(--navy);cursor:pointer;transition:all .2s}
+.v-btn:hover{background:var(--navy);color:#fff}
+.v-btn.active{background:var(--navy);color:#fff;font-weight:700;box-shadow:0 4px 12px rgba(31,58,147,.3)}
+.v-badge{display:inline-flex;align-items:center;justify-content:center;min-width:1.6em;height:1.6em;
+  border-radius:50%;font-family:var(--f-mono);font-weight:700;font-size:14px;color:#fff}
+.v-badge.b1{background:#2E8B57}
+.v-badge.b2{background:#C0392B;animation:pulse 1s infinite alternate}
+.v-badge.b3{background:#B7950B}
+.v-badge.b0{background:#6a7796}
+
+@keyframes pulse{
+  0%{transform:scale(1);box-shadow:0 0 0 0 rgba(192,57,43,.4)}
+  100%{transform:scale(1.15);box-shadow:0 0 12px 4px rgba(192,57,43,.6)}
+}
+
 /* ===================== progress bar & dock ===================== */
 .progress{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(31,58,147,.1);z-index:99}
 .progress .bar{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--navy));transition:width .25s ease}
@@ -238,16 +268,6 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
 .toc .it .n{font-family:var(--f-mono);font-size:3.6cqh;font-weight:700;color:var(--navy);opacity:.7}
 .toc .it .t{font-family:var(--f-head);font-size:2.8cqh;font-weight:700;color:var(--navy2)}
 .toc .it .d{font-size:2.1cqh;color:var(--ink-soft)}
-
-/* ===================== process cards (step-by-step) ===================== */
-.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2cqw;margin-top:.6cqh}
-.proc-grid.five{grid-template-columns:repeat(5,1fr);gap:.9cqw}
-.proc-card{background:#fff;border-radius:10px;padding:1.4cqh 1.2cqw;border:1px solid var(--line2);
-  box-shadow:0 6px 16px -10px rgba(31,58,147,.3);display:flex;flex-direction:column;gap:.6cqh}
-.proc-card .p-num{font-family:var(--f-mono);font-size:1.8cqh;font-weight:700;background:var(--navy);
-  color:#fff;border-radius:6px;padding:.15em .5em;align-self:flex-start}
-.proc-card .p-title{font-family:var(--f-head);font-size:2.2cqh;font-weight:700;color:var(--navy2)}
-.proc-card .p-desc{font-size:1.85cqh;color:var(--ink-soft);line-height:1.35}
 
 /* ===================== game layout ===================== */
 .game{position:absolute;inset:0;padding:5cqh 6cqw;display:flex;flex-direction:column;background:linear-gradient(145deg,#121d3b,#0b1328);color:#fff}
@@ -338,7 +358,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
     <ol class="num">
       <li class="anim" style="--i:1">หา <b>เพาเวอร์เซต 𝒫(A)</b> อธิบายที่มาของสูตร <span class="expr">|𝒫(A)| = 2<sup>|A|</sup></span> และเชื่อมโยงกับการเติบโตเชิงเลขชี้กำลังและบิตมาสก์ได้</li>
       <li class="anim" style="--i:2">หา <b>ผลคูณคาร์ทีเซียน A × B</b> เขียนตารางคาร์ทีเซียน ใช้สมบัติการกระจาย และคำนวณจำนวนสมาชิก <span class="expr">|A × B| = |A|·|B|</span> ได้</li>
-      <li class="anim" style="--i:3">เข้าใจกระบวนการคำนวณ <b>จำนวนสมาชิกของเซต (Cardinality)</b> หาค่า <b>|A ∪ B|</b> และ <b>|A ∪ B ∪ C|</b> ทั้งด้วยสูตรและแผนภาพเวนน์เป็นขั้นตอน พร้อมตรวจความสอดคล้องของข้อมูลได้</li>
+      <li class="anim" style="--i:3">เข้าใจกระบวนการคำนวณ <b>จำนวนสมาชิกของเซต (Cardinality)</b> หาค่า <b>|A ∪ B|</b> และ <b>|A ∪ B ∪ C|</b> พร้อมเห็นภาพชัดเจนว่าทำไมต้องลบส่วนซ้อนทับออก</li>
       <li class="anim" style="--i:4">อธิบายการแทนเซตด้วย <b>Bit Vector</b> การทำงานของ <b>SQL / Hash Set</b> และเข้าใจแนวคิด <b>เซตนับได้/นับไม่ได้</b> ได้</li>
     </ol>
   </div>
@@ -359,7 +379,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
         <div class="d">คู่อันดับ · ตารางคาร์ทีเซียน · สมบัติการกระจาย · ฐานข้อมูล &amp; SQL</div></div></div>
       <div class="it anim" style="--i:2"><div class="n">03</div><div class="tx">
         <div class="t">การหาจำนวนสมาชิก |A ∪ B| และ |A ∪ B ∪ C|</div>
-        <div class="d">กระบวนการคิด 4 และ 5 ขั้นตอน · Logic Trace · แผนภาพเวนน์ · Data Validation</div></div></div>
+        <div class="d">ภาพจำลองทีละส่วน · Logic Trace · แผนภาพเวนน์ · Data Validation</div></div></div>
       <div class="it anim" style="--i:3"><div class="n">04</div><div class="tx">
         <div class="t">เซตในคอมพิวเตอร์ &amp; กิจกรรม</div>
         <div class="d">Bit Vector · Hash Set O(1) · เซตอนันต์ · เกมถอดรหัสบิต</div></div></div>
@@ -769,7 +789,54 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">การหาจำนวนสมาชิก 2 เซต</span></div>
 </section>
 
-<!-- ============================== 23 · PROCESS 2 SETS ============================== -->
+<!-- ============================== 23 · INTERACTIVE VENN 2 SETS ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">เจาะลึกมโนภาพทีละส่วน</span>
+    <h2>เจาะลึกภาพ 2 เซต: ทำไมต้องลบ |A ∩ B| ออก?</h2></div></div>
+  <div class="body tight">
+    <div class="v-step-box">
+      <div>
+        <div class="v-nav">
+          <button class="v-btn active" id="v2Btn1">ขั้นที่ 1 : นับ |A|</button>
+          <button class="v-btn" id="v2Btn2">ขั้นที่ 2 : บวก |B|</button>
+          <button class="v-btn" id="v2Btn3">ขั้นที่ 3 : ลบ |A ∩ B|</button>
+        </div>
+        <div id="v2Desc" style="font-size:2.3cqh;line-height:1.45;color:var(--navy2);min-height:9cqh">
+          <b>ขั้นที่ 1: นับสมาชิกในเซต A</b><br>
+          • บริเวณเฉพาะ A (<span class="expr">A − B</span>) ถูกนับ <span class="v-badge b1">1</span> ครั้ง<br>
+          • บริเวณตรงกลาง (<span class="expr">A ∩ B</span>) ถูกนับ <span class="v-badge b1">1</span> ครั้ง
+        </div>
+        <div class="block ex" id="v2Formula" style="margin-top:.8cqh;padding:1cqh 1.2cqw">
+          <span class="lab"><span class="pin">สถานะสมการ</span></span>
+          <span class="expr" id="v2Eq">ผลรวม = |A|</span>
+        </div>
+      </div>
+      <div class="center">
+        <svg viewBox="0 0 280 180" style="width:100%;max-width:38cqh" id="v2Svg">
+          <rect x="4" y="4" width="272" height="172" fill="none" stroke="#1F3A93" stroke-width="2" rx="10"/>
+          <text x="256" y="26" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" fill="#1F3A93">U</text>
+          <!-- Circle A -->
+          <circle id="v2CircleA" cx="105" cy="95" r="58" fill="#1F3A93" fill-opacity=".35" stroke="#1F3A93" stroke-width="2.5"/>
+          <!-- Circle B -->
+          <circle id="v2CircleB" cx="175" cy="95" r="58" fill="#2E8B57" fill-opacity=".08" stroke="#2E8B57" stroke-width="2"/>
+          <!-- Overlap Highlight -->
+          <path id="v2Overlap" d="M 140,49 A 58,58 0 0,1 140,141 A 58,58 0 0,1 140,49" fill="#C0392B" fill-opacity="0" stroke="none"/>
+          
+          <text x="75" y="32" font-family="JetBrains Mono,monospace" font-size="16" font-weight="700" fill="#1F3A93">A</text>
+          <text x="205" y="32" font-family="JetBrains Mono,monospace" font-size="16" font-weight="700" fill="#2E8B57">B</text>
+          
+          <!-- Count Badges -->
+          <g transform="translate(80, 95)"><circle r="12" fill="#2E8B57"/><text id="v2BadgeA" y="4" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#fff">1</text></g>
+          <g transform="translate(140, 95)"><circle id="v2BadgeMidBg" r="14" fill="#2E8B57"/><text id="v2BadgeMid" y="5" text-anchor="middle" font-family="JetBrains Mono" font-size="14" font-weight="700" fill="#fff">1</text></g>
+          <g transform="translate(200, 95)"><circle id="v2BadgeBBg" r="12" fill="#6a7796"/><text id="v2BadgeB" y="4" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#fff">0</text></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">มโนภาพ 2 เซต</span></div>
+</section>
+
+<!-- ============================== 24 · PROCESS 2 SETS ============================== -->
 <section class="slide">
   <div class="head"><div><span class="kick">กระบวนการแก้โจทย์อย่างเป็นระบบ</span>
     <h2>กระบวนการ 4 ขั้นตอนในการหา |A ∪ B|</h2></div></div>
@@ -803,7 +870,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">กระบวนการ 2 เซต</span></div>
 </section>
 
-<!-- ============================== 24 · WORKED EXAMPLE 2 SETS ============================== -->
+<!-- ============================== 25 · WORKED EXAMPLE 2 SETS ============================== -->
 <section class="slide">
   <div class="head"><div><span class="kick">ตัวอย่างการคำนวณ 2 เซต</span>
     <h2>การแก้โจทย์ |A ∪ B| (สูตร vs แผนภาพเวนน์)</h2></div></div>
@@ -835,7 +902,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">การหาจำนวนสมาชิก 2 เซต</span></div>
 </section>
 
-<!-- ============================== 25 · INCLUSION-EXCLUSION 3 SETS ============================== -->
+<!-- ============================== 26 · INCLUSION-EXCLUSION 3 SETS ============================== -->
 <section class="slide">
   <div class="head"><div><span class="kick">การหาจำนวนสมาชิก 3 เซต</span>
     <h2>การหา |A ∪ B ∪ C| และ Logic Trace</h2></div></div>
@@ -862,7 +929,57 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">การหาจำนวนสมาชิก 3 เซต</span></div>
 </section>
 
-<!-- ============================== 26 · 8 REGIONS VENN ============================== -->
+<!-- ============================== 27 · INTERACTIVE VENN 3 SETS ============================== -->
+<section class="slide">
+  <div class="head"><div><span class="kick">เจาะลึกมโนภาพ 3 เซต</span>
+    <h2>เจาะลึกภาพ 3 เซต: ลบคู่แล้วทำไมต้องบวก 3 เซตกลับคืน?</h2></div></div>
+  <div class="body tight">
+    <div class="v-step-box">
+      <div>
+        <div class="v-nav">
+          <button class="v-btn active" id="v3Btn1">ขั้น 1: +บวกเดี่ยว 3 เซต</button>
+          <button class="v-btn" id="v3Btn2">ขั้น 2: −ลบคู่ 3 คู่</button>
+          <button class="v-btn" id="v3Btn3">ขั้น 3: +บวกสามกลับคืน</button>
+        </div>
+        <div id="v3Desc" style="font-size:2.2cqh;line-height:1.45;color:var(--navy2);min-height:9.5cqh">
+          <b>ขั้นที่ 1: บวกขนาดของทั้ง 3 เซต (|A| + |B| + |C|)</b><br>
+          • เซตเดี่ยว (r₁, r₂, r₃) นับ <span class="v-badge b1">1</span> ครั้ง<br>
+          • ซ้อน 2 เซต (r₄, r₅, r₆) นับ <span class="v-badge b2">2</span> ครั้ง (ซ้ำเกิน +1)<br>
+          • <b>ซ้อน 3 เซตตรงกลาง (r₇)</b> นับถึง <span class="v-badge b2" style="background:#8a1f11">3</span> ครั้ง!
+        </div>
+        <div class="block gold" id="v3Formula" style="margin-top:.6cqh;padding:.8cqh 1.2cqw">
+          <span class="lab"><span class="pin">สถานะสุทธิ</span></span>
+          <span class="expr" id="v3Eq">|A| + |B| + |C|</span>
+        </div>
+      </div>
+      <div class="center">
+        <svg viewBox="0 0 280 230" style="width:100%;max-width:39cqh" id="v3Svg">
+          <rect x="4" y="4" width="272" height="222" fill="none" stroke="#1F3A93" stroke-width="2" rx="10"/>
+          <text x="256" y="24" font-family="JetBrains Mono,monospace" font-size="14" font-weight="700" fill="#1F3A93">U</text>
+          
+          <circle id="v3CirA" cx="105" cy="90" r="55" fill="#1F3A93" fill-opacity=".25" stroke="#1F3A93" stroke-width="2"/>
+          <circle id="v3CirB" cx="175" cy="90" r="55" fill="#2E8B57" fill-opacity=".25" stroke="#2E8B57" stroke-width="2"/>
+          <circle id="v3CirC" cx="140" cy="145" r="55" fill="#B7950B" fill-opacity=".25" stroke="#B7950B" stroke-width="2"/>
+          
+          <!-- Badges on 7 regions -->
+          <g transform="translate(80, 85)"><circle id="v3Bg1" r="10" fill="#2E8B57"/><text id="v3Txt1" y="3.5" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#fff">1</text></g>
+          <g transform="translate(200, 85)"><circle id="v3Bg2" r="10" fill="#2E8B57"/><text id="v3Txt2" y="3.5" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#fff">1</text></g>
+          <g transform="translate(140, 180)"><circle id="v3Bg3" r="10" fill="#2E8B57"/><text id="v3Txt3" y="3.5" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#fff">1</text></g>
+          
+          <g transform="translate(140, 70)"><circle id="v3Bg4" r="11" fill="#C0392B"/><text id="v3Txt4" y="4" text-anchor="middle" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#fff">2</text></g>
+          <g transform="translate(108, 130)"><circle id="v3Bg5" r="11" fill="#C0392B"/><text id="v3Txt5" y="4" text-anchor="middle" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#fff">2</text></g>
+          <g transform="translate(172, 130)"><circle id="v3Bg6" r="11" fill="#C0392B"/><text id="v3Txt6" y="4" text-anchor="middle" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#fff">2</text></g>
+          
+          <!-- Center 3-set badge -->
+          <g transform="translate(140, 112)"><circle id="v3Bg7" r="14" fill="#8a1f11"/><text id="v3Txt7" y="5" text-anchor="middle" font-family="JetBrains Mono" font-size="14" font-weight="700" fill="#fff">3</text></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">มโนภาพ 3 เซต</span></div>
+</section>
+
+<!-- ============================== 28 · 8 REGIONS VENN ============================== -->
 <section class="slide">
   <div class="head"><div><span class="kick">โครงสร้างแผนภาพเวนน์ 3 เซต</span>
     <h2>โครงสร้าง 8 บริเวณของ 3 เซต (r₁ ถึง r₈)</h2></div></div>
@@ -903,7 +1020,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">การหาจำนวนสมาชิก 3 เซต</span></div>
 </section>
 
-<!-- ============================== 27 · PROCESS 3 SETS ============================== -->
+<!-- ============================== 29 · PROCESS 3 SETS ============================== -->
 <section class="slide">
   <div class="head"><div><span class="kick">กระบวนการแก้โจทย์อย่างเป็นระบบ</span>
     <h2>กระบวนการ 5 ขั้นตอนในการหา |A ∪ B ∪ C|</h2></div></div>
@@ -942,7 +1059,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">กระบวนการ 3 เซต</span></div>
 </section>
 
-<!-- ============================== 28 · WORKED EXAMPLE 3 SETS ============================== -->
+<!-- ============================== 30 · WORKED EXAMPLE 3 SETS ============================== -->
 <section class="slide">
   <div class="head"><div><span class="kick">ตัวอย่างการคำนวณ 3 เซต</span>
     <h2>ตัวอย่างการแก้โจทย์ 3 วิชาอย่างละเอียด</h2></div></div>
@@ -966,7 +1083,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">การหาจำนวนสมาชิก 3 เซต</span></div>
 </section>
 
-<!-- ============================== 29 · DATA VALIDATION ============================== -->
+<!-- ============================== 31 · DATA VALIDATION ============================== -->
 <section class="slide">
   <div class="head"><div><span class="kick">การตรวจความถูกต้องข้อมูล</span>
     <h2>การตรวจสอบความสอดคล้องของข้อมูล (Data Validation)</h2></div></div>
@@ -988,7 +1105,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">การหาจำนวนสมาชิก 3 เซต</span></div>
 </section>
 
-<!-- ============================== 30 · DIVIDER 04 ============================== -->
+<!-- ============================== 32 · DIVIDER 04 ============================== -->
 <section class="slide">
   <div class="divider">
     <div class="ghost">01</div>
@@ -997,7 +1114,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   </div>
 </section>
 
-<!-- ============================== 31 · BIT VECTOR ============================== -->
+<!-- ============================== 33 · BIT VECTOR ============================== -->
 <section class="slide">
   <div class="head"><div><span class="kick">โครงสร้างข้อมูลระดับบิต</span>
     <h2>การแทนเซตด้วยเวกเตอร์บิต (Bit Vector)</h2></div></div>
@@ -1026,7 +1143,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">เซตในคอมพิวเตอร์</span></div>
 </section>
 
-<!-- ============================== 32 · SQL SET OPS ============================== -->
+<!-- ============================== 34 · SQL SET OPS ============================== -->
 <section class="slide">
   <div class="head"><div><span class="kick">ฐานข้อมูล SQL</span>
     <h2>เซตในภาษา SQL และระบบฐานข้อมูล</h2></div></div>
@@ -1051,7 +1168,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">เซตในคอมพิวเตอร์</span></div>
 </section>
 
-<!-- ============================== 33 · HASH SET ============================== -->
+<!-- ============================== 35 · HASH SET ============================== -->
 <section class="slide">
   <div class="head"><div><span class="kick">โครงสร้างข้อมูลตารางแฮช</span>
     <h2>Hash Set: ประสิทธิภาพค้นหาสมาชิก O(1)</h2></div></div>
@@ -1075,7 +1192,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">เซตในคอมพิวเตอร์</span></div>
 </section>
 
-<!-- ============================== 34 · COUNTABLE / UNCOUNTABLE ============================== -->
+<!-- ============================== 36 · COUNTABLE / UNCOUNTABLE ============================== -->
 <section class="slide">
   <div class="head"><div><span class="kick">เซตอนันต์</span>
     <h2>เซตนับได้และเซตนับไม่ได้ (Countable vs Uncountable)</h2></div></div>
@@ -1103,7 +1220,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">เซตอนันต์</span></div>
 </section>
 
-<!-- ============================== 35 · ACTIVITY 1 ============================== -->
+<!-- ============================== 37 · ACTIVITY 1 ============================== -->
 <section class="slide">
   <div class="head"><div><span class="kick">กิจกรรมในชั้นเรียน</span>
     <h2>กิจกรรมที่ 1 : เพาเวอร์เซต (6 นาที)</h2></div></div>
@@ -1127,7 +1244,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">กิจกรรม</span></div>
 </section>
 
-<!-- ============================== 36 · ACTIVITY 2 ============================== -->
+<!-- ============================== 38 · ACTIVITY 2 ============================== -->
 <section class="slide">
   <div class="head"><div><span class="kick">กิจกรรมในชั้นเรียน</span>
     <h2>กิจกรรมที่ 2 : ผลคูณคาร์ทีเซียน (6 นาที)</h2></div></div>
@@ -1153,7 +1270,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">กิจกรรม</span></div>
 </section>
 
-<!-- ============================== 37 · ACTIVITY 3 ============================== -->
+<!-- ============================== 39 · ACTIVITY 3 ============================== -->
 <section class="slide">
   <div class="head"><div><span class="kick">กิจกรรมในชั้นเรียน</span>
     <h2>กิจกรรมที่ 3 : การนับสมาชิก 2 และ 3 เซต (8 นาที)</h2></div></div>
@@ -1179,7 +1296,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">กิจกรรม</span></div>
 </section>
 
-<!-- ============================== 38 · SUMMARY ============================== -->
+<!-- ============================== 40 · SUMMARY ============================== -->
 <section class="slide">
   <div class="head"><div><span class="kick">สรุปบทเรียน</span>
     <h2>สรุปสัปดาห์ที่ 6 และภาพรวมบทที่ 2</h2></div></div>
@@ -1203,7 +1320,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">สรุป</span></div>
 </section>
 
-<!-- ============================== 39 · HOMEWORK ============================== -->
+<!-- ============================== 41 · HOMEWORK ============================== -->
 <section class="slide">
   <div class="head"><div><span class="kick">งานมอบหมาย</span>
     <h2>แบบฝึกหัดมอบหมาย (สัปดาห์ที่ 6)</h2></div></div>
@@ -1220,7 +1337,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   <div class="foot"><span>คณิตศาสตร์สำหรับคอมพิวเตอร์<span class="dot">◆</span>บทที่ 2 ทฤษฎีเซต</span><span class="right">งานมอบหมาย</span></div>
 </section>
 
-<!-- ============================== 40 · GAME COVER ============================== -->
+<!-- ============================== 42 · GAME COVER ============================== -->
 <section class="slide">
   <div class="divider">
     <div class="ghost">01</div>
@@ -1230,7 +1347,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   </div>
 </section>
 
-<!-- ============================== 41 · GAME ENGINE ============================== -->
+<!-- ============================== 43 · GAME ENGINE ============================== -->
 <section class="slide">
   <div class="game" id="game">
     <div class="g-layout">
@@ -1245,7 +1362,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   </div>
 </section>
 
-<!-- ============================== 42 · CLOSING ============================== -->
+<!-- ============================== 44 · CLOSING ============================== -->
 <section class="slide">
   <div class="divider">
     <div class="ghost">FIN</div>
@@ -1260,7 +1377,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
 <!-- dock -->
 <div class="dock">
   <button id="bPrev" title="ก่อนหน้า (←)">‹</button>
-  <span class="count" id="count">01 / 42</span>
+  <span class="count" id="count">01 / 44</span>
   <button id="bNext" title="ถัดไป (→ / Space)">›</button>
   <span class="sep"></span>
   <button id="bHelp" title="แป้นพิมพ์ (?)">?</button>
@@ -1332,7 +1449,7 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   // click background to advance
   document.addEventListener('click', e=>{
     if(document.getElementById('help').classList.contains('show')){ document.getElementById('help').classList.remove('show'); return; }
-    if(e.target.closest('.reveal,.dock,.help,a,button,svg,.game')) return;
+    if(e.target.closest('.reveal,.dock,.help,a,button,svg,.game,.v-step-box')) return;
     next();
   });
 
@@ -1354,6 +1471,86 @@ table.tt.wide th,table.tt.wide td{padding:.48cqh .9cqw;font-size:.82em}
   if(!isNaN(fromHash)) cur=Math.max(0,Math.min(total-1,fromHash-1));
 
   render();
+})();
+
+/* ===================== Interactive Venn 2 Sets Controller ===================== */
+(function(){
+  const btn1=document.getElementById('v2Btn1'), btn2=document.getElementById('v2Btn2'), btn3=document.getElementById('v2Btn3');
+  const desc=document.getElementById('v2Desc'), eq=document.getElementById('v2Eq');
+  const cirA=document.getElementById('v2CircleA'), cirB=document.getElementById('v2CircleB'), ovl=document.getElementById('v2Overlap');
+  const bA=document.getElementById('v2BadgeA'), bB=document.getElementById('v2BadgeB'), bM=document.getElementById('v2BadgeMid'), bMBg=document.getElementById('v2BadgeMidBg'), bBBg=document.getElementById('v2BadgeBBg');
+  if(!btn1) return;
+
+  function setStep(step){
+    [btn1,btn2,btn3].forEach((b,i)=>b.classList.toggle('active', i===step-1));
+    if(step===1){
+      cirA.setAttribute('fill-opacity', '.4');
+      cirB.setAttribute('fill-opacity', '.06');
+      ovl.setAttribute('fill-opacity', '0');
+      bA.textContent='1'; bM.textContent='1'; bB.textContent='0';
+      bMBg.setAttribute('fill', '#2E8B57'); bBBg.setAttribute('fill', '#6a7796');
+      desc.innerHTML='<b>ขั้นที่ 1 : นับสมาชิกในเซต A</b><br>• บริเวณเฉพาะ A (<span class="expr">A − B</span>) ถูกนับ <span class="v-badge b1">1</span> ครั้ง<br>• บริเวณตรงกลาง (<span class="expr">A ∩ B</span>) ถูกนับ <span class="v-badge b1">1</span> ครั้ง<br>• บริเวณเฉพาะ B ยังไม่ได้ถูกนับ (<span class="v-badge b0">0</span> ครั้ง)';
+      eq.innerHTML='ผลรวม = <b>|A|</b>';
+    } else if(step===2){
+      cirA.setAttribute('fill-opacity', '.35');
+      cirB.setAttribute('fill-opacity', '.35');
+      ovl.setAttribute('fill-opacity', '.35');
+      bA.textContent='1'; bM.textContent='2'; bB.textContent='1';
+      bMBg.setAttribute('fill', '#C0392B'); bBBg.setAttribute('fill', '#2E8B57');
+      desc.innerHTML='<b>ขั้นที่ 2 : บวกสมาชิกในเซต B เข้ามา (+|B|)</b><br>• บริเวณเฉพาะ B (<span class="expr">B − A</span>) ถูกนับ <span class="v-badge b1">1</span> ครั้ง<br>• <b style="color:#C0392B">ปัญหาเกิดขึ้น!</b> บริเวณตรงกลาง (<span class="expr">A ∩ B</span>) ถูกนับซ้อนเป็น <span class="v-badge b2">2</span> ครั้ง (เกินจริง!)';
+      eq.innerHTML='ผลรวม = |A| + |B| <span style="color:#C0392B"><b>(นับส่วนซ้ำซ้อน 2 ครั้ง!)</b></span>';
+    } else if(step===3){
+      cirA.setAttribute('fill-opacity', '.25');
+      cirB.setAttribute('fill-opacity', '.25');
+      ovl.setAttribute('fill-opacity', '.15');
+      bA.textContent='1'; bM.textContent='1'; bB.textContent='1';
+      bMBg.setAttribute('fill', '#2E8B57'); bBBg.setAttribute('fill', '#2E8B57');
+      desc.innerHTML='<b>ขั้นที่ 3 : ลบส่วนซ้อนทับออก 1 ครั้ง (−|A ∩ B|)</b><br>• บริเวณตรงกลางลดจาก 2 ครั้งเหลือ <span class="v-badge b1">1</span> ครั้งพอดี<br>• ทุกชิ้นส่วนในแผนภาพเวนน์ถูกนับ <b>1 ครั้งพอดีอย่างสมบูรณ์</b>';
+      eq.innerHTML='<b>|A ∪ B| = |A| + |B| − |A ∩ B| ✓</b>';
+    }
+  }
+  btn1.onclick=()=>setStep(1);
+  btn2.onclick=()=>setStep(2);
+  btn3.onclick=()=>setStep(3);
+})();
+
+/* ===================== Interactive Venn 3 Sets Controller ===================== */
+(function(){
+  const btn1=document.getElementById('v3Btn1'), btn2=document.getElementById('v3Btn2'), btn3=document.getElementById('v3Btn3');
+  const desc=document.getElementById('v3Desc'), eq=document.getElementById('v3Eq');
+  const t1=document.getElementById('v3Txt1'), t2=document.getElementById('v3Txt2'), t3=document.getElementById('v3Txt3'),
+        t4=document.getElementById('v3Txt4'), t5=document.getElementById('v3Txt5'), t6=document.getElementById('v3Txt6'), t7=document.getElementById('v3Txt7');
+  const bg4=document.getElementById('v3Bg4'), bg5=document.getElementById('v3Bg5'), bg6=document.getElementById('v3Bg6'), bg7=document.getElementById('v3Bg7');
+  if(!btn1) return;
+
+  function setStep3(step){
+    [btn1,btn2,btn3].forEach((b,i)=>b.classList.toggle('active', i===step-1));
+    if(step===1){
+      t1.textContent='1'; t2.textContent='1'; t3.textContent='1';
+      t4.textContent='2'; t5.textContent='2'; t6.textContent='2'; t7.textContent='3';
+      [bg4,bg5,bg6].forEach(b=>b.setAttribute('fill','#C0392B'));
+      bg7.setAttribute('fill','#8a1f11');
+      desc.innerHTML='<b>ขั้นที่ 1 : บวกเดี่ยว 3 เซต (+|A| + |B| + |C|)</b><br>• เซตเดี่ยว (r₁, r₂, r₃) นับ <span class="v-badge b1">1</span> ครั้ง<br>• ซ้อน 2 เซต (r₄, r₅, r₆) นับซ้ำ <span class="v-badge b2">2</span> ครั้ง<br>• <b>ซ้อน 3 เซตตรงกลาง (r₇)</b> ถูกนับซ้ำถึง <span class="v-badge b2" style="background:#8a1f11">3</span> ครั้ง!';
+      eq.innerHTML='ผลรวม = |A| + |B| + |C| <span style="color:#C0392B"><b>(นับคู่ซ้ำ 2 ครั้ง, กลางซ้ำ 3 ครั้ง)</b></span>';
+    } else if(step===2){
+      t1.textContent='1'; t2.textContent='1'; t3.textContent='1';
+      t4.textContent='1'; t5.textContent='1'; t6.textContent='1'; t7.textContent='0';
+      [bg4,bg5,bg6].forEach(b=>b.setAttribute('fill','#2E8B57'));
+      bg7.setAttribute('fill','#6a7796');
+      desc.innerHTML='<b>ขั้นที่ 2 : ลบคู่ 3 คู่ (−|A∩B| − |A∩C| − |B∩C|)</b><br>• ซ้อน 2 เซตโดนลบ 1 ครั้ง $\\to$ เหลือ <span class="v-badge b1">1</span> ครั้งพอดี<br>• <b style="color:#C0392B">ปัญหาใหม่!</b> กึ่งกลางสุดโดนลบ 3 ครั้ง ($3 - 3 = 0$) ทำให้ <b>ตรงกลางกลวง/หายไปหมด!</b> (<span class="v-badge b0">0</span> ครั้ง)';
+      eq.innerHTML='ผลรวม = ∑|เดี่ยว| − ∑|คู่| <span style="color:#C0392B"><b>(ตรงกลางสุด r₇ โดนหักจนเหลือ 0!)</b></span>';
+    } else if(step===3){
+      t1.textContent='1'; t2.textContent='1'; t3.textContent='1';
+      t4.textContent='1'; t5.textContent='1'; t6.textContent='1'; t7.textContent='1';
+      [bg4,bg5,bg6].forEach(b=>b.setAttribute('fill','#2E8B57'));
+      bg7.setAttribute('fill','#2E8B57');
+      desc.innerHTML='<b>ขั้นที่ 3 : บวกส่วนกลาง 3 เซตกลับคืน (+|A ∩ B ∩ C|)</b><br>• เติมส่วนตรงกลางที่กลวงให้กลับมามีค่าเป็น <span class="v-badge b1">1</span> ครั้งพอดี ($0 + 1 = 1$)<br>• ทุกบริเวณทั้ง 7 ส่วนนับ <b>1 ครั้งพอดีอย่างสมบูรณ์แบบ</b>';
+      eq.innerHTML='<b>|A∪B∪C| = ∑|A| − ∑|A∩B| + |A∩B∩C| ✓</b>';
+    }
+  }
+  btn1.onclick=()=>setStep3(1);
+  btn2.onclick=()=>setStep3(2);
+  btn3.onclick=()=>setStep3(3);
 })();
 
 /* ===================== Logic Challenge Game Engine ===================== */

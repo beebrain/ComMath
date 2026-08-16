@@ -1,14 +1,14 @@
 % !TeX program = xelatex
 %% =====================================================================
 %%  ใบกิจกรรมในชั้นเรียน (Worksheet) บทที่ 2 : ทฤษฎีเซต --- สัปดาห์ที่ 6
-%%  สร้างใบงานรายบุคคล: 2 หน้าต่อ 1 รหัสนักศึกษา (รายชื่อใน _students.tex)
+%%  สร้างใบงานรายบุคคล: 2 หน้าเต็มต่อ 1 รหัสนักศึกษา (รายชื่อใน _students.tex)
 %%  หน้า 1: พิมพ์รหัสนักศึกษา + QR Code (สำหรับสแกนเก็บคะแนน)
 %%  หน้า 2: หัวกระดาษแบบต่อเนื่อง (เฉพาะชื่อและรหัส ไม่พิมพ์ QR Code ซ้ำ)
 %% =====================================================================
 \documentclass[a4paper,12pt]{article}
 \usepackage{fontspec}
 \usepackage{amsmath,amssymb}
-\usepackage[margin=1.5cm,top=1.3cm,bottom=1.3cm]{geometry}
+\usepackage[margin=1.2cm,top=1.0cm,bottom=1.0cm]{geometry}
 \usepackage{enumitem}
 \usepackage{array}
 \usepackage{xcolor}
@@ -18,134 +18,146 @@
 
 \XeTeXlinebreaklocale "th_TH"
 \XeTeXlinebreakskip = 0pt plus 1pt
-\setmainfont[Script=Thai,Scale=1.2]{TH Sarabun New}
+\setmainfont[Script=Thai,Scale=1.15]{TH Sarabun New}
 \definecolor{navy}{HTML}{1F3A93}
 \definecolor{mint}{HTML}{E8F5E9}
 \definecolor{lightnavy}{HTML}{EAEEF7}
-\renewcommand{\arraystretch}{1.25}
-\setlist{topsep=2pt,itemsep=3pt,parsep=0pt}
+\renewcommand{\arraystretch}{1.15}
+\setlist{topsep=1pt,itemsep=2pt,parsep=0pt}
 \pagestyle{empty}
 
 \input{_students}
-\qrset{height=2.0cm}
+\qrset{height=1.85cm}
 
 %% ---------- หัวกระดาษหน้า 1 (มี QR Code) ----------
 \newcommand{\wshead}[1]{%
   \noindent
-  \begin{minipage}[c]{0.77\textwidth}
-    {\Large\bfseries\color{navy} ใบกิจกรรมในชั้นเรียน บทที่ 2 : ทฤษฎีเซต (สัปดาห์ที่ 6)}\\[0.15em]
-    {\normalsize รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์}\\[0.7em]
-    ชื่อ-สกุล: \dotfill\\[0.5em]
+  \begin{minipage}[c]{0.78\textwidth}
+    {\Large\bfseries\color{navy} ใบกิจกรรมในชั้นเรียน บทที่ 2 : ทฤษฎีเซต (สัปดาห์ที่ 6)}\\[0.1em]
+    {\normalsize รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์}\\[0.5em]
+    ชื่อ-สกุล: \dotfill\\[0.35em]
     รหัสนักศึกษา: {\large\bfseries #1} \qquad กลุ่ม: \makebox[3cm]{\dotfill}
   \end{minipage}\hfill
   \begin{minipage}[c]{0.2\textwidth}
     \centering
-    \qrcode{4091606-W06-#1}\\[0.2em]
+    \qrcode{4091606-W06-#1}\\[0.15em]
     {\scriptsize\ttfamily #1}
   \end{minipage}
-  \par\vspace{0.4em}\hrule\vspace{0.5em}
+  \par\vspace{0.3em}\hrule\vspace{0.4em}
 }
 
 %% ---------- หัวกระดาษหน้า 2 (ไม่มี QR Code มีเฉพาะชื่อ-รหัส) ----------
 \newcommand{\wsheadcontinued}[1]{%
   \noindent
   \begin{minipage}[c]{\textwidth}
-    {\large\bfseries\color{navy} ใบกิจกรรมในชั้นเรียน บทที่ 2 : ทฤษฎีเซต (สัปดาห์ที่ 6) --- หน้า 2}\\[0.4em]
+    {\large\bfseries\color{navy} ใบกิจกรรมในชั้นเรียน บทที่ 2 : ทฤษฎีเซต (สัปดาห์ที่ 6) --- หน้า 2 (แบบฝึกเสริมทักษะ)}\\[0.25em]
     ชื่อ-สกุล (ต่อ): \dotfill \qquad รหัส: {\large\bfseries #1} \qquad กลุ่ม: \makebox[2.5cm]{\dotfill}
   \end{minipage}
-  \par\vspace{0.4em}\hrule\vspace{0.5em}
+  \par\vspace{0.3em}\hrule\vspace{0.4em}
 }
 
-%% ---------- เนื้อหาใบกิจกรรม 1 ชุด 2 หน้า (#1 = รหัสนักศึกษา) ----------
+%% ---------- เนื้อหาใบกิจกรรม 1 ชุด 2 หน้าเต็ม (#1 = รหัสนักศึกษา) ----------
 \newcommand{\wsbody}[1]{%
 \wshead{#1}
-\noindent\textbf{คำชี้แจง:} ทำกิจกรรมลงในใบงานนี้ แสดงวิธีคิดให้ชัดเจนเพื่ออภิปรายร่วมกันในชั้นเรียน
-\vspace{0.4em}
+\noindent\textbf{คำชี้แจง:} จงแสดงวิธีคิดและเติมคำตอบลงในช่องว่างให้สมบูรณ์ เพื่อร่วมอภิปรายและประเมินผลในชั้นเรียน
+\vspace{0.3em}
 
 %% ---------- กิจกรรม 1 ----------
-\noindent\textbf{กิจกรรมที่ 1 : เพาเวอร์เซตและความสัมพันธ์เชิงโครงสร้าง} \hfill \textit{(7 นาที)}
+\noindent\textbf{กิจกรรมที่ 1 : เพาเวอร์เซตและความสัมพันธ์เชิงโครงสร้าง (Power Set Logic)} \hfill \textit{(6 นาที)}
 \begin{enumerate}[label=\arabic*)]
-  \item กำหนดเซต $A = \{1, \{2, 3\}\}$ จงแจกแจงสมาชิกทุกตัวของ $\mathcal{P}(A)$ ให้ครบถ้วน\\[0.2em]
-        \textcolor{gray!60}{\hrulefill}
+  \item กำหนด $A = \{1, \{2, 3\}\}$ จงแจกแจงสมาชิกทุกตัวของ $\mathcal{P}(A)$ ให้ครบถ้วน\\[0.15em]
+        $\mathcal{P}(A) =$ \makebox[13.5cm]{\dotfill}
   \item กำหนด $B = \{a, b, c, d\}$ จงหา:
-        \begin{enumerate}[label=(\alph*),itemsep=2pt]
-          \item $|\mathcal{P}(B)| =$ \makebox[3cm]{\dotfill}
-          \item จำนวนเซตย่อยของ $B$ ที่มีขนาด 2 สมาชิกพอดี $=$ \makebox[2.5cm]{\dotfill}
-          \item จำนวนเซตย่อยของ $B$ ที่ \textbf{มี $a$ เป็นสมาชิก} $=$ \makebox[2.5cm]{\dotfill}
-        \end{enumerate}
-  \item ใส่เครื่องหมาย \textbf{T} (จริง) หรือ \textbf{F} (เท็จ) หน้าข้อความต่อไปนี้:
+        \quad (ก) $|\mathcal{P}(B)| =$ \makebox[1.8cm]{\dotfill}
+        \quad (ข) จำนวนเซตย่อยขนาด 2 สมาชิก $=$ \makebox[1.8cm]{\dotfill}
+        \quad (ค) จำนวนเซตย่อยที่ \textbf{มี $a$ เป็นสมาชิก} $=$ \makebox[1.8cm]{\dotfill}
+  \item ใส่เครื่องหมาย \textbf{T} (จริง) หรือ \textbf{F} (เท็จ):
         \quad [ \ ] $\emptyset \in \mathcal{P}(\mathcal{P}(\emptyset))$ \quad
         \quad [ \ ] $\{\emptyset\} \in \mathcal{P}(\mathcal{P}(\emptyset))$ \quad
-        \quad [ \ ] $|\mathcal{P}(\mathcal{P}(\{1\}))| = 4$
+        \quad [ \ ] $\{1\} \subseteq \mathcal{P}(\{1, 2\})$ \quad
+        \quad [ \ ] $|\mathcal{P}(\mathcal{P}(\mathcal{P}(\emptyset)))| = 4$
 \end{enumerate}
 \vspace{0.2em}
 
 %% ---------- กิจกรรม 2 ----------
-\noindent\textbf{กิจกรรมที่ 2 : ผลคูณคาร์ทีเซียนและการประยุกต์คู่อันดับ} \hfill \textit{(7 นาที)}
+\noindent\textbf{กิจกรรมที่ 2 : ผลคูณคาร์ทีเซียนและการแก้สมการคู่อันดับ (Cartesian Product \& Relations)} \hfill \textit{(6 นาที)}
 \begin{enumerate}[label=\arabic*)]
-  \item ถ้า $(3x + y, \ 8) = (11, \ 2x - y)$ จงหาค่าของ $x$ และ $y$\\[0.2em]
-        \textcolor{gray!60}{\hrulefill}
-  \item กำหนด $S = \{0, 1, 2\}$ จงเขียนเซต $R = \{(a, b) \in S \times S \mid a + b = 2\}$ แบบแจกแจงสมาชิก\\[0.2em]
-        \textcolor{gray!60}{\hrulefill}
-  \item ถ้า $|A| = 3$ และ $|B| = 4$ จงหาค่าของ $|(A \times B) \cup (B \times A)|$ เมื่อ $A \cap B = \emptyset$\\[0.2em]
+  \item ถ้า $(3x + y, \ 8) = (11, \ 2x - y)$ จงหาค่าของ $x, y$ และคู่อันดับ $(x, y)$\\[0.15em]
+        วิธีทำ: \makebox[14cm]{\dotfill}
+  \item กำหนด $S = \{0, 1, 2, 3\}$ จงแจกแจงเซตความสัมพันธ์ $R = \{(a, b) \in S \times S \mid a + b = 3\}$\\[0.15em]
+        $R =$ \makebox[14.5cm]{\dotfill}
+  \item ถ้า $|A| = 3$ และ $|B| = 4$ โดยที่ $A \cap B = \emptyset$ จงหาค่าของ $|(A \times B) \cup (B \times A)| = $ \makebox[4cm]{\dotfill}
+  \item กำหนด $X = \{1, 2\}, Y = \{3\}, Z = \{4\}$ จงตรวจสอบว่า $(X \cup Y) \times Z = (X \times Z) \cup (Y \times Z)$ หรือไม่\\[0.15em]
         \textcolor{gray!60}{\hrulefill}
 \end{enumerate}
 \vspace{0.2em}
 
 %% ---------- กิจกรรม 3 ----------
-\noindent\textbf{กิจกรรมที่ 3 : การหาจำนวนสมาชิก 2 เซต (Inclusion--Exclusion)} \hfill \textit{(8 นาที)}\\
-จากการสำรวจนักศึกษาไอที 100 คน พบว่าใช้งาน Linux 65 คน, ใช้งาน Windows 55 คน และมี 15 คนที่ไม่ใช้งานทั้งสองระบบปฏิบัติการนี้เลย
+\noindent\textbf{กิจกรรมที่ 3 : การหาจำนวนสมาชิก 2 เซต (Inclusion--Exclusion 2 Sets)} \hfill \textit{(8 นาที)}\\
+สำรวจนักศึกษาไอที 100 คน: ใช้งาน Linux ($L$) 65 คน, ใช้งาน Windows ($W$) 55 คน และไม่ใช้งานทั้งคู่ 15 คน
 \begin{enumerate}[label=\arabic*)]
-  \item มีนักศึกษาที่ใช้งาน \textbf{ทั้งสองระบบปฏิบัติการ} กี่คน (เขียนสูตรและวิธีคำนวณ)\\[0.2em]
-        \textcolor{gray!60}{\hrulefill}\\[0.6em]
+  \item มีนักศึกษาที่ใช้งาน \textbf{ทั้งสองระบบปฏิบัติการ} ($|L \cap W|$) กี่คน (แสดงสูตรและวิธีคำนวณ)\\[0.15em]
+        \textcolor{gray!60}{\hrulefill}\\[0.55em]
         \textcolor{gray!60}{\hrulefill}
-  \item มีนักศึกษาที่ใช้งาน Linux \textbf{เพียงระบบเดียวเท่านั้น} กี่คน\\[0.2em]
-        \textcolor{gray!60}{\hrulefill}
+  \item มีนักศึกษาที่ใช้งาน Linux \textbf{เพียงระบบเดียวเท่านั้น} ($|L - W|$) กี่คน $=$ \makebox[4cm]{\dotfill}
+  \item มีนักศึกษาที่ใช้งาน \textbf{เพียงระบบปฏิบัติการเดียว} ($|L \oplus W|$) กี่คน $=$ \makebox[4cm]{\dotfill}
 \end{enumerate}
+\vspace{0.2em}
+
+%% ---------- ท้าทายท้ายหน้า 1 ----------
+\noindent\textbf{ท้าทายเช็กความเข้าใจ (หน้า 1):} ถ้า $|A \cup B| = 45, |A| = 30, |B| = 25$ จงหา $|A \cap B| =$ \makebox[2.5cm]{\dotfill} และ $|A - B| =$ \makebox[2.5cm]{\dotfill}
 
 \clearpage
 %% ====================== หน้าที่ 2 ======================
 \wsheadcontinued{#1}
-\noindent\textbf{คำชี้แจง:} แบบฝึกเสริมทักษะขั้นสูงด้านการประยุกต์ในวิทยาการคอมพิวเตอร์และการคิดวิเคราะห์
-\vspace{0.4em}
+\noindent\textbf{คำชี้แจง:} แบบฝึกเสริมทักษะขั้นสูงด้านการประยุกต์ในวิทยาการคอมพิวเตอร์และการคิดวิเคราะห์ (ทำต่อจากหน้า 1)
+\vspace{0.3em}
 
 %% ---------- กิจกรรม 4 ----------
-\noindent\textbf{กิจกรรมที่ 4 : บิตเวกเตอร์และการแทนสถานะเซตในระบบคอมพิวเตอร์} \hfill \textit{(8 นาที)}\\
-กำหนดเอกภพสัมพัทธ์ $U = \{1, 2, 3, 4, 5, 6, 7, 8\}$ (ลำดับบิตจากซ้ายไปขวาแทนสมาชิก 1 ถึง 8)
+\noindent\textbf{กิจกรรมที่ 4 : บิตเวกเตอร์และการดำเนินการระดับบิต (Bit Vector Operations)} \hfill \textit{(8 นาที)}\\
+กำหนด $U = \{1, 2, 3, 4, 5, 6, 7, 8\}$ (ลำดับบิตจากซ้ายไปขวาแทนสมาชิกตัวที่ 1 ถึง 8)
 \begin{enumerate}[label=\arabic*)]
-  \item ถ้าเซต $A$ มีบิตเวกเตอร์คือ \texttt{10110001} $\Rightarrow A = $ \makebox[4.5cm]{\dotfill}
-  \item ถ้าเซต $B$ มีบิตเวกเตอร์คือ \texttt{00110110} $\Rightarrow B = $ \makebox[4.5cm]{\dotfill}
-  \item จงหาบิตเวกเตอร์ของ $A - B$ โดยใช้การดำเนินการบิต \texttt{A \& (\~{}B)} พร้อมแจกแจงสมาชิกของ $A - B$\\[0.2em]
-        บิตเวกเตอร์: \makebox[5cm]{\dotfill} \quad แจกแจงสมาชิก: \makebox[5cm]{\dotfill}
-  \item หากต้องการเขียนโปรแกรมเก็บเซตย่อยของเซตขนาด 30 สมาชิก สามารถใช้ตัวแปรประเภทใดในภาษา C/Java เพราะเหตุใด\\[0.2em]
+  \item ถ้า $A$ มีบิตเวกเตอร์ \texttt{10110001} $\Rightarrow A = $ \makebox[2.5cm]{\dotfill} \quad และ $B$ มีบิตเวกเตอร์ \texttt{00110110} $\Rightarrow B = $ \makebox[2.5cm]{\dotfill}
+  \item จงหาผลลัพธ์ของการดำเนินการระดับบิตต่อไปนี้ พร้อมแจกแจงสมาชิก:
+        \begin{enumerate}[label=(\alph*),itemsep=2pt]
+          \item $A \cap B$ ผ่าน \texttt{A \& B} $\Rightarrow$ บิตเวกเตอร์: \makebox[3cm]{\dotfill} แจกแจงเซต: \makebox[3cm]{\dotfill}
+          \item $A - B$ ผ่าน \texttt{A \& (\~{}B)} $\Rightarrow$ บิตเวกเตอร์: \makebox[3cm]{\dotfill} แจกแจงเซต: \makebox[3cm]{\dotfill}
+          \item $A^c$ ผ่าน \texttt{\~{}A} $\Rightarrow$ บิตเวกเตอร์: \makebox[3cm]{\dotfill} แจกแจงเซต: \makebox[3cm]{\dotfill}
+        \end{enumerate}
+  \item หากต้องการเขียนโปรแกรมเก็บสถานะเซตย่อยของเซตขนาด 30 สมาชิก สามารถใช้ตัวแปรประเภทใดในภาษา C/Java เพราะเหตุใด\\[0.15em]
         \textcolor{gray!60}{\hrulefill}
 \end{enumerate}
 \vspace{0.2em}
 
 %% ---------- กิจกรรม 5 ----------
-\noindent\textbf{กิจกรรมที่ 5 : ผลคูณคาร์ทีเซียนในระบบฐานข้อมูลและการจัดการข้อมูล} \hfill \textit{(7 นาที)}
+\noindent\textbf{กิจกรรมที่ 5 : ผลคูณคาร์ทีเซียนในระบบฐานข้อมูลและการคูณมิติ (Database \& Multi-dim Sets)} \hfill \textit{(6 นาที)}
 \begin{enumerate}[label=\arabic*)]
-  \item กำหนด $A = \{1, 2\}$, $B = \{3, 4\}$ และ $C = \{5, 6\}$ จงหาค่าของ $(A \times B) \cap (A \times C)$\\[0.2em]
-        \textcolor{gray!60}{\hrulefill}
-  \item ระบบฐานข้อมูลร้านค้ามีตาราง \texttt{Branch} (สาขา) 6 แถว, \texttt{Product} (สินค้า) 20 แถว และ \texttt{Shift} (กะเวลา) 3 แถว
-        หากรันคำสั่ง \texttt{CROSS JOIN} ของทั้ง 3 ตาราง จะได้ผลลัพธ์ทั้งหมดกี่แถว\\[0.2em]
-        \textcolor{gray!60}{\hrulefill}
+  \item กำหนด $A = \{1, 2\}$, $B = \{3, 4\}$ และ $C = \{5, 6\}$ จงหาค่าของ $(A \times B) \cap (A \times C) =$ \makebox[4cm]{\dotfill}
+  \item ตารางฐานข้อมูลมีตาราง \texttt{Branch} 6 สาขา, \texttt{Product} 20 รายการ และ \texttt{Shift} 3 กะเวลา\\
+        คำสั่ง \texttt{SELECT * FROM Branch CROSS JOIN Product CROSS JOIN Shift;} ได้ผลลัพธ์ \makebox[2cm]{\dotfill} แถว
+  \item ระบบแม่สี RGB 24 บิต แต่ละช่องแม่สีมีค่า $\{0, \ldots, 255\}$ (256 ค่า) จะมีสีทั้งหมด $= 256^3 =$ \makebox[3.5cm]{\dotfill} สี
 \end{enumerate}
 \vspace{0.2em}
 
 %% ---------- กิจกรรม 6 ----------
-\noindent\textbf{กิจกรรมที่ 6 : การวิเคราะห์ข้อมูล 3 เซตและตรวจสอบความถูกต้อง} \hfill \textit{(10 นาที)}\\
-นักศึกษา 70 คนได้รับการประเมินความสนใจ 3 ด้าน: ปัญญาประดิษฐ์ ($A$) 38 คน, วิทยาการข้อมูล ($D$) 35 คน, พัฒนาเว็บ ($W$) 32 คน
+\noindent\textbf{กิจกรรมที่ 6 : การวิเคราะห์ข้อมูล 3 เซต (Inclusion--Exclusion 3 Sets)} \hfill \textit{(8 นาที)}\\
+นักศึกษา 70 คน: สนใจด้าน AI ($A$) 38 คน, Data Science ($D$) 35 คน, Web Dev ($W$) 32 คน \\
 โดยสนใจ $A \cap D = 18$ คน, $A \cap W = 15$ คน, $D \cap W = 12$ คน และสนใจทั้งสามด้าน 8 คน
 \begin{enumerate}[label=\arabic*)]
-  \item จงหาจำนวนนักศึกษาที่สนใจ \textbf{อย่างน้อยหนึ่งด้าน} ($|A \cup D \cup W|$)\\[0.2em]
+  \item จงหาจำนวนนักศึกษาที่สนใจ \textbf{อย่างน้อยหนึ่งด้าน} ($|A \cup D \cup W|$)\\[0.15em]
+        วิธีทำ: \makebox[14cm]{\dotfill}
+  \item มีนักศึกษาที่ \textbf{ไม่สนใจด้านใดเลยใน 3 ด้านนี้} กี่คน $=$ \makebox[3.5cm]{\dotfill}
+  \item มีนักศึกษาที่สนใจ \textbf{เพียง 2 ด้านเท่านั้น} (ไม่นับคนที่สนใจทั้ง 3 ด้าน) กี่คน (แสดงวิธีคิด)\\[0.15em]
         \textcolor{gray!60}{\hrulefill}
-  \item มีนักศึกษาที่ \textbf{ไม่สนใจด้านใดเลยใน 3 ด้านนี้} กี่คน\\[0.2em]
-        \textcolor{gray!60}{\hrulefill}
-  \item มีนักศึกษาที่สนใจ \textbf{เพียง 2 ด้านเท่านั้น} กี่คน (ไม่นับคนที่สนใจครบทั้ง 3 ด้าน)\\[0.2em]
-        \textcolor{gray!60}{\hrulefill}\\[0.6em]
-        \textcolor{gray!60}{\hrulefill}
+  \item มีนักศึกษาที่สนใจ \textbf{เฉพาะด้าน AI เพียงด้านเดียวเท่านั้น} กี่คน $=$ \makebox[3.5cm]{\dotfill}
 \end{enumerate}
+\vspace{0.2em}
+
+%% ---------- กิจกรรม 7 ----------
+\noindent\textbf{กิจกรรมที่ 7 : การตรวจสอบความถูกต้องของข้อมูล (Data Validation Audit)} \hfill \textit{(4 นาที)}\\
+รายงานระบุว่า ในกลุ่มคน 50 คน: ชอบชา 30 คน, กาแฟ 35 คน, น้ำส้ม 25 คน, ชา$\cap$กาแฟ 15 คน, ชา$\cap$น้ำส้ม 10 คน, กาแฟ$\cap$น้ำส้ม 12 คน และชอบทั้งสามอย่าง 5 คน ข้อมูลชุดนี้ \textbf{ถูกต้องหรือขัดแย้งกันเอง} เพราะเหตุใด?\\[0.15em]
+\textcolor{gray!60}{\hrulefill}\\[0.55em]
+\textcolor{gray!60}{\hrulefill}
 }
 
 \begin{document}

@@ -122,11 +122,12 @@
     colframe=thrmBar,
     boxrule=0.5pt,
     arc=2pt, outer arc=2pt,
-    left=10pt, right=10pt, top=3pt, bottom=6pt,
+    left=10pt, right=10pt, top=8pt, bottom=8pt,
     before skip=12pt, after skip=12pt,
     colbacktitle=thrmTitle,
     coltitle=white,
     fonttitle=\bfseries\color{white},
+    halign title=left,
     title={\textcolor{white}{ทฤษฎีบท~\thethrm\@tttl}}
   ]%
   \def\[{\begin{center}$\displaystyle}%
@@ -146,11 +147,12 @@
     colframe=thrmBar,
     boxrule=0.5pt,
     arc=2pt, outer arc=2pt,
-    left=10pt, right=10pt, top=3pt, bottom=6pt,
+    left=10pt, right=10pt, top=8pt, bottom=8pt,
     before skip=12pt, after skip=12pt,
     colbacktitle=thrmTitle,
     coltitle=white,
     fonttitle=\bfseries\color{white},
+    halign title=left,
     title={\textcolor{white}{หลักการ~\theprinciple\@prttl}}
   ]%
   \def\[{\begin{center}$\displaystyle}%
@@ -176,6 +178,7 @@
     colbacktitle=defTitle,
     coltitle=white,
     fonttitle=\bfseries\color{white},
+    halign title=left,
     title={\textcolor{white}{บทนิยาม~\thedefcnt\@dttl}}
   ]%
   \def\[{\begin{center}$\displaystyle}%
@@ -209,6 +212,7 @@
     colbacktitle=propTitle,
     coltitle=white,
     fonttitle=\bfseries\color{white},
+    halign title=left,
     title={\textcolor{white}{บทแทรก~\theprop\@pttl}}
   ]%
   \def\[{\begin{center}$\displaystyle}%
@@ -233,6 +237,7 @@
     colbacktitle=remTitle,
     coltitle=white,
     fonttitle=\bfseries\color{white},
+    halign title=left,
     title={\textcolor{white}{หมายเหตุ\@rttl}}
   ]%
   \def\[{\begin{center}$\displaystyle}%
@@ -241,28 +246,54 @@
   \end{tcolorbox}%
 }
 
-%% ── บทสรุป (cor) ────────────────────────────────
-\tcolorboxenvironment{cor}{
-  mathstylebase,
-  colback=white,
-  coltitle=corTitle,
-  colframe=corBar,
-  toprule=4pt,
-  leftrule=4pt,
-  rightrule=0pt,
-  bottomrule=0pt
+%% ── บทสรุป (cor) — กล่องแถบหัวเข้ม "บทสรุป X.Y" (สไตล์เดียวกับนิยาม) ──
+\renewenvironment{cor}[1][]{%
+  \par\refstepcounter{cor}%
+  \def\@csub{#1}%
+  \ifx\@csub\@empty\def\@cttl{}\else\def\@cttl{~#1}\fi
+  \begin{tcolorbox}[
+    enhanced, breakable,
+    colback=white,
+    colframe=corBar,
+    boxrule=0.5pt,
+    arc=2pt, outer arc=2pt,
+    left=10pt, right=10pt, top=8pt, bottom=8pt,
+    before skip=12pt, after skip=12pt,
+    colbacktitle=corTitle,
+    coltitle=white,
+    fonttitle=\bfseries\color{white},
+    halign title=left,
+    title={\textcolor{white}{บทสรุป~\thecor\@cttl}}
+  ]%
+  \def\[{\begin{center}$\displaystyle}%
+  \def\]{$\end{center}}%
+}{%
+  \end{tcolorbox}%
 }
 
-%% ── คำเตือน (warning) ───────────────────────────
-\tcolorboxenvironment{warning}{
-  mathstylebase,
-  colback=warnBg,
-  coltitle=warnTitle,
-  colframe=warnBar,
-  toprule=4pt,
-  leftrule=4pt,
-  rightrule=0pt,
-  bottomrule=0pt
+%% ── ข้อควรระวัง (warning) — กล่องแถบหัวเข้ม "ข้อควรระวัง X.Y" (สไตล์เดียวกับนิยาม/ทฤษฎีบท) ──
+\renewenvironment{warning}[1][]{%
+  \par\refstepcounter{warning}%
+  \def\@wsub{#1}%
+  \ifx\@wsub\@empty\def\@wttl{}\else\def\@wttl{~#1}\fi
+  \begin{tcolorbox}[
+    enhanced, breakable,
+    colback=white,
+    colframe=warnBar,
+    boxrule=0.5pt,
+    arc=2pt, outer arc=2pt,
+    left=10pt, right=10pt, top=8pt, bottom=8pt,
+    before skip=12pt, after skip=12pt,
+    colbacktitle=warnTitle,
+    coltitle=white,
+    fonttitle=\bfseries\color{white},
+    halign title=left,
+    title={\textcolor{white}{ข้อควรระวัง~\thewarning\@wttl}}
+  ]%
+  \def\[{\begin{center}$\displaystyle}%
+  \def\]{$\end{center}}%
+}{%
+  \end{tcolorbox}%
 }
 
 %% ── แบบฝึกหัด (exercise) ────────────────────────
@@ -279,16 +310,17 @@
   \par
   \begin{tcolorbox}[
     enhanced, breakable,
-    colback=proofBg,
+    colback=white,
     colframe=proofBar,
     boxrule=0.5pt,
     arc=2pt, outer arc=2pt,
     left=10pt, right=10pt, top=8pt, bottom=8pt,
-    before skip=10pt, after skip=10pt,
+    before skip=12pt, after skip=12pt,
     colbacktitle=proofTitle,
     coltitle=white,
-    fonttitle=\bfseries,
-    title={#1}
+    fonttitle=\bfseries\color{white},
+    halign title=left,
+    title={\textcolor{white}{#1}}
   ]%
 }{%
   \unskip\nobreak\hfill\qedsymbol

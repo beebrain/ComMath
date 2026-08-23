@@ -7,6 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <style>
 /* =====================================================================
    RELATION BLUEPRINT — Chapter 3 Relations and Functions, Week 7
@@ -39,9 +42,6 @@ body{color:var(--ink);background:var(--paper);overflow:hidden}
   -webkit-mask-image:radial-gradient(120% 120% at 50% 40%,#000 55%,transparent 100%);
   mask-image:radial-gradient(120% 120% at 50% 40%,#000 55%,transparent 100%);
 }
-.bg::after{content:"";position:absolute;inset:0;opacity:.045;mix-blend-mode:multiply;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
 
 #app{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100vh;width:100vw}
 .stage{position:relative;width:min(95.5vw,169vh);aspect-ratio:16/9;
@@ -58,23 +58,23 @@ body{color:var(--ink);background:var(--paper);overflow:hidden}
 /* Header & Footers */
 .head{display:flex;align-items:flex-end;gap:2cqw;
   background:linear-gradient(100deg,var(--navy2),var(--navy));
-  color:#fff;padding:3cqh 5cqw 2.4cqh;position:relative}
+  color:#fff;padding:2.8cqh 5cqw 2.2cqh;position:relative}
 .head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:.65cqh;
   background:linear-gradient(90deg,var(--gold) 0 16%,rgba(255,255,255,.25) 16% 100%)}
-.head .kick{font-family:var(--f-mono);font-size:1.7cqh;letter-spacing:.25em;
-  text-transform:uppercase;color:#cdd8f4;font-weight:500;display:block;margin-bottom:.4cqh}
-.head h2{font-family:var(--f-head);font-weight:700;font-size:4.2cqh;line-height:1.15}
+.head .kick{font-family:var(--f-mono);font-size:1.65cqh;letter-spacing:.25em;
+  text-transform:uppercase;color:#cdd8f4;font-weight:500;display:block;margin-bottom:.3cqh}
+.head h2{font-family:var(--f-head);font-weight:700;font-size:4cqh;line-height:1.15}
 .head h2 .en{font-weight:500;color:#b9c6ee;font-size:.72em}
 
 .body{position:absolute;top:0;left:0;right:0;bottom:0;
-  padding:13.5cqh 5.4cqw 5.8cqh;display:flex;flex-direction:column;justify-content:center;gap:2.2cqh;
-  font-size:2.85cqh;line-height:1.45;overflow:hidden}
-.body.tight{gap:1.4cqh}
-.body.top{justify-content:flex-start;padding-top:14.2cqh}
+  padding:12.8cqh 5.2cqw 5.6cqh;display:flex;flex-direction:column;justify-content:center;gap:1.8cqh;
+  font-size:2.8cqh;line-height:1.45;overflow:hidden}
+.body.tight{gap:1.2cqh}
+.body.top{justify-content:flex-start;padding-top:13.5cqh}
 
-.foot{position:absolute;left:0;right:0;bottom:0;height:5cqh;
+.foot{position:absolute;left:0;right:0;bottom:0;height:4.8cqh;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 5.4cqw;font-size:1.9cqh;color:var(--navy);
+  padding:0 5.2cqw;font-size:1.85cqh;color:var(--navy);
   font-family:var(--f-head);border-top:1px solid var(--line)}
 .foot .right{font-family:var(--f-mono);letter-spacing:.05em;color:#7884a4}
 .foot .dot{color:var(--gold);margin:0 .5em}
@@ -89,19 +89,12 @@ b,strong{font-weight:700;color:var(--navy2)}
   padding:.05em .45em;border-radius:.3em;font-size:.84em;font-weight:600}
 .expr{font-family:var(--f-mono);font-weight:600;color:var(--navy2)}
 
-.badge{display:inline-block;padding:.2em .65em;border-radius:.4em;font-family:var(--f-mono);
-  font-size:.78em;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
-.b-blue{background:var(--lnavy);color:var(--navy)}
-.b-green{background:var(--mint);color:var(--green2)}
-.b-red{background:var(--pink);color:var(--red2)}
-.b-gold{background:var(--lyellow);color:var(--gold2)}
-
 /* Blocks & Columns */
-.block{border-radius:11px;padding:1.6cqh 2.2cqw;background:var(--lnavy);
+.block{border-radius:10px;padding:1.4cqh 2cqw;background:var(--lnavy);
   border-left:.85cqh solid var(--navy);position:relative;
   box-shadow:0 8px 20px -16px rgba(31,58,147,.6)}
 .block .lab{display:inline-flex;align-items:center;gap:.5em;font-family:var(--f-head);
-  font-weight:700;color:var(--navy);font-size:.85em;margin-bottom:.4cqh}
+  font-weight:700;color:var(--navy);font-size:.85em;margin-bottom:.35cqh}
 .block .lab .pin{font-family:var(--f-mono);font-size:.8em;background:var(--navy);color:#fff;
   padding:.1em .55em;border-radius:.4em}
 .block.ex{background:var(--mint);border-color:var(--green)}
@@ -111,45 +104,29 @@ b,strong{font-weight:700;color:var(--navy2)}
 .block.gold{background:var(--lyellow);border-color:var(--gold)}
 .block.gold .lab{color:var(--gold2)} .block.gold .lab .pin{background:var(--gold)}
 
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:2.4cqw;align-items:start}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:2.2cqw;align-items:start}
 .cols.wide-l{grid-template-columns:1.2fr .8fr}
 .cols.wide-r{grid-template-columns:.8fr 1.2fr}
-.cols.three{grid-template-columns:repeat(3,1fr);gap:1.6cqw}
-.col{display:flex;flex-direction:column;gap:1.2cqh}
+.cols.three{grid-template-columns:repeat(3,1fr);gap:1.5cqw}
+.col{display:flex;flex-direction:column;gap:1.1cqh}
 
-/* Tables & Matrices */
+/* Tables & Lists */
 .tt-wrap{border-radius:10px;overflow:hidden;background:#fff;
   box-shadow:0 12px 24px -14px rgba(14,26,68,.4),0 0 0 1px var(--line2);width:100%}
 table.tt{border-collapse:collapse;font-family:var(--f-mono);width:100%}
-table.tt th,table.tt td{border:1px solid var(--line);padding:.55cqh 1cqw;text-align:center;
-  font-size:.88em;white-space:nowrap}
+table.tt th,table.tt td{border:1px solid var(--line);padding:.5cqh .9cqw;text-align:center;
+  font-size:.86em;white-space:nowrap}
 table.tt thead th{background:linear-gradient(180deg,#2b4bb0,var(--navy2));color:#fff;font-weight:700}
 table.tt tbody tr:nth-child(even) td{background:#F6F8FE}
 table.tt tbody tr:hover td{background:var(--lnavy)}
 
-/* Process Grid */
-.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2cqw;margin-top:.4cqh}
-.proc-card{background:#fff;border-radius:10px;padding:1.4cqh 1.2cqw;border:1px solid var(--line2);
-  box-shadow:0 6px 16px -10px rgba(31,58,147,.3);display:flex;flex-direction:column;gap:.5cqh}
-.proc-card .p-num{font-family:var(--f-mono);font-size:1.7cqh;font-weight:700;background:var(--navy);
-  color:#fff;border-radius:6px;padding:.15em .5em;align-self:flex-start}
-.proc-card .p-title{font-family:var(--f-head);font-size:2.1cqh;font-weight:700;color:var(--navy2)}
-.proc-card .p-desc{font-size:1.8cqh;color:var(--ink-soft);line-height:1.35}
-
-/* Interactive Simulator */
-.sim-box{background:#fff;border-radius:12px;padding:1.8cqh 2cqw;border:1px solid var(--line2);
-  box-shadow:0 10px 24px -14px rgba(31,58,147,.4);display:flex;flex-direction:column;gap:1.2cqh}
-.sim-controls{display:flex;gap:1cqw;align-items:center;flex-wrap:wrap}
-.sim-btn{font-family:var(--f-head);font-size:1.9cqh;font-weight:600;padding:.35cqh 1.1cqw;
-  border-radius:20px;border:1px solid var(--line2);background:var(--lnavy);color:var(--navy);
-  cursor:pointer;transition:all .2s}
-.sim-btn:hover{background:var(--navy);color:#fff}
-.sim-btn.active{background:var(--navy);color:#fff;font-weight:700}
-.matrix-grid{display:inline-grid;gap:4px;background:var(--lnavy);padding:8px;border-radius:8px;border:1px solid var(--line2)}
-.matrix-cell{width:36px;height:36px;background:#fff;display:flex;align-items:center;justify-content:center;
-  font-family:var(--f-mono);font-weight:700;font-size:18px;border-radius:4px;cursor:pointer;user-select:none;transition:all .15s}
-.matrix-cell.one{background:var(--navy);color:#fff}
-.matrix-cell.diag{box-shadow:inset 0 0 0 2px var(--gold)}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1cqw;margin-top:.3cqh}
+.proc-card{background:#fff;border-radius:10px;padding:1.3cqh 1.1cqw;border:1px solid var(--line2);
+  box-shadow:0 6px 16px -10px rgba(31,58,147,.3);display:flex;flex-direction:column;gap:.4cqh}
+.proc-card .p-num{font-family:var(--f-mono);font-size:1.6cqh;font-weight:700;background:var(--navy);
+  color:#fff;border-radius:6px;padding:.12em .45em;align-self:flex-start}
+.proc-card .p-title{font-family:var(--f-head);font-size:2cqh;font-weight:700;color:var(--navy2)}
+.proc-card .p-desc{font-size:1.75cqh;color:var(--ink-soft);line-height:1.35}
 
 /* Reveal Component */
 .reveal{position:relative;cursor:pointer}
@@ -178,23 +155,36 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
 .cover{display:flex;flex-direction:column;justify-content:center;height:100%;padding:0 8cqw;position:relative}
 .cover .tag{font-family:var(--f-mono);font-size:2.2cqh;letter-spacing:.3em;color:var(--gold2);
   font-weight:700;margin-bottom:1cqh;text-transform:uppercase}
-.cover h1{font-family:var(--f-head);font-size:6.8cqh;font-weight:700;line-height:1.1;color:var(--navy2);margin-bottom:1.5cqh}
+.cover h1{font-family:var(--f-head);font-size:6.6cqh;font-weight:700;line-height:1.1;color:var(--navy2);margin-bottom:1.5cqh}
 .cover h1 .en{display:block;font-size:.52em;color:var(--navy);font-weight:500;margin-top:.2cqh}
-.cover .sub{font-size:3cqh;color:var(--ink-soft);line-height:1.4;margin-bottom:3.5cqh}
+.cover .sub{font-size:2.9cqh;color:var(--ink-soft);line-height:1.4;margin-bottom:3.2cqh}
 .cover .meta{font-size:2.2cqh;color:#596788;border-left:3px solid var(--gold);padding-left:1.5cqw}
 .cover .meta .course{font-family:var(--f-mono);font-weight:700;color:var(--navy)}
 
+/* Interactive Simulator */
+.sim-box{background:#fff;border-radius:12px;padding:1.6cqh 1.8cqw;border:1px solid var(--line2);
+  box-shadow:0 10px 24px -14px rgba(31,58,147,.4);display:flex;flex-direction:column;gap:1.1cqh}
+.sim-btn{font-family:var(--f-head);font-size:1.8cqh;font-weight:600;padding:.35cqh 1cqw;
+  border-radius:20px;border:1px solid var(--line2);background:var(--lnavy);color:var(--navy);
+  cursor:pointer;transition:all .2s}
+.sim-btn:hover{background:var(--navy);color:#fff}
+.matrix-grid{display:inline-grid;gap:4px;background:var(--lnavy);padding:8px;border-radius:8px;border:1px solid var(--line2)}
+.matrix-cell{width:36px;height:36px;background:#fff;display:flex;align-items:center;justify-content:center;
+  font-family:var(--f-mono);font-weight:700;font-size:18px;border-radius:4px;cursor:pointer;user-select:none;transition:all .15s}
+.matrix-cell.one{background:var(--navy);color:#fff}
+.matrix-cell.diag{box-shadow:inset 0 0 0 2px var(--gold)}
+
 /* Interactive Game */
-.game-box{background:#fff;border-radius:12px;padding:2cqh 2.4cqw;border:1px solid var(--line2);
-  box-shadow:0 12px 28px -14px rgba(31,58,147,.4);display:flex;flex-direction:column;gap:1.4cqh}
-.g-q{font-family:var(--f-head);font-size:2.4cqh;font-weight:700;color:var(--navy2)}
+.game-box{background:#fff;border-radius:12px;padding:1.8cqh 2.2cqw;border:1px solid var(--line2);
+  box-shadow:0 12px 28px -14px rgba(31,58,147,.4);display:flex;flex-direction:column;gap:1.2cqh}
+.g-q{font-family:var(--f-head);font-size:2.3cqh;font-weight:700;color:var(--navy2)}
 .g-opts{display:grid;grid-template-columns:1fr 1fr;gap:1cqw}
-.g-btn{padding:1.2cqh 1.4cqw;border-radius:8px;border:1px solid var(--line2);background:var(--lnavy);
-  font-family:var(--f-body);font-size:2cqh;font-weight:600;color:var(--navy2);cursor:pointer;text-align:left;transition:all .2s}
+.g-btn{padding:1.1cqh 1.3cqw;border-radius:8px;border:1px solid var(--line2);background:var(--lnavy);
+  font-family:var(--f-body);font-size:1.95cqh;font-weight:600;color:var(--navy2);cursor:pointer;text-align:left;transition:all .2s}
 .g-btn:hover{background:var(--navy);color:#fff}
 .g-btn.ok{background:var(--green);color:#fff;border-color:var(--green2)}
 .g-btn.no{background:var(--red);color:#fff;border-color:var(--red2)}
-.g-fb{font-size:2cqh;font-weight:600;padding:.6cqh 1cqw;border-radius:6px;display:none}
+.g-fb{font-size:1.95cqh;font-weight:600;padding:.5cqh 1cqw;border-radius:6px;display:none}
 .g-fb.ok{display:block;background:var(--mint);color:var(--green2)}
 .g-fb.no{display:block;background:var(--pink);color:var(--red2)}
 </style>
@@ -212,9 +202,9 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="cover">
       <div class="tag">Week 07 · Computer Mathematics</div>
       <h1>บทที่ 3 ความสัมพันธ์และฟังก์ชัน
-        <span class="en">Relations, Domain-Range, Binary Properties & Closures</span>
+        <span class="en">Relations, Cartesian Products, Binary Properties & Closures</span>
       </h1>
-      <p class="sub">พื้นฐานคู่อันดับ · ผลคูณคาร์ทีเซียน · สมบัติทวิภาค (สะท้อน สมมาตร ถ่ายทอด) · ความสัมพันธ์สมมูล · และการปิดสมบัติ</p>
+      <p class="sub">พื้นฐานคู่อันดับ · ผลคูณคาร์ทีเซียน · สมบัติทวิภาค (สะท้อน สมมาตร ถ่ายทอด) · ความสัมพันธ์สมมูล · และการปิดสมบัติ (Warshall's Algorithm)</p>
       <div class="meta">
         <div class="course">4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์</div>
         <div>ผู้สอน: <b>ผู้ช่วยศาสตราจารย์ ดร.พิศิษฐ์ นาคใจ</b> · สาขาวิชาวิทยาการข้อมูล มรภ.อุตรดิตถ์</div>
@@ -233,12 +223,12 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
         <div class="proc-card">
           <div class="p-num">01</div>
           <div class="p-title">คู่อันดับ & ความสัมพันธ์</div>
-          <div class="p-desc">เข้าใจผลคูณคาร์ทีเซียน $A \times B$ การแทนความสัมพันธ์ด้วยเซต ตาราง เมทริกซ์ 0-1 และกราฟระนาบ</div>
+          <div class="p-desc">เข้าใจผลคูณคาร์ทีเซียน $A \times B$ การแทนความสัมพันธ์ด้วยเซต ตาราง เมทริกซ์ 0-1 และกราฟระบุทิศทาง</div>
         </div>
         <div class="proc-card">
           <div class="p-num">02</div>
-          <div class="p-title">โดเมน, เรนจ์ & ผกผัน</div>
-          <div class="p-desc">หา $\operatorname{Dom}(R)$, $\operatorname{Ran}(R)$ และ $R^{-1}$ รวมถึงการยูเนียน อินเตอร์เซกชัน และผลต่างของความสัมพันธ์</div>
+          <div class="p-title">โดเมน เรนจ์ & ผกผัน</div>
+          <div class="p-desc">หา $\operatorname{Dom}(R)$, $\operatorname{Ran}(R)$ และความสัมพันธ์ผกผัน $R^{-1}$ รวมถึงการยูเนียนและอินเตอร์เซกชัน</div>
         </div>
         <div class="proc-card">
           <div class="p-num">03</div>
@@ -248,12 +238,12 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
         <div class="proc-card">
           <div class="p-num">04</div>
           <div class="p-title">สมมูล & การปิดสมบัติ</div>
-          <div class="p-desc">จำแนกคลาสสมมูล $[a]$ สร้างผลกั้นเซต (Partition) และหาการปิดสมบัติ $R \cup \Delta$, $R \cup R^{-1}$, $R^+$</div>
+          <div class="p-desc">จำแนกคลาสสมมูล $[a]$ สร้างผลกั้นเซต (Partition) และหาการปิดสมบัติ $R \cup \Delta$, $R \cup R^{-1}$, $R^+$ ด้วยขั้นตอนวิธีวอร์แชลล์</div>
         </div>
       </div>
       <div class="block gold">
         <div class="lab"><span class="pin">KEY</span> รากฐานสู่ระบบคอมพิวเตอร์</div>
-        ความสัมพันธ์คือหัวใจของ <b>ฐานข้อมูลเชิงสัมพันธ์ (Relational Model/SQL)</b>, <b>โครงสร้างกราฟและเครือข่าย</b>, และ <b>การวิเคราะห์การเข้าถึงข้อมูล (Reachability & Warshall's Algorithm)</b>
+        ความสัมพันธ์คือหัวใจของ <b>แบบจำลองฐานข้อมูลเชิงสัมพันธ์ (Relational Model / SQL)</b>, <b>โครงสร้างกราฟและเครือข่าย</b>, และ <b>การวิเคราะห์การเข้าถึงข้อมูล (Reachability)</b>
       </div>
     </div>
     <div class="foot"><span>เป้าหมายการเรียนรู้</span><span class="right">4091606 · CH03-W07</span></div>
@@ -274,11 +264,10 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
             • ลำดับมีผลต่อความหมาย: $(a, b) \neq (b, a)$ เมื่อ $a \neq b$
           </div>
           <div class="block ex">
-            <div class="lab"><span class="pin">DEF</span> ความสัมพันธ์ (Relation)</div>
-            ความสัมพันธ์ $R$ จาก $A$ ไป $B$ คือ <b>เซตย่อยของผลคูณคาร์ทีเซียน</b>:
-            $$\mathbf{R \subseteq A \times B}$$
-            • ถ้า $(a, b) \in R$ เขียนแทนด้วย $a\,R\,b$<br>
-            • ถ้า $A = B$ เรียกว่า <b>ความสัมพันธ์ทวิภาค (Binary Relation)</b> บน $A$
+            <div class="lab"><span class="pin">DEF</span> ผลคูณคาร์ทีเซียน (Cartesian Product $A \times B$)</div>
+            $$A \times B = \{(a, b) \mid a \in A \land b \in B\}$$
+            • ถ้า $A = \{1, 2\}$ และ $B = \{x, y, z\}$ แล้ว<br>
+            $A \times B = \{(1, x), (1, y), (1, z), (2, x), (2, y), (2, z)\}$
           </div>
         </div>
         <div class="col">
@@ -286,15 +275,15 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
             <div class="lab"><span class="pin">FORMULA</span> การนับจำนวนความสัมพันธ์</div>
             ถ้า $|A| = m$ และ $|B| = n$:
             $$\text{1. } |A \times B| = m \times n$$
-            $$\text{2. จำนวนความสัมพันธ์จาก } A \text{ ไป } B = 2^{m \cdot n}$$
-            $$\text{3. ความสัมพันธ์ทวิภาคบน } A = 2^{m^2}$$
+            $$\text{2. จำนวนความสัมพันธ์จาก } A \text{ ไป } B = 2^{|A \times B|} = 2^{m \cdot n}$$
+            $$\text{3. จำนวนความสัมพันธ์ทวิภาคบน } A = 2^{|A \times A|} = 2^{m^2}$$
           </div>
           <div class="block al">
             <div class="lab"><span class="pin">EX</span> ตัวอย่าง</div>
             ถ้า $A = \{1, 2, 3\}$ และ $B = \{x, y\}$:
             • $|A \times B| = 3 \times 2 = 6$<br>
-            • มีความสัมพันธ์ทั้งหมด $2^6 = 64$ แบบ<br>
-            • ความสัมพันธ์ทวิภาคบน $A$ มีถึง $2^{3^2} = 2^9 = 512$ แบบ!
+            • มีความสัมพันธ์จาก $A$ ไป $B$ ทั้งหมด $2^6 = 64$ แบบ<br>
+            • มีความสัมพันธ์ทวิภาคบน $A$ ถึง $2^{3^2} = 2^9 = 512$ แบบ!
           </div>
         </div>
       </div>
@@ -302,7 +291,42 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="foot"><span>คู่อันดับ & ผลคูณคาร์ทีเซียน</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 4: 4 Representations of Relations -->
+  <!-- SLIDE 4: Cartesian Product Properties & Distributive Law -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Properties</span><h2>สมบัติของผลคูณคาร์ทีเซียน (Cartesian Set Algebra)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">LAW 1</span> การกระจายข้ามยูเนียนและอินเตอร์เซกชัน</div>
+            $$A \times (B \cup C) = (A \times B) \cup (A \times C)$$
+            $$A \times (B \cap C) = (A \times B) \cap (A \times C)$$
+            $$(A \cup B) \times C = (A \times C) \cup (B \times C)$$
+            $$(A \cap B) \times C = (A \times C) \cap (B \times C)$$
+          </div>
+        </div>
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">EXAMPLE</span> ตัวอย่างการคำนวณและพิสูจน์</div>
+            ให้ $A = \{1\}, B = \{2\}, C = \{3\}$<br>
+            • $B \cup C = \{2, 3\}$<br>
+            • $A \times (B \cup C) = \{(1, 2), (1, 3)\}$<br>
+            • $(A \times B) \cup (A \times C) = \{(1, 2)\} \cup \{(1, 3)\} = \{(1, 2), (1, 3)\}$<br>
+            <span class="gn">✓ ยืนยันสมบัติการกระจายทั้งสองข้างเท่ากันทุกประการ</span>
+          </div>
+          <div class="block al">
+            <div class="lab"><span class="pin">CAUTION</span> ข้อควรระวัง</div>
+            โดยทั่วไป $A \times B \neq B \times A$ ยกเว้นเมื่อ $A = B$ หรือมีเซตใดเซตหนึ่งเป็นเซตว่าง $\emptyset$
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>สมบัติผลคูณคาร์ทีเซียน</span><span class="right">4091606 · CH03-W07</span></div>
+  </section>
+
+  <!-- SLIDE 5: 4 Representations of Relations -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Data Structures</span><h2>การแทนความสัมพันธ์ 4 รูปแบบในทางคอมพิวเตอร์</h2></div>
@@ -319,19 +343,20 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
             <div class="lab"><span class="pin">2</span> เมทริกซ์บูลีน 0-1 (Relation Matrix $M_R$)</div>
             $M_R[i, j] = 1$ ถ้า $(i, j) \in R$ มิฉะนั้นเป็น $0$:
             $$M_R = \begin{bmatrix} 0 & 1 & 1 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{bmatrix}$$
-            <span class="muted">คอมพิวเตอร์ประมวลผลด้วย Bit Matrix / 2D Array ได้รวดเร็วที่สุด</span>
+            <span class="muted">คอมพิวเตอร์ประมวลผลด้วย Bit Matrix / 2D Array ได้รวดเร็วระดับฮาร์ดแวร์</span>
           </div>
         </div>
         <div class="col">
           <div class="block gold">
             <div class="lab"><span class="pin">3</span> กราฟระบุทิศทาง (Directed Graph / Digraph)</div>
             • จุดยอด (Vertices) แทนสมาชิกในเซต $A$<br>
-            • เส้นเชื่อมมีทิศทาง (Directed Edges) ลากจาก $u \to v$ เมื่อ $(u, v) \in R$
+            • เส้นเชื่อมมีทิศทาง (Directed Edges) ลากจาก $u \to v$ เมื่อ $(u, v) \in R$<br>
+            • ลูป (Self-loop) เกิดขึ้นเมื่อ $(u, u) \in R$
           </div>
           <div class="block al">
             <div class="lab"><span class="pin">4</span> แผนภาพลูกศร (Arrow Diagram)</div>
-            วางเซต $A$ และเซต $B$ ขนานกัน แล้วลากลูกศรข้ามเซต<br>
-            <span class="muted">ช่วยให้เห็นภาพโดเมน เรนจ์ และทิศทางการจับคู่ทันที</span>
+            วางเซตต้นทาง $A$ และปลายทาง $B$ ขนานกัน แล้วลากลูกศรข้ามเซต<br>
+            <span class="muted">ช่วยให้เห็นภาพโดเมน เรนจ์ และทิศทางการจับคู่ชัดเจนที่สุด</span>
           </div>
         </div>
       </div>
@@ -339,10 +364,10 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="foot"><span>การแทนความสัมพันธ์</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 5: Domain, Range & Inverse -->
+  <!-- SLIDE 6: Domain, Range & Inverse Relation -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Operations</span><h2>โดเมน เรนจ์ และความสัมพันธ์ผกผัน</h2></div>
+      <div><span class="kick">Operations</span><h2>โดเมน เรนจ์ และความสัมพันธ์ผกผัน ($R^{-1}$)</h2></div>
     </div>
     <div class="body">
       <div class="cols">
@@ -351,8 +376,8 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
             <div class="lab"><span class="pin">DEF</span> โดเมน (Domain) & เรนจ์ (Range)</div>
             $$\operatorname{Dom}(R) = \{a \in A \mid \exists b \in B, (a, b) \in R\}$$
             $$\operatorname{Ran}(R) = \{b \in B \mid \exists a \in A, (a, b) \in R\}$$
-            • โดเมน คือเซตของ <b>สมาชิกตัวหน้าทั้งหมด</b> ที่ปรากฏใน $R$<br>
-            • เรนจ์ คือเซตของ <b>สมาชิกตัวหลังทั้งหมด</b> ที่ปรากฏใน $R$
+            • $\operatorname{Dom}(R)$ คือเซตของ <b>สมาชิกตัวหน้าทั้งหมด</b> ที่ปรากฏใน $R$<br>
+            • $\operatorname{Ran}(R)$ คือเซตของ <b>สมาชิกตัวหลังทั้งหมด</b> ที่ปรากฏใน $R$
           </div>
           <div class="block ex">
             <div class="lab"><span class="pin">DEF</span> ความสัมพันธ์ผกผัน (Inverse Relation $R^{-1}$)</div>
@@ -365,18 +390,52 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
           <div class="block gold">
             <div class="lab"><span class="pin">EXAMPLE</span> ตัวอย่างการคำนวณ</div>
             กำหนด $R = \{(1, x), (2, y), (3, x)\}$ จาก $A=\{1,2,3,4\}$ ไป $B=\{x,y,z\}$<br><br>
-            • $\operatorname{Dom}(R) = \{1, 2, 3\}$ <span class="rd">(หมายเหตุ: 4 ไม่อยู่ในโดเมน!)</span><br>
-            • $\operatorname{Ran}(R) = \{x, y\}$ <span class="rd">(หมายเหตุ: z ไม่อยู่ในเรนจ์!)</span><br>
+            • $\operatorname{Dom}(R) = \{1, 2, 3\} \subseteq A$ <span class="rd">(หมายเหตุ: 4 ไม่อยู่ในโดเมน)</span><br>
+            • $\operatorname{Ran}(R) = \{x, y\} \subseteq B$ <span class="rd">(หมายเหตุ: z ไม่อยู่ในเรนจ์)</span><br>
             • $R^{-1} = \{(x, 1), (y, 2), (x, 3)\}$ จาก $B$ ไป $A$<br>
-            • เมทริกซ์ผกผันคือ <b>เมทริกซ์สลับเปลี่ยน (Transpose):</b> $M_{R^{-1}} = M_R^T$
+            • ในรูปเมทริกซ์: <b>เมทริกซ์ผกผันคือ เมทริกซ์สลับเปลี่ยน (Transpose):</b>
+            $$M_{R^{-1}} = M_R^T$$
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>โดเมน, เรนจ์ & ผกผัน</span><span class="right">4091606 · CH03-W07</span></div>
+    <div class="foot"><span>โดเมน เรนจ์ & ผกผัน</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 6: 4 Binary Relation Properties -->
+  <!-- SLIDE 7: Operations on Relations (Union, Intersect, Diff, Comp) -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Set Operations</span><h2>การดำเนินการระหว่างความสัมพันธ์ ($R_1 \cup R_2, R_1 \cap R_2, R_1 - R_2, \overline{R}$)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">RULES</span> การดำเนินการบนเซตย่อยของ $A \times B$</div>
+            เนื่องจาก $R_1, R_2 \subseteq A \times B$ ดังนั้น:<br>
+            • $R_1 \cup R_2 = \{(a, b) \mid (a, b) \in R_1 \lor (a, b) \in R_2\}$<br>
+            • $R_1 \cap R_2 = \{(a, b) \mid (a, b) \in R_1 \land (a, b) \in R_2\}$<br>
+            • $R_1 - R_2 = \{(a, b) \mid (a, b) \in R_1 \land (a, b) \notin R_2\}$<br>
+            • $\overline{R_1} = (A \times B) - R_1$ <span class="rd">(เอกภพสัมพัทธ์คือ $A \times B$)</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">EX</span> ตัวอย่างคำนวณ</div>
+            ให้ $A = \{1, 2, 3\}, B = \{a, b\}$<br>
+            $R_1 = \{(1, a), (2, b), (3, a)\}, \quad R_2 = \{(1, b), (2, b), (3, a)\}$<br><br>
+            • $R_1 \cup R_2 = \{(1, a), (1, b), (2, b), (3, a)\}$<br>
+            • $R_1 \cap R_2 = \{(2, b), (3, a)\}$<br>
+            • $R_1 - R_2 = \{(1, a)\}$<br>
+            • $\overline{R_1} = \{(1, b), (2, a), (3, b)\}$
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การดำเนินการระหว่างความสัมพันธ์</span><span class="right">4091606 · CH03-W07</span></div>
+  </section>
+
+  <!-- SLIDE 8: 4 Binary Relation Properties -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Core Properties</span><h2>4 สมบัติสำคัญของความสัมพันธ์ทวิภาคบนเซต $A$</h2></div>
@@ -386,13 +445,13 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
         <div class="col">
           <div class="block">
             <div class="lab"><span class="pin">1</span> สมบัติสะท้อน (Reflexive)</div>
-            $\forall x \in A, (x, x) \in R$<br>
-            • สมาชิกทุกตัวต้องสัมพันธ์กับตัวเอง (มีลูปวนกลับตัวเองครบทุกโหนด)<br>
-            • ในเมทริกซ์: <b>เส้นทแยงมุมหลักเป็น 1 ทั้งหมด</b>
+            $$\forall x \in A, (x, x) \in R$$
+            • สมาชิกทุกตัวต้องสัมพันธ์กับตัวเอง (มี Self-loop ครบทุกโหนด)<br>
+            • ในเมทริกซ์: <b>เส้นทแยงมุมหลักเป็น 1 ทั้งหมด ($M[i, i] = 1$)</b>
           </div>
           <div class="block ex">
             <div class="lab"><span class="pin">2</span> สมบัติสมมาตร (Symmetric)</div>
-            $\forall x, y \in A, (x, y) \in R \implies (y, x) \in R$<br>
+            $$\forall x, y \in A, (x, y) \in R \implies (y, x) \in R$$
             • ถ้ามีลูกศรไป ต้องมีลูกศรกลับเสมอ<br>
             • ในเมทริกซ์: <b>$M_R = M_R^T$ (เมทริกซ์สมมาตร)</b>
           </div>
@@ -400,12 +459,12 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
         <div class="col">
           <div class="block al">
             <div class="lab"><span class="pin">3</span> สมบัติปฏิสมมาตร (Antisymmetric)</div>
-            $\forall x, y \in A, ((x, y) \in R \land (y, x) \in R) \implies x = y$<br>
+            $$\forall x, y \in A, ((x, y) \in R \land (y, x) \in R) \implies x = y$$
             • ถ้า $x \neq y$ จะมีลูกศรเชื่อมไปกลับพร้อมกันไม่ได้! (เช่น $\le, \subseteq, \mid$)
           </div>
           <div class="block gold">
             <div class="lab"><span class="pin">4</span> สมบัติถ่ายทอด (Transitive)</div>
-            $\forall x, y, z \in A, ((x, y) \in R \land (y, z) \in R) \implies (x, z) \in R$<br>
+            $$\forall x, y, z \in A, ((x, y) \in R \land (y, z) \in R) \implies (x, z) \in R$$
             • ถ้าเดินจาก $x \to y$ และ $y \to z$ ได้ จะต้องมีทางลัดตรง $x \to z$ เสมอ
           </div>
         </div>
@@ -414,7 +473,38 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="foot"><span>4 สมบัติทวิภาค</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 7: Equivalence Relation & Classes -->
+  <!-- SLIDE 9: Deep Dive into Antisymmetric vs Symmetric -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Deep Dive</span><h2>เจาะลึก: สมมาตร (Symmetric) vs ปฏิสมมาตร (Antisymmetric)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block al">
+            <div class="lab"><span class="pin">ALERT</span> ความเข้าใจผิดที่พบบ่อยมาก!</div>
+            <b>“ปฏิสมมาตร” ไม่ใช่ “ไม่สมมาตร (Non-symmetric)”</b><br>
+            ความสัมพันธ์หนึ่งอาจเป็น:
+            <ul style="margin-top:.4cqh;margin-left:1.5cqw">
+              <li>เป็นทั้งสมมาตร และปฏิสมมาตรพร้อมกันได้ (เช่น ความสัมพันธ์เอกลักษณ์ $\Delta = \{(1,1), (2,2)\}$)</li>
+              <li>ไม่เป็นทั้งสมมาตร และไม่เป็นปฏิสมมาตรพร้อมกันได้ (เช่น $R = \{(1,2), (2,1), (2,3)\}$)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">CRITERIA</span> เกณฑ์การตัดสินอย่างรวดเร็ว</div>
+            • <b>สมมาตร:</b> เจอลูกศร $a \to b$ ปุ๊บ ต้องมี $b \to a$ กลับมาเสมอ<br>
+            • <b>ปฏิสมมาตร:</b> เมื่อ $a \neq b$ ห้ามมีลูกศรสองหัว $a \leftrightarrow b$ เด็ดขาด! (ถ้ามีลูกศรสองหัวจะผิดปฏิสมมาตรทันที)<br>
+            • <b>คู่ตัวมันเอง $(a, a)$:</b> ไม่มีผลต่อการผิดปฏิสมมาตร เพราะ $a = a$
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>Symmetric vs Antisymmetric</span><span class="right">4091606 · CH03-W07</span></div>
+  </section>
+
+  <!-- SLIDE 10: Equivalence Relation & Equivalence Classes -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Equivalence & Partitions</span><h2>ความสัมพันธ์สมมูล (Equivalence Relation) และคลาสสมมูล</h2></div>
@@ -448,7 +538,38 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="foot"><span>ความสัมพันธ์สมมูล & คลาสสมมูล</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 8: Composition of Relations -->
+  <!-- SLIDE 11: Modular Equivalence Example -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Modular Equivalence</span><h2>ตัวอย่างคลาสสิก: ความสัมพันธ์สมภาคคอนกรูเอนซ์ ($a \equiv b \pmod m$)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> ความสัมพันธ์คอนกรูเอนซ์มอดุโล $m$</div>
+            กำหนด $R = \{(a, b) \in \mathbb{Z} \times \mathbb{Z} \mid a \equiv b \pmod m\}$<br>
+            นั่นคือ $m \mid (a - b)$ (ผลต่างหารด้วย $m$ ลงตัว)
+            $$\text{1. สะท้อน: } m \mid (a - a) = 0 \quad \checkmark$$
+            $$\text{2. สมมาตร: } m \mid (a - b) \implies m \mid (b - a) \quad \checkmark$$
+            $$\text{3. ถ่ายทอด: } m \mid (a - b) \land m \mid (b - c) \implies m \mid (a - c) \quad \checkmark$$
+          </div>
+        </div>
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">PARTITION</span> ผลกั้นเซตบน $A = \{0, 1, 2, 3, 4, 5, 6, 7\}$ สำหรับ $m = 3$</div>
+            • $[0] = \{x \in A \mid x \equiv 0 \pmod 3\} = \mathbf{\{0, 3, 6\}}$<br>
+            • $[1] = \{x \in A \mid x \equiv 1 \pmod 3\} = \mathbf{\{1, 4, 7\}}$<br>
+            • $[2] = \{x \in A \mid x \equiv 2 \pmod 3\} = \mathbf{\{2, 5\}}$<br><br>
+            สังเกตว่า $[0] \cup [1] \cup [2] = A$ และไม่มีสมาชิกร่วมกันเลย $\implies$ <b>แบ่งเป็น 3 กลุ่มย่อยอย่างสมบูรณ์แบบ</b>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>คอนกรูเอนซ์มอดุโล m</span><span class="right">4091606 · CH03-W07</span></div>
+  </section>
+
+  <!-- SLIDE 12: Composition of Relations -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Composite Relations</span><h2>การประกอบความสัมพันธ์ (Composition of Relations)</h2></div>
@@ -473,11 +594,12 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
         <div class="col">
           <div class="block gold">
             <div class="lab"><span class="pin">EX</span> ตัวอย่างการคำนวณ</div>
-            $R = \{(1, a), (2, b), (3, a)\}$ และ $S = \{(a, x), (b, y)\}$\br>
+            $R = \{(1, a), (1, b), (2, c), (3, a)\}$ และ $S = \{(a, x), (b, y), (c, x)\}$<br><br>
             • จาก $1 \xrightarrow{R} a \xrightarrow{S} x \implies (1, x) \in S \circ R$<br>
-            • จาก $2 \xrightarrow{R} b \xrightarrow{S} y \implies (2, y) \in S \circ R$<br>
+            • จาก $1 \xrightarrow{R} b \xrightarrow{S} y \implies (1, y) \in S \circ R$<br>
+            • จาก $2 \xrightarrow{R} c \xrightarrow{S} x \implies (2, x) \in S \circ R$<br>
             • จาก $3 \xrightarrow{R} a \xrightarrow{S} x \implies (3, x) \in S \circ R$<br>
-            $$\therefore S \circ R = \{(1, x), (2, y), (3, x)\}$$
+            $$\therefore S \circ R = \{(1, x), (1, y), (2, x), (3, x)\}$$
           </div>
         </div>
       </div>
@@ -485,42 +607,44 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="foot"><span>การประกอบความสัมพันธ์</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 9: Closures of Relations & Warshall's Algorithm -->
+  <!-- SLIDE 13: Closures of Relations -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Closure Properties</span><h2>การปิดสมบัติของความสัมพันธ์ (Closures & Warshall)</h2></div>
+      <div><span class="kick">Closure Properties</span><h2>การปิดสมบัติของความสัมพันธ์ (Closures of Relations)</h2></div>
     </div>
     <div class="body">
-      <div class="cols">
+      <div class="cols three">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">1</span> การปิดสมบัติสะท้อน (Reflexive Closure)</div>
+            <div class="lab"><span class="pin">1</span> การปิดสมบัติสะท้อน</div>
             เติมคู่อันดับเส้นทแยงมุม $\Delta = \{(x, x) \mid x \in A\}$ ทั้งหมดเข้าไป:
             $$\mathbf{\text{Refl}(R) = R \cup \Delta}$$
           </div>
+        </div>
+        <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">2</span> การปิดสมบัติสมมาตร (Symmetric Closure)</div>
+            <div class="lab"><span class="pin">2</span> การปิดสมบัติสมมาตร</div>
             เติมคู่อันดับสลับทิศทาง $R^{-1}$ เข้าไป:
             $$\mathbf{\text{Sym}(R) = R \cup R^{-1}}$$
           </div>
         </div>
         <div class="col">
           <div class="block gold">
-            <div class="lab"><span class="pin">3</span> การปิดสมบัติถ่ายทอด (Transitive Closure $R^+$)</div>
+            <div class="lab"><span class="pin">3</span> การปิดสมบัติถ่ายทอด</div>
             หาเส้นทางการเดินทางทุกความยาวจาก $1$ ถึง $n$ ก้าว:
-            $$\mathbf{R^+ = \bigcup_{k=1}^n R^k = R \cup R^2 \cup R^3 \cup \dots \cup R^n}$$
-          </div>
-          <div class="block al">
-            <div class="lab"><span class="pin">ALGO</span> ขั้นตอนวิธีวอร์แชลล์ (Warshall's Algorithm)</div>
-            หา Transitive Closure / ปัญหาการเข้าถึงถึงกัน (Reachability) ในกราฟ ด้วยการเขียนทับเมทริกซ์ $n$ รอบ ซับซ้อน $O(n^3)$
+            $$\mathbf{R^+ = \bigcup_{k=1}^n R^k}$$
           </div>
         </div>
       </div>
+      <div class="block al">
+        <div class="lab"><span class="pin">ALGO</span> ขั้นตอนวิธีวอร์แชลล์ (Warshall's Algorithm)</div>
+        ใช้หา Transitive Closure ($R^+$) หรือปัญหาการเข้าถึงถึงกัน (Reachability) ในกราฟ ด้วยการเขียนทับเมทริกซ์ $n$ รอบ ซับซ้อนเชิงเวลา $O(n^3)$ มีประสิทธิภาพสูงกว่าการคูณเมทริกซ์ตรงๆ
+      </div>
     </div>
-    <div class="foot"><span>การปิดสมบัติ & Warshall</span><span class="right">4091606 · CH03-W07</span></div>
+    <div class="foot"><span>การปิดสมบัติของความสัมพันธ์</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 10: Interactive Matrix & Property Simulator -->
+  <!-- SLIDE 14: Interactive Matrix Inspector Simulator -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Interactive Lab</span><h2>ตัวทดสอบสมบัติเมทริกซ์ความสัมพันธ์ 0-1 (Matrix Property Inspector)</h2></div>
@@ -529,19 +653,19 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
       <div class="cols wide-l">
         <div class="col">
           <div class="sim-box">
-            <div style="font-weight:700;color:var(--navy2);font-size:2.2cqh">คลิกที่ช่องเมทริกซ์ $3 \times 3$ เพื่อเปิด/ปิดคู่อันดับ $(i, j)$:</div>
+            <div style="font-weight:700;color:var(--navy2);font-size:2.1cqh">คลิกที่ช่องเมทริกซ์ $3 \times 3$ เพื่อเปิด/ปิดคู่อันดับ $(i, j)$:</div>
             <div style="display:flex;align-items:center;gap:2cqw">
               <div class="matrix-grid" id="simMatrix">
                 <!-- 3x3 cells generated by JS -->
               </div>
-              <div style="display:flex;flex-direction:column;gap:.6cqh">
+              <div style="display:flex;flex-direction:column;gap:.5cqh">
                 <button class="sim-btn" id="btnPresetRefl">ตั้งค่า: สะท้อน</button>
                 <button class="sim-btn" id="btnPresetSym">ตั้งค่า: สมมาตร</button>
                 <button class="sim-btn" id="btnPresetEq">ตั้งค่า: สมมูล</button>
                 <button class="sim-btn" id="btnClearMatrix">ล้างเมทริกซ์</button>
               </div>
             </div>
-            <div id="simPairs" style="font-family:var(--f-mono);font-size:1.8cqh;color:var(--navy);word-break:break-all"></div>
+            <div id="simPairs" style="font-family:var(--f-mono);font-size:1.75cqh;color:var(--navy);word-break:break-all"></div>
           </div>
         </div>
         <div class="col">
@@ -563,7 +687,7 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="foot"><span>Matrix Inspector</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 11: In-Class Worksheet Activity Guide -->
+  <!-- SLIDE 15: In-Class Worksheet Activity Guide -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Classroom Activity</span><h2>ใบกิจกรรมในชั้นเรียน สัปดาห์ที่ 7 (Worksheet Guide)</h2></div>
@@ -602,20 +726,20 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="foot"><span>ใบกิจกรรมสัปดาห์ที่ 7</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 12: Quiz Challenge Game -->
+  <!-- SLIDE 16: Quiz Challenge Game -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Challenge</span><h2>เกมประลองความรู้ : ถอดรหัสสมบัติความสัมพันธ์</h2></div>
     </div>
     <div class="body">
       <div class="game-box" id="gameContainer">
-        <!-- Game engine will render questions here -->
+        <!-- Game engine -->
       </div>
     </div>
     <div class="foot"><span>เกมประลองความรู้</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 13: Summary & Next Week -->
+  <!-- SLIDE 17: Summary & Next Week -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Recap & Next</span><h2>สรุปบทเรียนสัปดาห์ที่ 7 และหัวข้อสัปดาห์ถัดไป</h2></div>
@@ -652,14 +776,27 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
 <!-- Dock toolbar -->
 <div class="dock">
   <button id="btnPrev" title="สไลด์ก่อนหน้า (←)">‹</button>
-  <span class="count" id="slideCount">1 / 13</span>
+  <span class="count" id="slideCount">1 / 17</span>
   <button id="btnNext" title="สไลด์ถัดไป (→ / Space)">›</button>
   <span class="sep"></span>
   <button id="btnFull" title="เต็มจอ (F)">⛶</button>
 </div>
 
 <script>
-/* ===================== Slide Deck Navigation Controller ===================== */
+/* KaTeX rendering trigger */
+document.addEventListener("DOMContentLoaded", function() {
+  if (window.renderMathInElement) {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ],
+      throwOnError: false
+    });
+  }
+});
+
+/* Slide Deck Navigation Controller */
 const deck = document.getElementById('deck');
 const slides = Array.from(deck.querySelectorAll('.slide'));
 const totalSlides = slides.length;
@@ -720,7 +857,7 @@ window.addEventListener('keydown', (e) => {
 
 updateSlide(0);
 
-/* ===================== Matrix Inspector Simulator Engine ===================== */
+/* Matrix Inspector Simulator Engine */
 (function(){
   const grid = document.getElementById('simMatrix');
   const simPairs = document.getElementById('simPairs');
@@ -761,11 +898,9 @@ updateSlide(0);
     }
     simPairs.innerHTML = `<b>คู่อันดับใน R:</b> { ${pairs.join(', ') || '∅'} }`;
 
-    // 1. Reflexive: M[i][i] == 1 for all i
     const isRefl = (M[0][0] && M[1][1] && M[2][2]);
     txtRefl.innerHTML = isRefl ? '<span class="gn">✓ เป็นสมบัติสะท้อน</span> (ทแยงมุมหลักเป็น 1 ครบ)' : '<span class="rd">✗ ไม่เป็นสะท้อน</span> (ขาดคู่อันดับบนแนวทแยง)';
 
-    // 2. Symmetric: M[i][j] == M[j][i]
     let isSym = true;
     for(let i=0; i<3; i++){
       for(let j=0; j<3; j++){
@@ -774,7 +909,6 @@ updateSlide(0);
     }
     txtSym.innerHTML = isSym ? '<span class="gn">✓ เป็นสมบัติสมมาตร</span> (เมทริกซ์สมมาตร M = Mᵀ)' : '<span class="rd">✗ ไม่เป็นสมมาตร</span> (มีบางคู่มีไปแต่ไม่มีกลับ)';
 
-    // 3. Transitive: if M[i][j] && M[j][k] => M[i][k]
     let isTrans = true;
     for(let i=0; i<3; i++){
       for(let j=0; j<3; j++){
@@ -806,7 +940,7 @@ updateSlide(0);
   analyze();
 })();
 
-/* ===================== Quiz Game Engine ===================== */
+/* Quiz Game Engine */
 (function(){
   const container = document.getElementById('gameContainer');
   if(!container) return;

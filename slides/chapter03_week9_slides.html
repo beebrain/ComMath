@@ -7,6 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <style>
 /* =====================================================================
    SEQUENCES & CS APPLICATIONS — Chapter 3, Week 9
@@ -55,23 +58,23 @@ body{color:var(--ink);background:var(--paper);overflow:hidden}
 /* Header & Footers */
 .head{display:flex;align-items:flex-end;gap:2cqw;
   background:linear-gradient(100deg,var(--navy2),var(--navy));
-  color:#fff;padding:3cqh 5cqw 2.4cqh;position:relative}
+  color:#fff;padding:2.8cqh 5cqw 2.2cqh;position:relative}
 .head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:.65cqh;
   background:linear-gradient(90deg,var(--gold) 0 16%,rgba(255,255,255,.25) 16% 100%)}
-.head .kick{font-family:var(--f-mono);font-size:1.7cqh;letter-spacing:.25em;
-  text-transform:uppercase;color:#cdd8f4;font-weight:500;display:block;margin-bottom:.4cqh}
-.head h2{font-family:var(--f-head);font-weight:700;font-size:4.2cqh;line-height:1.15}
+.head .kick{font-family:var(--f-mono);font-size:1.65cqh;letter-spacing:.25em;
+  text-transform:uppercase;color:#cdd8f4;font-weight:500;display:block;margin-bottom:.3cqh}
+.head h2{font-family:var(--f-head);font-weight:700;font-size:4cqh;line-height:1.15}
 .head h2 .en{font-weight:500;color:#b9c6ee;font-size:.72em}
 
 .body{position:absolute;top:0;left:0;right:0;bottom:0;
-  padding:13.5cqh 5.4cqw 5.8cqh;display:flex;flex-direction:column;justify-content:center;gap:2.2cqh;
-  font-size:2.85cqh;line-height:1.45;overflow:hidden}
-.body.tight{gap:1.4cqh}
-.body.top{justify-content:flex-start;padding-top:14.2cqh}
+  padding:12.8cqh 5.2cqw 5.6cqh;display:flex;flex-direction:column;justify-content:center;gap:1.8cqh;
+  font-size:2.8cqh;line-height:1.45;overflow:hidden}
+.body.tight{gap:1.2cqh}
+.body.top{justify-content:flex-start;padding-top:13.5cqh}
 
-.foot{position:absolute;left:0;right:0;bottom:0;height:5cqh;
+.foot{position:absolute;left:0;right:0;bottom:0;height:4.8cqh;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 5.4cqw;font-size:1.9cqh;color:var(--navy);
+  padding:0 5.2cqw;font-size:1.85cqh;color:var(--navy);
   font-family:var(--f-head);border-top:1px solid var(--line)}
 .foot .right{font-family:var(--f-mono);letter-spacing:.05em;color:#7884a4}
 .foot .dot{color:var(--gold);margin:0 .5em}
@@ -87,11 +90,11 @@ b,strong{font-weight:700;color:var(--navy2)}
 .expr{font-family:var(--f-mono);font-weight:600;color:var(--navy2)}
 
 /* Blocks & Columns */
-.block{border-radius:11px;padding:1.6cqh 2.2cqw;background:var(--lnavy);
+.block{border-radius:10px;padding:1.4cqh 2cqw;background:var(--lnavy);
   border-left:.85cqh solid var(--navy);position:relative;
   box-shadow:0 8px 20px -16px rgba(31,58,147,.6)}
 .block .lab{display:inline-flex;align-items:center;gap:.5em;font-family:var(--f-head);
-  font-weight:700;color:var(--navy);font-size:.85em;margin-bottom:.4cqh}
+  font-weight:700;color:var(--navy);font-size:.85em;margin-bottom:.35cqh}
 .block .lab .pin{font-family:var(--f-mono);font-size:.8em;background:var(--navy);color:#fff;
   padding:.1em .55em;border-radius:.4em}
 .block.ex{background:var(--mint);border-color:var(--green)}
@@ -101,20 +104,19 @@ b,strong{font-weight:700;color:var(--navy2)}
 .block.gold{background:var(--lyellow);border-color:var(--gold)}
 .block.gold .lab{color:var(--gold2)} .block.gold .lab .pin{background:var(--gold)}
 
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:2.4cqw;align-items:start}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:2.2cqw;align-items:start}
 .cols.wide-l{grid-template-columns:1.2fr .8fr}
 .cols.wide-r{grid-template-columns:.8fr 1.2fr}
-.cols.three{grid-template-columns:repeat(3,1fr);gap:1.6cqw}
-.col{display:flex;flex-direction:column;gap:1.2cqh}
+.cols.three{grid-template-columns:repeat(3,1fr);gap:1.5cqw}
+.col{display:flex;flex-direction:column;gap:1.1cqh}
 
-/* Process Grid */
-.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2cqw;margin-top:.4cqh}
-.proc-card{background:#fff;border-radius:10px;padding:1.4cqh 1.2cqw;border:1px solid var(--line2);
-  box-shadow:0 6px 16px -10px rgba(31,58,147,.3);display:flex;flex-direction:column;gap:.5cqh}
-.proc-card .p-num{font-family:var(--f-mono);font-size:1.7cqh;font-weight:700;background:var(--navy);
-  color:#fff;border-radius:6px;padding:.15em .5em;align-self:flex-start}
-.proc-card .p-title{font-family:var(--f-head);font-size:2.1cqh;font-weight:700;color:var(--navy2)}
-.proc-card .p-desc{font-size:1.8cqh;color:var(--ink-soft);line-height:1.35}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1cqw;margin-top:.3cqh}
+.proc-card{background:#fff;border-radius:10px;padding:1.3cqh 1.1cqw;border:1px solid var(--line2);
+  box-shadow:0 6px 16px -10px rgba(31,58,147,.3);display:flex;flex-direction:column;gap:.4cqh}
+.proc-card .p-num{font-family:var(--f-mono);font-size:1.6cqh;font-weight:700;background:var(--navy);
+  color:#fff;border-radius:6px;padding:.12em .45em;align-self:flex-start}
+.proc-card .p-title{font-family:var(--f-head);font-size:2cqh;font-weight:700;color:var(--navy2)}
+.proc-card .p-desc{font-size:1.75cqh;color:var(--ink-soft);line-height:1.35}
 
 /* Reveal Component */
 .reveal{position:relative;cursor:pointer}
@@ -143,28 +145,28 @@ b,strong{font-weight:700;color:var(--navy2)}
 .cover{display:flex;flex-direction:column;justify-content:center;height:100%;padding:0 8cqw;position:relative}
 .cover .tag{font-family:var(--f-mono);font-size:2.2cqh;letter-spacing:.3em;color:var(--gold2);
   font-weight:700;margin-bottom:1cqh;text-transform:uppercase}
-.cover h1{font-family:var(--f-head);font-size:6.8cqh;font-weight:700;line-height:1.1;color:var(--navy2);margin-bottom:1.5cqh}
+.cover h1{font-family:var(--f-head);font-size:6.6cqh;font-weight:700;line-height:1.1;color:var(--navy2);margin-bottom:1.5cqh}
 .cover h1 .en{display:block;font-size:.52em;color:var(--navy);font-weight:500;margin-top:.2cqh}
-.cover .sub{font-size:3cqh;color:var(--ink-soft);line-height:1.4;margin-bottom:3.5cqh}
+.cover .sub{font-size:2.9cqh;color:var(--ink-soft);line-height:1.4;margin-bottom:3.2cqh}
 .cover .meta{font-size:2.2cqh;color:#596788;border-left:3px solid var(--gold);padding-left:1.5cqw}
 .cover .meta .course{font-family:var(--f-mono);font-weight:700;color:var(--navy)}
 
 /* Interactive Simulator */
-.sim-box{background:#fff;border-radius:12px;padding:1.8cqh 2cqw;border:1px solid var(--line2);
-  box-shadow:0 10px 24px -14px rgba(31,58,147,.4);display:flex;flex-direction:column;gap:1cqh}
-.sim-input{font-family:var(--f-mono);font-size:2cqh;padding:.3cqh .8cqw;border:1px solid var(--line2);border-radius:6px;width:120px}
+.sim-box{background:#fff;border-radius:12px;padding:1.6cqh 1.8cqw;border:1px solid var(--line2);
+  box-shadow:0 10px 24px -14px rgba(31,58,147,.4);display:flex;flex-direction:column;gap:.9cqh}
+.sim-input{font-family:var(--f-mono);font-size:1.9cqh;padding:.35cqh .7cqw;border:1px solid var(--line2);border-radius:6px;width:110px}
 
 /* Interactive Game */
-.game-box{background:#fff;border-radius:12px;padding:2cqh 2.4cqw;border:1px solid var(--line2);
-  box-shadow:0 12px 28px -14px rgba(31,58,147,.4);display:flex;flex-direction:column;gap:1.4cqh}
-.g-q{font-family:var(--f-head);font-size:2.4cqh;font-weight:700;color:var(--navy2)}
+.game-box{background:#fff;border-radius:12px;padding:1.8cqh 2.2cqw;border:1px solid var(--line2);
+  box-shadow:0 12px 28px -14px rgba(31,58,147,.4);display:flex;flex-direction:column;gap:1.2cqh}
+.g-q{font-family:var(--f-head);font-size:2.3cqh;font-weight:700;color:var(--navy2)}
 .g-opts{display:grid;grid-template-columns:1fr 1fr;gap:1cqw}
-.g-btn{padding:1.2cqh 1.4cqw;border-radius:8px;border:1px solid var(--line2);background:var(--lnavy);
-  font-family:var(--f-body);font-size:2cqh;font-weight:600;color:var(--navy2);cursor:pointer;text-align:left;transition:all .2s}
+.g-btn{padding:1.1cqh 1.3cqw;border-radius:8px;border:1px solid var(--line2);background:var(--lnavy);
+  font-family:var(--f-body);font-size:1.95cqh;font-weight:600;color:var(--navy2);cursor:pointer;text-align:left;transition:all .2s}
 .g-btn:hover{background:var(--navy);color:#fff}
 .g-btn.ok{background:var(--green);color:#fff;border-color:var(--green2)}
 .g-btn.no{background:var(--red);color:#fff;border-color:var(--red2)}
-.g-fb{font-size:2cqh;font-weight:600;padding:.6cqh 1cqw;border-radius:6px;display:none}
+.g-fb{font-size:1.95cqh;font-weight:600;padding:.5cqh 1cqw;border-radius:6px;display:none}
 .g-fb.ok{display:block;background:var(--mint);color:var(--green2)}
 .g-fb.no{display:block;background:var(--pink);color:var(--red2)}
 </style>
@@ -229,7 +231,7 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>เป้าหมายการเรียนรู้</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 3: Arithmetic & Geometric Sequences -->
+  <!-- SLIDE 3: Sequences -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Sequences</span><h2>ลำดับเลขคณิต และลำดับเรขาคณิต (Sequences)</h2></div>
@@ -242,7 +244,7 @@ b,strong{font-weight:700;color:var(--navy2)}
             เพิ่ม/ลดด้วยผลต่างร่วมที่คงที่ ($d = a_{n+1} - a_n$):
             $$\mathbf{a_n = a_1 + (n - 1)d}$$
             • ตัวอย่าง: $3, 7, 11, 15, \dots \implies a_1 = 3, d = 4$<br>
-            • พจน์ที่ 50: $a_{50} = 3 + (49)(4) = \mathbf{199}$
+            • พจน์ที่ 50: $a_{50} = 3 + (49)(4) = 3 + 196 = \mathbf{199}$
           </div>
         </div>
         <div class="col">
@@ -259,7 +261,7 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>ลำดับเลขคณิต & เรขาคณิต</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 4: Series & Algorithm Complexity Analysis -->
+  <!-- SLIDE 4: Series & Complexity -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Series & Complexity</span><h2>อนุกรมกับการวิเคราะห์ความซับซ้อนของขั้นตอนวิธี</h2></div>
@@ -272,7 +274,7 @@ b,strong{font-weight:700;color:var(--navy2)}
             $$S_n = \frac{n}{2}(a_1 + a_n) = \frac{n}{2}[2a_1 + (n - 1)d]$$
             • <b>ผลรวมวงวนซ้อน (Nested Loops $O(n^2)$):</b>
             $$\sum_{i=1}^n i = 1 + 2 + 3 + \dots + n = \frac{n(n+1)}{2} = \mathbf{\frac{1}{2}n^2 + \frac{1}{2}n \implies O(n^2)}$$
-            • ใน Bubble Sort / Selection Sort สำหรับข้อมูล $n=100$ ตัว มีการเปรียบเทียบ $= \frac{(100)(99)}{2} = 4,950$ ครั้ง
+            • ใน Bubble Sort สำหรับข้อมูล $n=100$ ตัว มีการเปรียบเทียบ $= \frac{(100)(99)}{2} = 4,950$ ครั้ง
           </div>
         </div>
         <div class="col">
@@ -419,7 +421,7 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>ตารางแฮช & การแก้การชนกัน</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 9: Interactive Hash Table Collision Simulator -->
+  <!-- SLIDE 9: Interactive Hash Table Simulator -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Interactive Lab</span><h2>ตัวจำลองการทำงานตารางแฮชแบบ Linear Probing ($m = 7$)</h2></div>
@@ -437,8 +439,7 @@ b,strong{font-weight:700;color:var(--navy2)}
             <div id="hashLog" style="font-family:var(--f-mono);font-size:1.8cqh;color:var(--navy);min-height:2.2em">
               ฟังก์ชันแฮช: $h(k) = k \bmod 7$
             </div>
-            <!-- Hash Table Array Visualization -->
-            <div style="display:grid;grid-template-columns:repeat(7, 1fr);gap:6px;margin-top:.6cqh" id="hashTableGrid">
+            <div style="display:grid;grid-template-columns:repeat(7, 1fr);gap:6px;margin-top:.5cqh" id="hashTableGrid">
               <!-- Rendered by JS -->
             </div>
           </div>
@@ -592,6 +593,19 @@ b,strong{font-weight:700;color:var(--navy2)}
 </div>
 
 <script>
+/* KaTeX rendering trigger */
+document.addEventListener("DOMContentLoaded", function() {
+  if (window.renderMathInElement) {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ],
+      throwOnError: false
+    });
+  }
+});
+
 /* Navigation Engine */
 const deck = document.getElementById('deck');
 const slides = Array.from(deck.querySelectorAll('.slide'));
@@ -717,7 +731,7 @@ updateSlide(0);
       log.innerHTML = `<span class="gd">เกิดการชนกันที่ดัชนี ${initialHash}!</span> เลื่อนตรวจหา ${probes} ครั้ง $\\to$ บันทึกที่ดัชนี ${idx}`;
     }
     renderTable(idx, probes > 0);
-    inputKey.value = key + 7; // increment for fun demo
+    inputKey.value = key + 7;
   };
 
   btnReset.onclick = () => {

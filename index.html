@@ -2,10 +2,662 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=slides/index.html">
-    <title>Redirecting to Computer Mathematics Slides</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Mathematics Portal - URU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0b0f19 0%, #17153b 50%, #0f172a 100%);
+            --card-bg: rgba(255, 255, 255, 0.035);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-hover-border: rgba(99, 102, 241, 0.45);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-indigo: #6366f1;
+            --accent-purple: #a855f7;
+            --accent-cyan: #06b6d4;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --glow: rgba(99, 102, 241, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', 'Noto Sans Thai', 'Inter', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2.5rem 1rem 4rem;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, var(--accent-indigo) 0%, transparent 70%);
+            top: -10%;
+            left: -10%;
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            width: 650px;
+            height: 650px;
+            background: radial-gradient(circle, var(--accent-purple) 0%, transparent 70%);
+            bottom: -10%;
+            right: -10%;
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1080px;
+            width: 100%;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo-area {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.1rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--card-border);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-size: 2.85rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(to right, #ffffff, #a5b4fc, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            max-width: 650px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--card-border);
+            color: var(--text-secondary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-family: inherit;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-primary);
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--accent-indigo), var(--accent-purple));
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+        }
+
+        /* Chapter Section */
+        .chapter-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .chapter-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            margin-top: 1rem;
+        }
+
+        .chapter-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .tag-ch1 { background: rgba(59, 130, 246, 0.15); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.3); }
+        .tag-ch2 { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .tag-ch3 { background: rgba(168, 85, 247, 0.15); color: #d8b4fe; border: 1px solid rgba(168, 85, 247, 0.3); }
+
+        .chapter-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 1.5rem;
+            color: inherit;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.25rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--card-hover-border);
+            box-shadow: 0 16px 36px -12px var(--glow);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .week-badge {
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            padding: 0.3rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        .card-body h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: #ffffff;
+            line-height: 1.35;
+        }
+
+        .card-body p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        /* Action Buttons */
+        .card-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .btn-primary-slide {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0.65rem 1rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(168, 85, 247, 0.25));
+            border: 1px solid rgba(165, 180, 252, 0.25);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .btn-primary-slide:hover {
+            background: linear-gradient(135deg, var(--accent-indigo), var(--accent-purple));
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-links-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .sub-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.775rem;
+            color: #cbd5e1;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            padding: 0.35rem 0.6rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .sub-link:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .sub-link.ws {
+            color: #6ee7b7;
+            border-color: rgba(16, 185, 129, 0.2);
+            background: rgba(16, 185, 129, 0.08);
+        }
+
+        .sub-link.ws:hover {
+            background: rgba(16, 185, 129, 0.2);
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
+        .sub-link.hw {
+            color: #fcd34d;
+            border-color: rgba(245, 158, 11, 0.2);
+            background: rgba(245, 158, 11, 0.08);
+        }
+
+        .sub-link.hw:hover {
+            background: rgba(245, 158, 11, 0.2);
+            border-color: rgba(245, 158, 11, 0.4);
+        }
+
+        .arrow-icon {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-primary-slide:hover .arrow-icon {
+            transform: translateX(4px);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(148, 163, 184, 0.5);
+            margin-top: 2.5rem;
+            font-weight: 300;
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2.15rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <p>กำลังนำทางไปยังหน้าสไลด์: <a href="slides/index.html">คลิกที่นี่หากไม่เปลี่ยนหน้าอัตโนมัติ</a></p>
+
+<div class="container">
+    <header>
+        <div class="logo-area">
+            <svg style="width: 14px; height: 14px; fill: currentColor; margin-right: 4px;" viewBox="0 0 24 24">
+                <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                <path d="M12 18.5L5 14.7v-2.1l7 3.8 7-3.8v2.1l-7 3.8z"/>
+            </svg>
+            Uttaradit Rajabhat University
+        </div>
+        <h1>Computer Mathematics</h1>
+        <p class="subtitle">คลังสไลด์บรรยาย ใบงานกิจกรรม และเอกสารประกอบการเรียนการสอนรายวิชาคณิตศาสตร์คอมพิวเตอร์</p>
+
+        <div class="filter-tabs">
+            <button class="tab-btn active" onclick="filterChapter('all', event)">ทั้งหมด (Week 1–9)</button>
+            <button class="tab-btn" onclick="filterChapter('ch1', event)">บทที่ 1: ตรรกศาสตร์</button>
+            <button class="tab-btn" onclick="filterChapter('ch2', event)">บทที่ 2: เซต</button>
+            <button class="tab-btn" onclick="filterChapter('ch3', event)">บทที่ 3: ความสัมพันธ์และฟังก์ชัน</button>
+        </div>
+    </header>
+
+    <!-- Chapter 1 -->
+    <div class="chapter-section" data-chapter="ch1">
+        <div class="chapter-header">
+            <span class="chapter-tag tag-ch1">Chapter 01</span>
+            <h2 class="chapter-title">ตรรกศาสตร์และระบบจำนวนคอมพิวเตอร์</h2>
+        </div>
+
+        <div class="grid">
+            <!-- Week 1 -->
+            <div class="card">
+                <div class="card-top">
+                    <span class="week-badge">Week 01</span>
+                    <span class="status-dot"></span>
+                </div>
+                <div class="card-body">
+                    <h2>Introduction to Logic</h2>
+                    <p>เรียนรู้ความหมายของตรรกศาสตร์ ประพจน์ ตัวเชื่อมประพจน์ และความสำคัญในวิทยาการคอมพิวเตอร์</p>
+                </div>
+                <div class="card-actions">
+                    <a href="chapter01_week1_slides.html" class="btn-primary-slide">
+                        <span>เปิดดูสไลด์ออนไลน์</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
+                    </a>
+                    <div class="btn-links-group">
+                        <a href="chapter01_week1_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF</a>
+                        <a href="chapter01_week1_handout.pdf" target="_blank" class="sub-link">📑 เอกสารแจก</a>
+                        <a href="chapter01_homework.pdf" target="_blank" class="sub-link hw">📝 การบ้าน</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 2 -->
+            <div class="card">
+                <div class="card-top">
+                    <span class="week-badge">Week 02</span>
+                    <span class="status-dot"></span>
+                </div>
+                <div class="card-body">
+                    <h2>Logical Equivalence</h2>
+                    <p>การวิเคราะห์ความสมมูลทางตรรกศาสตร์ สัจนิรันดร์ และข้อขัดแย้ง รวมถึงการพิสูจน์ในรูปแบบตารางและความสมมูล</p>
+                </div>
+                <div class="card-actions">
+                    <a href="chapter01_week2_slides.html" class="btn-primary-slide">
+                        <span>เปิดดูสไลด์ออนไลน์</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
+                    </a>
+                    <div class="btn-links-group">
+                        <a href="chapter01_week2_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF</a>
+                        <a href="chapter01_week2_handout.pdf" target="_blank" class="sub-link">📑 เอกสารแจก</a>
+                        <a href="chapter01_week2_slides.pdf" target="_blank" class="sub-link">📽️ สไลด์ PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 3 -->
+            <div class="card">
+                <div class="card-top">
+                    <span class="week-badge">Week 03</span>
+                    <span class="status-dot"></span>
+                </div>
+                <div class="card-body">
+                    <h2>Connectives · Quantifiers · Inference</h2>
+                    <p>ตัวเชื่อมเสริม XOR/NAND/NOR · ตัวบ่งปริมาณ ∀/∃ · กฎการอนุมาน Modus Ponens/Tollens/Syllogism · Fallacy</p>
+                </div>
+                <div class="card-actions">
+                    <a href="chapter01_week3_slides.html" class="btn-primary-slide">
+                        <span>เปิดดูสไลด์ออนไลน์</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
+                    </a>
+                    <div class="btn-links-group">
+                        <a href="chapter01_week3_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF</a>
+                        <a href="chapter01_week3_handout.pdf" target="_blank" class="sub-link">📑 เอกสารแจก</a>
+                        <a href="chapter01_week3_homework.pdf" target="_blank" class="sub-link hw">📝 การบ้าน</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chapter 2 -->
+    <div class="chapter-section" data-chapter="ch2">
+        <div class="chapter-header">
+            <span class="chapter-tag tag-ch2">Chapter 02</span>
+            <h2 class="chapter-title">ทฤษฎีเซตและการดำเนินการ</h2>
+        </div>
+
+        <div class="grid">
+            <!-- Week 4 -->
+            <div class="card">
+                <div class="card-top">
+                    <span class="week-badge">Week 04</span>
+                    <span class="status-dot"></span>
+                </div>
+                <div class="card-body">
+                    <h2>Set Theory Intro</h2>
+                    <p>ความหมายของเซต วิธีเขียนแจกแจงสมาชิก/บอกเงื่อนไข เซตจำกัด เซตอนันต์ และเซตย่อย</p>
+                </div>
+                <div class="card-actions">
+                    <a href="chapter02_week4_slides.html" class="btn-primary-slide">
+                        <span>เปิดดูสไลด์ออนไลน์</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
+                    </a>
+                    <div class="btn-links-group">
+                        <a href="chapter02_week4_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF</a>
+                        <a href="chapter02_week4_handout.pdf" target="_blank" class="sub-link">📑 เอกสารแจก</a>
+                        <a href="chapter02_week4_slides.pdf" target="_blank" class="sub-link">📽️ สไลด์ PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 5 -->
+            <div class="card">
+                <div class="card-top">
+                    <span class="week-badge">Week 05</span>
+                    <span class="status-dot"></span>
+                </div>
+                <div class="card-body">
+                    <h2>Set Operations</h2>
+                    <p>การดำเนินการระหว่างเซต ยูเนียน อินเตอร์เซกชัน ผลต่าง คอมพลีเมนต์ และกฎเดอมอร์แกน</p>
+                </div>
+                <div class="card-actions">
+                    <a href="chapter02_week5_slides.html" class="btn-primary-slide">
+                        <span>เปิดดูสไลด์ออนไลน์</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
+                    </a>
+                    <div class="btn-links-group">
+                        <a href="chapter02_week5_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF</a>
+                        <a href="chapter02_week5_handout.pdf" target="_blank" class="sub-link">📑 เอกสารแจก</a>
+                        <a href="chapter02_week5_slides.pdf" target="_blank" class="sub-link">📽️ สไลด์ PDF</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 6 -->
+            <div class="card">
+                <div class="card-top">
+                    <span class="week-badge">Week 06</span>
+                    <span class="status-dot"></span>
+                </div>
+                <div class="card-body">
+                    <h2>Power Set · Cartesian Product</h2>
+                    <p>เพาเวอร์เซต การหาจำนวนสมาชิก |A ∪ B ∪ C| ผลคูณคาร์ทีเซียน และการประยุกต์บิตแมสก์</p>
+                </div>
+                <div class="card-actions">
+                    <a href="chapter02_week6_slides.html" class="btn-primary-slide">
+                        <span>เปิดดูสไลด์ออนไลน์</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
+                    </a>
+                    <div class="btn-links-group">
+                        <a href="chapter02_week6_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF</a>
+                        <a href="chapter02_week6_worksheet_blank.pdf" target="_blank" class="sub-link ws">📄 ฉบับเปล่า</a>
+                        <a href="chapter02_week6_handout.pdf" target="_blank" class="sub-link">📑 เอกสารแจก</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chapter 3 -->
+    <div class="chapter-section" data-chapter="ch3">
+        <div class="chapter-header">
+            <span class="chapter-tag tag-ch3">Chapter 03</span>
+            <h2 class="chapter-title">ความสัมพันธ์ ฟังก์ชัน และการประยุกต์</h2>
+        </div>
+
+        <div class="grid">
+            <!-- Week 7 -->
+            <div class="card">
+                <div class="card-top">
+                    <span class="week-badge">Week 07</span>
+                    <span class="status-dot"></span>
+                </div>
+                <div class="card-body">
+                    <h2>Relations & Closures</h2>
+                    <p>พื้นฐานคู่อันดับ แผนภาพลูกศร เมทริกซ์ 4 สมบัติทวิภาค (สะท้อน สมมาตร ถ่ายทอด ปฏิสมมาตร) ความสัมพันธ์สมมูล และการปิดสมบัติ</p>
+                </div>
+                <div class="card-actions">
+                    <a href="chapter03_week7_slides.html" class="btn-primary-slide">
+                        <span>เปิดดูสไลด์ออนไลน์ (Week 7)</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
+                    </a>
+                    <div class="btn-links-group">
+                        <a href="chapter03_week7_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF (Week 7)</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 8 -->
+            <div class="card">
+                <div class="card-top">
+                    <span class="week-badge">Week 08</span>
+                    <span class="status-dot"></span>
+                </div>
+                <div class="card-body">
+                    <h2>Functions & Computer Applications</h2>
+                    <p>ประเภทฟังก์ชัน (1-1, ทั่วถึง, หนึ่งต่อหนึ่งทั่วถึง) การประกอบ ฟังก์ชันผกผัน Floor, Ceiling, Modulo, Hash Function และ Recursion</p>
+                </div>
+                <div class="card-actions">
+                    <a href="chapter03_week8_slides.html" class="btn-primary-slide">
+                        <span>เปิดดูสไลด์ออนไลน์ (Week 8)</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
+                    </a>
+                    <div class="btn-links-group">
+                        <a href="chapter03_week8_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF (Week 8)</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Week 9 -->
+            <div class="card">
+                <div class="card-top">
+                    <span class="week-badge">Week 09</span>
+                    <span class="status-dot"></span>
+                </div>
+                <div class="card-body">
+                    <h2>Sequences, Series & Advanced CS</h2>
+                    <p>ลำดับและอนุกรมเลขคณิต/เรขาคณิต พีชคณิตเชิงสัมพันธ์ในฐานข้อมูล (Selection, Projection, Join) ลำดับบางส่วน (Poset) Hasse Diagram และ Topological Sort</p>
+                </div>
+                <div class="card-actions">
+                    <a href="chapter03_week9_slides.html" class="btn-primary-slide">
+                        <span>เปิดดูสไลด์ออนไลน์ (Week 9)</span>
+                        <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
+                    </a>
+                    <div class="btn-links-group">
+                        <a href="chapter03_week9_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF (Week 9)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Department of Computer Science, Faculty of Science and Technology, Uttaradit Rajabhat University.
+    </footer>
+</div>
+
+<script>
+function filterChapter(chap, e) {
+    const tabs = document.querySelectorAll('.tab-btn');
+    tabs.forEach(t => t.classList.remove('active'));
+    if (e && e.currentTarget) {
+        e.currentTarget.classList.add('active');
+    }
+
+    const sections = document.querySelectorAll('.chapter-section');
+    sections.forEach(sec => {
+        if (chap === 'all' || sec.getAttribute('data-chapter') === chap) {
+            sec.style.display = 'flex';
+        } else {
+            sec.style.display = 'none';
+        }
+    });
+}
+</script>
+
 </body>
 </html>

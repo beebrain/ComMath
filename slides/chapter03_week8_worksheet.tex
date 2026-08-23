@@ -1,0 +1,185 @@
+% !TeX program = xelatex
+%% =====================================================================
+%%  ใบกิจกรรมในชั้นเรียน (Worksheet) บทที่ 3 : ความสัมพันธ์และฟังก์ชัน --- สัปดาห์ที่ 8
+%%  สร้างใบงานรายบุคคล: 2 หน้าเต็มต่อ 1 รหัสนักศึกษา (รายชื่อใน _students.tex)
+%%  หน้า 1: พิมพ์รหัสนักศึกษา + QR Code (สำหรับสแกนเก็บคะแนน)
+%%  หน้า 2: หัวกระดาษแบบต่อเนื่อง (เฉพาะชื่อและรหัส ไม่พิมพ์ QR Code ซ้ำ)
+%% =====================================================================
+\documentclass[a4paper,12pt]{article}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1.2cm,top=1.0cm,bottom=1.0cm]{geometry}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{qrcode}
+\usepackage{pgffor}
+
+\XeTeXlinebreaklocale "th_TH"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\setmainfont[Script=Thai,Scale=1.15]{TH Sarabun New}
+\definecolor{navy}{HTML}{1F3A93}
+\definecolor{mint}{HTML}{E8F5E9}
+\definecolor{lightnavy}{HTML}{EAEEF7}
+\renewcommand{\arraystretch}{1.15}
+\setlist{topsep=1pt,itemsep=2pt,parsep=0pt}
+\pagestyle{empty}
+
+\input{_students}
+\qrset{height=1.85cm}
+
+%% ---------- หัวกระดาษหน้า 1 (มี QR Code) ----------
+\newcommand{\wshead}[1]{%
+  \noindent
+  \begin{minipage}[c]{0.78\textwidth}
+    {\Large\bfseries\color{navy} ใบกิจกรรมในชั้นเรียน บทที่ 3 : ความสัมพันธ์และฟังก์ชัน (สัปดาห์ที่ 8)}\\[0.1em]
+    {\normalsize รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์}\\[0.5em]
+    ชื่อ-สกุล: \dotfill\\[0.35em]
+    รหัสนักศึกษา: {\large\bfseries #1} \qquad กลุ่ม: \makebox[3cm]{\dotfill}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.2\textwidth}
+    \centering
+    \qrcode{4091606-W08-#1}\\[0.15em]
+    {\scriptsize\ttfamily #1}
+  \end{minipage}
+  \par\vspace{0.3em}\hrule\vspace{0.4em}
+}
+
+%% ---------- หัวกระดาษหน้า 2 (ไม่มี QR Code มีเฉพาะชื่อ-รหัส) ----------
+\newcommand{\wsheadcontinued}[1]{%
+  \noindent
+  \begin{minipage}[c]{\textwidth}
+    {\large\bfseries\color{navy} ใบกิจกรรมในชั้นเรียน บทที่ 3 : ความสัมพันธ์และฟังก์ชัน (สัปดาห์ที่ 8) --- หน้า 2 (แบบฝึกเสริมทักษะ)}\\[0.25em]
+    ชื่อ-สกุล (ต่อ): \dotfill \qquad รหัส: {\large\bfseries #1} \qquad กลุ่ม: \makebox[2.5cm]{\dotfill}
+  \end{minipage}
+  \par\vspace{0.3em}\hrule\vspace{0.4em}
+}
+
+%% ---------- เนื้อหาใบกิจกรรม 1 ชุด 2 หน้าเต็ม (#1 = รหัสนักศึกษา) ----------
+\newcommand{\wsbody}[1]{%
+\wshead{#1}
+\noindent\textbf{คำชี้แจง:} จงแสดงวิธีคิดและเติมคำตอบลงในช่องว่างให้สมบูรณ์ เพื่อร่วมอภิปรายและประเมินผลในชั้นเรียน
+\vspace{0.3em}
+
+%% ---------- กิจกรรม 1 ----------
+\noindent\textbf{กิจกรรมที่ 1 : นิยามฟังก์ชัน โดเมน โคโดเมน และเรนจ์ (Function Foundations)} \hfill \textit{(6 นาที)}
+\begin{enumerate}[label=\arabic*)]
+  \item กำหนด $A = \{1, 2, 3, 4\}$ และ $B = \{a, b, c, d\}$ จงพิจารณาว่าความสัมพันธ์ต่อไปนี้เป็น \textbf{ฟังก์ชัน} จาก $A$ ไป $B$ หรือไม่:
+        \begin{enumerate}[label=(\alph*),itemsep=1pt]
+          \item $f_1 = \{(1, a), (2, b), (3, c), (4, d)\}$ \quad [ \ ] เป็นฟังก์ชัน \quad [ \ ] ไม่เป็น เพราะ \makebox[4cm]{\dotfill}
+          \item $f_2 = \{(1, a), (2, a), (3, b), (4, c)\}$ \quad [ \ ] เป็นฟังก์ชัน \quad [ \ ] ไม่เป็น เพราะ \makebox[4cm]{\dotfill}
+          \item $f_3 = \{(1, a), (2, b), (2, c), (3, d), (4, a)\}$ \quad [ \ ] เป็นฟังก์ชัน \quad [ \ ] ไม่เป็น เพราะ \makebox[4cm]{\dotfill}
+          \item $f_4 = \{(1, a), (3, b), (4, c)\}$ \quad [ \ ] เป็นฟังก์ชัน \quad [ \ ] ไม่เป็น เพราะ \makebox[4cm]{\dotfill}
+        \end{enumerate}
+  \item กำหนดฟังก์ชัน $g: \mathbb{R} \to \mathbb{R}$ โดย $g(x) = x^2 - 4x + 7$ จงหา:
+        \quad โดเมน $\operatorname{Dom}(g) =$ \makebox[3cm]{\dotfill}
+        \quad เรนจ์ $\operatorname{Ran}(g) =$ \makebox[3.5cm]{\dotfill}
+\end{enumerate}
+\vspace{0.2em}
+
+%% ---------- กิจกรรม 2 ----------
+\noindent\textbf{กิจกรรมที่ 2 : การจำแนกประเภทของฟังก์ชัน (Injective, Surjective, Bijective)} \hfill \textit{(8 นาที)}\\
+กำหนดฟังก์ชันต่อไปนี้ จงตรวจสอบสมบัติ (ใส่เครื่องหมาย $\checkmark$ หรือ $\times$ พร้อมเหตุผลสั้น ๆ):
+\begin{center}
+\small
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{ฟังก์ชันและโดเมน $\to$ โคโดเมน} & \textbf{หนึ่งต่อหนึ่ง (Injective)} & \textbf{ทั่วถึง (Surjective)} & \textbf{หนึ่งต่อหนึ่งทั่วถึง (Bijective)} \\ \hline
+$f: \mathbb{R} \to \mathbb{R}, \ f(x) = 3x - 5$ & & & \\ \hline
+$g: \mathbb{R} \to \mathbb{R}, \ g(x) = x^2$ & & & \\ \hline
+$h: \mathbb{Z} \to \mathbb{Z}, \ h(x) = 2x + 1$ & & & \\ \hline
+$k: \mathbb{R}^+ \to \mathbb{R}^+, \ k(x) = x^2$ & & & \\ \hline
+\end{tabular}
+\end{center}
+\vspace{0.2em}
+
+%% ---------- กิจกรรม 3 ----------
+\noindent\textbf{กิจกรรมที่ 3 : การประกอบฟังก์ชันและฟังก์ชันผกผัน (Composition \& Inverse)} \hfill \textit{(8 นาที)}\\
+กำหนด $f(x) = 2x + 3$ และ $g(x) = x^2 - 1$ เมื่อ $x \in \mathbb{R}$
+\begin{enumerate}[label=\arabic*)]
+  \item จงหา $(f \circ g)(x) = f(g(x)) =$\\[0.15em]
+        \textcolor{gray!60}{\hrulefill}
+  \item จงหา $(g \circ f)(x) = g(f(x)) =$\\[0.15em]
+        \textcolor{gray!60}{\hrulefill}
+  \item คำนวณค่า $(f \circ g)(2) =$ \makebox[3cm]{\dotfill} \quad และ $(g \circ f)(2) =$ \makebox[3cm]{\dotfill}
+  \item จงหาฟังก์ชันผกผัน $f^{-1}(x)$ ของ $f(x) = 2x + 3$:\\[0.15em]
+        วิธีทำ: \makebox[14cm]{\dotfill}
+\end{enumerate}
+\vspace{0.2em}
+
+%% ---------- ท้าทายท้ายหน้า 1 ----------
+\noindent\textbf{ท้าทายเช็กความเข้าใจ (หน้า 1):} เหตุใดฟังก์ชัน $g(x) = x^2$ บนโดเมน $\mathbb{R} \to \mathbb{R}$ จึง \textbf{ไม่มีฟังก์ชันผกผัน}? \\[0.15em]
+\textcolor{gray!60}{\hrulefill}
+
+\clearpage
+%% ====================== หน้าที่ 2 ======================
+\wsheadcontinued{#1}
+\noindent\textbf{คำชี้แจง:} แบบฝึกเสริมทักษะขั้นสูงด้านการประยุกต์ในวิทยาการคอมพิวเตอร์และการคิดวิเคราะห์ (ทำต่อจากหน้า 1)
+\vspace{0.3em}
+
+%% ---------- กิจกรรม 4 ----------
+\noindent\textbf{กิจกรรมที่ 4 : ฟังก์ชันปัดเศษ Floor ($\lfloor x \rfloor$) และ Ceiling ($\lceil x \rceil$)} \hfill \textit{(6 นาที)}
+\begin{enumerate}[label=\arabic*)]
+  \item จงหาค่าของนิพจน์ต่อไปนี้:
+        \begin{enumerate}[label=(\alph*),itemsep=1pt]
+          \item $\lfloor 3.8 \rfloor =$ \makebox[1.5cm]{\dotfill} \quad $\lfloor -3.2 \rfloor =$ \makebox[1.5cm]{\dotfill} \quad $\lceil 5.1 \rceil =$ \makebox[1.5cm]{\dotfill} \quad $\lceil -4.9 \rceil =$ \makebox[1.5cm]{\dotfill}
+          \item $\lfloor 7/2 \rfloor + \lceil 7/2 \rceil =$ \makebox[2cm]{\dotfill} \quad $\lceil \lfloor 4.7 \rfloor + 0.2 \rceil =$ \makebox[2cm]{\dotfill}
+        \end{enumerate}
+  \item \textbf{การแบ่งหน้าข้อมูล (Pagination):} มีบทความข่าว $N = 127$ รายการ แสดงผลหน้าละ $S = 10$ รายการ\\
+        จะต้องใช้จำนวนหน้าทั้งหมด $= \lceil N / S \rceil = \lceil 127 / 10 \rceil =$ \makebox[2cm]{\dotfill} หน้า
+  \item \textbf{การจัดสรรบล็อกหน่วยความจำ:} ขนาดไฟล์ $F = 4,500$ ไบต์ ขนาดบล็อก $B = 1,024$ ไบต์\\
+        ต้องจัดสรรพื้นที่ทั้งหมด $= \lceil 4,500 / 1,024 \rceil \times 1,024 =$ \makebox[3cm]{\dotfill} ไบต์
+\end{enumerate}
+\vspace{0.2em}
+
+%% ---------- กิจกรรม 5 ----------
+\noindent\textbf{กิจกรรมที่ 5 : ฟังก์ชันมอดุโลและการวนรอบ (Modulo Function)} \hfill \textit{(6 นาที)}
+\begin{enumerate}[label=\arabic*)]
+  \item จงหาค่าของ $a \bmod m$:
+        \quad $17 \bmod 5 =$ \makebox[1.5cm]{\dotfill}
+        \quad $42 \bmod 7 =$ \makebox[1.5cm]{\dotfill}
+        \quad $-8 \bmod 3 =$ \makebox[1.5cm]{\dotfill}
+        \quad $1234 \bmod 100 =$ \makebox[1.5cm]{\dotfill}
+  \item \textbf{อาร์เรย์วงกลม (Circular Queue):} ขนาดบัฟเฟอร์ $N = 8$ ดัชนีปัจจุบันอยู่ที่ $\text{tail} = 7$\\
+        เมื่อเลื่อนไปตำแหน่งถัดไป ดัชนีใหม่คือ $(\text{tail} + 1) \bmod N = (7 + 1) \bmod 8 =$ \makebox[2cm]{\dotfill}
+  \item \textbf{การหมุนเวียนเวรทำงาน (Round-Robin):} มีเซิร์ฟเวอร์ 4 เครื่อง ($0, 1, 2, 3$) คำขอที่ $k = 38$ จะถูกส่งไปยังเซิร์ฟเวอร์หมายเลข $38 \bmod 4 =$ \makebox[2cm]{\dotfill}
+\end{enumerate}
+\vspace{0.2em}
+
+%% ---------- กิจกรรม 6 ----------
+\noindent\textbf{กิจกรรมที่ 6 : ฟังก์ชันแฮชและการกระจายคีย์ (Hash Function \& Indexing)} \hfill \textit{(8 นาที)}\\
+กำหนดฟังก์ชันแฮช $h(k) = k \bmod 7$ สำหรับจัดเก็บข้อมูลลงในตารางขนาด 7 ช่อง (ดัชนี $0, 1, 2, 3, 4, 5, 6$)
+\begin{enumerate}[label=\arabic*)]
+  \item จงคำนวณตำแหน่งแฮชของคีย์ต่อไปนี้:
+        \begin{center}
+        \small
+        \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textbf{คีย์ ($k$)} & 15 & 24 & 37 & 50 & 62 \\ \hline
+        \textbf{ดัชนี $h(k) = k \bmod 7$} & \makebox[1.2cm]{\dotfill} & \makebox[1.2cm]{\dotfill} & \makebox[1.2cm]{\dotfill} & \makebox[1.2cm]{\dotfill} & \makebox[1.2cm]{\dotfill} \\ \hline
+        \end{tabular}
+        \end{center}
+  \item มีคู่ของคีย์ที่เกิด \textbf{การชนกัน (Hash Collision)} หรือไม่? คู่ใดบ้าง? $\Rightarrow$ \makebox[6cm]{\dotfill}
+  \item หาก $h$ เป็นฟังก์ชันจาก $\mathbb{N}$ ไปยัง $\{0, 1, \ldots, 6\}$ ฟังก์ชันนี้เป็นแบบ Injective หรือไม่ เพราะเหตุใด?\\[0.15em]
+        \textcolor{gray!60}{\hrulefill}
+\end{enumerate}
+\vspace{0.2em}
+
+%% ---------- กิจกรรม 7 ----------
+\noindent\textbf{กิจกรรมที่ 7 : ฟังก์ชันแบบเรียกซ้ำ (Recursive Function \& Call Stack)} \hfill \textit{(6 นาที)}\\
+กำหนดฟังก์ชันแฟกทอเรียล $f(n) = \begin{cases} 1 & n = 0 \\ n \cdot f(n-1) & n \ge 1 \end{cases}$
+\begin{enumerate}[label=\arabic*)]
+  \item จงเขียนลำดับการขยายการเรียกซ้ำและคำนวณค่าของ $f(4)$:\\[0.15em]
+        $f(4) = 4 \cdot f(3) = 4 \cdot (3 \cdot f(2)) =$ \makebox[8cm]{\dotfill}
+  \item กรณีฐาน (Base Case) มีความสำคัญอย่างไร หากไม่กำหนดกรณีฐานจะเกิดข้อผิดพลาดใดในระบบคอมพิวเตอร์?\\[0.15em]
+        \textcolor{gray!60}{\hrulefill}
+\end{enumerate}
+}
+
+\begin{document}
+\foreach \sid in \studentlist {%
+  \expandafter\wsbody\expandafter{\sid}%
+  \clearpage
+}
+\end{document}

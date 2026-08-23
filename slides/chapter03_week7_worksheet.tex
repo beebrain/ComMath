@@ -1,0 +1,190 @@
+% !TeX program = xelatex
+%% =====================================================================
+%%  ใบกิจกรรมในชั้นเรียน (Worksheet) บทที่ 3 : ความสัมพันธ์และฟังก์ชัน --- สัปดาห์ที่ 7
+%%  สร้างใบงานรายบุคคล: 2 หน้าเต็มต่อ 1 รหัสนักศึกษา (รายชื่อใน _students.tex)
+%%  หน้า 1: พิมพ์รหัสนักศึกษา + QR Code (สำหรับสแกนเก็บคะแนน)
+%%  หน้า 2: หัวกระดาษแบบต่อเนื่อง (เฉพาะชื่อและรหัส ไม่พิมพ์ QR Code ซ้ำ)
+%% =====================================================================
+\documentclass[a4paper,12pt]{article}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1.2cm,top=1.0cm,bottom=1.0cm]{geometry}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{qrcode}
+\usepackage{pgffor}
+
+\XeTeXlinebreaklocale "th_TH"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\setmainfont[Script=Thai,Scale=1.15]{TH Sarabun New}
+\definecolor{navy}{HTML}{1F3A93}
+\definecolor{mint}{HTML}{E8F5E9}
+\definecolor{lightnavy}{HTML}{EAEEF7}
+\renewcommand{\arraystretch}{1.15}
+\setlist{topsep=1pt,itemsep=2pt,parsep=0pt}
+\pagestyle{empty}
+
+\input{_students}
+\qrset{height=1.85cm}
+
+%% ---------- หัวกระดาษหน้า 1 (มี QR Code) ----------
+\newcommand{\wshead}[1]{%
+  \noindent
+  \begin{minipage}[c]{0.78\textwidth}
+    {\Large\bfseries\color{navy} ใบกิจกรรมในชั้นเรียน บทที่ 3 : ความสัมพันธ์และฟังก์ชัน (สัปดาห์ที่ 7)}\\[0.1em]
+    {\normalsize รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์}\\[0.5em]
+    ชื่อ-สกุล: \dotfill\\[0.35em]
+    รหัสนักศึกษา: {\large\bfseries #1} \qquad กลุ่ม: \makebox[3cm]{\dotfill}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.2\textwidth}
+    \centering
+    \qrcode{4091606-W07-#1}\\[0.15em]
+    {\scriptsize\ttfamily #1}
+  \end{minipage}
+  \par\vspace{0.3em}\hrule\vspace{0.4em}
+}
+
+%% ---------- หัวกระดาษหน้า 2 (ไม่มี QR Code มีเฉพาะชื่อ-รหัส) ----------
+\newcommand{\wsheadcontinued}[1]{%
+  \noindent
+  \begin{minipage}[c]{\textwidth}
+    {\large\bfseries\color{navy} ใบกิจกรรมในชั้นเรียน บทที่ 3 : ความสัมพันธ์และฟังก์ชัน (สัปดาห์ที่ 7) --- หน้า 2 (แบบฝึกเสริมทักษะ)}\\[0.25em]
+    ชื่อ-สกุล (ต่อ): \dotfill \qquad รหัส: {\large\bfseries #1} \qquad กลุ่ม: \makebox[2.5cm]{\dotfill}
+  \end{minipage}
+  \par\vspace{0.3em}\hrule\vspace{0.4em}
+}
+
+%% ---------- เนื้อหาใบกิจกรรม 1 ชุด 2 หน้าเต็ม (#1 = รหัสนักศึกษา) ----------
+\newcommand{\wsbody}[1]{%
+\wshead{#1}
+\noindent\textbf{คำชี้แจง:} จงแสดงวิธีคิดและเติมคำตอบลงในช่องว่างให้สมบูรณ์ เพื่อร่วมอภิปรายและประเมินผลในชั้นเรียน
+\vspace{0.3em}
+
+%% ---------- กิจกรรม 1 ----------
+\noindent\textbf{กิจกรรมที่ 1 : พื้นฐานคู่อันดับ ผลคูณคาร์ทีเซียน และการหาจำนวนความสัมพันธ์} \hfill \textit{(6 นาที)}
+\begin{enumerate}[label=\arabic*)]
+  \item กำหนด $A = \{1, 2, 3\}$ และ $B = \{x, y\}$ จงหา:
+        \quad (ก) $|A \times B| =$ \makebox[2cm]{\dotfill}
+        \quad (ข) จำนวนความสัมพันธ์ทั้งหมดจาก $A$ ไป $B = 2^{|A \times B|} =$ \makebox[2.5cm]{\dotfill}
+        \quad (ค) จำนวนความสัมพันธ์ทวิภาคทั้งหมดบนเซต $A = 2^{|A|^2} =$ \makebox[3cm]{\dotfill}
+  \item กำหนด $S = \{1, 2, 3, 4\}$ และความสัมพันธ์ $R = \{(a, b) \in S \times S \mid a < b\}$\\
+        จงแจกแจงสมาชิกของ $R = $ \makebox[13cm]{\dotfill}
+  \item จงหาโดเมนและเรนจ์ของ $R$ ในข้อ 2):
+        \quad $\operatorname{Dom}(R) = $ \makebox[3.5cm]{\dotfill}
+        \quad $\operatorname{Ran}(R) = $ \makebox[3.5cm]{\dotfill}
+\end{enumerate}
+\vspace{0.2em}
+
+%% ---------- กิจกรรม 2 ----------
+\noindent\textbf{กิจกรรมที่ 2 : ความสัมพันธ์ผกผันและการดำเนินการระหว่างความสัมพันธ์} \hfill \textit{(6 นาที)}
+\begin{enumerate}[label=\arabic*)]
+  \item กำหนด $R_1 = \{(1, a), (2, b), (3, a)\}$ จาก $\{1, 2, 3\}$ ไป $\{a, b\}$\\
+        จงหาความสัมพันธ์ผกผัน $R_1^{-1} = $ \makebox[12cm]{\dotfill}
+  \item กำหนด $R_2 = \{(1, b), (2, b), (3, a)\}$ จงหา:
+        \begin{enumerate}[label=(\alph*),itemsep=1pt]
+          \item $R_1 \cup R_2 =$ \makebox[12cm]{\dotfill}
+          \item $R_1 \cap R_2 =$ \makebox[12cm]{\dotfill}
+          \item $R_1 - R_2 =$ \makebox[12cm]{\dotfill}
+        \end{enumerate}
+\end{enumerate}
+\vspace{0.2em}
+
+%% ---------- กิจกรรม 3 ----------
+\noindent\textbf{กิจกรรมที่ 3 : การตรวจสอบสมบัติของความสัมพันธ์ทวิภาค (Reflexive, Symmetric, Transitive)} \hfill \textit{(8 นาที)}\\
+กำหนดเซต $A = \{1, 2, 3\}$ จงตรวจสอบสมบัติของความสัมพันธ์ต่อไปนี้ (ใส่เครื่องหมาย $\checkmark$ หรือ $\times$):
+\begin{center}
+\small
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{ความสัมพันธ์บน $A$} & \textbf{สะท้อน (Refl.)} & \textbf{สมมาตร (Sym.)} & \textbf{ปฏิสมมาตร (Antisym.)} & \textbf{ถ่ายทอด (Trans.)} \\ \hline
+$R_A = \{(1,1), (2,2), (3,3), (1,2), (2,1)\}$ & & & & \\ \hline
+$R_B = \{(1,2), (2,3), (1,3)\}$ & & & & \\ \hline
+$R_C = \{(1,1), (2,2), (3,3), (1,2), (2,3), (1,3)\}$ & & & & \\ \hline
+$R_D = \{(1,2), (2,1)\}$ & & & & \\ \hline
+\end{tabular}
+\end{center}
+\vspace{0.2em}
+
+%% ---------- ท้าทายท้ายหน้า 1 ----------
+\noindent\textbf{ท้าทายเช็กความเข้าใจ (หน้า 1):} ความสัมพันธ์ $R_A$ ในตารางด้านบน เป็น \textbf{ความสัมพันธ์สมมูล (Equivalence Relation)} หรือไม่? เพราะเหตุใด? \\[0.15em]
+\textcolor{gray!60}{\hrulefill}
+
+\clearpage
+%% ====================== หน้าที่ 2 ======================
+\wsheadcontinued{#1}
+\noindent\textbf{คำชี้แจง:} แบบฝึกเสริมทักษะขั้นสูงด้านการประยุกต์ในวิทยาการคอมพิวเตอร์และการคิดวิเคราะห์ (ทำต่อจากหน้า 1)
+\vspace{0.3em}
+
+%% ---------- กิจกรรม 4 ----------
+\noindent\textbf{กิจกรรมที่ 4 : คลาสสมมูลและการแบ่งกั้นเซต (Equivalence Class \& Partition)} \hfill \textit{(7 นาที)}\\
+กำหนด $A = \{0, 1, 2, 3, 4, 5, 6, 7\}$ และความสัมพันธ์สมมูล $R = \{(a, b) \in A \times A \mid a \equiv b \pmod 3\}$
+\begin{enumerate}[label=\arabic*)]
+  \item จงแจกแจงคลาสสมมูลทั้งหมดของ $R$ บนเซต $A$:
+        \begin{enumerate}[label=(\alph*),itemsep=2pt]
+          \item $[0] = \{x \in A \mid x \equiv 0 \pmod 3\} =$ \makebox[8cm]{\dotfill}
+          \item $[1] = \{x \in A \mid x \equiv 1 \pmod 3\} =$ \makebox[8cm]{\dotfill}
+          \item $[2] = \{x \in A \mid x \equiv 2 \pmod 3\} =$ \makebox[8cm]{\dotfill}
+        \end{enumerate}
+  \item ตรวจสอบว่า $[0] \cup [1] \cup [2] = A$ และแต่ละคลาสไม่มีสมาชิกร่วมกัน ($[i] \cap [j] = \emptyset$) หรือไม่ $\Rightarrow$ \makebox[3cm]{\dotfill}
+  \item สรุป: คลาสสมมูลเหล่านี้สร้าง \textbf{การแบ่งกั้น (Partition)} ของเซต $A$ ออกเป็น \makebox[1.5cm]{\dotfill} กลุ่ม
+\end{enumerate}
+\vspace{0.2em}
+
+%% ---------- กิจกรรม 5 ----------
+\noindent\textbf{กิจกรรมที่ 5 : การประกอบความสัมพันธ์และเมทริกซ์ 0-1 (Composite Relations \& 0-1 Matrix)} \hfill \textit{(8 นาที)}\\
+กำหนด $A = \{1, 2, 3\}, B = \{a, b, c\}, C = \{x, y\}$ โดย $R = \{(1, a), (1, b), (2, c), (3, a)\}$ และ $S = \{(a, x), (b, y), (c, x)\}$
+\begin{enumerate}[label=\arabic*)]
+  \item จงหาความสัมพันธ์ประกอบ $S \circ R$ (จาก $A$ ไป $C$ โดยผ่าน $B$):\\[0.15em]
+        $S \circ R =$ \makebox[13cm]{\dotfill}
+  \item เขียนเมทริกซ์บูลีน $M_R$ (ขนาด $3 \times 3$ ของแถว $1,2,3$ และคอลัมน์ $a,b,c$) และ $M_S$ (แถว $a,b,c$ และคอลัมน์ $x,y$):
+        \[
+        M_R = \begin{bmatrix}
+        \makebox[0.5cm]{\dotfill} & \makebox[0.5cm]{\dotfill} & \makebox[0.5cm]{\dotfill} \\
+        \makebox[0.5cm]{\dotfill} & \makebox[0.5cm]{\dotfill} & \makebox[0.5cm]{\dotfill} \\
+        \makebox[0.5cm]{\dotfill} & \makebox[0.5cm]{\dotfill} & \makebox[0.5cm]{\dotfill}
+        \end{bmatrix}, \quad
+        M_S = \begin{bmatrix}
+        \makebox[0.5cm]{\dotfill} & \makebox[0.5cm]{\dotfill} \\
+        \makebox[0.5cm]{\dotfill} & \makebox[0.5cm]{\dotfill} \\
+        \makebox[0.5cm]{\dotfill} & \makebox[0.5cm]{\dotfill}
+        \end{bmatrix}
+        \quad \implies M_{S \circ R} = M_R \odot M_S = \begin{bmatrix}
+        \makebox[0.5cm]{\dotfill} & \makebox[0.5cm]{\dotfill} \\
+        \makebox[0.5cm]{\dotfill} & \makebox[0.5cm]{\dotfill} \\
+        \makebox[0.5cm]{\dotfill} & \makebox[0.5cm]{\dotfill}
+        \end{bmatrix}
+        \]
+\end{enumerate}
+\vspace{0.2em}
+
+%% ---------- กิจกรรม 6 ----------
+\noindent\textbf{กิจกรรมที่ 6 : การปิดสมบัติของความสัมพันธ์ (Closures of Relations)} \hfill \textit{(7 นาที)}\\
+กำหนด $A = \{1, 2, 3, 4\}$ และ $R = \{(1, 2), (2, 3), (3, 4)\}$
+\begin{enumerate}[label=\arabic*)]
+  \item การปิดสมบัติสะท้อน (Reflexive Closure): $R \cup \Delta_A =$ \makebox[10.5cm]{\dotfill}
+  \item การปิดสมบัติสมมาตร (Symmetric Closure): $R \cup R^{-1} =$ \makebox[10cm]{\dotfill}
+  \item การปิดสมบัติถ่ายทอด (Transitive Closure): $R^+ = R \cup R^2 \cup R^3 \cup R^4 =$\\[0.15em]
+        \textcolor{gray!60}{\hrulefill}
+  \item ในทางวิทยาการคอมพิวเตอร์ การหา Transitive Closure เทียบเท่ากับปัญหาใดในทฤษฎีกราฟ? $\Rightarrow$ \makebox[5cm]{\dotfill}
+\end{enumerate}
+\vspace{0.2em}
+
+%% ---------- กิจกรรม 7 ----------
+\noindent\textbf{กิจกรรมที่ 7 : การวิเคราะห์ความสัมพันธ์ลำดับบางส่วน (Partial Order)} \hfill \textit{(4 นาที)}\\
+กำหนดความสัมพันธ์ ``หารลงตัว'' ($a \mid b$) บนเซต $S = \{1, 2, 3, 6\}$
+\begin{enumerate}[label=\arabic*)]
+  \item จงแจกแจงสมาชิกของความสัมพันธ์ $R = \{(a, b) \in S \times S \mid a \mid b\}$:\\[0.15em]
+        $R =$ \makebox[14cm]{\dotfill}
+  \item ความสัมพันธ์นี้เป็นลำดับบางส่วน (Partial Order) หรือไม่ เพราะเหตุใด:\\[0.15em]
+        \textcolor{gray!60}{\hrulefill}
+\end{enumerate}
+}
+
+\begin{document}
+\foreach \sid in \studentlist {%
+  \expandafter\wsbody\expandafter{\sid}%
+  \clearpage
+}
+\end{document}

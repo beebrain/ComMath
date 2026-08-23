@@ -1,0 +1,171 @@
+% !TeX program = xelatex
+%% =====================================================================
+%%  ใบกิจกรรมในชั้นเรียน (Worksheet) บทที่ 3 : ความสัมพันธ์และฟังก์ชัน --- สัปดาห์ที่ 9
+%%  สร้างใบงานรายบุคคล: 2 หน้าเต็มต่อ 1 รหัสนักศึกษา (รายชื่อใน _students.tex)
+%%  หน้า 1: พิมพ์รหัสนักศึกษา + QR Code (สำหรับสแกนเก็บคะแนน)
+%%  หน้า 2: หัวกระดาษแบบต่อเนื่อง (เฉพาะชื่อและรหัส ไม่พิมพ์ QR Code ซ้ำ)
+%% =====================================================================
+\documentclass[a4paper,12pt]{article}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1.2cm,top=1.0cm,bottom=1.0cm]{geometry}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{qrcode}
+\usepackage{pgffor}
+
+\XeTeXlinebreaklocale "th_TH"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\setmainfont[Script=Thai,Scale=1.15]{TH Sarabun New}
+\definecolor{navy}{HTML}{1F3A93}
+\definecolor{mint}{HTML}{E8F5E9}
+\definecolor{lightnavy}{HTML}{EAEEF7}
+\renewcommand{\arraystretch}{1.15}
+\setlist{topsep=1pt,itemsep=2pt,parsep=0pt}
+\pagestyle{empty}
+
+\input{_students}
+\qrset{height=1.85cm}
+
+%% ---------- หัวกระดาษหน้า 1 (มี QR Code) ----------
+\newcommand{\wshead}[1]{%
+  \noindent
+  \begin{minipage}[c]{0.78\textwidth}
+    {\Large\bfseries\color{navy} ใบกิจกรรมในชั้นเรียน บทที่ 3 : ความสัมพันธ์และฟังก์ชัน (สัปดาห์ที่ 9)}\\[0.1em]
+    {\normalsize รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์}\\[0.5em]
+    ชื่อ-สกุล: \dotfill\\[0.35em]
+    รหัสนักศึกษา: {\large\bfseries #1} \qquad กลุ่ม: \makebox[3cm]{\dotfill}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.2\textwidth}
+    \centering
+    \qrcode{4091606-W09-#1}\\[0.15em]
+    {\scriptsize\ttfamily #1}
+  \end{minipage}
+  \par\vspace{0.3em}\hrule\vspace{0.4em}
+}
+
+%% ---------- หัวกระดาษหน้า 2 (ไม่มี QR Code มีเฉพาะชื่อ-รหัส) ----------
+\newcommand{\wsheadcontinued}[1]{%
+  \noindent
+  \begin{minipage}[c]{\textwidth}
+    {\large\bfseries\color{navy} ใบกิจกรรมในชั้นเรียน บทที่ 3 : ความสัมพันธ์และฟังก์ชัน (สัปดาห์ที่ 9) --- หน้า 2 (แบบฝึกเสริมทักษะ)}\\[0.25em]
+    ชื่อ-สกุล (ต่อ): \dotfill \qquad รหัส: {\large\bfseries #1} \qquad กลุ่ม: \makebox[2.5cm]{\dotfill}
+  \end{minipage}
+  \par\vspace{0.3em}\hrule\vspace{0.4em}
+}
+
+%% ---------- เนื้อหาใบกิจกรรม 1 ชุด 2 หน้าเต็ม (#1 = รหัสนักศึกษา) ----------
+\newcommand{\wsbody}[1]{%
+\wshead{#1}
+\noindent\textbf{คำชี้แจง:} จงแสดงวิธีคิดและเติมคำตอบลงในช่องว่างให้สมบูรณ์ เพื่อร่วมอภิปรายและประเมินผลในชั้นเรียน
+\vspace{0.3em}
+
+%% ---------- กิจกรรม 1 ----------
+\noindent\textbf{กิจกรรมที่ 1 : ลำดับเลขคณิตและลำดับเรขาคณิต (Arithmetic \& Geometric Sequences)} \hfill \textit{(6 นาที)}
+\begin{enumerate}[label=\arabic*)]
+  \item กำหนดลำดับเลขคณิต $3, 7, 11, 15, \ldots$
+        \quad (ก) ผลต่างร่วม $d =$ \makebox[1.5cm]{\dotfill}
+        \quad (ข) พจน์ทั่วไป $a_n =$ \makebox[3.5cm]{\dotfill}
+        \quad (ค) พจน์ที่ 50 ($a_{50}$) $=$ \makebox[2cm]{\dotfill}
+  \item กำหนดลำดับเรขาคณิต $2, 6, 18, 54, \ldots$
+        \quad (ก) อัตราส่วนร่วม $r =$ \makebox[1.5cm]{\dotfill}
+        \quad (ข) พจน์ทั่วไป $a_n =$ \makebox[3.5cm]{\dotfill}
+        \quad (ค) พจน์ที่ 8 ($a_8$) $=$ \makebox[2cm]{\dotfill}
+\end{enumerate}
+\vspace{0.2em}
+
+%% ---------- กิจกรรม 2 ----------
+\noindent\textbf{กิจกรรมที่ 2 : อนุกรมกับการวิเคราะห์ความซับซ้อนของขั้นตอนวิธี (Series \& Algorithm Complexity)} \hfill \textit{(8 นาที)}
+\begin{enumerate}[label=\arabic*)]
+  \item \textbf{การหาผลบวกวงวนซ้อน (Nested Loop Analysis):} คำนวณผลบวก $S = \sum_{i=1}^n i = 1 + 2 + 3 + \cdots + n$
+        \[
+        S_n = \frac{n(n+1)}{2} = \frac{1}{2}n^2 + \frac{1}{2}n \implies \text{Big-O Complexity} = O(\makebox[2cm]{\dotfill})
+        \]
+  \item หากขั้นตอนวิธี Bubble Sort ทำการเปรียบเทียบในรอบที่ 1 ถึง $n-1$ ทั้งหมด $S = (n-1) + (n-2) + \dots + 1$\\
+        สำหรับข้อมูล $n = 100$ ตัว จะมีการเปรียบเทียบทั้งหมด $= \frac{(100)(99)}{2} =$ \makebox[3cm]{\dotfill} ครั้ง
+  \item \textbf{ผลรวมจำนวนโหนดใน Binary Tree สมบูรณ์:} ต้นไม้ทวิภาคความสูง $h = 5$ มีโหนดในแต่ละชั้นคือ $1, 2, 4, 8, 16, 32$\\
+        ผลรวมโหนดทั้งหมด $= S_6 = \frac{1(1 - 2^6)}{1 - 2} = 2^6 - 1 =$ \makebox[2.5cm]{\dotfill} โหนด
+\end{enumerate}
+\vspace{0.2em}
+
+%% ---------- กิจกรรม 3 ----------
+\noindent\textbf{กิจกรรมที่ 3 : ความสัมพันธ์เวียนเกิด (Recurrence Relation)} \hfill \textit{(6 นาที)}\\
+กำหนดความสัมพันธ์เวียนเกิดสำหรับขั้นตอนวิธี Merge Sort: $T(n) = 2T(n/2) + c\cdot n$ โดย $T(1) = c$
+\begin{enumerate}[label=\arabic*)]
+  \item จงหาค่าของ $T(2), T(4), T(8)$ ในรูปของค่าคงที่ $c$:
+        \quad $T(2) = $ \makebox[2.5cm]{\dotfill}
+        \quad $T(4) = $ \makebox[2.5cm]{\dotfill}
+        \quad $T(8) = $ \makebox[2.5cm]{\dotfill}
+  \item สรุปรูปทั่วไปของ $T(n) =$ \makebox[4cm]{\dotfill} $\implies$ Big-O Complexity $= O($ \makebox[2.5cm]{\dotfill} $)$
+\end{enumerate}
+\vspace{0.2em}
+
+%% ---------- ท้าทายท้ายหน้า 1 ----------
+\noindent\textbf{ท้าทายเช็กความเข้าใจ (หน้า 1):} ลำดับฟีโบนัชชี $F_0 = 0, F_1 = 1, F_n = F_{n-1} + F_{n-2}$ จงหาค่า $F_6 =$ \makebox[2cm]{\dotfill} \\[0.15em]
+\textcolor{gray!60}{\hrulefill}
+
+\clearpage
+%% ====================== หน้าที่ 2 ======================
+\wsheadcontinued{#1}
+\noindent\textbf{คำชี้แจง:} แบบฝึกเสริมทักษะขั้นสูงด้านการประยุกต์ในวิทยาการคอมพิวเตอร์และการคิดวิเคราะห์ (ทำต่อจากหน้า 1)
+\vspace{0.3em}
+
+%% ---------- กิจกรรม 4 ----------
+\noindent\textbf{กิจกรรมที่ 4 : ฐานข้อมูลเชิงสัมพันธ์และพีชคณิตเชิงสัมพันธ์ (Relational Algebra: $\sigma, \pi, \bowtie$)} \hfill \textit{(8 นาที)}\\
+กำหนดรีเลชัน \texttt{Students(ID, Name, Major, GPA)} และ \texttt{Enroll(ID, CourseID, Grade)}
+\begin{enumerate}[label=\arabic*)]
+  \item \textbf{การเลือก (Selection $\sigma$):} จงเขียนนิพจน์พีชคณิตเชิงสัมพันธ์เพื่อเลือกนักศึกษาที่มี $\text{GPA} \ge 3.50$:\\[0.15em]
+        นิพจน์: \makebox[13cm]{\dotfill}
+  \item \textbf{การฉาย (Projection $\pi$):} จงเขียนนิพจน์เพื่อดึงเฉพาะคอลัมน์ \texttt{Name} และ \texttt{Major} ของทุกคน:\\[0.15em]
+        นิพจน์: \makebox[13cm]{\dotfill}
+  \item \textbf{การเชื่อม (Natural Join $\bowtie$):} นิพจน์ $\pi_{\text{Name, CourseID}}(\sigma_{\text{Grade='A'}}(\text{Students} \bowtie \text{Enroll}))$ มีความหมายทางภาษาคนว่าอย่างไร?\\[0.15em]
+        \textcolor{gray!60}{\hrulefill}
+\end{enumerate}
+\vspace{0.2em}
+
+%% ---------- กิจกรรม 5 ----------
+\noindent\textbf{กิจกรรมที่ 5 : ความสัมพันธ์ลำดับบางส่วนและการจัดลำดับงาน (Partial Order \& Topological Sort)} \hfill \textit{(8 นาที)}\\
+มีงาน 5 งาน $\{A, B, C, D, E\}$ โดยมีเงื่อนไขก่อนหลัง (Prerequisite Relation $R$):
+$R = \{(A, B), (A, C), (B, D), (C, D), (D, E)\}$
+\begin{enumerate}[label=\arabic*)]
+  \item งานใดบ้างที่สามารถเริ่มต้นทำเป็นงานแรกได้ ($\text{In-degree} = 0$) $\Rightarrow$ \makebox[3cm]{\dotfill}
+  \item จงหาลำดับการทำงานที่ถูกต้องตามเงื่อนไข (Topological Order) มา 1 ลำดับ:\\[0.15em]
+        ลำดับการทำงาน: \makebox[12cm]{\dotfill}
+  \item หากเพิ่มเงื่อนไข $(E, A)$ จะสามารถหา Topological Sort ได้หรือไม่ เพราะเหตุใด?\\[0.15em]
+        \textcolor{gray!60}{\hrulefill}
+\end{enumerate}
+\vspace{0.2em}
+
+%% ---------- กิจกรรม 6 ----------
+\noindent\textbf{กิจกรรมที่ 6 : การแก้ปัญหาการชนกันในตารางแฮช (Hash Collision Resolution)} \hfill \textit{(8 นาที)}\\
+ตารางแฮชขนาด $m = 7$ (ช่อง $0, 1, 2, 3, 4, 5, 6$) ใช้ฟังก์ชันแฮช $h(k) = k \bmod 7$ มีลำดับคีย์เข้าคือ $12, 19, 26, 33$
+\begin{enumerate}[label=\arabic*)]
+  \item \textbf{วิธี Linear Probing ($h(k, i) = (k \bmod 7 + i) \bmod 7$):} จงเติมคีย์ลงในช่องตาราง:
+        \begin{center}
+        \small
+        \begin{tabular}{|c|c|c|c|c|c|c|c|}
+        \hline
+        \textbf{ช่องดัชนี} & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+        \textbf{คีย์ที่จัดเก็บ} & \makebox[0.8cm]{\dotfill} & \makebox[0.8cm]{\dotfill} & \makebox[0.8cm]{\dotfill} & \makebox[0.8cm]{\dotfill} & \makebox[0.8cm]{\dotfill} & \makebox[0.8cm]{\dotfill} & \makebox[0.8cm]{\dotfill} \\ \hline
+        \end{tabular}
+        \end{center}
+  \item \textbf{วิธี Chaining (Linked List):} คีย์ $12, 19, 26, 33$ จะถูกนำไปต่อที่ช่องดัชนีใดในตาราง:\\[0.15em]
+        ช่องที่เกิดการต่อเป็นลูกโซ่คือ ช่องที่ \makebox[2cm]{\dotfill} โดยมีโซ่ของข้อมูลคือ \makebox[6cm]{\dotfill}
+\end{enumerate}
+\vspace{0.2em}
+
+%% ---------- กิจกรรม 7 ----------
+\noindent\textbf{กิจกรรมที่ 7 : การสังเคราะห์องค์ความรู้บทที่ 3 (Summary Reflection)} \hfill \textit{(4 นาที)}\\
+จงอธิบายความสัมพันธ์ระหว่าง \textbf{ผลคูณคาร์ทีเซียน} $\to$ \textbf{ความสัมพันธ์} $\to$ \textbf{ฟังก์ชัน} ว่ามีข้อกำหนดที่เข้มงวดขึ้นอย่างไรในแต่ละขั้น?\\[0.15em]
+\textcolor{gray!60}{\hrulefill}\\[0.55em]
+\textcolor{gray!60}{\hrulefill}
+}
+
+\begin{document}
+\foreach \sid in \studentlist {%
+  \expandafter\wsbody\expandafter{\sid}%
+  \clearpage
+}
+\end{document}

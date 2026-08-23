@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทที่ 3 ความสัมพันธ์และฟังก์ชัน — สัปดาห์ที่ 8 · ฟังก์ชัน ประเภทฟังก์ชัน การประกอบ และฟังก์ชันพิเศษทางคอมพิวเตอร์</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   FUNCTION BLUEPRINT — Chapter 3 Relations and Functions, Week 8
+   คณิตศาสตร์สำหรับคอมพิวเตอร์ (4091606) · มหาวิทยาลัยราชภัฏอุตรดิตถ์
+   ===================================================================== */
+:root{
+  --paper:#F4EEDF; --paper2:#FCFAF3; --ink:#15203a; --ink-soft:#42506e;
+  --navy:#1F3A93; --navy2:#16265e; --navy3:#0e1a44;
+  --green:#2E8B57; --green2:#1f6b41;
+  --red:#C0392B; --red2:#962b20;
+  --gold:#B7950B; --gold2:#8a7008;
+  --cyan:#00838F; --purple:#6A1B9A;
+  --lnavy:#E7ECF8; --mint:#E6F4EA; --pink:#FBE7E4; --cream:#FFF7DD; --lyellow:#FFF6D5;
+  --line:rgba(31,58,147,.16);
+  --line2:rgba(31,58,147,.30);
+  --f-head:'IBM Plex Sans Thai','Noto Sans Thai','Sarabun',system-ui,-apple-system,sans-serif;
+  --f-body:'Sarabun','Noto Sans Thai','IBM Plex Sans Thai',system-ui,-apple-system,sans-serif;
+  --f-mono:'JetBrains Mono','Courier New',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:var(--f-body);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+body{color:var(--ink);background:var(--paper);overflow:hidden}
+
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(120% 90% at 12% 0%, #FAF5E7 0%, var(--paper) 55%, #ECE3CC 100%);
+}
+.bg::before{content:"";position:absolute;inset:0;opacity:.5;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:46px 46px,46px 46px;
+  -webkit-mask-image:radial-gradient(120% 120% at 50% 40%,#000 55%,transparent 100%);
+  mask-image:radial-gradient(120% 120% at 50% 40%,#000 55%,transparent 100%);
+}
+
+#app{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100vh;width:100vw}
+.stage{position:relative;width:min(95.5vw,169vh);aspect-ratio:16/9;
+  background:var(--paper2);border-radius:14px;
+  box-shadow:0 30px 70px -28px rgba(14,26,68,.55),0 2px 0 rgba(255,255,255,.6) inset,0 0 0 1px rgba(31,58,147,.10);
+  overflow:hidden;
+}
+.deck{position:absolute;inset:0}
+.slide{position:absolute;inset:0;display:none;container-type:size;
+  background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,0) 22%),var(--paper2);
+}
+.slide.is-active{display:block}
+
+/* Header & Footers */
+.head{display:flex;align-items:flex-end;gap:2cqw;
+  background:linear-gradient(100deg,var(--navy2),var(--navy));
+  color:#fff;padding:3cqh 5cqw 2.4cqh;position:relative}
+.head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:.65cqh;
+  background:linear-gradient(90deg,var(--gold) 0 16%,rgba(255,255,255,.25) 16% 100%)}
+.head .kick{font-family:var(--f-mono);font-size:1.7cqh;letter-spacing:.25em;
+  text-transform:uppercase;color:#cdd8f4;font-weight:500;display:block;margin-bottom:.4cqh}
+.head h2{font-family:var(--f-head);font-weight:700;font-size:4.2cqh;line-height:1.15}
+.head h2 .en{font-weight:500;color:#b9c6ee;font-size:.72em}
+
+.body{position:absolute;top:0;left:0;right:0;bottom:0;
+  padding:13.5cqh 5.4cqw 5.8cqh;display:flex;flex-direction:column;justify-content:center;gap:2.2cqh;
+  font-size:2.85cqh;line-height:1.45;overflow:hidden}
+.body.tight{gap:1.4cqh}
+.body.top{justify-content:flex-start;padding-top:14.2cqh}
+
+.foot{position:absolute;left:0;right:0;bottom:0;height:5cqh;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5.4cqw;font-size:1.9cqh;color:var(--navy);
+  font-family:var(--f-head);border-top:1px solid var(--line)}
+.foot .right{font-family:var(--f-mono);letter-spacing:.05em;color:#7884a4}
+.foot .dot{color:var(--gold);margin:0 .5em}
+
+/* Typography & Badges */
+b,strong{font-weight:700;color:var(--navy2)}
+.hl{color:var(--navy);font-weight:700}
+.gn{color:var(--green2);font-weight:700}
+.rd{color:var(--red2);font-weight:700}
+.gd{color:var(--gold2);font-weight:700}
+.code{font-family:var(--f-mono);background:var(--lnavy);color:var(--navy2);
+  padding:.05em .45em;border-radius:.3em;font-size:.84em;font-weight:600}
+.expr{font-family:var(--f-mono);font-weight:600;color:var(--navy2)}
+
+/* Blocks & Columns */
+.block{border-radius:11px;padding:1.6cqh 2.2cqw;background:var(--lnavy);
+  border-left:.85cqh solid var(--navy);position:relative;
+  box-shadow:0 8px 20px -16px rgba(31,58,147,.6)}
+.block .lab{display:inline-flex;align-items:center;gap:.5em;font-family:var(--f-head);
+  font-weight:700;color:var(--navy);font-size:.85em;margin-bottom:.4cqh}
+.block .lab .pin{font-family:var(--f-mono);font-size:.8em;background:var(--navy);color:#fff;
+  padding:.1em .55em;border-radius:.4em}
+.block.ex{background:var(--mint);border-color:var(--green)}
+.block.ex .lab{color:var(--green2)} .block.ex .lab .pin{background:var(--green)}
+.block.al{background:var(--pink);border-color:var(--red)}
+.block.al .lab{color:var(--red2)} .block.al .lab .pin{background:var(--red)}
+.block.gold{background:var(--lyellow);border-color:var(--gold)}
+.block.gold .lab{color:var(--gold2)} .block.gold .lab .pin{background:var(--gold)}
+
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:2.4cqw;align-items:start}
+.cols.wide-l{grid-template-columns:1.2fr .8fr}
+.cols.wide-r{grid-template-columns:.8fr 1.2fr}
+.cols.three{grid-template-columns:repeat(3,1fr);gap:1.6cqw}
+.col{display:flex;flex-direction:column;gap:1.2cqh}
+
+/* Process Grid */
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2cqw;margin-top:.4cqh}
+.proc-card{background:#fff;border-radius:10px;padding:1.4cqh 1.2cqw;border:1px solid var(--line2);
+  box-shadow:0 6px 16px -10px rgba(31,58,147,.3);display:flex;flex-direction:column;gap:.5cqh}
+.proc-card .p-num{font-family:var(--f-mono);font-size:1.7cqh;font-weight:700;background:var(--navy);
+  color:#fff;border-radius:6px;padding:.15em .5em;align-self:flex-start}
+.proc-card .p-title{font-family:var(--f-head);font-size:2.1cqh;font-weight:700;color:var(--navy2)}
+.proc-card .p-desc{font-size:1.8cqh;color:var(--ink-soft);line-height:1.35}
+
+/* Reveal Component */
+.reveal{position:relative;cursor:pointer}
+.reveal .inner{filter:blur(10px);opacity:.2;transition:all .3s ease;pointer-events:none}
+.reveal.on .inner{filter:none;opacity:1;pointer-events:auto}
+.reveal .hint{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:var(--navy);color:#fff;font-family:var(--f-head);font-size:2.2cqh;font-weight:600;
+  padding:.4em 1.2em;border-radius:20px;box-shadow:0 8px 20px rgba(31,58,147,.4);
+  pointer-events:none;transition:opacity .25s ease;display:flex;align-items:center;gap:.5em}
+.reveal.on .hint{opacity:0}
+
+/* Toolbar Dock */
+.progress{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(31,58,147,.1);z-index:99}
+.progress .bar{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--navy));transition:width .25s ease}
+.dock{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:6px;
+  background:rgba(22,38,94,.92);backdrop-filter:blur(8px);padding:6px 14px;border-radius:30px;
+  box-shadow:0 12px 30px rgba(0,0,0,.3),0 0 0 1px rgba(255,255,255,.15);z-index:90;color:#fff}
+.dock button{background:rgba(255,255,255,.12);border:none;color:#fff;width:32px;height:32px;
+  border-radius:50%;cursor:pointer;font-family:var(--f-mono);font-size:14px;display:flex;
+  align-items:center;justify-content:center;transition:all .2s}
+.dock button:hover{background:rgba(255,255,255,.28);transform:scale(1.08)}
+.dock .count{font-family:var(--f-mono);font-size:13px;padding:0 8px;letter-spacing:.05em;color:#cdd8f4}
+.dock .sep{width:1px;height:18px;background:rgba(255,255,255,.2);margin:0 4px}
+
+/* Cover Slide */
+.cover{display:flex;flex-direction:column;justify-content:center;height:100%;padding:0 8cqw;position:relative}
+.cover .tag{font-family:var(--f-mono);font-size:2.2cqh;letter-spacing:.3em;color:var(--gold2);
+  font-weight:700;margin-bottom:1cqh;text-transform:uppercase}
+.cover h1{font-family:var(--f-head);font-size:6.8cqh;font-weight:700;line-height:1.1;color:var(--navy2);margin-bottom:1.5cqh}
+.cover h1 .en{display:block;font-size:.52em;color:var(--navy);font-weight:500;margin-top:.2cqh}
+.cover .sub{font-size:3cqh;color:var(--ink-soft);line-height:1.4;margin-bottom:3.5cqh}
+.cover .meta{font-size:2.2cqh;color:#596788;border-left:3px solid var(--gold);padding-left:1.5cqw}
+.cover .meta .course{font-family:var(--f-mono);font-weight:700;color:var(--navy)}
+
+/* Interactive Sandbox / Calculator */
+.calc-box{background:#fff;border-radius:12px;padding:1.8cqh 2cqw;border:1px solid var(--line2);
+  box-shadow:0 10px 24px -14px rgba(31,58,147,.4);display:flex;flex-direction:column;gap:1cqh}
+.calc-input{font-family:var(--f-mono);font-size:2cqh;padding:.4cqh .8cqw;border:1px solid var(--line2);border-radius:6px;width:100px}
+
+/* Interactive Game */
+.game-box{background:#fff;border-radius:12px;padding:2cqh 2.4cqw;border:1px solid var(--line2);
+  box-shadow:0 12px 28px -14px rgba(31,58,147,.4);display:flex;flex-direction:column;gap:1.4cqh}
+.g-q{font-family:var(--f-head);font-size:2.4cqh;font-weight:700;color:var(--navy2)}
+.g-opts{display:grid;grid-template-columns:1fr 1fr;gap:1cqw}
+.g-btn{padding:1.2cqh 1.4cqw;border-radius:8px;border:1px solid var(--line2);background:var(--lnavy);
+  font-family:var(--f-body);font-size:2cqh;font-weight:600;color:var(--navy2);cursor:pointer;text-align:left;transition:all .2s}
+.g-btn:hover{background:var(--navy);color:#fff}
+.g-btn.ok{background:var(--green);color:#fff;border-color:var(--green2)}
+.g-btn.no{background:var(--red);color:#fff;border-color:var(--red2)}
+.g-fb{font-size:2cqh;font-weight:600;padding:.6cqh 1cqw;border-radius:6px;display:none}
+.g-fb.ok{display:block;background:var(--mint);color:var(--green2)}
+.g-fb.no{display:block;background:var(--pink);color:var(--red2)}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="progress"><div class="bar" id="progressBar"></div></div>
+
+<div id="app">
+<div class="stage">
+<div class="deck" id="deck">
+
+  <!-- SLIDE 1: Cover -->
+  <section class="slide is-active">
+    <div class="cover">
+      <div class="tag">Week 08 · Computer Mathematics</div>
+      <h1>บทที่ 3 ความสัมพันธ์และฟังก์ชัน
+        <span class="en">Functions, Injections, Surjections, Bijections & Special Functions</span>
+      </h1>
+      <p class="sub">นิยามฟังก์ชัน · โดเมน/โคโดเมน/เรนจ์ · การประกอบและฟังก์ชันผกผัน · ฟังก์ชัน Floor, Ceiling, Modulo, Hash และ Recursion</p>
+      <div class="meta">
+        <div class="course">4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์</div>
+        <div>ผู้สอน: <b>ผู้ช่วยศาสตราจารย์ ดร.พิศิษฐ์ นาคใจ</b> · สาขาวิชาวิทยาการข้อมูล มรภ.อุตรดิตถ์</div>
+      </div>
+    </div>
+    <div class="foot"><span>สัปดาห์ที่ 8 : ฟังก์ชัน</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 2: Objectives -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Target & Overview</span><h2>เป้าหมายการเรียนรู้ประจำสัปดาห์ที่ 8</h2></div>
+    </div>
+    <div class="body">
+      <div class="proc-grid">
+        <div class="proc-card">
+          <div class="p-num">01</div>
+          <div class="p-title">นิยามฟังก์ชัน</div>
+          <div class="p-desc">เข้าใจความต่างระหว่างความสัมพันธ์และฟังก์ชัน และการระบุโดเมน โคโดเมน และเรนจ์</div>
+        </div>
+        <div class="proc-card">
+          <div class="p-num">02</div>
+          <div class="p-title">ประเภทของฟังก์ชัน</div>
+          <div class="p-desc">จำแนกฟังก์ชันหนึ่งต่อหนึ่ง (Injective), ทั่วถึง (Surjective), และหนึ่งต่อหนึ่งทั่วถึง (Bijective)</div>
+        </div>
+        <div class="proc-card">
+          <div class="p-num">03</div>
+          <div class="p-title">การประกอบ & ผกผัน</div>
+          <div class="p-desc">คำนวณ $(f \circ g)(x)$ และหาฟังก์ชันผกผัน $f^{-1}(x)$ เมื่อ $f$ เป็น Bijection</div>
+        </div>
+        <div class="proc-card">
+          <div class="p-num">04</div>
+          <div class="p-title">ฟังก์ชันคอมพิวเตอร์</div>
+          <div class="p-desc">ประยุกต์ใช้ $\lfloor x \rfloor$, $\lceil x \rceil$, $x \bmod m$, Hash Functions และฟังก์ชันเรียกซ้ำ (Recursion)</div>
+        </div>
+      </div>
+      <div class="block gold">
+        <div class="lab"><span class="pin">CORE</span> ทำไมคอมพิวเตอร์ถึงต้องเป็นฟังก์ชัน?</div>
+        ในคอมพิวเตอร์และฟังก์ชันโปรแกรม (Pure Function): <b>การป้อนข้อมูลนำเข้าเดิม (Input) จะต้องให้ผลลัพธ์เดิมที่แน่นอนเพียงค่าเดียวเสมอ (Deterministic Output)</b> สอดคล้องกับนิยามทางคณิตศาสตร์ของฟังก์ชันอย่างแท้จริง
+      </div>
+    </div>
+    <div class="foot"><span>เป้าหมายการเรียนรู้</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 3: Function Definition & Difference -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Definition</span><h2>นิยามฟังก์ชัน และความแตกต่างจากความสัมพันธ์</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> ฟังก์ชัน (Function $f: A \to B$)</div>
+            ความสัมพันธ์ $f$ จาก $A$ ไป $B$ จะเป็น <b>ฟังก์ชัน</b> ก็ต่อเมื่อ:
+            $$\mathbf{\forall x \in A, \exists! y \in B \text{ such that } (x, y) \in f}$$
+            <b>เงื่อนไขสำคัญ 2 ประการ:</b><br>
+            1. สมาชิกต้นทาง $x \in A$ <b>ทุกตัว</b> ต้องถูกนำมาจับคู่<br>
+            2. สมาชิกต้นทางแต่ละตัวจับคู่กับปลายทางได้ <b>เพียงตัวเดียวเท่านั้น (Uniqueness)</b>
+          </div>
+          <div class="block ex">
+            <div class="lab"><span class="pin">RULE</span> กฎการตรวจสอบ (Vertical Line / Arrow Test)</div>
+            • แผนภาพลูกศร: โหนดต้นทางทุกโหนดต้องมีลูกศรพุ่งออก <b>1 เส้นพอดี</b> (ห้ามไม่มี และห้ามแตก 2 เส้น)<br>
+            • ในกราฟ: เส้นแนวตั้งลากผ่านกราฟต้องตัดได้ <b>ไม่เกิน 1 จุด</b> เสมอ
+          </div>
+        </div>
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">EX</span> เปรียบเทียบตัวอย่าง</div>
+            ให้ $A = \{1, 2, 3\}$ และ $B = \{a, b, c\}$<br><br>
+            • $f_1 = \{(1, a), (2, b), (3, a)\}$ $\implies$ <span class="gn">✓ เป็นฟังก์ชัน</span> (ต้นทางจับครบ และตัวหน้าไม่ซ้ำ)<br><br>
+            • $f_2 = \{(1, a), (1, b), (2, c), (3, a)\}$ $\implies$ <span class="rd">✗ ไม่เป็นฟังก์ชัน</span> (เลข 1 จับคู่ 2 ตัวพร้อมกัน!)<br><br>
+            • $f_3 = \{(1, a), (2, b)\}$ $\implies$ <span class="rd">✗ ไม่เป็นฟังก์ชัน</span> (เลข 3 ไม่ได้ถูกจับคู่!)
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>นิยามฟังก์ชัน</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 4: Domain, Codomain, Range -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Structure</span><h2>โดเมน โคโดเมน (Codomain) และเรนจ์ของฟังก์ชัน</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> ส่วนประกอบของฟังก์ชัน $f: A \to B$</div>
+            • <b>โดเมน (Domain $\operatorname{Dom}(f)$):</b> เซตต้นทางทั้งหมด นั่นคือ $\operatorname{Dom}(f) = A$<br>
+            • <b>โคโดเมน (Codomain):</b> เซตปลายทางทั้งหมด $B$ ซึ่งกำหนดขอบเขตของผลลัพธ์ที่เป็นไปได้ (เหมือน Data Type เช่น \texttt{int, float})<br>
+            • <b>เรนจ์ (Range $\operatorname{Ran}(f)$ หรือ ภาพ $f(A)$):</b> เซตของค่าผลลัพธ์จริงที่ถูกจับคู่:
+            $$\mathbf{\operatorname{Ran}(f) = \{f(x) \mid x \in A\} \subseteq B}$$
+          </div>
+        </div>
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">NOTE</span> ข้อควรระวัง: โคโดเมน $\neq$ เรนจ์ เสมอไป</div>
+            กำหนด $f: \mathbb{R} \to \mathbb{R}$ โดย $f(x) = x^2$<br><br>
+            • โดเมน $= \mathbb{R}$ (จำนวนจริงทั้งหมด)<br>
+            • โคโดเมน $= \mathbb{R}$ (จำนวนจริงทั้งหมด)<br>
+            • เรนจ์ $= [0, \infty)$ (เฉพาะจำนวนจริงที่ไม่เป็นลบเท่านั้น!)<br><br>
+            <span class="rd">เรนจ์จึงเป็นเพียงเซตย่อยของโคโดเมนเท่านั้น ($\operatorname{Ran}(f) \subseteq \text{Codomain}$)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>โดเมน โคโดเมน & เรนจ์</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 5: 3 Function Types (Injective, Surjective, Bijective) -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Classification</span><h2>ประเภทของฟังก์ชัน (Injective, Surjective, Bijective)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols three">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">1</span> หนึ่งต่อหนึ่ง (Injective)</div>
+            $$\forall a, b \in A, f(a) = f(b) \implies a = b$$
+            • สมาชิกปลายทางแต่ละตัว <b>โดนจับคู่ไม่เกิน 1 ครั้ง</b> (ห้ามมีลูกศรชนกัน)<br>
+            • การทดสอบ: ลากเส้นแนวนอนตัดกราฟได้ไม่เกิน 1 จุด (Horizontal Line Test)
+          </div>
+        </div>
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">2</span> ทั่วถึง (Surjective)</div>
+            $$\forall y \in B, \exists x \in A, f(x) = y$$
+            • สมาชิกในโคโดเมน $B$ ทุกตัว <b>ต้องถูกจับคู่อย่างน้อย 1 ครั้ง</b><br>
+            • เงื่อนไขเทียบเท่า: <b>เรนจ์เท่ากับโคโดเมนพอดี ($\operatorname{Ran}(f) = B$)</b>
+          </div>
+        </div>
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">3</span> หนึ่งต่อหนึ่งทั่วถึง (Bijective)</div>
+            $$\mathbf{\text{Bijective} = \text{Injective} \land \text{Surjective}}$$
+            • มีการจับคู่แบบหนึ่งต่อหนึ่งอย่างสมบูรณ์แบบ<br>
+            • เป็น <b>เงื่อนไขจำเป็นและเพียงพอ</b> สำหรับการมี <b>ฟังก์ชันผกผัน ($f^{-1}$)</b>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>ประเภทของฟังก์ชัน</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 6: Function Composition & Inverse Functions -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Composition & Inverse</span><h2>การประกอบฟังก์ชัน และฟังก์ชันผกผัน</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">COMP</span> ฟังก์ชันประกอบ (Composite Function)</div>
+            ให้ $g: A \to B$ และ $f: B \to C$ ฟังก์ชันประกอบ $f \circ g: A \to C$ คือ:
+            $$\mathbf{(f \circ g)(x) = f(g(x))}$$
+            • นำ $x$ ป้อนให้ $g$ ก่อน ได้ผลลัพธ์ $g(x)$ แล้วนำไปป้อนต่อให้ $f$<br>
+            • <b style="color:var(--red2)">สมบัติการสลับที่:</b> โดยทั่วไป $f \circ g \neq g \circ f$
+          </div>
+          <div class="block ex">
+            <div class="lab"><span class="pin">INV</span> ฟังก์ชันผกผัน (Inverse Function $f^{-1}$)</div>
+            ถ้า $f: A \to B$ เป็น Bijective จะมีฟังก์ชันผกผัน $f^{-1}: B \to A$:
+            $$\mathbf{f^{-1}(y) = x \iff f(x) = y}$$
+            $$(f^{-1} \circ f)(x) = x \quad \text{และ} \quad (f \circ f^{-1})(y) = y$$
+          </div>
+        </div>
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">EX</span> ตัวอย่างการคำนวณ</div>
+            กำหนด $f(x) = 2x + 3$ และ $g(x) = x^2 - 1$<br><br>
+            1. $(f \circ g)(x) = f(x^2 - 1) = 2(x^2 - 1) + 3 = \mathbf{2x^2 + 1}$<br>
+            2. $(g \circ f)(x) = g(2x + 3) = (2x + 3)^2 - 1 = \mathbf{4x^2 + 12x + 8}$<br>
+            3. หา $f^{-1}(x)$: ให้ $y = 2x + 3 \implies 2x = y - 3 \implies \mathbf{f^{-1}(x) = \frac{x - 3}{2}}$
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การประกอบ & ฟังก์ชันผกผัน</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 7: Special Functions: Floor & Ceiling -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Special Functions 1</span><h2>ฟังก์ชันปัดเศษลง (Floor) และปัดเศษขึ้น (Ceiling)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> Floor ($\lfloor x \rfloor$) & Ceiling ($\lceil x \rceil$)</div>
+            • <b>ฟังก์ชันพื้น (Floor $\lfloor x \rfloor$):</b> จำนวนเต็มที่มากที่สุดที่ $\le x$<br>
+            $\lfloor 3.8 \rfloor = 3, \quad \lfloor 3.0 \rfloor = 3, \quad \lfloor -3.2 \rfloor = -4$<br><br>
+            • <b>ฟังก์ชันเพดาน (Ceiling $\lceil x \rceil$):</b> จำนวนเต็มที่น้อยที่สุดที่ $\ge x$<br>
+            $\lceil 3.2 \rceil = 4, \quad \lceil 3.0 \rceil = 3, \quad \lceil -3.8 \rceil = -3$
+          </div>
+        </div>
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">COMP</span> การประยุกต์ในวิทยาการคอมพิวเตอร์</div>
+            1. <b>การแบ่งหน้าข้อมูล (Pagination):</b><br>
+            มีข้อมูล $N = 127$ รายการ แสดงหน้าละ $S = 10$ รายการ<br>
+            จำนวนหน้าทั้งหมด $= \lceil N / S \rceil = \lceil 127 / 10 \rceil = \lceil 12.7 \rceil = \mathbf{13 \text{ หน้า}}$<br><br>
+            2. <b>การจัดสรรบล็อกหน่วยความจำ (Block Allocation):</b><br>
+            ไฟล์ขนาด 4,500 ไบต์ บล็อกละ 1,024 ไบต์<br>
+            จำนวนบล็อก $= \lceil 4500 / 1024 \rceil = \lceil 4.39 \rceil = \mathbf{5 \text{ บล็อก (5,120 ไบต์)}}$
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>Floor & Ceiling Functions</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 8: Modulo & Hash Functions -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Special Functions 2</span><h2>ฟังก์ชันมอดุโล (Modulo) และฟังก์ชันแฮช (Hash Function)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> ฟังก์ชันมอดุโล (Modulo $a \bmod m$)</div>
+            ให้ $a \in \mathbb{Z}$ และ $m \in \mathbb{Z}^+$:<br>
+            $$a \bmod m = r \quad \text{โดยที่ } 0 \le r < m \text{ และ } a = qm + r$$
+            • $17 \bmod 5 = 2 \quad (17 = 3 \cdot 5 + 2)$<br>
+            • $-8 \bmod 3 = 1 \quad (-8 = -3 \cdot 3 + 1)$<br>
+            • <b>Circular Buffer / Round-Robin:</b> $(\text{index} + 1) \bmod N$
+          </div>
+        </div>
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">HASH</span> ฟังก์ชันแฮช (Hash Function)</div>
+            แปลงคีย์ข้อมูลขนาดใหญ่ $k$ ให้เป็นดัชนีช่องตารางขนาดจำกัด $m$:
+            $$\mathbf{h(k) = k \bmod m}$$
+            • <b>การชนกันของแฮช (Hash Collision):</b> เกิดขึ้นเมื่อ $k_1 \neq k_2$ แต่ $h(k_1) = h(k_2)$ (เช่น $h(15) = 15 \bmod 7 = 1$ และ $h(22) = 22 \bmod 7 = 1$)
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>Modulo & Hash Functions</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 9: Recursive Functions & Call Stack -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Special Functions 3</span><h2>ฟังก์ชันแบบเรียกซ้ำ (Recursive Functions & Call Stack)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> 2 ส่วนประกอบของฟังก์ชันเรียกซ้ำ</div>
+            1. <b>กรณีฐาน (Base Case):</b> เงื่อนไขหยุดที่ให้คำตอบทันทีโดยไม่เรียกซ้ำ<br>
+            2. <b>ขั้นตอนการเรียกซ้ำ (Recursive Step):</b> ลดขนาดของปัญหาลงทีละขั้นสู่กรณีฐาน
+          </div>
+          <div class="block ex">
+            <div class="lab"><span class="pin">EX</span> แฟกทอเรียล (Factorial $n!$)</div>
+            $$f(n) = \begin{cases} 1 & n = 0 \text{ (Base Case)} \\ n \cdot f(n-1) & n \ge 1 \text{ (Recursive)} \end{cases}$$
+          </div>
+        </div>
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">STACK</span> ลำดับการทำงานบนหน่วยความจำ (Call Stack)</div>
+            $f(3) = 3 \cdot f(2)$<br>
+            $\quad \to f(2) = 2 \cdot f(1)$<br>
+            $\quad\quad \to f(1) = 1 \cdot f(0)$<br>
+            $\quad\quad\quad \to f(0) = 1 \quad \text{(Base Hit!)}$<br>
+            $\quad\quad \leftarrow 1 \cdot 1 = 1$<br>
+            $\quad \leftarrow 2 \cdot 1 = 2$<br>
+            $\leftarrow 3 \cdot 2 = \mathbf{6}$<br>
+            <span class="rd">หากไม่มี Base Case จะเกิดข้อผิดพลาด Stack Overflow!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>ฟังก์ชันเรียกซ้ำ & Call Stack</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 10: Interactive Function Classifier Simulator -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Interactive Lab</span><h2>ตัวทดสอบสมบัติฟังก์ชันและการจับคู่ (Function Sandbox)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="calc-box">
+            <div style="font-weight:700;color:var(--navy2);font-size:2.2cqh">เลือกการจับคู่จากเซต $A=\{1, 2, 3\}$ ไปยังเซต $B=\{a, b, c\}$:</div>
+            <div style="display:flex;gap:2cqw;align-items:center">
+              <div>
+                <label>1 $\to$ </label>
+                <select id="map1" class="calc-input" onchange="checkFunctionType()">
+                  <option value="a">a</option><option value="b">b</option><option value="c">c</option>
+                </select>
+              </div>
+              <div>
+                <label>2 $\to$ </label>
+                <select id="map2" class="calc-input" onchange="checkFunctionType()">
+                  <option value="a">a</option><option value="b" selected>b</option><option value="c">c</option>
+                </select>
+              </div>
+              <div>
+                <label>3 $\to$ </label>
+                <select id="map3" class="calc-input" onchange="checkFunctionType()">
+                  <option value="a">a</option><option value="b">b</option><option value="c" selected>c</option>
+                </select>
+              </div>
+            </div>
+            <div id="fnOutputPairs" style="font-family:var(--f-mono);font-size:1.8cqh;color:var(--navy);margin-top:.5cqh"></div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="block" id="boxFnInj">
+            <div class="lab"><span class="pin">1</span> หนึ่งต่อหนึ่ง (Injective)</div>
+            <div id="txtFnInj" style="font-weight:700">กำลังตรวจสอบ...</div>
+          </div>
+          <div class="block ex" id="boxFnSur">
+            <div class="lab"><span class="pin">2</span> ทั่วถึง (Surjective)</div>
+            <div id="txtFnSur" style="font-weight:700">กำลังตรวจสอบ...</div>
+          </div>
+          <div class="block gold" id="boxFnBij">
+            <div class="lab"><span class="pin">3</span> หนึ่งต่อหนึ่งทั่วถึง (Bijective & Inverse)</div>
+            <div id="txtFnBij" style="font-weight:700">กำลังตรวจสอบ...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>Function Sandbox</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 11: In-Class Worksheet Activity Guide -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Classroom Activity</span><h2>ใบกิจกรรมในชั้นเรียน สัปดาห์ที่ 8 (Worksheet Guide)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">WS-1</span> หน้า 1 : พื้นฐานฟังก์ชัน & การจำแนกประเภท</div>
+            • <b>กิจกรรม 1:</b> ตรวจสอบความเป็นฟังก์ชัน โดเมน และเรนจ์<br>
+            • <b>กิจกรรม 2:</b> จำแนกฟังก์ชัน Injective, Surjective, Bijective<br>
+            • <b>กิจกรรม 3:</b> หาฟังก์ชันประกอบ $(f \circ g)(x)$ และฟังก์ชันผกผัน $f^{-1}(x)$
+          </div>
+          <div class="block ex">
+            <div class="lab"><span class="pin">WS-2</span> หน้า 2 : ฟังก์ชันคอมพิวเตอร์ & การประยุกต์</div>
+            • <b>กิจกรรม 4:</b> การคำนวณ Floor, Ceiling, และการแบ่งหน้าข้อมูล (Pagination)<br>
+            • <b>กิจกรรม 5:</b> ฟังก์ชันมอดุโลและการวนรอบใน Circular Queue<br>
+            • <b>กิจกรรม 6:</b> ฟังก์ชันแฮช $h(k) = k \bmod 7$ และการตรวจสอบการชนกัน<br>
+            • <b>กิจกรรม 7:</b> ฟังก์ชันแบบเรียกซ้ำและขอบเขตกรณีฐาน (Base Case)
+          </div>
+        </div>
+        <div class="col">
+          <div class="block gold reveal" onclick="this.classList.toggle('on')">
+            <div class="hint">คลิกเพื่อดูเฉลยสำคัญ <span class="k">Reveal</span></div>
+            <div class="inner">
+              <div class="lab"><span class="pin">KEY</span> สรุปคำตอบสำคัญ</div>
+              • กิจกรรม 1: $f_3$ ไม่เป็นฟังก์ชันเพราะเลข 2 จับคู่ 2 ค่า ($b$ และ $c$)<br>
+              • กิจกรรม 2: $f(x)=3x-5$ บน $\mathbb{R} \to \mathbb{R}$ เป็น Bijective สมบูรณ์<br>
+              • กิจกรรม 4: บทความ 127 รายการ หน้าละ 10 รายการ ต้องใช้ $\lceil 127/10 \rceil = 13$ หน้า<br>
+              • กิจกรรม 6: คีย์ 24 และ 37 ได้ดัชนี 3 และ 2 ไม่ชนกัน แต่ 15 กับ 50 ได้ดัชนี 1 เหมือนกัน (เกิดการชนกัน!)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>ใบกิจกรรมสัปดาห์ที่ 8</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 12: Quiz Challenge Game -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Challenge</span><h2>เกมประลองความรู้ : ถอดรหัสลับฟังก์ชันและแฮช</h2></div>
+    </div>
+    <div class="body">
+      <div class="game-box" id="gameContainerW8">
+        <!-- Game engine -->
+      </div>
+    </div>
+    <div class="foot"><span>เกมประลองความรู้</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 13: Summary & Next Week -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Recap & Next</span><h2>สรุปบทเรียนสัปดาห์ที่ 8 และหัวข้อสัปดาห์ถัดไป</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">RECAP</span> สรุปหัวใจสำคัญสัปดาห์ที่ 8</div>
+            1. ฟังก์ชัน $f: A \to B$ สมาชิกต้นทางทุกตัวจับคู่กับปลายทางได้เพียงตัวเดียว<br>
+            2. Bijective (1-to-1 + Onto) เป็นเงื่อนไขที่ทำให้มีฟังก์ชันผกผัน $f^{-1}$ ได้<br>
+            3. $(f \circ g)(x) = f(g(x))$ นำผลลัพธ์ $g$ ส่งต่อให้ $f$<br>
+            4. ฟังก์ชัน $\lfloor x \rfloor, \lceil x \rceil, x \bmod m$, Hash และ Recursion เป็นเครื่องมือพื้นฐานในวิชาโครงสร้างข้อมูลและอัลกอริทึม
+          </div>
+        </div>
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">NEXT</span> สัปดาห์ที่ 9 : ลำดับ อนุกรม & การประยุกต์</div>
+            • ลำดับและอนุกรมเลขคณิต/เรขาคณิต (Arithmetic & Geometric Series)<br>
+            • การวิเคราะห์ความซับซ้อนของขั้นตอนวิธี (Time Complexity & Big-O)<br>
+            • ฐานข้อมูลเชิงสัมพันธ์และพีชคณิตเชิงสัมพันธ์ ($\sigma, \pi, \bowtie$)<br>
+            • ลำดับบางส่วน (Partial Order) และการจัดลำดับงาน (Topological Sort)<br>
+            • โครงสร้างตารางแฮชและการแก้ปัญหาการชนกัน (Chaining & Linear Probing)
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>สรุปสัปดาห์ที่ 8</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+</div><!-- /deck -->
+</div><!-- /stage -->
+</div><!-- /app -->
+
+<!-- Dock toolbar -->
+<div class="dock">
+  <button id="btnPrev" title="สไลด์ก่อนหน้า (←)">‹</button>
+  <span class="count" id="slideCount">1 / 13</span>
+  <button id="btnNext" title="สไลด์ถัดไป (→ / Space)">›</button>
+  <span class="sep"></span>
+  <button id="btnFull" title="เต็มจอ (F)">⛶</button>
+</div>
+
+<script>
+/* Navigation Engine */
+const deck = document.getElementById('deck');
+const slides = Array.from(deck.querySelectorAll('.slide'));
+const totalSlides = slides.length;
+let currentSlide = 0;
+
+const progressBar = document.getElementById('progressBar');
+const slideCount = document.getElementById('slideCount');
+const btnPrev = document.getElementById('btnPrev');
+const btnNext = document.getElementById('btnNext');
+const btnFull = document.getElementById('btnFull');
+
+function updateSlide(idx) {
+  if (idx < 0) idx = 0;
+  if (idx >= totalSlides) idx = totalSlides - 1;
+  currentSlide = idx;
+
+  slides.forEach((s, i) => {
+    s.classList.toggle('is-active', i === currentSlide);
+  });
+
+  slideCount.textContent = `${currentSlide + 1} / ${totalSlides}`;
+  progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+}
+
+btnPrev.onclick = () => updateSlide(currentSlide - 1);
+btnNext.onclick = () => updateSlide(currentSlide + 1);
+
+btnFull.onclick = () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(()=>{});
+  } else {
+    document.exitFullscreen().catch(()=>{});
+  }
+};
+
+window.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
+  if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+    e.preventDefault();
+    updateSlide(currentSlide + 1);
+  } else if (e.key === 'ArrowLeft' || e.key === 'Backspace' || e.key === 'PageUp') {
+    e.preventDefault();
+    updateSlide(currentSlide - 1);
+  } else if (e.key === 'Home') {
+    e.preventDefault();
+    updateSlide(0);
+  } else if (e.key === 'End') {
+    e.preventDefault();
+    updateSlide(totalSlides - 1);
+  } else if (e.key.toLowerCase() === 'f') {
+    btnFull.click();
+  } else if (e.key.toLowerCase() === 'r') {
+    const activeSlide = slides[currentSlide];
+    const reveals = activeSlide.querySelectorAll('.reveal');
+    reveals.forEach(r => r.classList.toggle('on'));
+  }
+});
+
+updateSlide(0);
+
+/* Function Sandbox Engine */
+function checkFunctionType(){
+  const v1 = document.getElementById('map1').value;
+  const v2 = document.getElementById('map2').value;
+  const v3 = document.getElementById('map3').value;
+
+  const fnOutputPairs = document.getElementById('fnOutputPairs');
+  const txtInj = document.getElementById('txtFnInj');
+  const txtSur = document.getElementById('txtFnSur');
+  const txtBij = document.getElementById('txtFnBij');
+
+  fnOutputPairs.innerHTML = `<b>ฟังก์ชัน f:</b> { (1, ${v1}), (2, ${v2}), (3, ${v3}) }`;
+
+  const values = [v1, v2, v3];
+  const uniqueValues = new Set(values);
+
+  // Injective: unique values length == 3
+  const isInj = (uniqueValues.size === 3);
+  txtInj.innerHTML = isInj ? '<span class="gn">✓ เป็นฟังก์ชันหนึ่งต่อหนึ่ง (Injective)</span> (ไม่มีค่าผลลัพธ์ซ้ำกัน)' : '<span class="rd">✗ ไม่เป็นหนึ่งต่อหนึ่ง</span> (มีลูกศรพุ่งชนสมาชิกปลายทางตัวเดียวกัน)';
+
+  // Surjective: covers all {'a', 'b', 'c'}
+  const isSur = (uniqueValues.has('a') && uniqueValues.has('b') && uniqueValues.has('c'));
+  txtSur.innerHTML = isSur ? '<span class="gn">✓ เป็นฟังก์ชันทั่วถึง (Surjective)</span> (เรนจ์เท่ากับโคโดเมนครบทุกตัว)' : '<span class="rd">✗ ไม่ทั่วถึง</span> (มีสมาชิกในโคโดเมนไม่ถูกจับคู่)';
+
+  // Bijective: isInj && isSur
+  const isBij = isInj && isSur;
+  txtBij.innerHTML = isBij ? '<span class="gn">✓ เป็น Bijective สมบูรณ์ $\\to$ มีฟังก์ชันผกผัน f⁻¹ ได้!</span>' : '<span class="rd">✗ ไม่เป็น Bijective $\\to$ ไม่มีฟังก์ชันผกผัน</span>';
+}
+
+if(document.getElementById('map1')) checkFunctionType();
+
+/* Quiz Game Engine Week 8 */
+(function(){
+  const container = document.getElementById('gameContainerW8');
+  if(!container) return;
+
+  const QUESTIONS = [
+    {
+      q: '1. ข้อใดเป็นเงื่อนไขที่ทำให้ฟังก์ชัน f มีฟังก์ชันผกผัน (f⁻¹) ได้?',
+      opts: ['f ต้องเป็นฟังก์ชันหนึ่งต่อหนึ่งเท่านั้น', 'f ต้องเป็นฟังก์ชันทั่วถึงเท่านั้น', 'f ต้องเป็นฟังก์ชันหนึ่งต่อหนึ่งทั่วถึง (Bijective)', 'f ต้องเป็นฟังก์ชันคงตัว'],
+      ans: 2,
+      exp: 'ฟังก์ชันจะมีฟังก์ชันผกผันได้ ก็ต่อเมื่อเป็น Bijective (หนึ่งต่อหนึ่งและทั่วถึงพร้อมกัน)'
+    },
+    {
+      q: '2. ค่าของ ⌊-4.2⌋ และ ⌈-4.2⌉ เท่ากับข้อใดตามลำดับ?',
+      opts: ['-4 และ -5', '-5 และ -4', '-4 และ -4', '-5 และ -5'],
+      ans: 1,
+      exp: '⌊-4.2⌋ = -5 (ปัดลงหาจำนวนเต็มที่น้อยกว่าหรือเท่ากับ) และ ⌈-4.2⌉ = -4 (ปัดขึ้นหาจำนวนเต็มที่มากกว่าหรือเท่ากับ)'
+    },
+    {
+      q: '3. ระบบมีบทความ 155 รายการ หน้าเว็บแสดงผลหน้าละ 20 รายการ จะต้องมีทั้งหมดกี่หน้า?',
+      opts: ['7 หน้า', '8 หน้า (⌈155 / 20⌉ = 8)', '7.75 หน้า', '9 หน้า'],
+      ans: 1,
+      exp: 'จำนวนหน้าคำนวณจาก ⌈N / S⌉ = ⌈155 / 20⌉ = ⌈7.75⌉ = 8 หน้า'
+    },
+    {
+      q: '4. ฟังก์ชันแฮช h(k) = k mod 10 ถ้าป้อนคีย์ 23 และ 53 จะเกิดสิ่งใดขึ้น?',
+      opts: ['ได้ดัชนี 2 และ 5', 'เกิดการชนกันของแฮช (Hash Collision) เพราะได้ดัชนี 3 ทั้งคู่', 'เกิด Stack Overflow', 'โปรแกรมหยุดทำงาน'],
+      ans: 1,
+      exp: '23 mod 10 = 3 และ 53 mod 10 = 3 คีย์ต่างกันแต่ได้ดัชนีเดียวกัน จึงเกิดการชนกัน'
+    }
+  ];
+
+  let currentQ = 0;
+  let score = 0;
+
+  function renderQuestion(){
+    if(currentQ >= QUESTIONS.length){
+      container.innerHTML = `
+        <div style="text-align:center;padding:2cqh">
+          <h3 style="font-size:3cqh;color:var(--navy2);margin-bottom:1cqh">🎉 ยอดเยี่ยมมาก! จบการประลองความรู้สัปดาห์ที่ 8</h3>
+          <p style="font-size:2.4cqh;margin-bottom:2cqh">คุณได้คะแนน: <b>${score} / ${QUESTIONS.length}</b></p>
+          <button class="sim-btn" onclick="location.reload()" style="font-size:2cqh;padding:.6cqh 2cqw">เล่นใหม่อีกครั้ง ↺</button>
+        </div>
+      `;
+      return;
+    }
+
+    const item = QUESTIONS[currentQ];
+    container.innerHTML = `
+      <div class="g-q">${item.q}</div>
+      <div class="g-opts">
+        ${item.opts.map((opt, i) => `<button class="g-btn" onclick="checkAnswerW8(${i})">${opt}</button>`).join('')}
+      </div>
+      <div class="g-fb" id="gameFbW8"></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1cqh">
+        <span style="font-family:var(--f-mono);font-size:1.8cqh;color:var(--navy)">ข้อที่ ${currentQ + 1} / ${QUESTIONS.length}</span>
+        <button class="sim-btn" id="btnNextQW8" style="display:none" onclick="nextQuestionW8()">ข้อถัดไป ▸</button>
+      </div>
+    `;
+  }
+
+  window.checkAnswerW8 = function(chosen){
+    const item = QUESTIONS[currentQ];
+    const fb = document.getElementById('gameFbW8');
+    const btnNextQ = document.getElementById('btnNextQW8');
+    const buttons = container.querySelectorAll('.g-btn');
+
+    buttons.forEach((b, idx) => {
+      b.disabled = true;
+      if(idx === item.ans) b.classList.add('ok');
+      else if(idx === chosen) b.classList.add('no');
+    });
+
+    if(chosen === item.ans){
+      score++;
+      fb.className = 'g-fb ok';
+      fb.innerHTML = `✓ ถูกต้อง! — ${item.exp}`;
+    } else {
+      fb.className = 'g-fb no';
+      fb.innerHTML = `✗ ไม่ถูกต้อง — ${item.exp}`;
+    }
+    btnNextQ.style.display = 'inline-block';
+  };
+
+  window.nextQuestionW8 = function(){
+    currentQ++;
+    renderQuestion();
+  };
+
+  renderQuestion();
+})();
+</script>
+</body>
+</html>

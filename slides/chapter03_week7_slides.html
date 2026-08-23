@@ -1031,6 +1031,70 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>ความสัมพันธ์สมมูล</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
+  <!-- SLIDE 24b: Full Step-by-Step Proof of a+b is Even -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Master Proof 5.1b</span><h2>ตัวอย่างการพิสูจน์: ความสัมพันธ์ $a+b$ เป็นเลขคู่ บน $\mathbb{Z}$</h2></div>
+    </div>
+    <div class="body">
+      <div style="font-size:2.2cqh;margin-bottom:.4cqh">
+        <b>โจทย์:</b> กำหนดความสัมพันธ์ $R = \{(a, b) \in \mathbb{Z} \times \mathbb{Z} \mid a + b \text{ เป็นเลขคู่}\}$ จงพิสูจน์ว่า $R$ เป็นความสัมพันธ์สมมูล
+      </div>
+      <div class="cols">
+        <!-- Step 1 -->
+        <div class="col">
+          <div class="block ex" style="height:100%;padding:.8cqh 1cqw">
+            <div class="lab"><span class="pin">1. สะท้อน</span> Reflexive</div>
+            <ul style="margin-left:1.2cqw;font-size:2.1cqh;line-height:1.4">
+              <li>ให้ $a \in \mathbb{Z}$ ใด ๆ</li>
+              <li>พิจารณา $a + a = 2a$</li>
+              <li>เนื่องจาก $a \in \mathbb{Z}$ ทำให้ $2a$ เป็นจำนวนคู่เสมอ ($2k$ เมื่อ $k=a$)</li>
+              <li>ดังนั้น $(a, a) \in R$ <span class="gn">✓</span></li>
+            </ul>
+            <div style="font-size:1.8cqh;color:var(--green2);font-weight:700;margin-top:.4cqh">✓ มีสมบัติสะท้อน</div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="col">
+          <div class="block ex" style="height:100%;padding:.8cqh 1cqw">
+            <div class="lab"><span class="pin">2. สมมาตร</span> Symmetric</div>
+            <ul style="margin-left:1.2cqw;font-size:2.1cqh;line-height:1.4">
+              <li>ให้ $a, b \in \mathbb{Z}$ และสมมุติ $(a, b) \in R$</li>
+              <li>มี $k \in \mathbb{Z}$ ที่ $a + b = 2k$</li>
+              <li>โดย<b>สมบัติการสลับที่การบวก</b>:
+                $$b + a = a + b = 2k$$
+              </li>
+              <li>ได้ $b + a$ เป็นคู่ $\implies (b, a) \in R$ <span class="gn">✓</span></li>
+            </ul>
+            <div style="font-size:1.8cqh;color:var(--green2);font-weight:700;margin-top:.4cqh">✓ มีสมบัติสมมาตร</div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="col">
+          <div class="block ex" style="height:100%;padding:.8cqh 1cqw">
+            <div class="lab"><span class="pin">3. ถ่ายทอด</span> Transitive</div>
+            <ul style="margin-left:1.2cqw;font-size:2.1cqh;line-height:1.4">
+              <li>สมมุติ $(a, b) \in R$ และ $(b, c) \in R$</li>
+              <li>มี $k_1, k_2$ ที่ $a+b=2k_1, b+c=2k_2$</li>
+              <li>$(a+b)+(b+c) = 2(k_1+k_2)$
+                $$a+c = 2(k_1+k_2-b)$$
+              </li>
+              <li>$k_1+k_2-b \in \mathbb{Z} \implies a+c$ เป็นคู่</li>
+              <li>ดังนั้น $(a, c) \in R$ <span class="gn">✓</span></li>
+            </ul>
+            <div style="font-size:1.8cqh;color:var(--green2);font-weight:700;margin-top:.4cqh">✓ มีสมบัติถ่ายทอด</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:.4cqh;font-size:2.1cqh;text-align:center;background:var(--mint);padding:.4cqh 1cqw;border-radius:6px;color:var(--green2);font-weight:700">
+        สรุป: $R$ มีครบทั้งสมบัติสะท้อน สมมาตร และถ่ายทอด จึงเป็น <u>ความสัมพันธ์สมมูล (Equivalence Relation)</u> บน $\mathbb{Z}$
+      </div>
+    </div>
+    <div class="foot"><span>การพิสูจน์ความสัมพันธ์สมมูลเต็มรูปแบบ</span><span class="right">4091606 · CH03-W07</span></div>
+  </section>
+
   <!-- SLIDE 25: Equivalence Classes & Partition Diagram -->
   <section class="slide">
     <div class="head">

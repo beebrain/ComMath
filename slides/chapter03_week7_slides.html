@@ -675,6 +675,59 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>สมบัติสะท้อน</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
+  <!-- SLIDE 17b: Intuitive Explanation of Reflexive Property -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Deep Dive 4.1b</span><h2>เข้าใจง่าย: ทำไมความสัมพันธ์ $a+b$ เป็นเลขคู่ ถึงมีสมบัติสะท้อน?</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <!-- Col 1: Concept & Proof -->
+        <div class="col">
+          <div class="block ex" style="height:100%">
+            <div class="lab"><span class="pin">หลักการ</span> กติกาของ "สะท้อน" และการบวกตัวเอง</div>
+            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
+              <b>1. กติกาของสะท้อน:</b> บังคับหยิบ<b>ตัวเลขตัวเดียวกัน</b> ($a$ จับคู่กับ $a$) แล้วต้องผ่านเกณฑ์
+            </div>
+            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
+              <b>2. ทำไม $a+b$ ถึงผ่าน 100%?</b> เพราะเมื่อนำตัวมันเองมาบวกตัวเอง:
+            </div>
+            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--green);font-size:2.2cqh">
+              $$a + a = \mathbf{2a}$$
+              • หยิบ $5 \implies 5 + 5 = \mathbf{10} = 2(5)$ (เลขคู่ ✓)<br>
+              • หยิบ $-4 \implies (-4) + (-4) = \mathbf{-8} = 2(-4)$ (เลขคู่ ✓)<br>
+              • หยิบ $0 \implies 0 + 0 = \mathbf{0} = 2(0)$ (เลขคู่ ✓)
+            </div>
+            <div style="font-size:2cqh;color:var(--green2);font-weight:700;margin-top:.4cqh">
+              ในเมื่อ $a+a = 2a$ มีเลข 2 คูณอยู่ข้างหน้าเสมอ จึงการันตีว่าเป็นเลขคู่ 100%
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Contrast with Non-Reflexive -->
+        <div class="col">
+          <div class="block al" style="height:100%">
+            <div class="lab"><span class="pin">เปรียบเทียบ</span> ดูอันที่ไม่สะท้อนเพื่อความเข้าใจชัดเจน</div>
+            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
+              พิจารณาความสัมพันธ์ <b>"น้อยกว่า" ($a < b$)</b> หรือ <b>"บวกกันได้เลขคี่"</b>:
+            </div>
+            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--red);font-size:2.2cqh">
+              • <b>น้อยกว่า ($a < b$):</b> หยิบ $5 < 5$ (<span class="rd">เป็นเท็จ ✗</span> ส่องกระจกไม่เจอตัวเอง)<br>
+              • <b>บวกได้เลขคี่:</b> $a + a = 2a$ (<span class="rd">เป็นคู่เสมอ ไม่มีทางได้คี่ ✗</span>)
+            </div>
+            <div style="font-size:2cqh;color:var(--red2);font-weight:700;margin-top:.6cqh">
+              ✗ เมื่อจับคู่กับตัวเองแล้วไม่ผ่านเกณฑ์ $\implies$ <u>ไม่เป็นสะท้อน</u>
+            </div>
+            <div style="font-size:1.9cqh;color:var(--navy2);margin-top:.6cqh;background:var(--lnavy);padding:.4cqh .8cqw;border-radius:4px">
+              💡 <b>จำง่าย ๆ:</b> ตัวมันเองบวกตัวเองได้ $2a$ (มี 2 คูณ $\to$ คู่เสมอ $\to$ สะท้อน)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การพิสูจน์สมบัติสะท้อนอย่างเข้าใจง่าย</span><span class="right">4091606 · CH03-W07</span></div>
+  </section>
+
   <!-- SLIDE 18: Symmetric Property with Animated Diagram -->
   <section class="slide">
     <div class="head">
@@ -829,6 +882,60 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>สมบัติปฏิสมมาตร</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
+  <!-- SLIDE 19b: Intuitive Explanation of Antisymmetric Property -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Deep Dive 4.3b</span><h2>เข้าใจง่าย: ทำไมความสัมพันธ์ $a+b$ เป็นเลขคู่ ถึง "ไม่เป็นปฏิสมมาตร"?</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <!-- Col 1: Why it Fails Antisymmetry -->
+        <div class="col">
+          <div class="block al" style="height:100%">
+            <div class="lab"><span class="pin">กติกา</span> กติกาของ "ปฏิสมมาตร" และจุดที่ $a+b$ ไม่ผ่าน</div>
+            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
+              <b>1. กติกาของปฏิสมมาตร:</b> ถ้าเป็นคนละตัวกัน ($a \neq b$) <b>ห้ามมีขากลับพร้อมขาไปเด็ดขาด!</b> (ยอมให้ไป-กลับได้เฉพาะตัวเดียวกัน $a=b$)
+            </div>
+            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
+              <b>2. ทำไม $a+b$ เป็นคู่ ถึงตกม้าตาย (ไม่เป็นปฏิสมมาตร)?</b>
+            </div>
+            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--red);font-size:2.2cqh">
+              • หยิบเลขคนละตัว: $3$ กับ $7$ ($3 \neq 7$)<br>
+              • <b>ขาไป:</b> $3 + 7 = \mathbf{10}$ (เลขคู่ ผ่านเกณฑ์ ✓)<br>
+              • <b>ขากลับ:</b> $7 + 3 = \mathbf{10}$ (เลขคู่ ผ่านเกณฑ์เหมือนกัน ✓)<br>
+              • <span class="rd"><b>ผลลัพธ์:</b> เกิดลูกศรไป-กลับของเลขคนละตัวทันที!</span>
+            </div>
+            <div style="font-size:2cqh;color:var(--red2);font-weight:700;margin-top:.4cqh">
+              ✗ มีทั้งขาไปและขากลับของเลขคนละตัว $\implies$ <u>ไม่เป็นปฏิสมมาตร</u>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Contrast with Valid Antisymmetric -->
+        <div class="col">
+          <div class="block ex" style="height:100%">
+            <div class="lab"><span class="pin">เปรียบเทียบ</span> ดูอันที่เป็นปฏิสมมาตรเพื่อความเข้าใจชัดเจน</div>
+            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
+              พิจารณาความสัมพันธ์ <b>"น้อยกว่าหรือเท่ากับ" ($a \le b$)</b>:
+            </div>
+            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--green);font-size:2.2cqh">
+              • หยิบคนละตัว $2, 5 \implies 2 \le 5$ (จริง)<br>
+              • เมื่อสลับที่ $5 \le 2$ (<span class="rd">เป็นเท็จ ไม่มีทางเกิดขึ้น</span>)<br>
+              • การจะเกิดไป-กลับได้ มีทางเดียวคือ $a=b$ เช่น $5 \le 5$ เท่านั้น!
+            </div>
+            <div style="font-size:2cqh;color:var(--green2);font-weight:700;margin-top:.6cqh">
+              ✓ ลูกศรเดินทางเดียวเสมอสำหรับคนละตัว $\implies$ <u>เป็นปฏิสมมาตร</u>
+            </div>
+            <div style="font-size:1.9cqh;color:var(--navy2);margin-top:.6cqh;background:var(--lnavy);padding:.4cqh .8cqw;border-radius:4px">
+              💡 <b>จำง่าย ๆ:</b> สลับที่ได้สำหรับเลขคนละตัว $\to$ สมมาตร แต่ "ไม่เป็นปฏิสมมาตร"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การตรวจสอบสมบัติปฏิสมมาตรอย่างเข้าใจง่าย</span><span class="right">4091606 · CH03-W07</span></div>
+  </section>
+
   <!-- SLIDE 20: Symmetric vs Antisymmetric -->
   <section class="slide">
     <div class="head">
@@ -925,51 +1032,60 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>สมบัติถ่ายทอด</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 21b: Deep Dive Transitive Proofs -->
+  <!-- SLIDE 21b: Intuitive Explanation of Transitive Property -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Deep Dive 4.5b</span><h2>เจาะลึก: ทำไม $a+b$ เป็นเลขคู่ และ $a \equiv b \pmod m$ ถึงถ่ายทอด?</h2></div>
+      <div><span class="kick">Deep Dive 4.5b</span><h2>เข้าใจง่าย: ทำไมความสัมพันธ์ $a+b$ เป็นเลขคู่ ถึงมีสมบัติถ่ายทอด?</h2></div>
     </div>
     <div class="body">
       <div class="cols">
+        <!-- Col 1: Concept & Proof -->
         <div class="col">
           <div class="block ex" style="height:100%">
-            <div class="lab"><span class="pin">กรณีที่ 1</span> ความสัมพันธ์ $a+b$ เป็นเลขคู่</div>
-            <b>1. การพิสูจน์เชิงพีชคณิต:</b>
-            <ul style="margin-left:1.5cqw;margin-top:.4cqh;font-size:2.4cqh">
-              <li>สมมุติ $a+b = 2k_1$ และ $b+c = 2k_2$ สำหรับบาง $k_1, k_2 \in \mathbb{Z}$</li>
-              <li>นำทั้งสองสมการมาบวกกัน:
-                $$(a+b) + (b+c) = 2k_1 + 2k_2$$
-                $$a + c + 2b = 2(k_1 + k_2) \implies a + c = 2(k_1 + k_2 - b)$$
-              </li>
-              <li>เนื่องจาก $k_1+k_2-b \in \mathbb{Z}$ จึงได้ $a+c$ เป็นเลขคู่ <span class="gn">✓ มีสมบัติถ่ายทอด</span></li>
-            </ul>
-            <div class="box-callout" style="margin-top:.5cqh;font-size:2.1cqh;background:var(--paper2);padding:.5cqh .8cqw;border-radius:6px;border-left:3px solid var(--green)">
-              <b>ตัวอย่าง:</b> $3+7=10$ (คู่), $7+11=18$ (คู่) $\implies 3+11=14$ (คู่ ✓)
+            <div class="lab"><span class="pin">หลักการ</span> กติกาของ "ถ่ายทอด" และการส่งต่อสถานะคู่-คี่</div>
+            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
+              <b>1. กติกาของถ่ายทอด:</b> ถ้า $a \to b$ และ $b \to c$ แล้วต้องมีทางลัดตรง $a \to c$ เสมอ
+            </div>
+            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
+              <b>2. ทำไม $a+b$ ถึงส่งต่อได้ 100%?</b>
+            </div>
+            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--green);font-size:2.2cqh">
+              • ขา 1: $a+b$ เป็นคู่ $\implies a$ และ $b$ เป็นประเภทเดียวกัน (คู่ทั้งคู่ หรือคี่ทั้งคู่)<br>
+              • ขา 2: $b+c$ เป็นคู่ $\implies c$ ก็ต้องเป็นประเภทเดียวกับ $b$<br>
+              • <b>ทางลัด:</b> $a$ กับ $c$ จึงเป็นประเภทเดียวกันโดยอัตโนมัติ $\implies a+c$ เป็นคู่แน่นอน!
+            </div>
+            <div style="font-size:2.1cqh;margin-top:.4cqh">
+              <b>ตัวอย่าง:</b> $3+7 = \mathbf{10}$ (คู่) $\land$ $7+11 = \mathbf{18}$ (คู่) $\implies 3+11 = \mathbf{14}$ (คู่ ✓)
+            </div>
+            <div style="font-size:1.8cqh;color:var(--green2);font-weight:700;margin-top:.3cqh">
+              พีชคณิต: $(a+b)+(b+c)=2(k_1+k_2) \implies a+c=2(k_1+k_2-b)$ (มี 2 คูณ $\to$ เลขคู่ ✓)
             </div>
           </div>
         </div>
 
+        <!-- Col 2: Contrast with Non-Transitive -->
         <div class="col">
-          <div class="block ex" style="height:100%">
-            <div class="lab"><span class="pin">กรณีที่ 2</span> ความสัมพันธ์คอนกรูเอนซ์ $a \equiv b \pmod m$</div>
-            <b>2. การพิสูจน์โดยการหารลงตัว:</b>
-            <ul style="margin-left:1.5cqw;margin-top:.4cqh;font-size:2.4cqh">
-              <li>สมมุติ $a-b = k_1 m$ และ $b-c = k_2 m$ สำหรับบาง $k_1, k_2 \in \mathbb{Z}$</li>
-              <li>นำทั้งสองสมการมาบวกกัน:
-                $$(a - b) + (b - c) = k_1 m + k_2 m$$
-                $$a - c = (k_1 + k_2)m$$
-              </li>
-              <li>เนื่องจาก $k_1+k_2 \in \mathbb{Z}$ แสดงว่า $m \mid (a-c)$ <span class="gn">✓ มีสมบัติถ่ายทอด</span></li>
-            </ul>
-            <div class="box-callout" style="margin-top:.5cqh;font-size:2.1cqh;background:var(--paper2);padding:.5cqh .8cqw;border-radius:6px;border-left:3px solid var(--green)">
-              <b>ตัวอย่าง (mod 5):</b> $18 \equiv 3 \pmod 5$ และ $3 \equiv 13 \pmod 5 \implies 18 \equiv 13 \pmod 5$ (เศษ 3 เท่ากัน ✓)
+          <div class="block al" style="height:100%">
+            <div class="lab"><span class="pin">เปรียบเทียบ</span> ดูอันที่ไม่ถ่ายทอดเพื่อความเข้าใจชัดเจน</div>
+            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
+              พิจารณาความสัมพันธ์ <b>"ระยะห่างไม่เกิน 2" ($|a - b| \le 2$)</b>:
+            </div>
+            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--red);font-size:2.2cqh">
+              • ขา 1: $|1 - 3| = \mathbf{2} \le 2$ (ผ่านเกณฑ์ ✓)<br>
+              • ขา 2: $|3 - 5| = \mathbf{2} \le 2$ (ผ่านเกณฑ์ ✓)<br>
+              • <b>ทางลัด:</b> $|1 - 5| = \mathbf{4} > 2$ (<span class="rd">หลุดระยะทาง ไม่ผ่านเกณฑ์ ✗</span>)
+            </div>
+            <div style="font-size:2cqh;color:var(--red2);font-weight:700;margin-top:.6cqh">
+              ✗ ขา 1 และ 2 ผ่าน แต่ทางลัดข้ามไม่ถึง $\implies$ <u>ไม่ถ่ายทอด</u>
+            </div>
+            <div style="font-size:1.9cqh;color:var(--navy2);margin-top:.6cqh;background:var(--lnavy);padding:.4cqh .8cqw;border-radius:4px">
+              💡 <b>จำง่าย ๆ:</b> สถานะคู่-คี่ส่งต่อได้ $\to$ ถ่ายทอด | ระยะทางบวกสะสมแล้วหลุด $\to$ ไม่ถ่ายทอด
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>การพิสูจน์สมบัติถ่ายทอด</span><span class="right">4091606 · CH03-W07</span></div>
+    <div class="foot"><span>การพิสูจน์สมบัติถ่ายทอดอย่างเข้าใจง่าย</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
   <!-- SLIDE 22: Summary Table of Properties -->

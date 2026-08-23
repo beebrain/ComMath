@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>บทที่ 3 ความสัมพันธ์และฟังก์ชัน — สัปดาห์ที่ 9 (1 Slide 1 Concept)</title>
+<title>บทที่ 3 ความสัมพันธ์และฟังก์ชัน — สัปดาห์ที่ 9 (1 Slide 1 Concept · 36 Slides)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -238,98 +238,196 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>เป้าหมายการเรียนรู้</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 3: DIVIDER 1 -->
-  <section class="slide">
-    <div class="divider">
-      <div class="ghost">∑</div>
-      <div class="no">หมวดที่ 01</div>
-      <h2>ลำดับ อนุกรม และการวิเคราะห์อัลกอริทึม<span class="en">Sequences, Series & Loop Complexity</span></h2>
-    </div>
-  </section>
-
-  <!-- SLIDE 4: Arithmetic Sequences -->
+  <!-- SLIDE 3: TOC -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 1.1</span><h2>ลำดับเลขคณิต (Arithmetic Sequence)</h2></div>
-    </div>
-    <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">DEF</span> พจน์ทั่วไปของลำดับเลขคณิต</div>
-        ลำดับที่เพิ่มขึ้นหรือลดลงด้วยผลต่างร่วมคงที่ ($d = a_{n+1} - a_n$):
-        $$\mathbf{a_n = a_1 + (n - 1)d}$$
-      </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">EX</span> ตัวอย่างคำนวณ</div>
-        กำหนดลำดับ $3, 7, 11, 15, \dots \implies a_1 = 3, d = 4$<br>
-        พจน์ที่ 50 คือ: $\mathbf{a_{50} = 3 + (50 - 1)(4) = 3 + 196 = 199}$
-      </div>
-    </div>
-    <div class="foot"><span>ลำดับเลขคณิต</span><span class="right">4091606 · CH03-W09</span></div>
-  </section>
-
-  <!-- SLIDE 5: Geometric Sequences -->
-  <section class="slide">
-    <div class="head">
-      <div><span class="kick">Concept 1.2</span><h2>ลำดับเรขาคณิต (Geometric Sequence)</h2></div>
-    </div>
-    <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">DEF</span> พจน์ทั่วไปของลำดับเรขาคณิต</div>
-        ลำดับที่เพิ่มขึ้นหรือลดลงด้วยอัตราส่วนร่วมคงที่ ($r = \frac{a_{n+1}}{a_n}$):
-        $$\mathbf{a_n = a_1 \cdot r^{n - 1}}$$
-      </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">EX</span> ตัวอย่างคำนวณ</div>
-        กำหนดลำดับ $2, 6, 18, 54, \dots \implies a_1 = 2, r = 3$<br>
-        พจน์ที่ 8 คือ: $\mathbf{a_8 = 2 \cdot 3^{8-1} = 2 \cdot 2,187 = 4,374}$
-      </div>
-    </div>
-    <div class="foot"><span>ลำดับเรขาคณิต</span><span class="right">4091606 · CH03-W09</span></div>
-  </section>
-
-  <!-- SLIDE 6: Arithmetic Series & Loop Analysis -->
-  <section class="slide">
-    <div class="head">
-      <div><span class="kick">Concept 1.3</span><h2>อนุกรมเลขคณิต และการวิเคราะห์วงวนซ้อน ($O(n^2)$)</h2></div>
+      <div><span class="kick">Outline</span><h2>สาระการเรียนรู้ประจำสัปดาห์ที่ 9</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">FORMULA</span> ผลรวมอนุกรมเลขคณิต</div>
-            $$S_n = \frac{n}{2}(a_1 + a_n) = \frac{n}{2}[2a_1 + (n-1)d]$$
+            <div class="lab"><span class="pin">PART 1</span> ลำดับและอนุกรม (Sequences & Series)</div>
+            • ลำดับเลขคณิต/เรขาคณิต และผลรวมอนุกรม<br>
+            • การวิเคราะห์ Big-O ของวงวนซ้อน $O(n^2)$ และ Binary Tree Nodes
+          </div>
+          <div class="block ex">
+            <div class="lab"><span class="pin">PART 2</span> ความสัมพันธ์เวียนเกิด</div>
+            • ฟีโบนัชชี และการวิเคราะห์ Merge Sort ($O(n \log n)$)
           </div>
         </div>
         <div class="col">
           <div class="block gold">
-            <div class="lab"><span class="pin">NESTED LOOP</span> การวิเคราะห์ Big-O</div>
-            $$\sum_{i=1}^n i = 1 + 2 + \dots + n = \frac{n(n+1)}{2} = \mathbf{\frac{1}{2}n^2 + \frac{1}{2}n \implies O(n^2)}$$
-            • ใน Bubble Sort / Selection Sort สำหรับข้อมูล $n=100$ ตัว จะมีการเปรียบเทียบ $= \frac{(100)(99)}{2} = 4,950$ ครั้ง
+            <div class="lab"><span class="pin">PART 3</span> ฐานข้อมูลและพีชคณิตเชิงสัมพันธ์</div>
+            • Selection ($\sigma$), Projection ($\pi$), Join ($\bowtie$) และการแปลงเป็น SQL
+          </div>
+          <div class="block al">
+            <div class="lab"><span class="pin">PART 4</span> Poset, Topological Sort & Hash Tables</div>
+            • Hasse Diagram, การจัดลำดับงาน DAG และวิธีแก้ Collision ในตารางแฮช
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>อนุกรมเลขคณิต & Big-O</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>สาระการเรียนรู้</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 7: Geometric Series & Binary Trees -->
+  <!-- SLIDE 4: DIVIDER 1 -->
+  <section class="slide">
+    <div class="divider">
+      <div class="ghost">aₙ</div>
+      <div class="no">หมวดที่ 01</div>
+      <h2>ลำดับ (Sequences)<span class="en">Arithmetic & Geometric Sequences</span></h2>
+    </div>
+  </section>
+
+  <!-- SLIDE 5: Sequence as a Function -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 1.4</span><h2>อนุกรมเรขาคณิต และจำนวนโหนดของ Binary Tree</h2></div>
+      <div><span class="kick">Concept 1.1</span><h2>ลำดับในมุมมองของฟังก์ชัน (Sequence as a Function)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">DEF</span> นิยามลำดับ</div>
+        <b>ลำดับ (Sequence)</b> คือ ฟังก์ชันที่มีโดเมนเป็นเซตของจำนวนเต็มบวก $\mathbb{Z}^+ = \{1, 2, 3, \dots\}$:
+        $$\mathbf{a: \mathbb{Z}^+ \to \mathbb{R}}$$
+        โดยนิยมเขียนสัญลักษณ์แทนค่าผลลัพธ์ $a(n)$ ด้วย <b>พจน์ที่ $n$ หรือ $a_n$</b>
+      </div>
+      <div class="block ex">
+        <div class="lab"><span class="pin">NOTATION</span> ตัวอย่างลำดับ</div>
+        ลำดับ $a_n = 2n$ ให้สมาชิกคือ: $\mathbf{a_1 = 2, a_2 = 4, a_3 = 6, a_4 = 8, \dots}$
+      </div>
+    </div>
+    <div class="foot"><span>ลำดับในมุมมองของฟังก์ชัน</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 6: Arithmetic Sequence Definition -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 1.2</span><h2>ลำดับเลขคณิต (Arithmetic Sequence)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">DEF</span> พจน์ทั่วไปของลำดับเลขคณิต</div>
+        ลำดับที่ผลต่างของพจน์ที่ติดกันมีค่าคงที่เสมอ ($d = a_{n+1} - a_n$ เรียกว่า ผลต่างร่วม):
+        $$\mathbf{a_n = a_1 + (n - 1)d}$$
+      </div>
+    </div>
+    <div class="foot"><span>ลำดับเลขคณิต</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 7: Arithmetic Sequence Example -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 1.3</span><h2>ตัวอย่างการคำนวณลำดับเลขคณิต</h2></div>
+    </div>
+    <div class="body">
+      <div class="block gold">
+        <div class="lab"><span class="pin">EXAMPLE</span> กำหนดลำดับ $3, 7, 11, 15, \dots$ จงหาพจน์ที่ 50 ($a_{50}$)</div>
+        1. <b>ระบุค่าคงที่:</b> พจน์แรก $a_1 = 3$, ผลต่างร่วม $d = 7 - 3 = 4$<br>
+        2. <b>แทนค่าในสูตร:</b>
+        $$a_{50} = a_1 + (50 - 1)d = 3 + (49)(4)$$
+        $$a_{50} = 3 + 196 = \mathbf{199}$$
+      </div>
+    </div>
+    <div class="foot"><span>ตัวอย่างลำดับเลขคณิต</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 8: Geometric Sequence Definition -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 1.4</span><h2>ลำดับเรขาคณิต (Geometric Sequence)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">DEF</span> พจน์ทั่วไปของลำดับเรขาคณิต</div>
+        ลำดับที่อัตราส่วนของพจน์ที่ติดกันมีค่าคงที่เสมอ ($r = \frac{a_{n+1}}{a_n}$ เรียกว่า อัตราส่วนร่วม):
+        $$\mathbf{a_n = a_1 \cdot r^{n - 1}}$$
+      </div>
+    </div>
+    <div class="foot"><span>ลำดับเรขาคณิต</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 9: Geometric Sequence Example -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 1.5</span><h2>ตัวอย่างการคำนวณลำดับเรขาคณิต</h2></div>
+    </div>
+    <div class="body">
+      <div class="block gold">
+        <div class="lab"><span class="pin">EXAMPLE</span> กำหนดลำดับ $2, 6, 18, 54, \dots$ จงหาพจน์ที่ 8 ($a_8$)</div>
+        1. <b>ระบุค่าคงที่:</b> พจน์แรก $a_1 = 2$, อัตราส่วนร่วม $r = \frac{6}{2} = 3$<br>
+        2. <b>แทนค่าในสูตร:</b>
+        $$a_8 = a_1 \cdot r^{8-1} = 2 \cdot 3^7$$
+        $$a_8 = 2 \cdot 2,187 = \mathbf{4,374}$$
+      </div>
+    </div>
+    <div class="foot"><span>ตัวอย่างลำดับเรขาคณิต</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 10: DIVIDER 2 -->
+  <section class="slide">
+    <div class="divider">
+      <div class="ghost">∑</div>
+      <div class="no">หมวดที่ 02</div>
+      <h2>อนุกรมและการวิเคราะห์อัลกอริทึม<span class="en">Series, Loop Complexity & Recurrence</span></h2>
+    </div>
+  </section>
+
+  <!-- SLIDE 11: Arithmetic Series -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 2.1</span><h2>อนุกรมเลขคณิต (Arithmetic Series $S_n$)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">FORMULA</span> ผลรวมอนุกรมเลขคณิต</div>
+        $$\mathbf{S_n = \frac{n}{2}(a_1 + a_n) = \frac{n}{2}[2a_1 + (n - 1)d]}$$
+      </div>
+      <div class="block ex">
+        <div class="lab"><span class="pin">SUM 1..N</span> ผลรวมจำนวนเต็ม $1$ ถึง $n$</div>
+        $$\mathbf{\sum_{i=1}^n i = 1 + 2 + 3 + \dots + n = \frac{n(n+1)}{2}}$$
+      </div>
+    </div>
+    <div class="foot"><span>อนุกรมเลขคณิต</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 12: Nested Loops O(n^2) -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 2.2</span><h2>การวิเคราะห์วงวนซ้อน (Nested Loops Analysis $O(n^2)$)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block gold">
+        <div class="lab"><span class="pin">NESTED LOOP</span> ที่มาของความซับซ้อน $O(n^2)$</div>
+        ในขั้นตอนวิธีจัดเรียงข้อมูล เช่น Bubble Sort หรือ Selection Sort ที่มี Loop ซ้อนกัน:<br>
+        $$\text{จำนวนรอบการทำงาน} = \sum_{i=1}^{n-1} i = \frac{n(n-1)}{2} = \mathbf{\frac{1}{2}n^2 - \frac{1}{2}n \implies O(n^2)}$$
+      </div>
+      <div class="block ex">
+        <div class="lab"><span class="pin">EX</span> เมื่อ $n = 100$ รายการ</div>
+        จะมีการเปรียบเทียบข้อมูลทั้งหมด $= \frac{100 \times 99}{2} = \mathbf{4,950 \text{ ครั้ง}}$
+      </div>
+    </div>
+    <div class="foot"><span>การวิเคราะห์วงวนซ้อน</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 13: Geometric Series & Binary Trees -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 2.3</span><h2>อนุกรมเรขาคณิต และจำนวนโหนดของ Binary Tree</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <div class="col">
           <div class="block">
             <div class="lab"><span class="pin">FORMULA</span> ผลรวมอนุกรมเรขาคณิต</div>
-            $$S_n = \frac{a_1(1 - r^n)}{1 - r} = \frac{a_1(r^n - 1)}{r - 1} \quad (r \neq 1)$$
+            $$\mathbf{S_n = \frac{a_1(1 - r^n)}{1 - r} = \frac{a_1(r^n - 1)}{r - 1} \quad (r \neq 1)}$$
           </div>
         </div>
         <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">TREE</span> จำนวนโหนดใน Complete Binary Tree</div>
+            <div class="lab"><span class="pin">TREE</span> โหนดใน Complete Binary Tree</div>
             ต้นไม้ทวิภาคความสูง $h$ แต่ละชั้นมีโหนด $1, 2, 4, \dots, 2^h$<br>
-            $$\sum_{i=0}^h 2^i = 1 + 2 + 4 + \dots + 2^h = \mathbf{2^{h+1} - 1}$$
+            $$\mathbf{\sum_{i=0}^h 2^i = 1 + 2 + 4 + \dots + 2^h = 2^{h+1} - 1}$$
           </div>
         </div>
       </div>
@@ -337,159 +435,307 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>อนุกรมเรขาคณิต & Binary Tree</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 8: Recurrence Relations -->
+  <!-- SLIDE 14: Recurrence Relations Definition -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 1.5</span><h2>ความสัมพันธ์เวียนเกิด และการวิเคราะห์ Divide & Conquer</h2></div>
+      <div><span class="kick">Concept 2.4</span><h2>ความสัมพันธ์เวียนเกิด (Recurrence Relations)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">DEF</span> นิยามความสัมพันธ์เวียนเกิด</div>
+        สมการที่กำหนดค่าของพจน์ $a_n$ ในรูปของพจน์ก่อนหน้า $a_{n-1}, a_{n-2}, \dots$ พร้อมทั้งกำหนดค่าเริ่มต้น (Initial Conditions)
+      </div>
+      <div class="block ex">
+        <div class="lab"><span class="pin">FIBONACCI</span> ตัวอย่างลำดับฟีโบนัชชี</div>
+        $$F_0 = 0, \quad F_1 = 1, \quad \mathbf{F_n = F_{n-1} + F_{n-2} \quad (n \ge 2)}$$
+        ลำดับที่ได้คือ: $0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, \dots$
+      </div>
+    </div>
+    <div class="foot"><span>ความสัมพันธ์เวียนเกิด</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 15: Merge Sort Recurrence Analysis -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 2.5</span><h2>การวิเคราะห์ Divide & Conquer: Merge Sort</h2></div>
+    </div>
+    <div class="body">
+      <div class="block gold">
+        <div class="lab"><span class="pin">RECURRENCE</span> สมการเวลาทำงานของ Merge Sort</div>
+        $$T(n) = 2T(n/2) + c\cdot n \quad \text{โดย } T(1) = c$$
+      </div>
+      <div class="block ex">
+        <div class="lab"><span class="pin">PROOF</span> การคลี่สมการ (Recursion Tree)</div>
+        • ชั้นที่ 0 ถึงชั้นสุดท้ายมีจำนวนระดับความลึกทั้งหมด $= \log_2 n$ ชั้น<br>
+        • ในแต่ละชั้น งานที่ใช้ในการ Merge รวมกันเท่ากับ $cn$ หน่วยเสมอ<br>
+        $$\mathbf{T(n) = c \cdot n \cdot \log_2 n \implies O(n \log n)}$$
+      </div>
+    </div>
+    <div class="foot"><span>การวิเคราะห์ Merge Sort</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 16: DIVIDER 3 -->
+  <section class="slide">
+    <div class="divider">
+      <div class="ghost">⋈</div>
+      <div class="no">หมวดที่ 03</div>
+      <h2>ฐานข้อมูลเชิงสัมพันธ์และพีชคณิตเชิงสัมพันธ์<span class="en">Relational Model & Relational Algebra</span></h2>
+    </div>
+  </section>
+
+  <!-- SLIDE 17: Codd's Relational Model -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 3.1</span><h2>แบบจำลองฐานข้อมูลเชิงสัมพันธ์ของคอดด์ (Codd's Model)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">CONCEPT</span> ตารางข้อมูล คือ ความสัมพันธ์ทางคณิตศาสตร์</div>
+        เอ็ดการ์ เอฟ. คอดด์ (E.F. Codd) เสนอให้มองตารางในฐานข้อมูลเป็น <b>ความสัมพันธ์ $n$ มิติ (n-ary Relation)</b>:<br>
+        • <b>ตาราง (Table / Relation):</b> เซตย่อยของ $D_1 \times D_2 \times \dots \times D_n$<br>
+        • <b>แถว (Row / Tuple):</b> คู่อันดับ $n$ สิ่ง $(v_1, v_2, \dots, v_n)$<br>
+        • <b>คอลัมน์ (Column / Attribute):</b> โดเมนของข้อมูลประเภทนั้นๆ
+      </div>
+    </div>
+    <div class="foot"><span>แบบจำลองฐานข้อมูลเชิงสัมพันธ์</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 18: Selection Operator -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 3.2</span><h2>การเลือกแถวข้อมูล (Selection $\sigma$)</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">FIBONACCI</span> ฟีโบนัชชี</div>
-            $F_0 = 0, F_1 = 1$<br>
-            $F_n = F_{n-1} + F_{n-2} \quad (n \ge 2)$<br>
-            $0, 1, 1, 2, 3, 5, 8, 13, 21, \dots$
-          </div>
-        </div>
-        <div class="col">
-          <div class="block gold">
-            <div class="lab"><span class="pin">MERGE SORT</span> ความซับซ้อนของ Merge Sort</div>
-            $$T(n) = 2T(n/2) + c\cdot n \quad \text{โดย } T(1) = c$$
-            • ต้นไม้การทำงานมีความลึก $\log_2 n$ ชั้น<br>
-            • แต่ละชั้นทำงานรวม $cn$ หน่วยเวลา<br>
-            $$\mathbf{T(n) = cn \log_2 n \implies O(n \log n)}$$
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span>ความสัมพันธ์เวียนเกิด & Merge Sort</span><span class="right">4091606 · CH03-W09</span></div>
-  </section>
-
-  <!-- SLIDE 9: DIVIDER 2 -->
-  <section class="slide">
-    <div class="divider">
-      <div class="ghost">⋈</div>
-      <div class="no">หมวดที่ 02</div>
-      <h2>ฐานข้อมูลเชิงสัมพันธ์และพีชคณิตเชิงสัมพันธ์<span class="en">Relational Databases & Relational Algebra</span></h2>
-    </div>
-  </section>
-
-  <!-- SLIDE 10: Relational Algebra Operators -->
-  <section class="slide">
-    <div class="head">
-      <div><span class="kick">Concept 2.1</span><h2>3 ตัวดำเนินการหลักในพีชคณิตเชิงสัมพันธ์ ($\sigma, \pi, \bowtie$)</h2></div>
-    </div>
-    <div class="body">
-      <div class="cols three">
-        <div class="col">
-          <div class="block">
-            <div class="lab"><span class="pin">1</span> Selection ($\sigma$)</div>
-            $$\mathbf{\sigma_{\text{condition}}(R)}$$
-            • เลือกเฉพาะ <b>แถว (Tuples)</b><br>
-            • เทียบเท่า: <span class="code">WHERE</span>
+            <div class="lab"><span class="pin">ALGEBRA</span> นิพจน์ $\sigma_{\text{condition}}(R)$</div>
+            เลือกเฉพาะ <b>แถว (Tuples)</b> ที่ตรงตามเงื่อนไขที่กำหนด
           </div>
         </div>
         <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">2</span> Projection ($\pi$)</div>
-            $$\mathbf{\pi_{A_1, A_2}(R)}$$
-            • เลือกเฉพาะ <b>คอลัมน์</b><br>
-            • เทียบเท่า: <span class="code">SELECT DISTINCT</span>
+            <div class="lab"><span class="pin">SQL EQUIVALENT</span> เทียบเท่าคำสั่ง SQL</div>
+            $$\mathbf{\sigma_{\text{GPA} \ge 3.50}(\text{Students})}$$
+            <span class="code">SELECT * FROM Students WHERE GPA >= 3.50;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การเลือก (Selection)</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 19: Projection Operator -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 3.3</span><h2>การฉายคอลัมน์ (Projection $\pi$)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">ALGEBRA</span> นิพจน์ $\pi_{A_1, A_2, \dots}(R)$</div>
+            เลือกเฉพาะ <b>คอลัมน์ (Attributes)</b> ที่ระบุ และตัดแถวที่ซ้ำกันทิ้งไปโดยอัตโนมัติ
           </div>
         </div>
         <div class="col">
-          <div class="block gold">
-            <div class="lab"><span class="pin">3</span> Join ($\bowtie$)</div>
-            $$\mathbf{R \bowtie S}$$
-            • รวมตารางด้วยคีย์ร่วม<br>
-            • เทียบเท่า: <span class="code">NATURAL JOIN</span>
+          <div class="block ex">
+            <div class="lab"><span class="pin">SQL EQUIVALENT</span> เทียบเท่าคำสั่ง SQL</div>
+            $$\mathbf{\pi_{\text{StudentID, Name}}(\text{Students})}$$
+            <span class="code">SELECT DISTINCT StudentID, Name FROM Students;</span>
           </div>
         </div>
       </div>
-      <div class="block al" style="margin-top:.4cqh">
-        <div class="lab"><span class="pin">QUERY</span> ตัวอย่างการรวมคำสั่ง</div>
-        $$\mathbf{\pi_{\text{Name, Course}}(\sigma_{\text{Grade='A'}}(\text{Students} \bowtie \text{Enroll}))}$$
-      </div>
     </div>
-    <div class="foot"><span>พีชคณิตเชิงสัมพันธ์</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>การฉาย (Projection)</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 11: DIVIDER 3 -->
+  <!-- SLIDE 20: Natural Join Operator -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 3.4</span><h2>การเชื่อมตาราง (Natural Join $\bowtie$)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">ALGEBRA</span> นิพจน์ $R \bowtie S$</div>
+            รวมสองตารางเข้าด้วยกัน โดยจับคู่แถวที่มี <b>ชื่อคอลัมน์และค่าข้อมูลตรงกัน</b>
+          </div>
+        </div>
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">SQL EQUIVALENT</span> เทียบเท่าคำสั่ง SQL</div>
+            $$\mathbf{\text{Students} \bowtie \text{Enrollment}}$$
+            <span class="code">SELECT * FROM Students NATURAL JOIN Enrollment;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การเชื่อม (Join)</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 21: DIVIDER 4 -->
   <section class="slide">
     <div class="divider">
       <div class="ghost">DAG</div>
-      <div class="no">หมวดที่ 03</div>
+      <div class="no">หมวดที่ 04</div>
       <h2>ลำดับบางส่วนและการจัดลำดับงาน<span class="en">Partial Orders & Topological Sorting</span></h2>
     </div>
   </section>
 
-  <!-- SLIDE 12: Partial Order & Topological Sort -->
+  <!-- SLIDE 22: Partial Order Definition -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 3.1</span><h2>ลำดับบางส่วน (Poset) และการจัดลำดับงาน (Topological Sort)</h2></div>
+      <div><span class="kick">Concept 4.1</span><h2>ลำดับบางส่วน (Partial Order / Poset)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">DEF</span> นิยาม Poset</div>
+        ความสัมพันธ์ $R$ บนเซต $A$ จะเป็น <b>ความสัมพันธ์ลำดับบางส่วน</b> ก็ต่อเมื่อมีครบทั้ง 3 สมบัติ:
+        $$\mathbf{\text{1. สะท้อน (Reflexive)}} \quad \mathbf{\text{2. ปฏิสมมาตร (Antisymmetric)}} \quad \mathbf{\text{3. ถ่ายทอด (Transitive)}}$$
+      </div>
+      <div class="block ex">
+        <div class="lab"><span class="pin">EXAMPLES</span> ตัวอย่าง Poset ยอดนิยม</div>
+        • ความสัมพันธ์ $\le$ บนจำนวนจริง $\mathbb{R}$<br>
+        • ความสัมพันธ์การเป็นเซตย่อย $\subseteq$ บนเพาเวอร์เซต $\mathcal{P}(S)$<br>
+        • ความสัมพันธ์การหารลงตัว $a \mid b$ บนจำนวนเต็มบวก $\mathbb{Z}^+$
+      </div>
+    </div>
+    <div class="foot"><span>ลำดับบางส่วน (Poset)</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 23: Hasse Diagram -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 4.2</span><h2>แผนภาพฮาสเซ (Hasse Diagram)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">DEF</span> การวาดแผนภาพฮาสเซ</div>
+        กราฟลดรูปสำหรับแทน Poset โดยมีกฎการตัดส่วนซ้ำซ้อน 3 ข้อ:
+        <ul style="margin-top:.4cqh;margin-left:1.5cqw">
+          <li>1. <b>ตัดลูปบนตัวเองออกทั้งหมด</b> (เพราะรู้อยู่แล้วว่าเป็นสะท้อน)</li>
+          <li>2. <b>ตัดเส้นทางลัดตรงออกทั้งหมด</b> (เพราะรู้อยู่แล้วว่าเป็นถ่ายทอด)</li>
+          <li>3. <b>วาดสมาชิกที่น้อยกว่าไว้ด้านล่าง</b> และสมาชิกที่มากกว่าไว้ด้านบน (ไม่ต้องใส่หัวลูกศร)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot"><span>แผนภาพฮาสเซ</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 24: Topological Sorting -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 4.3</span><h2>การจัดลำดับงานเชิงทอพอโลยี (Topological Sorting)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">ALGO</span> ขั้นตอนวิธีบน DAG (Directed Acyclic Graph)</div>
+        จัดลำดับงานในแนวเส้นตรง โดยที่งานเงื่อนไขก่อนหน้า (Prerequisite) ต้องทำเสร็จก่อนเสมอ:<br><br>
+        1. ค้นหาโหนดที่มี $\text{In-degree} = 0$ (ไม่มีเงื่อนไขค้าง)<br>
+        2. บันทึกโหนดนั้นลงในลำดับผลลัพธ์ แล้วลบโหนดและเส้นเชื่อมที่พุ่งออกทิ้ง<br>
+        3. ทำซ้ำจนกระทั่งครบทุกโหนด
+      </div>
+    </div>
+    <div class="foot"><span>Topological Sorting</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 25: Topological Sort in Software -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 4.4</span><h2>การประยุกต์ Topological Sort ในระบบซอฟต์แวร์</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <div class="col">
-          <div class="block">
-            <div class="lab"><span class="pin">POSET</span> ลำดับบางส่วน (Partial Order)</div>
-            ความสัมพันธ์ที่มีครบ 3 สมบัติ:<br>
-            $$\mathbf{\text{1. สะท้อน} \quad \text{2. ปฏิสมมาตร} \quad \text{3. ถ่ายทอด}}$$
-            • ตัวอย่าง: $\le, \subseteq$, และ $a \mid b$ (การหารลงตัว)
+          <div class="block ex">
+            <div class="lab"><span class="pin">BUILD</span> Build Systems & Package Managers</div>
+            • การคอมไพล์โค้ดใน <b>Makefile, Webpack, npm, Gradle</b> ที่มี Package Dependencies<br>
+            • Task Scheduler ในระบบประมวลผลข้อมูลขนาดใหญ่ (เช่น Apache Airflow DAGs)
           </div>
         </div>
         <div class="col">
           <div class="block gold">
-            <div class="lab"><span class="pin">TOPO SORT</span> ขั้นตอนวิธีจัดลำดับงานบน DAG</div>
-            1. ค้นหางานที่ $\text{In-degree} = 0$ (ไม่มีเงื่อนไขค้าง)<br>
-            2. นำงานเข้าคิวผลลัพธ์ แล้วลบเส้นเชื่อมที่พุ่งออกทิ้ง<br>
-            3. ทำซ้ำจนครบทุกงาน $\implies$ <b>ใช้ใน Build Systems (Make, npm) และการวางแผนลงทะเบียนวิชา</b>
+            <div class="lab"><span class="pin">COURSE</span> การวางแผนหลักสูตรวิชา</div>
+            การจัดตารางแผนการเรียนวิชาที่มี <b>วิชาบังคับก่อน (Prerequisite Courses)</b> เพื่อไม่ให้เกิดข้อขัดแย้ง
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>ลำดับบางส่วน & Topo Sort</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>การประยุกต์ Topological Sort</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 13: DIVIDER 4 -->
+  <!-- SLIDE 26: DIVIDER 5 -->
   <section class="slide">
     <div class="divider">
       <div class="ghost">Hash</div>
-      <div class="no">หมวดที่ 04</div>
+      <div class="no">หมวดที่ 05</div>
       <h2>โครงสร้างตารางแฮชและการแก้ปัญหาการชนกัน<span class="en">Hash Tables & Collision Resolution</span></h2>
     </div>
   </section>
 
-  <!-- SLIDE 14: Collision Resolution -->
+  <!-- SLIDE 27: Hash Table Structure -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 4.1</span><h2>การแก้ปัญหาการชนกัน (Chaining vs Linear Probing)</h2></div>
+      <div><span class="kick">Concept 5.1</span><h2>โครงสร้างตารางแฮช (Hash Table Data Structure)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">STRUCT</span> การทำงานของตารางแฮช</div>
+        โครงสร้างข้อมูลที่ใช้ฟังก์ชันแฮช $h(k)$ ในการแปลงคีย์ข้อมูลให้เป็นดัชนีช่องตารางโดยตรง ทำให้สามารถ <b>ค้นหา (Search), แทรก (Insert), และลบ (Delete)</b> ข้อมูลได้ด้วยความเร็วเฉลี่ยระดับ:
+        $$\mathbf{O(1) \quad (\text{Constant Time})}$$
+      </div>
+    </div>
+    <div class="foot"><span>โครงสร้างตารางแฮช</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 28: Separate Chaining -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 5.2</span><h2>การแก้ปัญหาการชนกัน: วิธีลูกโซ่ (Separate Chaining)</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">CHAINING</span> วิธีลูกโซ่ (Separate Chaining)</div>
-            แต่ละช่องเก็บ <b>รายการโยง (Linked List)</b><br>
-            • ข้อมูลที่แฮชได้ช่องเดียวกันจะถูกนำไปต่อท้ายลูกโซ่<br>
-            • ข้อดี: ตารางไม่มีวันเต็ม
+            <div class="lab"><span class="pin">CHAINING</span> กลไกรายการโยง (Linked List)</div>
+            แต่ละช่องของตารางแฮชจะเป็นหัวแถวของ Linked List<br>
+            • เมื่อข้อมูลชนกัน จะนำข้อมูลใหม่ไปต่อท้ายลูกโซ่ในช่องเดิม<br>
+            • <b>ข้อดี:</b> ตารางไม่มีวันเต็ม รองรับข้อมูลเกินขนาดตารางได้
           </div>
         </div>
         <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">PROBING</span> การตรวจหาตำแหน่งเปิด (Linear Probing)</div>
-            เลื่อนหา <b>ช่องว่างถัดไปทีละ 1 ช่อง</b>:<br>
-            $$\mathbf{h(k, i) = (h(k) + i) \bmod m \quad (i = 0, 1, 2, \dots)}$$
-            • ค้นหาและแทรกข้อมูลได้รวดเร็วเฉลี่ย <b>$O(1)$</b>
+          <div class="block al">
+            <div class="lab"><span class="pin">TRADE-OFF</span> ข้อพึงระวัง</div>
+            หากฟังก์ชันแฮชกระจายข้อมูลไม่ดี ข้อมูลจะไปกระจุกตัวในช่องเดียวกัน ทำให้กลายเป็น Linked List ยาว และความเร็วตกไปเป็น $O(n)$
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>การแก้การชนกันในตารางแฮช</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>วิธีลูกโซ่ (Chaining)</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 15: Interactive Hash Simulator -->
+  <!-- SLIDE 29: Linear Probing -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 5.3</span><h2>วิธีกำหนดตำแหน่งเปิดเชิงเส้น (Linear Probing)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">PROBING</span> การตรวจหาช่องว่างถัดไป</div>
+        เมื่อช่อง $h(k)$ ไม่ว่าง จะเลื่อนตรวจหาช่องว่างถัดไปทีละ 1 ช่องตามสูตร:
+        $$\mathbf{h(k, i) = (h(k) + i) \bmod m \quad (i = 0, 1, 2, \dots)}$$
+      </div>
+      <div class="block gold">
+        <div class="lab"><span class="pin">EX</span> ตัวอย่าง</div>
+        ตารางขนาด $m = 7$ ช่อง 1 เต็มแล้ว เมื่อมีคีย์ 50 ($50 \bmod 7 = 1$ ชน!) $\implies$ เลื่อนตรวจช่อง 2 ถ้าว่างจะบันทึกที่ช่อง 2 ทันที
+      </div>
+    </div>
+    <div class="foot"><span>Linear Probing</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 30: Interactive Simulator -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Interactive Lab</span><h2>ตัวจำลองการทำงานตารางแฮชแบบ Linear Probing ($m = 7$)</h2></div>
@@ -523,7 +769,7 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>Hash Simulator</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 16: Worksheet Activity Guide -->
+  <!-- SLIDE 31: Worksheet Activity Guide -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Classroom Activity</span><h2>ใบกิจกรรมในชั้นเรียน สัปดาห์ที่ 9 (Worksheet Guide)</h2></div>
@@ -551,7 +797,7 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>ใบกิจกรรมสัปดาห์ที่ 9</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 17: Worksheet Answer Reveal -->
+  <!-- SLIDE 32: Worksheet Answer Reveal -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Solutions</span><h2>เฉลยคำตอบสำคัญประจำใบกิจกรรม สัปดาห์ที่ 9</h2></div>
@@ -571,7 +817,7 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>เฉลยใบกิจกรรมสัปดาห์ที่ 9</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 18: Quiz Game -->
+  <!-- SLIDE 33: Quiz Game -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Challenge</span><h2>เกมประลองความรู้ : สรุปยอดบทที่ 3 (Grand Review)</h2></div>
@@ -582,7 +828,7 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>เกมประลองความรู้</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 19: Chapter 3 Big Picture Mindmap -->
+  <!-- SLIDE 34: Chapter 3 Big Picture Mindmap -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Grand Summary</span><h2>แผนผังภาพรวมองค์ความรู้บทที่ 3 (Relations & Functions)</h2></div>
@@ -621,31 +867,35 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>สรุปภาพรวมบทที่ 3</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 20: Closing & Next Chapter -->
+  <!-- SLIDE 35: Closing -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Next Chapter</span><h2>ยินดีด้วย! คุณผ่านบทที่ 3 อย่างสมบูรณ์แบบ</h2></div>
+      <div><span class="kick">Complete</span><h2>ยินดีด้วย! คุณผ่านบทที่ 3 อย่างสมบูรณ์แบบ</h2></div>
     </div>
     <div class="body">
-      <div class="cols">
-        <div class="col">
-          <div class="block">
-            <div class="lab"><span class="pin">COMPLETE</span> ปิดบทที่ 3 : ความสัมพันธ์และฟังก์ชัน</div>
-            เราได้เรียนรู้โครงสร้างการจับคู่ข้อมูล การแปลง และการคำนวณอย่างเป็นระบบ ซึ่งเป็นรากฐานโดยตรงของการเขียนโปรแกรมและระบบฐานข้อมูล
-          </div>
-        </div>
-        <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">NEXT</span> บทที่ 4 : ระบบเลขฐาน (Number Bases)</div>
-            • การแทนจำนวนในคอมพิวเตอร์ (Binary, Octal, Hexadecimal)<br>
-            • การแปลงเลขฐานสอง ฐานแปด และฐานสิบหก<br>
-            • การแทนจำนวนเต็มลบด้วย 1's และ 2's Complement<br>
-            • การคำนวณเลขคณิตฐานสอง (Binary Arithmetic & Overflow)
-          </div>
-        </div>
+      <div class="block">
+        <div class="lab"><span class="pin">COMPLETE</span> ปิดบทที่ 3 : ความสัมพันธ์และฟังก์ชัน</div>
+        เราได้เรียนรู้โครงสร้างการจับคู่ข้อมูล การแปลง และการคำนวณอย่างเป็นระบบ ซึ่งเป็นรากฐานโดยตรงของการเขียนโปรแกรมและระบบฐานข้อมูล
       </div>
     </div>
     <div class="foot"><span>จบบทที่ 3</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 36: Next Chapter -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Next Chapter</span><h2>เตรียมพบกับบทที่ 4 : ระบบเลขฐานและเลขคณิตคอมพิวเตอร์</h2></div>
+    </div>
+    <div class="body">
+      <div class="block ex">
+        <div class="lab"><span class="pin">NEXT</span> บทที่ 4 : ระบบเลขฐาน (Number Bases)</div>
+        • การแทนจำนวนในคอมพิวเตอร์ (Binary, Octal, Hexadecimal)<br>
+        • การแปลงเลขฐานสอง ฐานแปด และฐานสิบหก<br>
+        • การแทนจำนวนเต็มลบด้วย 1's และ 2's Complement<br>
+        • การคำนวณเลขคณิตฐานสอง (Binary Arithmetic & Overflow)
+      </div>
+    </div>
+    <div class="foot"><span>ก้าวต่อไป : บทที่ 4</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
 </div><!-- /deck -->
@@ -655,7 +905,7 @@ b,strong{font-weight:700;color:var(--navy2)}
 <!-- Dock toolbar -->
 <div class="dock">
   <button id="btnPrev" title="สไลด์ก่อนหน้า (←)">‹</button>
-  <span class="count" id="slideCount">1 / 20</span>
+  <span class="count" id="slideCount">1 / 36</span>
   <button id="btnNext" title="สไลด์ถัดไป (→ / Space)">›</button>
   <span class="sep"></span>
   <button id="btnFull" title="เต็มจอ (F)">⛶</button>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>บทที่ 3 ความสัมพันธ์และฟังก์ชัน — สัปดาห์ที่ 8 (1 Slide 1 Concept)</title>
+<title>บทที่ 3 ความสัมพันธ์และฟังก์ชัน — สัปดาห์ที่ 8 (1 Slide 1 Concept · 45 Slides)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -238,16 +238,54 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>เป้าหมายการเรียนรู้</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 3: DIVIDER 1 -->
+  <!-- SLIDE 3: TOC -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Outline</span><h2>สาระการเรียนรู้ประจำสัปดาห์ที่ 8</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">PART 1</span> นิยามและโครงสร้างฟังก์ชัน</div>
+            • นิยามฟังก์ชัน $f: A \to B$ และแนวคิด Pure Function<br>
+            • การทดสอบเส้นแนวตั้ง (Vertical Line Test)<br>
+            • โดเมน, โคโดเมน (Codomain) และเรนจ์ ($\operatorname{Ran}(f)$)
+          </div>
+          <div class="block ex">
+            <div class="lab"><span class="pin">PART 2</span> การจำแนกประเภทของฟังก์ชัน</div>
+            • หนึ่งต่อหนึ่ง (Injective), ทั่วถึง (Surjective), หนึ่งต่อหนึ่งทั่วถึง (Bijective)<br>
+            • หลักการช่องนกพิราบ (Pigeonhole Principle) และ Hash Collision
+          </div>
+        </div>
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">PART 3</span> การประกอบและฟังก์ชันผกผัน</div>
+            • ฟังก์ชันประกอบ $(f \circ g)(x) = f(g(x))$ และการไม่สลับที่<br>
+            • ฟังก์ชันผกผัน $f^{-1}(x)$ และขั้นตอนการหา
+          </div>
+          <div class="block al">
+            <div class="lab"><span class="pin">PART 4</span> ฟังก์ชันพิเศษในคอมพิวเตอร์</div>
+            • Floor ($\lfloor x \rfloor$), Ceiling ($\lceil x \rceil$) & Pagination<br>
+            • Modulo ($x \bmod m$) & Hash Function<br>
+            • Recursive Function & Call Stack Trace
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>สาระการเรียนรู้</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 4: DIVIDER 1 -->
   <section class="slide">
     <div class="divider">
       <div class="ghost">f(x)</div>
       <div class="no">หมวดที่ 01</div>
-      <h2>นิยามและโครงสร้างพื้นฐานของฟังก์ชัน<span class="en">Function Definitions, Domain, Codomain & Range</span></h2>
+      <h2>นิยามและโครงสร้างพื้นฐานของฟังก์ชัน<span class="en">Function Definition, Domain, Codomain & Range</span></h2>
     </div>
   </section>
 
-  <!-- SLIDE 4: Function Definition -->
+  <!-- SLIDE 5: Function Definition -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 1.1</span><h2>นิยามฟังก์ชัน (Function Definition $f: A \to B$)</h2></div>
@@ -257,27 +295,49 @@ b,strong{font-weight:700;color:var(--navy2)}
         <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชัน</div>
         ความสัมพันธ์ $f$ จากเซต $A$ ไปยังเซต $B$ จะเป็น <b>ฟังก์ชัน</b> ก็ต่อเมื่อ:
         $$\mathbf{\forall x \in A, \exists! y \in B \text{ such that } (x, y) \in f}$$
-        สมาชิกตัวหน้า $x \in A$ ทุกตัวต้องถูกจับคู่ และจับคู่กับตัวหลัง $y \in B$ ได้ <b>เพียงตัวเดียวเท่านั้น (Uniqueness)</b>
       </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">PURE FUNCTION</span> ความหมายในเชิงคอมพิวเตอร์</div>
-        การป้อน Input เดิม จะต้องให้ผลลัพธ์ Output ค่าเดิมที่แน่นอนเพียงค่าเดียวเสมอ (Deterministic)
+      <div class="block gold">
+        <div class="lab"><span class="pin">2 RULES</span> เงื่อนไขสำคัญ 2 ประการ</div>
+        1. <b>Total Mapping:</b> สมาชิกตัวหน้า $x \in A$ <b>ทุกตัว</b> ต้องถูกนำมาจับคู่<br>
+        2. <b>Uniqueness:</b> สมาชิกตัวหน้าแต่ละตัวจับคู่กับตัวหลังได้ <b>เพียงตัวเดียวเท่านั้น</b>
       </div>
     </div>
     <div class="foot"><span>นิยามฟังก์ชัน</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 5: Vertical Line Test -->
+  <!-- SLIDE 6: Pure Function in CS -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 1.2</span><h2>การทดสอบเส้นแนวตั้ง (Vertical Line Test)</h2></div>
+      <div><span class="kick">Concept 1.2</span><h2>ฟังก์ชันบริสุทธิ์ในคอมพิวเตอร์ (Pure Function)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block ex">
+        <div class="lab"><span class="pin">CONCEPT</span> ความหมายของฟังก์ชันในทางซอฟต์แวร์</div>
+        ใน Functional Programming และคณิตศาสตร์ <b>Pure Function</b> คือฟังก์ชันที่:
+        <ul style="margin-top:.5cqh;margin-left:1.5cqw">
+          <li><b>Deterministic Output:</b> ป้อนข้อมูลนำเข้าเดิม (Input) จะต้องให้ผลลัพธ์เดิมที่แน่นอนเพียงค่าเดียวเสมอ</li>
+          <li><b>No Side Effects:</b> ไม่แอบไปแก้ไขสถานะตัวแปรภายนอกหรือหน่วยความจำอื่น</li>
+        </ul>
+      </div>
+      <div class="block al">
+        <div class="lab"><span class="pin">CONTRAST</span> ฟังก์ชันที่ไม่บริสุทธิ์ (Impure)</div>
+        เช่น ฟังก์ชัน <span class="code">random()</span> หรือ ฟังก์ชันที่อ่านเวลาของระบบ <span class="code">now()</span> ซึ่งให้ผลลัพธ์เปลี่ยนไปเรื่อยๆ แม้ไม่เปลี่ยน Input
+      </div>
+    </div>
+    <div class="foot"><span>Pure Function ในคอมพิวเตอร์</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 7: Vertical Line Test -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 1.3</span><h2>การทดสอบเส้นแนวตั้ง (Vertical Line Test)</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">TEST</span> กฎการทดสอบ</div>
-            กราฟบนระนาบพิกัดฉากจะเป็นฟังก์ชัน ก็ต่อเมื่อ <b>ไม่มีเส้นตรงแนวตั้งใดๆ ตัดกราฟเกินกว่า 1 จุด</b>
+            <div class="lab"><span class="pin">TEST</span> กฎการทดสอบบนระนาบพิกัดฉาก</div>
+            กราฟของความสัมพันธ์จะเป็นฟังก์ชัน ก็ต่อเมื่อ <b>ไม่มีเส้นตรงแนวตั้งใดๆ ลากตัดกราฟเกินกว่า 1 จุด</b>
           </div>
         </div>
         <div class="col">
@@ -292,52 +352,91 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>Vertical Line Test</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 6: Domain, Codomain vs Range -->
+  <!-- SLIDE 8: Arrow Diagram Test -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 1.3</span><h2>โดเมน โคโดเมน (Codomain) และเรนจ์ของฟังก์ชัน</h2></div>
+      <div><span class="kick">Concept 1.4</span><h2>การตรวจสอบด้วยแผนภาพลูกศร (Arrow Diagram Test)</h2></div>
     </div>
     <div class="body">
-      <div class="cols three">
+      <div class="cols">
         <div class="col">
-          <div class="block">
-            <div class="lab"><span class="pin">1</span> โดเมน $\operatorname{Dom}(f)$</div>
-            เซตต้นทางทั้งหมด:<br>
-            $$\mathbf{\operatorname{Dom}(f) = A}$$
+          <div class="block ex">
+            <div class="lab"><span class="pin">✓ เป็นฟังก์ชัน</span> เกณฑ์ลูกศร</div>
+            ทุกโหนดในเซตต้นทาง $A$ ต้องมีลูกศรพุ่งออก <b>1 เส้นพอดี</b><br>
+            <span class="gn">• ปลายทางจะชนกันได้ (Many-to-One ยอมรับได้)<br>• ปลายทางจะมีโหนดว่างเหลือได้</span>
           </div>
         </div>
         <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">2</span> โคโดเมน (Codomain)</div>
-            เซตปลายทางทั้งหมด $B$ ที่ระบุชนิดข้อมูล (Type Specification)
+          <div class="block al">
+            <div class="lab"><span class="pin">✗ ไม่เป็นฟังก์ชัน</span> ข้อห้าม 2 ประการ</div>
+            1. <b>ห้ามมีโหนดต้นทางที่ไม่มีลูกศรออก</b> (ไม่จับคู่สมาชิกครบ)<br>
+            2. <b>ห้ามมีโหนดต้นทางที่แตกกิ่งลูกศรออก $\ge 2$ เส้น</b> (จับคู่หลายตัวพร้อมกัน)
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>Arrow Diagram Test</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 9: Domain and Codomain -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 1.5</span><h2>โดเมน (Domain) และโคโดเมน (Codomain)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DOMAIN</span> โดเมน $\operatorname{Dom}(f)$</div>
+            เซตของสมาชิกต้นทางทั้งหมด:<br>
+            $$\mathbf{\operatorname{Dom}(f) = A}$$
+            • สำหรับฟังก์ชัน โดเมนต้องเท่ากับเซตต้นทาง $A$ เต็มทั้งเซตเสมอ
           </div>
         </div>
         <div class="col">
           <div class="block gold">
-            <div class="lab"><span class="pin">3</span> เรนจ์ $\operatorname{Ran}(f)$</div>
-            เซตของผลลัพธ์จริงที่ถูกจับคู่:<br>
-            $$\mathbf{\operatorname{Ran}(f) \subseteq B}$$
+            <div class="lab"><span class="pin">CODOMAIN</span> โคโดเมน (Codomain)</div>
+            เซตปลายทางทั้งหมด $B$ ที่ระบุขอบเขตของผลลัพธ์ที่เป็นไปได้:<br>
+            • ในการเขียนโปรแกรม เปรียบเสมือน <b>Return Type (เช่น \texttt{int, float, string})</b>
           </div>
         </div>
       </div>
-      <div class="block al" style="margin-top:.4cqh">
-        <div class="lab"><span class="pin">CAUTION</span> ตัวอย่างที่โคโดเมน $\neq$ เรนจ์</div>
-        $f: \mathbb{R} \to \mathbb{R}$ โดย $f(x) = x^2 \implies$ โคโดเมนคือ $\mathbb{R}$ แต่เรนจ์คือเฉพาะ $[0, \infty)$
-      </div>
     </div>
-    <div class="foot"><span>Domain, Codomain & Range</span><span class="right">4091606 · CH03-W08</span></div>
+    <div class="foot"><span>Domain & Codomain</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 7: DIVIDER 2 -->
+  <!-- SLIDE 10: Range of Function -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 1.6</span><h2>เรนจ์ (Range) หรือภาพของฟังก์ชัน (Image $f(A)$)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">DEF</span> เรนจ์ $\operatorname{Ran}(f)$</div>
+        เซตของค่าผลลัพธ์จริงที่ถูกจับคู่โดยฟังก์ชัน $f$:
+        $$\mathbf{\operatorname{Ran}(f) = \{f(x) \mid x \in A\} \subseteq B}$$
+      </div>
+      <div class="block ex">
+        <div class="lab"><span class="pin">EXAMPLE</span> ตัวอย่างการแยกแยะ</div>
+        ให้ $f: \mathbb{R} \to \mathbb{R}$ โดย $f(x) = x^2$<br>
+        • <b>โดเมน:</b> $\mathbb{R}$ (จำนวนจริงทั้งหมด)<br>
+        • <b>โคโดเมน:</b> $\mathbb{R}$ (จำนวนจริงทั้งหมดที่ระบุไว้)<br>
+        • <b>เรนจ์:</b> $[0, \infty)$ (เฉพาะจำนวนจริงที่ไม่เป็นลบเท่านั้น!) $\implies \mathbf{\operatorname{Ran}(f) \subsetneq \text{Codomain}}$
+      </div>
+    </div>
+    <div class="foot"><span>เรนจ์ของฟังก์ชัน</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 11: DIVIDER 2 -->
   <section class="slide">
     <div class="divider">
       <div class="ghost">1-1</div>
       <div class="no">หมวดที่ 02</div>
-      <h2>การจำแนกประเภทของฟังก์ชัน<span class="en">Injective, Surjective & Bijective Functions</span></h2>
+      <h2>การจำแนกประเภทของฟังก์ชัน<span class="en">Injective, Surjective, Bijective & Pigeonhole</span></h2>
     </div>
   </section>
 
-  <!-- SLIDE 8: Injective Function -->
+  <!-- SLIDE 12: Injective Function Definition -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 2.1</span><h2>ฟังก์ชันหนึ่งต่อหนึ่ง (Injective / One-to-One)</h2></div>
@@ -347,107 +446,145 @@ b,strong{font-weight:700;color:var(--navy2)}
         <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันหนึ่งต่อหนึ่ง</div>
         สมาชิกปลายทางแต่ละตัวโดนจับคู่ <b>ไม่เกิน 1 ครั้ง</b> (ห้ามมีลูกศรชนกัน):
         $$\mathbf{\forall a, b \in A, f(a) = f(b) \implies a = b}$$
-      </div>
-      <div class="cols" style="margin-top:.4cqh">
-        <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">✓ เป็นหนึ่งต่อหนึ่ง</span></div>
-            $f(x) = 2x + 1$ บน $\mathbb{R}$<br>
-            ถ้า $2a + 1 = 2b + 1 \implies 2a = 2b \implies a = b$
-          </div>
-        </div>
-        <div class="col">
-          <div class="block al">
-            <div class="lab"><span class="pin">✗ ไม่เป็นหนึ่งต่อหนึ่ง</span></div>
-            $f(x) = x^2$ บน $\mathbb{R}$<br>
-            $f(2) = 4$ และ $f(-2) = 4$ มีผลลัพธ์ชนกันที่ 4
-          </div>
-        </div>
+        หรือเขียนในรูปประพจน์แย้งสลับที่ (Contrapositive):
+        $$\mathbf{\forall a, b \in A, a \neq b \implies f(a) \neq f(b)}$$
       </div>
     </div>
     <div class="foot"><span>ฟังก์ชันหนึ่งต่อหนึ่ง</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 9: Surjective Function -->
+  <!-- SLIDE 13: Horizontal Line Test -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 2.2</span><h2>ฟังก์ชันทั่วถึง (Surjective / Onto)</h2></div>
+      <div><span class="kick">Concept 2.2</span><h2>การทดสอบเส้นแนวนอน (Horizontal Line Test)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">TEST</span> กฎเส้นแนวนอน</div>
+            ฟังก์ชันจะเป็นหนึ่งต่อหนึ่ง ก็ต่อเมื่อ <b>ไม่มีเส้นตรงแนวนอนใดๆ ลากตัดกราฟเกินกว่า 1 จุด</b>
+          </div>
+        </div>
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">EX</span> ตัวอย่าง</div>
+            • $f(x) = 2x + 1$ $\implies$ เส้นแนวนอนตัด 1 จุดเสมอ $\to$ <span class="gn">✓ เป็น Injective</span><br>
+            • $f(x) = x^2$ $\implies$ เส้นแนวนอน $y=4$ ตัด 2 จุด ($x=2, -2$) $\to$ <span class="rd">✗ ไม่เป็น Injective</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>Horizontal Line Test</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 14: Surjective Function Definition -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 2.3</span><h2>ฟังก์ชันทั่วถึง (Surjective / Onto)</h2></div>
     </div>
     <div class="body">
       <div class="block">
         <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันทั่วถึง</div>
         สมาชิกในโคโดเมน $B$ ทุกตัวต้องถูกจับคู่อย่างน้อย 1 ครั้ง (ไม่มีตัวใดถูกทิ้งว่าง):
-        $$\mathbf{\forall y \in B, \exists x \in A \text{ such that } f(x) = y \iff \operatorname{Ran}(f) = B}$$
+        $$\mathbf{\forall y \in B, \exists x \in A \text{ such that } f(x) = y}$$
       </div>
-      <div class="cols" style="margin-top:.4cqh">
-        <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">✓ เป็นทั่วถึง</span></div>
-            $f: \mathbb{R} \to \mathbb{R}$ โดย $f(x) = 3x - 5$<br>
-            สำหรับ $y \in \mathbb{R}$ จะมี $x = \frac{y+5}{3} \in \mathbb{R}$ เสมอ
-          </div>
-        </div>
-        <div class="col">
-          <div class="block al">
-            <div class="lab"><span class="pin">✗ ไม่เป็นทั่วถึง</span></div>
-            $f: \mathbb{Z} \to \mathbb{Z}$ โดย $f(x) = 2x$<br>
-            เรนจ์มีเฉพาะเลขคู่ จำนวนเต็มคี่เช่น 3 ไม่มี $x$ ที่ $2x = 3$
-          </div>
-        </div>
+      <div class="block ex">
+        <div class="lab"><span class="pin">CRITERIA</span> เกณฑ์ตรวจสอบที่ง่ายที่สุด</div>
+        ฟังก์ชัน $f: A \to B$ จะเป็นทั่วถึง ก็ต่อเมื่อ <b>เรนจ์เท่ากับโคโดเมนพอดี</b>:
+        $$\mathbf{\operatorname{Ran}(f) = B}$$
       </div>
     </div>
     <div class="foot"><span>ฟังก์ชันทั่วถึง</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 10: Bijective Function -->
+  <!-- SLIDE 15: Surjective Numerical Examples -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 2.3</span><h2>ฟังก์ชันหนึ่งต่อหนึ่งทั่วถึง (Bijective Function)</h2></div>
+      <div><span class="kick">Concept 2.4</span><h2>ตัวอย่างเชิงตัวเลข: ฟังก์ชันทั่วถึง vs ไม่ทั่วถึง</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">✓ เป็นทั่วถึง</span></div>
+            $f: \mathbb{R} \to \mathbb{R}$ โดย $f(x) = 3x - 5$<br><br>
+            สำหรับ $y \in \mathbb{R}$ ใดๆ สามารถเลือก $x = \frac{y + 5}{3} \in \mathbb{R}$ ซึ่งทำให้ $f(x) = 3(\frac{y+5}{3}) - 5 = y$ เสมอ
+          </div>
+        </div>
+        <div class="col">
+          <div class="block al">
+            <div class="lab"><span class="pin">✗ ไม่เป็นทั่วถึง</span></div>
+            $f: \mathbb{Z} \to \mathbb{Z}$ โดย $f(x) = 2x$<br><br>
+            เรนจ์มีเฉพาะจำนวนเต็มคู่ $\{\dots, -4, -2, 0, 2, 4, \dots\}$<br>
+            จำนวนเต็มคี่เช่น $y = 3 \in \mathbb{Z}$ ไม่มี $x \in \mathbb{Z}$ ใดที่ $2x = 3$ ได้
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>ตัวอย่างฟังก์ชันทั่วถึง</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 16: Bijective Function -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 2.5</span><h2>ฟังก์ชันหนึ่งต่อหนึ่งทั่วถึง (Bijective Function)</h2></div>
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันแบบ Bijection</div>
-        ฟังก์ชันที่เป็น <b>ทั้งหนึ่งต่อหนึ่ง และทั่วถึงพร้อมกัน</b>:
+        <div class="lab"><span class="pin">DEF</span> นิยาม Bijective (One-to-One Correspondence)</div>
+        ฟังก์ชันที่เป็น <b>ทั้งหนึ่งต่อหนึ่ง (Injective) และทั่วถึง (Surjective) พร้อมกัน</b>:
         $$\mathbf{\text{Bijective} = \text{Injective} \land \text{Surjective}}$$
       </div>
       <div class="block gold">
-        <div class="lab"><span class="pin">THEOREM</span> ทฤษฎีบทการมีฟังก์ชันผกผัน</div>
-        ฟังก์ชัน $f: A \to B$ จะมี <b>ฟังก์ชันผกผัน $f^{-1}: B \to A$</b> ได้ ก็ต่อเมื่อ $f$ เป็น <b>Bijective</b> เท่านั้น!
+        <div class="lab"><span class="pin">PROPERTY</span> สมบัติการมีฟังก์ชันผกผัน</div>
+        ความเป็น Bijective คือ <b>เงื่อนไขจำเป็นและเพียงพอ (Necessary & Sufficient Condition)</b> ที่ทำให้ฟังก์ชันมี <b>ฟังก์ชันผกผัน ($f^{-1}$)</b>
       </div>
     </div>
     <div class="foot"><span>ฟังก์ชันหนึ่งต่อหนึ่งทั่วถึง</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 11: Pigeonhole Principle -->
+  <!-- SLIDE 17: Pigeonhole Principle -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 2.4</span><h2>หลักการช่องนกพิราบ (Pigeonhole Principle)</h2></div>
+      <div><span class="kick">Concept 2.6</span><h2>หลักการช่องนกพิราบ (Pigeonhole Principle)</h2></div>
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">THEOREM</span> หลักการช่องนกพิราบ</div>
-        ถ้านำนกพิราบ $k + 1$ ตัว ใส่ในรังนก $k$ รัง จะมีรังนกอย่างน้อย 1 รังที่มีนกตั้งแต่ 2 ตัวขึ้นไป<br>
-        • <b>ในมุมมองของฟังก์ชัน $f: A \to B$:</b> ถ้า $|A| > |B|$ แล้ว $f$ <b>ไม่มีทางเป็น Injective ได้เลย!</b>
-      </div>
-      <div class="cols" style="margin-top:.4cqh">
-        <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">HASH</span> การชนกันของแฮช (Collision)</div>
-            คีย์ $N = 10,000$ ตัว ใส่ตารางขนาด $M = 1,000$ ช่อง ย่อมเกิดการชนกันแน่นอน
-          </div>
-        </div>
-        <div class="col">
-          <div class="block al">
-            <div class="lab"><span class="pin">COMPRESS</span> การบีบอัดไฟล์</div>
-            ไม่มีอัลกอริทึมใดบีบอัดไฟล์ทุกขนาดให้เล็กลงได้เสมอโดยไม่สูญเสียข้อมูล
-          </div>
-        </div>
+        <div class="lab"><span class="pin">THEOREM</span> ทฤษฎีบทช่องนกพิราบ</div>
+        ถ้านำนกพิราบ $k + 1$ ตัว ใส่ลงในรังนก $k$ รัง แล้วจะมีรังนกอย่างน้อย 1 รังที่บรรจุนกพิราบตั้งแต่ 2 ตัวขึ้นไป<br><br>
+        <b>ในมุมมองของฟังก์ชัน $f: A \to B$:</b><br>
+        ถ้าเซตต้นทางมีสมาชิกมากกว่าเซตปลายทาง ($|A| > |B|$) แล้ว <b>ฟังก์ชัน $f$ ไม่มีทางเป็นหนึ่งต่อหนึ่ง (Injective) ได้เลย!</b> จะต้องมีค่าผลลัพธ์ชนกันเสมอ
       </div>
     </div>
     <div class="foot"><span>หลักการช่องนกพิราบ</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 12: DIVIDER 3 -->
+  <!-- SLIDE 18: Pigeonhole in CS -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 2.7</span><h2>การประยุกต์หลักการช่องนกพิราบในทางคอมพิวเตอร์</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">HASH</span> การชนกันของแฮช (Hash Collision)</div>
+            หากมีข้อมูล $N = 10,000$ รายการ แต่ตารางแฮชมีขนาด $M = 1,000$ ช่อง ย่อมรับประกันได้ทางคณิตศาสตร์ว่าจะต้องเกิดการชนกันของแฮชอย่างแน่นอน
+          </div>
+        </div>
+        <div class="col">
+          <div class="block al">
+            <div class="lab"><span class="pin">COMPRESS</span> ขีดจำกัดของการบีบอัดข้อมูล</div>
+            ไม่มีอัลกอริทึมการบีบอัดแบบไม่สูญเสียข้อมูล (Lossless Compression) ใดที่สามารถบีบอัดไฟล์ทุกขนาดให้เล็กลงได้เสมอ เพราะขนาดไฟล์ที่เป็นไปได้มีจำกัด
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การประยุกต์ช่องนกพิราบ</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 19: DIVIDER 3 -->
   <section class="slide">
     <div class="divider">
       <div class="ghost">f⁻¹</div>
@@ -456,7 +593,7 @@ b,strong{font-weight:700;color:var(--navy2)}
     </div>
   </section>
 
-  <!-- SLIDE 13: Composition of Functions -->
+  <!-- SLIDE 20: Function Composition Definition -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 3.1</span><h2>การประกอบฟังก์ชัน (Function Composition $f \circ g$)</h2></div>
@@ -466,42 +603,78 @@ b,strong{font-weight:700;color:var(--navy2)}
         <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันประกอบ</div>
         ให้ $g: A \to B$ และ $f: B \to C$ ฟังก์ชันประกอบ $f \circ g: A \to C$ คือ:
         $$\mathbf{(f \circ g)(x) = f(g(x))}$$
-        • นำค่า $x$ ป้อนให้ $g$ ก่อน เมื่อได้ผลลัพธ์ $g(x)$ ให้นำไปป้อนต่อให้ $f$
-      </div>
-      <div class="block gold">
-        <div class="lab"><span class="pin">EXAMPLE</span> ตัวอย่างคำนวณ</div>
-        ให้ $f(x) = 2x + 3$ และ $g(x) = x^2 - 1$<br>
-        $$\mathbf{(f \circ g)(x) = f(x^2 - 1) = 2(x^2 - 1) + 3 = 2x^2 + 1}$$
-        $$\mathbf{(g \circ f)(x) = g(2x + 3) = (2x + 3)^2 - 1 = 4x^2 + 12x + 8}$$
-        <span class="rd">ข้อสังเกต: โดยทั่วไป $(f \circ g)(x) \neq (g \circ f)(x)$ (ไม่มีสมบัติสลับที่)</span>
+        • นำค่า $x$ ป้อนให้ฟังก์ชัน $g$ ทำงานก่อน<br>
+        • เมื่อได้ผลลัพธ์ $g(x)$ ให้นำค่านั้นไปป้อนต่อเป็น Input ของฟังก์ชัน $f$
       </div>
     </div>
     <div class="foot"><span>การประกอบฟังก์ชัน</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 14: Inverse Functions -->
+  <!-- SLIDE 21: Composition Step-by-Step Example -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 3.2</span><h2>ฟังก์ชันผกผัน (Inverse Function $f^{-1}$)</h2></div>
+      <div><span class="kick">Concept 3.2</span><h2>ตัวอย่างการคำนวณฟังก์ชันประกอบทีละขั้นตอน</h2></div>
+    </div>
+    <div class="body">
+      <div class="block gold">
+        <div class="lab"><span class="pin">EXAMPLE</span> ให้ $f(x) = 2x + 3$ และ $g(x) = x^2 - 1$</div>
+        1. <b>หา $(f \circ g)(x)$ :</b><br>
+        $$(f \circ g)(x) = f(g(x)) = f(x^2 - 1) = 2(x^2 - 1) + 3 = \mathbf{2x^2 + 1}$$
+        2. <b>หา $(g \circ f)(x)$ :</b><br>
+        $$(g \circ f)(x) = g(f(x)) = g(2x + 3) = (2x + 3)^2 - 1 = \mathbf{4x^2 + 12x + 8}$$
+      </div>
+      <div class="block al">
+        <div class="lab"><span class="pin">CAUTION</span> ข้อควรระวัง</div>
+        $(f \circ g)(x) \neq (g \circ f)(x)$ — การประกอบฟังก์ชัน <b>ไม่มีสมบัติการสลับที่ (Non-commutative)</b>
+      </div>
+    </div>
+    <div class="foot"><span>ตัวอย่างการประกอบฟังก์ชัน</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 22: Inverse Function Definition -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 3.3</span><h2>ฟังก์ชันผกผัน (Inverse Function $f^{-1}$)</h2></div>
     </div>
     <div class="body">
       <div class="block">
         <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันผกผัน</div>
-        ถ้า $f: A \to B$ เป็น Bijective จะมีฟังก์ชันผกผัน $f^{-1}: B \to A$ ซึ่ง:
+        ถ้า $f: A \to B$ เป็นฟังก์ชันหนึ่งต่อหนึ่งทั่วถึง (Bijective) จะมีฟังก์ชันผกผัน $f^{-1}: B \to A$:
         $$\mathbf{f^{-1}(y) = x \iff f(x) = y}$$
         $$\mathbf{(f^{-1} \circ f)(x) = x \quad \text{และ} \quad (f \circ f^{-1})(y) = y}$$
-      </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">PROCEDURE</span> ขั้นตอนการหา $f^{-1}(x)$</div>
-        1. ตั้งสมการ $y = f(x)$ เช่น $y = 3x - 5$<br>
-        2. จัดรูปสมการแก้หาตัวแปร $x$ ในเทอมของ $y$: $3x = y + 5 \implies x = \frac{y + 5}{3}$<br>
-        3. สลับตัวแปร $y$ กลับเป็น $x$: $\mathbf{f^{-1}(x) = \frac{x + 5}{3}}$
       </div>
     </div>
     <div class="foot"><span>ฟังก์ชันผกผัน</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 15: DIVIDER 4 -->
+  <!-- SLIDE 23: 3 Steps to Find Inverse -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 3.4</span><h2>3 ขั้นตอนการหาฟังก์ชันผกผัน $f^{-1}(x)$</h2></div>
+    </div>
+    <div class="body">
+      <div class="proc-grid" style="grid-template-columns:repeat(3,1fr)">
+        <div class="proc-card">
+          <div class="p-num">STEP 1</div>
+          <div class="p-title">ตั้งสมการ $y = f(x)$</div>
+          <div class="p-desc">เขียนฟังก์ชันในรูปของตัวแปร $y$ เช่น $y = 3x - 5$</div>
+        </div>
+        <div class="proc-card">
+          <div class="p-num">STEP 2</div>
+          <div class="p-title">แก้สมการหา $x$</div>
+          <div class="p-desc">จัดรูปสมการให้ตัวแปร $x$ อยู่เดี่ยวๆ: $3x = y + 5 \implies x = \frac{y + 5}{3}$</div>
+        </div>
+        <div class="proc-card">
+          <div class="p-num">STEP 3</div>
+          <div class="p-title">สลับตัวแปรกลับ</div>
+          <div class="p-desc">แทน $x$ ด้วย $f^{-1}(x)$ และแทน $y$ ด้วย $x$: $\mathbf{f^{-1}(x) = \frac{x + 5}{3}}$</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>ขั้นตอนการหาฟังก์ชันผกผัน</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 24: DIVIDER 4 -->
   <section class="slide">
     <div class="divider">
       <div class="ghost">⌊x⌋</div>
@@ -510,104 +683,199 @@ b,strong{font-weight:700;color:var(--navy2)}
     </div>
   </section>
 
-  <!-- SLIDE 16: Floor and Ceiling Functions -->
+  <!-- SLIDE 25: Floor Function -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 4.1</span><h2>ฟังก์ชันพื้น (Floor $\lfloor x \rfloor$) และเพดาน (Ceiling $\lceil x \rceil$)</h2></div>
+      <div><span class="kick">Concept 4.1</span><h2>ฟังก์ชันพื้น (Floor Function $\lfloor x \rfloor$)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันพื้น</div>
+        จำนวนเต็มที่มากที่สุดที่ <b>น้อยกว่าหรือเท่ากับ $x$</b> (การปัดเศษลง):
+        $$\mathbf{\lfloor x \rfloor = \max \{n \in \mathbb{Z} \mid n \le x\}}$$
+      </div>
+      <div class="block ex">
+        <div class="lab"><span class="pin">EXAMPLES</span> ตัวอย่างเชิงตัวเลข</div>
+        • $\lfloor 3.8 \rfloor = 3$<br>
+        • $\lfloor 3.0 \rfloor = 3$<br>
+        • $\lfloor -3.2 \rfloor = \mathbf{-4}$ <span class="rd">(ข้อควรระวัง: จำนวนลบปัดลงไปหาค่าที่น้อยกว่า)</span>
+      </div>
+    </div>
+    <div class="foot"><span>ฟังก์ชันพื้น (Floor)</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 26: Ceiling Function -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 4.2</span><h2>ฟังก์ชันเพดาน (Ceiling Function $\lceil x \rceil$)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันเพดาน</div>
+        จำนวนเต็มที่น้อยที่สุดที่ <b>มากกว่าหรือเท่ากับ $x$</b> (การปัดเศษขึ้น):
+        $$\mathbf{\lceil x \rceil = \min \{n \in \mathbb{Z} \mid n \ge x\}}$$
+      </div>
+      <div class="block ex">
+        <div class="lab"><span class="pin">EXAMPLES</span> ตัวอย่างเชิงตัวเลข</div>
+        • $\lceil 3.2 \rceil = 4$<br>
+        • $\lceil 3.0 \rceil = 3$<br>
+        • $\lceil -3.8 \rceil = \mathbf{-3}$ <span class="rd">(ข้อควรระวัง: จำนวนลบปัดขึ้นไปหาค่าที่มากกว่า)</span>
+      </div>
+    </div>
+    <div class="foot"><span>ฟังก์ชันเพดาน (Ceiling)</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 27: Pagination Application -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 4.3</span><h2>การประยุกต์: การแบ่งหน้าข้อมูล (Pagination)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block gold">
+        <div class="lab"><span class="pin">FORMULA</span> สูตรคำนวณจำนวนหน้าเว็บ</div>
+        เมื่อมีข้อมูลทั้งหมด $N$ รายการ และต้องการแสดงผลหน้าละ $S$ รายการ:
+        $$\mathbf{\text{จำนวนหน้าทั้งหมด} = \lceil N / S \rceil}$$
+      </div>
+      <div class="block ex">
+        <div class="lab"><span class="pin">EX</span> ตัวอย่าง</div>
+        ระบบฐานข้อมูลมีบทความ $N = 127$ รายการ กำหนดแสดงหน้าละ $S = 10$ รายการ:<br>
+        $$\text{จำนวนหน้า} = \lceil 127 / 10 \rceil = \lceil 12.7 \rceil = \mathbf{13 \text{ หน้า}}$$
+        <span class="gn">หน้าสุดท้าย (หน้าที่ 13) จะมีข้อมูลเหลือแสดง 7 รายการ</span>
+      </div>
+    </div>
+    <div class="foot"><span>การแบ่งหน้าข้อมูล (Pagination)</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 28: Modulo Function -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 4.4</span><h2>ฟังก์ชันมอดุโล (Modulo Operation $a \bmod m$)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันมอดุโล</div>
+        เศษที่เหลือจากการหารจำนวนเต็ม $a$ ด้วยจำนวนเต็มบวก $m$:
+        $$\mathbf{a \bmod m = r \quad (0 \le r < m \text{ โดย } a = qm + r)}$$
+      </div>
+      <div class="block ex">
+        <div class="lab"><span class="pin">EXAMPLES</span> ตัวอย่างคำนวณ</div>
+        • $17 \bmod 5 = 2 \quad (17 = 3 \times 5 + 2)$<br>
+        • $-8 \bmod 3 = 1 \quad (-8 = -3 \times 3 + 1)$
+      </div>
+    </div>
+    <div class="foot"><span>ฟังก์ชันมอดุโล</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 29: Circular Queue Application -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 4.5</span><h2>การประยุกต์มอดุโล: คิววงกลม (Circular Queue / Round-Robin)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block gold">
+        <div class="lab"><span class="pin">FORMULA</span> การวนกลับมาตำแหน่งเริ่มต้น</div>
+        การเลื่อนตำแหน่งดัชนีใน Circular Buffer หรือ Round-Robin Scheduling บนอาร์เรย์ขนาด $N$:
+        $$\mathbf{\text{next\_index} = (\text{current\_index} + 1) \bmod N}$$
+      </div>
+      <div class="block ex">
+        <div class="lab"><span class="pin">EX</span> ตัวอย่าง</div>
+        อาร์เรย์ขนาด $N = 5$ (ดัชนี $0, 1, 2, 3, 4$):<br>
+        เมื่ออยู่ที่ดัชนี $4 \implies (4 + 1) \bmod 5 = 5 \bmod 5 = \mathbf{0}$ <span class="gn">(วนกลับมาหัวแถวอัตโนมัติ)</span>
+      </div>
+    </div>
+    <div class="foot"><span>Circular Queue & Round-Robin</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 30: Hash Function -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 4.6</span><h2>ฟังก์ชันแฮช (Hash Function $h(k) = k \bmod m$)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันแฮช</div>
+        ฟังก์ชันที่แปลงคีย์ข้อมูลขนาดใหญ่ $k$ ให้เป็นดัชนีช่องตารางขนาดจำกัด $m$:
+        $$\mathbf{h(k) = k \bmod m}$$
+      </div>
+      <div class="block ex">
+        <div class="lab"><span class="pin">EX</span> ตัวอย่าง</div>
+        กำหนดตารางขนาด $m = 7$ (ช่อง $0$ ถึง $6$):<br>
+        • $h(24) = 24 \bmod 7 = \mathbf{3}$<br>
+        • $h(15) = 15 \bmod 7 = \mathbf{1}$
+      </div>
+    </div>
+    <div class="foot"><span>ฟังก์ชันแฮช</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 31: Hash Collision -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 4.7</span><h2>การชนกันของแฮช (Hash Collision)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block al">
+        <div class="lab"><span class="pin">PROBLEM</span> นิยามการชนกัน</div>
+        เกิดขึ้นเมื่อคีย์ข้อมูลที่ต่างกัน ($k_1 \neq k_2$) ถูกแปลงแล้วได้ดัชนีช่องเดียวกัน:
+        $$\mathbf{h(k_1) = h(k_2)}$$
+      </div>
+      <div class="block gold">
+        <div class="lab"><span class="pin">EX</span> ตัวอย่าง</div>
+        สำหรับ $h(k) = k \bmod 7$:<br>
+        • $h(15) = 15 \bmod 7 = 1$<br>
+        • $h(50) = 50 \bmod 7 = 1$<br>
+        <span class="rd">เกิดการชนกันที่ช่องดัชนี 1! ต้องใช้ Separate Chaining หรือ Linear Probing ในการแก้ไข</span>
+      </div>
+    </div>
+    <div class="foot"><span>การชนกันของแฮช</span><span class="right">4091606 · CH03-W08</span></div>
+  </section>
+
+  <!-- SLIDE 32: Recursive Function Structure -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 4.8</span><h2>โครงสร้างของฟังก์ชันแบบเรียกซ้ำ (Recursive Functions)</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">FLOOR</span> ฟังก์ชันพื้น $\lfloor x \rfloor$</div>
-            จำนวนเต็มที่มากที่สุดที่ $\le x$ (ปัดลง):<br>
-            • $\lfloor 3.8 \rfloor = 3$<br>
-            • $\lfloor 3.0 \rfloor = 3$<br>
-            • $\lfloor -3.2 \rfloor = \mathbf{-4}$
+            <div class="lab"><span class="pin">1</span> กรณีฐาน (Base Case)</div>
+            เงื่อนไขหยุดที่คืนค่าผลลัพธ์ทันทีโดยไม่เรียกซ้ำอีก เพื่อป้องกันการวนรอบไม่รู้จบ
           </div>
         </div>
         <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">CEILING</span> ฟังก์ชันเพดาน $\lceil x \rceil$</div>
-            จำนวนเต็มที่น้อยที่สุดที่ $\ge x$ (ปัดขึ้น):<br>
-            • $\lceil 3.2 \rceil = 4$<br>
-            • $\lceil 3.0 \rceil = 3$<br>
-            • $\lceil -3.8 \rceil = \mathbf{-3}$
+            <div class="lab"><span class="pin">2</span> ขั้นตอนเรียกซ้ำ (Recursive Step)</div>
+            การเรียกฟังก์ชันตัวเองซ้ำโดยลดขนาดของปัญหาลงทีละขั้นเข้าสู่กรณีฐาน
           </div>
         </div>
       </div>
-      <div class="block gold" style="margin-top:.4cqh">
-        <div class="lab"><span class="pin">COMP</span> การแบ่งหน้าข้อมูล (Pagination)</div>
-        มีบทความ $N = 127$ รายการ แสดงหน้าละ $S = 10$ รายการ $\implies$ ต้องใช้จำนวนหน้าทั้งหมด $= \lceil 127 / 10 \rceil = \mathbf{13 \text{ หน้า}}$
-      </div>
     </div>
-    <div class="foot"><span>Floor & Ceiling Functions</span><span class="right">4091606 · CH03-W08</span></div>
+    <div class="foot"><span>โครงสร้างฟังก์ชันเรียกซ้ำ</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 17: Modulo & Hash Functions -->
+  <!-- SLIDE 33: Factorial Call Stack Trace -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 4.2</span><h2>ฟังก์ชันมอดุโล (Modulo) และฟังก์ชันแฮช (Hash Function)</h2></div>
+      <div><span class="kick">Concept 4.9</span><h2>การทำงานบนหน่วยความจำ (Call Stack Trace)</h2></div>
     </div>
     <div class="body">
-      <div class="cols">
-        <div class="col">
-          <div class="block">
-            <div class="lab"><span class="pin">MOD</span> ฟังก์ชันมอดุโล ($a \bmod m$)</div>
-            เศษที่เหลือจากการหาร $a$ ด้วย $m$ ($0 \le r < m$):<br>
-            • $17 \bmod 5 = 2$<br>
-            • $-8 \bmod 3 = 1$<br>
-            • <b>Circular Queue:</b> $(\text{index} + 1) \bmod N$
-          </div>
-        </div>
-        <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">HASH</span> ฟังก์ชันแฮช $h(k) = k \bmod m$</div>
-            แปลงคีย์ข้อมูลขนาดใหญ่ให้เป็นดัชนีช่องตารางขนาด $m$:<br>
-            • $h(24) = 24 \bmod 7 = 3$<br>
-            • $h(15) = 15 \bmod 7 = 1$<br>
-            • <b>Collision:</b> $h(50) = 50 \bmod 7 = 1$ (ชนกับ 15!)
-          </div>
-        </div>
+      <div class="block gold">
+        <div class="lab"><span class="pin">STACK TRACE</span> การคำนวณ $3!$ ($f(3)$)</div>
+        $f(3) \to 3 \cdot f(2)$<br>
+        $\quad \to 2 \cdot f(1)$<br>
+        $\quad\quad \to 1 \cdot f(0) \implies \text{Base Hit: คืนค่า } 1$<br>
+        $\quad \leftarrow 2 \cdot 1 = 2$<br>
+        $\leftarrow 3 \cdot 2 = \mathbf{6}$
+      </div>
+      <div class="block al">
+        <div class="lab"><span class="pin">OVERFLOW</span> ข้อควรระวัง</div>
+        หากไม่มี Base Case หรือเงื่อนไขหยุดไม่ถูกต้อง ฟังก์ชันจะกินพื้นที่ Stack บน Memory จนเต็มและเกิดข้อผิดพลาด <b>Stack Overflow!</b>
       </div>
     </div>
-    <div class="foot"><span>Modulo & Hash Functions</span><span class="right">4091606 · CH03-W08</span></div>
+    <div class="foot"><span>Call Stack Trace</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 18: Recursive Functions & Call Stack -->
-  <section class="slide">
-    <div class="head">
-      <div><span class="kick">Concept 4.3</span><h2>ฟังก์ชันแบบเรียกซ้ำ (Recursive Functions & Call Stack)</h2></div>
-    </div>
-    <div class="body">
-      <div class="cols">
-        <div class="col">
-          <div class="block">
-            <div class="lab"><span class="pin">DEF</span> โครงสร้างฟังก์ชันเรียกซ้ำ</div>
-            1. <b>กรณีฐาน (Base Case):</b> เงื่อนไขหยุด คืนคำตอบทันที<br>
-            2. <b>ขั้นตอนเรียกซ้ำ (Recursive Step):</b> ลดขนาดปัญหาเข้าหา Base Case
-          </div>
-          <div class="block ex">
-            <div class="lab"><span class="pin">EX</span> แฟกทอเรียล ($n!$)</div>
-            $$f(n) = \begin{cases} 1 & n = 0 \text{ (Base)} \\ n \cdot f(n-1) & n \ge 1 \end{cases}$$
-          </div>
-        </div>
-        <div class="col">
-          <div class="block gold">
-            <div class="lab"><span class="pin">STACK</span> Call Stack Trace บน Memory</div>
-            $f(3) \to 3 \cdot f(2)$<br>
-            $\quad \to 2 \cdot f(1)$<br>
-            $\quad\quad \to 1 \cdot f(0) \implies \text{Base: } 1$<br>
-            $\quad \leftarrow 2 \cdot 1 = 2$<br>
-            $\leftarrow 3 \cdot 2 = \mathbf{6}$
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span>ฟังก์ชันเรียกซ้ำ & Call Stack</span><span class="right">4091606 · CH03-W08</span></div>
-  </section>
-
-  <!-- SLIDE 19: Interactive Sandbox -->
+  <!-- SLIDE 34: Interactive Sandbox -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Interactive Lab</span><h2>ตัวทดสอบสมบัติฟังก์ชันและการจับคู่ (Function Sandbox)</h2></div>
@@ -635,7 +903,7 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>Function Sandbox</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 20: Worksheet Activity Guide -->
+  <!-- SLIDE 35: Worksheet Activity Guide -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Classroom Activity</span><h2>ใบกิจกรรมในชั้นเรียน สัปดาห์ที่ 8 (Worksheet Guide)</h2></div>
@@ -664,7 +932,7 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>ใบกิจกรรมสัปดาห์ที่ 8</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 21: Worksheet Answer Reveal -->
+  <!-- SLIDE 36: Worksheet Answer Reveal -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Solutions</span><h2>เฉลยคำตอบสำคัญประจำใบกิจกรรม สัปดาห์ที่ 8</h2></div>
@@ -684,7 +952,7 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>เฉลยใบกิจกรรมสัปดาห์ที่ 8</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 22: Quiz Game -->
+  <!-- SLIDE 37: Quiz Game -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Challenge</span><h2>เกมประลองความรู้ : ถอดรหัสลับฟังก์ชันและแฮช</h2></div>
@@ -695,7 +963,7 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>เกมประลองความรู้</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 23: Summary & Next Week -->
+  <!-- SLIDE 38: Summary & Next Week -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Recap & Next</span><h2>สรุปบทเรียนสัปดาห์ที่ 8 และหัวข้อสัปดาห์ถัดไป</h2></div>
@@ -733,7 +1001,7 @@ b,strong{font-weight:700;color:var(--navy2)}
 <!-- Dock toolbar -->
 <div class="dock">
   <button id="btnPrev" title="สไลด์ก่อนหน้า (←)">‹</button>
-  <span class="count" id="slideCount">1 / 23</span>
+  <span class="count" id="slideCount">1 / 38</span>
   <button id="btnNext" title="สไลด์ถัดไป (→ / Space)">›</button>
   <span class="sep"></span>
   <button id="btnFull" title="เต็มจอ (F)">⛶</button>

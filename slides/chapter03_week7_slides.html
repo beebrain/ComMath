@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>บทที่ 3 ความสัมพันธ์และฟังก์ชัน — สัปดาห์ที่ 7 (1 Slide 1 Concept · เข้าใจง่ายสำหรับผู้เริ่มต้น)</title>
+<title>บทที่ 3 ความสัมพันธ์และฟังก์ชัน — สัปดาห์ที่ 7 (1 Slide 1 Concept · ภาพประกอบและ Diagram Animation)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -129,6 +129,19 @@ b,strong{font-weight:700;color:var(--navy2)}
 .proc-card .p-title{font-family:var(--f-head);font-size:2cqh;font-weight:700;color:var(--navy2)}
 .proc-card .p-desc{font-size:1.75cqh;color:var(--ink-soft);line-height:1.35}
 
+/* Animated Diagrams */
+.diag-box{background:#fff;border-radius:10px;padding:1.2cqh 1.4cqw;border:1px solid var(--line2);
+  box-shadow:0 8px 20px -14px rgba(31,58,147,.3);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.diag-svg{width:100%;max-height:18cqh;display:block}
+.diag-node{fill:#fff;stroke:var(--navy);stroke-width:2.5;transition:all .3s}
+.diag-node.gold{stroke:var(--gold);stroke-width:3}
+.diag-text{font-family:var(--f-mono);font-size:15px;font-weight:700;fill:var(--navy2);text-anchor:middle;dominant-baseline:central}
+.diag-edge{stroke:var(--navy);stroke-width:2.2;fill:none}
+.diag-edge.pulse{stroke-dasharray:5;animation:dashPulse 1.8s linear infinite}
+@keyframes dashPulse{from{stroke-dashoffset:10}to{stroke-dashoffset:0}}
+.loop-anim{animation:loopGlow 2s ease-in-out infinite alternate}
+@keyframes loopGlow{from{stroke:var(--navy);stroke-width:2}to{stroke:var(--gold);stroke-width:3.8}}
+
 /* Reveal Component */
 .reveal{position:relative;cursor:pointer}
 .reveal .inner{filter:blur(10px);opacity:.2;transition:all .3s ease;pointer-events:none}
@@ -205,7 +218,7 @@ b,strong{font-weight:700;color:var(--navy2)}
       <h1>บทที่ 3 ความสัมพันธ์และฟังก์ชัน
         <span class="en">Relations, Binary Properties, Equivalence & Closures</span>
       </h1>
-      <p class="sub">เจาะลึก 1 ประเด็นต่อ 1 สไลด์ · ปูพื้นฐานเข้าใจง่าย เห็นภาพจริง · คู่อันดับ ผลคูณคาร์ทีเซียน สมบัติทวิภาคเชิงตัวเลข และการปิดสมบัติ</p>
+      <p class="sub">เจาะลึก 1 ประเด็นต่อ 1 สไลด์ · ภาพประกอบ Diagram Animation เคลื่อนไหวเข้าใจง่าย · คู่อันดับ ผลคูณคาร์ทีเซียน สมบัติทวิภาคเชิงตัวเลข และการปิดสมบัติ</p>
       <div class="meta">
         <div class="course">4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์</div>
         <div>ผู้สอน: <b>ผู้ช่วยศาสตราจารย์ ดร.พิศิษฐ์ นาคใจ</b> · สาขาวิชาวิทยาการข้อมูล มรภ.อุตรดิตถ์</div>
@@ -314,22 +327,61 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>คู่อันดับ</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 6: Cartesian Product Definition -->
+  <!-- SLIDE 6: Cartesian Product Definition with Diagram Animation -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 1.2</span><h2>ผลคูณคาร์ทีเซียน (Cartesian Product $A \times B$)</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพ: การจัดชุดเมนูอาหาร</div>
-        ถ้ามี <b>จานหลัก</b> $A = \{\text{กะเพรา}, \text{ข้าวผัด}\}$ และ <b>เครื่องดื่ม</b> $B = \{\text{ชา}, \text{กาแฟ}, \text{น้ำส้ม}\}$<br>
-        ผลคูณคาร์ทีเซียน $A \times B$ คือ <b>ชุดเมนูอาหารที่เป็นไปได้ทั้งหมดที่ร้านจัดได้</b>:
-      </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">MATH DEF</span> นิยามและตัวอย่างทางคณิตศาสตร์</div>
-        $$\mathbf{A \times B = \{(a, b) \mid a \in A \land b \in B\}}$$
-        ถ้า $A = \{1, 2\}$ และ $B = \{x, y, z\}$<br>
-        $$\mathbf{A \times B = \{(1, x), (1, y), (1, z), (2, x), (2, y), (2, z)\}}$$
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">ANALOGY</span> มโนภาพ: การจัดชุดเมนูอาหาร</div>
+            ถ้ามี <b>จานหลัก</b> $A = \{\text{กะเพรา}, \text{ข้าวผัด}\}$ และ <b>เครื่องดื่ม</b> $B = \{\text{ชา}, \text{กาแฟ}, \text{น้ำส้ม}\}$<br>
+            ผลคูณคาร์ทีเซียน $A \times B$ คือ <b>ชุดเมนูอาหารที่เป็นไปได้ทั้งหมดที่ร้านจัดได้</b>:
+          </div>
+          <div class="block ex">
+            <div class="lab"><span class="pin">MATH DEF</span> นิยามทางคณิตศาสตร์</div>
+            $$\mathbf{A \times B = \{(a, b) \mid a \in A \land b \in B\}}$$
+            $$\mathbf{A \times B = \{(1, x), (1, y), (1, z), (2, x), (2, y), (2, z)\}}$$
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-size:1.9cqh;font-weight:700;color:var(--navy2);margin-bottom:.5cqh">แผนภาพการจับคู่ $A \times B$</div>
+            <svg class="diag-svg" viewBox="0 0 240 130">
+              <defs>
+                <marker id="arr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#1F3A93"/>
+                </marker>
+              </defs>
+              <!-- Set A -->
+              <circle cx="45" cy="40" r="16" class="diag-node"/>
+              <text x="45" y="40" class="diag-text">1</text>
+              <circle cx="45" cy="90" r="16" class="diag-node"/>
+              <text x="45" y="90" class="diag-text">2</text>
+              <text x="45" y="15" style="font-family:var(--f-head);font-weight:700;font-size:13px;fill:var(--navy);text-anchor:middle">เซต A</text>
+
+              <!-- Set B -->
+              <circle cx="195" cy="25" r="15" class="diag-node"/>
+              <text x="195" y="25" class="diag-text">x</text>
+              <circle cx="195" cy="65" r="15" class="diag-node"/>
+              <text x="195" y="65" class="diag-text">y</text>
+              <circle cx="195" cy="105" r="15" class="diag-node"/>
+              <text x="195" y="105" class="diag-text">z</text>
+              <text x="195" y="10" style="font-family:var(--f-head);font-weight:700;font-size:13px;fill:var(--navy);text-anchor:middle">เซต B</text>
+
+              <!-- Animated Lines -->
+              <path d="M 61 40 L 180 25" class="diag-edge pulse" marker-end="url(#arr)"/>
+              <path d="M 61 40 L 180 65" class="diag-edge pulse" marker-end="url(#arr)"/>
+              <path d="M 61 40 L 180 105" class="diag-edge pulse" marker-end="url(#arr)"/>
+              <path d="M 61 90 L 180 25" class="diag-edge pulse" marker-end="url(#arr)"/>
+              <path d="M 61 90 L 180 65" class="diag-edge pulse" marker-end="url(#arr)"/>
+              <path d="M 61 90 L 180 105" class="diag-edge pulse" marker-end="url(#arr)"/>
+            </svg>
+            <div style="font-size:1.6cqh;color:var(--navy);font-weight:600;margin-top:.3cqh">เกิดเส้นเชื่อมทั้งหมด 2 × 3 = 6 เส้น</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>ผลคูณคาร์ทีเซียน</span><span class="right">4091606 · CH03-W07</span></div>
@@ -439,26 +491,44 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>เมทริกซ์ความสัมพันธ์ 0-1</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 12: Graph & Arrow Representations -->
+  <!-- SLIDE 12: Graph & Arrow Representations with Animated Digraph -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 2.3</span><h2>การแทนด้วยกราฟระบุทิศทาง (Digraph) และแผนภาพลูกศร</h2></div>
+      <div><span class="kick">Concept 2.3</span><h2>การแทนด้วยกราฟระบุทิศทาง (Digraph)</h2></div>
     </div>
     <div class="body">
-      <div class="cols">
+      <div class="cols wide-l">
         <div class="col">
           <div class="block gold">
             <div class="lab"><span class="pin">GRAPH</span> กราฟระบุทิศทาง (Directed Graph / Digraph)</div>
-            • <b>จุดยอด (Vertices):</b> แทนสมาชิกแต่ละตัวในเซต $A$<br>
-            • <b>ลูกศร $u \to v$:</b> ลากเมื่อ $(u, v) \in R$ (เหมือนถนน One-way หรือการ Follow ใน IG/TikTok)<br>
+            • <b>จุดยอด (Vertices):</b> แทนสมาชิก $\{1, 2, 3\}$ ในเซต $A$<br>
+            • <b>ลูกศร $u \to v$:</b> ลากเมื่อ $(u, v) \in R$ (เหมือนถนน One-way หรือการ Follow ใน IG)<br>
             • <b>ลูป (Self-loop):</b> ลูกศรโค้งวนกลับหาตัวเองเมื่อ $(u, u) \in R$
           </div>
         </div>
         <div class="col">
-          <div class="block">
-            <div class="lab"><span class="pin">ARROW</span> แผนภาพลูกศร (Arrow Diagram)</div>
-            • วางเซตต้นทาง $A$ ทางซ้าย และเซตปลายทาง $B$ ทางขวา<br>
-            • ลากเส้นลูกศรเชื่อมโยงจากซ้ายไปขวา เหมาะสำหรับดูว่า <b>สมาชิกตัวไหนถูกจับคู่บ้าง</b>
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-size:1.9cqh;font-weight:700;color:var(--navy2);margin-bottom:.4cqh">กราฟ $R = \{(1,2), (1,3), (2,3), (3,1)\}$</div>
+            <svg class="diag-svg" viewBox="0 0 200 130">
+              <defs>
+                <marker id="arr2" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#1F3A93"/>
+                </marker>
+              </defs>
+              <!-- Nodes -->
+              <circle cx="50" cy="40" r="16" class="diag-node"/>
+              <text x="50" y="40" class="diag-text">1</text>
+              <circle cx="150" cy="40" r="16" class="diag-node"/>
+              <text x="150" y="40" class="diag-text">2</text>
+              <circle cx="100" cy="105" r="16" class="diag-node"/>
+              <text x="100" y="105" class="diag-text">3</text>
+
+              <!-- Edges -->
+              <path d="M 66 40 L 134 40" class="diag-edge pulse" marker-end="url(#arr2)"/>
+              <path d="M 58 53 L 90 92" class="diag-edge pulse" marker-end="url(#arr2)"/>
+              <path d="M 142 53 L 110 92" class="diag-edge pulse" marker-end="url(#arr2)"/>
+              <path d="M 92 95 Q 40 95 45 56" class="diag-edge pulse" marker-end="url(#arr2)"/>
+            </svg>
           </div>
         </div>
       </div>
@@ -545,32 +615,57 @@ b,strong{font-weight:700;color:var(--navy2)}
     </div>
   </section>
 
-  <!-- SLIDE 17: Reflexive Property -->
+  <!-- SLIDE 17: Reflexive Property with Animated Diagram -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 4.1</span><h2>สมบัติสะท้อน (Reflexive Property)</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">ANALOGY</span> ส่องกระจกเห็นตัวเอง / Ping Localhost</div>
-        สมาชิก <b>ทุกตัว</b> ในเซตต้องมีความสัมพันธ์กับตัวเอง (ห้ามตกหล่นแม้แต่ตัวเดียว!):
-        $$\mathbf{\forall x \in A, (x, x) \in R}$$
-        • <b>ในเมทริกซ์:</b> เส้นทแยงมุมหลักเป็น 1 ทั้งหมด ($M_{11}=1, M_{22}=1, \dots$)<br>
-        • <b>ในกราฟ:</b> ทุกโหนดต้องมีลูกศรวนหาตัวเอง (Self-loop) ครบทุกตัว
-      </div>
-      <div class="cols" style="margin-top:.3cqh">
+      <div class="cols wide-l">
         <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">✓ เป็นสะท้อน</span> เชิงตัวเลข</div>
-            • $\mathbf{a \le b}$ : เพราะ $5 \le 5$ (จริงเสมอ)<br>
-            • $\mathbf{a \mid b}$ : เพราะ $4$ หาร $4$ ลงตัวเสมอ
+          <div class="block">
+            <div class="lab"><span class="pin">ANALOGY</span> ส่องกระจกเห็นตัวเอง / Ping Localhost</div>
+            สมาชิก <b>ทุกตัว</b> ในเซตต้องมีความสัมพันธ์กับตัวเอง (ห้ามตกหล่นแม้แต่ตัวเดียว!):
+            $$\mathbf{\forall x \in A, (x, x) \in R}$$
+            • <b>ในเมทริกซ์:</b> เส้นทแยงมุมหลักเป็น 1 ทั้งหมด ($M_{11}=1, M_{22}=1, \dots$)
+          </div>
+          <div class="cols" style="margin-top:.3cqh">
+            <div class="col">
+              <div class="block ex" style="padding:.9cqh 1.2cqw">
+                <div class="lab"><span class="pin">✓ เป็นสะท้อน</span></div>
+                $a \le b$ ($5 \le 5$ จริง), $a \mid b$ ($4 \mid 4$ จริง)
+              </div>
+            </div>
+            <div class="col">
+              <div class="block al" style="padding:.9cqh 1.2cqw">
+                <div class="lab"><span class="pin">✗ ไม่เป็นสะท้อน</span></div>
+                $a < b$ ($5 < 5$ เท็จ!), $a \neq b$ ($5 \neq 5$ เท็จ!)
+              </div>
+            </div>
           </div>
         </div>
         <div class="col">
-          <div class="block al">
-            <div class="lab"><span class="pin">✗ ไม่เป็นสะท้อน</span> เชิงตัวเลข</div>
-            • $\mathbf{a < b}$ : เพราะ $5 < 5$ เป็น <b>เท็จ!</b><br>
-            • $\mathbf{a \neq b}$ : เพราะ $5 \neq 5$ เป็น <b>เท็จ!</b>
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-size:1.8cqh;font-weight:700;color:var(--navy2);margin-bottom:.4cqh">ทุกลูปวนหาตัวเอง (Self-loops)</div>
+            <svg class="diag-svg" viewBox="0 0 160 130">
+              <defs>
+                <marker id="arrRefl" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#B7950B"/>
+                </marker>
+              </defs>
+              <circle cx="45" cy="45" r="16" class="diag-node gold"/>
+              <text x="45" y="45" class="diag-text">1</text>
+              <path d="M 32 38 C 10 20 10 70 32 52" class="diag-edge loop-anim" marker-end="url(#arrRefl)"/>
+
+              <circle cx="115" cy="45" r="16" class="diag-node gold"/>
+              <text x="115" y="45" class="diag-text">2</text>
+              <path d="M 128 38 C 150 20 150 70 128 52" class="diag-edge loop-anim" marker-end="url(#arrRefl)"/>
+
+              <circle cx="80" cy="100" r="16" class="diag-node gold"/>
+              <text x="80" y="100" class="diag-text">3</text>
+              <path d="M 70 112 C 50 130 110 130 90 112" class="diag-edge loop-anim" marker-end="url(#arrRefl)"/>
+            </svg>
+            <div style="font-size:1.5cqh;color:var(--gold2);font-weight:700">มีลูปวนหาตัวเองครบทุกโหนด</div>
           </div>
         </div>
       </div>
@@ -578,32 +673,53 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>สมบัติสะท้อน</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 18: Symmetric Property -->
+  <!-- SLIDE 18: Symmetric Property with Animated Diagram -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 4.2</span><h2>สมบัติสมมาตร (Symmetric Property)</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">ANALOGY</span> การจับมือทักทาย / เพื่อนใน Facebook</div>
-        ถ้า $a$ สัมพันธ์กับ $b$ แล้ว $b$ ต้องสัมพันธ์กลับมาหา $a$ ด้วยเสมอ (มีขาไป ต้องมีขากลับ):
-        $$\mathbf{\forall a, b \in A, (a, b) \in R \implies (b, a) \in R}$$
-        • <b>ในเมทริกซ์:</b> เมทริกซ์สมมาตรเทียบกับแนวทแยง ($M_R = M_R^T$)<br>
-        • <b>ในกราฟ:</b> ทุกลูกศรที่พุ่งไป $u \to v$ จะต้องมีลูกศรสวนกลับ $v \to u$ เสมอ
-      </div>
-      <div class="cols" style="margin-top:.3cqh">
+      <div class="cols wide-l">
         <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">✓ เป็นสมมาตร</span> เชิงตัวเลข</div>
-            • $\mathbf{a + b \text{ เป็นเลขคู่}}$ : $3+5=8$ คู่ และ $5+3=8$ คู่<br>
-            • $\mathbf{a \equiv b \pmod m}$ : $8 \equiv 2 \pmod 6$ และ $2 \equiv 8 \pmod 6$
+          <div class="block">
+            <div class="lab"><span class="pin">ANALOGY</span> การจับมือทักทาย / เพื่อนใน Facebook</div>
+            ถ้า $a$ สัมพันธ์กับ $b$ แล้ว $b$ ต้องสัมพันธ์กลับมาหา $a$ ด้วยเสมอ (มีขาไป ต้องมีขากลับ):
+            $$\mathbf{\forall a, b \in A, (a, b) \in R \implies (b, a) \in R}$$
+            • <b>ในเมทริกซ์:</b> เมทริกซ์สมมาตรเทียบกับแนวทแยง ($M_R = M_R^T$)
+          </div>
+          <div class="cols" style="margin-top:.3cqh">
+            <div class="col">
+              <div class="block ex" style="padding:.9cqh 1.2cqw">
+                <div class="lab"><span class="pin">✓ เป็นสมมาตร</span></div>
+                $a+b$ เป็นเลขคู่, $a \equiv b \pmod m$
+              </div>
+            </div>
+            <div class="col">
+              <div class="block al" style="padding:.9cqh 1.2cqw">
+                <div class="lab"><span class="pin">✗ ไม่เป็นสมมาตร</span></div>
+                $a \le b$ ($2 \le 5$ จริง แต่ $5 \le 2$ เท็จ!)
+              </div>
+            </div>
           </div>
         </div>
         <div class="col">
-          <div class="block al">
-            <div class="lab"><span class="pin">✗ ไม่เป็นสมมาตร</span> เชิงตัวเลข</div>
-            • $\mathbf{a \le b}$ : เพราะ $2 \le 5$ จริง แต่ $5 \le 2$ <b>เท็จ!</b><br>
-            • $\mathbf{a \mid b}$ : เพราะ $2 \mid 6$ จริง แต่ $6 \mid 2$ <b>เท็จ!</b>
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-size:1.8cqh;font-weight:700;color:var(--navy2);margin-bottom:.4cqh">ลูกศรสองทิศทาง (Two-way)</div>
+            <svg class="diag-svg" viewBox="0 0 180 120">
+              <defs>
+                <marker id="arrSym" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#2E8B57"/>
+                </marker>
+              </defs>
+              <circle cx="45" cy="60" r="18" class="diag-node"/>
+              <text x="45" y="60" class="diag-text">a</text>
+              <circle cx="135" cy="60" r="18" class="diag-node"/>
+              <text x="135" y="60" class="diag-text">b</text>
+
+              <path d="M 63 50 Q 90 30 117 50" class="diag-edge pulse" style="stroke:var(--green)" marker-end="url(#arrSym)"/>
+              <path d="M 117 70 Q 90 90 63 70" class="diag-edge pulse" style="stroke:var(--green)" marker-end="url(#arrSym)"/>
+            </svg>
+            <div style="font-size:1.5cqh;color:var(--green2);font-weight:700">$(a,b) \in R \iff (b,a) \in R$</div>
           </div>
         </div>
       </div>
@@ -611,29 +727,44 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>สมบัติสมมาตร</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 19: Antisymmetric Property -->
+  <!-- SLIDE 19: Antisymmetric Property with Diagram -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 4.3</span><h2>สมบัติปฏิสมมาตร (Antisymmetric Property)</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">ANALOGY</span> การต่อคิว / รุ่นพี่รุ่นน้อง</div>
-        ถ้าคนละคนกัน ($a \neq b$) <b>ห้ามมีความสัมพันธ์แบบไป-กลับพร้อมกันเด็ดขาด</b> (อนุญาตให้ไปกลับได้เฉพาะตัวเดียวกัน $a=b$ เท่านั้น):
-        $$\mathbf{\forall a, b \in A, [(a, b) \in R \land (b, a) \in R] \implies a = b}$$
-      </div>
-      <div class="cols" style="margin-top:.3cqh">
+      <div class="cols wide-l">
         <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">✓ เป็นปฏิสมมาตร</span> เชิงตัวเลข</div>
-            • $\mathbf{a \le b}$ : ถ้า $a \le b$ และ $b \le a$ สรุปได้ว่า $a = b$ แน่นอน<br>
-            • $\mathbf{a \mid b}$ : ถ้า $a \mid b$ และ $b \mid a$ บน $\mathbb{Z}^+$ สรุปได้ว่า $a = b$
+          <div class="block">
+            <div class="lab"><span class="pin">ANALOGY</span> การต่อคิว / รุ่นพี่รุ่นน้อง</div>
+            ถ้าคนละคนกัน ($a \neq b$) <b>ห้ามมีความสัมพันธ์แบบไป-กลับพร้อมกันเด็ดขาด</b> (อนุญาตให้ไปกลับได้เฉพาะตัวเดียวกัน $a=b$ เท่านั้น):
+            $$\mathbf{\forall a, b \in A, [(a, b) \in R \land (b, a) \in R] \implies a = b}$$
+          </div>
+          <div class="block ex" style="margin-top:.3cqh">
+            <div class="lab"><span class="pin">✓ ตัวอย่าง</span> $\le$ และ $\subseteq$</div>
+            • ถ้า $a \le b$ และ $b \le a \implies a = b$ พอดี<br>
+            • ถ้า $A \subseteq B$ และ $B \subseteq A \implies A = B$ พอดี
           </div>
         </div>
         <div class="col">
-          <div class="block al">
-            <div class="lab"><span class="pin">✗ ไม่เป็นปฏิสมมาตร</span> เชิงตัวเลข</div>
-            • $\mathbf{a + b \text{ เป็นเลขคู่}}$ : เพราะ $(1, 3) \in R$ และ $(3, 1) \in R$ แต่ $1 \neq 3$ (เกิดลูกศรไป-กลับข้ามตัวอื่น!)
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-size:1.8cqh;font-weight:700;color:var(--navy2);margin-bottom:.4cqh">ลูกศรทิศทางเดียว (One-way Only)</div>
+            <svg class="diag-svg" viewBox="0 0 180 120">
+              <defs>
+                <marker id="arrAnti" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#1F3A93"/>
+                </marker>
+              </defs>
+              <circle cx="45" cy="60" r="18" class="diag-node"/>
+              <text x="45" y="60" class="diag-text">a</text>
+              <circle cx="135" cy="60" r="18" class="diag-node"/>
+              <text x="135" y="60" class="diag-text">b</text>
+
+              <path d="M 63 50 Q 90 35 117 50" class="diag-edge" marker-end="url(#arrAnti)"/>
+              <path d="M 117 70 Q 90 85 63 70" style="stroke:var(--red);stroke-width:2;stroke-dasharray:4;fill:none"/>
+              <text x="90" y="80" style="font-size:16px;fill:var(--red);text-anchor:middle">🚫 ห้ามมีขากลับ</text>
+            </svg>
+            <div style="font-size:1.5cqh;color:var(--red2);font-weight:700">ห้ามมีลูกศรย้อนกลับถ้า $a \neq b$</div>
           </div>
         </div>
       </div>
@@ -677,31 +808,59 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>เปรียบเทียบสมมาตร vs ปฏิสมมาตร</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 21: Transitive Property -->
+  <!-- SLIDE 21: Transitive Property with Animated Shortcut Edge -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 4.5</span><h2>สมบัติถ่ายทอด (Transitive Property)</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">ANALOGY</span> การส่งต่อ / โดมิโนล้มต่อกัน</div>
-        ถ้า $a$ เชื่อมโยงไปหา $b$ และ $b$ เชื่อมโยงต่อไปหา $c$ แล้ว <b>$a$ ต้องเชื่อมโยงตรงไปหา $c$ ได้ด้วย</b>:
-        $$\mathbf{\forall a, b, c \in A, [(a, b) \in R \land (b, c) \in R] \implies (a, c) \in R}$$
-      </div>
-      <div class="cols" style="margin-top:.3cqh">
+      <div class="cols wide-l">
         <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">✓ เป็นถ่ายทอด</span> เชิงตัวเลข</div>
-            • $\mathbf{a < b}$ : ถ้า $2 < 5$ และ $5 < 9 \implies 2 < 9$ (จริงเสมอ)<br>
-            • $\mathbf{a \mid b}$ : ถ้า $2 \mid 4$ และ $4 \mid 12 \implies 2 \mid 12$ (จริงเสมอ)
+          <div class="block">
+            <div class="lab"><span class="pin">ANALOGY</span> การส่งต่อ / โดมิโนล้มต่อกัน</div>
+            ถ้า $a$ เชื่อมโยงไปหา $b$ และ $b$ เชื่อมโยงต่อไปหา $c$ แล้ว <b>$a$ ต้องเชื่อมโยงตรงไปหา $c$ ได้ด้วย</b>:
+            $$\mathbf{\forall a, b, c \in A, [(a, b) \in R \land (b, c) \in R] \implies (a, c) \in R}$$
+          </div>
+          <div class="cols" style="margin-top:.3cqh">
+            <div class="col">
+              <div class="block ex" style="padding:.9cqh 1.2cqw">
+                <div class="lab"><span class="pin">✓ เป็นถ่ายทอด</span></div>
+                $a < b$ ($2<5 \land 5<9 \implies 2<9$), $a \mid b$
+              </div>
+            </div>
+            <div class="col">
+              <div class="block al" style="padding:.9cqh 1.2cqw">
+                <div class="lab"><span class="pin">✗ ไม่เป็นถ่ายทอด</span></div>
+                $|a-b| \le 2$ ($|1-3|\le 2 \land |3-5|\le 2$ แต่ $|1-5|=4>2$)
+              </div>
+            </div>
           </div>
         </div>
         <div class="col">
-          <div class="block al">
-            <div class="lab"><span class="pin">✗ ไม่เป็นถ่ายทอด</span> เชิงตัวเลข</div>
-            • $\mathbf{|a - b| \le 2}$ (ต่างกันไม่เกิน 2):<br>
-            $|1 - 3| \le 2$ (จริง), $|3 - 5| \le 2$ (จริง)<br>
-            แต่ $|1 - 5| = 4 \le 2$ เป็น <b>เท็จ!</b>
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-size:1.8cqh;font-weight:700;color:var(--navy2);margin-bottom:.4cqh">เส้นทางลัดข้ามโหนด (Shortcut)</div>
+            <svg class="diag-svg" viewBox="0 0 180 130">
+              <defs>
+                <marker id="arrTrans" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#1F3A93"/>
+                </marker>
+                <marker id="arrGold" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#B7950B"/>
+                </marker>
+              </defs>
+              <circle cx="35" cy="40" r="16" class="diag-node"/>
+              <text x="35" y="40" class="diag-text">a</text>
+              <circle cx="145" cy="40" r="16" class="diag-node"/>
+              <text x="145" y="40" class="diag-text">b</text>
+              <circle cx="90" cy="105" r="16" class="diag-node"/>
+              <text x="90" y="105" class="diag-text">c</text>
+
+              <path d="M 51 40 L 129 40" class="diag-edge" marker-end="url(#arrTrans)"/>
+              <path d="M 137 53 L 103 93" class="diag-edge" marker-end="url(#arrTrans)"/>
+              <!-- Shortcut -->
+              <path d="M 43 53 L 77 93" class="diag-edge pulse" style="stroke:var(--gold);stroke-width:3" marker-end="url(#arrGold)"/>
+            </svg>
+            <div style="font-size:1.5cqh;color:var(--gold2);font-weight:700">ต้องมีเส้นเชื่อมตรง $a \to c$ เสมอ</div>
           </div>
         </div>
       </div>
@@ -761,24 +920,40 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>ความสัมพันธ์สมมูล</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 25: Equivalence Classes & Partition Theorem -->
+  <!-- SLIDE 25: Equivalence Classes & Partition Diagram -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 5.2</span><h2>คลาสสมมูล (Equivalence Class) และทฤษฎีผลกั้นเซต</h2></div>
     </div>
     <div class="body">
-      <div class="cols">
+      <div class="cols wide-l">
         <div class="col">
           <div class="block">
             <div class="lab"><span class="pin">CLASS</span> คลาสสมมูล $[a]$</div>
             เซตของสมาชิกทั้งหมดที่สัมพันธ์กับ $a$:
             $$\mathbf{[a] = \{x \in A \mid (a, x) \in R\}}$$
           </div>
-        </div>
-        <div class="col">
-          <div class="block gold">
+          <div class="block gold" style="margin-top:.4cqh">
             <div class="lab"><span class="pin">THEOREM</span> ทฤษฎีบทการแบ่งกั้น (Partition)</div>
             คลาสสมมูลทั้งหมดจะ <b>แบ่งเซต $A$ ออกเป็นกลุ่มย่อย ๆ ที่ไม่ซ้อนทับกันเลย</b> (สมาชิกทุกคนต้องมีกลุ่มอยู่ และอยู่ได้เพียงกลุ่มเดียวเท่านั้น!)
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-size:1.8cqh;font-weight:700;color:var(--navy2);margin-bottom:.4cqh">การแบ่งกั้นเซต $A$ (Partition)</div>
+            <svg class="diag-svg" viewBox="0 0 180 120">
+              <!-- Outer boundary -->
+              <rect x="10" y="15" width="160" height="90" rx="10" fill="#E7ECF8" stroke="#1F3A93" stroke-width="2"/>
+              <!-- Partition lines -->
+              <line x1="63" y1="15" x2="63" y2="105" stroke="#1F3A93" stroke-width="2" stroke-dasharray="4"/>
+              <line x1="117" y1="15" x2="117" y2="105" stroke="#1F3A93" stroke-width="2" stroke-dasharray="4"/>
+
+              <!-- Labels -->
+              <text x="36" y="65" class="diag-text" style="fill:var(--navy2)">[a]</text>
+              <text x="90" y="65" class="diag-text" style="fill:var(--green2)">[b]</text>
+              <text x="144" y="65" class="diag-text" style="fill:var(--gold2)">[c]</text>
+            </svg>
+            <div style="font-size:1.45cqh;color:var(--navy);font-weight:600">กลุ่มย่อยไม่ซ้อนทับกันเลย ($A_i \cap A_j = \emptyset$)</div>
           </div>
         </div>
       </div>
@@ -835,7 +1010,7 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>การประกอบความสัมพันธ์</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 29: Closures of Relations -->
+  <!-- SLIDE 29: Closures of Relations with Diagrams -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 6.2</span><h2>การปิดสมบัติ (Closures: Reflexive, Symmetric, Transitive)</h2></div>
@@ -845,25 +1020,27 @@ b,strong{font-weight:700;color:var(--navy2)}
         <div class="lab"><span class="pin">ANALOGY</span> มโนภาพ: การเติมสิ่งที่ขาดให้ครบสมบัติ</div>
         <b>การปิดสมบัติ</b> คือการเติมคู่อันดับเพิ่มเข้าไปให้น้อยที่สุด เพื่อทำให้ความสัมพันธ์นั้นมีสมบัติที่ต้องการครบถ้วน:
       </div>
-      <div class="cols" style="margin-top:.3cqh">
+      <div class="cols three" style="margin-top:.3cqh">
         <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">1</span> การปิดสมบัติสะท้อน</div>
-            เติมลูปตัวเองให้ครบทุกตัว:<br>
+          <div class="block ex" style="padding:.9cqh 1.1cqw">
+            <div class="lab"><span class="pin">1</span> ปิดสมบัติสะท้อน</div>
+            เติมลูปตัวเองทุกตัว:<br>
             $$\mathbf{r(R) = R \cup \Delta_A}$$
           </div>
-          <div class="block al">
-            <div class="lab"><span class="pin">2</span> การปิดสมบัติสมมาตร</div>
-            เติมลูกศรขากลับให้ครบทุกคู่:<br>
+        </div>
+        <div class="col">
+          <div class="block al" style="padding:.9cqh 1.1cqw">
+            <div class="lab"><span class="pin">2</span> ปิดสมบัติสมมาตร</div>
+            เติมลูกศรขากลับ:<br>
             $$\mathbf{s(R) = R \cup R^{-1}}$$
           </div>
         </div>
         <div class="col">
-          <div class="block gold">
-            <div class="lab"><span class="pin">3</span> การปิดสมบัติถ่ายทอด ($R^+$)</div>
-            เติมเส้นทางลัดเชื่อมต่อทุกจุด:<br>
-            $$\mathbf{t(R) = R \cup R^2 \cup R^3 \cup \dots}$$
-            • คำนวณได้อย่างรวดเร็วด้วย <b>ขั้นตอนวิธีวอร์แชลล์ (Warshall's Algorithm)</b> ในเวลา $O(n^3)$
+          <div class="block gold" style="padding:.9cqh 1.1cqw">
+            <div class="lab"><span class="pin">3</span> ปิดสมบัติถ่ายทอด</div>
+            เติมเส้นทางลัดตรง:<br>
+            $$\mathbf{t(R) = R^+}$$
+            • ใช้ <b>Warshall's Algorithm</b> ใน $O(n^3)$
           </div>
         </div>
       </div>

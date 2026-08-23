@@ -727,6 +727,52 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>สมบัติสมมาตร</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
+  <!-- SLIDE 18b: Deep Dive Symmetric Proofs -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Deep Dive 4.2b</span><h2>เจาะลึก: ทำไม $a+b$ เป็นเลขคู่ และ $a \equiv b \pmod m$ ถึงสมมาตร?</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block ex" style="height:100%">
+            <div class="lab"><span class="pin">กรณีที่ 1</span> ความสัมพันธ์ $a+b$ เป็นเลขคู่</div>
+            <b>1. การพิสูจน์เชิงพีชคณิต:</b>
+            <ul style="margin-left:1.5cqw;margin-top:.4cqh;font-size:2.4cqh">
+              <li>สมมุติ $(a, b) \in R$ จะมี $k \in \mathbb{Z}$ ที่ทำให้ $a + b = 2k$</li>
+              <li>โดย<b>สมบัติการสลับที่ของการบวก</b> ($b + a = a + b$):
+                $$b + a = a + b = 2k$$
+              </li>
+              <li>ได้ว่า $b + a$ เป็นเลขคู่ด้วย ดังนั้น $(b, a) \in R$ <span class="gn">✓ มีสมบัติสมมาตร</span></li>
+            </ul>
+            <div class="box-callout" style="margin-top:.6cqh;font-size:2.2cqh;background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:3px solid var(--green)">
+              <b>ตัวอย่าง:</b> $3 + 7 = 10$ (คู่) $\implies 7 + 3 = 10$ (คู่เช่นกัน)
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="block ex" style="height:100%">
+            <div class="lab"><span class="pin">กรณีที่ 2</span> ความสัมพันธ์คอนกรูเอนซ์ $a \equiv b \pmod m$</div>
+            <b>2. การพิสูจน์โดยการหารลงตัว:</b>
+            <ul style="margin-left:1.5cqw;margin-top:.4cqh;font-size:2.4cqh">
+              <li>สมมุติ $a \equiv b \pmod m \implies m \mid (a - b)$ จะได้ $a - b = km$</li>
+              <li>คูณด้วย $-1$ ทั้งสองข้างของสมการ:
+                $$b - a = -(a - b) = (-k)m$$
+              </li>
+              <li>เนื่องจาก $-k \in \mathbb{Z}$ จึงทำให้ $m \mid (b - a)$</li>
+              <li>สรุปได้ว่า $b \equiv a \pmod m$ <span class="gn">✓ มีสมบัติสมมาตร</span></li>
+            </ul>
+            <div class="box-callout" style="margin-top:.6cqh;font-size:2.2cqh;background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:3px solid var(--green)">
+              <b>ตัวอย่าง (mod 5):</b> $18 - 3 = 15 = 5(3) \implies 3 - 18 = -15 = 5(-3)$ (หารลงตัวทั้งคู่)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การพิสูจน์สมบัติสมมาตร</span><span class="right">4091606 · CH03-W07</span></div>
+  </section>
+
   <!-- SLIDE 19: Antisymmetric Property with Diagram -->
   <section class="slide">
     <div class="head">

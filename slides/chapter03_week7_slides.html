@@ -204,7 +204,7 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
       <h1>บทที่ 3 ความสัมพันธ์และฟังก์ชัน
         <span class="en">Relations, Cartesian Products, Binary Properties & Closures</span>
       </h1>
-      <p class="sub">พื้นฐานคู่อันดับ · ผลคูณคาร์ทีเซียน · สมบัติทวิภาค (สะท้อน สมมาตร ถ่ายทอด) · ความสัมพันธ์สมมูล · และการปิดสมบัติ (Warshall's Algorithm)</p>
+      <p class="sub">พื้นฐานคู่อันดับ · ผลคูณคาร์ทีเซียน · สมบัติทวิภาค (สะท้อน สมมาตร ถ่ายทอด) · ตัวอย่างเชิงตัวเลข · และการปิดสมบัติ (Warshall)</p>
       <div class="meta">
         <div class="course">4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์</div>
         <div>ผู้สอน: <b>ผู้ช่วยศาสตราจารย์ ดร.พิศิษฐ์ นาคใจ</b> · สาขาวิชาวิทยาการข้อมูล มรภ.อุตรดิตถ์</div>
@@ -232,8 +232,8 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
         </div>
         <div class="proc-card">
           <div class="p-num">03</div>
-          <div class="p-title">สมบัติทวิภาค 4 ประการ</div>
-          <div class="p-desc">ตรวจสอบสมบัติ สะท้อน (Reflexive), สมมาตร (Symmetric), ปฏิสมมาตร (Antisymmetric), และถ่ายทอด (Transitive)</div>
+          <div class="p-title">สมบัติทวิภาคเชิงตัวเลข</div>
+          <div class="p-desc">ตรวจสอบและเห็นภาพเชิงตัวเลขของสมบัติ สะท้อน, สมมาตร, ปฏิสมมาตร, และถ่ายทอด ผ่านตัวอย่าง $\le, <, \mid, \equiv_m$</div>
         </div>
         <div class="proc-card">
           <div class="p-num">04</div>
@@ -473,38 +473,192 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="foot"><span>4 สมบัติทวิภาค</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 9: Deep Dive into Antisymmetric vs Symmetric -->
+  <!-- SLIDE 9: Numeric Examples: Reflexive vs Non-reflexive -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Deep Dive</span><h2>เจาะลึก: สมมาตร (Symmetric) vs ปฏิสมมาตร (Antisymmetric)</h2></div>
+      <div><span class="kick">Numeric Examples 1</span><h2>ตัวอย่างเชิงตัวเลข: สมบัติสะท้อน (Reflexive)</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <div class="col">
-          <div class="block al">
-            <div class="lab"><span class="pin">ALERT</span> ความเข้าใจผิดที่พบบ่อยมาก!</div>
-            <b>“ปฏิสมมาตร” ไม่ใช่ “ไม่สมมาตร (Non-symmetric)”</b><br>
-            ความสัมพันธ์หนึ่งอาจเป็น:
-            <ul style="margin-top:.4cqh;margin-left:1.5cqw">
-              <li>เป็นทั้งสมมาตร และปฏิสมมาตรพร้อมกันได้ (เช่น ความสัมพันธ์เอกลักษณ์ $\Delta = \{(1,1), (2,2)\}$)</li>
-              <li>ไม่เป็นทั้งสมมาตร และไม่เป็นปฏิสมมาตรพร้อมกันได้ (เช่น $R = \{(1,2), (2,1), (2,3)\}$)</li>
-            </ul>
+          <div class="block ex">
+            <div class="lab"><span class="pin">✓ เป็นสะท้อน</span> ตัวอย่างความสัมพันธ์ที่มีสมบัติสะท้อน</div>
+            1. <b>ความสัมพันธ์ $\le$ บน $\mathbb{Z}$:</b><br>
+            สำหรับจำนวนเต็ม $x$ ใดๆ เช่น $x=5$ จะได้ $5 \le 5$ (จริง) เสมอ $\implies (x, x) \in R$<br><br>
+            2. <b>การหารลงตัว $a \mid b$ บน $\mathbb{Z}^+$:</b><br>
+            สำหรับ $x \in \mathbb{Z}^+$ เช่น $x=4$ จะได้ $4 \mid 4$ (จริง) เสมอ $\implies (x, x) \in R$<br><br>
+            3. <b>บนเซตจำกัด $A = \{1, 2, 3\}$:</b><br>
+            $R_1 = \{(1,1), (2,2), (3,3), (1,2)\}$ มี $(1,1), (2,2), (3,3)$ ครบ
           </div>
         </div>
         <div class="col">
-          <div class="block gold">
-            <div class="lab"><span class="pin">CRITERIA</span> เกณฑ์การตัดสินอย่างรวดเร็ว</div>
-            • <b>สมมาตร:</b> เจอลูกศร $a \to b$ ปุ๊บ ต้องมี $b \to a$ กลับมาเสมอ<br>
-            • <b>ปฏิสมมาตร:</b> เมื่อ $a \neq b$ ห้ามมีลูกศรสองหัว $a \leftrightarrow b$ เด็ดขาด! (ถ้ามีลูกศรสองหัวจะผิดปฏิสมมาตรทันที)<br>
-            • <b>คู่ตัวมันเอง $(a, a)$:</b> ไม่มีผลต่อการผิดปฏิสมมาตร เพราะ $a = a$
+          <div class="block al">
+            <div class="lab"><span class="pin">✗ ไม่เป็นสะท้อน</span> ตัวอย่างความสัมพันธ์ที่ไม่เป็นสะท้อน</div>
+            1. <b>ความสัมพันธ์ $<$ บน $\mathbb{Z}$:</b><br>
+            สำหรับ $x=5$ จะได้ $5 < 5$ เป็น <b>เท็จ</b> ทำให้ $(5, 5) \notin R$ (ไม่มีตัวใดคู่กับตัวเองเลย $\to$ เรียกว่า Irreflexive)<br><br>
+            2. <b>ความสัมพันธ์ $a + b = 10$ บน $\mathbb{Z}$:</b><br>
+            สำหรับ $x=3$ จะได้ $3 + 3 = 6 \neq 10$ ดังนั้น $(3, 3) \notin R$<br><br>
+            3. <b>บนเซตจำกัด $A = \{1, 2, 3\}$:</b><br>
+            $R_2 = \{(1,1), (2,2), (1,3)\}$ <span class="rd">ขาด $(3,3)$ ตัวเดียว $\to$ ผิดทันที!</span>
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>Symmetric vs Antisymmetric</span><span class="right">4091606 · CH03-W07</span></div>
+    <div class="foot"><span>ตัวอย่างเชิงตัวเลข: สะท้อน</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 10: Equivalence Relation & Equivalence Classes -->
+  <!-- SLIDE 10: Numeric Examples: Symmetric vs Antisymmetric -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Numeric Examples 2</span><h2>ตัวอย่างเชิงตัวเลข: สมมาตร (Symmetric) vs ปฏิสมมาตร (Antisymmetric)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">สมมาตร</span> (มีไปต้องมีกลับเสมอ)</div>
+            1. <b>$a + b$ เป็นเลขคู่ บน $\mathbb{Z}$:</b><br>
+            ถ้า $(1, 3) \in R$ ($1+3=4$ คู่) แล้ว $(3, 1) \in R$ ($3+1=4$ คู่) ด้วยเสมอ<br><br>
+            2. <b>$a \equiv b \pmod 4$ บน $\mathbb{Z}$:</b><br>
+            $(10, 2) \in R$ ($10 \equiv 2 \pmod 4$) $\implies (2, 10) \in R$<br><br>
+            3. <b>$|a - b| \le 2$ บน $\mathbb{Z}$:</b><br>
+            $|1 - 3| = 2 \le 2 \implies |3 - 1| = 2 \le 2$ เสมอ
+          </div>
+        </div>
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">ปฏิสมมาตร</span> (ถ้า $a \neq b$ ห้ามมีไปกลับพร้อมกัน)</div>
+            1. <b>$a \le b$ บน $\mathbb{Z}$:</b><br>
+            $(2, 5) \in R$ ($2 \le 5$) แต่ $(5, 2) \notin R$ ($5 \le 2$ เท็จ)<br>
+            ถ้า $a \le b$ และ $b \le a$ จะเกิดขึ้นได้เมื่อ $a = b$ เท่านั้น<br><br>
+            2. <b>$a \mid b$ บน $\mathbb{Z}^+$ (หารลงตัว):</b><br>
+            $(2, 6) \in R$ ($2 \mid 6$) แต่ $(6, 2) \notin R$ ($6 \nmid 2$)<br><br>
+            3. <b>$A = \{1, 2, 3\}, R = \{(1,1), (1,2), (2,3)\}$:</b><br>
+            ไม่มีลูกศรสองหัวเลย $\implies$ เป็นปฏิสมมาตร
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>ตัวอย่างเชิงตัวเลข: สมมาตร vs ปฏิสมมาตร</span><span class="right">4091606 · CH03-W07</span></div>
+  </section>
+
+  <!-- SLIDE 11: Numeric Examples: Transitive vs Non-transitive -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Numeric Examples 3</span><h2>ตัวอย่างเชิงตัวเลข: สมบัติถ่ายทอด (Transitive)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">✓ เป็นถ่ายทอด</span> $(a,b) \in R \land (b,c) \in R \implies (a,c) \in R$</div>
+            1. <b>ความสัมพันธ์ $<$ บน $\mathbb{Z}$:</b><br>
+            ถ้า $2 < 5$ และ $5 < 9$ แล้ว ย่อมได้ $2 < 9$ แน่นอนเสมอ<br><br>
+            2. <b>การหารลงตัว $a \mid b$ บน $\mathbb{Z}^+$:</b><br>
+            ถ้า $2 \mid 6$ และ $6 \mid 18$ แล้ว ย่อมได้ $2 \mid 18$ แน่นอนเสมอ ($18 = 9 \times 2$)<br><br>
+            3. <b>คอนกรูเอนซ์ $a \equiv b \pmod 5$:</b><br>
+            $(17, 7) \in R$ และ $(7, 2) \in R \implies (17, 2) \in R$
+          </div>
+        </div>
+        <div class="col">
+          <div class="block al">
+            <div class="lab"><span class="pin">✗ ไม่เป็นถ่ายทอด</span> กรณีขัดแย้งเชิงตัวเลข (Counter-example)</div>
+            1. <b>ความสัมพันธ์ $|a - b| \le 2$ บน $\mathbb{Z}$:</b><br>
+            • $(1, 3) \in R$ เพราะ $|1 - 3| = 2 \le 2$<br>
+            • $(3, 5) \in R$ เพราะ $|3 - 5| = 2 \le 2$<br>
+            • <b>แต่ $(1, 5) \notin R$</b> เพราะ $|1 - 5| = 4 > 2$! <span class="rd">(ไม่ถ่ายทอด!)</span><br><br>
+            2. <b>บนเซต $A = \{1, 2, 3\}$:</b><br>
+            $R = \{(1, 2), (2, 3)\}$ แต่ไม่มี $(1, 3) \implies$ <span class="rd">ขาดทางลัดตรง</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>ตัวอย่างเชิงตัวเลข: ถ่ายทอด</span><span class="right">4091606 · CH03-W07</span></div>
+  </section>
+
+  <!-- SLIDE 12: Master Comparison Table of Numeric Relations -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Master Summary Table</span><h2>ตารางสรุปสมบัติของความสัมพันธ์เชิงตัวเลขยอดนิยม</h2></div>
+    </div>
+    <div class="body tight">
+      <div class="tt-wrap">
+        <table class="tt">
+          <thead>
+            <tr>
+              <th>ความสัมพันธ์เชิงตัวเลข</th>
+              <th>สะท้อน (Refl)</th>
+              <th>สมมาตร (Sym)</th>
+              <th>ปฏิสมมาตร (Antisym)</th>
+              <th>ถ่ายทอด (Trans)</th>
+              <th>ประเภทที่จัดเป็น</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:left"><b>$a = b$</b> (เท่ากับ)</td>
+              <td><span class="gn">✓</span></td>
+              <td><span class="gn">✓</span></td>
+              <td><span class="gn">✓</span></td>
+              <td><span class="gn">✓</span></td>
+              <td><b>Equivalence & Poset</b></td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><b>$a \le b$</b> (น้อยกว่าหรือเท่ากับ)</td>
+              <td><span class="gn">✓</span></td>
+              <td><span class="rd">✗</span></td>
+              <td><span class="gn">✓</span></td>
+              <td><span class="gn">✓</span></td>
+              <td><b>Partial Order (Poset)</b></td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><b>$a < b$</b> (น้อยกว่า)</td>
+              <td><span class="rd">✗</span></td>
+              <td><span class="rd">✗</span></td>
+              <td><span class="gn">✓</span></td>
+              <td><span class="gn">✓</span></td>
+              <td>Strict Order</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><b>$a \mid b$</b> บน $\mathbb{Z}^+$ (หารลงตัว)</td>
+              <td><span class="gn">✓</span></td>
+              <td><span class="rd">✗</span></td>
+              <td><span class="gn">✓</span></td>
+              <td><span class="gn">✓</span></td>
+              <td><b>Partial Order (Poset)</b></td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><b>$a \equiv b \pmod m$</b> (คอนกรูเอนซ์)</td>
+              <td><span class="gn">✓</span></td>
+              <td><span class="gn">✓</span></td>
+              <td><span class="rd">✗</span></td>
+              <td><span class="gn">✓</span></td>
+              <td><b>Equivalence Relation</b></td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><b>$a \neq b$</b> (ไม่เท่ากับ)</td>
+              <td><span class="rd">✗</span></td>
+              <td><span class="gn">✓</span></td>
+              <td><span class="rd">✗</span></td>
+              <td><span class="rd">✗</span></td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td style="text-align:left"><b>$|a - b| \le 2$</b> (ระยะห่างไม่เกิน 2)</td>
+              <td><span class="gn">✓</span></td>
+              <td><span class="gn">✓</span></td>
+              <td><span class="rd">✗</span></td>
+              <td><span class="rd">✗</span></td>
+              <td>Tolerance Relation</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="foot"><span>ตารางสรุปสมบัติความสัมพันธ์เชิงตัวเลข</span><span class="right">4091606 · CH03-W07</span></div>
+  </section>
+
+  <!-- SLIDE 13: Equivalence Relation & Equivalence Classes -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Equivalence & Partitions</span><h2>ความสัมพันธ์สมมูล (Equivalence Relation) และคลาสสมมูล</h2></div>
@@ -538,7 +692,7 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="foot"><span>ความสัมพันธ์สมมูล & คลาสสมมูล</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 11: Modular Equivalence Example -->
+  <!-- SLIDE 14: Modular Equivalence Example -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Modular Equivalence</span><h2>ตัวอย่างคลาสสิก: ความสัมพันธ์สมภาคคอนกรูเอนซ์ ($a \equiv b \pmod m$)</h2></div>
@@ -569,7 +723,7 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="foot"><span>คอนกรูเอนซ์มอดุโล m</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 12: Composition of Relations -->
+  <!-- SLIDE 15: Composition of Relations -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Composite Relations</span><h2>การประกอบความสัมพันธ์ (Composition of Relations)</h2></div>
@@ -607,7 +761,7 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="foot"><span>การประกอบความสัมพันธ์</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 13: Closures of Relations -->
+  <!-- SLIDE 16: Closures of Relations -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Closure Properties</span><h2>การปิดสมบัติของความสัมพันธ์ (Closures of Relations)</h2></div>
@@ -644,7 +798,7 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="foot"><span>การปิดสมบัติของความสัมพันธ์</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 14: Interactive Matrix Inspector Simulator -->
+  <!-- SLIDE 17: Interactive Matrix Inspector Simulator -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Interactive Lab</span><h2>ตัวทดสอบสมบัติเมทริกซ์ความสัมพันธ์ 0-1 (Matrix Property Inspector)</h2></div>
@@ -687,7 +841,7 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="foot"><span>Matrix Inspector</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 15: In-Class Worksheet Activity Guide -->
+  <!-- SLIDE 18: In-Class Worksheet Activity Guide -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Classroom Activity</span><h2>ใบกิจกรรมในชั้นเรียน สัปดาห์ที่ 7 (Worksheet Guide)</h2></div>
@@ -726,7 +880,7 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="foot"><span>ใบกิจกรรมสัปดาห์ที่ 7</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 16: Quiz Challenge Game -->
+  <!-- SLIDE 19: Quiz Challenge Game -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Challenge</span><h2>เกมประลองความรู้ : ถอดรหัสสมบัติความสัมพันธ์</h2></div>
@@ -739,7 +893,7 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="foot"><span>เกมประลองความรู้</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 17: Summary & Next Week -->
+  <!-- SLIDE 20: Summary & Next Week -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Recap & Next</span><h2>สรุปบทเรียนสัปดาห์ที่ 7 และหัวข้อสัปดาห์ถัดไป</h2></div>
@@ -776,7 +930,7 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
 <!-- Dock toolbar -->
 <div class="dock">
   <button id="btnPrev" title="สไลด์ก่อนหน้า (←)">‹</button>
-  <span class="count" id="slideCount">1 / 17</span>
+  <span class="count" id="slideCount">1 / 20</span>
   <button id="btnNext" title="สไลด์ถัดไป (→ / Space)">›</button>
   <span class="sep"></span>
   <button id="btnFull" title="เต็มจอ (F)">⛶</button>
@@ -953,22 +1107,22 @@ updateSlide(0);
       exp: '|A × B| = 2 × 3 = 6 ดังนั้นความสัมพันธ์คือเซตย่อยของ A × B มี 2⁶ = 64 แบบ'
     },
     {
-      q: '2. ความสัมพันธ์บนเซต A ที่มีสมบัติครบทั้ง สะท้อน, สมมาตร, และถ่ายทอด เรียกว่าอะไร?',
-      opts: ['ความสัมพันธ์สมมูล (Equivalence Relation)', 'ความสัมพันธ์ลำดับบางส่วน (Partial Order)', 'ฟังก์ชันหนึ่งต่อหนึ่ง', 'การปิดสมบัติถ่ายทอด'],
-      ans: 0,
-      exp: 'ความสัมพันธ์สมมูลคือความสัมพันธ์ที่มีสมบัติสะท้อน สมมาตร และถ่ายทอดครบทั้ง 3 ประการ'
+      q: '2. ความสัมพันธ์เชิงตัวเลขใดต่อไปนี้เป็นความสัมพันธ์สมมูล (Equivalence Relation)?',
+      opts: ['a < b บนจำนวนจริง', 'a ≤ b บนจำนวนเต็ม', 'a ≡ b (mod m) บนจำนวนเต็ม', 'a | b (หารลงตัว) บนจำนวนเต็มบวก'],
+      ans: 2,
+      exp: 'a ≡ b (mod m) มีครบทั้งสมบัติสะท้อน สมมาตร และถ่ายทอด จึงเป็นความสัมพันธ์สมมูล'
     },
     {
-      q: '3. ในเมทริกซ์ 0-1 ของความสัมพันธ์ สมบัติสะท้อน (Reflexive) ตรวจสอบได้อย่างไร?',
-      opts: ['ผลรวมทุกแถวเท่ากับ 1', 'เส้นทแยงมุมหลักเป็น 1 ทั้งหมด', 'เมทริกซ์ต้องสลับเปลี่ยนแล้วได้ค่าเดิม', 'ทุกช่องต้องเป็น 1 ทั้งหมด'],
-      ans: 1,
-      exp: 'สมบัติสะท้อนต้องการ (x, x) ∈ R ทุกตัว ทำให้ช่อง (1,1), (2,2), ... บนแนวทแยงหลักต้องเป็น 1 เสมอ'
+      q: '3. ความสัมพันธ์ |a - b| ≤ 2 บนจำนวนเต็ม ไม่เป็นสมบัติใด?',
+      opts: ['สมบัติสะท้อน', 'สมบัติสมมาตร', 'สมบัติถ่ายทอด (เพราะ |1-3|≤2, |3-5|≤2 แต่ |1-5|=4>2)', 'ไม่เป็นทั้งสะท้อนและสมมาตร'],
+      ans: 2,
+      exp: 'ระยะห่างไม่เกิน 2 มีสมบัติสะท้อนและสมมาตร แต่ไม่เป็นถ่ายทอด เพราะระยะห่างสะสมหลุดเกิน 2 ได้'
     },
     {
-      q: '4. การหาการปิดสมบัติถ่ายทอด (Transitive Closure) ของกราฟ เทียบเท่ากับปัญหาใดในคอมพิวเตอร์?',
-      opts: ['Shortest Path (Dijkstra)', 'Reachability (การหาว่าจุดยอดใดเดินทางถึงกันได้)', 'Minimum Spanning Tree', 'Sorting'],
+      q: '4. ความสัมพันธ์การหารลงตัว a | b บนจำนวนเต็มบวก เป็นความสัมพันธ์ประเภทใด?',
+      opts: ['ความสัมพันธ์สมมูล (Equivalence)', 'ความสัมพันธ์ลำดับบางส่วน (Partial Order / Poset)', 'ฟังก์ชันหนึ่งต่อหนึ่ง', 'ความสัมพันธ์สมมาตร'],
       ans: 1,
-      exp: 'Transitive Closure คือการหาเส้นทางการเดินทางทุกคู่จุดยอด ซึ่งหาได้ด้วย Warshall\'s Algorithm'
+      exp: 'a | b มีสมบัติสะท้อน, ปฏิสมมาตร (a|b ∧ b|a ⇒ a=b), และถ่ายทอด จึงจัดเป็น Partial Order (Poset)'
     }
   ];
 

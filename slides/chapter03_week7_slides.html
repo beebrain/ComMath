@@ -621,46 +621,46 @@ b,strong{font-weight:700;color:var(--navy2)}
     </div>
     <div class="body">
       <div style="font-size:2.1cqh;margin-bottom:.4cqh">
-        กำหนดเซต $A = \{1, 2, 3\}$ พิจารณาลักษณะของคู่อันดับในความสัมพันธ์ $R \subseteq A \times A$ แต่ละรูปแบบ
+        กำหนดเซต $A = \{1, 2, 3\}$ พิจารณาคู่อันดับของความสัมพันธ์ $R \subseteq A \times A$ ในแต่ละสมบัติ
       </div>
-      <div class="proc-grid" style="grid-template-columns:repeat(2,1fr);gap:1cqw">
-        <!-- 1. Reflexive -->
-        <div class="proc-card" style="text-align:left;padding:.8cqh 1cqw">
-          <div class="p-title" style="font-size:2.1cqh;color:var(--navy)">1. สมบัติสะท้อน (Reflexive)</div>
-          <div style="font-size:1.8cqh;line-height:1.4;margin-top:.2cqh">
-            <b>เงื่อนไข</b> ต้องมี $(x, x)$ ครบทุกสมาชิกในเซต $A$<br>
-            • <span class="gn">เป็น:</span> $\{(1,1), (2,2), (3,3), (1,2)\}$ (มีครบทั้ง 3 คู่)<br>
-            • <span class="rd">ไม่เป็น:</span> $\{(1,1), (2,2), (1,3)\}$ (ขาด $(3,3)$)
+      <div style="display:flex;flex-direction:column;gap:.6cqh">
+        <!-- 1. Reflexive Row -->
+        <div class="box-callout" style="background:#fff;border-left:4px solid var(--navy);padding:.5cqh 1cqw;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.04);display:flex;align-items:center;justify-content:space-between">
+          <div style="width:28%;font-weight:700;font-size:2cqh;color:var(--navy)">1. สะท้อน (Reflexive)</div>
+          <div style="width:30%;font-size:1.8cqh;color:var(--ink2)">ต้องมี $(x,x)$ ครบทุกตัวใน $A$</div>
+          <div style="width:42%;font-size:1.8cqh;line-height:1.35">
+            • <span class="gn">เป็น</span> $\{(1,1), (2,2), (3,3), (1,2)\}$<br>
+            • <span class="rd">ไม่เป็น</span> $\{(1,1), (2,2), (1,3)\}$ <span class="rd">(ขาด $(3,3)$)</span>
           </div>
         </div>
 
-        <!-- 2. Symmetric -->
-        <div class="proc-card" style="text-align:left;padding:.8cqh 1cqw">
-          <div class="p-title" style="font-size:2.1cqh;color:var(--navy)">2. สมบัติสมมาตร (Symmetric)</div>
-          <div style="font-size:1.8cqh;line-height:1.4;margin-top:.2cqh">
-            <b>เงื่อนไข</b> ถ้ามี $(a, b)$ ต้องมีคู่ย้อนกลับ $(b, a)$ ในเซตเสมอ<br>
-            • <span class="gn">เป็น:</span> $\{(1,2), (2,1), (3,3)\}$ (มีขาไปและขากลับ)<br>
-            • <span class="rd">ไม่เป็น:</span> $\{(1,2), (2,3), (2,1)\}$ (มี $(2,3)$ แต่ขาด $(3,2)$)
+        <!-- 2. Symmetric Row -->
+        <div class="box-callout" style="background:#fff;border-left:4px solid var(--green);padding:.5cqh 1cqw;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.04);display:flex;align-items:center;justify-content:space-between">
+          <div style="width:28%;font-weight:700;font-size:2cqh;color:var(--green2)">2. สมมาตร (Symmetric)</div>
+          <div style="width:30%;font-size:1.8cqh;color:var(--ink2)">มี $(a,b)$ ต้องมี $(b,a)$ ย้อนกลับเสมอ</div>
+          <div style="width:42%;font-size:1.8cqh;line-height:1.35">
+            • <span class="gn">เป็น</span> $\{(1,2), (2,1), (3,3)\}$<br>
+            • <span class="rd">ไม่เป็น</span> $\{(1,2), (2,3), (2,1)\}$ <span class="rd">(ขาด $(3,2)$)</span>
           </div>
         </div>
 
-        <!-- 3. Antisymmetric -->
-        <div class="proc-card" style="text-align:left;padding:.8cqh 1cqw">
-          <div class="p-title" style="font-size:2.1cqh;color:var(--navy)">3. สมบัติปฏิสมมาตร (Antisymmetric)</div>
-          <div style="font-size:1.8cqh;line-height:1.4;margin-top:.2cqh">
-            <b>เงื่อนไข</b> ถ้า $a \neq b$ ห้ามมีทั้ง $(a, b)$ และ $(b, a)$ พร้อมกัน<br>
-            • <span class="gn">เป็น:</span> $\{(1,2), (2,3), (1,1)\}$ (เดินทางเดียวสำหรับคนละตัว)<br>
-            • <span class="rd">ไม่เป็น:</span> $\{(1,2), (2,1), (3,3)\}$ (พบทั้ง $(1,2)$ และ $(2,1)$)
+        <!-- 3. Antisymmetric Row -->
+        <div class="box-callout" style="background:#fff;border-left:4px solid var(--red);padding:.5cqh 1cqw;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.04);display:flex;align-items:center;justify-content:space-between">
+          <div style="width:28%;font-weight:700;font-size:2cqh;color:var(--red2)">3. ปฏิสมมาตร (Antisymmetric)</div>
+          <div style="width:30%;font-size:1.8cqh;color:var(--ink2)">ถ้า $a \neq b$ ห้ามมีทั้ง $(a,b)$ และ $(b,a)$</div>
+          <div style="width:42%;font-size:1.8cqh;line-height:1.35">
+            • <span class="gn">เป็น</span> $\{(1,2), (2,3), (1,1)\}$<br>
+            • <span class="rd">ไม่เป็น</span> $\{(1,2), (2,1), (3,3)\}$ <span class="rd">(มีทั้ง $(1,2)$ และ $(2,1)$)</span>
           </div>
         </div>
 
-        <!-- 4. Transitive -->
-        <div class="proc-card" style="text-align:left;padding:.8cqh 1cqw">
-          <div class="p-title" style="font-size:2.1cqh;color:var(--navy)">4. สมบัติถ่ายทอด (Transitive)</div>
-          <div style="font-size:1.8cqh;line-height:1.4;margin-top:.2cqh">
-            <b>เงื่อนไข</b> ถ้ามี $(a, b)$ และ $(b, c)$ ต้องมีทางลัด $(a, c)$ เสมอ<br>
-            • <span class="gn">เป็น:</span> $\{(1,2), (2,3), (1,3)\}$ (มีทางลัดจาก $1 \to 3$)<br>
-            • <span class="rd">ไม่เป็น:</span> $\{(1,2), (2,3)\}$ (ขาดทางลัด $(1,3)$)
+        <!-- 4. Transitive Row -->
+        <div class="box-callout" style="background:#fff;border-left:4px solid var(--gold);padding:.5cqh 1cqw;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.04);display:flex;align-items:center;justify-content:space-between">
+          <div style="width:28%;font-weight:700;font-size:2cqh;color:var(--gold2)">4. ถ่ายทอด (Transitive)</div>
+          <div style="width:30%;font-size:1.8cqh;color:var(--ink2)">มี $(a,b)$ และ $(b,c)$ ต้องมีทางลัด $(a,c)$</div>
+          <div style="width:42%;font-size:1.8cqh;line-height:1.35">
+            • <span class="gn">เป็น</span> $\{(1,2), (2,3), (1,3)\}$<br>
+            • <span class="rd">ไม่เป็น</span> $\{(1,2), (2,3)\}$ <span class="rd">(ขาดทางลัด $(1,3)$)</span>
           </div>
         </div>
       </div>
@@ -676,26 +676,11 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="body">
       <div class="cols wide-l">
         <div class="col">
-          <div class="block">
+          <div class="block" style="height:100%">
             <div class="lab"><span class="pin">นิยาม</span> การสัมพันธ์กับตนเองของสมาชิกทุกตัว</div>
             สมาชิกทุกตัวในเซตต้องมีความสัมพันธ์กับตัวเองครบถ้วน
             $$\mathbf{\forall x \in A, (x, x) \in R}$$
-          </div>
-          <div class="cols" style="margin-top:.3cqh">
-            <div class="col">
-              <div class="block ex" style="padding:.7cqh 1cqw">
-                <div class="lab"><span class="pin">ตัวอย่างจากเซต $A = \{1, 2, 3\}$</span></div>
-                • <span class="gn">เป็น:</span> $R_1 = \{(1,1), (2,2), (3,3), (1,2)\}$<br>
-                • <span class="rd">ไม่เป็น:</span> $R_2 = \{(1,1), (2,2), (1,3)\}$ (ขาด $(3,3)$)
-              </div>
-            </div>
-            <div class="col">
-              <div class="block al" style="padding:.7cqh 1cqw">
-                <div class="lab"><span class="pin">ตัวอย่างความสัมพันธ์บน $\mathbb{Z}$</span></div>
-                • <span class="gn">เป็น:</span> $a+b$ เป็นจำนวนคู่ ($a+a = 2a$)<br>
-                • <span class="rd">ไม่เป็น:</span> $a < b$ (เนื่องจาก $5 < 5$ เป็นเท็จ)
-              </div>
-            </div>
+            การพิจารณาบนเมทริกซ์ความสัมพันธ์ สมาชิกบนแนวทแยงหลักต้องมีค่าเป็น 1 ทั้งหมด ($M_{ii} = 1$)
           </div>
         </div>
         <div class="col">
@@ -720,6 +705,24 @@ b,strong{font-weight:700;color:var(--navy2)}
               <path d="M 70 112 C 50 130 110 130 90 112" class="diag-edge loop-anim" marker-end="url(#arrRefl)"/>
             </svg>
             <div style="font-size:1.5cqh;color:var(--gold2);font-weight:700">มีวงวนระบุความสัมพันธ์กับตนเองครบทุกสมาชิก</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Horizontal Example Boxes -->
+      <div class="cols" style="margin-top:.4cqh">
+        <div class="col">
+          <div class="block ex" style="padding:.6cqh 1cqw">
+            <div class="lab"><span class="pin">ตัวอย่างจากเซตจำกัด</span> เซต $A = \{1, 2, 3\}$</div>
+            • <span class="gn">เป็น:</span> $R_1 = \{(1,1), (2,2), (3,3), (1,2)\}$ (มีครบทั้ง 3 คู่)<br>
+            • <span class="rd">ไม่เป็น:</span> $R_2 = \{(1,1), (2,2), (1,3)\}$ (ขาด $(3,3)$)
+          </div>
+        </div>
+        <div class="col">
+          <div class="block al" style="padding:.6cqh 1cqw">
+            <div class="lab"><span class="pin">ตัวอย่างบนเซตจำนวนเต็ม</span> ความสัมพันธ์บน $\mathbb{Z}$</div>
+            • <span class="gn">เป็น:</span> $a+b$ เป็นจำนวนคู่ ($a+a = 2a$ ซึ่งเป็นจำนวนคู่เสมอ)<br>
+            • <span class="rd">ไม่เป็น:</span> $a < b$ (เนื่องจาก $5 < 5$ เป็นเท็จ)
           </div>
         </div>
       </div>
@@ -788,26 +791,11 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="body">
       <div class="cols wide-l">
         <div class="col">
-          <div class="block">
+          <div class="block" style="height:100%">
             <div class="lab"><span class="pin">นิยาม</span> การมีความสัมพันธ์ย้อนกลับของทุกคู่อันดับ</div>
             ถ้า $a$ มีความสัมพันธ์กับ $b$ แล้ว $b$ ต้องมีความสัมพันธ์กลับมายัง $a$ ด้วยเสมอ
             $$\mathbf{\forall a, b \in A, (a, b) \in R \implies (b, a) \in R}$$
-          </div>
-          <div class="cols" style="margin-top:.3cqh">
-            <div class="col">
-              <div class="block ex" style="padding:.7cqh 1cqw">
-                <div class="lab"><span class="pin">ตัวอย่างจากเซต $A = \{1, 2, 3\}$</span></div>
-                • <span class="gn">เป็น:</span> $R_1 = \{(1,2), (2,1), (3,3)\}$<br>
-                • <span class="rd">ไม่เป็น:</span> $R_2 = \{(1,2), (2,3), (2,1)\}$ (ขาด $(3,2)$)
-              </div>
-            </div>
-            <div class="col">
-              <div class="block al" style="padding:.7cqh 1cqw">
-                <div class="lab"><span class="pin">ตัวอย่างความสัมพันธ์บน $\mathbb{Z}$</span></div>
-                • <span class="gn">เป็น:</span> $a+b$ เป็นจำนวนคู่ ($b+a = a+b$)<br>
-                • <span class="rd">ไม่เป็น:</span> $a \le b$ ($2 \le 5$ จริง แต่ $5 \le 2$ เท็จ)
-              </div>
-            </div>
+            การพิจารณาบนเมทริกซ์ความสัมพันธ์ เมทริกซ์ต้องมีลักษณะสมมาตรเทียบกับแนวทแยงมุมหลัก ($M_R = M_R^T$)
           </div>
         </div>
         <div class="col">
@@ -828,6 +816,24 @@ b,strong{font-weight:700;color:var(--navy2)}
               <path d="M 117 70 Q 90 90 63 70" class="diag-edge pulse" style="stroke:var(--green)" marker-end="url(#arrSym)"/>
             </svg>
             <div style="font-size:1.5cqh;color:var(--green2);font-weight:700">$(a,b) \in R \iff (b,a) \in R$</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Horizontal Example Boxes -->
+      <div class="cols" style="margin-top:.4cqh">
+        <div class="col">
+          <div class="block ex" style="padding:.6cqh 1cqw">
+            <div class="lab"><span class="pin">ตัวอย่างจากเซตจำกัด</span> เซต $A = \{1, 2, 3\}$</div>
+            • <span class="gn">เป็น:</span> $R_1 = \{(1,2), (2,1), (3,3)\}$ (มีขาไปและขากลับ)<br>
+            • <span class="rd">ไม่เป็น:</span> $R_2 = \{(1,2), (2,3), (2,1)\}$ (ขาด $(3,2)$)
+          </div>
+        </div>
+        <div class="col">
+          <div class="block al" style="padding:.6cqh 1cqw">
+            <div class="lab"><span class="pin">ตัวอย่างบนเซตจำนวนเต็ม</span> ความสัมพันธ์บน $\mathbb{Z}$</div>
+            • <span class="gn">เป็น:</span> $a+b$ เป็นจำนวนคู่ ($b+a = a+b$ ค่าเท่าเดิมเสมอ)<br>
+            • <span class="rd">ไม่เป็น:</span> $a \le b$ ($2 \le 5$ จริง แต่ $5 \le 2$ เท็จ)
           </div>
         </div>
       </div>
@@ -894,19 +900,10 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="body">
       <div class="cols wide-l">
         <div class="col">
-          <div class="block">
+          <div class="block" style="height:100%">
             <div class="lab"><span class="pin">นิยาม</span> การห้ามมีความสัมพันธ์ไปกลับระหว่างสมาชิกต่างตัวกัน</div>
             สำหรับสมาชิก $a \neq b$ ใด ๆ ห้ามมีความสัมพันธ์แบบไปและกลับพร้อมกัน
             $$\mathbf{\forall a, b \in A, [(a, b) \in R \land (b, a) \in R] \implies a = b}$$
-          </div>
-          <div class="block ex" style="margin-top:.3cqh">
-            <div class="lab"><span class="pin">ตัวอย่างความสัมพันธ์ปฏิสมมาตร</span> $\le$ และ $\subseteq$</div>
-            • ถ้า $a \le b$ และ $b \le a$ จะสรุปได้ว่า $a = b$<br>
-            • ถ้า $A \subseteq B$ และ $B \subseteq A$ จะสรุปได้ว่า $A = B$
-          </div>
-          <div class="block al" style="margin-top:.3cqh;padding:.6cqh 1cqw">
-            <div class="lab"><span class="pin">เหตุผลที่ $a+b$ เป็นจำนวนคู่ ไม่เป็นปฏิสมมาตร</span></div>
-            เนื่องจากมีกรณี $a \neq b$ เช่น $(3, 7) \in R$ และ $(7, 3) \in R$ ที่มีความสัมพันธ์ทั้งสองทิศทางพร้อมกันแต่ $3 \neq 7$
           </div>
         </div>
         <div class="col">
@@ -928,6 +925,24 @@ b,strong{font-weight:700;color:var(--navy2)}
               <text x="90" y="80" style="font-size:16px;fill:var(--red);text-anchor:middle">ห้ามมีลูกศรย้อนกลับ</text>
             </svg>
             <div style="font-size:1.5cqh;color:var(--red2);font-weight:700">ห้ามมีลูกศรย้อนกลับหากเป็นสมาชิกต่างตัวกัน ($a \neq b$)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Horizontal Example Boxes -->
+      <div class="cols" style="margin-top:.4cqh">
+        <div class="col">
+          <div class="block ex" style="padding:.6cqh 1cqw">
+            <div class="lab"><span class="pin">ตัวอย่างจากเซตจำกัด</span> เซต $A = \{1, 2, 3\}$</div>
+            • <span class="gn">เป็น:</span> $R_1 = \{(1,2), (2,3), (1,1)\}$ (เดินทางเดียวสำหรับคนละตัว)<br>
+            • <span class="rd">ไม่เป็น:</span> $R_2 = \{(1,2), (2,1), (3,3)\}$ (มีทั้ง $(1,2)$ และ $(2,1)$)
+          </div>
+        </div>
+        <div class="col">
+          <div class="block al" style="padding:.6cqh 1cqw">
+            <div class="lab"><span class="pin">ตัวอย่างความสัมพันธ์ทั่วไป</span> ความสัมพันธ์เปรียบเทียบ</div>
+            • <span class="gn">เป็น:</span> $a \le b$ (ถ้า $a \le b$ และ $b \le a \implies a = b$)<br>
+            • <span class="rd">ไม่เป็น:</span> $a+b$ เป็นจำนวนคู่ (เนื่องจาก $3+7=10 \land 7+3=10$)
           </div>
         </div>
       </div>
@@ -1079,26 +1094,10 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="body">
       <div class="cols wide-l">
         <div class="col">
-          <div class="block">
+          <div class="block" style="height:100%">
             <div class="lab"><span class="pin">นิยาม</span> การถ่ายทอดความสัมพันธ์ผ่านสมาชิกตัวกลาง</div>
             ถ้า $a$ มีความสัมพันธ์กับ $b$ และ $b$ มีความสัมพันธ์กับ $c$ แล้ว $a$ ต้องมีความสัมพันธ์ตรงไปยัง $c$ ด้วย
             $$\mathbf{\forall a, b, c \in A, [(a, b) \in R \land (b, c) \in R] \implies (a, c) \in R}$$
-          </div>
-          <div class="cols" style="margin-top:.3cqh">
-            <div class="col">
-              <div class="block ex" style="padding:.7cqh 1cqw">
-                <div class="lab"><span class="pin">ตัวอย่างจากเซต $A = \{1, 2, 3\}$</span></div>
-                • <span class="gn">เป็น:</span> $R_1 = \{(1,2), (2,3), (1,3)\}$ (มีทางลัด $1 \to 3$)<br>
-                • <span class="rd">ไม่เป็น:</span> $R_2 = \{(1,2), (2,3)\}$ (ขาดทางลัด $(1,3)$)
-              </div>
-            </div>
-            <div class="col">
-              <div class="block al" style="padding:.7cqh 1cqw">
-                <div class="lab"><span class="pin">ตัวอย่างความสัมพันธ์บน $\mathbb{Z}$</span></div>
-                • <span class="gn">เป็น:</span> $a < b$ ($2 < 5 \land 5 < 9 \implies 2 < 9$)<br>
-                • <span class="rd">ไม่เป็น:</span> $|a-b| \le 2$ (ระยะห่างสะสมหลุดขอบเขต)
-              </div>
-            </div>
           </div>
         </div>
         <div class="col">
@@ -1126,6 +1125,24 @@ b,strong{font-weight:700;color:var(--navy2)}
               <path d="M 43 53 L 77 93" class="diag-edge pulse" style="stroke:var(--gold);stroke-width:3" marker-end="url(#arrGold)"/>
             </svg>
             <div style="font-size:1.5cqh;color:var(--gold2);font-weight:700">ต้องมีเส้นเชื่อมตรงจาก $a \to c$ เสมอ</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Horizontal Example Boxes -->
+      <div class="cols" style="margin-top:.4cqh">
+        <div class="col">
+          <div class="block ex" style="padding:.6cqh 1cqw">
+            <div class="lab"><span class="pin">ตัวอย่างจากเซตจำกัด</span> เซต $A = \{1, 2, 3\}$</div>
+            • <span class="gn">เป็น:</span> $R_1 = \{(1,2), (2,3), (1,3)\}$ (มีทางลัด $1 \to 3$)<br>
+            • <span class="rd">ไม่เป็น:</span> $R_2 = \{(1,2), (2,3)\}$ (ขาดทางลัด $(1,3)$)
+          </div>
+        </div>
+        <div class="col">
+          <div class="block al" style="padding:.6cqh 1cqw">
+            <div class="lab"><span class="pin">ตัวอย่างบนเซตจำนวนเต็ม</span> ความสัมพันธ์บน $\mathbb{Z}$</div>
+            • <span class="gn">เป็น:</span> $a < b$ ($2 < 5 \land 5 < 9 \implies 2 < 9$)<br>
+            • <span class="rd">ไม่เป็น:</span> $|a-b| \le 2$ (ระยะห่างสะสมหลุดขอบเขต)
           </div>
         </div>
       </div>

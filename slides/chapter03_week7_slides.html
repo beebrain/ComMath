@@ -614,6 +614,60 @@ b,strong{font-weight:700;color:var(--navy2)}
     </div>
   </section>
 
+  <!-- SLIDE 16b: Overview of 4 Properties using Finite Sets -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 4.0</span><h2>การตรวจสอบ 4 สมบัติเบื้องต้นจากเซตของคู่อันดับ</h2></div>
+    </div>
+    <div class="body">
+      <div style="font-size:2.1cqh;margin-bottom:.4cqh">
+        กำหนดเซต $A = \{1, 2, 3\}$ พิจารณาลักษณะของคู่อันดับในความสัมพันธ์ $R \subseteq A \times A$ แต่ละรูปแบบ
+      </div>
+      <div class="proc-grid" style="grid-template-columns:repeat(2,1fr);gap:1cqw">
+        <!-- 1. Reflexive -->
+        <div class="proc-card" style="text-align:left;padding:.8cqh 1cqw">
+          <div class="p-title" style="font-size:2.1cqh;color:var(--navy)">1. สมบัติสะท้อน (Reflexive)</div>
+          <div style="font-size:1.8cqh;line-height:1.4;margin-top:.2cqh">
+            <b>เงื่อนไข</b> ต้องมี $(x, x)$ ครบทุกสมาชิกในเซต $A$<br>
+            • <span class="gn">เป็น:</span> $\{(1,1), (2,2), (3,3), (1,2)\}$ (มีครบทั้ง 3 คู่)<br>
+            • <span class="rd">ไม่เป็น:</span> $\{(1,1), (2,2), (1,3)\}$ (ขาด $(3,3)$)
+          </div>
+        </div>
+
+        <!-- 2. Symmetric -->
+        <div class="proc-card" style="text-align:left;padding:.8cqh 1cqw">
+          <div class="p-title" style="font-size:2.1cqh;color:var(--navy)">2. สมบัติสมมาตร (Symmetric)</div>
+          <div style="font-size:1.8cqh;line-height:1.4;margin-top:.2cqh">
+            <b>เงื่อนไข</b> ถ้ามี $(a, b)$ ต้องมีคู่ย้อนกลับ $(b, a)$ ในเซตเสมอ<br>
+            • <span class="gn">เป็น:</span> $\{(1,2), (2,1), (3,3)\}$ (มีขาไปและขากลับ)<br>
+            • <span class="rd">ไม่เป็น:</span> $\{(1,2), (2,3), (2,1)\}$ (มี $(2,3)$ แต่ขาด $(3,2)$)
+          </div>
+        </div>
+
+        <!-- 3. Antisymmetric -->
+        <div class="proc-card" style="text-align:left;padding:.8cqh 1cqw">
+          <div class="p-title" style="font-size:2.1cqh;color:var(--navy)">3. สมบัติปฏิสมมาตร (Antisymmetric)</div>
+          <div style="font-size:1.8cqh;line-height:1.4;margin-top:.2cqh">
+            <b>เงื่อนไข</b> ถ้า $a \neq b$ ห้ามมีทั้ง $(a, b)$ และ $(b, a)$ พร้อมกัน<br>
+            • <span class="gn">เป็น:</span> $\{(1,2), (2,3), (1,1)\}$ (เดินทางเดียวสำหรับคนละตัว)<br>
+            • <span class="rd">ไม่เป็น:</span> $\{(1,2), (2,1), (3,3)\}$ (พบทั้ง $(1,2)$ และ $(2,1)$)
+          </div>
+        </div>
+
+        <!-- 4. Transitive -->
+        <div class="proc-card" style="text-align:left;padding:.8cqh 1cqw">
+          <div class="p-title" style="font-size:2.1cqh;color:var(--navy)">4. สมบัติถ่ายทอด (Transitive)</div>
+          <div style="font-size:1.8cqh;line-height:1.4;margin-top:.2cqh">
+            <b>เงื่อนไข</b> ถ้ามี $(a, b)$ และ $(b, c)$ ต้องมีทางลัด $(a, c)$ เสมอ<br>
+            • <span class="gn">เป็น:</span> $\{(1,2), (2,3), (1,3)\}$ (มีทางลัดจาก $1 \to 3$)<br>
+            • <span class="rd">ไม่เป็น:</span> $\{(1,2), (2,3)\}$ (ขาดทางลัด $(1,3)$)
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การตรวจสอบ 4 สมบัติจากเซตคู่อันดับ</span><span class="right">4091606 · CH03-W07</span></div>
+  </section>
+
   <!-- SLIDE 17: Reflexive Property with Animated Diagram -->
   <section class="slide">
     <div class="head">
@@ -624,23 +678,22 @@ b,strong{font-weight:700;color:var(--navy2)}
         <div class="col">
           <div class="block">
             <div class="lab"><span class="pin">นิยาม</span> การสัมพันธ์กับตนเองของสมาชิกทุกตัว</div>
-            สมาชิกทุกตัวในเซตต้องมีความสัมพันธ์กับตัวเองโดยไม่มีข้อยกเว้น
+            สมาชิกทุกตัวในเซตต้องมีความสัมพันธ์กับตัวเองครบถ้วน
             $$\mathbf{\forall x \in A, (x, x) \in R}$$
-            การพิจารณาบนเมทริกซ์ความสัมพันธ์ สมาชิกบนเส้นทแยงมุมหลักต้องมีค่าเป็น 1 ทั้งหมด ($M_{ii} = 1$)
           </div>
           <div class="cols" style="margin-top:.3cqh">
             <div class="col">
               <div class="block ex" style="padding:.7cqh 1cqw">
-                <div class="lab"><span class="pin">ความสัมพันธ์ที่มีสมบัติสะท้อน</span></div>
-                • $a+b$ เป็นจำนวนคู่ ($a+a = 2a$ ซึ่งเป็นจำนวนคู่เสมอ)<br>
-                • $a \equiv b \pmod m$ ($a-a = 0 = 0\cdot m$)
+                <div class="lab"><span class="pin">ตัวอย่างจากเซต $A = \{1, 2, 3\}$</span></div>
+                • <span class="gn">เป็น:</span> $R_1 = \{(1,1), (2,2), (3,3), (1,2)\}$<br>
+                • <span class="rd">ไม่เป็น:</span> $R_2 = \{(1,1), (2,2), (1,3)\}$ (ขาด $(3,3)$)
               </div>
             </div>
             <div class="col">
               <div class="block al" style="padding:.7cqh 1cqw">
-                <div class="lab"><span class="pin">ความสัมพันธ์ที่ไม่เป็นสะท้อน</span></div>
-                • $a < b$ (เนื่องจาก $5 < 5$ เป็นเท็จ)<br>
-                • $a \neq b$ (เนื่องจาก $5 \neq 5$ เป็นเท็จ)
+                <div class="lab"><span class="pin">ตัวอย่างความสัมพันธ์บน $\mathbb{Z}$</span></div>
+                • <span class="gn">เป็น:</span> $a+b$ เป็นจำนวนคู่ ($a+a = 2a$)<br>
+                • <span class="rd">ไม่เป็น:</span> $a < b$ (เนื่องจาก $5 < 5$ เป็นเท็จ)
               </div>
             </div>
           </div>
@@ -739,20 +792,20 @@ b,strong{font-weight:700;color:var(--navy2)}
             <div class="lab"><span class="pin">นิยาม</span> การมีความสัมพันธ์ย้อนกลับของทุกคู่อันดับ</div>
             ถ้า $a$ มีความสัมพันธ์กับ $b$ แล้ว $b$ ต้องมีความสัมพันธ์กลับมายัง $a$ ด้วยเสมอ
             $$\mathbf{\forall a, b \in A, (a, b) \in R \implies (b, a) \in R}$$
-            การพิจารณาบนเมทริกซ์ความสัมพันธ์ เมทริกซ์ต้องมีลักษณะสมมาตรเทียบกับแนวทแยงมุมหลัก ($M_R = M_R^T$)
           </div>
           <div class="cols" style="margin-top:.3cqh">
             <div class="col">
               <div class="block ex" style="padding:.7cqh 1cqw">
-                <div class="lab"><span class="pin">ความสัมพันธ์ที่มีสมบัติสมมาตร</span></div>
-                • $a+b$ เป็นจำนวนคู่ (เนื่องจากการบวกมีสมบัติการสลับที่)<br>
-                • $a \equiv b \pmod m$ (เนื่องจาก $m \mid (a-b) \iff m \mid (b-a)$)
+                <div class="lab"><span class="pin">ตัวอย่างจากเซต $A = \{1, 2, 3\}$</span></div>
+                • <span class="gn">เป็น:</span> $R_1 = \{(1,2), (2,1), (3,3)\}$<br>
+                • <span class="rd">ไม่เป็น:</span> $R_2 = \{(1,2), (2,3), (2,1)\}$ (ขาด $(3,2)$)
               </div>
             </div>
             <div class="col">
               <div class="block al" style="padding:.7cqh 1cqw">
-                <div class="lab"><span class="pin">ความสัมพันธ์ที่ไม่เป็นสมมาตร</span></div>
-                • $a \le b$ (เนื่องจาก $2 \le 5$ เป็นจริง แต่ $5 \le 2$ เป็นเท็จ)
+                <div class="lab"><span class="pin">ตัวอย่างความสัมพันธ์บน $\mathbb{Z}$</span></div>
+                • <span class="gn">เป็น:</span> $a+b$ เป็นจำนวนคู่ ($b+a = a+b$)<br>
+                • <span class="rd">ไม่เป็น:</span> $a \le b$ ($2 \le 5$ จริง แต่ $5 \le 2$ เท็จ)
               </div>
             </div>
           </div>
@@ -1034,15 +1087,16 @@ b,strong{font-weight:700;color:var(--navy2)}
           <div class="cols" style="margin-top:.3cqh">
             <div class="col">
               <div class="block ex" style="padding:.7cqh 1cqw">
-                <div class="lab"><span class="pin">ความสัมพันธ์ที่มีสมบัติถ่ายทอด</span></div>
-                • $a < b$ (เนื่องจาก $2 < 5$ และ $5 < 9$ ส่งผลให้ $2 < 9$)<br>
-                • $a \mid b$ (เนื่องจาก $a \mid b$ และ $b \mid c$ ส่งผลให้ $a \mid c$)
+                <div class="lab"><span class="pin">ตัวอย่างจากเซต $A = \{1, 2, 3\}$</span></div>
+                • <span class="gn">เป็น:</span> $R_1 = \{(1,2), (2,3), (1,3)\}$ (มีทางลัด $1 \to 3$)<br>
+                • <span class="rd">ไม่เป็น:</span> $R_2 = \{(1,2), (2,3)\}$ (ขาดทางลัด $(1,3)$)
               </div>
             </div>
             <div class="col">
               <div class="block al" style="padding:.7cqh 1cqw">
-                <div class="lab"><span class="pin">ความสัมพันธ์ที่ไม่เป็นถ่ายทอด</span></div>
-                • $|a-b| \le 2$ (เนื่องจาก $|1-3| \le 2$ และ $|3-5| \le 2$ แต่ $|1-5| = 4 > 2$)
+                <div class="lab"><span class="pin">ตัวอย่างความสัมพันธ์บน $\mathbb{Z}$</span></div>
+                • <span class="gn">เป็น:</span> $a < b$ ($2 < 5 \land 5 < 9 \implies 2 < 9$)<br>
+                • <span class="rd">ไม่เป็น:</span> $|a-b| \le 2$ (ระยะห่างสะสมหลุดขอบเขต)
               </div>
             </div>
           </div>

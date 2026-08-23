@@ -624,31 +624,31 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div class="cols wide-l">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">ANALOGY</span> ส่องกระจกเห็นตัวเอง / Ping Localhost</div>
-            สมาชิก <b>ทุกตัว</b> ในเซตต้องมีความสัมพันธ์กับตัวเอง (ห้ามตกหล่นแม้แต่ตัวเดียว!):
+            <div class="lab"><span class="pin">นิยาม</span> การสัมพันธ์กับตนเองของสมาชิกทุกตัว</div>
+            สมาชิกทุกตัวในเซตต้องมีความสัมพันธ์กับตัวเองโดยไม่มีข้อยกเว้น
             $$\mathbf{\forall x \in A, (x, x) \in R}$$
-            • <b>ในเมทริกซ์:</b> เส้นทแยงมุมหลักเป็น 1 ทั้งหมด ($M_{11}=1, M_{22}=1, \dots$)
+            การพิจารณาบนเมทริกซ์ความสัมพันธ์ สมาชิกบนเส้นทแยงมุมหลักต้องมีค่าเป็น 1 ทั้งหมด ($M_{ii} = 1$)
           </div>
           <div class="cols" style="margin-top:.3cqh">
             <div class="col">
               <div class="block ex" style="padding:.7cqh 1cqw">
-                <div class="lab"><span class="pin">✓ เป็นสะท้อน</span></div>
-                • $a+b$ เป็นคู่: $a+a = 2a$ (คู่เสมอ ✓)<br>
-                • $a \equiv b \pmod m$: $a-a = 0 = 0\cdot m$ (หารลงตัว ✓)
+                <div class="lab"><span class="pin">ความสัมพันธ์ที่มีสมบัติสะท้อน</span></div>
+                • $a+b$ เป็นจำนวนคู่ ($a+a = 2a$ ซึ่งเป็นจำนวนคู่เสมอ)<br>
+                • $a \equiv b \pmod m$ ($a-a = 0 = 0\cdot m$)
               </div>
             </div>
             <div class="col">
               <div class="block al" style="padding:.7cqh 1cqw">
-                <div class="lab"><span class="pin">✗ ไม่เป็นสะท้อน</span></div>
-                • $a < b$ ($5 < 5$ เป็นเท็จ ✗)<br>
-                • $a \neq b$ ($5 \neq 5$ เป็นเท็จ ✗)
+                <div class="lab"><span class="pin">ความสัมพันธ์ที่ไม่เป็นสะท้อน</span></div>
+                • $a < b$ (เนื่องจาก $5 < 5$ เป็นเท็จ)<br>
+                • $a \neq b$ (เนื่องจาก $5 \neq 5$ เป็นเท็จ)
               </div>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="diag-box">
-            <div style="font-family:var(--f-head);font-size:1.8cqh;font-weight:700;color:var(--navy2);margin-bottom:.4cqh">ทุกลูปวนหาตัวเอง (Self-loops)</div>
+            <div style="font-family:var(--f-head);font-size:1.8cqh;font-weight:700;color:var(--navy2);margin-bottom:.4cqh">การมีวงวนบนทุกโหนด (Self-loops)</div>
             <svg class="diag-svg" viewBox="0 0 160 130">
               <defs>
                 <marker id="arrRefl" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
@@ -667,7 +667,7 @@ b,strong{font-weight:700;color:var(--navy2)}
               <text x="80" y="100" class="diag-text">3</text>
               <path d="M 70 112 C 50 130 110 130 90 112" class="diag-edge loop-anim" marker-end="url(#arrRefl)"/>
             </svg>
-            <div style="font-size:1.5cqh;color:var(--gold2);font-weight:700">มีลูปวนหาตัวเองครบทุกโหนด</div>
+            <div style="font-size:1.5cqh;color:var(--gold2);font-weight:700">มีวงวนระบุความสัมพันธ์กับตนเองครบทุกสมาชิก</div>
           </div>
         </div>
       </div>
@@ -678,28 +678,28 @@ b,strong{font-weight:700;color:var(--navy2)}
   <!-- SLIDE 17b: Intuitive Explanation of Reflexive Property -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Deep Dive 4.1b</span><h2>เข้าใจง่าย: ทำไมความสัมพันธ์ $a+b$ เป็นเลขคู่ ถึงมีสมบัติสะท้อน?</h2></div>
+      <div><span class="kick">Deep Dive 4.1b</span><h2>การพิสูจน์สมบัติสะท้อนของความสัมพันธ์ $a+b$ เป็นจำนวนคู่</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <!-- Col 1: Concept & Proof -->
         <div class="col">
           <div class="block ex" style="height:100%">
-            <div class="lab"><span class="pin">หลักการ</span> กติกาของ "สะท้อน" และการบวกตัวเอง</div>
-            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
-              <b>1. กติกาของสะท้อน:</b> บังคับหยิบ<b>ตัวเลขตัวเดียวกัน</b> ($a$ จับคู่กับ $a$) แล้วต้องผ่านเกณฑ์
+            <div class="lab"><span class="pin">หลักการทางคณิตศาสตร์</span> ผลบวกของสมาชิกกับตนเอง</div>
+            <div style="font-size:2.1cqh;margin-bottom:.4cqh">
+              <b>1. เงื่อนไขสมบัติสะท้อน</b> ต้องแสดงว่า $(a, a) \in R$ สำหรับทุกจำนวนเต็ม $a \in \mathbb{Z}$
             </div>
-            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
-              <b>2. ทำไม $a+b$ ถึงผ่าน 100%?</b> เพราะเมื่อนำตัวมันเองมาบวกตัวเอง:
+            <div style="font-size:2.1cqh;margin-bottom:.4cqh">
+              <b>2. การตรวจสอบบนนิยาม</b> เมื่อนำสมาชิกตัวเดียวกันมาบวกกัน
             </div>
-            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--green);font-size:2.2cqh">
-              $$a + a = \mathbf{2a}$$
-              • หยิบ $5 \implies 5 + 5 = \mathbf{10} = 2(5)$ (เลขคู่ ✓)<br>
-              • หยิบ $-4 \implies (-4) + (-4) = \mathbf{-8} = 2(-4)$ (เลขคู่ ✓)<br>
-              • หยิบ $0 \implies 0 + 0 = \mathbf{0} = 2(0)$ (เลขคู่ ✓)
+            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--green);font-size:2.1cqh">
+              $$a + a = 2a$$
+              • เมื่อ $a = 5$ จะได้ $5 + 5 = 10 = 2(5)$ ซึ่งเป็นจำนวนคู่<br>
+              • เมื่อ $a = -4$ จะได้ $(-4) + (-4) = -8 = 2(-4)$ ซึ่งเป็นจำนวนคู่<br>
+              • เมื่อ $a = 0$ จะได้ $0 + 0 = 0 = 2(0)$ ซึ่งเป็นจำนวนคู่
             </div>
             <div style="font-size:2cqh;color:var(--green2);font-weight:700;margin-top:.4cqh">
-              ในเมื่อ $a+a = 2a$ มีเลข 2 คูณอยู่ข้างหน้าเสมอ จึงการันตีว่าเป็นเลขคู่ 100%
+              เนื่องจาก $a + a = 2a$ มี 2 เป็นตัวประกอบเสมอ จึงสรุปได้ว่าความสัมพันธ์นี้มีสมบัติสะท้อน
             </div>
           </div>
         </div>
@@ -707,25 +707,25 @@ b,strong{font-weight:700;color:var(--navy2)}
         <!-- Col 2: Contrast with Non-Reflexive -->
         <div class="col">
           <div class="block al" style="height:100%">
-            <div class="lab"><span class="pin">เปรียบเทียบ</span> ดูอันที่ไม่สะท้อนเพื่อความเข้าใจชัดเจน</div>
-            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
-              พิจารณาความสัมพันธ์ <b>"น้อยกว่า" ($a < b$)</b> หรือ <b>"บวกกันได้เลขคี่"</b>:
+            <div class="lab"><span class="pin">กรณีศึกษาเปรียบเทียบ</span> ตัวอย่างความสัมพันธ์ที่ไม่สอดคล้องกับสมบัติสะท้อน</div>
+            <div style="font-size:2.1cqh;margin-bottom:.4cqh">
+              พิจารณาความสัมพันธ์ $a < b$ และความสัมพันธ์ที่กำหนดให้ผลบวกเป็นจำนวนคี่
             </div>
-            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--red);font-size:2.2cqh">
-              • <b>น้อยกว่า ($a < b$):</b> หยิบ $5 < 5$ (<span class="rd">เป็นเท็จ ✗</span> ส่องกระจกไม่เจอตัวเอง)<br>
-              • <b>บวกได้เลขคี่:</b> $a + a = 2a$ (<span class="rd">เป็นคู่เสมอ ไม่มีทางได้คี่ ✗</span>)
+            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--red);font-size:2.1cqh">
+              • ความสัมพันธ์ $a < b$ เมื่อตรวจสอบตนเองจะได้ $5 < 5$ ซึ่งเป็นเท็จ<br>
+              • ความสัมพันธ์ที่กำหนดให้ $a + b$ เป็นจำนวนคี่ เมื่อตรวจสอบตนเองจะได้ $a + a = 2a$ ซึ่งเป็นจำนวนคู่เสมอ ทำให้ไม่มีทางได้จำนวนคี่
             </div>
             <div style="font-size:2cqh;color:var(--red2);font-weight:700;margin-top:.6cqh">
-              ✗ เมื่อจับคู่กับตัวเองแล้วไม่ผ่านเกณฑ์ $\implies$ <u>ไม่เป็นสะท้อน</u>
+              เมื่อมีสมาชิกที่ไม่สัมพันธ์กับตนเอง ความสัมพันธ์นั้นจึงไม่เป็นสมบัติสะท้อน
             </div>
             <div style="font-size:1.9cqh;color:var(--navy2);margin-top:.6cqh;background:var(--lnavy);padding:.4cqh .8cqw;border-radius:4px">
-              💡 <b>จำง่าย ๆ:</b> ตัวมันเองบวกตัวเองได้ $2a$ (มี 2 คูณ $\to$ คู่เสมอ $\to$ สะท้อน)
+              <b>ข้อสังเกต</b> การบวกจำนวนเต็มกับตนเองจะได้ $2a$ ซึ่งเป็นจำนวนคู่เสมอ ส่งผลให้ความสัมพันธ์มีสมบัติสะท้อนบน $\mathbb{Z}$
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>การพิสูจน์สมบัติสะท้อนอย่างเข้าใจง่าย</span><span class="right">4091606 · CH03-W07</span></div>
+    <div class="foot"><span>การพิสูจน์สมบัติสะท้อน</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
   <!-- SLIDE 18: Symmetric Property with Animated Diagram -->
@@ -737,29 +737,30 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div class="cols wide-l">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">ANALOGY</span> การจับมือทักทาย / เพื่อนใน Facebook</div>
-            ถ้า $a$ สัมพันธ์กับ $b$ แล้ว $b$ ต้องสัมพันธ์กลับมาหา $a$ ด้วยเสมอ (มีขาไป ต้องมีขากลับ):
+            <div class="lab"><span class="pin">นิยาม</span> การมีความสัมพันธ์ย้อนกลับของทุกคู่อันดับ</div>
+            ถ้า $a$ มีความสัมพันธ์กับ $b$ แล้ว $b$ ต้องมีความสัมพันธ์กลับมายัง $a$ ด้วยเสมอ
             $$\mathbf{\forall a, b \in A, (a, b) \in R \implies (b, a) \in R}$$
-            • <b>ในเมทริกซ์:</b> เมทริกซ์สมมาตรเทียบกับแนวทแยง ($M_R = M_R^T$)
+            การพิจารณาบนเมทริกซ์ความสัมพันธ์ เมทริกซ์ต้องมีลักษณะสมมาตรเทียบกับแนวทแยงมุมหลัก ($M_R = M_R^T$)
           </div>
           <div class="cols" style="margin-top:.3cqh">
             <div class="col">
-              <div class="block ex" style="padding:.9cqh 1.2cqw">
-                <div class="lab"><span class="pin">✓ เป็นสมมาตร</span></div>
-                $a+b$ เป็นเลขคู่, $a \equiv b \pmod m$
+              <div class="block ex" style="padding:.7cqh 1cqw">
+                <div class="lab"><span class="pin">ความสัมพันธ์ที่มีสมบัติสมมาตร</span></div>
+                • $a+b$ เป็นจำนวนคู่ (เนื่องจากการบวกมีสมบัติการสลับที่)<br>
+                • $a \equiv b \pmod m$ (เนื่องจาก $m \mid (a-b) \iff m \mid (b-a)$)
               </div>
             </div>
             <div class="col">
-              <div class="block al" style="padding:.9cqh 1.2cqw">
-                <div class="lab"><span class="pin">✗ ไม่เป็นสมมาตร</span></div>
-                $a \le b$ ($2 \le 5$ จริง แต่ $5 \le 2$ เท็จ!)
+              <div class="block al" style="padding:.7cqh 1cqw">
+                <div class="lab"><span class="pin">ความสัมพันธ์ที่ไม่เป็นสมมาตร</span></div>
+                • $a \le b$ (เนื่องจาก $2 \le 5$ เป็นจริง แต่ $5 \le 2$ เป็นเท็จ)
               </div>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="diag-box">
-            <div style="font-family:var(--f-head);font-size:1.8cqh;font-weight:700;color:var(--navy2);margin-bottom:.4cqh">ลูกศรสองทิศทาง (Two-way)</div>
+            <div style="font-family:var(--f-head);font-size:1.8cqh;font-weight:700;color:var(--navy2);margin-bottom:.4cqh">ลูกศรสองทิศทาง (Two-way Connection)</div>
             <svg class="diag-svg" viewBox="0 0 180 120">
               <defs>
                 <marker id="arrSym" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
@@ -785,26 +786,26 @@ b,strong{font-weight:700;color:var(--navy2)}
   <!-- SLIDE 18b: Intuitive Explanation of Symmetric Property -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Deep Dive 4.2b</span><h2>เข้าใจง่าย: ทำไมความสัมพันธ์ $a+b$ เป็นเลขคู่ ถึงมีสมบัติสมมาตร?</h2></div>
+      <div><span class="kick">Deep Dive 4.2b</span><h2>การพิสูจน์สมบัติสมมาตรของความสัมพันธ์ $a+b$ เป็นจำนวนคู่</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <!-- Col 1: Concept & Proof -->
         <div class="col">
           <div class="block ex" style="height:100%">
-            <div class="lab"><span class="pin">หลักการ</span> กติกาของ "สมมาตร" และความลับของการบวก</div>
-            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
-              <b>1. กติกาของสมมาตร:</b> ถ้าคู่ $(a, b)$ ผ่านเกณฑ์ $\implies$ เมื่อสลับเป็น $(b, a)$ ก็ต้องผ่านเกณฑ์ด้วย (หยิบคนละตัวได้!)
+            <div class="lab"><span class="pin">หลักการทางคณิตศาสตร์</span> สมบัติการสลับที่ของการบวก</div>
+            <div style="font-size:2.1cqh;margin-bottom:.4cqh">
+              <b>1. เงื่อนไขสมบัติสมมาตร</b> ถ้า $(a, b) \in R$ แล้วต้องได้ว่า $(b, a) \in R$ ด้วย
             </div>
-            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
-              <b>2. ทำไม $a+b$ ถึงผ่าน 100%?</b> เพราะ<b>การบวกสลับที่ได้ ($b+a = a+b$)</b>:
+            <div style="font-size:2.1cqh;margin-bottom:.4cqh">
+              <b>2. การตรวจสอบบนนิยาม</b> อาศัยสมบัติการสลับที่ของการบวกบนจำนวนเต็ม ($b + a = a + b$)
             </div>
-            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--green);font-size:2.2cqh">
-              • <b>ขาไป:</b> หยิบ $3, 7 \implies 3 + 7 = \mathbf{10}$ (เลขคู่ ผ่านเกณฑ์ ✓)<br>
-              • <b>ขากลับ:</b> สลับที่ $7 + 3 = \mathbf{10}$ (เลขคู่ค่าเดิมเป๊ะ ผ่านเกณฑ์ ✓)
+            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--green);font-size:2.1cqh">
+              • พิจารณาคู่ลำดับ $(3, 7)$ จะได้ $3 + 7 = 10$ ซึ่งเป็นจำนวนคู่<br>
+              • เมื่อสลับตำแหน่งเป็น $(7, 3)$ จะได้ $7 + 3 = 10$ ซึ่งเป็นจำนวนคู่เช่นเดียวกัน
             </div>
             <div style="font-size:2cqh;color:var(--green2);font-weight:700;margin-top:.4cqh">
-              ในเมื่อ $b+a = a+b$ เสมอ ขาไปได้เลขคู่ ขากลับย่อมเป็นเลขคู่ตัวเดิมอย่างแน่นอน
+              เนื่องจาก $b + a = a + b$ เสมอ ผลบวกย่อมมีค่าเท่าเดิมทุกประการ จึงมีสมบัติสมมาตร
             </div>
           </div>
         </div>
@@ -812,25 +813,25 @@ b,strong{font-weight:700;color:var(--navy2)}
         <!-- Col 2: Contrast with Non-Symmetric -->
         <div class="col">
           <div class="block al" style="height:100%">
-            <div class="lab"><span class="pin">เปรียบเทียบ</span> ดูอันที่ไม่สมมาตรเพื่อความเข้าใจชัดเจน</div>
-            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
-              พิจารณาความสัมพันธ์ <b>"ลบกันแล้วได้ค่าบวก" ($a - b > 0$)</b>:
+            <div class="lab"><span class="pin">กรณีศึกษาเปรียบเทียบ</span> ตัวอย่างความสัมพันธ์ที่ไม่สอดคล้องกับสมบัติสมมาตร</div>
+            <div style="font-size:2.1cqh;margin-bottom:.4cqh">
+              พิจารณาความสัมพันธ์ $a - b > 0$ บนเซตของจำนวนเต็ม
             </div>
-            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--red);font-size:2.2cqh">
-              • <b>ขาไป:</b> หยิบ $5, 2 \implies 5 - 2 = \mathbf{3} > 0$ (ผ่านเกณฑ์ ✓)<br>
-              • <b>ขากลับ:</b> สลับที่ $2 - 5 = \mathbf{-3} \le 0$ (<span class="rd">ติดลบ ไม่ผ่านเกณฑ์ ✗</span>)
+            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--red);font-size:2.1cqh">
+              • เมื่อตรวจสอบคู่ $(5, 2)$ จะได้ $5 - 2 = 3 > 0$ ซึ่งเป็นจริง<br>
+              • เมื่อสลับตำแหน่งเป็น $(2, 5)$ จะได้ $2 - 5 = -3 \le 0$ ซึ่งเป็นเท็จ
             </div>
             <div style="font-size:2cqh;color:var(--red2);font-weight:700;margin-top:.6cqh">
-              ✗ ขาไปผ่าน แต่ขากลับพัง (เพราะการลบสลับที่ไม่ได้) $\implies$ <u>ไม่สมมาตร</u>
+              เนื่องจากการลบไม่มีสมบัติการสลับที่ ความสัมพันธ์ $a - b > 0$ จึงไม่เป็นสมบัติสมมาตร
             </div>
             <div style="font-size:1.9cqh;color:var(--navy2);margin-top:.6cqh;background:var(--lnavy);padding:.4cqh .8cqw;border-radius:4px">
-              💡 <b>จำง่าย ๆ:</b> บวกสลับที่ได้ $\to$ สมมาตร | ลบสลับที่ไม่ได้ $\to$ ไม่สมมาตร
+              <b>ข้อสังเกต</b> การบวกมีสมบัติการสลับที่ส่งผลให้สมมาตร ในขณะที่การลบไม่มีสมบัติการสลับที่จึงไม่สมมาตร
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>การพิสูจน์สมบัติสมมาตรอย่างเข้าใจง่าย</span><span class="right">4091606 · CH03-W07</span></div>
+    <div class="foot"><span>การพิสูจน์สมบัติสมมาตร</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
   <!-- SLIDE 19: Antisymmetric Property with Diagram -->
@@ -842,18 +843,18 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div class="cols wide-l">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">ANALOGY</span> การต่อคิว / รุ่นพี่รุ่นน้อง</div>
-            ถ้าคนละคนกัน ($a \neq b$) <b>ห้ามมีความสัมพันธ์แบบไป-กลับพร้อมกันเด็ดขาด</b> (อนุญาตให้ไปกลับได้เฉพาะตัวเดียวกัน $a=b$ เท่านั้น):
+            <div class="lab"><span class="pin">นิยาม</span> การห้ามมีความสัมพันธ์ไปกลับระหว่างสมาชิกต่างตัวกัน</div>
+            สำหรับสมาชิก $a \neq b$ ใด ๆ ห้ามมีความสัมพันธ์แบบไปและกลับพร้อมกัน
             $$\mathbf{\forall a, b \in A, [(a, b) \in R \land (b, a) \in R] \implies a = b}$$
           </div>
           <div class="block ex" style="margin-top:.3cqh">
-            <div class="lab"><span class="pin">✓ ตัวอย่างปฏิสมมาตร</span> $\le$ และ $\subseteq$</div>
-            • ถ้า $a \le b$ และ $b \le a \implies a = b$ พอดี<br>
-            • ถ้า $A \subseteq B$ และ $B \subseteq A \implies A = B$ พอดี
+            <div class="lab"><span class="pin">ตัวอย่างความสัมพันธ์ปฏิสมมาตร</span> $\le$ และ $\subseteq$</div>
+            • ถ้า $a \le b$ และ $b \le a$ จะสรุปได้ว่า $a = b$<br>
+            • ถ้า $A \subseteq B$ และ $B \subseteq A$ จะสรุปได้ว่า $A = B$
           </div>
           <div class="block al" style="margin-top:.3cqh;padding:.6cqh 1cqw">
-            <div class="lab"><span class="pin">✗ ทำไม $a+b$ เป็นคู่ และ $a \equiv b \pmod m$ ไม่เป็นปฏิสมมาตร?</span></div>
-            เพราะมี $a \neq b$ ที่สัมพันธ์กันทั้งไปและกลับ เช่น $(3, 7)$ และ $(7, 3)$ แต่ $3 \neq 7$ (หรือ $18 \equiv 3 \pmod 5$ และ $3 \equiv 18 \pmod 5$ แต่ $18 \neq 3$)
+            <div class="lab"><span class="pin">เหตุผลที่ $a+b$ เป็นจำนวนคู่ ไม่เป็นปฏิสมมาตร</span></div>
+            เนื่องจากมีกรณี $a \neq b$ เช่น $(3, 7) \in R$ และ $(7, 3) \in R$ ที่มีความสัมพันธ์ทั้งสองทิศทางพร้อมกันแต่ $3 \neq 7$
           </div>
         </div>
         <div class="col">
@@ -872,9 +873,9 @@ b,strong{font-weight:700;color:var(--navy2)}
 
               <path d="M 63 50 Q 90 35 117 50" class="diag-edge" marker-end="url(#arrAnti)"/>
               <path d="M 117 70 Q 90 85 63 70" style="stroke:var(--red);stroke-width:2;stroke-dasharray:4;fill:none"/>
-              <text x="90" y="80" style="font-size:16px;fill:var(--red);text-anchor:middle">🚫 ห้ามมีขากลับ</text>
+              <text x="90" y="80" style="font-size:16px;fill:var(--red);text-anchor:middle">ห้ามมีลูกศรย้อนกลับ</text>
             </svg>
-            <div style="font-size:1.5cqh;color:var(--red2);font-weight:700">ห้ามมีลูกศรย้อนกลับถ้า $a \neq b$</div>
+            <div style="font-size:1.5cqh;color:var(--red2);font-weight:700">ห้ามมีลูกศรย้อนกลับหากเป็นสมาชิกต่างตัวกัน ($a \neq b$)</div>
           </div>
         </div>
       </div>
@@ -885,28 +886,28 @@ b,strong{font-weight:700;color:var(--navy2)}
   <!-- SLIDE 19b: Intuitive Explanation of Antisymmetric Property -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Deep Dive 4.3b</span><h2>เข้าใจง่าย: ทำไมความสัมพันธ์ $a+b$ เป็นเลขคู่ ถึง "ไม่เป็นปฏิสมมาตร"?</h2></div>
+      <div><span class="kick">Deep Dive 4.3b</span><h2>การตรวจสอบสมบัติปฏิสมมาตรของความสัมพันธ์ $a+b$ เป็นจำนวนคู่</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <!-- Col 1: Why it Fails Antisymmetry -->
         <div class="col">
           <div class="block al" style="height:100%">
-            <div class="lab"><span class="pin">กติกา</span> กติกาของ "ปฏิสมมาตร" และจุดที่ $a+b$ ไม่ผ่าน</div>
-            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
-              <b>1. กติกาของปฏิสมมาตร:</b> ถ้าเป็นคนละตัวกัน ($a \neq b$) <b>ห้ามมีขากลับพร้อมขาไปเด็ดขาด!</b> (ยอมให้ไป-กลับได้เฉพาะตัวเดียวกัน $a=b$)
+            <div class="lab"><span class="pin">การตรวจสอบเงื่อนไข</span> การเกิดคู่อันดับไปและกลับระหว่างสมาชิกต่างตัวกัน</div>
+            <div style="font-size:2.1cqh;margin-bottom:.4cqh">
+              <b>1. เงื่อนไขสมบัติปฏิสมมาตร</b> หาก $(a, b) \in R$ และ $(b, a) \in R$ แล้ว ต้องสรุปได้ว่า $a = b$ เท่านั้น
             </div>
-            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
-              <b>2. ทำไม $a+b$ เป็นคู่ ถึงตกม้าตาย (ไม่เป็นปฏิสมมาตร)?</b>
+            <div style="font-size:2.1cqh;margin-bottom:.4cqh">
+              <b>2. การพิจารณาบนความสัมพันธ์ $a+b$ เป็นจำนวนคู่</b>
             </div>
-            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--red);font-size:2.2cqh">
-              • หยิบเลขคนละตัว: $3$ กับ $7$ ($3 \neq 7$)<br>
-              • <b>ขาไป:</b> $3 + 7 = \mathbf{10}$ (เลขคู่ ผ่านเกณฑ์ ✓)<br>
-              • <b>ขากลับ:</b> $7 + 3 = \mathbf{10}$ (เลขคู่ ผ่านเกณฑ์เหมือนกัน ✓)<br>
-              • <span class="rd"><b>ผลลัพธ์:</b> เกิดลูกศรไป-กลับของเลขคนละตัวทันที!</span>
+            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--red);font-size:2.1cqh">
+              • เลือก $a = 3$ และ $b = 7$ ซึ่งเป็นสมาชิกคนละตัวกัน ($3 \neq 7$)<br>
+              • ตรวจสอบขาไปจะได้ $3 + 7 = 10$ ซึ่งเป็นจำนวนคู่ แสดงว่า $(3, 7) \in R$<br>
+              • ตรวจสอบขากลับจะได้ $7 + 3 = 10$ ซึ่งเป็นจำนวนคู่ แสดงว่า $(7, 3) \in R$<br>
+              • พบว่ามีความสัมพันธ์ทั้งสองทิศทางพร้อมกันแต่ $3 \neq 7$
             </div>
             <div style="font-size:2cqh;color:var(--red2);font-weight:700;margin-top:.4cqh">
-              ✗ มีทั้งขาไปและขากลับของเลขคนละตัว $\implies$ <u>ไม่เป็นปฏิสมมาตร</u>
+              เนื่องจากเกิดความสัมพันธ์แบบไปและกลับระหว่างสมาชิกที่ต่างกัน ความสัมพันธ์นี้จึงไม่เป็นปฏิสมมาตร
             </div>
           </div>
         </div>
@@ -914,62 +915,61 @@ b,strong{font-weight:700;color:var(--navy2)}
         <!-- Col 2: Contrast with Valid Antisymmetric -->
         <div class="col">
           <div class="block ex" style="height:100%">
-            <div class="lab"><span class="pin">เปรียบเทียบ</span> ดูอันที่เป็นปฏิสมมาตรเพื่อความเข้าใจชัดเจน</div>
-            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
-              พิจารณาความสัมพันธ์ <b>"น้อยกว่าหรือเท่ากับ" ($a \le b$)</b>:
+            <div class="lab"><span class="pin">กรณีศึกษาเปรียบเทียบ</span> ตัวอย่างความสัมพันธ์ที่มีสมบัติปฏิสมมาตร</div>
+            <div style="font-size:2.1cqh;margin-bottom:.4cqh">
+              พิจารณาความสัมพันธ์ $a \le b$ บนเซตของจำนวนจริง
             </div>
-            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--green);font-size:2.2cqh">
-              • หยิบคนละตัว $2, 5 \implies 2 \le 5$ (จริง)<br>
-              • เมื่อสลับที่ $5 \le 2$ (<span class="rd">เป็นเท็จ ไม่มีทางเกิดขึ้น</span>)<br>
-              • การจะเกิดไป-กลับได้ มีทางเดียวคือ $a=b$ เช่น $5 \le 5$ เท่านั้น!
+            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--green);font-size:2.1cqh">
+              • เมื่อพิจารณาสมาชิกต่างตัวกัน เช่น $2$ กับ $5$ จะได้ $2 \le 5$ เป็นจริง แต่ $5 \le 2$ เป็นเท็จ<br>
+              • การที่จะมี $a \le b$ และ $b \le a$ เกิดขึ้นพร้อมกันได้ มีเพียงกรณีเดียวคือ $a = b$ เช่น $5 \le 5$
             </div>
             <div style="font-size:2cqh;color:var(--green2);font-weight:700;margin-top:.6cqh">
-              ✓ ลูกศรเดินทางเดียวเสมอสำหรับคนละตัว $\implies$ <u>เป็นปฏิสมมาตร</u>
+              ทิศทางของความสัมพันธ์เกิดขึ้นเพียงทิศทางเดียวเสมอ ส่งผลให้ความสัมพันธ์มีสมบัติปฏิสมมาตร
             </div>
             <div style="font-size:1.9cqh;color:var(--navy2);margin-top:.6cqh;background:var(--lnavy);padding:.4cqh .8cqw;border-radius:4px">
-              💡 <b>จำง่าย ๆ:</b> สลับที่ได้สำหรับเลขคนละตัว $\to$ สมมาตร แต่ "ไม่เป็นปฏิสมมาตร"
+              <b>ข้อสังเกต</b> ความสัมพันธ์ที่สลับที่ได้สำหรับสมาชิกต่างตัวกันจะมีสมบัติสมมาตร แต่จะไม่เป็นปฏิสมมาตร
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>การตรวจสอบสมบัติปฏิสมมาตรอย่างเข้าใจง่าย</span><span class="right">4091606 · CH03-W07</span></div>
+    <div class="foot"><span>การตรวจสอบสมบัติปฏิสมมาตร</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
   <!-- SLIDE 20: Symmetric vs Antisymmetric -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 4.4</span><h2>ข้อพึงระวัง: สมมาตร vs ปฏิสมมาตร (4 รูปแบบ)</h2></div>
+      <div><span class="kick">Concept 4.4</span><h2>ข้อพิจารณาความแตกต่างระหว่างสมมาตรและปฏิสมมาตร</h2></div>
     </div>
     <div class="body">
       <div class="block al">
-        <div class="lab"><span class="pin">COMMON MISTAKE</span> ข้อเข้าใจผิดยอดฮิต</div>
-        "ปฏิสมมาตร" <b>ไม่ใช่</b> นิเสธของ "สมมาตร" (ความสัมพันธ์สามารถเป็นได้ทั้งคู่ หรือไม่เป็นทั้งคู่ก็ได้!)
+        <div class="lab"><span class="pin">ข้อพึงระวัง</span> ความสัมพันธ์ระหว่างสมบัติสมมาตรและปฏิสมมาตร</div>
+        สมบัติปฏิสมมาตรไม่ใช่นิเสธของสมบัติสมมาตร โดยความสัมพันธ์ทวิภาคสามารถจำแนกออกได้เป็น 4 รูปแบบ
       </div>
       <div class="proc-grid" style="margin-top:.3cqh">
         <div class="proc-card">
           <div class="p-num">กรณี 1</div>
           <div class="p-title">สมมาตรอย่างเดียว</div>
-          <div class="p-desc">เช่น $a+b$ เป็นเลขคู่, $a \equiv b \pmod m$</div>
+          <div class="p-desc">เช่น ความสัมพันธ์ $a+b$ เป็นจำนวนคู่ และ $a \equiv b \pmod m$</div>
         </div>
         <div class="proc-card">
           <div class="p-num">กรณี 2</div>
           <div class="p-title">ปฏิสมมาตรอย่างเดียว</div>
-          <div class="p-desc">เช่น $a \le b$, $a < b$, $a \mid b$</div>
+          <div class="p-desc">เช่น ความสัมพันธ์ $a \le b$, $a < b$ และ $a \mid b$</div>
         </div>
         <div class="proc-card">
           <div class="p-num">กรณี 3</div>
-          <div class="p-title">เป็นทั้งสองอย่าง!</div>
+          <div class="p-title">เป็นทั้งสองสมบัติ</div>
           <div class="p-desc">เช่น ความสัมพันธ์เอกลักษณ์ $I_A = \{(1,1), (2,2)\}$</div>
         </div>
         <div class="proc-card">
           <div class="p-num">กรณี 4</div>
-          <div class="p-title">ไม่เป็นทั้งสองอย่าง!</div>
+          <div class="p-title">ไม่เป็นทั้งสองสมบัติ</div>
           <div class="p-desc">เช่น $R = \{(1,2), (2,1), (1,3)\}$ บน $\{1,2,3\}$</div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>เปรียบเทียบสมมาตร vs ปฏิสมมาตร</span><span class="right">4091606 · CH03-W07</span></div>
+    <div class="foot"><span>เปรียบเทียบสมมาตรและปฏิสมมาตร</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
   <!-- SLIDE 21: Transitive Property with Animated Shortcut Edge -->
@@ -981,28 +981,29 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div class="cols wide-l">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">ANALOGY</span> การส่งต่อ / โดมิโนล้มต่อกัน</div>
-            ถ้า $a$ เชื่อมโยงไปหา $b$ และ $b$ เชื่อมโยงต่อไปหา $c$ แล้ว <b>$a$ ต้องเชื่อมโยงตรงไปหา $c$ ได้ด้วย</b>:
+            <div class="lab"><span class="pin">นิยาม</span> การถ่ายทอดความสัมพันธ์ผ่านสมาชิกตัวกลาง</div>
+            ถ้า $a$ มีความสัมพันธ์กับ $b$ และ $b$ มีความสัมพันธ์กับ $c$ แล้ว $a$ ต้องมีความสัมพันธ์ตรงไปยัง $c$ ด้วย
             $$\mathbf{\forall a, b, c \in A, [(a, b) \in R \land (b, c) \in R] \implies (a, c) \in R}$$
           </div>
           <div class="cols" style="margin-top:.3cqh">
             <div class="col">
-              <div class="block ex" style="padding:.9cqh 1.2cqw">
-                <div class="lab"><span class="pin">✓ เป็นถ่ายทอด</span></div>
-                $a < b$ ($2<5 \land 5<9 \implies 2<9$), $a \mid b$
+              <div class="block ex" style="padding:.7cqh 1cqw">
+                <div class="lab"><span class="pin">ความสัมพันธ์ที่มีสมบัติถ่ายทอด</span></div>
+                • $a < b$ (เนื่องจาก $2 < 5$ และ $5 < 9$ ส่งผลให้ $2 < 9$)<br>
+                • $a \mid b$ (เนื่องจาก $a \mid b$ และ $b \mid c$ ส่งผลให้ $a \mid c$)
               </div>
             </div>
             <div class="col">
-              <div class="block al" style="padding:.9cqh 1.2cqw">
-                <div class="lab"><span class="pin">✗ ไม่เป็นถ่ายทอด</span></div>
-                $|a-b| \le 2$ ($|1-3|\le 2 \land |3-5|\le 2$ แต่ $|1-5|=4>2$)
+              <div class="block al" style="padding:.7cqh 1cqw">
+                <div class="lab"><span class="pin">ความสัมพันธ์ที่ไม่เป็นถ่ายทอด</span></div>
+                • $|a-b| \le 2$ (เนื่องจาก $|1-3| \le 2$ และ $|3-5| \le 2$ แต่ $|1-5| = 4 > 2$)
               </div>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="diag-box">
-            <div style="font-family:var(--f-head);font-size:1.8cqh;font-weight:700;color:var(--navy2);margin-bottom:.4cqh">เส้นทางลัดข้ามโหนด (Shortcut)</div>
+            <div style="font-family:var(--f-head);font-size:1.8cqh;font-weight:700;color:var(--navy2);margin-bottom:.4cqh">เส้นทางลัดข้ามสมาชิกตัวกลาง (Shortcut)</div>
             <svg class="diag-svg" viewBox="0 0 180 130">
               <defs>
                 <marker id="arrTrans" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
@@ -1024,7 +1025,7 @@ b,strong{font-weight:700;color:var(--navy2)}
               <!-- Shortcut -->
               <path d="M 43 53 L 77 93" class="diag-edge pulse" style="stroke:var(--gold);stroke-width:3" marker-end="url(#arrGold)"/>
             </svg>
-            <div style="font-size:1.5cqh;color:var(--gold2);font-weight:700">ต้องมีเส้นเชื่อมตรง $a \to c$ เสมอ</div>
+            <div style="font-size:1.5cqh;color:var(--gold2);font-weight:700">ต้องมีเส้นเชื่อมตรงจาก $a \to c$ เสมอ</div>
           </div>
         </div>
       </div>
@@ -1035,30 +1036,30 @@ b,strong{font-weight:700;color:var(--navy2)}
   <!-- SLIDE 21b: Intuitive Explanation of Transitive Property -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Deep Dive 4.5b</span><h2>เข้าใจง่าย: ทำไมความสัมพันธ์ $a+b$ เป็นเลขคู่ ถึงมีสมบัติถ่ายทอด?</h2></div>
+      <div><span class="kick">Deep Dive 4.5b</span><h2>การพิสูจน์สมบัติถ่ายทอดของความสัมพันธ์ $a+b$ เป็นจำนวนคู่</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <!-- Col 1: Concept & Proof -->
         <div class="col">
           <div class="block ex" style="height:100%">
-            <div class="lab"><span class="pin">หลักการ</span> กติกาของ "ถ่ายทอด" และการส่งต่อสถานะคู่-คี่</div>
-            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
-              <b>1. กติกาของถ่ายทอด:</b> ถ้า $a \to b$ และ $b \to c$ แล้วต้องมีทางลัดตรง $a \to c$ เสมอ
+            <div class="lab"><span class="pin">หลักการทางคณิตศาสตร์</span> การส่งต่อภาวะคู่หรือคี่</div>
+            <div style="font-size:2.1cqh;margin-bottom:.4cqh">
+              <b>1. เงื่อนไขสมบัติถ่ายทอด</b> ถ้า $(a, b) \in R$ และ $(b, c) \in R$ แล้ว ต้องสรุปได้ว่า $(a, c) \in R$
             </div>
-            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
-              <b>2. ทำไม $a+b$ ถึงส่งต่อได้ 100%?</b>
+            <div style="font-size:2.1cqh;margin-bottom:.4cqh">
+              <b>2. การพิจารณาบนนิยาม</b>
             </div>
-            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--green);font-size:2.2cqh">
-              • ขา 1: $a+b$ เป็นคู่ $\implies a$ และ $b$ เป็นประเภทเดียวกัน (คู่ทั้งคู่ หรือคี่ทั้งคู่)<br>
-              • ขา 2: $b+c$ เป็นคู่ $\implies c$ ก็ต้องเป็นประเภทเดียวกับ $b$<br>
-              • <b>ทางลัด:</b> $a$ กับ $c$ จึงเป็นประเภทเดียวกันโดยอัตโนมัติ $\implies a+c$ เป็นคู่แน่นอน!
+            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--green);font-size:2.1cqh">
+              • เมื่อ $a+b$ เป็นจำนวนคู่ แสดงว่า $a$ และ $b$ มีภาวะคู่หรือคี่เหมือนกัน<br>
+              • เมื่อ $b+c$ เป็นจำนวนคู่ แสดงว่า $c$ ต้องมีภาวะคู่หรือคี่เหมือนกับ $b$<br>
+              • ส่งผลให้ $a$ และ $c$ มีภาวะคู่หรือคี่เหมือนกัน ทำให้ผลบวก $a+c$ เป็นจำนวนคู่เสมอ
             </div>
-            <div style="font-size:2.1cqh;margin-top:.4cqh">
-              <b>ตัวอย่าง:</b> $3+7 = \mathbf{10}$ (คู่) $\land$ $7+11 = \mathbf{18}$ (คู่) $\implies 3+11 = \mathbf{14}$ (คู่ ✓)
+            <div style="font-size:2cqh;margin-top:.4cqh">
+              <b>ตัวอย่างการคำนวณ</b> กำหนด $a=3, b=7, c=11$ จะได้ $3+7 = 10$ และ $7+11 = 18$ ซึ่งส่งผลให้ $3+11 = 14$ เป็นจำนวนคู่
             </div>
             <div style="font-size:1.8cqh;color:var(--green2);font-weight:700;margin-top:.3cqh">
-              พีชคณิต: $(a+b)+(b+c)=2(k_1+k_2) \implies a+c=2(k_1+k_2-b)$ (มี 2 คูณ $\to$ เลขคู่ ✓)
+              การพิสูจน์เชิงพีชคณิต $(a+b)+(b+c)=2(k_1+k_2) \implies a+c=2(k_1+k_2-b)$ ซึ่งมี 2 เป็นตัวประกอบ
             </div>
           </div>
         </div>
@@ -1066,26 +1067,26 @@ b,strong{font-weight:700;color:var(--navy2)}
         <!-- Col 2: Contrast with Non-Transitive -->
         <div class="col">
           <div class="block al" style="height:100%">
-            <div class="lab"><span class="pin">เปรียบเทียบ</span> ดูอันที่ไม่ถ่ายทอดเพื่อความเข้าใจชัดเจน</div>
-            <div style="font-size:2.2cqh;margin-bottom:.4cqh">
-              พิจารณาความสัมพันธ์ <b>"ระยะห่างไม่เกิน 2" ($|a - b| \le 2$)</b>:
+            <div class="lab"><span class="pin">กรณีศึกษาเปรียบเทียบ</span> ตัวอย่างความสัมพันธ์ที่ไม่สอดคล้องกับสมบัติถ่ายทอด</div>
+            <div style="font-size:2.1cqh;margin-bottom:.4cqh">
+              พิจารณาความสัมพันธ์ $|a - b| \le 2$ บนเซตของจำนวนเต็ม
             </div>
-            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--red);font-size:2.2cqh">
-              • ขา 1: $|1 - 3| = \mathbf{2} \le 2$ (ผ่านเกณฑ์ ✓)<br>
-              • ขา 2: $|3 - 5| = \mathbf{2} \le 2$ (ผ่านเกณฑ์ ✓)<br>
-              • <b>ทางลัด:</b> $|1 - 5| = \mathbf{4} > 2$ (<span class="rd">หลุดระยะทาง ไม่ผ่านเกณฑ์ ✗</span>)
+            <div class="box-callout" style="background:var(--paper2);padding:.6cqh 1cqw;border-radius:6px;border-left:4px solid var(--red);font-size:2.1cqh">
+              • เมื่อเลือก $a=1, b=3, c=5$ จะได้ $|1 - 3| = 2 \le 2$ เป็นจริง<br>
+              • สำหรับคู่ถัดไป $|3 - 5| = 2 \le 2$ เป็นจริง<br>
+              • แต่เมื่อตรวจสอบทางลัดตรงข้าม $|1 - 5| = 4 > 2$ ซึ่งเป็นเท็จ
             </div>
             <div style="font-size:2cqh;color:var(--red2);font-weight:700;margin-top:.6cqh">
-              ✗ ขา 1 และ 2 ผ่าน แต่ทางลัดข้ามไม่ถึง $\implies$ <u>ไม่ถ่ายทอด</u>
+              เมื่อเงื่อนไขเริ่มต้นเป็นจริงแต่ข้อสรุปทางลัดเป็นเท็จ ความสัมพันธ์จึงไม่มีสมบัติถ่ายทอด
             </div>
             <div style="font-size:1.9cqh;color:var(--navy2);margin-top:.6cqh;background:var(--lnavy);padding:.4cqh .8cqw;border-radius:4px">
-              💡 <b>จำง่าย ๆ:</b> สถานะคู่-คี่ส่งต่อได้ $\to$ ถ่ายทอด | ระยะทางบวกสะสมแล้วหลุด $\to$ ไม่ถ่ายทอด
+              <b>ข้อสังเกต</b> ภาวะคู่หรือคี่สามารถส่งต่อกันได้ทำให้เกิดสมบัติถ่ายทอด ในขณะที่ระยะห่างเมื่อบวกสะสมแล้วอาจเกินขอบเขตจึงไม่ถ่ายทอด
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>การพิสูจน์สมบัติถ่ายทอดอย่างเข้าใจง่าย</span><span class="right">4091606 · CH03-W07</span></div>
+    <div class="foot"><span>การพิสูจน์สมบัติถ่ายทอด</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
   <!-- SLIDE 22: Summary Table of Properties -->
@@ -1130,21 +1131,21 @@ b,strong{font-weight:700;color:var(--navy2)}
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามความสัมพันธ์สมมูล</div>
-        ความสัมพันธ์ $R$ บนเซต $A$ จะเป็น <b>ความสัมพันธ์สมมูล</b> ก็ต่อเมื่อมีครบทั้ง 3 สมบัติพร้อมกัน:
+        <div class="lab"><span class="pin">นิยาม</span> เงื่อนไขการเป็นความสัมพันธ์สมมูล</div>
+        ความสัมพันธ์ $R$ บนเซต $A$ จะเป็นความสัมพันธ์สมมูลก็ต่อเมื่อสอดคล้องกับ 3 สมบัติดังต่อไปนี้พร้อมกัน
         $$\mathbf{\text{1. สะท้อน (Reflexive)}} \quad \mathbf{\text{2. สมมาตร (Symmetric)}} \quad \mathbf{\text{3. ถ่ายทอด (Transitive)}}$$
       </div>
       <div class="cols" style="margin-top:.4cqh">
         <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">✓ ตัวอย่างหลัก 1</span> $a+b$ เป็นเลขคู่</div>
-            ผ่านครบทั้ง สะท้อน ($a+a=2a$), สมมาตร ($b+a=a+b$), และถ่ายทอด ($a+c=2(k_1+k_2-b)$)
+            <div class="lab"><span class="pin">ตัวอย่างหลักที่ 1</span> ความสัมพันธ์ $a+b$ เป็นจำนวนคู่ บน $\mathbb{Z}$</div>
+            สอดคล้องครบทั้งสมบัติสะท้อน ($a+a=2a$) สมบัติสมมาตร ($b+a=a+b$) และสมบัติถ่ายทอด ($a+c=2(k_1+k_2-b)$)
           </div>
         </div>
         <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">✓ ตัวอย่างหลัก 2</span> $a \equiv b \pmod m$</div>
-            ผ่านครบทั้ง สะท้อน ($m\mid 0$), สมมาตร ($b-a=-km$), และถ่ายทอด ($a-c=(k_1+k_2)m$)
+            <div class="lab"><span class="pin">ตัวอย่างหลักที่ 2</span> ความสัมพันธ์คอนกรูเอนซ์ $a \equiv b \pmod m$ บน $\mathbb{Z}$</div>
+            สอดคล้องครบทั้งสมบัติสะท้อน ($m\mid 0$) สมบัติสมมาตร ($b-a=-km$) และสมบัติถ่ายทอด ($a-c=(k_1+k_2)m$)
           </div>
         </div>
       </div>
@@ -1155,65 +1156,60 @@ b,strong{font-weight:700;color:var(--navy2)}
   <!-- SLIDE 24b: Full Step-by-Step Proof of a+b is Even -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Master Proof 5.1b</span><h2>ตัวอย่างการพิสูจน์: ความสัมพันธ์ $a+b$ เป็นเลขคู่ บน $\mathbb{Z}$</h2></div>
+      <div><span class="kick">Master Proof 5.1b</span><h2>ตัวอย่างการพิสูจน์ความสัมพันธ์ $a+b$ เป็นจำนวนคู่ บน $\mathbb{Z}$</h2></div>
     </div>
     <div class="body">
       <div style="font-size:2.2cqh;margin-bottom:.4cqh">
-        <b>โจทย์:</b> กำหนดความสัมพันธ์ $R = \{(a, b) \in \mathbb{Z} \times \mathbb{Z} \mid a + b \text{ เป็นเลขคู่}\}$ จงพิสูจน์ว่า $R$ เป็นความสัมพันธ์สมมูล
+        กำหนดความสัมพันธ์ $R = \{(a, b) \in \mathbb{Z} \times \mathbb{Z} \mid a + b \text{ เป็นจำนวนคู่}\}$ จงพิสูจน์ว่า $R$ เป็นความสัมพันธ์สมมูล
       </div>
       <div class="cols">
         <!-- Step 1 -->
         <div class="col">
           <div class="block ex" style="height:100%;padding:.8cqh 1cqw">
-            <div class="lab"><span class="pin">1. สะท้อน</span> Reflexive</div>
+            <div class="lab"><span class="pin">ขั้นที่ 1</span> สมบัติสะท้อน</div>
             <ul style="margin-left:1.2cqw;font-size:2.1cqh;line-height:1.4">
               <li>ให้ $a \in \mathbb{Z}$ ใด ๆ</li>
               <li>พิจารณา $a + a = 2a$</li>
-              <li>เนื่องจาก $a \in \mathbb{Z}$ ทำให้ $2a$ เป็นจำนวนคู่เสมอ ($2k$ เมื่อ $k=a$)</li>
-              <li>ดังนั้น $(a, a) \in R$ <span class="gn">✓</span></li>
+              <li>เนื่องจาก $a \in \mathbb{Z}$ จะได้ว่า $2a$ เป็นจำนวนคู่เสมอ</li>
+              <li>ดังนั้น $(a, a) \in R$</li>
             </ul>
-            <div style="font-size:1.8cqh;color:var(--green2);font-weight:700;margin-top:.4cqh">✓ มีสมบัติสะท้อน</div>
+            <div style="font-size:1.8cqh;color:var(--green2);font-weight:700;margin-top:.4cqh">มีสมบัติสะท้อน</div>
           </div>
         </div>
 
         <!-- Step 2 -->
         <div class="col">
           <div class="block ex" style="height:100%;padding:.8cqh 1cqw">
-            <div class="lab"><span class="pin">2. สมมาตร</span> Symmetric</div>
+            <div class="lab"><span class="pin">ขั้นที่ 2</span> สมบัติสมมาตร</div>
             <ul style="margin-left:1.2cqw;font-size:2.1cqh;line-height:1.4">
-              <li>ให้ $a, b \in \mathbb{Z}$ และสมมุติ $(a, b) \in R$</li>
-              <li>มี $k \in \mathbb{Z}$ ที่ $a + b = 2k$</li>
-              <li>โดย<b>สมบัติการสลับที่การบวก</b>:
-                $$b + a = a + b = 2k$$
-              </li>
-              <li>ได้ $b + a$ เป็นคู่ $\implies (b, a) \in R$ <span class="gn">✓</span></li>
+              <li>ให้ $a, b \in \mathbb{Z}$ และสมมุติว่า $(a, b) \in R$</li>
+              <li>จะมีจำนวนเต็ม $k$ ที่ทำให้ $a + b = 2k$</li>
+              <li>โดยสมบัติการสลับที่ของการบวกจะได้ $b + a = a + b = 2k$</li>
+              <li>ดังนั้น $b + a$ เป็นจำนวนคู่ ส่งผลให้ $(b, a) \in R$</li>
             </ul>
-            <div style="font-size:1.8cqh;color:var(--green2);font-weight:700;margin-top:.4cqh">✓ มีสมบัติสมมาตร</div>
+            <div style="font-size:1.8cqh;color:var(--green2);font-weight:700;margin-top:.4cqh">มีสมบัติสมมาตร</div>
           </div>
         </div>
 
         <!-- Step 3 -->
         <div class="col">
           <div class="block ex" style="height:100%;padding:.8cqh 1cqw">
-            <div class="lab"><span class="pin">3. ถ่ายทอด</span> Transitive</div>
+            <div class="lab"><span class="pin">ขั้นที่ 3</span> สมบัติถ่ายทอด</div>
             <ul style="margin-left:1.2cqw;font-size:2.1cqh;line-height:1.4">
-              <li>สมมุติ $(a, b) \in R$ และ $(b, c) \in R$</li>
-              <li>มี $k_1, k_2$ ที่ $a+b=2k_1, b+c=2k_2$</li>
-              <li>$(a+b)+(b+c) = 2(k_1+k_2)$
-                $$a+c = 2(k_1+k_2-b)$$
-              </li>
-              <li>$k_1+k_2-b \in \mathbb{Z} \implies a+c$ เป็นคู่</li>
-              <li>ดังนั้น $(a, c) \in R$ <span class="gn">✓</span></li>
+              <li>สมมุติให้ $(a, b) \in R$ และ $(b, c) \in R$</li>
+              <li>จะมีจำนวนเต็ม $k_1, k_2$ ที่ทำให้ $a+b=2k_1$ และ $b+c=2k_2$</li>
+              <li>นำสมการมาบวกกันจะได้ $a+c = 2(k_1+k_2-b)$</li>
+              <li>เนื่องจาก $k_1+k_2-b \in \mathbb{Z}$ จะได้ว่า $a+c$ เป็นจำนวนคู่ ทำให้ $(a, c) \in R$</li>
             </ul>
-            <div style="font-size:1.8cqh;color:var(--green2);font-weight:700;margin-top:.4cqh">✓ มีสมบัติถ่ายทอด</div>
+            <div style="font-size:1.8cqh;color:var(--green2);font-weight:700;margin-top:.4cqh">มีสมบัติถ่ายทอด</div>
           </div>
         </div>
       </div>
       <div style="margin-top:.4cqh;font-size:2.1cqh;text-align:center;background:var(--mint);padding:.4cqh 1cqw;border-radius:6px;color:var(--green2);font-weight:700">
-        สรุป: $R$ มีครบทั้งสมบัติสะท้อน สมมาตร และถ่ายทอด จึงเป็น <u>ความสัมพันธ์สมมูล (Equivalence Relation)</u> บน $\mathbb{Z}$
+        สรุปได้ว่า $R$ มีครบทั้งสมบัติสะท้อน สมบัติสมมาตร และสมบัติถ่ายทอด จึงเป็นความสัมพันธ์สมมูลบน $\mathbb{Z}$
       </div>
     </div>
-    <div class="foot"><span>การพิสูจน์ความสัมพันธ์สมมูลเต็มรูปแบบ</span><span class="right">4091606 · CH03-W07</span></div>
+    <div class="foot"><span>การพิสูจน์ความสัมพันธ์สมมูล</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
   <!-- SLIDE 25: Equivalence Classes & Partition Diagram -->

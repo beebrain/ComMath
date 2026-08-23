@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>บทที่ 3 ความสัมพันธ์และฟังก์ชัน — สัปดาห์ที่ 7 (1 Slide 1 Concept)</title>
+<title>บทที่ 3 ความสัมพันธ์และฟังก์ชัน — สัปดาห์ที่ 7 (1 Slide 1 Concept · เข้าใจง่ายสำหรับผู้เริ่มต้น)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <style>
 /* =====================================================================
-   RELATION BLUEPRINT — 1 SLIDE 1 CONCEPT (WEEK 7)
+   RELATIONS BLUEPRINT — 1 SLIDE 1 CONCEPT (WEEK 7)
    4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์ · มรภ.อุตรดิตถ์
    ===================================================================== */
 :root{
@@ -70,7 +70,6 @@ body{color:var(--ink);background:var(--paper);overflow:hidden}
   padding:12.8cqh 5.2cqw 5.6cqh;display:flex;flex-direction:column;justify-content:center;gap:1.8cqh;
   font-size:2.85cqh;line-height:1.45;overflow:hidden}
 .body.tight{gap:1.2cqh}
-.body.top{justify-content:flex-start;padding-top:13.5cqh}
 
 .foot{position:absolute;left:0;right:0;bottom:0;height:4.8cqh;
   display:flex;align-items:center;justify-content:space-between;
@@ -121,16 +120,6 @@ b,strong{font-weight:700;color:var(--navy2)}
 .cols.wide-r{grid-template-columns:.8fr 1.2fr}
 .cols.three{grid-template-columns:repeat(3,1fr);gap:1.5cqw}
 .col{display:flex;flex-direction:column;gap:1.2cqh}
-
-/* Tables & Lists */
-.tt-wrap{border-radius:10px;overflow:hidden;background:#fff;
-  box-shadow:0 12px 24px -14px rgba(14,26,68,.4),0 0 0 1px var(--line2);width:100%}
-table.tt{border-collapse:collapse;font-family:var(--f-mono);width:100%}
-table.tt th,table.tt td{border:1px solid var(--line);padding:.55cqh .9cqw;text-align:center;
-  font-size:.86em;white-space:nowrap}
-table.tt thead th{background:linear-gradient(180deg,#2b4bb0,var(--navy2));color:#fff;font-weight:700}
-table.tt tbody tr:nth-child(even) td{background:#F6F8FE}
-table.tt tbody tr:hover td{background:var(--lnavy)}
 
 .proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1cqw;margin-top:.3cqh}
 .proc-card{background:#fff;border-radius:10px;padding:1.3cqh 1.1cqw;border:1px solid var(--line2);
@@ -214,9 +203,9 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="cover">
       <div class="tag">Week 07 · Computer Mathematics</div>
       <h1>บทที่ 3 ความสัมพันธ์และฟังก์ชัน
-        <span class="en">Relations, Cartesian Products, Binary Properties & Closures</span>
+        <span class="en">Relations, Binary Properties, Equivalence & Closures</span>
       </h1>
-      <p class="sub">เจาะลึก 1 ประเด็นต่อ 1 สไลด์ · พื้นฐานคู่อันดับ · ผลคูณคาร์ทีเซียน · สมบัติทวิภาคเชิงตัวเลข · และขั้นตอนวิธีวอร์แชลล์</p>
+      <p class="sub">เจาะลึก 1 ประเด็นต่อ 1 สไลด์ · ปูพื้นฐานเข้าใจง่าย เห็นภาพจริง · คู่อันดับ ผลคูณคาร์ทีเซียน สมบัติทวิภาคเชิงตัวเลข และการปิดสมบัติ</p>
       <div class="meta">
         <div class="course">4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์</div>
         <div>ผู้สอน: <b>ผู้ช่วยศาสตราจารย์ ดร.พิศิษฐ์ นาคใจ</b> · สาขาวิชาวิทยาการข้อมูล มรภ.อุตรดิตถ์</div>
@@ -234,23 +223,23 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
       <div class="proc-grid">
         <div class="proc-card">
           <div class="p-num">01</div>
-          <div class="p-title">คู่อันดับ & ความสัมพันธ์</div>
-          <div class="p-desc">เข้าใจผลคูณคาร์ทีเซียน $A \times B$ การแทนความสัมพันธ์ด้วยเซต ตาราง เมทริกซ์ 0-1 และกราฟระบุทิศทาง</div>
+          <div class="p-title">คู่อันดับ & ผลคูณ</div>
+          <div class="p-desc">เข้าใจการจับคู่ที่มีทิศทาง $(a, b)$ และหาผลคูณคาร์ทีเซียน $A \times B$</div>
         </div>
         <div class="proc-card">
           <div class="p-num">02</div>
-          <div class="p-title">โดเมน เรนจ์ & ผกผัน</div>
-          <div class="p-desc">หา $\operatorname{Dom}(R)$, $\operatorname{Ran}(R)$ และความสัมพันธ์ผกผัน $R^{-1}$ รวมถึงการยูเนียนและอินเตอร์เซกชัน</div>
+          <div class="p-title">การแทนความสัมพันธ์</div>
+          <div class="p-desc">แปลงความสัมพันธ์เป็นเมทริกซ์ 0-1 และกราฟระบุทิศทาง (Digraph)</div>
         </div>
         <div class="proc-card">
           <div class="p-num">03</div>
-          <div class="p-title">สมบัติทวิภาคเชิงตัวเลข</div>
-          <div class="p-desc">ตรวจสอบสมบัติ สะท้อน, สมมาตร, ปฏิสมมาตร, และถ่ายทอด ผ่านตัวอย่าง $\le, <, \mid, \equiv_m$</div>
+          <div class="p-title">4 สมบัติทวิภาค</div>
+          <div class="p-desc">ตรวจสอบสมบัติสะท้อน สมมาตร ปฏิสมมาตร และถ่ายทอดด้วยตัวเลขจริง</div>
         </div>
         <div class="proc-card">
           <div class="p-num">04</div>
           <div class="p-title">สมมูล & การปิดสมบัติ</div>
-          <div class="p-desc">จำแนกคลาสสมมูล $[a]$ สร้างผลกั้นเซต (Partition) และหาการปิดสมบัติ $R \cup \Delta$, $R \cup R^{-1}$, $R^+$ ด้วยขั้นตอนวิธีวอร์แชลล์</div>
+          <div class="p-desc">แบ่งกลุ่มข้อมูลด้วย Partition และหา Warshall's Transitive Closure</div>
         </div>
       </div>
     </div>
@@ -267,26 +256,25 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
         <div class="col">
           <div class="block">
             <div class="lab"><span class="pin">PART 1</span> คู่อันดับและผลคูณคาร์ทีเซียน</div>
-            • นิยามคู่อันดับ $(a, b)$ และผลคูณคาร์ทีเซียน $A \times B$<br>
-            • การนับจำนวนสมาชิก $|A \times B| = |A| \cdot |B|$ และสมบัติการกระจาย
+            • นิยามคู่อันดับ $(a, b)$ และเงื่อนไขการเท่ากัน<br>
+            • ผลคูณคาร์ทีเซียน $A \times B$ และการนับจำนวนสมาชิก $|A| \cdot |B|$<br>
+            • สมบัติการกระจายข้ามยูเนียนและอินเตอร์เซกชัน
           </div>
           <div class="block ex">
-            <div class="lab"><span class="pin">PART 2</span> การแทนความสัมพันธ์ 4 รูปแบบ</div>
-            • เซตของคู่อันดับ, ตาราง, เมทริกซ์ 0-1, กราฟระบุทิศทาง, แผนภาพลูกศร<br>
-            • โดเมน $\operatorname{Dom}(R)$, เรนจ์ $\operatorname{Ran}(R)$, และความสัมพันธ์ผกผัน $R^{-1}$
+            <div class="lab"><span class="pin">PART 2</span> นิยามและการแทนความสัมพันธ์</div>
+            • นิยาม $R \subseteq A \times B$ และจำนวนความสัมพันธ์ $2^{|A \times B|}$<br>
+            • เมทริกซ์บูลีน 0-1 ($M_R$) และกราฟระบุทิศทาง (Digraph)
           </div>
         </div>
         <div class="col">
           <div class="block gold">
-            <div class="lab"><span class="pin">PART 3</span> 4 สมบัติทวิภาค & ตัวอย่างเชิงตัวเลข</div>
-            • สะท้อน (Reflexive), สมมาตร (Symmetric)<br>
-            • ปฏิสมมาตร (Antisymmetric), ถ่ายทอด (Transitive)<br>
-            • ตารางเปรียบเทียบความสัมพันธ์เชิงตัวเลขยอดนิยม
+            <div class="lab"><span class="pin">PART 3</span> โดเมน เรนจ์ & ผกผัน</div>
+            • $\operatorname{Dom}(R)$, $\operatorname{Ran}(R)$, และความสัมพันธ์ผกผัน $R^{-1}$
           </div>
           <div class="block al">
-            <div class="lab"><span class="pin">PART 4</span> สมมูล การแบ่งกั้น & การปิดสมบัติ</div>
-            • ความสัมพันธ์สมมูล $\to$ คลาสสมมูล $[a] \to$ ผลกั้นเซต (Partition)<br>
-            • การปิดสมบัติ และขั้นตอนวิธีวอร์แชลล์ (Warshall's Algorithm)
+            <div class="lab"><span class="pin">PART 4</span> 4 สมบัติทวิภาค & การปิดสมบัติ</div>
+            • สะท้อน, สมมาตร, ปฏิสมมาตร, ถ่ายทอด (เจาะลึกตัวอย่างเชิงตัวเลข)<br>
+            • ความสัมพันธ์สมมูล, คลาสสมมูล, และขั้นตอนวิธีวอร์แชลล์ (Warshall)
           </div>
         </div>
       </div>
@@ -306,20 +294,21 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
   <!-- SLIDE 5: Ordered Pair -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 1.1</span><h2>คู่อันดับ (Ordered Pair)</h2></div>
+      <div><span class="kick">Concept 1.1</span><h2>คู่อันดับ (Ordered Pair $(a, b)$)</h2></div>
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามคู่อันดับ $(a, b)$</div>
-        คู่อันดับระบุการจับคู่ที่มี <b>ทิศทางและลำดับที่แน่นอน</b> โดย $a$ เป็นสมาชิกตัวหน้า และ $b$ เป็นสมาชิกตัวหลัง
+        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพในชีวิตประจำวัน</div>
+        คู่อันดับ คือการจับคู่ที่มี <b>ทิศทางและตำแหน่งแน่นอน</b> (ตำแหน่งหน้ากับหลังมีความหมายต่างกัน) เช่น:
+        <ul style="margin-top:.4cqh;margin-left:1.5cqw">
+          <li>พิกัด GPS แผนที่ $(x, y) = (\text{ละติจูด}, \text{ลองจิจูด})$ สลับที่ไม่ได้</li>
+          <li>คะแนนสอบ $(\text{คะแนนเก็บ}, \text{คะแนนสอบ})$ เช่น $(10, 80)$ ต่างจาก $(80, 10)$</li>
+        </ul>
       </div>
       <div class="block gold">
         <div class="lab"><span class="pin">EQUIV</span> เงื่อนไขการเท่ากันของคู่อันดับ</div>
         $$\mathbf{(a, b) = (c, d) \iff a = c \land b = d}$$
-      </div>
-      <div class="block al">
-        <div class="lab"><span class="pin">CAUTION</span> ข้อควรระวัง</div>
-        ลำดับมีผลต่อความหมายโดยตรง: $\mathbf{(a, b) \neq (b, a)}$ เมื่อ $a \neq b$ (เช่น พิกัด $(2, 5) \neq (5, 2)$ บนแกน $x, y$)
+        <span class="rd">ข้อควรระวัง: $(a, b) \neq (b, a)$ เสมอเมื่อ $a \neq b$</span>
       </div>
     </div>
     <div class="foot"><span>คู่อันดับ</span><span class="right">4091606 · CH03-W07</span></div>
@@ -328,17 +317,18 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
   <!-- SLIDE 6: Cartesian Product Definition -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 1.2</span><h2>ผลคูณคาร์ทีเซียน (Cartesian Product)</h2></div>
+      <div><span class="kick">Concept 1.2</span><h2>ผลคูณคาร์ทีเซียน (Cartesian Product $A \times B$)</h2></div>
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">DEF</span> ผลคูณคาร์ทีเซียน $A \times B$</div>
-        เซตของคู่อันดับ $(a, b)$ ทั้งหมดโดยที่ $a \in A$ และ $b \in B$:
-        $$\mathbf{A \times B = \{(a, b) \mid a \in A \land b \in B\}}$$
+        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพ: การจัดชุดเมนูอาหาร</div>
+        ถ้ามี <b>จานหลัก</b> $A = \{\text{กะเพรา}, \text{ข้าวผัด}\}$ และ <b>เครื่องดื่ม</b> $B = \{\text{ชา}, \text{กาแฟ}, \text{น้ำส้ม}\}$<br>
+        ผลคูณคาร์ทีเซียน $A \times B$ คือ <b>ชุดเมนูอาหารที่เป็นไปได้ทั้งหมดที่ร้านจัดได้</b>:
       </div>
       <div class="block ex">
-        <div class="lab"><span class="pin">EXAMPLE</span> ตัวอย่างการแจกแจง</div>
-        กำหนด $A = \{1, 2\}$ และ $B = \{x, y, z\}$<br>
+        <div class="lab"><span class="pin">MATH DEF</span> นิยามและตัวอย่างทางคณิตศาสตร์</div>
+        $$\mathbf{A \times B = \{(a, b) \mid a \in A \land b \in B\}}$$
+        ถ้า $A = \{1, 2\}$ และ $B = \{x, y, z\}$<br>
         $$\mathbf{A \times B = \{(1, x), (1, y), (1, z), (2, x), (2, y), (2, z)\}}$$
       </div>
     </div>
@@ -383,11 +373,10 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
         $$\mathbf{A \times (B \cup C) = (A \times B) \cup (A \times C)}$$
         $$\mathbf{A \times (B \cap C) = (A \times B) \cap (A \times C)}$$
         $$\mathbf{(A \cup B) \times C = (A \times C) \cup (B \times C)}$$
-        $$\mathbf{(A \cap B) \times C = (A \times C) \cap (B \times C)}$$
       </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">KEY</span> ความสำคัญในคอมพิวเตอร์</div>
-        สมบัติการกระจายนี้ถูกใช้ในการ <b>ปรับแต่งคิวรีฐานข้อมูล (Query Optimization)</b> เพื่อลดขนาดตารางชั่วคราวก่อนทำการ Join
+      <div class="block gold">
+        <div class="lab"><span class="pin">CS INSIGHT</span> ประโยชน์ในระบบฐานข้อมูล (Database)</div>
+        ในระบบ SQL Query Engine สมบัตินี้ช่วยให้ระบบกระจายเงื่อนไขเพื่อ <b>กรองข้อมูลก่อนนำมา Join กัน</b> ช่วยลดการใช้หน่วยความจำและทำให้ค้นหาข้อมูลได้เร็วขึ้นมหาศาล
       </div>
     </div>
     <div class="foot"><span>สมบัติการกระจาย</span><span class="right">4091606 · CH03-W07</span></div>
@@ -405,20 +394,18 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
   <!-- SLIDE 10: Relation Definition -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 2.1</span><h2>นิยามความสัมพันธ์ (Binary Relation)</h2></div>
+      <div><span class="kick">Concept 2.1</span><h2>นิยามความสัมพันธ์ (Binary Relation $R$)</h2></div>
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">DEF</span> ความสัมพันธ์จาก $A$ ไป $B$</div>
-        <b>ความสัมพันธ์ $R$</b> จากเซต $A$ ไปยังเซต $B$ คือ <b>เซตย่อยใดๆ ของผลคูณคาร์ทีเซียน $A \times B$</b>:
-        $$\mathbf{R \subseteq A \times B}$$
-        • ถ้า $(a, b) \in R$ เรากล่าวว่า $a$ มีความสัมพันธ์ $R$ กับ $b$ (เขียนแทนด้วย $a \, R \, b$)<br>
-        • ถ้า $(a, b) \notin R$ เรากล่าวว่า $a$ ไม่มีความสัมพันธ์ $R$ กับ $b$ (เขียนแทนด้วย $a \not R \, b$)
+        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพ: การจับคู่ที่เกิดขึ้นจริง</div>
+        ถ้า $A \times B$ คือ "ความเป็นไปได้ทั้งหมด" $\implies$ <b>ความสัมพันธ์ $R$ คือ "คู่ที่เลือกจับคู่กันจริง ๆ"</b> (เป็นเซตย่อย $R \subseteq A \times B$)<br>
+        • เช่น ใน Facebook: สมาชิกทุกคนสามารถแอดเป็นเพื่อนกันได้ ($A \times A$) แต่ $R$ คือ <b>คนที่กดเป็นเพื่อนกันจริง ๆ</b>
       </div>
       <div class="block gold">
         <div class="lab"><span class="pin">COUNT</span> จำนวนความสัมพันธ์ที่เป็นไปได้ทั้งหมด</div>
-        เนื่องจาก $R$ คือเซตย่อยของ $A \times B$ ดังนั้นจำนวนความสัมพันธ์ทั้งหมดจึงเท่ากับเพาเวอร์เซต:
         $$\mathbf{\text{จำนวนความสัมพันธ์จาก } A \text{ ไป } B = 2^{|A \times B|} = 2^{|A| \cdot |B|}}$$
+        ตัวอย่าง: ถ้า $|A| = 3$ ความสัมพันธ์บน $A$ จะมีได้ทั้งหมด $2^{3 \times 3} = 2^9 = \mathbf{512 \text{ แบบ}}$
       </div>
     </div>
     <div class="foot"><span>นิยามความสัมพันธ์</span><span class="right">4091606 · CH03-W07</span></div>
@@ -433,9 +420,10 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
       <div class="cols">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">DEF</span> กฎการสร้างเมทริกซ์ $M_R$</div>
-            กำหนดแถวแทนสมาชิกใน $A$ และคอลัมน์แทนสมาชิกใน $B$:
-            $$M_R[i, j] = \begin{cases} 1 & \text{ถ้า } (a_i, b_j) \in R \\ 0 & \text{ถ้า } (a_i, b_j) \notin R \end{cases}$$
+            <div class="lab"><span class="pin">ANALOGY</span> ตาราง Checkbox สวิตช์ไฟ</div>
+            • แถว $i$ แทนตัวหน้า, คอลัมน์ $j$ แทนตัวหลัง<br>
+            • <b>บิต 1 :</b> สัมพันธ์กัน (เปิดสวิตช์ / ติ๊กถูก)<br>
+            • <b>บิต 0 :</b> ไม่สัมพันธ์กัน (ปิดสวิตช์ / ปล่อยว่าง)
           </div>
         </div>
         <div class="col">
@@ -443,7 +431,7 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
             <div class="lab"><span class="pin">EX</span> ตัวอย่าง</div>
             ให้ $A = \{1, 2, 3\}$ และ $R = \{(1, 2), (1, 3), (2, 3), (3, 1)\}$:
             $$\mathbf{M_R = \begin{bmatrix} 0 & 1 & 1 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{bmatrix}}$$
-            <span class="gn">✓ บิต 1 แทนการเชื่อมโยง / บิต 0 แทนไม่มีการเชื่อมโยง</span>
+            <span class="gn">• แถว 1: 1 สัมพันธ์กับ 2 และ 3 $\implies [0, 1, 1]$</span>
           </div>
         </div>
       </div>
@@ -462,16 +450,15 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
           <div class="block gold">
             <div class="lab"><span class="pin">GRAPH</span> กราฟระบุทิศทาง (Directed Graph / Digraph)</div>
             • <b>จุดยอด (Vertices):</b> แทนสมาชิกแต่ละตัวในเซต $A$<br>
-            • <b>เส้นเชื่อมระบุทิศทาง (Directed Edges):</b> ลากจาก $u \to v$ เมื่อ $(u, v) \in R$<br>
-            • <b>ลูป (Self-loop):</b> เส้นโค้งวนกลับหาตัวเองเมื่อ $(u, u) \in R$
+            • <b>ลูกศร $u \to v$:</b> ลากเมื่อ $(u, v) \in R$ (เหมือนถนน One-way หรือการ Follow ใน IG/TikTok)<br>
+            • <b>ลูป (Self-loop):</b> ลูกศรโค้งวนกลับหาตัวเองเมื่อ $(u, u) \in R$
           </div>
         </div>
         <div class="col">
           <div class="block">
             <div class="lab"><span class="pin">ARROW</span> แผนภาพลูกศร (Arrow Diagram)</div>
-            • วางเซตต้นทาง $A$ และปลายทาง $B$ ในแนวขนาน<br>
-            • ลากเส้นลูกศรเชื่อมข้ามเซตจากซ้ายไปขวา<br>
-            • เหมาะมากสำหรับการตรวจดู <b>โดเมน เรนจ์ และทิศทางการจับคู่</b>
+            • วางเซตต้นทาง $A$ ทางซ้าย และเซตปลายทาง $B$ ทางขวา<br>
+            • ลากเส้นลูกศรเชื่อมโยงจากซ้ายไปขวา เหมาะสำหรับดูว่า <b>สมาชิกตัวไหนถูกจับคู่บ้าง</b>
           </div>
         </div>
       </div>
@@ -484,36 +471,36 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="divider">
       <div class="ghost">Dom</div>
       <div class="no">หมวดที่ 03</div>
-      <h2>โดเมน เรนจ์ และความสัมพันธ์ผกผัน<span class="en">Domain, Range, Inverse & Set Operations</span></h2>
+      <h2>โดเมน เรนจ์ และความสัมพันธ์ผกผัน<span class="en">Domain, Range & Inverse Relations</span></h2>
     </div>
   </section>
 
   <!-- SLIDE 14: Domain and Range -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 3.1</span><h2>โดเมน (Domain) และเรนจ์ (Range) ของความสัมพันธ์</h2></div>
+      <div><span class="kick">Concept 3.1</span><h2>โดเมน (Domain) และเรนจ์ (Range)</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">DEF</span> โดเมน $\operatorname{Dom}(R)$</div>
-            เซตของสมาชิกตัวหน้าทั้งหมดที่ปรากฏใน $R$:
-            $$\mathbf{\operatorname{Dom}(R) = \{a \in A \mid \exists b \in B, (a, b) \in R\} \subseteq A}$$
+            <div class="lab"><span class="pin">DEF</span> โดเมน $\operatorname{Dom}(R)$ (ผู้ส่ง)</div>
+            เซตของสมาชิกตัวหน้าทั้งหมดที่ถูกนำมาจับคู่ใน $R$:
+            $$\mathbf{\operatorname{Dom}(R) = \{a \in A \mid \exists b \in B, (a, b) \in R\}}$$
           </div>
           <div class="block ex">
-            <div class="lab"><span class="pin">DEF</span> เรนจ์ $\operatorname{Ran}(R)$</div>
-            เซตของสมาชิกตัวหลังทั้งหมดที่ปรากฏใน $R$:
-            $$\mathbf{\operatorname{Ran}(R) = \{b \in B \mid \exists a \in A, (a, b) \in R\} \subseteq B}$$
+            <div class="lab"><span class="pin">DEF</span> เรนจ์ $\operatorname{Ran}(R)$ (ผู้รับ)</div>
+            เซตของสมาชิกตัวหลังทั้งหมดที่ถูกนำมาจับคู่ใน $R$:
+            $$\mathbf{\operatorname{Ran}(R) = \{b \in B \mid \exists a \in A, (a, b) \in R\}}$$
           </div>
         </div>
         <div class="col">
           <div class="block gold">
-            <div class="lab"><span class="pin">EXAMPLE</span> ตัวอย่างการหาโดเมนและเรนจ์</div>
+            <div class="lab"><span class="pin">EX</span> ตัวอย่าง</div>
             ให้ $A = \{1, 2, 3, 4\}$ และ $B = \{x, y, z\}$<br>
             $R = \{(1, x), (2, y), (3, x)\}$<br><br>
-            • $\mathbf{\operatorname{Dom}(R) = \{1, 2, 3\}}$ <span class="rd">(หมายเหตุ: 4 ไม่อยู่ในโดเมน)</span><br>
-            • $\mathbf{\operatorname{Ran}(R) = \{x, y\}}$ <span class="rd">(หมายเหตุ: z ไม่อยู่ในเรนจ์)</span>
+            • $\mathbf{\operatorname{Dom}(R) = \{1, 2, 3\}}$ <span class="rd">(4 ไม่ได้ถูกใช้)</span><br>
+            • $\mathbf{\operatorname{Ran}(R) = \{x, y\}}$ <span class="rd">(z ไม่ได้ถูกจับคู่)</span>
           </div>
         </div>
       </div>
@@ -530,17 +517,18 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
       <div class="cols">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">DEF</span> นิยามความสัมพันธ์ผกผัน</div>
-            สลับตำแหน่งสมาชิกตัวหน้าและตัวหลังในทุกคู่อันดับของ $R$:
-            $$\mathbf{R^{-1} = \{(b, a) \in B \times A \mid (a, b) \in R\}}$$
-            $$\mathbf{\operatorname{Dom}(R^{-1}) = \operatorname{Ran}(R), \quad \operatorname{Ran}(R^{-1}) = \operatorname{Dom}(R)}$$
+            <div class="lab"><span class="pin">ANALOGY</span> มโนภาพ: การมองย้อนกลับ</div>
+            ถ้า $R$ คือ "เป็นพ่อของ" $\implies R^{-1}$ คือ "เป็นลูกของ"<br>
+            • เพียงแค่ <b>สลับที่ตัวหน้ากับตัวหลัง</b> ในทุกคู่อันดับ:
+            $$\mathbf{R^{-1} = \{(b, a) \mid (a, b) \in R\}}$$
           </div>
         </div>
         <div class="col">
           <div class="block ex">
             <div class="lab"><span class="pin">MATRIX</span> เมทริกซ์สลับเปลี่ยน (Transpose)</div>
-            ในรูปเมทริกซ์บูลีน 0-1 เมทริกซ์ของความสัมพันธ์ผกผันคือ <b>การ Transpose แถวเป็นคอลัมน์</b>:
+            ในรูปเมทริกซ์บูลีน $M_{R^{-1}}$ คือการ <b>สลับแถวเป็นคอลัมน์ ($M_R^T$)</b>:
             $$\mathbf{M_{R^{-1}} = M_R^T}$$
+            • โดเมนและเรนจ์จะสลับหน้าที่กันทันที: $\operatorname{Dom}(R^{-1}) = \operatorname{Ran}(R)$
           </div>
         </div>
       </div>
@@ -564,25 +552,25 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามสมบัติสะท้อน</div>
-        สมาชิกทุกตัวในเซต $A$ ต้องสัมพันธ์กับตัวเอง:
+        <div class="lab"><span class="pin">ANALOGY</span> ส่องกระจกเห็นตัวเอง / Ping Localhost</div>
+        สมาชิก <b>ทุกตัว</b> ในเซตต้องมีความสัมพันธ์กับตัวเอง (ห้ามตกหล่นแม้แต่ตัวเดียว!):
         $$\mathbf{\forall x \in A, (x, x) \in R}$$
-        • <b>ในเมทริกซ์:</b> เส้นทแยงมุมหลักเป็น 1 ทั้งหมด ($M_{ii} = 1$ ทุก $i$)<br>
-        • <b>ในกราฟ:</b> ทุกโหนดต้องมีลูปวนหาตัวเอง (Self-loop) ครบทุกตัว
+        • <b>ในเมทริกซ์:</b> เส้นทแยงมุมหลักเป็น 1 ทั้งหมด ($M_{11}=1, M_{22}=1, \dots$)<br>
+        • <b>ในกราฟ:</b> ทุกโหนดต้องมีลูกศรวนหาตัวเอง (Self-loop) ครบทุกตัว
       </div>
-      <div class="cols" style="margin-top:.4cqh">
+      <div class="cols" style="margin-top:.3cqh">
         <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">✓ เป็นสะท้อน</span> ตัวอย่างเชิงตัวเลข</div>
-            • $a \le b$ บน $\mathbb{Z}$: $5 \le 5$ (จริง) เสมอ $\implies (5,5) \in R$<br>
-            • $a \mid b$ บน $\mathbb{Z}^+$: $4 \mid 4$ (จริง) เสมอ $\implies (4,4) \in R$
+            <div class="lab"><span class="pin">✓ เป็นสะท้อน</span> เชิงตัวเลข</div>
+            • $\mathbf{a \le b}$ : เพราะ $5 \le 5$ (จริงเสมอ)<br>
+            • $\mathbf{a \mid b}$ : เพราะ $4$ หาร $4$ ลงตัวเสมอ
           </div>
         </div>
         <div class="col">
           <div class="block al">
-            <div class="lab"><span class="pin">✗ ไม่เป็นสะท้อน</span> ตัวอย่างเชิงตัวเลข</div>
-            • $a < b$ บน $\mathbb{Z}$: $5 < 5$ เป็น <b>เท็จ</b> $\implies (5,5) \notin R$<br>
-            • $a + b = 10$: $3 + 3 = 6 \neq 10 \implies (3,3) \notin R$
+            <div class="lab"><span class="pin">✗ ไม่เป็นสะท้อน</span> เชิงตัวเลข</div>
+            • $\mathbf{a < b}$ : เพราะ $5 < 5$ เป็น <b>เท็จ!</b><br>
+            • $\mathbf{a \neq b}$ : เพราะ $5 \neq 5$ เป็น <b>เท็จ!</b>
           </div>
         </div>
       </div>
@@ -597,25 +585,25 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามสมบัติสมมาตร</div>
-        ถ้ามีคู่อันดับไป จะต้องมีคู่อันดับกลับมาเสมอ:
-        $$\mathbf{\forall x, y \in A, (x, y) \in R \implies (y, x) \in R}$$
-        • <b>ในเมทริกซ์:</b> เมทริกซ์สมมาตร $\mathbf{M_R = M_R^T}$ (พับตามแนวทแยงแล้วเท่ากัน)<br>
-        • <b>ในกราฟ:</b> เส้นเชื่อมระหว่างสองโหนดใดๆ ต้องเป็นลูกศรสองหัวไปกลับเสมอ
+        <div class="lab"><span class="pin">ANALOGY</span> การจับมือทักทาย / เพื่อนใน Facebook</div>
+        ถ้า $a$ สัมพันธ์กับ $b$ แล้ว $b$ ต้องสัมพันธ์กลับมาหา $a$ ด้วยเสมอ (มีขาไป ต้องมีขากลับ):
+        $$\mathbf{\forall a, b \in A, (a, b) \in R \implies (b, a) \in R}$$
+        • <b>ในเมทริกซ์:</b> เมทริกซ์สมมาตรเทียบกับแนวทแยง ($M_R = M_R^T$)<br>
+        • <b>ในกราฟ:</b> ทุกลูกศรที่พุ่งไป $u \to v$ จะต้องมีลูกศรสวนกลับ $v \to u$ เสมอ
       </div>
-      <div class="cols" style="margin-top:.4cqh">
+      <div class="cols" style="margin-top:.3cqh">
         <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">✓ เป็นสมมาตร</span> ตัวอย่างเชิงตัวเลข</div>
-            • $a + b$ เป็นเลขคู่: $(1, 3) \in R \implies (3, 1) \in R$ ($1+3=3+1=4$)<br>
-            • $a \equiv b \pmod 4$: $(10, 2) \in R \implies (2, 10) \in R$
+            <div class="lab"><span class="pin">✓ เป็นสมมาตร</span> เชิงตัวเลข</div>
+            • $\mathbf{a + b \text{ เป็นเลขคู่}}$ : $3+5=8$ คู่ และ $5+3=8$ คู่<br>
+            • $\mathbf{a \equiv b \pmod m}$ : $8 \equiv 2 \pmod 6$ และ $2 \equiv 8 \pmod 6$
           </div>
         </div>
         <div class="col">
           <div class="block al">
-            <div class="lab"><span class="pin">✗ ไม่เป็นสมมาตร</span> ตัวอย่างเชิงตัวเลข</div>
-            • $a \le b$: มี $(2, 5) \in R$ แต่ $(5, 2) \notin R$ ($5 \le 2$ เป็นเท็จ)<br>
-            • $a \mid b$: มี $(2, 6) \in R$ แต่ $(6, 2) \notin R$ ($6 \nmid 2$)
+            <div class="lab"><span class="pin">✗ ไม่เป็นสมมาตร</span> เชิงตัวเลข</div>
+            • $\mathbf{a \le b}$ : เพราะ $2 \le 5$ จริง แต่ $5 \le 2$ <b>เท็จ!</b><br>
+            • $\mathbf{a \mid b}$ : เพราะ $2 \mid 6$ จริง แต่ $6 \mid 2$ <b>เท็จ!</b>
           </div>
         </div>
       </div>
@@ -630,24 +618,22 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามสมบัติปฏิสมมาตร</div>
-        ถ้ามีคู่อันดับไปและกลับพร้อมกัน สมาชิกทั้งสองตัวนั้นต้องเป็นตัวเดียวกันเท่านั้น:
-        $$\mathbf{\forall x, y \in A, ((x, y) \in R \land (y, x) \in R) \implies x = y}$$
-        • <b>ความหมายง่ายๆ:</b> ถ้า $x \neq y$ <b>ห้ามมีลูกศรสองหัวไปกลับพร้อมกันเด็ดขาด!</b>
+        <div class="lab"><span class="pin">ANALOGY</span> การต่อคิว / รุ่นพี่รุ่นน้อง</div>
+        ถ้าคนละคนกัน ($a \neq b$) <b>ห้ามมีความสัมพันธ์แบบไป-กลับพร้อมกันเด็ดขาด</b> (อนุญาตให้ไปกลับได้เฉพาะตัวเดียวกัน $a=b$ เท่านั้น):
+        $$\mathbf{\forall a, b \in A, [(a, b) \in R \land (b, a) \in R] \implies a = b}$$
       </div>
-      <div class="cols" style="margin-top:.4cqh">
+      <div class="cols" style="margin-top:.3cqh">
         <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">✓ เป็นปฏิสมมาตร</span> ตัวอย่างเชิงตัวเลข</div>
-            • $a \le b$: ถ้า $a \le b$ และ $b \le a$ จะเกิดขึ้นได้เมื่อ $a = b$ เท่านั้น<br>
-            • $a \mid b$ บน $\mathbb{Z}^+$: $(2, 6) \in R$ แต่ไม่มี $(6, 2) \in R$
+            <div class="lab"><span class="pin">✓ เป็นปฏิสมมาตร</span> เชิงตัวเลข</div>
+            • $\mathbf{a \le b}$ : ถ้า $a \le b$ และ $b \le a$ สรุปได้ว่า $a = b$ แน่นอน<br>
+            • $\mathbf{a \mid b}$ : ถ้า $a \mid b$ และ $b \mid a$ บน $\mathbb{Z}^+$ สรุปได้ว่า $a = b$
           </div>
         </div>
         <div class="col">
           <div class="block al">
-            <div class="lab"><span class="pin">✗ ไม่เป็นปฏิสมมาตร</span> ตัวอย่างเชิงตัวเลข</div>
-            • $a + b = 10$: มี $(4, 6) \in R$ และ $(6, 4) \in R$ แต่ $4 \neq 6$<br>
-            • $a \equiv b \pmod 3$: มี $(7, 1) \in R$ และ $(1, 7) \in R$ แต่ $7 \neq 1$
+            <div class="lab"><span class="pin">✗ ไม่เป็นปฏิสมมาตร</span> เชิงตัวเลข</div>
+            • $\mathbf{a + b \text{ เป็นเลขคู่}}$ : เพราะ $(1, 3) \in R$ และ $(3, 1) \in R$ แต่ $1 \neq 3$ (เกิดลูกศรไป-กลับข้ามตัวอื่น!)
           </div>
         </div>
       </div>
@@ -655,40 +641,40 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="foot"><span>สมบัติปฏิสมมาตร</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 20: Symmetric vs Antisymmetric Deep Dive -->
+  <!-- SLIDE 20: Symmetric vs Antisymmetric -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 4.4</span><h2>เจาะลึก: สมมาตร vs ปฏิสมมาตร (4 รูปแบบที่เป็นไปได้)</h2></div>
+      <div><span class="kick">Concept 4.4</span><h2>ข้อพึงระวัง: สมมาตร vs ปฏิสมมาตร (4 รูปแบบ)</h2></div>
     </div>
-    <div class="body tight">
-      <div class="cols">
-        <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">CASE 1</span> เป็นทั้งสมมาตร และปฏิสมมาตร</div>
-            $\Delta = \{(1, 1), (2, 2), (3, 3)\}$ (ความสัมพันธ์เอกลักษณ์)<br>
-            <span class="gn">มีเฉพาะบนแนวทแยง ไม่มีคู่อื่นให้ขัดแย้งเลย</span>
-          </div>
-          <div class="block">
-            <div class="lab"><span class="pin">CASE 2</span> เป็นสมมาตร แต่ไม่เป็นปฏิสมมาตร</div>
-            $R = \{(1, 2), (2, 1)\}$<br>
-            <span class="hl">มีลูกศรสองหัว $1 \leftrightarrow 2$ จึงสมมาตร แต่ผิดปฏิสมมาตร</span>
-          </div>
+    <div class="body">
+      <div class="block al">
+        <div class="lab"><span class="pin">COMMON MISTAKE</span> ข้อเข้าใจผิดยอดฮิต</div>
+        "ปฏิสมมาตร" <b>ไม่ใช่</b> นิเสธของ "สมมาตร" (ความสัมพันธ์สามารถเป็นได้ทั้งคู่ หรือไม่เป็นทั้งคู่ก็ได้!)
+      </div>
+      <div class="proc-grid" style="margin-top:.3cqh">
+        <div class="proc-card">
+          <div class="p-num">กรณี 1</div>
+          <div class="p-title">สมมาตรอย่างเดียว</div>
+          <div class="p-desc">เช่น $a+b$ เป็นเลขคู่, $a \equiv b \pmod m$</div>
         </div>
-        <div class="col">
-          <div class="block gold">
-            <div class="lab"><span class="pin">CASE 3</span> ไม่เป็นสมมาตร แต่เป็นปฏิสมมาตร</div>
-            $R = \{(1, 2), (2, 3)\}$<br>
-            <span class="gd">มีลูกศรทางเดียว ไม่มีลูกศรสองหัว จึงเป็นปฏิสมมาตร</span>
-          </div>
-          <div class="block al">
-            <div class="lab"><span class="pin">CASE 4</span> ไม่เป็นทั้งสองสมบัติ</div>
-            $R = \{(1, 2), (2, 1), (2, 3)\}$<br>
-            <span class="rd">มีคู่ $(2, 3)$ ขาด $(3, 2)$ และมีคู่ $(1, 2), (2, 1)$ ขัดแย้ง</span>
-          </div>
+        <div class="proc-card">
+          <div class="p-num">กรณี 2</div>
+          <div class="p-title">ปฏิสมมาตรอย่างเดียว</div>
+          <div class="p-desc">เช่น $a \le b$, $a < b$, $a \mid b$</div>
+        </div>
+        <div class="proc-card">
+          <div class="p-num">กรณี 3</div>
+          <div class="p-title">เป็นทั้งสองอย่าง!</div>
+          <div class="p-desc">เช่น ความสัมพันธ์เอกลักษณ์ $I_A = \{(1,1), (2,2)\}$</div>
+        </div>
+        <div class="proc-card">
+          <div class="p-num">กรณี 4</div>
+          <div class="p-title">ไม่เป็นทั้งสองอย่าง!</div>
+          <div class="p-desc">เช่น $R = \{(1,2), (2,1), (1,3)\}$ บน $\{1,2,3\}$</div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>สมมาตร vs ปฏิสมมาตร</span><span class="right">4091606 · CH03-W07</span></div>
+    <div class="foot"><span>เปรียบเทียบสมมาตร vs ปฏิสมมาตร</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
   <!-- SLIDE 21: Transitive Property -->
@@ -698,25 +684,24 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามสมบัติถ่ายทอด</div>
-        ถ้าเดินทางจาก $x \to y$ และ $y \to z$ ได้ จะต้องมีทางลัดตรง $x \to z$ ในความสัมพันธ์เสมอ:
-        $$\mathbf{\forall x, y, z \in A, ((x, y) \in R \land (y, z) \in R) \implies (x, z) \in R}$$
+        <div class="lab"><span class="pin">ANALOGY</span> การส่งต่อ / โดมิโนล้มต่อกัน</div>
+        ถ้า $a$ เชื่อมโยงไปหา $b$ และ $b$ เชื่อมโยงต่อไปหา $c$ แล้ว <b>$a$ ต้องเชื่อมโยงตรงไปหา $c$ ได้ด้วย</b>:
+        $$\mathbf{\forall a, b, c \in A, [(a, b) \in R \land (b, c) \in R] \implies (a, c) \in R}$$
       </div>
-      <div class="cols" style="margin-top:.4cqh">
+      <div class="cols" style="margin-top:.3cqh">
         <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">✓ เป็นถ่ายทอด</span> ตัวอย่างเชิงตัวเลข</div>
-            • $a < b$: $(2 < 5 \land 5 < 9) \implies 2 < 9$ (จริงเสมอ)<br>
-            • $a \mid b$: $(2 \mid 6 \land 6 \mid 18) \implies 2 \mid 18$ (จริงเสมอ)<br>
-            • $a \equiv b \pmod 5$: $(17 \equiv 7 \land 7 \equiv 2) \implies 17 \equiv 2 \pmod 5$
+            <div class="lab"><span class="pin">✓ เป็นถ่ายทอด</span> เชิงตัวเลข</div>
+            • $\mathbf{a < b}$ : ถ้า $2 < 5$ และ $5 < 9 \implies 2 < 9$ (จริงเสมอ)<br>
+            • $\mathbf{a \mid b}$ : ถ้า $2 \mid 4$ และ $4 \mid 12 \implies 2 \mid 12$ (จริงเสมอ)
           </div>
         </div>
         <div class="col">
           <div class="block al">
-            <div class="lab"><span class="pin">✗ ไม่เป็นถ่ายทอด</span> กรณีขัดแย้ง (Counter-example)</div>
-            • $|a - b| \le 2$:<br>
-            $(1, 3) \in R$ ($|1-3|=2$) และ $(3, 5) \in R$ ($|3-5|=2$)<br>
-            <b>แต่ $(1, 5) \notin R$</b> เพราะ $|1-5|=4 > 2$! <span class="rd">(หลุดขอบเขต)</span>
+            <div class="lab"><span class="pin">✗ ไม่เป็นถ่ายทอด</span> เชิงตัวเลข</div>
+            • $\mathbf{|a - b| \le 2}$ (ต่างกันไม่เกิน 2):<br>
+            $|1 - 3| \le 2$ (จริง), $|3 - 5| \le 2$ (จริง)<br>
+            แต่ $|1 - 5| = 4 \le 2$ เป็น <b>เท็จ!</b>
           </div>
         </div>
       </div>
@@ -724,78 +709,28 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="foot"><span>สมบัติถ่ายทอด</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 22: Master Summary Table -->
+  <!-- SLIDE 22: Summary Table of Properties -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 4.6</span><h2>ตารางสรุปสมบัติของความสัมพันธ์เชิงตัวเลขยอดนิยม</h2></div>
+      <div><span class="kick">Concept 4.6</span><h2>ตารางสรุป 4 สมบัติของความสัมพันธ์ยอดนิยม</h2></div>
     </div>
-    <div class="body tight">
-      <div class="tt-wrap">
-        <table class="tt">
-          <thead>
-            <tr>
-              <th>ความสัมพันธ์เชิงตัวเลข</th>
-              <th>สะท้อน</th>
-              <th>สมมาตร</th>
-              <th>ปฏิสมมาตร</th>
-              <th>ถ่ายทอด</th>
-              <th>ประเภทที่จัดเป็น</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="text-align:left"><b>$a = b$</b> (เท่ากับ)</td>
-              <td><span class="gn">✓</span></td>
-              <td><span class="gn">✓</span></td>
-              <td><span class="gn">✓</span></td>
-              <td><span class="gn">✓</span></td>
-              <td><b>Equivalence & Poset</b></td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><b>$a \le b$</b> (น้อยกว่าหรือเท่ากับ)</td>
-              <td><span class="gn">✓</span></td>
-              <td><span class="rd">✗</span></td>
-              <td><span class="gn">✓</span></td>
-              <td><span class="gn">✓</span></td>
-              <td><b>Partial Order (Poset)</b></td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><b>$a < b$</b> (น้อยกว่า)</td>
-              <td><span class="rd">✗</span></td>
-              <td><span class="rd">✗</span></td>
-              <td><span class="gn">✓</span></td>
-              <td><span class="gn">✓</span></td>
-              <td>Strict Order</td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><b>$a \mid b$</b> บน $\mathbb{Z}^+$ (หารลงตัว)</td>
-              <td><span class="gn">✓</span></td>
-              <td><span class="rd">✗</span></td>
-              <td><span class="gn">✓</span></td>
-              <td><span class="gn">✓</span></td>
-              <td><b>Partial Order (Poset)</b></td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><b>$a \equiv b \pmod m$</b> (คอนกรูเอนซ์)</td>
-              <td><span class="gn">✓</span></td>
-              <td><span class="gn">✓</span></td>
-              <td><span class="rd">✗</span></td>
-              <td><span class="gn">✓</span></td>
-              <td><b>Equivalence Relation</b></td>
-            </tr>
-            <tr>
-              <td style="text-align:left"><b>$|a - b| \le 2$</b> (ระยะห่างไม่เกิน 2)</td>
-              <td><span class="gn">✓</span></td>
-              <td><span class="gn">✓</span></td>
-              <td><span class="rd">✗</span></td>
-              <td><span class="rd">✗</span></td>
-              <td>Tolerance Relation</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="body">
+      <table style="width:100%;border-collapse:collapse;font-size:2cqh;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08)">
+        <tr style="background:var(--navy);color:#fff;font-weight:700">
+          <th style="padding:.8cqh 1cqw;text-align:left">ความสัมพันธ์ $R$</th>
+          <th style="padding:.8cqh 1cqw;text-align:center">สะท้อน</th>
+          <th style="padding:.8cqh 1cqw;text-align:center">สมมาตร</th>
+          <th style="padding:.8cqh 1cqw;text-align:center">ปฏิสมมาตร</th>
+          <th style="padding:.8cqh 1cqw;text-align:center">ถ่ายทอด</th>
+        </tr>
+        <tr style="border-bottom:1px solid var(--line)"><td style="padding:.6cqh 1cqw"><b>$a = b$ (เท่ากัน)</b></td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td></tr>
+        <tr style="border-bottom:1px solid var(--line);background:var(--lnavy)"><td style="padding:.6cqh 1cqw"><b>$a \le b$ (น้อยกว่าหรือเท่ากับ)</b></td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--red2)">✗</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td></tr>
+        <tr style="border-bottom:1px solid var(--line)"><td style="padding:.6cqh 1cqw"><b>$a < b$ (น้อยกว่า)</b></td><td style="text-align:center;color:var(--red2)">✗</td><td style="text-align:center;color:var(--red2)">✗</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td></tr>
+        <tr style="border-bottom:1px solid var(--line);background:var(--lnavy)"><td style="padding:.6cqh 1cqw"><b>$a \mid b$ (หารลงตัว) บน $\mathbb{Z}^+$</b></td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--red2)">✗</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td></tr>
+        <tr><td style="padding:.6cqh 1cqw"><b>$a \equiv b \pmod m$ (สมภาค)</b></td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--red2)">✗</td><td style="text-align:center;color:var(--green2)">✓</td></tr>
+      </table>
     </div>
-    <div class="foot"><span>ตารางสรุปสมบัติเชิงตัวเลข</span><span class="right">4091606 · CH03-W07</span></div>
+    <div class="foot"><span>ตารางสรุปสมบัติ</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
   <!-- SLIDE 23: DIVIDER 5 -->
@@ -803,7 +738,7 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="divider">
       <div class="ghost">≡</div>
       <div class="no">หมวดที่ 05</div>
-      <h2>ความสัมพันธ์สมมูลและผลกั้นเซต<span class="en">Equivalence Relations & Partitions</span></h2>
+      <h2>ความสัมพันธ์สมมูลและผลกั้นเซต<span class="en">Equivalence Relations, Classes & Partitions</span></h2>
     </div>
   </section>
 
@@ -815,12 +750,12 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     <div class="body">
       <div class="block">
         <div class="lab"><span class="pin">DEF</span> นิยามความสัมพันธ์สมมูล</div>
-        ความสัมพันธ์ $R$ บนเซต $A$ จะเป็น <b>ความสัมพันธ์สมมูล</b> ก็ต่อเมื่อมีครบทั้ง 3 สมบัติดังนี้:
+        ความสัมพันธ์ $R$ บนเซต $A$ จะเป็น <b>ความสัมพันธ์สมมูล</b> ก็ต่อเมื่อมีครบทั้ง 3 สมบัติพร้อมกัน:
         $$\mathbf{\text{1. สะท้อน (Reflexive)}} \quad \mathbf{\text{2. สมมาตร (Symmetric)}} \quad \mathbf{\text{3. ถ่ายทอด (Transitive)}}$$
       </div>
       <div class="block ex">
-        <div class="lab"><span class="pin">ROLE</span> บทบาทในวิทยาการข้อมูล</div>
-        ความสัมพันธ์สมมูลใช้ในการ <b>จัดกลุ่มข้อมูล (Data Clustering / Classification)</b> โดยสมาชิกที่มีคุณสมบัติร่วมกันจะถูกจัดไว้ในกลุ่มเดียวกัน
+        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพ: การจัดกลุ่มข้อมูลตามคุณสมบัติที่เหมือนกัน</div>
+        เช่น การแบ่งกลุ่มนักศึกษาตาม <b>"สาขาวิชา"</b> หรือ <b>"ชั้นปี"</b> หรือการจัดกลุ่มไฟล์ตาม <b>"นามสกุลไฟล์ (.pdf, .png)"</b>
       </div>
     </div>
     <div class="foot"><span>ความสัมพันธ์สมมูล</span><span class="right">4091606 · CH03-W07</span></div>
@@ -829,44 +764,43 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
   <!-- SLIDE 25: Equivalence Classes & Partition Theorem -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 5.2</span><h2>คลาสสมมูล (Equivalence Class) และผลกั้นเซต</h2></div>
+      <div><span class="kick">Concept 5.2</span><h2>คลาสสมมูล (Equivalence Class) และทฤษฎีผลกั้นเซต</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">DEF</span> คลาสสมมูล $[a]$</div>
-            เซตของสมาชิกทั้งหมดใน $A$ ที่มีความสัมพันธ์กับ $a$:
+            <div class="lab"><span class="pin">CLASS</span> คลาสสมมูล $[a]$</div>
+            เซตของสมาชิกทั้งหมดที่สัมพันธ์กับ $a$:
             $$\mathbf{[a] = \{x \in A \mid (a, x) \in R\}}$$
           </div>
         </div>
         <div class="col">
           <div class="block gold">
-            <div class="lab"><span class="pin">THEOREM</span> ทฤษฎีบทผลกั้นเซต (Partition Theorem)</div>
-            คลาสสมมูลจะแบ่งเซต $A$ ออกเป็นกลุ่มย่อยที่ไม่ซ้อนทับกัน:
-            $$\text{1. } [a] \neq \emptyset \quad \text{2. } [a] = [b] \lor [a] \cap [b] = \emptyset \quad \text{3. } \bigcup [a] = A$$
+            <div class="lab"><span class="pin">THEOREM</span> ทฤษฎีบทการแบ่งกั้น (Partition)</div>
+            คลาสสมมูลทั้งหมดจะ <b>แบ่งเซต $A$ ออกเป็นกลุ่มย่อย ๆ ที่ไม่ซ้อนทับกันเลย</b> (สมาชิกทุกคนต้องมีกลุ่มอยู่ และอยู่ได้เพียงกลุ่มเดียวเท่านั้น!)
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>คลาสสมมูล & ผลกั้นเซต</span><span class="right">4091606 · CH03-W07</span></div>
+    <div class="foot"><span>คลาสสมมูลและ Partition</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 26: Modular Partition Example -->
+  <!-- SLIDE 26: Modulo Equivalence Example -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 5.3</span><h2>ตัวอย่างเชิงตัวเลข: ผลกั้นเซตของมอดุโล 3</h2></div>
+      <div><span class="kick">Concept 5.3</span><h2>ตัวอย่างเชิงตัวเลข: ผลกั้นเซตของมอดุโล 3 บน $\mathbb{Z}$</h2></div>
     </div>
     <div class="body">
       <div class="block ex">
-        <div class="lab"><span class="pin">EXAMPLE</span> บนเซต $A = \{0, 1, 2, 3, 4, 5, 6, 7\}$ สำหรับ $a \equiv b \pmod 3$</div>
-        • <b>กลุ่มเศษ 0:</b> $[0] = \{x \in A \mid x \equiv 0 \pmod 3\} = \mathbf{\{0, 3, 6\}}$<br>
-        • <b>กลุ่มเศษ 1:</b> $[1] = \{x \in A \mid x \equiv 1 \pmod 3\} = \mathbf{\{1, 4, 7\}}$<br>
-        • <b>กลุ่มเศษ 2:</b> $[2] = \{x \in A \mid x \equiv 2 \pmod 3\} = \mathbf{\{2, 5\}}$
-      </div>
-      <div class="block gold">
-        <div class="lab"><span class="pin">VERIFY</span> ตรวจสอบผลกั้น</div>
-        $$[0] \cup [1] \cup [2] = \{0, 1, 2, 3, 4, 5, 6, 7\} = A \quad \text{และ} \quad [0] \cap [1] = [1] \cap [2] = [0] \cap [2] = \emptyset$$
+        <div class="lab"><span class="pin">MODULO 3</span> ความสัมพันธ์ $a \equiv b \pmod 3$ (หารด้วย 3 แล้วเหลือเศษเท่ากัน)</div>
+        จะแบ่งเซตจำนวนเต็ม $\mathbb{Z}$ ออกเป็น 3 คลาสสมมูลอย่างสมบูรณ์แบบ:
+        <ul style="margin-top:.5cqh;margin-left:1.5cqw">
+          <li>$\mathbf{[0]} = \{\dots, -6, -3, 0, 3, 6, 9, \dots\}$ $\implies$ กลุ่มหาร 3 ลงตัว (เศษ 0)</li>
+          <li>$\mathbf{[1]} = \{\dots, -5, -2, 1, 4, 7, 10, \dots\}$ $\implies$ กลุ่มหาร 3 เหลือเศษ 1</li>
+          <li>$\mathbf{[2]} = \{\dots, -4, -1, 2, 5, 8, 11, \dots\}$ $\implies$ กลุ่มหาร 3 เหลือเศษ 2</li>
+        </ul>
+        <span class="gn">• ทั้ง 3 กลุ่มรวมกันได้จำนวนเต็มทั้งหมด ($\mathbb{Z}$) และไม่มีตัวเลขใดอยู่ข้ามกลุ่มกันเลย!</span>
       </div>
     </div>
     <div class="foot"><span>ตัวอย่างผลกั้นมอดุโล 3</span><span class="right">4091606 · CH03-W07</span></div>
@@ -875,9 +809,9 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
   <!-- SLIDE 27: DIVIDER 6 -->
   <section class="slide">
     <div class="divider">
-      <div class="ghost">○</div>
+      <div class="ghost">∘</div>
       <div class="no">หมวดที่ 06</div>
-      <h2>การประกอบความสัมพันธ์และการปิดสมบัติ<span class="en">Composition & Closures (Warshall)</span></h2>
+      <h2>การประกอบความสัมพันธ์และการปิดสมบัติ<span class="en">Composition & Closures of Relations</span></h2>
     </div>
   </section>
 
@@ -888,15 +822,14 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามการประกอบ $S \circ R$</div>
-        ให้ $R \subseteq A \times B$ และ $S \subseteq B \times C$<br>
+        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพ: การต่อรถไฟ 2 ต่อ</div>
+        ถ้าความสัมพันธ์ $R$ พาจากสถานี $A \to B$ และความสัมพันธ์ $S$ พาต่อจากสถานี $B \to C$<br>
+        ความสัมพันธ์ประกอบ $S \circ R$ คือ <b>เส้นทางเดินทางตรงจากสถานีต้นทาง $A \to C$</b>:
         $$\mathbf{S \circ R = \{(a, c) \mid \exists b \in B, (a, b) \in R \land (b, c) \in S\}}$$
-        • <b style="color:var(--red2)">ลำดับการทำงาน:</b> ทำความสัมพันธ์ $R$ ก่อน แล้วเชื่อมต่อด้วย $S$
       </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">MATRIX</span> การคูณเมทริกซ์บูลีน (Boolean Matrix Product)</div>
+      <div class="block gold">
+        <div class="lab"><span class="pin">MATRIX</span> การคูณเมทริกซ์บูลีน</div>
         $$\mathbf{M_{S \circ R} = M_R \odot M_S}$$
-        $$c_{ij} = (a_{i1} \land b_{1j}) \lor (a_{i2} \land b_{2j}) \lor \dots \lor (a_{ik} \land b_{kj})$$
       </div>
     </div>
     <div class="foot"><span>การประกอบความสัมพันธ์</span><span class="right">4091606 · CH03-W07</span></div>
@@ -905,41 +838,40 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
   <!-- SLIDE 29: Closures of Relations -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 6.2</span><h2>การปิดสมบัติ (Reflexive, Symmetric & Transitive Closures)</h2></div>
+      <div><span class="kick">Concept 6.2</span><h2>การปิดสมบัติ (Closures: Reflexive, Symmetric, Transitive)</h2></div>
     </div>
     <div class="body">
-      <div class="cols three">
-        <div class="col">
-          <div class="block">
-            <div class="lab"><span class="pin">1</span> การปิดสมบัติสะท้อน</div>
-            เติมแนวทแยง $\Delta$ ทั้งหมด:<br>
-            $$\mathbf{R \cup \Delta}$$
-          </div>
-        </div>
+      <div class="block">
+        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพ: การเติมสิ่งที่ขาดให้ครบสมบัติ</div>
+        <b>การปิดสมบัติ</b> คือการเติมคู่อันดับเพิ่มเข้าไปให้น้อยที่สุด เพื่อทำให้ความสัมพันธ์นั้นมีสมบัติที่ต้องการครบถ้วน:
+      </div>
+      <div class="cols" style="margin-top:.3cqh">
         <div class="col">
           <div class="block ex">
+            <div class="lab"><span class="pin">1</span> การปิดสมบัติสะท้อน</div>
+            เติมลูปตัวเองให้ครบทุกตัว:<br>
+            $$\mathbf{r(R) = R \cup \Delta_A}$$
+          </div>
+          <div class="block al">
             <div class="lab"><span class="pin">2</span> การปิดสมบัติสมมาตร</div>
-            เติมคู่สลับ $R^{-1}$ เข้าไป:<br>
-            $$\mathbf{R \cup R^{-1}}$$
+            เติมลูกศรขากลับให้ครบทุกคู่:<br>
+            $$\mathbf{s(R) = R \cup R^{-1}}$$
           </div>
         </div>
         <div class="col">
           <div class="block gold">
-            <div class="lab"><span class="pin">3</span> การปิดสมบัติถ่ายทอด</div>
-            รวมทุกความยาวเส้นทาง:<br>
-            $$\mathbf{R^+ = \bigcup_{k=1}^n R^k}$$
+            <div class="lab"><span class="pin">3</span> การปิดสมบัติถ่ายทอด ($R^+$)</div>
+            เติมเส้นทางลัดเชื่อมต่อทุกจุด:<br>
+            $$\mathbf{t(R) = R \cup R^2 \cup R^3 \cup \dots}$$
+            • คำนวณได้อย่างรวดเร็วด้วย <b>ขั้นตอนวิธีวอร์แชลล์ (Warshall's Algorithm)</b> ในเวลา $O(n^3)$
           </div>
         </div>
-      </div>
-      <div class="block al" style="margin-top:.4cqh">
-        <div class="lab"><span class="pin">ALGO</span> ขั้นตอนวิธีวอร์แชลล์ (Warshall's Algorithm)</div>
-        คำนวณ Transitive Closure ($R^+$) หรือ Reachability ในกราฟ ด้วยความซับซ้อน $O(n^3)$ มีประสิทธิภาพสูงกว่าการคูณเมทริกซ์ตรงๆ
       </div>
     </div>
     <div class="foot"><span>การปิดสมบัติของความสัมพันธ์</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 30: Interactive Simulator -->
+  <!-- SLIDE 30: Interactive Matrix Simulator -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Interactive Lab</span><h2>ตัวทดสอบสมบัติเมทริกซ์ความสัมพันธ์ 0-1 (Matrix Property Inspector)</h2></div>
@@ -989,19 +921,18 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
       <div class="cols">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">WS-1</span> หน้า 1 : พื้นฐานความสัมพันธ์ & สมบัติทวิภาค</div>
-            • <b>กิจกรรม 1:</b> คู่อันดับ $A \times B$, โดเมน $\operatorname{Dom}(R)$ และเรนจ์ $\operatorname{Ran}(R)$<br>
-            • <b>กิจกรรม 2:</b> ความสัมพันธ์ผกผัน $R^{-1}$ และการยูเนียน/อินเตอร์เซกชัน<br>
-            • <b>กิจกรรม 3:</b> ตรวจสอบตาราง 4 สมบัติ (สะท้อน สมมาตร ปฏิสมมาตร ถ่ายทอด)
+            <div class="lab"><span class="pin">WS-1</span> หน้า 1 : คู่อันดับ ผลคูณ & เมทริกซ์บูลีน</div>
+            • <b>กิจกรรม 1:</b> แจกแจงผลคูณคาร์ทีเซียน $A \times B$ และการนับจำนวนสมาชิก<br>
+            • <b>กิจกรรม 2:</b> แปลงความสัมพันธ์ในรูปเซตให้เป็นเมทริกซ์ $M_R$ ขนาด $3 \times 3$<br>
+            • <b>กิจกรรม 3:</b> หาโดเมน $\operatorname{Dom}(R)$ เรนจ์ $\operatorname{Ran}(R)$ และความสัมพันธ์ผกผัน $R^{-1}$
           </div>
         </div>
         <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">WS-2</span> หน้า 2 : การคำนวณขั้นสูง & ประยุกต์</div>
-            • <b>กิจกรรม 4:</b> การหาคลาสสมมูล $[0], [1], [2]$ บนมอดุโล 3 และการแบ่งกั้นเซต<br>
-            • <b>กิจกรรม 5:</b> การประกอบความสัมพันธ์ $S \circ R$ ด้วยเมทริกซ์บูลีน $M_R \odot M_S$<br>
-            • <b>กิจกรรม 6:</b> การปิดสมบัติ $R \cup \Delta$, $R \cup R^{-1}$ และ $R^+$<br>
-            • <b>กิจกรรม 7:</b> วิเคราะห์ลำดับบางส่วน (Partial Order) การหารลงตัว
+            <div class="lab"><span class="pin">WS-2</span> หน้า 2 : การตรวจสอบ 4 สมบัติ & การปิดสมบัติ</div>
+            • <b>กิจกรรม 4:</b> ตรวจสอบสมบัติสะท้อน สมมาตร ปฏิสมมาตร และถ่ายทอด<br>
+            • <b>กิจกรรม 5:</b> จำแนกความสัมพันธ์สมมูลและการเขียนคลาสสมมูล $[a]$<br>
+            • <b>กิจกรรม 6:</b> คำนวณการปิดสมบัติถ่ายทอด $R^+$ ด้วยขั้นตอนวิธีวอร์แชลล์
           </div>
         </div>
       </div>
@@ -1019,10 +950,10 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
         <div class="hint">คลิกเพื่อดูเฉลย <span class="k">Reveal</span></div>
         <div class="inner">
           <div class="lab"><span class="pin">KEY</span> สรุปคำตอบสำคัญ</div>
-          • <b>กิจกรรม 3:</b> $R_A$ เป็นความสัมพันธ์สมมูล (Refl ✓, Sym ✓, Trans ✓)<br>
-          • <b>กิจกรรม 4:</b> $[0] = \{0, 3, 6\}, [1] = \{1, 4, 7\}, [2] = \{2, 5\}$ แบ่งเซตได้ 3 บล็อกพอดี<br>
-          • <b>กิจกรรม 5:</b> $S \circ R = \{(1, x), (1, y), (2, x), (3, x)\}$<br>
-          • <b>กิจกรรม 6:</b> Transitive closure เทียบเท่า Reachability ในกราฟ
+          • <b>กิจกรรม 1:</b> $|A \times B| = 3 \times 2 = 6$ คู่อันดับ<br>
+          • <b>กิจกรรม 3:</b> $\operatorname{Dom}(R) = \{1, 2, 3\}$, $\operatorname{Ran}(R) = \{x, y\}$, $R^{-1} = \{(x, 1), (y, 2), (x, 3)\}$<br>
+          • <b>กิจกรรม 4:</b> $a \le b$ เป็นสะท้อน, ปฏิสมมาตร และถ่ายทอด (แต่ไม่เป็นสมมาตร)<br>
+          • <b>กิจกรรม 5:</b> $a \equiv b \pmod 3$ เป็นความสัมพันธ์สมมูล ได้คลาส $[0], [1], [2]$
         </div>
       </div>
     </div>
@@ -1032,10 +963,10 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
   <!-- SLIDE 33: Quiz Game -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Challenge</span><h2>เกมประลองความรู้ : ถอดรหัสสมบัติความสัมพันธ์</h2></div>
+      <div><span class="kick">Challenge</span><h2>เกมประลองความรู้ : ทดสอบสมบัติความสัมพันธ์</h2></div>
     </div>
     <div class="body">
-      <div class="game-box" id="gameContainer"></div>
+      <div class="game-box" id="gameContainerW7"></div>
     </div>
     <div class="foot"><span>เกมประลองความรู้</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
@@ -1050,19 +981,19 @@ table.tt tbody tr:hover td{background:var(--lnavy)}
         <div class="col">
           <div class="block">
             <div class="lab"><span class="pin">RECAP</span> สรุปหัวใจสำคัญสัปดาห์ที่ 7</div>
-            1. ความสัมพันธ์ $R \subseteq A \times B$ แทนการจับคู่แบบหลายต่อหลาย<br>
-            2. แทนได้ 4 แบบ: เซต, เมทริกซ์ 0-1, กราฟระบุทิศทาง, และแผนภาพลูกศร<br>
-            3. ความสัมพันธ์สมมูล = สะท้อน + สมมาตร + ถ่ายทอด (สร้าง Partition)<br>
-            4. การปิดสมบัติถ่ายทอด $R^+$ เชื่อมโยงกับขั้นตอนวิธีวอร์แชลล์ (Warshall)
+            1. ความสัมพันธ์คือเซตย่อยของผลคูณคาร์ทีเซียน $R \subseteq A \times B$<br>
+            2. แทนข้อมูลได้ด้วยเมทริกซ์ 0-1 และกราฟระบุทิศทาง (Digraph)<br>
+            3. 4 สมบัติทวิภาค: สะท้อน สมมาตร ปฏิสมมาตร และถ่ายทอด<br>
+            4. ความสัมพันธ์สมมูลทำให้เกิดการแบ่งกลุ่มข้อมูล (Partition)
           </div>
         </div>
         <div class="col">
           <div class="block ex">
             <div class="lab"><span class="pin">NEXT</span> สัปดาห์ที่ 8 : ฟังก์ชัน (Functions)</div>
-            • ความแตกต่างระหว่างความสัมพันธ์กับฟังก์ชัน (Uniqueness)<br>
-            • ประเภทฟังก์ชัน: หนึ่งต่อหนึ่ง (Injective), ทั่วถึง (Surjective), หนึ่งต่อหนึ่งทั่วถึง (Bijective)<br>
-            • ฟังก์ชันผกผัน $f^{-1}$ และการประกอบฟังก์ชัน $(f \circ g)(x)$<br>
-            • ฟังก์ชันพิเศษในคอมพิวเตอร์: Floor, Ceiling, Modulo, Hash & Recursion
+            • นิยามฟังก์ชันในฐานะความสัมพันธ์แบบพิเศษ (Single-valued)<br>
+            • ฟังก์ชัน 1-to-1 (Injective), ทั่วถึง (Surjective) และ 1-to-1 ทั่วถึง (Bijective)<br>
+            • ฟังก์ชันผกผัน $f^{-1}$ และการประกอบฟังก์ชัน $(f \circ g)$<br>
+            • ฟังก์ชันพิเศษในคอมพิวเตอร์: Floor, Ceiling, Modulo, Hash และ Recursion
           </div>
         </div>
       </div>
@@ -1097,7 +1028,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-/* Slide Deck Navigation Controller */
+/* Navigation Engine */
 const deck = document.getElementById('deck');
 const slides = Array.from(deck.querySelectorAll('.slide'));
 const totalSlides = slides.length;
@@ -1161,12 +1092,8 @@ updateSlide(0);
 /* Matrix Inspector Simulator Engine */
 (function(){
   const grid = document.getElementById('simMatrix');
-  const simPairs = document.getElementById('simPairs');
-  const txtRefl = document.getElementById('txtStatusRefl');
-  const txtSym = document.getElementById('txtStatusSym');
-  const txtTrans = document.getElementById('txtStatusTrans');
-  
   if(!grid) return;
+
   let M = [
     [0, 0, 0],
     [0, 0, 0],
@@ -1182,94 +1109,99 @@ updateSlide(0);
         cell.textContent = M[r][c];
         cell.onclick = () => {
           M[r][c] = M[r][c] ? 0 : 1;
-          analyze();
+          renderGrid();
+          analyzeMatrix();
         };
         grid.appendChild(cell);
       }
     }
   }
 
-  function analyze(){
-    renderGrid();
+  function analyzeMatrix(){
     const pairs = [];
     for(let r=0; r<3; r++){
       for(let c=0; c<3; c++){
         if(M[r][c]) pairs.push(`(${r+1}, ${c+1})`);
       }
     }
-    simPairs.innerHTML = `<b>คู่อันดับใน R:</b> { ${pairs.join(', ') || '∅'} }`;
+    document.getElementById('simPairs').textContent = pairs.length ? `คู่อันดับใน R: { ${pairs.join(', ')} }` : 'คู่อันดับใน R: { ∅ }';
 
     const isRefl = (M[0][0] && M[1][1] && M[2][2]);
-    txtRefl.innerHTML = isRefl ? '<span class="gn">✓ เป็นสมบัติสะท้อน</span> (ทแยงมุมหลักเป็น 1 ครบ)' : '<span class="rd">✗ ไม่เป็นสะท้อน</span> (ขาดคู่อันดับบนแนวทแยง)';
-
-    let isSym = true;
-    for(let i=0; i<3; i++){
-      for(let j=0; j<3; j++){
-        if(M[i][j] !== M[j][i]) isSym = false;
-      }
-    }
-    txtSym.innerHTML = isSym ? '<span class="gn">✓ เป็นสมบัติสมมาตร</span> (เมทริกซ์สมมาตร M = Mᵀ)' : '<span class="rd">✗ ไม่เป็นสมมาตร</span> (มีบางคู่มีไปแต่ไม่มีกลับ)';
+    const isSym = (M[0][1]===M[1][0] && M[0][2]===M[2][0] && M[1][2]===M[2][1]);
 
     let isTrans = true;
     for(let i=0; i<3; i++){
       for(let j=0; j<3; j++){
-        for(let k=0; k<3; k++){
-          if(M[i][j] && M[j][k] && !M[i][k]) isTrans = false;
+        if(M[i][j]){
+          for(let k=0; k<3; k++){
+            if(M[j][k] && !M[i][k]){
+              isTrans = false;
+              break;
+            }
+          }
         }
       }
     }
-    txtTrans.innerHTML = isTrans ? '<span class="gn">✓ เป็นสมบัติถ่ายทอด</span> (มีทางลัดตรงครบทุกคู่เชื่อม)' : '<span class="rd">✗ ไม่เป็นถ่ายทอด</span> (ขาดทางลัดตรงเชื่อมต่อ)';
+
+    const txtRefl = document.getElementById('txtStatusRefl');
+    const txtSym = document.getElementById('txtStatusSym');
+    const txtTrans = document.getElementById('txtStatusTrans');
+
+    txtRefl.innerHTML = isRefl ? '<span class="gn">✓ เป็นสะท้อน</span> (แนวทแยงหลักเป็น 1 ครบ)' : '<span class="rd">✗ ไม่เป็นสะท้อน</span> (แนวทแยงหลักยังไม่ครบ)';
+    txtSym.innerHTML = isSym ? '<span class="gn">✓ เป็นสมมาตร</span> (เมทริกซ์สมมาตร M = Mᵀ)' : '<span class="rd">✗ ไม่เป็นสมมาตร</span> (มีคู่อันดับที่ไม่มีขากลับ)';
+    txtTrans.innerHTML = isTrans ? '<span class="gn">✓ เป็นถ่ายทอด</span> (ทางผ่านเชื่อมถึงกัน)' : '<span class="rd">✗ ไม่เป็นถ่ายทอด</span> (ขาดทางลัดข้ามโหนด)';
   }
 
   document.getElementById('btnPresetRefl').onclick = () => {
     M = [[1,0,0],[0,1,0],[0,0,1]];
-    analyze();
+    renderGrid(); analyzeMatrix();
   };
   document.getElementById('btnPresetSym').onclick = () => {
     M = [[0,1,0],[1,0,1],[0,1,0]];
-    analyze();
+    renderGrid(); analyzeMatrix();
   };
   document.getElementById('btnPresetEq').onclick = () => {
     M = [[1,1,0],[1,1,0],[0,0,1]];
-    analyze();
+    renderGrid(); analyzeMatrix();
   };
   document.getElementById('btnClearMatrix').onclick = () => {
     M = [[0,0,0],[0,0,0],[0,0,0]];
-    analyze();
+    renderGrid(); analyzeMatrix();
   };
 
-  analyze();
+  renderGrid();
+  analyzeMatrix();
 })();
 
-/* Quiz Game Engine */
+/* Quiz Game Engine Week 7 */
 (function(){
-  const container = document.getElementById('gameContainer');
+  const container = document.getElementById('gameContainerW7');
   if(!container) return;
 
   const QUESTIONS = [
     {
-      q: '1. กำหนด A = {1, 2} และ B = {a, b, c} จำนวนความสัมพันธ์ทั้งหมดจาก A ไป B เท่ากับเท่าใด?',
-      opts: ['6 ความสัมพันธ์', '36 ความสัมพันธ์', '64 ความสัมพันธ์ (2⁶ = 64)', '512 ความสัมพันธ์'],
-      ans: 2,
-      exp: '|A × B| = 2 × 3 = 6 ดังนั้นความสัมพันธ์คือเซตย่อยของ A × B มี 2⁶ = 64 แบบ'
-    },
-    {
-      q: '2. ความสัมพันธ์เชิงตัวเลขใดต่อไปนี้เป็นความสัมพันธ์สมมูล (Equivalence Relation)?',
-      opts: ['a < b บนจำนวนจริง', 'a ≤ b บนจำนวนเต็ม', 'a ≡ b (mod m) บนจำนวนเต็ม', 'a | b (หารลงตัว) บนจำนวนเต็มบวก'],
-      ans: 2,
-      exp: 'a ≡ b (mod m) มีครบทั้งสมบัติสะท้อน สมมาตร และถ่ายทอด จึงเป็นความสัมพันธ์สมมูล'
-    },
-    {
-      q: '3. ความสัมพันธ์ |a - b| ≤ 2 บนจำนวนเต็ม ไม่เป็นสมบัติใด?',
-      opts: ['สมบัติสะท้อน', 'สมบัติสมมาตร', 'สมบัติถ่ายทอด (เพราะ |1-3|≤2, |3-5|≤2 แต่ |1-5|=4>2)', 'ไม่เป็นทั้งสะท้อนและสมมาตร'],
-      ans: 2,
-      exp: 'ระยะห่างไม่เกิน 2 มีสมบัติสะท้อนและสมมาตร แต่ไม่เป็นถ่ายทอด เพราะระยะห่างสะสมหลุดเกิน 2 ได้'
-    },
-    {
-      q: '4. ความสัมพันธ์การหารลงตัว a | b บนจำนวนเต็มบวก เป็นความสัมพันธ์ประเภทใด?',
-      opts: ['ความสัมพันธ์สมมูล (Equivalence)', 'ความสัมพันธ์ลำดับบางส่วน (Partial Order / Poset)', 'ฟังก์ชันหนึ่งต่อหนึ่ง', 'ความสัมพันธ์สมมาตร'],
+      q: '1. ถ้าเซต A = {1, 2, 3} และ B = {a, b} จำนวนสมาชิกในผลคูณคาร์ทีเซียน |A × B| เท่ากับเท่าใด?',
+      opts: ['5 สมาชิก', '6 สมาชิก (|A| × |B| = 3 × 2 = 6)', '8 สมาชิก', '9 สมาชิก'],
       ans: 1,
-      exp: 'a | b มีสมบัติสะท้อน, ปฏิสมมาตร (a|b ∧ b|a ⇒ a=b), และถ่ายทอด จึงจัดเป็น Partial Order (Poset)'
+      exp: 'กฎการคูณจำนวนสมาชิก |A × B| = |A| × |B| = 3 × 2 = 6 สมาชิก'
+    },
+    {
+      q: '2. ความสัมพันธ์ "a น้อยกว่า b (a < b)" บนเซตของจำนวนเต็ม มีสมบัติใดต่อไปนี้?',
+      opts: ['สมบัติสะท้อน', 'สมบัติสมมาตร', 'สมบัติถ่ายทอด (ถ้า a < b และ b < c แล้ว a < c)', 'สมบัติสมมูล'],
+      ans: 2,
+      exp: 'a < b มีสมบัติถ่ายทอดและปฏิสมมาตร แต่ไม่เป็นสะท้อน (เพราะ a < a เป็นเท็จ) และไม่เป็นสมมาตร'
+    },
+    {
+      q: '3. ความสัมพันธ์ที่จะเป็น "ความสัมพันธ์สมมูล (Equivalence Relation)" ต้องมีสมบัติใดครบทั้ง 3 ข้อ?',
+      opts: ['สะท้อน, ปฏิสมมาตร, ถ่ายทอด', 'สะท้อน, สมมาตร, ถ่ายทอด', 'สมมาตร, ปฏิสมมาตร, ถ่ายทอด', 'สะท้อน, สมมาตร, ปฏิสมมาตร'],
+      ans: 1,
+      exp: 'ความสัมพันธ์สมมูลต้องมีครบ 3 สมบัติคือ สะท้อน (Reflexive) + สมมาตร (Symmetric) + ถ่ายทอด (Transitive)'
+    },
+    {
+      q: '4. ในเมทริกซ์ความสัมพันธ์ 0-1 หากความสัมพันธ์มีสมบัติสะท้อน (Reflexive) จะสังเกตเห็นสิ่งใด?',
+      opts: ['สมาชิกทุกตัวในเมทริกซ์เป็น 1 ทั้งหมด', 'สมาชิกบนเส้นทแยงมุมหลักเป็น 1 ทั้งหมด', 'เมทริกซ์สลับเปลี่ยน Mᵀ = M', 'แถวแรกเป็น 1 ทั้งหมด'],
+      ans: 1,
+      exp: 'สมบัติสะท้อนต้องการ (x, x) ∈ R ทุกตัว ทำให้ตำแหน่งแนวทแยงหลัก M[i][i] ต้องเป็น 1 ครบทุกช่อง'
     }
   ];
 
@@ -1292,20 +1224,20 @@ updateSlide(0);
     container.innerHTML = `
       <div class="g-q">${item.q}</div>
       <div class="g-opts">
-        ${item.opts.map((opt, i) => `<button class="g-btn" onclick="checkAnswer(${i})">${opt}</button>`).join('')}
+        ${item.opts.map((opt, i) => `<button class="g-btn" onclick="checkAnswerW7(${i})">${opt}</button>`).join('')}
       </div>
-      <div class="g-fb" id="gameFb"></div>
+      <div class="g-fb" id="gameFbW7"></div>
       <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1cqh">
         <span style="font-family:var(--f-mono);font-size:1.8cqh;color:var(--navy)">ข้อที่ ${currentQ + 1} / ${QUESTIONS.length}</span>
-        <button class="sim-btn" id="btnNextQ" style="display:none" onclick="nextQuestion()">ข้อถัดไป ▸</button>
+        <button class="sim-btn" id="btnNextQW7" style="display:none" onclick="nextQuestionW7()">ข้อถัดไป ▸</button>
       </div>
     `;
   }
 
-  window.checkAnswer = function(chosen){
+  window.checkAnswerW7 = function(chosen){
     const item = QUESTIONS[currentQ];
-    const fb = document.getElementById('gameFb');
-    const btnNextQ = document.getElementById('btnNextQ');
+    const fb = document.getElementById('gameFbW7');
+    const btnNextQ = document.getElementById('btnNextQW7');
     const buttons = container.querySelectorAll('.g-btn');
 
     buttons.forEach((b, idx) => {
@@ -1325,7 +1257,7 @@ updateSlide(0);
     btnNextQ.style.display = 'inline-block';
   };
 
-  window.nextQuestion = function(){
+  window.nextQuestionW7 = function(){
     currentQ++;
     renderQuestion();
   };

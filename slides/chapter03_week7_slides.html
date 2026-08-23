@@ -311,11 +311,11 @@ b,strong{font-weight:700;color:var(--navy2)}
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพในชีวิตประจำวัน</div>
-        คู่อันดับ คือการจับคู่ที่มี <b>ทิศทางและตำแหน่งแน่นอน</b> (ตำแหน่งหน้ากับหลังมีความหมายต่างกัน) เช่น:
+        <div class="lab"><span class="pin">ตัวอย่าง</span> การกำหนดตำแหน่งและพิกัด</div>
+        คู่อันดับ เป็นการจับคู่ที่มีการระบุตำแหน่งอย่างแน่นอน (ตำแหน่งหน้าและหลังมีความหมายแตกต่างกัน) เช่น
         <ul style="margin-top:.4cqh;margin-left:1.5cqw">
-          <li>พิกัด GPS แผนที่ $(x, y) = (\text{ละติจูด}, \text{ลองจิจูด})$ สลับที่ไม่ได้</li>
-          <li>คะแนนสอบ $(\text{คะแนนเก็บ}, \text{คะแนนสอบ})$ เช่น $(10, 80)$ ต่างจาก $(80, 10)$</li>
+          <li>พิกัดแผนที่ $(x, y) = (\text{ละติจูด}, \text{ลองจิจูด})$ ไม่สามารถสลับตำแหน่งได้</li>
+          <li>คะแนนจำแนก $(\text{คะแนนเก็บ}, \text{คะแนนสอบ})$ เช่น $(10, 80)$ แตกต่างจาก $(80, 10)$</li>
         </ul>
       </div>
       <div class="block gold">
@@ -336,9 +336,9 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div class="cols wide-l">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">ANALOGY</span> มโนภาพ: การจัดชุดเมนูอาหาร</div>
-            ถ้ามี <b>จานหลัก</b> $A = \{\text{กะเพรา}, \text{ข้าวผัด}\}$ และ <b>เครื่องดื่ม</b> $B = \{\text{ชา}, \text{กาแฟ}, \text{น้ำส้ม}\}$<br>
-            ผลคูณคาร์ทีเซียน $A \times B$ คือ <b>ชุดเมนูอาหารที่เป็นไปได้ทั้งหมดที่ร้านจัดได้</b>:
+            <div class="lab"><span class="pin">ตัวอย่าง</span> การจับคู่สมาชิกทุกกรณีที่เป็นไปได้</div>
+            กำหนดเซต $A = \{\text{กะเพรา}, \text{ข้าวผัด}\}$ และเซต $B = \{\text{ชา}, \text{กาแฟ}, \text{น้ำส้ม}\}$<br>
+            ผลคูณคาร์ทีเซียน $A \times B$ คือเซตของคู่อันดับที่เกิดจากการจับคู่สมาชิกทั้งหมดจาก $A$ ไปยัง $B$
           </div>
           <div class="block ex">
             <div class="lab"><span class="pin">MATH DEF</span> นิยามทางคณิตศาสตร์</div>
@@ -446,18 +446,17 @@ b,strong{font-weight:700;color:var(--navy2)}
   <!-- SLIDE 10: Relation Definition -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 2.1</span><h2>นิยามความสัมพันธ์ (Binary Relation $R$)</h2></div>
+      <div><span class="kick">Concept 2.1</span><h2>ความสัมพันธ์คืออะไร? (Relation $R \subseteq A \times B$)</h2></div>
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพ: การจับคู่ที่เกิดขึ้นจริง</div>
-        ถ้า $A \times B$ คือ "ความเป็นไปได้ทั้งหมด" $\implies$ <b>ความสัมพันธ์ $R$ คือ "คู่ที่เลือกจับคู่กันจริง ๆ"</b> (เป็นเซตย่อย $R \subseteq A \times B$)<br>
-        • เช่น ใน Facebook: สมาชิกทุกคนสามารถแอดเป็นเพื่อนกันได้ ($A \times A$) แต่ $R$ คือ <b>คนที่กดเป็นเพื่อนกันจริง ๆ</b>
+        <div class="lab"><span class="pin">ความหมาย</span> ความสัมพันธ์ในฐานะสับเซตของผลคูณคาร์ทีเซียน</div>
+        ผลคูณคาร์ทีเซียน $A \times B$ แสดงคู่อันดับที่เป็นไปได้ทั้งหมด ในขณะที่ <b>ความสัมพันธ์ $R$ คือสับเซตของ $A \times B$ ที่สอดคล้องตามเงื่อนไขที่กำหนด</b> ($R \subseteq A \times B$)
       </div>
       <div class="block gold">
         <div class="lab"><span class="pin">COUNT</span> จำนวนความสัมพันธ์ที่เป็นไปได้ทั้งหมด</div>
         $$\mathbf{\text{จำนวนความสัมพันธ์จาก } A \text{ ไป } B = 2^{|A \times B|} = 2^{|A| \cdot |B|}}$$
-        ตัวอย่าง: ถ้า $|A| = 3$ ความสัมพันธ์บน $A$ จะมีได้ทั้งหมด $2^{3 \times 3} = 2^9 = \mathbf{512 \text{ แบบ}}$
+        ตัวอย่างเช่น ถ้า $|A| = 3$ ความสัมพันธ์บน $A$ จะมีได้ทั้งหมด $2^{3 \times 3} = 2^9 = \mathbf{512 \text{ รูปแบบ}}$$
       </div>
     </div>
     <div class="foot"><span>นิยามความสัมพันธ์</span><span class="right">4091606 · CH03-W07</span></div>
@@ -472,18 +471,18 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div class="cols">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">ANALOGY</span> ตาราง Checkbox สวิตช์ไฟ</div>
-            • แถว $i$ แทนตัวหน้า, คอลัมน์ $j$ แทนตัวหลัง<br>
-            • <b>บิต 1 :</b> สัมพันธ์กัน (เปิดสวิตช์ / ติ๊กถูก)<br>
-            • <b>บิต 0 :</b> ไม่สัมพันธ์กัน (ปิดสวิตช์ / ปล่อยว่าง)
+            <div class="lab"><span class="pin">โครงสร้าง</span> เมทริกซ์การมีความสัมพันธ์</div>
+            • แถว $i$ แทนสมาชิกตัวหน้า และคอลัมน์ $j$ แทนสมาชิกตัวหลัง<br>
+            • สมาชิกมีค่า 1 เมื่อมีความสัมพันธ์กัน ($M_{ij} = 1$ เมื่อ $(a_i, b_j) \in R$)<br>
+            • สมาชิกมีค่า 0 เมื่อไม่มีความสัมพันธ์กัน ($M_{ij} = 0$)
           </div>
         </div>
         <div class="col">
           <div class="block ex">
             <div class="lab"><span class="pin">EX</span> ตัวอย่าง</div>
-            ให้ $A = \{1, 2, 3\}$ และ $R = \{(1, 2), (1, 3), (2, 3), (3, 1)\}$:
+            ให้ $A = \{1, 2, 3\}$ และ $R = \{(1, 2), (1, 3), (2, 3), (3, 1)\}$
             $$\mathbf{M_R = \begin{bmatrix} 0 & 1 & 1 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{bmatrix}}$$
-            <span class="gn">• แถว 1: 1 สัมพันธ์กับ 2 และ 3 $\implies [0, 1, 1]$</span>
+            <span class="gn">• แถว 1 สัมพันธ์กับสมาชิก 2 และ 3 จะได้ $[0, 1, 1]$</span>
           </div>
         </div>
       </div>
@@ -502,8 +501,8 @@ b,strong{font-weight:700;color:var(--navy2)}
           <div class="block gold">
             <div class="lab"><span class="pin">GRAPH</span> กราฟระบุทิศทาง (Directed Graph / Digraph)</div>
             • <b>จุดยอด (Vertices):</b> แทนสมาชิก $\{1, 2, 3\}$ ในเซต $A$<br>
-            • <b>ลูกศร $u \to v$:</b> ลากเมื่อ $(u, v) \in R$ (เหมือนถนน One-way หรือการ Follow ใน IG)<br>
-            • <b>ลูป (Self-loop):</b> ลูกศรโค้งวนกลับหาตัวเองเมื่อ $(u, u) \in R$
+            • <b>เส้นเชื่อมระบุทิศทาง $u \to v$:</b> เขียนเมื่อ $(u, v) \in R$<br>
+            • <b>วงวน (Self-loop):</b> เส้นเชื่อมวนกลับหาจุดยอดเดิมเมื่อ $(u, u) \in R$
           </div>
         </div>
         <div class="col">
@@ -587,18 +586,18 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div class="cols">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">ANALOGY</span> มโนภาพ: การมองย้อนกลับ</div>
-            ถ้า $R$ คือ "เป็นพ่อของ" $\implies R^{-1}$ คือ "เป็นลูกของ"<br>
-            • เพียงแค่ <b>สลับที่ตัวหน้ากับตัวหลัง</b> ในทุกคู่อันดับ:
+            <div class="lab"><span class="pin">นิยาม</span> การสลับตำแหน่งของคู่อันดับ</div>
+            ความสัมพันธ์ผกผัน $R^{-1}$ เกิดจากการสลับตำแหน่งระหว่างสมาชิกตัวหน้าและสมาชิกตัวหลังของทุกคู่อันดับใน $R$
             $$\mathbf{R^{-1} = \{(b, a) \mid (a, b) \in R\}}$$
+            ตัวอย่างเช่น ถ้า $(a, b) \in R$ แล้วจะได้ $(b, a) \in R^{-1}$
           </div>
         </div>
         <div class="col">
           <div class="block ex">
             <div class="lab"><span class="pin">MATRIX</span> เมทริกซ์สลับเปลี่ยน (Transpose)</div>
-            ในรูปเมทริกซ์บูลีน $M_{R^{-1}}$ คือการ <b>สลับแถวเป็นคอลัมน์ ($M_R^T$)</b>:
+            ในรูปเมทริกซ์บูลีน $M_{R^{-1}}$ คือการสลับแถวเป็นคอลัมน์ของเมทริกซ์เดิม ($M_R^T$)
             $$\mathbf{M_{R^{-1}} = M_R^T}$$
-            • โดเมนและเรนจ์จะสลับหน้าที่กันทันที: $\operatorname{Dom}(R^{-1}) = \operatorname{Ran}(R)$
+            โดยโดเมนและเรนจ์จะสลับหน้าที่กัน $\operatorname{Dom}(R^{-1}) = \operatorname{Ran}(R)$ และ $\operatorname{Ran}(R^{-1}) = \operatorname{Dom}(R)$
           </div>
         </div>
       </div>
@@ -1309,9 +1308,9 @@ b,strong{font-weight:700;color:var(--navy2)}
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพ: การต่อรถไฟ 2 ต่อ</div>
-        ถ้าความสัมพันธ์ $R$ พาจากสถานี $A \to B$ และความสัมพันธ์ $S$ พาต่อจากสถานี $B \to C$<br>
-        ความสัมพันธ์ประกอบ $S \circ R$ คือ <b>เส้นทางเดินทางตรงจากสถานีต้นทาง $A \to C$</b>:
+        <div class="lab"><span class="pin">ความหมาย</span> การเชื่อมโยงความสัมพันธ์ผ่านสมาชิกตัวกลาง</div>
+        ถ้าความสัมพันธ์ $R$ จับคู่สมาชิกจาก $A \to B$ และความสัมพันธ์ $S$ จับคู่สมาชิกต่อเนื่องจาก $B \to C$<br>
+        ความสัมพันธ์ประกอบ $S \circ R$ คือความสัมพันธ์ที่จับคู่โดยตรงจากสมาชิกใน $A$ ไปยังสมาชิกใน $C$
         $$\mathbf{S \circ R = \{(a, c) \mid \exists b \in B, (a, b) \in R \land (b, c) \in S\}}$$
       </div>
       <div class="block gold">
@@ -1329,8 +1328,8 @@ b,strong{font-weight:700;color:var(--navy2)}
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพ: การเติมสิ่งที่ขาดให้ครบสมบัติ</div>
-        <b>การปิดสมบัติ</b> คือการเติมคู่อันดับเพิ่มเข้าไปให้น้อยที่สุด เพื่อทำให้ความสัมพันธ์นั้นมีสมบัติที่ต้องการครบถ้วน:
+        <div class="lab"><span class="pin">นิยาม</span> การเพิ่มสมาชิกให้น้อยที่สุดเพื่อให้สอดคล้องกับสมบัติ</div>
+        <b>การปิดล้อมหรือการปิดสมบัติ</b> คือการเพิ่มคู่อันดับลงในความสัมพันธ์ให้น้อยที่สุด เพื่อทำให้ความสัมพันธ์ใหม่มีสมบัติที่ต้องการอย่างครบถ้วน
       </div>
       <div class="cols three" style="margin-top:.3cqh">
         <div class="col">

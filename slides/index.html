@@ -12,7 +12,7 @@
             --bg-gradient: linear-gradient(135deg, #0b0f19 0%, #17153b 50%, #0f172a 100%);
             --card-bg: rgba(255, 255, 255, 0.035);
             --card-border: rgba(255, 255, 255, 0.08);
-            --card-hover-border: rgba(99, 102, 241, 0.45);
+            --card-hover-border: rgba(99, 102, 241, 0.5);
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --accent-indigo: #6366f1;
@@ -20,7 +20,7 @@
             --accent-cyan: #06b6d4;
             --accent-emerald: #10b981;
             --accent-amber: #f59e0b;
-            --glow: rgba(99, 102, 241, 0.2);
+            --glow: rgba(99, 102, 241, 0.25);
         }
 
         * {
@@ -210,6 +210,7 @@
             gap: 1.25rem;
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
+            cursor: pointer;
         }
 
         .card::before {
@@ -219,15 +220,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, transparent 100%);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, transparent 100%);
             opacity: 0;
             transition: opacity 0.35s ease;
         }
 
         .card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-5px);
             border-color: var(--card-hover-border);
-            box-shadow: 0 16px 36px -12px var(--glow);
+            box-shadow: 0 18px 40px -12px var(--glow);
         }
 
         .card:hover::before {
@@ -240,15 +241,26 @@
             align-items: center;
         }
 
+        .week-badge-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
         .week-badge {
-            background: rgba(99, 102, 241, 0.15);
-            color: #a5b4fc;
+            background: rgba(99, 102, 241, 0.18);
+            color: #c7d2fe;
             padding: 0.3rem 0.75rem;
             border-radius: 9999px;
             font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 0.05em;
             text-transform: uppercase;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .topic-icon {
+            font-size: 1.1rem;
         }
 
         .status-dot {
@@ -259,12 +271,23 @@
             box-shadow: 0 0 10px var(--accent-cyan);
         }
 
+        .card-title-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
         .card-body h2 {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 0.4rem;
             color: #ffffff;
             line-height: 1.35;
+            transition: color 0.2s ease;
+        }
+
+        .card:hover .card-body h2 {
+            color: #c084fc;
         }
 
         .card-body p {
@@ -288,8 +311,8 @@
             justify-content: space-between;
             width: 100%;
             padding: 0.65rem 1rem;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(168, 85, 247, 0.25));
-            border: 1px solid rgba(165, 180, 252, 0.25);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(168, 85, 247, 0.3));
+            border: 1px solid rgba(165, 180, 252, 0.3);
             border-radius: 10px;
             color: #ffffff;
             font-size: 0.875rem;
@@ -298,10 +321,10 @@
             transition: all 0.25s ease;
         }
 
-        .btn-primary-slide:hover {
+        .btn-primary-slide:hover, .card:hover .btn-primary-slide {
             background: linear-gradient(135deg, var(--accent-indigo), var(--accent-purple));
             box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
-            transform: translateY(-2px);
+            border-color: transparent;
         }
 
         .btn-links-group {
@@ -326,31 +349,33 @@
 
         .sub-link:hover {
             color: #ffffff;
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-1px);
         }
 
         .sub-link.ws {
             color: #6ee7b7;
-            border-color: rgba(16, 185, 129, 0.2);
+            border-color: rgba(16, 185, 129, 0.25);
             background: rgba(16, 185, 129, 0.08);
         }
 
         .sub-link.ws:hover {
-            background: rgba(16, 185, 129, 0.2);
-            border-color: rgba(16, 185, 129, 0.4);
+            background: rgba(16, 185, 129, 0.25);
+            border-color: rgba(16, 185, 129, 0.5);
+            color: #ffffff;
         }
 
         .sub-link.hw {
             color: #fcd34d;
-            border-color: rgba(245, 158, 11, 0.2);
+            border-color: rgba(245, 158, 11, 0.25);
             background: rgba(245, 158, 11, 0.08);
         }
 
         .sub-link.hw:hover {
-            background: rgba(245, 158, 11, 0.2);
-            border-color: rgba(245, 158, 11, 0.4);
+            background: rgba(245, 158, 11, 0.25);
+            border-color: rgba(245, 158, 11, 0.5);
+            color: #ffffff;
         }
 
         .arrow-icon {
@@ -360,7 +385,7 @@
             transition: transform 0.2s ease;
         }
 
-        .btn-primary-slide:hover .arrow-icon {
+        .card:hover .arrow-icon {
             transform: translateX(4px);
         }
 
@@ -413,13 +438,18 @@
 
         <div class="grid">
             <!-- Week 1 -->
-            <div class="card">
+            <div class="card" onclick="openSlide(event, 'chapter01_week1_slides.html')">
                 <div class="card-top">
-                    <span class="week-badge">Week 01</span>
+                    <div class="week-badge-wrap">
+                        <span class="topic-icon">💡</span>
+                        <span class="week-badge">Week 01</span>
+                    </div>
                     <span class="status-dot"></span>
                 </div>
                 <div class="card-body">
-                    <h2>Introduction to Logic</h2>
+                    <a href="chapter01_week1_slides.html" class="card-title-link">
+                        <h2>Introduction to Logic</h2>
+                    </a>
                     <p>เรียนรู้ความหมายของตรรกศาสตร์ ประพจน์ ตัวเชื่อมประพจน์ และความสำคัญในวิทยาการคอมพิวเตอร์</p>
                 </div>
                 <div class="card-actions">
@@ -428,21 +458,26 @@
                         <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
                     </a>
                     <div class="btn-links-group">
-                        <a href="chapter01_week1_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF</a>
-                        <a href="chapter01_week1_handout.pdf" target="_blank" class="sub-link">📑 เอกสารแจก</a>
-                        <a href="chapter01_homework.pdf" target="_blank" class="sub-link hw">📝 การบ้าน</a>
+                        <a href="chapter01_week1_worksheet.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ใบงาน PDF</a>
+                        <a href="chapter01_week1_handout.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link">📑 เอกสารแจก</a>
+                        <a href="chapter01_homework.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link hw">📝 การบ้าน</a>
                     </div>
                 </div>
             </div>
 
             <!-- Week 2 -->
-            <div class="card">
+            <div class="card" onclick="openSlide(event, 'chapter01_week2_slides.html')">
                 <div class="card-top">
-                    <span class="week-badge">Week 02</span>
+                    <div class="week-badge-wrap">
+                        <span class="topic-icon">⚖️</span>
+                        <span class="week-badge">Week 02</span>
+                    </div>
                     <span class="status-dot"></span>
                 </div>
                 <div class="card-body">
-                    <h2>Logical Equivalence</h2>
+                    <a href="chapter01_week2_slides.html" class="card-title-link">
+                        <h2>Logical Equivalence</h2>
+                    </a>
                     <p>การวิเคราะห์ความสมมูลทางตรรกศาสตร์ สัจนิรันดร์ และข้อขัดแย้ง รวมถึงการพิสูจน์ในรูปแบบตารางและความสมมูล</p>
                 </div>
                 <div class="card-actions">
@@ -451,21 +486,26 @@
                         <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
                     </a>
                     <div class="btn-links-group">
-                        <a href="chapter01_week2_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF</a>
-                        <a href="chapter01_week2_handout.pdf" target="_blank" class="sub-link">📑 เอกสารแจก</a>
-                        <a href="chapter01_week2_slides.pdf" target="_blank" class="sub-link">📽️ สไลด์ PDF</a>
+                        <a href="chapter01_week2_worksheet.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ใบงาน PDF</a>
+                        <a href="chapter01_week2_handout.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link">📑 เอกสารแจก</a>
+                        <a href="chapter01_week2_slides.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link">📽️ สไลด์ PDF</a>
                     </div>
                 </div>
             </div>
 
             <!-- Week 3 -->
-            <div class="card">
+            <div class="card" onclick="openSlide(event, 'chapter01_week3_slides.html')">
                 <div class="card-top">
-                    <span class="week-badge">Week 03</span>
+                    <div class="week-badge-wrap">
+                        <span class="topic-icon">🔀</span>
+                        <span class="week-badge">Week 03</span>
+                    </div>
                     <span class="status-dot"></span>
                 </div>
                 <div class="card-body">
-                    <h2>Connectives · Quantifiers · Inference</h2>
+                    <a href="chapter01_week3_slides.html" class="card-title-link">
+                        <h2>Connectives · Quantifiers · Inference</h2>
+                    </a>
                     <p>ตัวเชื่อมเสริม XOR/NAND/NOR · ตัวบ่งปริมาณ ∀/∃ · กฎการอนุมาน Modus Ponens/Tollens/Syllogism · Fallacy</p>
                 </div>
                 <div class="card-actions">
@@ -474,9 +514,9 @@
                         <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
                     </a>
                     <div class="btn-links-group">
-                        <a href="chapter01_week3_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF</a>
-                        <a href="chapter01_week3_handout.pdf" target="_blank" class="sub-link">📑 เอกสารแจก</a>
-                        <a href="chapter01_week3_homework.pdf" target="_blank" class="sub-link hw">📝 การบ้าน</a>
+                        <a href="chapter01_week3_worksheet.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ใบงาน PDF</a>
+                        <a href="chapter01_week3_handout.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link">📑 เอกสารแจก</a>
+                        <a href="chapter01_week3_homework.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link hw">📝 การบ้าน</a>
                     </div>
                 </div>
             </div>
@@ -492,13 +532,18 @@
 
         <div class="grid">
             <!-- Week 4 -->
-            <div class="card">
+            <div class="card" onclick="openSlide(event, 'chapter02_week4_slides.html')">
                 <div class="card-top">
-                    <span class="week-badge">Week 04</span>
+                    <div class="week-badge-wrap">
+                        <span class="topic-icon">📦</span>
+                        <span class="week-badge">Week 04</span>
+                    </div>
                     <span class="status-dot"></span>
                 </div>
                 <div class="card-body">
-                    <h2>Set Theory Intro</h2>
+                    <a href="chapter02_week4_slides.html" class="card-title-link">
+                        <h2>Set Theory Intro</h2>
+                    </a>
                     <p>ความหมายของเซต วิธีเขียนแจกแจงสมาชิก/บอกเงื่อนไข เซตจำกัด เซตอนันต์ และเซตย่อย</p>
                 </div>
                 <div class="card-actions">
@@ -507,21 +552,26 @@
                         <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
                     </a>
                     <div class="btn-links-group">
-                        <a href="chapter02_week4_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF</a>
-                        <a href="chapter02_week4_handout.pdf" target="_blank" class="sub-link">📑 เอกสารแจก</a>
-                        <a href="chapter02_week4_slides.pdf" target="_blank" class="sub-link">📽️ สไลด์ PDF</a>
+                        <a href="chapter02_week4_worksheet.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ใบงาน PDF</a>
+                        <a href="chapter02_week4_handout.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link">📑 เอกสารแจก</a>
+                        <a href="chapter02_week4_slides.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link">📽️ สไลด์ PDF</a>
                     </div>
                 </div>
             </div>
 
             <!-- Week 5 -->
-            <div class="card">
+            <div class="card" onclick="openSlide(event, 'chapter02_week5_slides.html')">
                 <div class="card-top">
-                    <span class="week-badge">Week 05</span>
+                    <div class="week-badge-wrap">
+                        <span class="topic-icon">🔄</span>
+                        <span class="week-badge">Week 05</span>
+                    </div>
                     <span class="status-dot"></span>
                 </div>
                 <div class="card-body">
-                    <h2>Set Operations</h2>
+                    <a href="chapter02_week5_slides.html" class="card-title-link">
+                        <h2>Set Operations</h2>
+                    </a>
                     <p>การดำเนินการระหว่างเซต ยูเนียน อินเตอร์เซกชัน ผลต่าง คอมพลีเมนต์ และกฎเดอมอร์แกน</p>
                 </div>
                 <div class="card-actions">
@@ -530,21 +580,26 @@
                         <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
                     </a>
                     <div class="btn-links-group">
-                        <a href="chapter02_week5_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF</a>
-                        <a href="chapter02_week5_handout.pdf" target="_blank" class="sub-link">📑 เอกสารแจก</a>
-                        <a href="chapter02_week5_slides.pdf" target="_blank" class="sub-link">📽️ สไลด์ PDF</a>
+                        <a href="chapter02_week5_worksheet.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ใบงาน PDF</a>
+                        <a href="chapter02_week5_handout.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link">📑 เอกสารแจก</a>
+                        <a href="chapter02_week5_slides.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link">📽️ สไลด์ PDF</a>
                     </div>
                 </div>
             </div>
 
             <!-- Week 6 -->
-            <div class="card">
+            <div class="card" onclick="openSlide(event, 'chapter02_week6_slides.html')">
                 <div class="card-top">
-                    <span class="week-badge">Week 06</span>
+                    <div class="week-badge-wrap">
+                        <span class="topic-icon">🔢</span>
+                        <span class="week-badge">Week 06</span>
+                    </div>
                     <span class="status-dot"></span>
                 </div>
                 <div class="card-body">
-                    <h2>Power Set · Cartesian Product</h2>
+                    <a href="chapter02_week6_slides.html" class="card-title-link">
+                        <h2>Power Set · Cartesian Product</h2>
+                    </a>
                     <p>เพาเวอร์เซต การหาจำนวนสมาชิก |A ∪ B ∪ C| ผลคูณคาร์ทีเซียน และการประยุกต์บิตแมสก์</p>
                 </div>
                 <div class="card-actions">
@@ -553,9 +608,9 @@
                         <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
                     </a>
                     <div class="btn-links-group">
-                        <a href="chapter02_week6_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF</a>
-                        <a href="chapter02_week6_worksheet_blank.pdf" target="_blank" class="sub-link ws">📄 ฉบับเปล่า</a>
-                        <a href="chapter02_week6_handout.pdf" target="_blank" class="sub-link">📑 เอกสารแจก</a>
+                        <a href="chapter02_week6_worksheet.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ใบงาน PDF</a>
+                        <a href="chapter02_week6_worksheet_blank.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ฉบับเปล่า</a>
+                        <a href="chapter02_week6_handout.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link">📑 เอกสารแจก</a>
                     </div>
                 </div>
             </div>
@@ -571,13 +626,18 @@
 
         <div class="grid">
             <!-- Week 7 -->
-            <div class="card">
+            <div class="card" onclick="openSlide(event, 'chapter03_week7_slides.html')">
                 <div class="card-top">
-                    <span class="week-badge">Week 07</span>
+                    <div class="week-badge-wrap">
+                        <span class="topic-icon">↔️</span>
+                        <span class="week-badge">Week 07</span>
+                    </div>
                     <span class="status-dot"></span>
                 </div>
                 <div class="card-body">
-                    <h2>Relations & Closures</h2>
+                    <a href="chapter03_week7_slides.html" class="card-title-link">
+                        <h2>Relations & Closures</h2>
+                    </a>
                     <p>พื้นฐานคู่อันดับ แผนภาพลูกศร เมทริกซ์ 4 สมบัติทวิภาค (สะท้อน สมมาตร ถ่ายทอด ปฏิสมมาตร) ความสัมพันธ์สมมูล และการปิดสมบัติ</p>
                 </div>
                 <div class="card-actions">
@@ -586,19 +646,24 @@
                         <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
                     </a>
                     <div class="btn-links-group">
-                        <a href="chapter03_week7_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF (Week 7)</a>
+                        <a href="chapter03_week7_worksheet.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ใบงาน PDF (Week 7)</a>
                     </div>
                 </div>
             </div>
 
             <!-- Week 8 -->
-            <div class="card">
+            <div class="card" onclick="openSlide(event, 'chapter03_week8_slides.html')">
                 <div class="card-top">
-                    <span class="week-badge">Week 08</span>
+                    <div class="week-badge-wrap">
+                        <span class="topic-icon">🎯</span>
+                        <span class="week-badge">Week 08</span>
+                    </div>
                     <span class="status-dot"></span>
                 </div>
                 <div class="card-body">
-                    <h2>Functions & Computer Applications</h2>
+                    <a href="chapter03_week8_slides.html" class="card-title-link">
+                        <h2>Functions & Computer Applications</h2>
+                    </a>
                     <p>ประเภทฟังก์ชัน (1-1, ทั่วถึง, หนึ่งต่อหนึ่งทั่วถึง) การประกอบ ฟังก์ชันผกผัน Floor, Ceiling, Modulo, Hash Function และ Recursion</p>
                 </div>
                 <div class="card-actions">
@@ -607,19 +672,24 @@
                         <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
                     </a>
                     <div class="btn-links-group">
-                        <a href="chapter03_week8_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF (Week 8)</a>
+                        <a href="chapter03_week8_worksheet.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ใบงาน PDF (Week 8)</a>
                     </div>
                 </div>
             </div>
 
             <!-- Week 9 -->
-            <div class="card">
+            <div class="card" onclick="openSlide(event, 'chapter03_week9_slides.html')">
                 <div class="card-top">
-                    <span class="week-badge">Week 09</span>
+                    <div class="week-badge-wrap">
+                        <span class="topic-icon">📈</span>
+                        <span class="week-badge">Week 09</span>
+                    </div>
                     <span class="status-dot"></span>
                 </div>
                 <div class="card-body">
-                    <h2>Sequences, Series & Advanced CS</h2>
+                    <a href="chapter03_week9_slides.html" class="card-title-link">
+                        <h2>Sequences, Series & Advanced CS</h2>
+                    </a>
                     <p>ลำดับและอนุกรมเลขคณิต/เรขาคณิต พีชคณิตเชิงสัมพันธ์ในฐานข้อมูล (Selection, Projection, Join) ลำดับบางส่วน (Poset) Hasse Diagram และ Topological Sort</p>
                 </div>
                 <div class="card-actions">
@@ -628,7 +698,7 @@
                         <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
                     </a>
                     <div class="btn-links-group">
-                        <a href="chapter03_week9_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF (Week 9)</a>
+                        <a href="chapter03_week9_worksheet.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ใบงาน PDF (Week 9)</a>
                     </div>
                 </div>
             </div>
@@ -641,6 +711,14 @@
 </div>
 
 <script>
+function openSlide(e, url) {
+    // If clicked on a sub-link (like worksheet pdf), let that link handle it
+    if (e.target.closest('.sub-link')) {
+        return;
+    }
+    window.location.href = url;
+}
+
 function filterChapter(chap, e) {
     const tabs = document.querySelectorAll('.tab-btn');
     tabs.forEach(t => t.classList.remove('active'));

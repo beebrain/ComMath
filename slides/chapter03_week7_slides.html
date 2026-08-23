@@ -631,15 +631,17 @@ b,strong{font-weight:700;color:var(--navy2)}
           </div>
           <div class="cols" style="margin-top:.3cqh">
             <div class="col">
-              <div class="block ex" style="padding:.9cqh 1.2cqw">
+              <div class="block ex" style="padding:.7cqh 1cqw">
                 <div class="lab"><span class="pin">✓ เป็นสะท้อน</span></div>
-                $a \le b$ ($5 \le 5$ จริง), $a \mid b$ ($4 \mid 4$ จริง)
+                • $a+b$ เป็นคู่: $a+a = 2a$ (คู่เสมอ ✓)<br>
+                • $a \equiv b \pmod m$: $a-a = 0 = 0\cdot m$ (หารลงตัว ✓)
               </div>
             </div>
             <div class="col">
-              <div class="block al" style="padding:.9cqh 1.2cqw">
+              <div class="block al" style="padding:.7cqh 1cqw">
                 <div class="lab"><span class="pin">✗ ไม่เป็นสะท้อน</span></div>
-                $a < b$ ($5 < 5$ เท็จ!), $a \neq b$ ($5 \neq 5$ เท็จ!)
+                • $a < b$ ($5 < 5$ เป็นเท็จ ✗)<br>
+                • $a \neq b$ ($5 \neq 5$ เป็นเท็จ ✗)
               </div>
             </div>
           </div>
@@ -787,9 +789,13 @@ b,strong{font-weight:700;color:var(--navy2)}
             $$\mathbf{\forall a, b \in A, [(a, b) \in R \land (b, a) \in R] \implies a = b}$$
           </div>
           <div class="block ex" style="margin-top:.3cqh">
-            <div class="lab"><span class="pin">✓ ตัวอย่าง</span> $\le$ และ $\subseteq$</div>
+            <div class="lab"><span class="pin">✓ ตัวอย่างปฏิสมมาตร</span> $\le$ และ $\subseteq$</div>
             • ถ้า $a \le b$ และ $b \le a \implies a = b$ พอดี<br>
             • ถ้า $A \subseteq B$ และ $B \subseteq A \implies A = B$ พอดี
+          </div>
+          <div class="block al" style="margin-top:.3cqh;padding:.6cqh 1cqw">
+            <div class="lab"><span class="pin">✗ ทำไม $a+b$ เป็นคู่ และ $a \equiv b \pmod m$ ไม่เป็นปฏิสมมาตร?</span></div>
+            เพราะมี $a \neq b$ ที่สัมพันธ์กันทั้งไปและกลับ เช่น $(3, 7)$ และ $(7, 3)$ แต่ $3 \neq 7$ (หรือ $18 \equiv 3 \pmod 5$ และ $3 \equiv 18 \pmod 5$ แต่ $18 \neq 3$)
           </div>
         </div>
         <div class="col">
@@ -914,6 +920,53 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>สมบัติถ่ายทอด</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
+  <!-- SLIDE 21b: Deep Dive Transitive Proofs -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Deep Dive 4.5b</span><h2>เจาะลึก: ทำไม $a+b$ เป็นเลขคู่ และ $a \equiv b \pmod m$ ถึงถ่ายทอด?</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block ex" style="height:100%">
+            <div class="lab"><span class="pin">กรณีที่ 1</span> ความสัมพันธ์ $a+b$ เป็นเลขคู่</div>
+            <b>1. การพิสูจน์เชิงพีชคณิต:</b>
+            <ul style="margin-left:1.5cqw;margin-top:.4cqh;font-size:2.4cqh">
+              <li>สมมุติ $a+b = 2k_1$ และ $b+c = 2k_2$ สำหรับบาง $k_1, k_2 \in \mathbb{Z}$</li>
+              <li>นำทั้งสองสมการมาบวกกัน:
+                $$(a+b) + (b+c) = 2k_1 + 2k_2$$
+                $$a + c + 2b = 2(k_1 + k_2) \implies a + c = 2(k_1 + k_2 - b)$$
+              </li>
+              <li>เนื่องจาก $k_1+k_2-b \in \mathbb{Z}$ จึงได้ $a+c$ เป็นเลขคู่ <span class="gn">✓ มีสมบัติถ่ายทอด</span></li>
+            </ul>
+            <div class="box-callout" style="margin-top:.5cqh;font-size:2.1cqh;background:var(--paper2);padding:.5cqh .8cqw;border-radius:6px;border-left:3px solid var(--green)">
+              <b>ตัวอย่าง:</b> $3+7=10$ (คู่), $7+11=18$ (คู่) $\implies 3+11=14$ (คู่ ✓)
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="block ex" style="height:100%">
+            <div class="lab"><span class="pin">กรณีที่ 2</span> ความสัมพันธ์คอนกรูเอนซ์ $a \equiv b \pmod m$</div>
+            <b>2. การพิสูจน์โดยการหารลงตัว:</b>
+            <ul style="margin-left:1.5cqw;margin-top:.4cqh;font-size:2.4cqh">
+              <li>สมมุติ $a-b = k_1 m$ และ $b-c = k_2 m$ สำหรับบาง $k_1, k_2 \in \mathbb{Z}$</li>
+              <li>นำทั้งสองสมการมาบวกกัน:
+                $$(a - b) + (b - c) = k_1 m + k_2 m$$
+                $$a - c = (k_1 + k_2)m$$
+              </li>
+              <li>เนื่องจาก $k_1+k_2 \in \mathbb{Z}$ แสดงว่า $m \mid (a-c)$ <span class="gn">✓ มีสมบัติถ่ายทอด</span></li>
+            </ul>
+            <div class="box-callout" style="margin-top:.5cqh;font-size:2.1cqh;background:var(--paper2);padding:.5cqh .8cqw;border-radius:6px;border-left:3px solid var(--green)">
+              <b>ตัวอย่าง (mod 5):</b> $18 \equiv 3 \pmod 5$ และ $3 \equiv 13 \pmod 5 \implies 18 \equiv 13 \pmod 5$ (เศษ 3 เท่ากัน ✓)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การพิสูจน์สมบัติถ่ายทอด</span><span class="right">4091606 · CH03-W07</span></div>
+  </section>
+
   <!-- SLIDE 22: Summary Table of Properties -->
   <section class="slide">
     <div class="head">
@@ -922,17 +975,19 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="body">
       <table style="width:100%;border-collapse:collapse;font-size:2cqh;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08)">
         <tr style="background:var(--navy);color:#fff;font-weight:700">
-          <th style="padding:.8cqh 1cqw;text-align:left">ความสัมพันธ์ $R$</th>
-          <th style="padding:.8cqh 1cqw;text-align:center">สะท้อน</th>
-          <th style="padding:.8cqh 1cqw;text-align:center">สมมาตร</th>
-          <th style="padding:.8cqh 1cqw;text-align:center">ปฏิสมมาตร</th>
-          <th style="padding:.8cqh 1cqw;text-align:center">ถ่ายทอด</th>
+          <th style="padding:.7cqh 1cqw;text-align:left">ความสัมพันธ์ $R$ บน $\mathbb{Z}$</th>
+          <th style="padding:.7cqh 1cqw;text-align:center">สะท้อน</th>
+          <th style="padding:.7cqh 1cqw;text-align:center">สมมาตร</th>
+          <th style="padding:.7cqh 1cqw;text-align:center">ปฏิสมมาตร</th>
+          <th style="padding:.7cqh 1cqw;text-align:center">ถ่ายทอด</th>
+          <th style="padding:.7cqh 1cqw;text-align:center">ความสัมพันธ์สมมูล</th>
         </tr>
-        <tr style="border-bottom:1px solid var(--line)"><td style="padding:.6cqh 1cqw"><b>$a = b$ (เท่ากัน)</b></td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td></tr>
-        <tr style="border-bottom:1px solid var(--line);background:var(--lnavy)"><td style="padding:.6cqh 1cqw"><b>$a \le b$ (น้อยกว่าหรือเท่ากับ)</b></td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--red2)">✗</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td></tr>
-        <tr style="border-bottom:1px solid var(--line)"><td style="padding:.6cqh 1cqw"><b>$a < b$ (น้อยกว่า)</b></td><td style="text-align:center;color:var(--red2)">✗</td><td style="text-align:center;color:var(--red2)">✗</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td></tr>
-        <tr style="border-bottom:1px solid var(--line);background:var(--lnavy)"><td style="padding:.6cqh 1cqw"><b>$a \mid b$ (หารลงตัว) บน $\mathbb{Z}^+$</b></td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--red2)">✗</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td></tr>
-        <tr><td style="padding:.6cqh 1cqw"><b>$a \equiv b \pmod m$ (สมภาค)</b></td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--red2)">✗</td><td style="text-align:center;color:var(--green2)">✓</td></tr>
+        <tr style="border-bottom:1px solid var(--line);background:var(--mint)"><td style="padding:.5cqh 1cqw"><b>$a + b$ เป็นเลขคู่</b></td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--red2)">✗</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2);font-weight:700">✓ เป็นสมมูล</td></tr>
+        <tr style="border-bottom:1px solid var(--line);background:var(--mint)"><td style="padding:.5cqh 1cqw"><b>$a \equiv b \pmod m$ (สมภาค)</b></td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--red2)">✗</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2);font-weight:700">✓ เป็นสมมูล</td></tr>
+        <tr style="border-bottom:1px solid var(--line)"><td style="padding:.5cqh 1cqw"><b>$a = b$ (เท่ากัน)</b></td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2);font-weight:700">✓ เป็นสมมูล</td></tr>
+        <tr style="border-bottom:1px solid var(--line);background:var(--lnavy)"><td style="padding:.5cqh 1cqw"><b>$a \le b$ (น้อยกว่าหรือเท่ากับ)</b></td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--red2)">✗</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--red2)">✗ ไม่เป็น</td></tr>
+        <tr style="border-bottom:1px solid var(--line)"><td style="padding:.5cqh 1cqw"><b>$a < b$ (น้อยกว่า)</b></td><td style="text-align:center;color:var(--red2)">✗</td><td style="text-align:center;color:var(--red2)">✗</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--red2)">✗ ไม่เป็น</td></tr>
+        <tr><td style="padding:.5cqh 1cqw"><b>$a \mid b$ (หารลงตัว) บน $\mathbb{Z}^+$</b></td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--red2)">✗</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--green2)">✓</td><td style="text-align:center;color:var(--red2)">✗ ไม่เป็น</td></tr>
       </table>
     </div>
     <div class="foot"><span>ตารางสรุปสมบัติ</span><span class="right">4091606 · CH03-W07</span></div>
@@ -958,9 +1013,19 @@ b,strong{font-weight:700;color:var(--navy2)}
         ความสัมพันธ์ $R$ บนเซต $A$ จะเป็น <b>ความสัมพันธ์สมมูล</b> ก็ต่อเมื่อมีครบทั้ง 3 สมบัติพร้อมกัน:
         $$\mathbf{\text{1. สะท้อน (Reflexive)}} \quad \mathbf{\text{2. สมมาตร (Symmetric)}} \quad \mathbf{\text{3. ถ่ายทอด (Transitive)}}$$
       </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพ: การจัดกลุ่มข้อมูลตามคุณสมบัติที่เหมือนกัน</div>
-        เช่น การแบ่งกลุ่มนักศึกษาตาม <b>"สาขาวิชา"</b> หรือ <b>"ชั้นปี"</b> หรือการจัดกลุ่มไฟล์ตาม <b>"นามสกุลไฟล์ (.pdf, .png)"</b>
+      <div class="cols" style="margin-top:.4cqh">
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">✓ ตัวอย่างหลัก 1</span> $a+b$ เป็นเลขคู่</div>
+            ผ่านครบทั้ง สะท้อน ($a+a=2a$), สมมาตร ($b+a=a+b$), และถ่ายทอด ($a+c=2(k_1+k_2-b)$)
+          </div>
+        </div>
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">✓ ตัวอย่างหลัก 2</span> $a \equiv b \pmod m$</div>
+            ผ่านครบทั้ง สะท้อน ($m\mid 0$), สมมาตร ($b-a=-km$), และถ่ายทอด ($a-c=(k_1+k_2)m$)
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>ความสัมพันธ์สมมูล</span><span class="right">4091606 · CH03-W07</span></div>
@@ -1007,24 +1072,44 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>คลาสสมมูลและ Partition</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 26: Modulo Equivalence Example -->
+  <!-- SLIDE 26: Equivalence Classes Examples (Even Sum & Modulo m) -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 5.3</span><h2>ตัวอย่างเชิงตัวเลข: ผลกั้นเซตของมอดุโล 3 บน $\mathbb{Z}$</h2></div>
+      <div><span class="kick">Concept 5.3</span><h2>ตัวอย่างเชิงตัวเลข: ผลกั้นเซตของ $a+b$ เป็นคู่ และ มอดุโล 3 บน $\mathbb{Z}$</h2></div>
     </div>
     <div class="body">
-      <div class="block ex">
-        <div class="lab"><span class="pin">MODULO 3</span> ความสัมพันธ์ $a \equiv b \pmod 3$ (หารด้วย 3 แล้วเหลือเศษเท่ากัน)</div>
-        จะแบ่งเซตจำนวนเต็ม $\mathbb{Z}$ ออกเป็น 3 คลาสสมมูลอย่างสมบูรณ์แบบ:
-        <ul style="margin-top:.5cqh;margin-left:1.5cqw">
-          <li>$\mathbf{[0]} = \{\dots, -6, -3, 0, 3, 6, 9, \dots\}$ $\implies$ กลุ่มหาร 3 ลงตัว (เศษ 0)</li>
-          <li>$\mathbf{[1]} = \{\dots, -5, -2, 1, 4, 7, 10, \dots\}$ $\implies$ กลุ่มหาร 3 เหลือเศษ 1</li>
-          <li>$\mathbf{[2]} = \{\dots, -4, -1, 2, 5, 8, 11, \dots\}$ $\implies$ กลุ่มหาร 3 เหลือเศษ 2</li>
-        </ul>
-        <span class="gn">• ทั้ง 3 กลุ่มรวมกันได้จำนวนเต็มทั้งหมด ($\mathbb{Z}$) และไม่มีตัวเลขใดอยู่ข้ามกลุ่มกันเลย!</span>
+      <div class="cols">
+        <div class="col">
+          <div class="block ex" style="height:100%">
+            <div class="lab"><span class="pin">ตัวอย่าง 1</span> $a+b$ เป็นเลขคู่ (แบ่งเป็น 2 คลาส)</div>
+            จะแบ่ง $\mathbb{Z}$ ออกเป็นกลุ่มที่มีภาวะคู่หรือคี่เหมือนกัน:
+            <ul style="margin-top:.4cqh;margin-left:1.5cqw;font-size:2.3cqh">
+              <li>$\mathbf{[0]} = \{\dots, -4, -2, 0, 2, 4, \dots\}$ (เซตของจำนวนเต็มคู่)</li>
+              <li>$\mathbf{[1]} = \{\dots, -3, -1, 1, 3, 5, \dots\}$ (เซตของจำนวนเต็มคี่)</li>
+            </ul>
+            <div style="margin-top:.5cqh;font-size:2.1cqh;color:var(--green2);font-weight:700">
+              • $[\text{คู่}] \cup [\text{คี่}] = \mathbb{Z}$ และ $[\text{คู่}] \cap [\text{คี่}] = \emptyset$
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="block ex" style="height:100%">
+            <div class="lab"><span class="pin">ตัวอย่าง 2</span> $a \equiv b \pmod 3$ (แบ่งเป็น 3 คลาส)</div>
+            จะแบ่ง $\mathbb{Z}$ ตามเศษที่ได้จากการหารด้วย 3:
+            <ul style="margin-top:.4cqh;margin-left:1.5cqw;font-size:2.3cqh">
+              <li>$\mathbf{[0]} = \{\dots, -6, -3, 0, 3, 6, 9, \dots\}$ (เศษ 0)</li>
+              <li>$\mathbf{[1]} = \{\dots, -5, -2, 1, 4, 7, 10, \dots\}$ (เศษ 1)</li>
+              <li>$\mathbf{[2]} = \{\dots, -4, -1, 2, 5, 8, 11, \dots\}$ (เศษ 2)</li>
+            </ul>
+            <div style="margin-top:.5cqh;font-size:2.1cqh;color:var(--green2);font-weight:700">
+              • รวมกันได้ $\mathbb{Z}$ ทั้งหมด และไม่มีตัวเลขใดอยู่ข้ามกลุ่ม!
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="foot"><span>ตัวอย่างผลกั้นมอดุโล 3</span><span class="right">4091606 · CH03-W07</span></div>
+    <div class="foot"><span>ตัวอย่างผลกั้นเซต</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
   <!-- SLIDE 27: DIVIDER 6 -->

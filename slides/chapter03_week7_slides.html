@@ -935,6 +935,53 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>การตรวจสอบสมบัติปฏิสมมาตร</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
+  <!-- SLIDE 19c: Finite Set Concrete Examples for Antisymmetric -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 4.3c</span><h2>ตัวอย่างการตรวจสอบสมบัติปฏิสมมาตรจากเซตของคู่อันดับ</h2></div>
+    </div>
+    <div class="body">
+      <div style="font-size:2.1cqh;margin-bottom:.4cqh">
+        กำหนดเซต $A = \{1, 2, 3\}$ พิจารณาการเกิดคู่อันดับแบบไปและกลับระหว่างสมาชิกที่ต่างกัน
+      </div>
+      <div class="cols">
+        <!-- Col 1: Valid Antisymmetric -->
+        <div class="col">
+          <div class="block ex" style="height:100%">
+            <div class="lab"><span class="pin">ตัวอย่างที่ 1</span> ความสัมพันธ์ $R_1 = \{(1, 2), (2, 3), (1, 1)\}$</div>
+            <div style="font-size:2cqh;line-height:1.45">
+              • พิจารณาคู่ $(1, 2)$ พบว่า<b>ไม่มี</b> $(2, 1)$ อยู่ในเซต (เดินทางเดียว)<br>
+              • พิจารณาคู่ $(2, 3)$ พบว่า<b>ไม่มี</b> $(3, 2)$ อยู่ในเซต (เดินทางเดียว)<br>
+              • พิจารณาคู่ $(1, 1)$ เป็นสมาชิกตัวเดียวกัน ยอมรับได้ตามเงื่อนไข $a = b$
+            </div>
+            <div style="font-size:2cqh;color:var(--green2);font-weight:700;margin-top:.4cqh">
+              ไม่มีสมาชิกต่างตัวกันที่เกิดความสัมพันธ์สองทิศทาง $\implies$ <u>มีสมบัติปฏิสมมาตร</u>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Invalid Antisymmetric -->
+        <div class="col">
+          <div class="block al" style="height:100%">
+            <div class="lab"><span class="pin">ตัวอย่างที่ 2</span> ความสัมพันธ์ $R_2 = \{(1, 2), (2, 1), (3, 3)\}$</div>
+            <div style="font-size:2cqh;line-height:1.45">
+              • พิจารณาคู่ $(1, 2)$ และพบว่า<b>มีคู่ $(2, 1)$ อยู่ในเซตด้วย</b><br>
+              • เนื่องจาก $1$ และ $2$ เป็นสมาชิกคนละตัวกัน ($1 \neq 2$)<br>
+              • การมีความสัมพันธ์ทั้งขาไปและขากลับพร้อมกัน ขัดกับนิยามของสมบัติปฏิสมมาตร
+            </div>
+            <div style="font-size:2cqh;color:var(--red2);font-weight:700;margin-top:.4cqh">
+              พบสมาชิกต่างตัวกันที่มีความสัมพันธ์ไปและกลับ $\implies$ <u>ไม่เป็นปฏิสมมาตร</u>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:.4cqh;font-size:2cqh;background:var(--lnavy);padding:.5cqh 1cqw;border-radius:6px;color:var(--navy2)">
+        <b>หลักการจำแนก</b> สมบัติสมมาตรกำหนดให้ต้องมีคู่อันดับย้อนกลับเสมอ ในขณะที่สมบัติปฏิสมมาตรกำหนดว่าสำหรับสมาชิกที่ต่างกันจะ<b>ต้องไม่มี</b>คู่อันดับย้อนกลับเด็ดขาด
+      </div>
+    </div>
+    <div class="foot"><span>การตรวจสอบสมบัติปฏิสมมาตรจากเซต</span><span class="right">4091606 · CH03-W07</span></div>
+  </section>
+
   <!-- SLIDE 20: Symmetric vs Antisymmetric -->
   <section class="slide">
     <div class="head">

@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การพิสูจน์ความสัมพันธ์สมมูล: a+b เป็นเลขคู่ — Computer Mathematics URU</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Fira+Code:wght@400;600&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+    <style>
+        :root {
+            --bg-base: #0a0f1d;
+            --bg-card: rgba(16, 24, 48, 0.75);
+            --bg-card-hover: rgba(22, 34, 68, 0.85);
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --border-active: rgba(99, 102, 241, 0.5);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-cyan: #38bdf8;
+            --accent-purple: #a855f7;
+            --accent-indigo: #6366f1;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --font-head: 'Chakra Petch', sans-serif;
+            --font-body: 'Sarabun', sans-serif;
+            --font-mono: 'Fira Code', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 2.5rem 1.5rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .ambient-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            background: 
+                radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.15), transparent 45%),
+                radial-gradient(circle at 85% 25%, rgba(56, 189, 248, 0.12), transparent 40%),
+                radial-gradient(circle at 50% 85%, rgba(168, 85, 247, 0.12), transparent 50%);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 9999px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .nav-btn:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        .header-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-indigo), var(--accent-purple));
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.9rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: rgba(99, 102, 241, 0.15);
+            color: #818cf8;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-family: var(--font-head);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            line-height: 1.25;
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 800px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--border-active);
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.12);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .step-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .step-icon.refl { background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.3); color: #fbbf24; }
+        .step-icon.sym { background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.3); color: #34d399; }
+        .step-icon.trans { background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.3); color: #38bdf8; }
+        .step-icon.class { background: rgba(168, 85, 247, 0.15); border-color: rgba(168, 85, 247, 0.3); color: #c084fc; }
+
+        .card-title {
+            font-family: var(--font-head);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .proof-box {
+            background: rgba(10, 15, 29, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 4px solid var(--accent-indigo);
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.2rem 0;
+            font-size: 1.05rem;
+        }
+
+        .proof-box.refl { border-left-color: var(--accent-amber); }
+        .proof-box.sym { border-left-color: var(--accent-emerald); }
+        .proof-box.trans { border-left-color: var(--accent-cyan); }
+        .proof-box.class { border-left-color: var(--accent-purple); }
+
+        .steps-list {
+            list-style: none;
+            counter-reset: pstep;
+            margin: 1rem 0;
+        }
+
+        .steps-list li {
+            position: relative;
+            padding-left: 2.2rem;
+            margin-bottom: 0.9rem;
+            font-size: 1.02rem;
+        }
+
+        .steps-list li::before {
+            counter-increment: pstep;
+            content: counter(pstep);
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            color: #cbd5e1;
+        }
+
+        .math-block {
+            background: rgba(15, 23, 42, 0.8);
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            margin: 0.8rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 1.1rem;
+            overflow-x: auto;
+        }
+
+        .badge-verified {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            font-weight: 700;
+            font-size: 0.85rem;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            margin-top: 0.6rem;
+        }
+
+        .tester-box {
+            background: linear-gradient(135deg, rgba(16, 24, 48, 0.9) 0%, rgba(26, 38, 74, 0.9) 100%);
+            border: 1px solid var(--border-active);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .tester-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+            font-family: var(--font-mono);
+        }
+
+        .input-group input {
+            width: 100%;
+            background: rgba(10, 15, 29, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            color: #ffffff;
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .input-group input:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+
+        .btn-calc {
+            background: linear-gradient(135deg, var(--accent-indigo), var(--accent-purple));
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.8rem 1.8rem;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: var(--font-head);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+        }
+
+        .btn-calc:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+        }
+
+        .tester-result {
+            background: rgba(10, 15, 29, 0.7);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: none;
+        }
+
+        .res-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .res-row:last-child {
+            border-bottom: none;
+        }
+
+        .res-val {
+            font-family: var(--font-mono);
+            font-weight: 600;
+        }
+
+        .two-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .two-cols {
+                grid-template-columns: 1fr;
+            }
+            body {
+                padding: 1.5rem 1rem;
+            }
+            .header-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow"></div>
+
+    <div class="container">
+        <!-- Navigation -->
+        <div class="top-nav">
+            <a href="index.html" class="nav-btn">
+                <span>←</span> กลับหน้าหลัก ComMath
+            </a>
+            <a href="chapter03_week7_slides.html" class="nav-btn">
+                <span>📽️</span> เปิดดูสไลด์ Week 7 (Relations & Closures)
+            </a>
+        </div>
+
+        <!-- Header Card -->
+        <div class="header-card">
+            <div class="badge-pill">Master Proof · Discrete Mathematics</div>
+            <h1>การพิสูจน์ความสัมพันธ์สมมูล</h1>
+            <p class="subtitle">
+                เจาะลึกขั้นตอนการพิสูจน์ความสัมพันธ์ <b>$a + b$ เป็นเลขคู่</b> และ <b>คอนกรูเอนซ์มอดุโล $m$ ($a \equiv b \pmod m$)</b> บนระบบจำนวนเต็ม $\mathbb{Z}$ อย่างเป็นขั้นตอนและรัดกุมตามหลักคณิตศาสตร์
+            </p>
+        </div>
+
+        <!-- Problem Statement -->
+        <div class="card">
+            <div class="card-header">
+                <div class="step-icon">📋</div>
+                <div>
+                    <div class="card-title">โจทย์และนิยามเริ่มต้น</div>
+                    <div style="color:var(--text-muted);font-size:0.9rem">Problem Formulation & Definition</div>
+                </div>
+            </div>
+            <p>
+                กำหนดให้ $R$ เป็นความสัมพันธ์ทวิภาคบนเซตของจำนวนเต็ม $\mathbb{Z}$ โดยมีเงื่อนไขดังนี้
+            </p>
+            <div class="math-block" style="text-align:center">
+                $$a \, R \, b \iff a + b \text{ เป็นจำนวนคู่} \iff \exists k \in \mathbb{Z}, \, a + b = 2k$$
+            </div>
+            <p style="margin-top:0.8rem">
+                <b>เป้าหมาย:</b> จงพิสูจน์ว่า $R$ เป็น <b>ความสัมพันธ์สมมูล (Equivalence Relation)</b> บน $\mathbb{Z}$ ซึ่งจะต้องแสดงให้เห็นจริงครบทั้ง 3 สมบัติ ได้แก่
+            </p>
+            <div style="display:flex;gap:0.8rem;margin-top:0.8rem;flex-wrap:wrap">
+                <span class="badge-pill" style="background:rgba(245, 158, 11, 0.15);color:#fbbf24;border-color:rgba(245, 158, 11, 0.3)">1. สะท้อน (Reflexive)</span>
+                <span class="badge-pill" style="background:rgba(16, 185, 129, 0.15);color:#34d399;border-color:rgba(16, 185, 129, 0.3)">2. สมมาตร (Symmetric)</span>
+                <span class="badge-pill" style="background:rgba(56, 189, 248, 0.15);color:#38bdf8;border-color:rgba(56, 189, 248, 0.3)">3. ถ่ายทอด (Transitive)</span>
+            </div>
+        </div>
+
+        <!-- Step 1: Reflexive -->
+        <div class="card">
+            <div class="card-header">
+                <div class="step-icon refl">1</div>
+                <div>
+                    <div class="card-title">1. การพิสูจน์สมบัติสะท้อน (Reflexive Property)</div>
+                    <div style="color:var(--text-muted);font-size:0.9rem">$\forall a \in \mathbb{Z}, (a, a) \in R$</div>
+                </div>
+            </div>
+            <div class="proof-box refl">
+                <ul class="steps-list">
+                    <li>ให้ $a$ เป็นจำนวนเต็มใด ๆ ใน $\mathbb{Z}$</li>
+                    <li>พิจารณาผลบวกของ $a$ กับตัวเอง:
+                        <div class="math-block">$$a + a = 2a$$</div>
+                    </li>
+                    <li>เนื่องจาก $a \in \mathbb{Z}$ จะได้ว่า $2a$ อยู่ในรูปของผลคูณระหว่าง $2$ กับจำนวนเต็ม ทำให้ $a + a$ เป็นจำนวนคู่เสมอ</li>
+                    <li>ส่งผลให้ $(a, a) \in R$ สำหรับทุก $a \in \mathbb{Z}$</li>
+                </ul>
+                <div class="badge-verified">✓ สรุป: $R$ มีสมบัติสะท้อนบน $\mathbb{Z}$ $\blacksquare$</div>
+            </div>
+            <p style="color:var(--text-muted);font-size:0.95rem;margin-top:0.8rem">
+                <b>ตัวอย่างเชิงตัวเลข:</b> ถ้า $a = 5$ จะได้ $5 + 5 = 10 = 2(5)$ (เป็นคู่) หรือถ้า $a = -4$ จะได้ $(-4) + (-4) = -8 = 2(-4)$ (เป็นคู่เสมอ)
+            </p>
+        </div>
+
+        <!-- Step 2: Symmetric -->
+        <div class="card">
+            <div class="card-header">
+                <div class="step-icon sym">2</div>
+                <div>
+                    <div class="card-title">2. การพิสูจน์สมบัติสมมาตร (Symmetric Property)</div>
+                    <div style="color:var(--text-muted);font-size:0.9rem">$\forall a, b \in \mathbb{Z}, (a, b) \in R \implies (b, a) \in R$</div>
+                </div>
+            </div>
+            <div class="proof-box sym">
+                <ul class="steps-list">
+                    <li>ให้ $a, b \in \mathbb{Z}$ และสมมุติว่า $(a, b) \in R$</li>
+                    <li>จากนิยาม จะมีจำนวนเต็ม $k \in \mathbb{Z}$ ที่ทำให้:
+                        <div class="math-block">$$a + b = 2k$$</div>
+                    </li>
+                    <li>โดย <b>สมบัติการสลับที่ของการบวก (Commutative Property of Addition)</b> บนจำนวนเต็ม:
+                        <div class="math-block">$$b + a = a + b = 2k$$</div>
+                    </li>
+                    <li>เนื่องจาก $2k$ เป็นจำนวนคู่ จึงได้ว่า $b + a$ เป็นจำนวนคู่ด้วย</li>
+                    <li>ส่งผลให้ $(b, a) \in R$</li>
+                </ul>
+                <div class="badge-verified">✓ สรุป: $R$ มีสมบัติสมมาตร $\blacksquare$</div>
+            </div>
+            <p style="color:var(--text-muted);font-size:0.95rem;margin-top:0.8rem">
+                <b>ตัวอย่างเชิงตัวเลข:</b> เลือก $a = 3, b = 7$ จะได้ $3 + 7 = 10$ เมื่อสลับที่ $7 + 3 = 10$ ยังคงได้ผลรวมเป็น 10 เท่าเดิมทุกประการ
+            </p>
+        </div>
+
+        <!-- Step 3: Transitive -->
+        <div class="card">
+            <div class="card-header">
+                <div class="step-icon trans">3</div>
+                <div>
+                    <div class="card-title">3. การพิสูจน์สมบัติถ่ายทอด (Transitive Property)</div>
+                    <div style="color:var(--text-muted);font-size:0.9rem">$\forall a, b, c \in \mathbb{Z}, [(a, b) \in R \land (b, c) \in R] \implies (a, c) \in R$</div>
+                </div>
+            </div>
+            <div class="proof-box trans">
+                <ul class="steps-list">
+                    <li>ให้ $a, b, c \in \mathbb{Z}$ โดยสมมุติว่า $(a, b) \in R$ และ $(b, c) \in R$</li>
+                    <li>จะมีจำนวนเต็ม $k_1, k_2 \in \mathbb{Z}$ ที่ทำให้:
+                        <div class="math-block">$$a + b = 2k_1 \quad \text{และ} \quad b + c = 2k_2$$</div>
+                    </li>
+                    <li>นำสมการทั้งสองมาบวกเข้าด้วยกัน:
+                        <div class="math-block">
+                            $$(a + b) + (b + c) = 2k_1 + 2k_2$$
+                            $$a + 2b + c = 2(k_1 + k_2)$$
+                            $$a + c = 2(k_1 + k_2) - 2b$$
+                            $$a + c = 2(k_1 + k_2 - b)$$
+                        </div>
+                    </li>
+                    <li>เนื่องจาก $k_1, k_2, b \in \mathbb{Z}$ จะได้ว่า $(k_1 + k_2 - b)$ เป็นจำนวนเต็ม ให้เป็น $k_3 \in \mathbb{Z}$</li>
+                    <li>จะได้สมการ $a + c = 2k_3$ ซึ่งแสดงว่า $a + c$ เป็นจำนวนคู่ ดังนั้น $(a, c) \in R$</li>
+                </ul>
+                <div class="badge-verified">✓ สรุป: $R$ มีสมบัติถ่ายทอด $\blacksquare$</div>
+            </div>
+            <p style="color:var(--text-muted);font-size:0.95rem;margin-top:0.8rem">
+                <b>ตัวอย่างเชิงตัวเลข:</b> เลือก $a = 3, b = 7, c = 11$ จะได้ $3+7 = 10$ (คู่), $7+11 = 18$ (คู่) $\implies 3+11 = 14$ (เป็นจำนวนคู่เช่นเดียวกัน)
+            </p>
+        </div>
+
+        <!-- Equivalence Classes & Partitions -->
+        <div class="card">
+            <div class="card-header">
+                <div class="step-icon class">🗂️</div>
+                <div>
+                    <div class="card-title">คลาสสมมูล (Equivalence Classes) และการแบ่งกั้นเซต $\mathbb{Z}$</div>
+                    <div style="color:var(--text-muted);font-size:0.9rem">Partitions of $\mathbb{Z}$ under Parity Equivalence</div>
+                </div>
+            </div>
+            <p>
+                เนื่องจาก $R$ มีครบทั้ง 3 สมบัติ จึงเป็น <b>ความสัมพันธ์สมมูล</b> และแบ่งจำนวนเต็ม $\mathbb{Z}$ ออกเป็น <b>2 คลาสสมมูล</b> ที่ไม่ซ้อนทับกันเลย:
+            </p>
+            <div class="two-cols" style="margin-top:1.2rem">
+                <div class="proof-box class">
+                    <b style="color:#c084fc">1. คลาสของจำนวนคู่ $[0]$:</b>
+                    <div class="math-block" style="font-size:0.98rem">
+                        $$[0] = \{x \in \mathbb{Z} \mid 0 + x \text{ เป็นคู่}\} = 2\mathbb{Z}$$
+                        $$[0] = \{\dots, -6, -4, -2, 0, 2, 4, 6, \dots\}$$
+                    </div>
+                </div>
+                <div class="proof-box class">
+                    <b style="color:#c084fc">2. คลาสของจำนวนคี่ $[1]$:</b>
+                    <div class="math-block" style="font-size:0.98rem">
+                        $$[1] = \{x \in \mathbb{Z} \mid 1 + x \text{ เป็นคู่}\} = 2\mathbb{Z} + 1$$
+                        $$[1] = \{\dots, -5, -3, -1, 1, 3, 5, 7, \dots\}$$
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top:0.8rem;color:var(--accent-emerald);font-weight:600">
+                • ผลกั้นเซต (Partition): $[0] \cup [1] = \mathbb{Z}$ และ $[0] \cap [1] = \emptyset$ (ทุกจำนวนเต็มต้องเป็นคู่หรือคี่อย่างใดอย่างหนึ่ง)
+            </p>
+        </div>
+
+        <!-- Interactive Tester -->
+        <div class="tester-box">
+            <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem">
+                <span style="font-size:1.5rem">🧪</span>
+                <h2 style="font-family:var(--font-head);font-size:1.5rem;color:#ffffff">เครื่องมือทดสอบสมบัติทางคณิตศาสตร์แบบโต้ตอบ (Live Sandbox)</h2>
+            </div>
+            <p style="color:var(--text-muted);font-size:0.95rem">
+                กรอกตัวเลขจำนวนเต็ม $a, b, c$ เพื่อทดสอบสมบัติสะท้อน สมมาตร และถ่ายทอดแบบคำนวณจริง:
+            </p>
+
+            <div class="tester-grid">
+                <div class="input-group">
+                    <label for="inpA">ค่า a (จำนวนเต็ม):</label>
+                    <input type="number" id="inpA" value="3" step="1">
+                </div>
+                <div class="input-group">
+                    <label for="inpB">ค่า b (จำนวนเต็ม):</label>
+                    <input type="number" id="inpB" value="7" step="1">
+                </div>
+                <div class="input-group">
+                    <label for="inpC">ค่า c (จำนวนเต็ม):</label>
+                    <input type="number" id="inpC" value="11" step="1">
+                </div>
+            </div>
+
+            <button class="btn-calc" onclick="verifyProperties()">ตรวจสอบสมบัติทั้ง 3 ประการ ▸</button>
+
+            <div class="tester-result" id="resBox">
+                <div class="res-row">
+                    <span>1. สะท้อน ($a + a$):</span>
+                    <span class="res-val" id="valRefl"></span>
+                </div>
+                <div class="res-row">
+                    <span>2. สมมาตร ($a + b$ vs $b + a$):</span>
+                    <span class="res-val" id="valSym"></span>
+                </div>
+                <div class="res-row">
+                    <span>3. ถ่ายทอด ($a+b, b+c \implies a+c$):</span>
+                    <span class="res-val" id="valTrans"></span>
+                </div>
+                <div class="res-row">
+                    <span>4. คลาสสมมูลที่สังกัด:</span>
+                    <span class="res-val" id="valClass"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison with Modulo m -->
+        <div class="card">
+            <div class="card-header">
+                <div class="step-icon">🔄</div>
+                <div>
+                    <div class="card-title">ความเชื่อมโยงกับความสัมพันธ์คอนกรูเอนซ์ $a \equiv b \pmod m$</div>
+                    <div style="color:var(--text-muted);font-size:0.9rem">Connection to Modulo Arithmetic</div>
+                </div>
+            </div>
+            <p>
+                ความสัมพันธ์ $a + b$ เป็นเลขคู่ แท้จริงแล้วสมมูลกับ <b>คอนกรูเอนซ์มอดุโล 2 ($a \equiv b \pmod 2$)</b>:
+            </p>
+            <div class="math-block" style="text-align:center">
+                $$a + b \text{ เป็นเลขคู่} \iff a \text{ และ } b \text{ เป็นคู่ทั้งคู่ หรือเป็นคี่ทั้งคู่} \iff a \equiv b \pmod 2$$
+            </div>
+            <p style="margin-top:0.8rem">
+                สำหรับการพิสูจน์ทั่วไปของ $a \equiv b \pmod m$ (เมื่อ $m \in \mathbb{Z}^+$):
+            </p>
+            <ul style="margin-left:1.5rem;margin-top:0.5rem;color:var(--text-muted);line-height:1.7">
+                <li><b>สะท้อน:</b> $a - a = 0 = 0 \cdot m \implies m \mid (a - a) \implies a \equiv a \pmod m$</li>
+                <li><b>สมมาตร:</b> $a - b = km \implies b - a = -(a - b) = (-k)m$ เนื่องจาก $-k \in \mathbb{Z} \implies b \equiv a \pmod m$</li>
+                <li><b>ถ่ายทอด:</b> $(a - b) + (b - c) = k_1 m + k_2 m \implies a - c = (k_1 + k_2)m \implies a \equiv c \pmod m$</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align:center;padding:2rem 0;color:var(--text-muted);font-size:0.9rem;border-top:1px solid rgba(255,255,255,0.05)">
+            วิชาคณิตศาสตร์คอมพิวเตอร์ (Computer Mathematics) · มหาวิทยาลัยราชภัฏอุตรดิตถ์
+        </div>
+    </div>
+
+    <script>
+        function verifyProperties() {
+            const a = parseInt(document.getElementById('inpA').value, 10);
+            const b = parseInt(document.getElementById('inpB').value, 10);
+            const c = parseInt(document.getElementById('inpC').value, 10);
+
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                alert('กรุณากรอกจำนวนเต็มที่ถูกต้อง');
+                return;
+            }
+
+            const resBox = document.getElementById('resBox');
+            resBox.style.display = 'block';
+
+            // 1. Reflexive: a + a
+            const sumAA = a + a;
+            const isRefl = (sumAA % 2 === 0);
+            document.getElementById('valRefl').innerHTML = `
+                ${a} + ${a} = <span style="color:#fbbf24">${sumAA}</span> (${isRefl ? 'เป็นจำนวนคู่ ✓' : 'ไม่เป็นคู่ ✗'})
+            `;
+
+            // 2. Symmetric: a + b & b + a
+            const sumAB = a + b;
+            const sumBA = b + a;
+            const isSym = (sumAB % 2 === 0);
+            document.getElementById('valSym').innerHTML = `
+                ${a}+${b} = ${sumAB} และ ${b}+${a} = ${sumBA} (${isSym ? 'คู่ทั้งคู่ ✓ สมมาตร' : 'คี่ทั้งคู่ ✓ สมมาตร'})
+            `;
+
+            // 3. Transitive: a+b, b+c -> a+c
+            const sumBC = b + c;
+            const sumAC = a + c;
+            const abEven = (sumAB % 2 === 0);
+            const bcEven = (sumBC % 2 === 0);
+            const acEven = (sumAC % 2 === 0);
+
+            let transText = '';
+            if (abEven && bcEven) {
+                transText = `${a}+${b}=${sumAB} (คู่) ∧ ${b}+${c}=${sumBC} (คู่) ⟹ ${a}+${c}=${sumAC} (${acEven ? '<span style="color:#38bdf8">คู่ ✓ ถ่ายทอดสำเร็จ</span>' : 'ไม่คู่ ✗'})`;
+            } else {
+                transText = `${a}+${b}=${sumAB}, ${b}+${c}=${sumBC} ⟹ ${a}+${c}=${sumAC} (${acEven ? 'คู่' : 'คี่'}) (เงื่อนไขตั้งต้นไม่เป็นคู่พร้อมกัน)`;
+            }
+            document.getElementById('valTrans').innerHTML = transText;
+
+            // 4. Class
+            const classA = (a % 2 === 0) ? '[0] เซตจำนวนคู่' : '[1] เซตจำนวนคี่';
+            const classB = (b % 2 === 0) ? '[0] เซตจำนวนคู่' : '[1] เซตจำนวนคี่';
+            const classC = (c % 2 === 0) ? '[0] เซตจำนวนคู่' : '[1] เซตจำนวนคี่';
+            document.getElementById('valClass').innerHTML = `
+                a ∈ <span style="color:#c084fc">${classA}</span>, b ∈ <span style="color:#c084fc">${classB}</span>, c ∈ <span style="color:#c084fc">${classC}</span>
+            `;
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            verifyProperties();
+        });
+    </script>
+</body>
+</html>

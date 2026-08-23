@@ -287,7 +287,7 @@ b,strong{font-weight:700;color:var(--navy2)}
           <div class="block al">
             <div class="lab"><span class="pin">PART 4</span> 4 สมบัติทวิภาค & การปิดสมบัติ</div>
             • สะท้อน, สมมาตร, ปฏิสมมาตร, ถ่ายทอด (เจาะลึกตัวอย่างเชิงตัวเลข)<br>
-            • ความสัมพันธ์สมมูล, คลาสสมมูล, และขั้นตอนวิธีวอร์แชลล์ (Warshall)
+            • ความสัมพันธ์สมมูล (Equivalence Relation) และขั้นตอนวิธีวอร์แชลล์ (Warshall)
           </div>
         </div>
       </div>
@@ -1329,87 +1329,6 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>การพิสูจน์ความสัมพันธ์สมมูล</span><span class="right">4091606 · CH03-W07</span></div>
   </section>
 
-  <!-- SLIDE 25: Equivalence Classes & Partition Diagram -->
-  <section class="slide">
-    <div class="head">
-      <div><span class="kick">Concept 5.2</span><h2>คลาสสมมูล (Equivalence Class) และทฤษฎีผลกั้นเซต</h2></div>
-    </div>
-    <div class="body">
-      <div class="cols wide-l">
-        <div class="col">
-          <div class="block">
-            <div class="lab"><span class="pin">CLASS</span> คลาสสมมูล $[a]$</div>
-            เซตของสมาชิกทั้งหมดที่สัมพันธ์กับ $a$:
-            $$\mathbf{[a] = \{x \in A \mid (a, x) \in R\}}$$
-          </div>
-          <div class="block gold" style="margin-top:.4cqh">
-            <div class="lab"><span class="pin">THEOREM</span> ทฤษฎีบทการแบ่งกั้น (Partition)</div>
-            คลาสสมมูลทั้งหมดจะ <b>แบ่งเซต $A$ ออกเป็นกลุ่มย่อย ๆ ที่ไม่ซ้อนทับกันเลย</b> (สมาชิกทุกคนต้องมีกลุ่มอยู่ และอยู่ได้เพียงกลุ่มเดียวเท่านั้น!)
-          </div>
-        </div>
-        <div class="col">
-          <div class="diag-box">
-            <div style="font-family:var(--f-head);font-size:1.8cqh;font-weight:700;color:var(--navy2);margin-bottom:.4cqh">การแบ่งกั้นเซต $A$ (Partition)</div>
-            <svg class="diag-svg" viewBox="0 0 180 120">
-              <!-- Outer boundary -->
-              <rect x="10" y="15" width="160" height="90" rx="10" fill="#E7ECF8" stroke="#1F3A93" stroke-width="2"/>
-              <!-- Partition lines -->
-              <line x1="63" y1="15" x2="63" y2="105" stroke="#1F3A93" stroke-width="2" stroke-dasharray="4"/>
-              <line x1="117" y1="15" x2="117" y2="105" stroke="#1F3A93" stroke-width="2" stroke-dasharray="4"/>
-
-              <!-- Labels -->
-              <text x="36" y="65" class="diag-text" style="fill:var(--navy2)">[a]</text>
-              <text x="90" y="65" class="diag-text" style="fill:var(--green2)">[b]</text>
-              <text x="144" y="65" class="diag-text" style="fill:var(--gold2)">[c]</text>
-            </svg>
-            <div style="font-size:1.45cqh;color:var(--navy);font-weight:600">กลุ่มย่อยไม่ซ้อนทับกันเลย ($A_i \cap A_j = \emptyset$)</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span>คลาสสมมูลและ Partition</span><span class="right">4091606 · CH03-W07</span></div>
-  </section>
-
-  <!-- SLIDE 26: Equivalence Classes Examples (Even Sum & Modulo m) -->
-  <section class="slide">
-    <div class="head">
-      <div><span class="kick">Concept 5.3</span><h2>ตัวอย่างเชิงตัวเลข: ผลกั้นเซตของ $a+b$ เป็นคู่ และ มอดุโล 3 บน $\mathbb{Z}$</h2></div>
-    </div>
-    <div class="body">
-      <div class="cols">
-        <div class="col">
-          <div class="block ex" style="height:100%">
-            <div class="lab"><span class="pin">ตัวอย่าง 1</span> $a+b$ เป็นเลขคู่ (แบ่งเป็น 2 คลาส)</div>
-            จะแบ่ง $\mathbb{Z}$ ออกเป็นกลุ่มที่มีภาวะคู่หรือคี่เหมือนกัน:
-            <ul style="margin-top:.4cqh;margin-left:1.5cqw;font-size:2.3cqh">
-              <li>$\mathbf{[0]} = \{\dots, -4, -2, 0, 2, 4, \dots\}$ (เซตของจำนวนเต็มคู่)</li>
-              <li>$\mathbf{[1]} = \{\dots, -3, -1, 1, 3, 5, \dots\}$ (เซตของจำนวนเต็มคี่)</li>
-            </ul>
-            <div style="margin-top:.5cqh;font-size:2.1cqh;color:var(--green2);font-weight:700">
-              • $[\text{คู่}] \cup [\text{คี่}] = \mathbb{Z}$ และ $[\text{คู่}] \cap [\text{คี่}] = \emptyset$
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="block ex" style="height:100%">
-            <div class="lab"><span class="pin">ตัวอย่าง 2</span> $a \equiv b \pmod 3$ (แบ่งเป็น 3 คลาส)</div>
-            จะแบ่ง $\mathbb{Z}$ ตามเศษที่ได้จากการหารด้วย 3:
-            <ul style="margin-top:.4cqh;margin-left:1.5cqw;font-size:2.3cqh">
-              <li>$\mathbf{[0]} = \{\dots, -6, -3, 0, 3, 6, 9, \dots\}$ (เศษ 0)</li>
-              <li>$\mathbf{[1]} = \{\dots, -5, -2, 1, 4, 7, 10, \dots\}$ (เศษ 1)</li>
-              <li>$\mathbf{[2]} = \{\dots, -4, -1, 2, 5, 8, 11, \dots\}$ (เศษ 2)</li>
-            </ul>
-            <div style="margin-top:.5cqh;font-size:2.1cqh;color:var(--green2);font-weight:700">
-              • รวมกันได้ $\mathbb{Z}$ ทั้งหมด และไม่มีตัวเลขใดอยู่ข้ามกลุ่ม!
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span>ตัวอย่างผลกั้นเซต</span><span class="right">4091606 · CH03-W07</span></div>
-  </section>
-
   <!-- SLIDE 27: DIVIDER 6 -->
   <section class="slide">
     <div class="divider">
@@ -1537,7 +1456,7 @@ b,strong{font-weight:700;color:var(--navy2)}
           <div class="block ex">
             <div class="lab"><span class="pin">WS-2</span> หน้า 2 : การตรวจสอบ 4 สมบัติ & การปิดสมบัติ</div>
             • <b>กิจกรรม 4:</b> ตรวจสอบสมบัติสะท้อน สมมาตร ปฏิสมมาตร และถ่ายทอด<br>
-            • <b>กิจกรรม 5:</b> จำแนกความสัมพันธ์สมมูลและการเขียนคลาสสมมูล $[a]$<br>
+            • <b>กิจกรรม 5:</b> พิสูจน์และตรวจสอบความสัมพันธ์สมมูลของความสัมพันธ์ที่กำหนด<br>
             • <b>กิจกรรม 6:</b> คำนวณการปิดสมบัติถ่ายทอด $R^+$ ด้วยขั้นตอนวิธีวอร์แชลล์
           </div>
         </div>
@@ -1559,7 +1478,7 @@ b,strong{font-weight:700;color:var(--navy2)}
           • <b>กิจกรรม 1:</b> $|A \times B| = 3 \times 2 = 6$ คู่อันดับ<br>
           • <b>กิจกรรม 3:</b> $\operatorname{Dom}(R) = \{1, 2, 3\}$, $\operatorname{Ran}(R) = \{x, y\}$, $R^{-1} = \{(x, 1), (y, 2), (x, 3)\}$<br>
           • <b>กิจกรรม 4:</b> $a \le b$ เป็นสะท้อน, ปฏิสมมาตร และถ่ายทอด (แต่ไม่เป็นสมมาตร)<br>
-          • <b>กิจกรรม 5:</b> $a \equiv b \pmod 3$ เป็นความสัมพันธ์สมมูล ได้คลาส $[0], [1], [2]$
+          • <b>กิจกรรม 5:</b> $a \equiv b \pmod 3$ เป็นความสัมพันธ์สมมูล (ครบทั้งสมบัติสะท้อน สมมาตร และถ่ายทอด)
         </div>
       </div>
     </div>

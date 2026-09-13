@@ -16,15 +16,15 @@
    4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์ · มรภ.อุตรดิตถ์
    ===================================================================== */
 :root{
-  --paper:#F4EEDF; --paper2:#FCFAF3; --ink:#15203a; --ink-soft:#42506e;
+  --paper:#EEF2F8; --paper2:#F8FAFC; --ink:#111827; --ink-soft:#4B5563;
   --navy:#1F3A93; --navy2:#16265e; --navy3:#0e1a44;
   --green:#2E8B57; --green2:#1f6b41;
   --red:#C0392B; --red2:#962b20;
   --gold:#B7950B; --gold2:#8a7008;
   --cyan:#00838F; --purple:#6A1B9A;
-  --lnavy:#E7ECF8; --mint:#E6F4EA; --pink:#FBE7E4; --cream:#FFF7DD; --lyellow:#FFF6D5;
-  --line:rgba(31,58,147,.16);
-  --line2:rgba(31,58,147,.30);
+  --lnavy:#E7ECF8; --mint:#E6F4EA; --pink:#FBE7E4; --cream:#FEF9C3; --lyellow:#FEF08A;
+  --line:rgba(31,58,147,.14);
+  --line2:rgba(31,58,147,.28);
   --f-head:'IBM Plex Sans Thai','Noto Sans Thai','Sarabun',system-ui,-apple-system,sans-serif;
   --f-body:'Sarabun','Noto Sans Thai','IBM Plex Sans Thai',system-ui,-apple-system,sans-serif;
   --f-mono:'JetBrains Mono','Courier New',ui-monospace,monospace;
@@ -34,19 +34,14 @@ html,body{height:100%;font-family:var(--f-body);text-rendering:optimizeLegibilit
 body{color:var(--ink);background:var(--paper);overflow:hidden}
 
 .bg{position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(120% 90% at 12% 0%, #FAF5E7 0%, var(--paper) 55%, #ECE3CC 100%);
+  background:radial-gradient(120% 90% at 15% 5%, #FFFFFF 0%, var(--paper) 60%, #E2E8F0 100%);
 }
-.bg::before{content:"";position:absolute;inset:0;opacity:.5;
-  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
-  background-size:46px 46px,46px 46px;
-  -webkit-mask-image:radial-gradient(120% 120% at 50% 40%,#000 55%,transparent 100%);
-  mask-image:radial-gradient(120% 120% at 50% 40%,#000 55%,transparent 100%);
-}
+.bg::before{display:none}
 
 #app{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100vh;width:100vw}
 .stage{position:relative;width:min(95.5vw,169vh);aspect-ratio:16/9;
   background:var(--paper2);border-radius:14px;
-  box-shadow:0 30px 70px -28px rgba(14,26,68,.55),0 2px 0 rgba(255,255,255,.6) inset,0 0 0 1px rgba(31,58,147,.10);
+  box-shadow:0 18px 45px -20px rgba(14,26,68,.45),0 0 0 1px rgba(31,58,147,.12);
   overflow:hidden;
 }
 .deck{position:absolute;inset:0}
@@ -63,13 +58,14 @@ body{color:var(--ink);background:var(--paper);overflow:hidden}
   background:linear-gradient(90deg,var(--gold) 0 16%,rgba(255,255,255,.25) 16% 100%)}
 .head .kick{font-family:var(--f-mono);font-size:1.55cqh;letter-spacing:.25em;
   text-transform:uppercase;color:#cdd8f4;font-weight:500;display:block;margin-bottom:.2cqh}
-.head h2{font-family:var(--f-head);font-weight:700;font-size:3.6cqh;line-height:1.15}
+.head h2{font-family:var(--f-head);font-weight:700;font-size:3.6cqh;line-height:1.3}
 .head h2 .en{font-weight:500;color:#b9c6ee;font-size:.72em}
 
 .body{position:absolute;top:0;left:0;right:0;bottom:0;
-  padding:11.4cqh 5cqw 5cqh;display:flex;flex-direction:column;justify-content:center;gap:1.4cqh;
-  font-size:2.55cqh;line-height:1.4;overflow:hidden}
-.body.tight{gap:1cqh}
+  padding:12cqh 5.2cqw 5.4cqh;display:flex;flex-direction:column;justify-content:flex-start;gap:1.8cqh;
+  font-size:2.5cqh;line-height:1.52;overflow:hidden}
+.body.tight{gap:1.2cqh;padding-top:11.8cqh}
+.body.center{justify-content:center}
 
 .foot{position:absolute;left:0;right:0;bottom:0;height:4.4cqh;
   display:flex;align-items:center;justify-content:space-between;
@@ -81,13 +77,11 @@ body{color:var(--ink);background:var(--paper);overflow:hidden}
 /* Divider Slide */
 .divider{display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;text-align:center;
   background:linear-gradient(135deg,var(--navy2),var(--navy3));color:#fff;position:relative;overflow:hidden}
-.divider::before{content:"";position:absolute;inset:0;opacity:.08;
-  background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);
-  background-size:40px 40px}
+.divider::before{display:none}
 .divider .ghost{position:absolute;font-family:var(--f-mono);font-size:30cqh;font-weight:700;color:rgba(255,255,255,.04);
   user-select:none;pointer-events:none}
 .divider .no{font-family:var(--f-mono);font-size:2.4cqh;color:var(--gold);letter-spacing:.3em;text-transform:uppercase;margin-bottom:1.2cqh}
-.divider h2{font-family:var(--f-head);font-size:5.2cqh;font-weight:700;line-height:1.2}
+.divider h2{font-family:var(--f-head);font-size:5.2cqh;font-weight:700;line-height:1.35}
 .divider h2 .en{display:block;font-size:.5em;color:#b9c6ee;font-weight:500;margin-top:.4cqh}
 
 /* Typography & Badges */
@@ -101,38 +95,38 @@ b,strong{font-weight:700;color:var(--navy2)}
 .expr{font-family:var(--f-mono);font-weight:600;color:var(--navy2)}
 
 /* Blocks & Columns */
-.block{border-radius:10px;padding:1.3cqh 1.8cqw;background:var(--lnavy);
-  border-left:.75cqh solid var(--navy);position:relative;
-  box-shadow:0 8px 20px -16px rgba(31,58,147,.5)}
-.block .lab{display:inline-flex;align-items:center;gap:.5em;font-family:var(--f-head);
-  font-weight:700;color:var(--navy);font-size:.85em;margin-bottom:.25cqh}
-.block .lab .pin{font-family:var(--f-mono);font-size:.8em;background:var(--navy);color:#fff;
-  padding:.08em .5em;border-radius:.35em}
-.block.ex{background:var(--mint);border-color:var(--green)}
+.block{border-radius:10px;padding:1.8cqh 2.2cqw;background:var(--lnavy);
+  border:1px solid rgba(31,58,147,.22);position:relative;
+  box-shadow:0 2px 6px rgba(14,26,68,.04)}
+.block .lab{display:flex;align-items:center;gap:.5em;font-family:var(--f-head);
+  font-weight:700;color:var(--navy);font-size:.92em;margin-bottom:.35cqh}
+.block .lab .pin{font-family:var(--f-mono);font-size:.82em;background:var(--navy);color:#fff;
+  padding:.1em .55em;border-radius:.35em}
+.block.ex{background:var(--mint);border-color:rgba(46,139,87,.3)}
 .block.ex .lab{color:var(--green2)} .block.ex .lab .pin{background:var(--green)}
-.block.al{background:var(--pink);border-color:var(--red)}
+.block.al{background:var(--pink);border-color:rgba(192,57,43,.3)}
 .block.al .lab{color:var(--red2)} .block.al .lab .pin{background:var(--red)}
-.block.gold{background:var(--lyellow);border-color:var(--gold)}
-.block.gold .lab{color:var(--gold2)} .block.gold .lab .pin{background:var(--gold)}
+.block.gold{background:var(--lyellow);border-color:rgba(183,149,11,.35)}
+.block.gold .lab{color:var(--gold2)} .block.gold .lab .pin{background:#78350F;color:#fff}
 
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:1.8cqw;align-items:start}
 .cols.wide-l{grid-template-columns:1.2fr .8fr}
 .cols.wide-r{grid-template-columns:.8fr 1.2fr}
 .cols.three{grid-template-columns:repeat(3,1fr);gap:1.3cqw}
-.col{display:flex;flex-direction:column;gap:1cqh}
+.col{display:flex;flex-direction:column;gap:1.2cqh}
 
-.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1cqw;margin-top:.2cqh}
-.proc-card{background:#fff;border-radius:10px;padding:1.2cqh 1.1cqw;border:1px solid var(--line2);
-  box-shadow:0 6px 16px -10px rgba(31,58,147,.3);display:flex;flex-direction:column;gap:.35cqh}
-.proc-card .p-num{font-family:var(--f-mono);font-size:1.45cqh;font-weight:700;background:var(--navy);
-  color:#fff;border-radius:6px;padding:.08em .4em;align-self:flex-start}
-.proc-card .p-title{font-family:var(--f-head);font-size:1.85cqh;font-weight:700;color:var(--navy2)}
-.proc-card .p-desc{font-size:1.6cqh;color:var(--ink-soft);line-height:1.32}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2cqw;margin-top:.4cqh}
+.proc-card{background:#fff;border-radius:10px;padding:2cqh 1.5cqw;border:1px solid rgba(31,58,147,.16);
+  box-shadow:0 2px 6px rgba(14,26,68,.04);display:flex;flex-direction:column;gap:.6cqh}
+.proc-card .p-num{font-family:var(--f-mono);font-size:1.55cqh;font-weight:700;background:var(--navy);
+  color:#fff;border-radius:6px;padding:.1em .5em;align-self:flex-start}
+.proc-card .p-title{font-family:var(--f-head);font-size:2.05cqh;font-weight:700;color:var(--navy2)}
+.proc-card .p-desc{font-size:1.75cqh;color:var(--ink-soft);line-height:1.45}
 
 /* Vector Diagram Component (SVG) */
-.diag-box{background:#fff;border-radius:10px;padding:1.1cqh 1.2cqw;border:1px solid var(--line2);
-  box-shadow:0 6px 16px -10px rgba(31,58,147,.3);display:flex;flex-direction:column;align-items:center}
-.diag-svg{width:100%;max-height:18cqh;display:block}
+.diag-box{background:#fff;border-radius:10px;padding:1.6cqh 1.6cqw;border:1px solid rgba(31,58,147,.16);
+  box-shadow:0 2px 6px rgba(14,26,68,.04);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.diag-svg{width:100%;max-height:25cqh;display:block}
 .diag-node{fill:#fff;stroke:var(--navy);stroke-width:2.2;transition:all .3s}
 .diag-node.gold{stroke:var(--gold);stroke-width:2.5}
 .diag-node.err{stroke:var(--red);stroke-width:2.5;fill:var(--pink)}
@@ -143,22 +137,22 @@ b,strong{font-weight:700;color:var(--navy2)}
 @keyframes dashPulse{to{stroke-dashoffset:-16}}
 
 /* Mini Diagram Grid */
-.mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1cqw;align-items:stretch}
-.mini-card{background:#fff;border-radius:9px;padding:.9cqh .7cqw;border:1px solid var(--line2);
-  box-shadow:0 4px 12px -8px rgba(31,58,147,.25);display:flex;flex-direction:column;justify-content:space-between;gap:.4cqh}
-.mini-card .title{font-family:var(--f-head);font-size:1.7cqh;font-weight:700;color:var(--navy2);text-align:center}
-.mini-card .badge{font-family:var(--f-head);font-weight:700;font-size:1.4cqh;padding:.2cqh .4cqw;border-radius:5px;text-align:center}
+.mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2cqw;align-items:stretch}
+.mini-card{background:#fff;border-radius:10px;padding:1.6cqh 1cqw;border:1px solid rgba(31,58,147,.16);
+  box-shadow:0 2px 6px rgba(14,26,68,.04);display:flex;flex-direction:column;justify-content:space-between;gap:.6cqh}
+.mini-card .title{font-family:var(--f-head);font-size:1.85cqh;font-weight:700;color:var(--navy2);text-align:center}
+.mini-card .badge{font-family:var(--f-head);font-weight:700;font-size:1.55cqh;padding:.3cqh .5cqw;border-radius:6px;text-align:center}
 .mini-card .badge.ok{background:var(--mint);color:var(--green2)}
 .mini-card .badge.no{background:var(--pink);color:var(--red2)}
 
 /* Table Slide */
-.table-slide{width:100%;border-collapse:collapse;font-size:1.85cqh;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.06)}
-.table-slide th{background:var(--navy);color:#fff;padding:.6cqh .8cqw;font-family:var(--f-head);font-weight:600;text-align:left}
-.table-slide td{padding:.55cqh .8cqw;border-bottom:1px solid var(--line2);color:var(--ink)}
+.table-slide{width:100%;border-collapse:collapse;font-size:2.05cqh;background:#fff;border-radius:8px;overflow:hidden;border:1px solid rgba(31,58,147,.15);box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.table-slide th{background:var(--navy);color:#fff;padding:.8cqh 1cqw;font-family:var(--f-head);font-weight:600;text-align:left}
+.table-slide td{padding:.7cqh 1cqw;border-bottom:1px solid var(--line2);color:var(--ink);line-height:1.45}
 .table-slide tr:nth-child(even){background:var(--paper2)}
 
 /* Code Box */
-.code-box{background:var(--navy3);color:#e2e8f0;padding:1cqh 1.2cqw;border-radius:8px;font-family:var(--f-mono);font-size:1.75cqh;line-height:1.4;overflow-x:auto}
+.code-box{background:var(--navy3);color:#f8fafc;padding:1.4cqh 1.5cqw;border-radius:8px;font-family:var(--f-mono);font-size:1.85cqh;line-height:1.45;overflow-x:auto}
 .code-kw{color:#f6ad55;font-weight:700}
 .code-fn{color:#63b3ed}
 .code-cm{color:#a0aec0;font-style:italic}
@@ -176,7 +170,7 @@ b,strong{font-weight:700;color:var(--navy2)}
 
 /* Toolbar Dock */
 .progress{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(31,58,147,.1);z-index:99}
-.progress .bar{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--navy));transition:width .25s ease}
+.progress .bar{height:100%;width:100%;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--gold),var(--navy));transition:transform .25s ease}
 .dock{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:6px;
   background:rgba(22,38,94,.92);backdrop-filter:blur(8px);padding:6px 14px;border-radius:30px;
   box-shadow:0 12px 30px rgba(0,0,0,.3),0 0 0 1px rgba(255,255,255,.15);z-index:90;color:#fff}
@@ -191,31 +185,31 @@ b,strong{font-weight:700;color:var(--navy2)}
 .cover{display:flex;flex-direction:column;justify-content:center;height:100%;padding:0 8cqw;position:relative}
 .cover .tag{font-family:var(--f-mono);font-size:2.1cqh;letter-spacing:.3em;color:var(--gold2);
   font-weight:700;margin-bottom:1cqh;text-transform:uppercase}
-.cover h1{font-family:var(--f-head);font-size:5.8cqh;font-weight:700;line-height:1.1;color:var(--navy2);margin-bottom:1.4cqh}
-.cover h1 .en{display:block;font-size:.52em;color:var(--navy);font-weight:500;margin-top:.2cqh}
+.cover h1{font-family:var(--f-head);font-size:5cqh;font-weight:700;line-height:1.35;color:var(--navy2);margin-bottom:.4cqh}
+.cover-sub-en{font-family:var(--f-head);font-size:2.4cqh;font-weight:600;color:var(--navy);margin-bottom:1.4cqh}
 .cover .sub{font-size:2.6cqh;color:var(--ink-soft);line-height:1.4;margin-bottom:2.8cqh}
-.cover .meta{font-size:2.1cqh;color:#596788;border-left:3px solid var(--gold);padding-left:1.5cqw}
+.cover .meta{font-size:2.1cqh;color:#596788;border-left:2px solid var(--navy);padding-left:1.5cqw}
 .cover .meta .course{font-family:var(--f-mono);font-weight:700;color:var(--navy)}
 
 /* Interactive Sandbox */
-.calc-box{background:#fff;border-radius:12px;padding:1.4cqh 1.6cqw;border:1px solid var(--line2);
-  box-shadow:0 10px 24px -14px rgba(31,58,147,.4);display:flex;flex-direction:column;gap:.8cqh}
-.calc-input{font-family:var(--f-mono);font-size:1.8cqh;padding:.3cqh .6cqw;border:1px solid var(--line2);border-radius:6px;width:90px}
+.calc-box{background:#fff;border-radius:12px;padding:2cqh 2.2cqw;border:1px solid rgba(31,58,147,.18);
+  box-shadow:0 3px 10px rgba(14,26,68,.04);display:flex;flex-direction:column;gap:1.2cqh}
+.calc-input{font-family:var(--f-mono);font-size:2cqh;padding:.4cqh .8cqw;border:1px solid var(--line2);border-radius:6px;width:95px}
 
 /* Interactive Game */
-.game-box{background:#fff;border-radius:12px;padding:1.5cqh 1.8cqw;border:1px solid var(--line2);
-  box-shadow:0 12px 28px -14px rgba(31,58,147,.4);display:flex;flex-direction:column;gap:1cqh}
-.g-q{font-family:var(--f-head);font-size:2.15cqh;font-weight:700;color:var(--navy2)}
-.g-opts{display:grid;grid-template-columns:1fr 1fr;gap:1cqw}
-.g-btn{padding:1cqh 1.2cqw;border-radius:8px;border:1px solid var(--line2);background:var(--lnavy);
-  font-family:var(--f-body);font-size:1.8cqh;font-weight:600;color:var(--navy2);cursor:pointer;text-align:left;transition:all .2s}
+.game-box{background:#fff;border-radius:12px;padding:2.2cqh 2.5cqw;border:1px solid rgba(31,58,147,.18);
+  box-shadow:0 3px 10px rgba(14,26,68,.04);display:flex;flex-direction:column;gap:1.5cqh}
+.g-q{font-family:var(--f-head);font-size:2.6cqh;font-weight:700;color:var(--navy2);line-height:1.35}
+.g-opts{display:grid;grid-template-columns:1fr 1fr;gap:1.2cqw}
+.g-btn{padding:1.4cqh 1.4cqw;border-radius:8px;border:1px solid var(--line2);background:var(--lnavy);
+  font-family:var(--f-body);font-size:2cqh;font-weight:600;color:var(--navy2);cursor:pointer;text-align:left;transition:all .2s;line-height:1.35}
 .g-btn:hover{background:var(--navy);color:#fff}
 .g-btn.ok{background:var(--green);color:#fff;border-color:var(--green2)}
 .g-btn.no{background:var(--red);color:#fff;border-color:var(--red2)}
-.g-fb{font-size:1.8cqh;font-weight:600;padding:.5cqh 1cqw;border-radius:6px;display:none}
+.g-fb{font-size:2cqh;font-weight:600;padding:.8cqh 1.2cqw;border-radius:6px;display:none;line-height:1.4}
 .g-fb.ok{display:block;background:var(--mint);color:var(--green2)}
 .g-fb.no{display:block;background:var(--pink);color:var(--red2)}
-.sim-btn{background:var(--navy);color:#fff;border:none;border-radius:6px;cursor:pointer;font-family:var(--f-head);font-weight:600;padding:.4cqh 1cqw}
+.sim-btn{background:var(--navy);color:#fff;border:none;border-radius:6px;cursor:pointer;font-family:var(--f-head);font-weight:600;padding:.6cqh 1.4cqw;font-size:1.8cqh}
 .sim-btn:hover{background:var(--navy2)}
 </style>
 </head>
@@ -231,9 +225,8 @@ b,strong{font-weight:700;color:var(--navy2)}
   <section class="slide is-active">
     <div class="cover">
       <div class="tag">Week 08 · Computer Mathematics</div>
-      <h1>บทที่ 3 ความสัมพันธ์และฟังก์ชัน
-        <span class="en">Functions, Injections, Surjections, Bijections & Special Functions</span>
-      </h1>
+      <h1>บทที่ 3 ความสัมพันธ์และฟังก์ชัน</h1>
+      <div class="cover-sub-en">Functions, Injections, Surjections, Bijections &amp; Special Functions</div>
       <p class="sub">เจาะลึก 1 ประเด็นต่อ 1 สไลด์ · นิยามและการแทนฟังก์ชัน · การจำแนกประเภท · การประกอบและฟังก์ชันผกผัน · ฟังก์ชันพื้น/เพดาน, มอดุโล, แฮช และฟังก์ชันเรียกซ้ำ</p>
       <div class="meta">
         <div class="course">4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์</div>
@@ -249,6 +242,10 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div><span class="kick">Target & Overview</span><h2>เป้าหมายการเรียนรู้ประจำสัปดาห์ที่ 8</h2></div>
     </div>
     <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">ROADMAP</span> โครงสร้าง 4 เสาหลักสู่การประยุกต์ใช้ฟังก์ชันในระบบคอมพิวเตอร์</div>
+        เนื้อหาในสัปดาห์นี้ออกแบบให้เรียนรู้แบบขั้นตอน <b>(Step-by-step Mastery)</b> ตั้งแต่นิยามพื้นฐานทางคณิตศาสตร์ความสัมพันธ์ การจำแนกประเภทและฟังก์ชันผกผัน ไปจนถึงฟังก์ชันคอมพิวเตอร์และอัลกอริทึมที่ใช้งานจริง
+      </div>
       <div class="proc-grid">
         <div class="proc-card">
           <div class="p-num">01</div>
@@ -425,7 +422,7 @@ b,strong{font-weight:700;color:var(--navy2)}
 
               <!-- Relation R -->
               <ellipse cx="115" cy="72" rx="75" ry="42" fill="#fff" stroke="var(--navy2)" stroke-width="2" stroke-dasharray="3"/>
-              <text x="65" y="54" style="font-family:var(--f-head);font-size:11.5px;font-weight:700;fill:var(--navy2)">ความสัมพันธ์ R</text>
+              <text x="115" y="44" style="font-family:var(--f-head);font-size:11.5px;font-weight:700;fill:var(--navy2);text-anchor:middle">ความสัมพันธ์ R</text>
 
               <!-- Function f -->
               <ellipse cx="130" cy="76" rx="42" ry="24" fill="var(--mint)" stroke="var(--green)" stroke-width="2.2"/>
@@ -448,7 +445,7 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div style="font-size:1.9cqh;margin-bottom:.2cqh">กำหนด $A = \{1, 2, 3, 4\}$ และ $B = \{a, b, c, d\}$ ตรวจสอบการจับคู่ด้วยแผนภาพลูกศร:</div>
       <div class="mini-grid">
         <!-- Card f1 -->
-        <div class="mini-card" style="border-top:3.5px solid var(--green)">
+        <div class="mini-card" style="border:1.5px solid var(--green)">
           <div class="title">f₁ (จับคู่หนึ่งต่อหนึ่ง)</div>
           <svg class="diag-svg" viewBox="0 0 150 108" style="max-height:13cqh">
             <defs><marker id="arr-c1" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 1 L 8 5 L 0 9 z" fill="#2E8B57"/></marker></defs>
@@ -470,7 +467,7 @@ b,strong{font-weight:700;color:var(--navy2)}
         </div>
 
         <!-- Card f2 -->
-        <div class="mini-card" style="border-top:3.5px solid var(--green)">
+        <div class="mini-card" style="border:1.5px solid var(--green)">
           <div class="title">f₂ (หลายตัวไปหนึ่ง)</div>
           <svg class="diag-svg" viewBox="0 0 150 108" style="max-height:13cqh">
             <defs><marker id="arr-c2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 1 L 8 5 L 0 9 z" fill="#2E8B57"/></marker></defs>
@@ -492,7 +489,7 @@ b,strong{font-weight:700;color:var(--navy2)}
         </div>
 
         <!-- Card f3 -->
-        <div class="mini-card" style="border-top:3.5px solid var(--red)">
+        <div class="mini-card" style="border:1.5px solid var(--red)">
           <div class="title">f₃ (โหนดแตกกิ่ง)</div>
           <svg class="diag-svg" viewBox="0 0 150 108" style="max-height:13cqh">
             <defs>
@@ -518,7 +515,7 @@ b,strong{font-weight:700;color:var(--navy2)}
         </div>
 
         <!-- Card f4 -->
-        <div class="mini-card" style="border-top:3.5px solid var(--red)">
+        <div class="mini-card" style="border:1.5px solid var(--red)">
           <div class="title">f₄ (สมาชิกไม่ครบ)</div>
           <svg class="diag-svg" viewBox="0 0 150 108" style="max-height:13cqh">
             <defs><marker id="arr-c4g" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 1 L 8 5 L 0 9 z" fill="#718096"/></marker></defs>
@@ -604,30 +601,30 @@ total = 0
             <div class="lab"><span class="pin">INSIGHT</span> เหตุผลทางคณิตศาสตร์</div>
             ถ้าเส้นตรงแนวตั้งตัด 2 จุด แปลว่าอินพุต $x = c$ ตัวเดียว ให้ผลลัพธ์ $y$ ถึงสองค่า ฝ่าฝืนกฎ <b>Uniqueness</b>
           </div>
-          <div style="background:var(--lnavy);color:var(--navy);border-left:3px solid var(--navy);padding:.3cqh .8cqw;font-size:1.35cqh;font-weight:600;border-radius:4px;margin-top:.3cqh">
+          <div style="background:var(--lnavy);color:var(--navy);border:1px solid rgba(31,58,147,.22);padding:.4cqh .9cqw;font-size:1.35cqh;font-weight:600;border-radius:6px;margin-top:.3cqh">
             📌 ด่านที่ 1 สนใจเฉพาะ: <i>"x 1 ตัว ห้ามแตกกิ่งให้หลาย y"</i> (ส่วน y จะซ้ำหรือไม่ ค่อยไปตรวจด่านที่ 2 ด้วยเส้นแนวนอน)
           </div>
         </div>
         <div class="col">
           <div class="diag-box">
             <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.8cqh;margin-bottom:.3cqh">พาราโบลา vs วงกลม</div>
-            <svg class="diag-svg" viewBox="0 0 240 130">
+            <svg class="diag-svg" viewBox="0 0 340 135">
               <!-- Parabola -->
-              <line x1="20" y1="110" x2="110" y2="110" stroke="#a0aec0" stroke-width="1.5"/>
-              <line x1="65" y1="20" x2="65" y2="120" stroke="#a0aec0" stroke-width="1.5"/>
-              <path d="M 35 30 Q 65 110 95 30" fill="none" stroke="var(--navy)" stroke-width="2.5"/>
-              <line x1="85" y1="15" x2="85" y2="120" stroke="var(--green)" stroke-width="2" stroke-dasharray="3"/>
-              <circle cx="85" cy="50" r="4" fill="var(--green)"/>
-              <text x="65" y="125" style="font-size:11px;fill:var(--green2);font-family:var(--f-head);font-weight:700;text-anchor:middle">y = x² (ตัด 1 จุด ✓ ฟังก์ชัน)</text>
+              <line x1="15" y1="105" x2="135" y2="105" stroke="#a0aec0" stroke-width="1.5"/>
+              <line x1="75" y1="15" x2="75" y2="115" stroke="#a0aec0" stroke-width="1.5"/>
+              <path d="M 40 25 Q 75 105 110 25" fill="none" stroke="var(--navy)" stroke-width="2.5"/>
+              <line x1="95" y1="12" x2="95" y2="115" stroke="var(--green)" stroke-width="2" stroke-dasharray="3"/>
+              <circle cx="95" cy="45" r="4" fill="var(--green)"/>
+              <text x="75" y="128" style="font-size:11px;fill:var(--green2);font-family:var(--f-head);font-weight:700;text-anchor:middle">y = x² (ตัด 1 จุด ✓ ฟังก์ชัน)</text>
 
               <!-- Circle -->
-              <line x1="140" y1="70" x2="230" y2="70" stroke="#a0aec0" stroke-width="1.5"/>
-              <line x1="185" y1="20" x2="185" y2="120" stroke="#a0aec0" stroke-width="1.5"/>
-              <circle cx="185" cy="70" r="35" fill="none" stroke="var(--navy)" stroke-width="2.5"/>
-              <line x1="195" y1="15" x2="195" y2="120" stroke="var(--red)" stroke-width="2" stroke-dasharray="3"/>
-              <circle cx="195" cy="36" r="4" fill="var(--red)"/>
-              <circle cx="195" cy="104" r="4" fill="var(--red)"/>
-              <text x="185" y="125" style="font-size:11px;fill:var(--red2);font-family:var(--f-head);font-weight:700;text-anchor:middle">วงกลม (ตัด 2 จุด ✗ ไม่ใช่ฟังก์ชัน)</text>
+              <line x1="195" y1="65" x2="315" y2="65" stroke="#a0aec0" stroke-width="1.5"/>
+              <line x1="255" y1="15" x2="255" y2="115" stroke="#a0aec0" stroke-width="1.5"/>
+              <circle cx="255" cy="65" r="35" fill="none" stroke="var(--navy)" stroke-width="2.5"/>
+              <line x1="268" y1="12" x2="268" y2="115" stroke="var(--red)" stroke-width="2" stroke-dasharray="3"/>
+              <circle cx="268" cy="33" r="4" fill="var(--red)"/>
+              <circle cx="268" cy="97" r="4" fill="var(--red)"/>
+              <text x="255" y="128" style="font-size:11px;fill:var(--red2);font-family:var(--f-head);font-weight:700;text-anchor:middle">วงกลม (ตัด 2 จุด ✗ ไม่ใช่ฟังก์ชัน)</text>
             </svg>
           </div>
         </div>
@@ -645,7 +642,7 @@ total = 0
       <div class="cols">
         <!-- Valid Arrow Diagram -->
         <div class="col">
-          <div class="diag-box" style="border-top:4px solid var(--green);gap:.5cqh">
+          <div class="diag-box" style="border:1.5px solid var(--green);gap:.5cqh">
             <div style="font-family:var(--f-head);font-size:2cqh;font-weight:700;color:var(--green2)">
               ✓ รูปแบบที่เป็นฟังก์ชัน (Valid Function)
             </div>
@@ -684,7 +681,7 @@ total = 0
 
         <!-- Invalid Arrow Diagram -->
         <div class="col">
-          <div class="diag-box" style="border-top:4px solid var(--red);gap:.5cqh">
+          <div class="diag-box" style="border:1.5px solid var(--red);gap:.5cqh">
             <div style="font-family:var(--f-head);font-size:2cqh;font-weight:700;color:var(--red2)">
               ✗ รูปแบบที่ไม่เป็นฟังก์ชัน (Violations)
             </div>
@@ -950,31 +947,31 @@ total = 0
         <div style="font-family:var(--f-head);font-size:1.6cqh;font-weight:700;color:var(--navy);margin-bottom:.2cqh">
           ผังงานตรรกะการพิสูจน์ Injective (Proof Decision Flowchart)
         </div>
-        <svg class="diag-svg" viewBox="0 0 540 85" style="max-height:13cqh">
+        <svg class="diag-svg" viewBox="0 0 600 85" style="max-height:13cqh">
           <!-- Step 1: Start -->
-          <rect x="10" y="24" width="130" height="38" rx="6" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.8"/>
-          <text x="75" y="40" style="font-family:var(--f-mono);font-size:11px;fill:var(--navy);font-weight:700;text-anchor:middle">สมมุติ f(a) = f(b)</text>
-          <text x="75" y="53" style="font-family:var(--f-head);font-size:9.5px;fill:var(--ink-soft);text-anchor:middle">ตั้งสมการเริ่มต้น</text>
+          <rect x="10" y="24" width="125" height="38" rx="6" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.8"/>
+          <text x="72" y="40" style="font-family:var(--f-mono);font-size:11px;fill:var(--navy);font-weight:700;text-anchor:middle">สมมุติ f(a) = f(b)</text>
+          <text x="72" y="53" style="font-family:var(--f-head);font-size:9.5px;fill:var(--ink-soft);text-anchor:middle">ตั้งสมการเริ่มต้น</text>
 
           <!-- Arrow to Decision -->
-          <path d="M 140 43 L 180 43" class="diag-edge" stroke="var(--navy)" stroke-width="2" marker-end="url(#arr-m)"/>
+          <path d="M 135 43 L 170 43" class="diag-edge" stroke="var(--navy)" stroke-width="2" marker-end="url(#arr-m)"/>
 
           <!-- Step 2: Solve -->
-          <rect x="180" y="20" width="140" height="46" rx="6" fill="#fff" stroke="var(--navy)" stroke-width="1.8"/>
-          <text x="250" y="38" style="font-family:var(--f-head);font-size:11px;fill:var(--navy);font-weight:700;text-anchor:middle">จัดรูป &amp; แก้สมการ</text>
-          <text x="250" y="54" style="font-family:var(--f-head);font-size:9.5px;fill:var(--ink-soft);text-anchor:middle">พิจารณาคำตอบของ a และ b</text>
+          <rect x="170" y="20" width="135" height="46" rx="6" fill="#fff" stroke="var(--navy)" stroke-width="1.8"/>
+          <text x="237" y="38" style="font-family:var(--f-head);font-size:11px;fill:var(--navy);font-weight:700;text-anchor:middle">จัดรูป &amp; แก้สมการ</text>
+          <text x="237" y="54" style="font-family:var(--f-head);font-size:9.5px;fill:var(--ink-soft);text-anchor:middle">พิจารณาคำตอบของ a และ b</text>
 
           <!-- Branch Up: a = b only -->
-          <path d="M 320 35 L 355 20 L 380 20" class="diag-edge" stroke="var(--green)" stroke-width="2" marker-end="url(#arr-ok-10)"/>
-          <text x="350" y="14" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);font-weight:700">a = b ตัวเดียว</text>
-          <rect x="380" y="6" width="150" height="28" rx="5" fill="var(--mint)" stroke="var(--green)" stroke-width="1.8"/>
-          <text x="455" y="23" style="font-family:var(--f-head);font-size:10.5px;fill:var(--green2);font-weight:700;text-anchor:middle">✓ เป็น 1-to-1 (Injective)</text>
+          <path d="M 305 33 L 335 18 L 415 18" class="diag-edge" stroke="var(--green)" stroke-width="2" marker-end="url(#arr-ok-10)"/>
+          <text x="375" y="13" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);font-weight:700;text-anchor:middle">a = b ตัวเดียว</text>
+          <rect x="420" y="5" width="170" height="28" rx="5" fill="var(--mint)" stroke="var(--green)" stroke-width="1.8"/>
+          <text x="505" y="23" style="font-family:var(--f-head);font-size:10.5px;fill:var(--green2);font-weight:700;text-anchor:middle">✓ เป็น 1-to-1 (Injective)</text>
 
           <!-- Branch Down: a = ±b -->
-          <path d="M 320 51 L 355 66 L 380 66" class="diag-edge" stroke="var(--red)" stroke-width="2" marker-end="url(#arr-bad-10)"/>
-          <text x="340" y="78" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--red2);font-weight:700">มีหลายคำตอบ (±b)</text>
-          <rect x="380" y="52" width="150" height="28" rx="5" fill="var(--pink)" stroke="var(--red)" stroke-width="1.8"/>
-          <text x="455" y="69" style="font-family:var(--f-head);font-size:10.5px;fill:var(--red2);font-weight:700;text-anchor:middle">✗ ไม่เป็น 1-to-1 (ชนกัน)</text>
+          <path d="M 305 53 L 335 68 L 415 68" class="diag-edge" stroke="var(--red)" stroke-width="2" marker-end="url(#arr-bad-10)"/>
+          <text x="375" y="81" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--red2);font-weight:700;text-anchor:middle">มีหลายคำตอบ (±b)</text>
+          <rect x="420" y="53" width="170" height="28" rx="5" fill="var(--pink)" stroke="var(--red)" stroke-width="1.8"/>
+          <text x="505" y="71" style="font-family:var(--f-head);font-size:10.5px;fill:var(--red2);font-weight:700;text-anchor:middle">✗ ไม่เป็น 1-to-1 (ชนกัน)</text>
         </svg>
       </div>
     </div>
@@ -1027,42 +1024,40 @@ total = 0
         <div style="font-family:var(--f-head);font-size:1.55cqh;font-weight:700;color:var(--navy);margin-bottom:.2cqh">
           ผังลำดับการทดสอบ 2 ด่าน (The 2-Stage Testing Pipeline)
         </div>
-        <svg class="diag-svg" viewBox="0 0 540 68" style="max-height:11cqh">
+        <svg class="diag-svg" viewBox="0 0 580 68" style="max-height:11cqh">
           <!-- Step 0: Relation -->
-          <rect x="5" y="18" width="90" height="32" rx="5" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.5"/>
-          <text x="50" y="32" style="font-family:var(--f-head);font-size:10px;fill:var(--navy);font-weight:700;text-anchor:middle">ความสัมพันธ์</text>
-          <text x="50" y="44" style="font-family:var(--f-mono);font-size:8.5px;fill:var(--ink-soft);text-anchor:middle">Relation</text>
+          <rect x="5" y="15" width="85" height="38" rx="5" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.5"/>
+          <text x="47" y="27" style="font-family:var(--f-head);font-size:10px;fill:var(--navy);font-weight:700;text-anchor:middle;dominant-baseline:central">ความสัมพันธ์</text>
+          <text x="47" y="42" style="font-family:var(--f-mono);font-size:8.5px;fill:var(--ink-soft);text-anchor:middle;dominant-baseline:central">Relation</text>
 
-          <path d="M 95 34 L 120 34" stroke="var(--navy)" stroke-width="1.6" marker-end="url(#arr-m)"/>
+          <path d="M 90 34 L 115 34" stroke="var(--navy)" stroke-width="1.6" marker-end="url(#arr-m)"/>
 
           <!-- Stage 1: Vertical Line -->
-          <rect x="123" y="10" width="130" height="48" rx="5" fill="#fff" stroke="var(--navy)" stroke-width="1.8"/>
-          <text x="188" y="25" style="font-family:var(--f-head);font-size:10.5px;fill:var(--navy);font-weight:700;text-anchor:middle">ด่าน 1: เส้นแนวตั้ง</text>
-          <text x="188" y="38" style="font-family:var(--f-head);font-size:9px;fill:var(--ink-soft);text-anchor:middle">"เป็นฟังก์ชันหรือไม่?"</text>
-          <text x="188" y="50" style="font-family:var(--f-mono);font-size:8.5px;fill:var(--navy2);text-anchor:middle">Vertical Line Test</text>
+          <rect x="118" y="10" width="125" height="48" rx="5" fill="#fff" stroke="var(--navy)" stroke-width="1.8"/>
+          <text x="180" y="25" style="font-family:var(--f-head);font-size:10px;fill:var(--navy);font-weight:700;text-anchor:middle;dominant-baseline:central">ด่าน 1: เส้นแนวตั้ง</text>
+          <text x="180" y="43" style="font-family:var(--f-head);font-size:8.5px;fill:var(--ink-soft);text-anchor:middle;dominant-baseline:central">Vertical Line Test (ตรวจฟังก์ชัน)</text>
 
           <!-- Branch 1: Fail -> Not Function -->
-          <path d="M 188 58 L 188 64" stroke="var(--red)" stroke-width="1.5"/>
+          <path d="M 180 58 L 180 64" stroke="var(--red)" stroke-width="1.5"/>
           <!-- Branch 1: Pass -> Stage 2 -->
-          <path d="M 253 34 L 290 34" stroke="var(--green)" stroke-width="1.8" marker-end="url(#arr-ok-10)"/>
-          <text x="272" y="27" style="font-family:var(--f-head);font-size:8.5px;fill:var(--green2);font-weight:700">ตัด ≤ 1 จุด</text>
+          <path d="M 243 34 L 305 34" stroke="var(--green)" stroke-width="1.8" marker-end="url(#arr-ok-10)"/>
+          <text x="274" y="27" style="font-family:var(--f-head);font-size:8.5px;fill:var(--green2);font-weight:700;text-anchor:middle">ตัด ≤ 1 จุด</text>
 
           <!-- Stage 2: Horizontal Line -->
-          <rect x="293" y="10" width="130" height="48" rx="5" fill="#fff" stroke="var(--navy)" stroke-width="1.8"/>
-          <text x="358" y="25" style="font-family:var(--f-head);font-size:10.5px;fill:var(--navy);font-weight:700;text-anchor:middle">ด่าน 2: เส้นแนวนอน</text>
-          <text x="358" y="38" style="font-family:var(--f-head);font-size:9px;fill:var(--ink-soft);text-anchor:middle">"เป็น 1-to-1 หรือไม่?"</text>
-          <text x="358" y="50" style="font-family:var(--f-mono);font-size:8.5px;fill:var(--navy2);text-anchor:middle">Horizontal Line Test</text>
+          <rect x="308" y="10" width="125" height="48" rx="5" fill="#fff" stroke="var(--navy)" stroke-width="1.8"/>
+          <text x="370" y="25" style="font-family:var(--f-head);font-size:10px;fill:var(--navy);font-weight:700;text-anchor:middle;dominant-baseline:central">ด่าน 2: เส้นแนวนอน</text>
+          <text x="370" y="43" style="font-family:var(--f-head);font-size:8.5px;fill:var(--ink-soft);text-anchor:middle;dominant-baseline:central">Horizontal Line Test (ตรวจ 1-1)</text>
 
           <!-- Stage 2 Results -->
           <!-- Up: 1-to-1 -->
-          <path d="M 423 26 L 450 16" stroke="var(--green)" stroke-width="1.6" marker-end="url(#arr-ok-10)"/>
-          <rect x="452" y="6" width="82" height="22" rx="4" fill="var(--mint)" stroke="var(--green)" stroke-width="1.2"/>
-          <text x="493" y="20" style="font-family:var(--f-head);font-size:9px;fill:var(--green2);font-weight:700;text-anchor:middle">✓ 1-to-1 (ตัด 1 จุด)</text>
+          <path d="M 433 26 L 468 16" stroke="var(--green)" stroke-width="1.6" marker-end="url(#arr-ok-10)"/>
+          <rect x="470" y="6" width="98" height="22" rx="4" fill="var(--mint)" stroke="var(--green)" stroke-width="1.2"/>
+          <text x="519" y="20" style="font-family:var(--f-head);font-size:9px;fill:var(--green2);font-weight:700;text-anchor:middle">✓ 1-to-1 (ตัด 1 จุด)</text>
 
           <!-- Down: Many-to-1 -->
-          <path d="M 423 42 L 450 52" stroke="var(--red)" stroke-width="1.6" marker-end="url(#arr-bad-10)"/>
-          <rect x="452" y="40" width="82" height="22" rx="4" fill="var(--pink)" stroke="var(--red)" stroke-width="1.2"/>
-          <text x="493" y="54" style="font-family:var(--f-head);font-size:9px;fill:var(--red2);font-weight:700;text-anchor:middle">✗ Many-1 (ตัด &gt;1)</text>
+          <path d="M 433 42 L 468 52" stroke="var(--red)" stroke-width="1.6" marker-end="url(#arr-bad-10)"/>
+          <rect x="470" y="40" width="98" height="22" rx="4" fill="var(--pink)" stroke="var(--red)" stroke-width="1.2"/>
+          <text x="519" y="54" style="font-family:var(--f-head);font-size:9px;fill:var(--red2);font-weight:700;text-anchor:middle">✗ Many-1 (ตัด &gt;1)</text>
         </svg>
       </div>
     </div>
@@ -1602,40 +1597,40 @@ total = 0
         <div class="col">
           <div class="diag-box">
             <div style="font-family:var(--f-head);font-weight:700;color:var(--navy);font-size:1.65cqh;margin-bottom:.2cqh">เปรียบเทียบผลลัพธ์ 2 ลำดับ (x = 3)</div>
-            <svg class="diag-svg" viewBox="0 0 220 140">
+            <svg class="diag-svg" viewBox="0 0 250 140">
               <!-- Path 1: f o g -->
               <g transform="translate(10, 15)">
-                <text x="0" y="10" style="font-family:var(--f-mono);font-size:10.5px;fill:var(--navy);font-weight:700">(f ∘ g)(3):</text>
-                <circle cx="65" cy="8" r="9" class="diag-node"/><text x="65" y="8" class="diag-text" style="font-size:9px">3</text>
-                <path d="M 74 8 L 92 8" stroke="var(--navy)" stroke-width="1.5" marker-end="url(#arr-m)"/>
-                <rect x="94" y="-2" width="28" height="20" rx="3" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.2"/>
-                <text x="108" y="11" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--navy);text-anchor:middle">g</text>
-                <path d="M 122 8 L 138 8" stroke="var(--navy)" stroke-width="1.5" marker-end="url(#arr-m)"/>
-                <rect x="140" y="-2" width="28" height="20" rx="3" fill="var(--mint)" stroke="var(--green)" stroke-width="1.2"/>
-                <text x="154" y="11" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);text-anchor:middle">f</text>
-                <path d="M 168 8 L 182 8" stroke="var(--green)" stroke-width="1.5" marker-end="url(#arr-ok-10)"/>
-                <circle cx="193" cy="8" r="10" class="diag-node gold"/><text x="193" y="8" class="diag-text" style="font-size:9px;fill:var(--gold2)">19</text>
+                <text x="0" y="11" style="font-family:var(--f-mono);font-size:10.5px;fill:var(--navy);font-weight:700">(f ∘ g)(3):</text>
+                <circle cx="78" cy="8" r="9" class="diag-node"/><text x="78" y="8" class="diag-text" style="font-size:9px">3</text>
+                <path d="M 87 8 L 104 8" stroke="var(--navy)" stroke-width="1.5" marker-end="url(#arr-m)"/>
+                <rect x="106" y="-2" width="28" height="20" rx="3" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.2"/>
+                <text x="120" y="11" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--navy);text-anchor:middle">g</text>
+                <path d="M 134 8 L 150 8" stroke="var(--navy)" stroke-width="1.5" marker-end="url(#arr-m)"/>
+                <rect x="152" y="-2" width="28" height="20" rx="3" fill="var(--mint)" stroke="var(--green)" stroke-width="1.2"/>
+                <text x="166" y="11" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);text-anchor:middle">f</text>
+                <path d="M 180 8 L 196 8" stroke="var(--green)" stroke-width="1.5" marker-end="url(#arr-ok-10)"/>
+                <circle cx="208" cy="8" r="10" class="diag-node gold"/><text x="208" y="8" class="diag-text" style="font-size:9px;fill:var(--gold2)">19</text>
               </g>
 
               <!-- Not Equal Symbol -->
-              <text x="110" y="72" style="font-family:var(--f-mono);font-size:18px;fill:var(--red);font-weight:700;text-anchor:middle">19 ≠ 80 (≠)</text>
+              <text x="125" y="72" style="font-family:var(--f-mono);font-size:18px;fill:var(--red);font-weight:700;text-anchor:middle">19 ≠ 80 (≠)</text>
 
               <!-- Path 2: g o f -->
               <g transform="translate(10, 85)">
-                <text x="0" y="10" style="font-family:var(--f-mono);font-size:10.5px;fill:var(--navy);font-weight:700">(g ∘ f)(3):</text>
-                <circle cx="65" cy="8" r="9" class="diag-node"/><text x="65" y="8" class="diag-text" style="font-size:9px">3</text>
-                <path d="M 74 8 L 92 8" stroke="var(--navy)" stroke-width="1.5" marker-end="url(#arr-m)"/>
-                <rect x="94" y="-2" width="28" height="20" rx="3" fill="var(--mint)" stroke="var(--green)" stroke-width="1.2"/>
-                <text x="108" y="11" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);text-anchor:middle">f</text>
-                <path d="M 122 8 L 138 8" stroke="var(--navy)" stroke-width="1.5" marker-end="url(#arr-m)"/>
-                <rect x="140" y="-2" width="28" height="20" rx="3" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.2"/>
-                <text x="154" y="11" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--navy);text-anchor:middle">g</text>
-                <path d="M 168 8 L 182 8" stroke="var(--red)" stroke-width="1.5" marker-end="url(#arr-bad-10)"/>
-                <circle cx="193" cy="8" r="10" class="diag-node" style="stroke:var(--red)"/><text x="193" y="8" class="diag-text" style="font-size:9px;fill:var(--red2)">80</text>
+                <text x="0" y="11" style="font-family:var(--f-mono);font-size:10.5px;fill:var(--navy);font-weight:700">(g ∘ f)(3):</text>
+                <circle cx="78" cy="8" r="9" class="diag-node"/><text x="78" y="8" class="diag-text" style="font-size:9px">3</text>
+                <path d="M 87 8 L 104 8" stroke="var(--navy)" stroke-width="1.5" marker-end="url(#arr-m)"/>
+                <rect x="106" y="-2" width="28" height="20" rx="3" fill="var(--mint)" stroke="var(--green)" stroke-width="1.2"/>
+                <text x="120" y="11" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);text-anchor:middle">f</text>
+                <path d="M 134 8 L 150 8" stroke="var(--navy)" stroke-width="1.5" marker-end="url(#arr-m)"/>
+                <rect x="152" y="-2" width="28" height="20" rx="3" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.2"/>
+                <text x="166" y="11" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--navy);text-anchor:middle">g</text>
+                <path d="M 180 8 L 196 8" stroke="var(--red)" stroke-width="1.5" marker-end="url(#arr-bad-10)"/>
+                <circle cx="208" cy="8" r="10" class="diag-node" style="stroke:var(--red)"/><text x="208" y="8" class="diag-text" style="font-size:9px;fill:var(--red2)">80</text>
               </g>
 
-              <line x1="20" y1="125" x2="200" y2="125" stroke="var(--line2)" stroke-width="1"/>
-              <text x="110" y="136" style="font-family:var(--f-head);font-size:10px;fill:var(--red2);font-weight:700;text-anchor:middle">สลับลำดับ ผลลัพธ์เปลี่ยนทันที</text>
+              <line x1="20" y1="125" x2="230" y2="125" stroke="var(--line2)" stroke-width="1"/>
+              <text x="125" y="136" style="font-family:var(--f-head);font-size:10px;fill:var(--red2);font-weight:700;text-anchor:middle">สลับลำดับ ผลลัพธ์เปลี่ยนทันที</text>
             </svg>
             <div style="font-size:1.3cqh;color:var(--navy2);font-weight:600">ลำดับการประกอบฟังก์ชันมีความสำคัญยิ่ง</div>
           </div>
@@ -1980,30 +1975,30 @@ total = 0
         <div class="col">
           <div class="diag-box">
             <div style="font-family:var(--f-head);font-weight:700;color:var(--navy);font-size:1.65cqh;margin-bottom:.2cqh">Truncate (เข้าหา 0) vs Floor (ลงซ้าย)</div>
-            <svg class="diag-svg" viewBox="0 0 220 135">
-              <line x1="15" y1="70" x2="205" y2="70" stroke="#a0aec0" stroke-width="1.8"/>
+            <svg class="diag-svg" viewBox="0 0 240 140">
+              <line x1="15" y1="75" x2="225" y2="75" stroke="#a0aec0" stroke-width="1.8"/>
               <!-- Marks -->
-              <circle cx="35" cy="70" r="4" fill="var(--navy)"/><text x="35" y="90" class="diag-text" style="font-size:10.5px">-4</text>
-              <circle cx="95" cy="70" r="4" fill="var(--navy)"/><text x="95" y="90" class="diag-text" style="font-size:10.5px">-3</text>
-              <circle cx="185" cy="70" r="4" fill="var(--navy)"/><text x="185" y="90" class="diag-text" style="font-size:10.5px">0</text>
+              <circle cx="40" cy="75" r="4" fill="var(--navy)"/><text x="40" y="96" class="diag-text" style="font-size:10.5px">-4</text>
+              <circle cx="100" cy="75" r="4" fill="var(--navy)"/><text x="100" y="96" class="diag-text" style="font-size:10.5px">-3</text>
+              <circle cx="195" cy="75" r="4" fill="var(--navy)"/><text x="195" y="96" class="diag-text" style="font-size:10.5px">0</text>
 
               <!-- Point -3.5 -->
-              <circle cx="65" cy="70" r="4" fill="var(--gold)"/>
-              <text x="65" y="52" style="font-family:var(--f-mono);font-size:10px;fill:var(--gold2);font-weight:700;text-anchor:middle">-3.5</text>
+              <circle cx="70" cy="75" r="4.5" fill="var(--gold)"/>
+              <text x="70" y="96" style="font-family:var(--f-mono);font-size:10px;fill:var(--gold2);font-weight:700;text-anchor:middle">-3.5</text>
 
               <!-- Arrow 1: Floor to -4 -->
-              <path d="M 65 64 Q 50 40 38 64" fill="none" stroke="var(--green)" stroke-width="2" marker-end="url(#arr-c1)"/>
-              <text x="38" y="32" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);font-weight:700;text-anchor:middle">Floor = -4</text>
-              <text x="38" y="44" style="font-family:var(--f-head);font-size:8.5px;fill:var(--green2);text-anchor:middle">(Python //)</text>
+              <path d="M 70 69 Q 55 42 42 69" fill="none" stroke="var(--green)" stroke-width="2" marker-end="url(#arr-c1)"/>
+              <text x="36" y="27" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);font-weight:700;text-anchor:middle">Floor = -4</text>
+              <text x="36" y="39" style="font-family:var(--f-head);font-size:8.5px;fill:var(--green2);text-anchor:middle">(Python //)</text>
 
               <!-- Arrow 2: Truncate to -3 -->
-              <path d="M 65 64 Q 80 40 92 64" fill="none" stroke="var(--red)" stroke-width="2" marker-end="url(#arr-bad-10)"/>
-              <text x="105" y="32" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--red2);font-weight:700;text-anchor:middle">Trunc = -3</text>
-              <text x="105" y="44" style="font-family:var(--f-head);font-size:8.5px;fill:var(--red2);text-anchor:middle">(C / Java /)</text>
+              <path d="M 70 69 Q 85 42 98 69" fill="none" stroke="var(--red)" stroke-width="2" marker-end="url(#arr-bad-10)"/>
+              <text x="110" y="27" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--red2);font-weight:700;text-anchor:middle">Trunc = -3</text>
+              <text x="110" y="39" style="font-family:var(--f-head);font-size:8.5px;fill:var(--red2);text-anchor:middle">(C / Java /)</text>
 
               <!-- Zero Anchor Line -->
-              <line x1="185" y1="45" x2="185" y2="70" stroke="var(--line2)" stroke-width="1.5" stroke-dasharray="2"/>
-              <text x="185" y="40" style="font-family:var(--f-head);font-size:9px;fill:var(--ink-soft);text-anchor:middle">จุด 0</text>
+              <line x1="195" y1="45" x2="195" y2="75" stroke="var(--line2)" stroke-width="1.5" stroke-dasharray="2"/>
+              <text x="195" y="38" style="font-family:var(--f-head);font-size:9px;fill:var(--ink-soft);text-anchor:middle">จุด 0</text>
             </svg>
             <div style="font-size:1.3cqh;color:var(--navy2);font-weight:600">จำนวนลบ: Floor ปัดลงซ้าย, Truncate ปัดเข้าหาศูนย์</div>
           </div>
@@ -2035,31 +2030,31 @@ total = 0
         <div class="col">
           <div class="diag-box">
             <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.75cqh;margin-bottom:.3cqh">การแบ่งหน้า Pagination Box</div>
-            <svg class="diag-svg" viewBox="0 0 200 120">
+            <svg class="diag-svg" viewBox="0 0 210 125">
               <!-- Page 1 -->
-              <rect x="15" y="20" width="48" height="38" rx="5" fill="var(--mint)" stroke="var(--green)" stroke-width="1.5"/>
-              <text x="39" y="38" class="diag-text" style="font-size:10.5px">หน้า 1</text>
-              <text x="39" y="50" style="font-size:9px;fill:var(--ink-soft);text-anchor:middle">10 รายการ</text>
+              <rect x="15" y="16" width="50" height="44" rx="5" fill="var(--mint)" stroke="var(--green)" stroke-width="1.5"/>
+              <text x="40" y="30" class="diag-text" style="font-size:10.5px">หน้า 1</text>
+              <text x="40" y="47" style="font-size:9px;fill:var(--ink-soft);text-anchor:middle">10 รายการ</text>
 
               <!-- Page 2 -->
-              <rect x="75" y="20" width="48" height="38" rx="5" fill="var(--mint)" stroke="var(--green)" stroke-width="1.5"/>
-              <text x="99" y="38" class="diag-text" style="font-size:10.5px">หน้า 2</text>
-              <text x="99" y="50" style="font-size:9px;fill:var(--ink-soft);text-anchor:middle">10 รายการ</text>
+              <rect x="75" y="16" width="50" height="44" rx="5" fill="var(--mint)" stroke="var(--green)" stroke-width="1.5"/>
+              <text x="100" y="30" class="diag-text" style="font-size:10.5px">หน้า 2</text>
+              <text x="100" y="47" style="font-size:9px;fill:var(--ink-soft);text-anchor:middle">10 รายการ</text>
 
               <!-- Dots -->
-              <text x="140" y="42" style="font-size:16px;fill:var(--navy);font-weight:700">···</text>
+              <text x="145" y="40" style="font-size:16px;fill:var(--navy);font-weight:700">···</text>
 
               <!-- Page 12 -->
-              <rect x="15" y="70" width="48" height="38" rx="5" fill="var(--mint)" stroke="var(--green)" stroke-width="1.5"/>
-              <text x="39" y="88" class="diag-text" style="font-size:10.5px">หน้า 12</text>
-              <text x="39" y="100" style="font-size:9px;fill:var(--ink-soft);text-anchor:middle">10 รายการ</text>
+              <rect x="15" y="68" width="50" height="44" rx="5" fill="var(--mint)" stroke="var(--green)" stroke-width="1.5"/>
+              <text x="40" y="82" class="diag-text" style="font-size:10.5px">หน้า 12</text>
+              <text x="40" y="99" style="font-size:9px;fill:var(--ink-soft);text-anchor:middle">10 รายการ</text>
 
               <!-- Page 13 (Last partial page) -->
-              <rect x="75" y="70" width="48" height="38" rx="5" fill="var(--lyellow)" stroke="var(--gold)" stroke-width="2"/>
-              <text x="99" y="88" class="diag-text" style="font-size:10.5px;fill:var(--gold2)">หน้า 13</text>
-              <text x="99" y="100" style="font-size:9px;fill:var(--gold2);text-anchor:middle;font-weight:700">7 รายการ</text>
+              <rect x="75" y="68" width="50" height="44" rx="5" fill="var(--lyellow)" stroke="var(--gold)" stroke-width="2"/>
+              <text x="100" y="82" class="diag-text" style="font-size:10.5px;fill:var(--gold2)">หน้า 13</text>
+              <text x="100" y="99" style="font-size:9px;fill:var(--gold2);text-anchor:middle;font-weight:700">7 รายการ</text>
 
-              <text x="160" y="93" style="font-family:var(--f-head);font-size:11px;fill:var(--navy);font-weight:700">รวม 13 หน้า</text>
+              <text x="160" y="94" style="font-family:var(--f-head);font-size:11px;fill:var(--navy);font-weight:700">รวม 13 หน้า</text>
             </svg>
           </div>
         </div>
@@ -2428,6 +2423,10 @@ total = 0
           </div>
         </div>
       </div>
+      <div class="block gold" style="margin-top:.4cqh">
+        <div class="lab"><span class="pin">GUIDE</span> รูปแบบกิจกรรมและการวัดผลการเรียนรู้</div>
+        นักศึกษาปฏิบัติงานกลุ่ม 2–3 คน ร่วมกันระดมสมองและแสดงวิธีทำเพื่อเสริมสร้างทักษะความเข้าใจเชิงลึก (Active Learning) จากนั้นร่วมตรวจคำตอบพร้อมกันในสไลด์เฉลยและทดสอบประลองความรู้ในลำดับถัดไป
+      </div>
     </div>
     <div class="foot"><span>ใบกิจกรรมสัปดาห์ที่ 8</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
@@ -2440,15 +2439,24 @@ total = 0
     <div class="body">
       <div class="block gold reveal" onclick="this.classList.toggle('on')">
         <div class="hint">คลิกเพื่อดูเฉลยครบทุกข้อ <span class="k">Reveal</span></div>
-        <div class="inner" style="font-size:1.8cqh;line-height:1.4">
-          <div class="lab"><span class="pin">KEY</span> เฉลยครบทั้ง 7 กิจกรรม</div>
-          • <b>ก.1:</b> $f_1, f_2$ เป็นฟังก์ชัน | $f_3$ ไม่เป็น (2 มีสองคู่) | $f_4$ ไม่เป็น (2 ไม่มีคู่) | $\operatorname{Dom}(g)=\mathbb{R}, \operatorname{Ran}(g)=[3, \infty)$<br>
-          • <b>ก.2:</b> $3x-5$ เป็น Bijective | $x^2$ บน $\mathbb{R}$ ไม่เป็นทั้งคู่ | $2n$ บน $\mathbb{Z}$ เป็น 1-1 แต่ไม่ทั่วถึง<br>
-          • <b>ก.3:</b> $(f \circ g)(x) = 2x^2+1$, $(g \circ f)(x) = 4x^2+12x+8$, $f^{-1}(x) = \frac{x-3}{2}$ | $x^2$ ไม่มีผกผันเพราะไม่เป็น 1-1<br>
-          • <b>ก.4:</b> $\lfloor 3.8 \rfloor = 3, \lfloor -3.2 \rfloor = -4, \lceil 3.2 \rceil = 4, \lceil -3.8 \rceil = -3$ | หน้าเว็บ $\lceil 127/10 \rceil = 13$ หน้า<br>
-          • <b>ก.5:</b> $17 \bmod 5 = 2, -8 \bmod 3 = 1$ | Circular Queue $(4+1) \bmod 5 = 0$<br>
-          • <b>ก.6:</b> $h(24)=3, h(15)=1, h(50)=1$ (เกิดการชนกันที่ดัชนี 1) | ไม่เป็น 1-1 ตามหลัก PHP<br>
-          • <b>ก.7:</b> $f(4) = 24$, Base Case คือ $n = 0$
+        <div class="inner" style="font-size:1.65cqh;line-height:1.45">
+          <div class="lab"><span class="pin">KEY</span> สรุปเฉลยคำตอบใบกิจกรรมที่ 1–7 ประจำสัปดาห์ที่ 8</div>
+          <div class="cols" style="margin-top:.4cqh;gap:1.8cqw">
+            <div class="col" style="display:flex;flex-direction:column;gap:.6cqh">
+              <div><b>ก.1 นิยาม &amp; โดเมน:</b> $f_1, f_2$ เป็นฟังก์ชัน | $f_3, f_4$ ไม่เป็น<br>
+                $\operatorname{Dom}(g)=\mathbb{R}, \operatorname{Ran}(g)=[3, \infty)$</div>
+              <div><b>ก.2 จำแนกประเภท:</b> $3x-5$ เป็น Bijective | $x^2$ บน $\mathbb{R}$ ไม่เป็นทั้งคู่ | $2n$ บน $\mathbb{Z}$ เป็น 1-1 แต่ไม่ทั่วถึง</div>
+              <div><b>ก.3 ฟังก์ชันประกอบ &amp; ผกผัน:</b> $(f \circ g)(x) = 2x^2+1$<br>
+                $(g \circ f)(x) = 4x^2+12x+8$ | $f^{-1}(x) = \frac{x-3}{2}$</div>
+            </div>
+            <div class="col" style="display:flex;flex-direction:column;gap:.6cqh">
+              <div><b>ก.4 Floor &amp; Ceiling:</b> $\lfloor 3.8 \rfloor = 3, \lfloor -3.2 \rfloor = -4, \lceil 3.2 \rceil = 4, \lceil -3.8 \rceil = -3$<br>
+                แบ่งหน้าเว็บ: $\lceil 127/10 \rceil = 13$ หน้า</div>
+              <div><b>ก.5 มอดุโล &amp; คิว:</b> $17 \bmod 5 = 2, -8 \bmod 3 = 1$ | คิว: $(4+1) \bmod 5 = 0$</div>
+              <div><b>ก.6 ตารางแฮช:</b> $h(24)=3, h(15)=1, h(50)=1$ (เกิดชนกันที่ 1)</div>
+              <div><b>ก.7 ฟังก์ชันเรียกซ้ำ:</b> $f(4) = 24$, กรณีฐานคือ $n = 0$</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2462,6 +2470,10 @@ total = 0
     </div>
     <div class="body">
       <div class="game-box" id="gameContainerW8"></div>
+      <div class="block" style="background:var(--lnavy);padding:1.4cqh 1.8cqw;margin-top:.4cqh">
+        <div class="lab"><span class="pin">RULE</span> กติกาการร่วมสนุก &amp; การคิดคะแนนในชั้นเรียน</div>
+        แบบทดสอบวัดความแม่นยำ 6 ข้อสำคัญที่ครอบคลุมเนื้อหาทั้งสัปดาห์ ตอบถูกในครั้งแรกรับคะแนนสะสม พร้อมเฉลยเหตุผลทางคณิตศาสตร์และคอมพิวเตอร์อย่างละเอียดทันที
+      </div>
     </div>
     <div class="foot"><span>เกมประลองความรู้</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
@@ -2560,8 +2572,10 @@ function updateSlide(idx) {
   });
 
   slideCount.textContent = `${currentSlide + 1} / ${totalSlides}`;
-  progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+  progressBar.style.transform = `scaleX(${(currentSlide + 1) / totalSlides})`;
+  try { history.replaceState(null, null, `#${currentSlide + 1}`); } catch(e){}
 }
+window.updateSlide = updateSlide;
 
 btnPrev.onclick = () => updateSlide(currentSlide - 1);
 btnNext.onclick = () => updateSlide(currentSlide + 1);
@@ -2597,7 +2611,12 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
-updateSlide(0);
+const initialHash = parseInt(window.location.hash.replace('#', ''), 10);
+if (!isNaN(initialHash) && initialHash >= 1 && initialHash <= totalSlides) {
+  updateSlide(initialHash - 1);
+} else {
+  updateSlide(0);
+}
 
 /* Function Sandbox Engine */
 function checkFunctionType(){

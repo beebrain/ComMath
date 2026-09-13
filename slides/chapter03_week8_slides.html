@@ -588,21 +588,24 @@ total = 0
     <div class="foot"><span>Pure Function ในคอมพิวเตอร์</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 9: Vertical Line Test -->
+  <!-- SLIDE 9: Vertical Line Test (Stage 1: Is it a Function?) -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 1.5</span><h2>การทดสอบเส้นแนวตั้ง (Vertical Line Test)</h2></div>
+      <div><span class="kick">Concept 1.5</span><h2>การทดสอบเส้นแนวตั้ง (Vertical Line Test : ตรวจการเป็นฟังก์ชัน)</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">TEST</span> กฎการทดสอบบนระนาบพิกัดฉาก</div>
+            <div class="lab"><span class="pin">STAGE 1</span> ด่านที่ 1: ตรวจว่า "เป็นฟังก์ชันหรือไม่"</div>
             กราฟจะเป็นฟังก์ชัน ก็ต่อเมื่อ <b>ไม่มีเส้นตรงแนวตั้ง $x = c$ ใดๆ ลากตัดกราฟเกินกว่า 1 จุด</b>
           </div>
           <div class="block gold">
             <div class="lab"><span class="pin">INSIGHT</span> เหตุผลทางคณิตศาสตร์</div>
             ถ้าเส้นตรงแนวตั้งตัด 2 จุด แปลว่าอินพุต $x = c$ ตัวเดียว ให้ผลลัพธ์ $y$ ถึงสองค่า ฝ่าฝืนกฎ <b>Uniqueness</b>
+          </div>
+          <div style="background:var(--lnavy);color:var(--navy);border-left:3px solid var(--navy);padding:.3cqh .8cqw;font-size:1.35cqh;font-weight:600;border-radius:4px;margin-top:.3cqh">
+            📌 ด่านที่ 1 สนใจเฉพาะ: <i>"x 1 ตัว ห้ามแตกกิ่งให้หลาย y"</i> (ส่วน y จะซ้ำหรือไม่ ค่อยไปตรวจด่านที่ 2 ด้วยเส้นแนวนอน)
           </div>
         </div>
         <div class="col">
@@ -615,7 +618,7 @@ total = 0
               <path d="M 35 30 Q 65 110 95 30" fill="none" stroke="var(--navy)" stroke-width="2.5"/>
               <line x1="85" y1="15" x2="85" y2="120" stroke="var(--green)" stroke-width="2" stroke-dasharray="3"/>
               <circle cx="85" cy="50" r="4" fill="var(--green)"/>
-              <text x="65" y="125" style="font-size:11px;fill:var(--green2);font-family:var(--f-head);font-weight:700;text-anchor:middle">y = x² (ตัด 1 จุด ✓)</text>
+              <text x="65" y="125" style="font-size:11px;fill:var(--green2);font-family:var(--f-head);font-weight:700;text-anchor:middle">y = x² (ตัด 1 จุด ✓ ฟังก์ชัน)</text>
 
               <!-- Circle -->
               <line x1="140" y1="70" x2="230" y2="70" stroke="#a0aec0" stroke-width="1.5"/>
@@ -624,13 +627,13 @@ total = 0
               <line x1="195" y1="15" x2="195" y2="120" stroke="var(--red)" stroke-width="2" stroke-dasharray="3"/>
               <circle cx="195" cy="36" r="4" fill="var(--red)"/>
               <circle cx="195" cy="104" r="4" fill="var(--red)"/>
-              <text x="185" y="125" style="font-size:11px;fill:var(--red2);font-family:var(--f-head);font-weight:700;text-anchor:middle">วงกลม (ตัด 2 จุด ✗)</text>
+              <text x="185" y="125" style="font-size:11px;fill:var(--red2);font-family:var(--f-head);font-weight:700;text-anchor:middle">วงกลม (ตัด 2 จุด ✗ ไม่ใช่ฟังก์ชัน)</text>
             </svg>
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>Vertical Line Test</span><span class="right">4091606 · CH03-W08</span></div>
+    <div class="foot"><span>Vertical Line Test (ตรวจการเป็นฟังก์ชัน)</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
   <!-- SLIDE 10: Arrow Diagram Test (with Comprehensive Dual Diagrams) -->
@@ -978,50 +981,92 @@ total = 0
     <div class="foot"><span>การตรวจสอบ Injective ทางพีชคณิต</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 17: Horizontal Line Test (with SVG Graph) -->
+  <!-- SLIDE 17: Horizontal Line Test (Stage 2: Is it One-to-One?) -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 2.3</span><h2>การทดสอบเส้นแนวนอน (Horizontal Line Test)</h2></div>
+      <div><span class="kick">Concept 2.3</span><h2>การทดสอบเส้นแนวนอน (Horizontal Line Test : ตรวจสอบความเป็น 1-to-1)</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">TEST</span> กฎเส้นแนวนอนบนกราฟ</div>
+            <div class="lab"><span class="pin">STAGE 2</span> ด่านที่ 2: ตรวจความเป็น 1-to-1 (Injective)</div>
             ฟังก์ชันจะเป็นหนึ่งต่อหนึ่ง ก็ต่อเมื่อ <b>ไม่มีเส้นตรงแนวนอน $y = k$ ใดๆ ลากตัดกราฟเกินกว่า 1 จุด</b>
           </div>
-          <div class="block gold">
-            <div class="lab"><span class="pin">NOTE</span> ข้อแตกต่าง</div>
-            • <b>เส้นแนวตั้ง (Vertical):</b> เช็คว่า "เป็นฟังก์ชันหรือไม่"<br>
-            • <b>เส้นแนวนอน (Horizontal):</b> เช็คว่า "เป็นหนึ่งต่อหนึ่งหรือไม่"
+          <div class="block al">
+            <div class="lab"><span class="pin">WARNING</span> ต้องผ่านด่านการเป็นฟังก์ชันมาก่อนเสมอ!</div>
+            • <b>เส้นแนวนอนไม่ได้ใช้ตรวจการเป็นฟังก์ชัน!</b> หากกราฟล้มเหลวในด่านเส้นแนวตั้ง (เช่น วงกลม) จะไม่เป็นฟังก์ชันตั้งแต่แรกและไม่มีสิทธิ์ตรวจด่านนี้
           </div>
         </div>
         <div class="col">
           <div class="diag-box">
-            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.75cqh;margin-bottom:.3cqh">เส้นตรง (1-1) vs พาราโบลา (ไม่ 1-1)</div>
-            <svg class="diag-svg" viewBox="0 0 240 125">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.65cqh;margin-bottom:.2cqh">เส้นตรง (1-1) vs พาราโบลา (ไม่ 1-1)</div>
+            <svg class="diag-svg" viewBox="0 0 240 115" style="max-height:16cqh">
               <!-- Left: Linear -->
-              <line x1="15" y1="105" x2="105" y2="105" stroke="#a0aec0" stroke-width="1.2"/>
-              <line x1="60" y1="15" x2="60" y2="115" stroke="#a0aec0" stroke-width="1.2"/>
-              <line x1="25" y1="95" x2="95" y2="25" stroke="var(--navy)" stroke-width="2.2"/>
-              <line x1="15" y1="60" x2="105" y2="60" stroke="var(--green)" stroke-width="1.8" stroke-dasharray="3"/>
-              <circle cx="60" cy="60" r="3.5" fill="var(--green)"/>
-              <text x="60" y="120" style="font-size:10px;fill:var(--green2);font-weight:700;text-anchor:middle">เส้นตัด 1 จุด ✓</text>
+              <line x1="15" y1="95" x2="105" y2="95" stroke="#a0aec0" stroke-width="1.2"/>
+              <line x1="60" y1="10" x2="60" y2="105" stroke="#a0aec0" stroke-width="1.2"/>
+              <line x1="25" y1="85" x2="95" y2="20" stroke="var(--navy)" stroke-width="2.2"/>
+              <line x1="15" y1="52" x2="105" y2="52" stroke="var(--green)" stroke-width="1.8" stroke-dasharray="3"/>
+              <circle cx="60" cy="52" r="3.5" fill="var(--green)"/>
+              <text x="60" y="110" style="font-size:10px;fill:var(--green2);font-weight:700;text-anchor:middle">ตัด 1 จุด ✓ (Injective)</text>
 
               <!-- Right: Parabola -->
-              <line x1="135" y1="105" x2="225" y2="105" stroke="#a0aec0" stroke-width="1.2"/>
-              <line x1="180" y1="15" x2="180" y2="115" stroke="#a0aec0" stroke-width="1.2"/>
-              <path d="M 150 25 Q 180 105 210 25" fill="none" stroke="var(--navy)" stroke-width="2.2"/>
-              <line x1="135" y1="55" x2="225" y2="55" stroke="var(--red)" stroke-width="1.8" stroke-dasharray="3"/>
-              <circle cx="162" cy="55" r="3.5" fill="var(--red)"/>
-              <circle cx="198" cy="55" r="3.5" fill="var(--red)"/>
-              <text x="180" y="120" style="font-size:10px;fill:var(--red2);font-weight:700;text-anchor:middle">เส้นตัด 2 จุด ✗</text>
+              <line x1="135" y1="95" x2="225" y2="95" stroke="#a0aec0" stroke-width="1.2"/>
+              <line x1="180" y1="10" x2="180" y2="105" stroke="#a0aec0" stroke-width="1.2"/>
+              <path d="M 150 20 Q 180 95 210 20" fill="none" stroke="var(--navy)" stroke-width="2.2"/>
+              <line x1="135" y1="48" x2="225" y2="48" stroke="var(--red)" stroke-width="1.8" stroke-dasharray="3"/>
+              <circle cx="162" cy="48" r="3.5" fill="var(--red)"/>
+              <circle cx="198" cy="48" r="3.5" fill="var(--red)"/>
+              <text x="180" y="110" style="font-size:10px;fill:var(--red2);font-weight:700;text-anchor:middle">ตัด 2 จุด ✗ (Many-to-1)</text>
             </svg>
           </div>
         </div>
       </div>
+      <!-- 2-Stage Decision Pipeline SVG Flowchart -->
+      <div class="diag-box" style="margin-top:.4cqh;padding:.5cqh 1cqw">
+        <div style="font-family:var(--f-head);font-size:1.55cqh;font-weight:700;color:var(--navy);margin-bottom:.2cqh">
+          ผังลำดับการทดสอบ 2 ด่าน (The 2-Stage Testing Pipeline)
+        </div>
+        <svg class="diag-svg" viewBox="0 0 540 68" style="max-height:11cqh">
+          <!-- Step 0: Relation -->
+          <rect x="5" y="18" width="90" height="32" rx="5" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.5"/>
+          <text x="50" y="32" style="font-family:var(--f-head);font-size:10px;fill:var(--navy);font-weight:700;text-anchor:middle">ความสัมพันธ์</text>
+          <text x="50" y="44" style="font-family:var(--f-mono);font-size:8.5px;fill:var(--ink-soft);text-anchor:middle">Relation</text>
+
+          <path d="M 95 34 L 120 34" stroke="var(--navy)" stroke-width="1.6" marker-end="url(#arr-m)"/>
+
+          <!-- Stage 1: Vertical Line -->
+          <rect x="123" y="10" width="130" height="48" rx="5" fill="#fff" stroke="var(--navy)" stroke-width="1.8"/>
+          <text x="188" y="25" style="font-family:var(--f-head);font-size:10.5px;fill:var(--navy);font-weight:700;text-anchor:middle">ด่าน 1: เส้นแนวตั้ง</text>
+          <text x="188" y="38" style="font-family:var(--f-head);font-size:9px;fill:var(--ink-soft);text-anchor:middle">"เป็นฟังก์ชันหรือไม่?"</text>
+          <text x="188" y="50" style="font-family:var(--f-mono);font-size:8.5px;fill:var(--navy2);text-anchor:middle">Vertical Line Test</text>
+
+          <!-- Branch 1: Fail -> Not Function -->
+          <path d="M 188 58 L 188 64" stroke="var(--red)" stroke-width="1.5"/>
+          <!-- Branch 1: Pass -> Stage 2 -->
+          <path d="M 253 34 L 290 34" stroke="var(--green)" stroke-width="1.8" marker-end="url(#arr-ok-10)"/>
+          <text x="272" y="27" style="font-family:var(--f-head);font-size:8.5px;fill:var(--green2);font-weight:700">ตัด ≤ 1 จุด</text>
+
+          <!-- Stage 2: Horizontal Line -->
+          <rect x="293" y="10" width="130" height="48" rx="5" fill="#fff" stroke="var(--navy)" stroke-width="1.8"/>
+          <text x="358" y="25" style="font-family:var(--f-head);font-size:10.5px;fill:var(--navy);font-weight:700;text-anchor:middle">ด่าน 2: เส้นแนวนอน</text>
+          <text x="358" y="38" style="font-family:var(--f-head);font-size:9px;fill:var(--ink-soft);text-anchor:middle">"เป็น 1-to-1 หรือไม่?"</text>
+          <text x="358" y="50" style="font-family:var(--f-mono);font-size:8.5px;fill:var(--navy2);text-anchor:middle">Horizontal Line Test</text>
+
+          <!-- Stage 2 Results -->
+          <!-- Up: 1-to-1 -->
+          <path d="M 423 26 L 450 16" stroke="var(--green)" stroke-width="1.6" marker-end="url(#arr-ok-10)"/>
+          <rect x="452" y="6" width="82" height="22" rx="4" fill="var(--mint)" stroke="var(--green)" stroke-width="1.2"/>
+          <text x="493" y="20" style="font-family:var(--f-head);font-size:9px;fill:var(--green2);font-weight:700;text-anchor:middle">✓ 1-to-1 (ตัด 1 จุด)</text>
+
+          <!-- Down: Many-to-1 -->
+          <path d="M 423 42 L 450 52" stroke="var(--red)" stroke-width="1.6" marker-end="url(#arr-bad-10)"/>
+          <rect x="452" y="40" width="82" height="22" rx="4" fill="var(--pink)" stroke="var(--red)" stroke-width="1.2"/>
+          <text x="493" y="54" style="font-family:var(--f-head);font-size:9px;fill:var(--red2);font-weight:700;text-anchor:middle">✗ Many-1 (ตัด &gt;1)</text>
+        </svg>
+      </div>
     </div>
-    <div class="foot"><span>Horizontal Line Test</span><span class="right">4091606 · CH03-W08</span></div>
+    <div class="foot"><span>Horizontal Line Test (ตรวจความเป็นหนึ่งต่อหนึ่ง)</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
   <!-- SLIDE 18: Surjective Function (with Full Coverage Diagram) -->

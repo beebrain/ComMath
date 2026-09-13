@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>บทที่ 3 ความสัมพันธ์และฟังก์ชัน — สัปดาห์ที่ 8 (1 Slide 1 Concept · 48 Slides)</title>
+<title>บทที่ 3 ความสัมพันธ์และฟังก์ชัน — สัปดาห์ที่ 8 (1 Slide 1 Concept · 48 Slides with Visual Diagrams)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <style>
 /* =====================================================================
-   FUNCTION BLUEPRINT — 1 SLIDE 1 CONCEPT (WEEK 8 ENHANCED)
+   FUNCTION BLUEPRINT — 1 SLIDE 1 CONCEPT (WEEK 8 FULL VISUAL EDITION)
    4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์ · มรภ.อุตรดิตถ์
    ===================================================================== */
 :root{
@@ -58,22 +58,22 @@ body{color:var(--ink);background:var(--paper);overflow:hidden}
 /* Header & Footers */
 .head{display:flex;align-items:flex-end;gap:2cqw;
   background:linear-gradient(100deg,var(--navy2),var(--navy));
-  color:#fff;padding:2.6cqh 5cqw 2cqh;position:relative}
+  color:#fff;padding:2.4cqh 5cqw 1.8cqh;position:relative}
 .head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:.6cqh;
   background:linear-gradient(90deg,var(--gold) 0 16%,rgba(255,255,255,.25) 16% 100%)}
-.head .kick{font-family:var(--f-mono);font-size:1.6cqh;letter-spacing:.25em;
-  text-transform:uppercase;color:#cdd8f4;font-weight:500;display:block;margin-bottom:.25cqh}
-.head h2{font-family:var(--f-head);font-weight:700;font-size:3.8cqh;line-height:1.15}
+.head .kick{font-family:var(--f-mono);font-size:1.55cqh;letter-spacing:.25em;
+  text-transform:uppercase;color:#cdd8f4;font-weight:500;display:block;margin-bottom:.2cqh}
+.head h2{font-family:var(--f-head);font-weight:700;font-size:3.6cqh;line-height:1.15}
 .head h2 .en{font-weight:500;color:#b9c6ee;font-size:.72em}
 
 .body{position:absolute;top:0;left:0;right:0;bottom:0;
-  padding:12cqh 5.2cqw 5.4cqh;display:flex;flex-direction:column;justify-content:center;gap:1.6cqh;
-  font-size:2.7cqh;line-height:1.42;overflow:hidden}
-.body.tight{gap:1.1cqh}
+  padding:11.4cqh 5cqw 5cqh;display:flex;flex-direction:column;justify-content:center;gap:1.4cqh;
+  font-size:2.55cqh;line-height:1.4;overflow:hidden}
+.body.tight{gap:1cqh}
 
-.foot{position:absolute;left:0;right:0;bottom:0;height:4.6cqh;
+.foot{position:absolute;left:0;right:0;bottom:0;height:4.4cqh;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 5.2cqw;font-size:1.8cqh;color:var(--navy);
+  padding:0 5cqw;font-size:1.75cqh;color:var(--navy);
   font-family:var(--f-head);border-top:1px solid var(--line)}
 .foot .right{font-family:var(--f-mono);letter-spacing:.05em;color:#7884a4}
 .foot .dot{color:var(--gold);margin:0 .5em}
@@ -87,7 +87,7 @@ body{color:var(--ink);background:var(--paper);overflow:hidden}
 .divider .ghost{position:absolute;font-family:var(--f-mono);font-size:30cqh;font-weight:700;color:rgba(255,255,255,.04);
   user-select:none;pointer-events:none}
 .divider .no{font-family:var(--f-mono);font-size:2.4cqh;color:var(--gold);letter-spacing:.3em;text-transform:uppercase;margin-bottom:1.2cqh}
-.divider h2{font-family:var(--f-head);font-size:5.4cqh;font-weight:700;line-height:1.2}
+.divider h2{font-family:var(--f-head);font-size:5.2cqh;font-weight:700;line-height:1.2}
 .divider h2 .en{display:block;font-size:.5em;color:#b9c6ee;font-weight:500;margin-top:.4cqh}
 
 /* Typography & Badges */
@@ -101,13 +101,13 @@ b,strong{font-weight:700;color:var(--navy2)}
 .expr{font-family:var(--f-mono);font-weight:600;color:var(--navy2)}
 
 /* Blocks & Columns */
-.block{border-radius:10px;padding:1.4cqh 2cqw;background:var(--lnavy);
-  border-left:.8cqh solid var(--navy);position:relative;
-  box-shadow:0 8px 20px -16px rgba(31,58,147,.6)}
+.block{border-radius:10px;padding:1.3cqh 1.8cqw;background:var(--lnavy);
+  border-left:.75cqh solid var(--navy);position:relative;
+  box-shadow:0 8px 20px -16px rgba(31,58,147,.5)}
 .block .lab{display:inline-flex;align-items:center;gap:.5em;font-family:var(--f-head);
-  font-weight:700;color:var(--navy);font-size:.85em;margin-bottom:.3cqh}
+  font-weight:700;color:var(--navy);font-size:.85em;margin-bottom:.25cqh}
 .block .lab .pin{font-family:var(--f-mono);font-size:.8em;background:var(--navy);color:#fff;
-  padding:.1em .55em;border-radius:.4em}
+  padding:.08em .5em;border-radius:.35em}
 .block.ex{background:var(--mint);border-color:var(--green)}
 .block.ex .lab{color:var(--green2)} .block.ex .lab .pin{background:var(--green)}
 .block.al{background:var(--pink);border-color:var(--red)}
@@ -115,41 +115,50 @@ b,strong{font-weight:700;color:var(--navy2)}
 .block.gold{background:var(--lyellow);border-color:var(--gold)}
 .block.gold .lab{color:var(--gold2)} .block.gold .lab .pin{background:var(--gold)}
 
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:2cqw;align-items:start}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:1.8cqw;align-items:start}
 .cols.wide-l{grid-template-columns:1.2fr .8fr}
 .cols.wide-r{grid-template-columns:.8fr 1.2fr}
-.cols.three{grid-template-columns:repeat(3,1fr);gap:1.4cqw}
-.col{display:flex;flex-direction:column;gap:1.1cqh}
+.cols.three{grid-template-columns:repeat(3,1fr);gap:1.3cqw}
+.col{display:flex;flex-direction:column;gap:1cqh}
 
-.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1cqw;margin-top:.2cqh}
-.proc-card{background:#fff;border-radius:10px;padding:1.3cqh 1.1cqw;border:1px solid var(--line2);
-  box-shadow:0 6px 16px -10px rgba(31,58,147,.3);display:flex;flex-direction:column;gap:.4cqh}
-.proc-card .p-num{font-family:var(--f-mono);font-size:1.5cqh;font-weight:700;background:var(--navy);
-  color:#fff;border-radius:6px;padding:.1em .45em;align-self:flex-start}
-.proc-card .p-title{font-family:var(--f-head);font-size:1.95cqh;font-weight:700;color:var(--navy2)}
-.proc-card .p-desc{font-size:1.68cqh;color:var(--ink-soft);line-height:1.35}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1cqw;margin-top:.2cqh}
+.proc-card{background:#fff;border-radius:10px;padding:1.2cqh 1.1cqw;border:1px solid var(--line2);
+  box-shadow:0 6px 16px -10px rgba(31,58,147,.3);display:flex;flex-direction:column;gap:.35cqh}
+.proc-card .p-num{font-family:var(--f-mono);font-size:1.45cqh;font-weight:700;background:var(--navy);
+  color:#fff;border-radius:6px;padding:.08em .4em;align-self:flex-start}
+.proc-card .p-title{font-family:var(--f-head);font-size:1.85cqh;font-weight:700;color:var(--navy2)}
+.proc-card .p-desc{font-size:1.6cqh;color:var(--ink-soft);line-height:1.32}
 
 /* Vector Diagram Component (SVG) */
-.diag-box{background:#fff;border-radius:10px;padding:1.1cqh 1.3cqw;border:1px solid var(--line2);
+.diag-box{background:#fff;border-radius:10px;padding:1.1cqh 1.2cqw;border:1px solid var(--line2);
   box-shadow:0 6px 16px -10px rgba(31,58,147,.3);display:flex;flex-direction:column;align-items:center}
-.diag-svg{width:100%;max-height:17cqh;display:block}
+.diag-svg{width:100%;max-height:18cqh;display:block}
 .diag-node{fill:#fff;stroke:var(--navy);stroke-width:2.2;transition:all .3s}
-.diag-node.gold{stroke:var(--gold);stroke-width:2.6}
-.diag-node.err{stroke:var(--red);stroke-width:2.6;fill:var(--pink)}
-.diag-text{font-family:var(--f-mono);font-size:13px;font-weight:700;fill:var(--navy2);text-anchor:middle;dominant-baseline:central}
+.diag-node.gold{stroke:var(--gold);stroke-width:2.5}
+.diag-node.err{stroke:var(--red);stroke-width:2.5;fill:var(--pink)}
+.diag-text{font-family:var(--f-mono);font-size:12.5px;font-weight:700;fill:var(--navy2);text-anchor:middle;dominant-baseline:central}
 .diag-edge{stroke:var(--navy);stroke-width:2;fill:none}
 .diag-edge.pulse{stroke-dasharray:4;animation:dashPulse 1.8s linear infinite}
-.diag-edge.err{stroke:var(--red);stroke-dasharray:4;stroke-width:2.4}
+.diag-edge.err{stroke:var(--red);stroke-dasharray:4;stroke-width:2.2}
 @keyframes dashPulse{to{stroke-dashoffset:-16}}
 
+/* Mini Diagram Grid */
+.mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1cqw;align-items:stretch}
+.mini-card{background:#fff;border-radius:9px;padding:.9cqh .7cqw;border:1px solid var(--line2);
+  box-shadow:0 4px 12px -8px rgba(31,58,147,.25);display:flex;flex-direction:column;justify-content:space-between;gap:.4cqh}
+.mini-card .title{font-family:var(--f-head);font-size:1.7cqh;font-weight:700;color:var(--navy2);text-align:center}
+.mini-card .badge{font-family:var(--f-head);font-weight:700;font-size:1.4cqh;padding:.2cqh .4cqw;border-radius:5px;text-align:center}
+.mini-card .badge.ok{background:var(--mint);color:var(--green2)}
+.mini-card .badge.no{background:var(--pink);color:var(--red2)}
+
 /* Table Slide */
-.table-slide{width:100%;border-collapse:collapse;font-size:1.95cqh;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.06)}
-.table-slide th{background:var(--navy);color:#fff;padding:.65cqh .85cqw;font-family:var(--f-head);font-weight:600;text-align:left}
-.table-slide td{padding:.6cqh .85cqw;border-bottom:1px solid var(--line2);color:var(--ink)}
+.table-slide{width:100%;border-collapse:collapse;font-size:1.85cqh;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.table-slide th{background:var(--navy);color:#fff;padding:.6cqh .8cqw;font-family:var(--f-head);font-weight:600;text-align:left}
+.table-slide td{padding:.55cqh .8cqw;border-bottom:1px solid var(--line2);color:var(--ink)}
 .table-slide tr:nth-child(even){background:var(--paper2)}
 
 /* Code Box */
-.code-box{background:var(--navy3);color:#e2e8f0;padding:1.1cqh 1.3cqw;border-radius:8px;font-family:var(--f-mono);font-size:1.8cqh;line-height:1.42;overflow-x:auto}
+.code-box{background:var(--navy3);color:#e2e8f0;padding:1cqh 1.2cqw;border-radius:8px;font-family:var(--f-mono);font-size:1.75cqh;line-height:1.4;overflow-x:auto}
 .code-kw{color:#f6ad55;font-weight:700}
 .code-fn{color:#63b3ed}
 .code-cm{color:#a0aec0;font-style:italic}
@@ -160,7 +169,7 @@ b,strong{font-weight:700;color:var(--navy2)}
 .reveal .inner{filter:blur(10px);opacity:.2;transition:all .3s ease;pointer-events:none}
 .reveal.on .inner{filter:none;opacity:1;pointer-events:auto}
 .reveal .hint{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  background:var(--navy);color:#fff;font-family:var(--f-head);font-size:2.1cqh;font-weight:600;
+  background:var(--navy);color:#fff;font-family:var(--f-head);font-size:2cqh;font-weight:600;
   padding:.4em 1.2em;border-radius:20px;box-shadow:0 8px 20px rgba(31,58,147,.4);
   pointer-events:none;transition:opacity .25s ease;display:flex;align-items:center;gap:.5em}
 .reveal.on .hint{opacity:0}
@@ -182,28 +191,28 @@ b,strong{font-weight:700;color:var(--navy2)}
 .cover{display:flex;flex-direction:column;justify-content:center;height:100%;padding:0 8cqw;position:relative}
 .cover .tag{font-family:var(--f-mono);font-size:2.1cqh;letter-spacing:.3em;color:var(--gold2);
   font-weight:700;margin-bottom:1cqh;text-transform:uppercase}
-.cover h1{font-family:var(--f-head);font-size:6.2cqh;font-weight:700;line-height:1.1;color:var(--navy2);margin-bottom:1.4cqh}
+.cover h1{font-family:var(--f-head);font-size:5.8cqh;font-weight:700;line-height:1.1;color:var(--navy2);margin-bottom:1.4cqh}
 .cover h1 .en{display:block;font-size:.52em;color:var(--navy);font-weight:500;margin-top:.2cqh}
-.cover .sub{font-size:2.7cqh;color:var(--ink-soft);line-height:1.4;margin-bottom:3cqh}
-.cover .meta{font-size:2.15cqh;color:#596788;border-left:3px solid var(--gold);padding-left:1.5cqw}
+.cover .sub{font-size:2.6cqh;color:var(--ink-soft);line-height:1.4;margin-bottom:2.8cqh}
+.cover .meta{font-size:2.1cqh;color:#596788;border-left:3px solid var(--gold);padding-left:1.5cqw}
 .cover .meta .course{font-family:var(--f-mono);font-weight:700;color:var(--navy)}
 
 /* Interactive Sandbox */
-.calc-box{background:#fff;border-radius:12px;padding:1.5cqh 1.8cqw;border:1px solid var(--line2);
-  box-shadow:0 10px 24px -14px rgba(31,58,147,.4);display:flex;flex-direction:column;gap:.9cqh}
-.calc-input{font-family:var(--f-mono);font-size:1.85cqh;padding:.3cqh .6cqw;border:1px solid var(--line2);border-radius:6px;width:90px}
+.calc-box{background:#fff;border-radius:12px;padding:1.4cqh 1.6cqw;border:1px solid var(--line2);
+  box-shadow:0 10px 24px -14px rgba(31,58,147,.4);display:flex;flex-direction:column;gap:.8cqh}
+.calc-input{font-family:var(--f-mono);font-size:1.8cqh;padding:.3cqh .6cqw;border:1px solid var(--line2);border-radius:6px;width:90px}
 
 /* Interactive Game */
-.game-box{background:#fff;border-radius:12px;padding:1.6cqh 2cqw;border:1px solid var(--line2);
-  box-shadow:0 12px 28px -14px rgba(31,58,147,.4);display:flex;flex-direction:column;gap:1.1cqh}
-.g-q{font-family:var(--f-head);font-size:2.2cqh;font-weight:700;color:var(--navy2)}
+.game-box{background:#fff;border-radius:12px;padding:1.5cqh 1.8cqw;border:1px solid var(--line2);
+  box-shadow:0 12px 28px -14px rgba(31,58,147,.4);display:flex;flex-direction:column;gap:1cqh}
+.g-q{font-family:var(--f-head);font-size:2.15cqh;font-weight:700;color:var(--navy2)}
 .g-opts{display:grid;grid-template-columns:1fr 1fr;gap:1cqw}
 .g-btn{padding:1cqh 1.2cqw;border-radius:8px;border:1px solid var(--line2);background:var(--lnavy);
-  font-family:var(--f-body);font-size:1.85cqh;font-weight:600;color:var(--navy2);cursor:pointer;text-align:left;transition:all .2s}
+  font-family:var(--f-body);font-size:1.8cqh;font-weight:600;color:var(--navy2);cursor:pointer;text-align:left;transition:all .2s}
 .g-btn:hover{background:var(--navy);color:#fff}
 .g-btn.ok{background:var(--green);color:#fff;border-color:var(--green2)}
 .g-btn.no{background:var(--red);color:#fff;border-color:var(--red2)}
-.g-fb{font-size:1.85cqh;font-weight:600;padding:.5cqh 1cqw;border-radius:6px;display:none}
+.g-fb{font-size:1.8cqh;font-weight:600;padding:.5cqh 1cqw;border-radius:6px;display:none}
 .g-fb.ok{display:block;background:var(--mint);color:var(--green2)}
 .g-fb.no{display:block;background:var(--pink);color:var(--red2)}
 .sim-btn{background:var(--navy);color:#fff;border:none;border-radius:6px;cursor:pointer;font-family:var(--f-head);font-weight:600;padding:.4cqh 1cqw}
@@ -313,102 +322,227 @@ b,strong{font-weight:700;color:var(--navy2)}
     </div>
   </section>
 
-  <!-- SLIDE 5: Function Definition -->
+  <!-- SLIDE 5: Function Definition (with Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 1.1</span><h2>นิยามฟังก์ชัน (Function Definition $f: A \to B$)</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันเชิงเซต</div>
-        ให้ $A$ และ $B$ เป็นเซต ฟังก์ชัน $f$ จาก $A$ ไปยัง $B$ เขียนแทนด้วย $f: A \to B$ คือความสัมพันธ์ $f \subseteq A \times B$ ซึ่ง:
-        $$\mathbf{\forall x \in A, \exists! y \in B \text{ such that } (x, y) \in f \quad (y = f(x))}$$
-      </div>
-      <div class="block gold">
-        <div class="lab"><span class="pin">2 RULES</span> เงื่อนไขเหล็ก 2 ประการที่ต้องเป็นจริงพร้อมกัน</div>
-        1. <b>Total Mapping (จับคู่ครบ):</b> สมาชิกตัวหน้า $x \in A$ <b>ทุกตัว</b> ต้องมีคู่ใน $B$ (ห้ามมีโหนดว่าง)<br>
-        2. <b>Uniqueness (ผลลัพธ์เดียว):</b> สมาชิกตัวหน้าแต่ละตัวจับคู่กับตัวหลังได้ <b>เพียงค่าเดียวเท่านั้น</b> (ห้ามแตกกิ่ง)
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันเชิงเซต</div>
+            ให้ $A$ และ $B$ เป็นเซต ฟังก์ชัน $f: A \to B$ คือความสัมพันธ์ $f \subseteq A \times B$ ซึ่ง:
+            $$\mathbf{\forall x \in A, \exists! y \in B \text{ such that } (x, y) \in f \quad (y = f(x))}$$
+          </div>
+          <div class="block gold">
+            <div class="lab"><span class="pin">2 RULES</span> เงื่อนไขเหล็ก 2 ประการ</div>
+            1. <b>Total Mapping:</b> $x \in A$ ทุกตัวต้องมีคู่ใน $B$ (ไม่มีโหนดถูกทิ้งว่าง)<br>
+            2. <b>Uniqueness:</b> $x$ แต่ละตัวจับคู่กับ $y$ ได้ <b>เพียงค่าเดียวเท่านั้น</b> (ห้ามแตกกิ่ง)
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.8cqh;margin-bottom:.3cqh">โมเดลกลไกฟังก์ชัน (Function Machine)</div>
+            <svg class="diag-svg" viewBox="0 0 240 145">
+              <defs>
+                <marker id="arr-m" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#1F3A93"/>
+                </marker>
+              </defs>
+              <!-- Input -->
+              <rect x="15" y="52" width="55" height="36" rx="6" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="2"/>
+              <text x="42" y="70" class="diag-text" style="font-size:13px">x ∈ A</text>
+              <text x="42" y="38" style="font-family:var(--f-head);font-size:11px;fill:var(--ink-soft);text-anchor:middle;font-weight:600">Input เดียว</text>
+
+              <!-- Arrow into machine -->
+              <path d="M 72 70 L 100 70" class="diag-edge pulse" marker-end="url(#arr-m)"/>
+
+              <!-- Machine Box -->
+              <rect x="102" y="30" width="70" height="80" rx="10" fill="#fff" stroke="var(--gold)" stroke-width="2.5" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.08))"/>
+              <text x="137" y="60" style="font-family:var(--f-mono);font-size:16px;fill:var(--navy2);font-weight:700;text-anchor:middle">f(x)</text>
+              <text x="137" y="82" style="font-family:var(--f-head);font-size:10px;fill:var(--gold2);font-weight:700;text-anchor:middle">กฎแปลงค่าเดียว</text>
+
+              <!-- Arrow out of machine -->
+              <path d="M 174 70 L 200 70" class="diag-edge pulse" marker-end="url(#arr-m)"/>
+
+              <!-- Output -->
+              <rect x="202" y="52" width="34" height="36" rx="6" fill="var(--mint)" stroke="var(--green)" stroke-width="2"/>
+              <text x="219" y="70" class="diag-text" style="fill:var(--green2);font-size:13px">y</text>
+              <text x="219" y="38" style="font-family:var(--f-head);font-size:11px;fill:var(--green2);text-anchor:middle;font-weight:600">Output เดียว</text>
+
+              <text x="120" y="132" style="font-family:var(--f-head);font-size:11px;fill:var(--navy);font-weight:700;text-anchor:middle">1 อินพุต ให้ 1 เอาต์พุตเสมอ</text>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>นิยามฟังก์ชัน</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 6: Relation vs Function -->
+  <!-- SLIDE 6: Relation vs Function (with Euler Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 1.2</span><h2>ความสัมพันธ์ vs ฟังก์ชัน (Relation vs Function)</h2></div>
     </div>
     <div class="body">
-      <table class="table-slide">
-        <thead>
-          <tr>
-            <th style="width:25%">มิติการเปรียบเทียบ</th>
-            <th style="width:37%">ความสัมพันธ์ (Relation $R$)</th>
-            <th style="width:38%">ฟังก์ชัน (Function $f$)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><b>นิยามเชิงเซต</b></td>
-            <td>สับเซตใดๆ ของผลคูณคาร์ทีเซียน ($R \subseteq A \times B$)</td>
-            <td>ความสัมพันธ์จำเพาะที่อินพุตแต่ละตัวมีเอาต์พุตเดียว</td>
-          </tr>
-          <tr>
-            <td><b>การใช้สมาชิกต้นทาง</b></td>
-            <td>สมาชิก $x \in A$ ไม่จำเป็นต้องถูกใช้ทุกตัว</td>
-            <td>สมาชิก $x \in A$ <b>ทุกตัวต้องถูกจับคู่</b> ($\operatorname{Dom}(f) = A$)</td>
-          </tr>
-          <tr>
-            <td><b>จำนวนคู่ต่อหนึ่งอินพุต</b></td>
-            <td>$x$ 1 ตัวจับคู่กับ $y$ ได้ 0, 1 หรือหลายตัว</td>
-            <td>$x$ 1 ตัว ต้องจับคู่กับ $y$ <b>ได้เพียง 1 ตัวพอดี</b></td>
-          </tr>
-          <tr>
-            <td><b>ความสัมพันธ์ระหว่างเซต</b></td>
-            <td colspan="2" style="text-align:center;background:var(--lnavy);color:var(--navy2);font-weight:700">
-              ฟังก์ชันทุกตัวเป็นความสัมพันธ์ แต่ความสัมพันธ์ไม่ใช่ทุกตัวที่เป็นฟังก์ชัน ($f \subset R \subset A \times B$)
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="cols wide-l">
+        <div class="col">
+          <table class="table-slide">
+            <thead>
+              <tr>
+                <th style="width:30%">มิติการเปรียบเทียบ</th>
+                <th style="width:35%">ความสัมพันธ์ ($R$)</th>
+                <th style="width:35%">ฟังก์ชัน ($f$)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>การใช้สมาชิกต้นทาง</b></td>
+                <td>ไม่จำเป็นต้องครบทุกตัว</td>
+                <td><span class="gn">ต้องใช้ครบทุกตัว</span></td>
+              </tr>
+              <tr>
+                <td><b>จำนวนคู่ต่ออินพุต</b></td>
+                <td>0, 1 หรือหลายตัวได้</td>
+                <td><span class="gn">ได้เพียง 1 ตัวพอดี</span></td>
+              </tr>
+              <tr>
+                <td><b>เซตผลคูณคาร์ทีเซียน</b></td>
+                <td>$R \subseteq A \times B$</td>
+                <td>$f \subset R \subseteq A \times B$</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.8cqh;margin-bottom:.3cqh">แผนภาพเวนน์-ออยเลอร์ (Venn Diagram)</div>
+            <svg class="diag-svg" viewBox="0 0 220 140">
+              <!-- Outer A x B -->
+              <rect x="15" y="15" width="190" height="110" rx="10" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.8"/>
+              <text x="35" y="32" style="font-family:var(--f-mono);font-size:12px;font-weight:700;fill:var(--navy)">A × B</text>
+
+              <!-- Relation R -->
+              <ellipse cx="115" cy="72" rx="75" ry="42" fill="#fff" stroke="var(--navy2)" stroke-width="2" stroke-dasharray="3"/>
+              <text x="65" y="54" style="font-family:var(--f-head);font-size:11.5px;font-weight:700;fill:var(--navy2)">ความสัมพันธ์ R</text>
+
+              <!-- Function f -->
+              <ellipse cx="130" cy="76" rx="42" ry="24" fill="var(--mint)" stroke="var(--green)" stroke-width="2.2"/>
+              <text x="130" y="78" style="font-family:var(--f-head);font-size:13px;font-weight:700;fill:var(--green2);text-anchor:middle;dominant-baseline:central">ฟังก์ชัน f</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--navy);font-weight:600;margin-top:.2cqh">ฟังก์ชันทุกตัวเป็นความสัมพันธ์</div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="foot"><span>ความสัมพันธ์ vs ฟังก์ชัน</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 7: 4 Case Studies (from Worksheet Activity 1) -->
+  <!-- SLIDE 7: 4 Case Studies with Mini SVG Diagrams -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 1.3</span><h2>วิเคราะห์ 4 รูปแบบตัวอย่าง ($f_1$ ถึง $f_4$ จากใบกิจกรรมที่ 1)</h2></div>
     </div>
-    <div class="body">
-      <div style="font-size:2cqh;margin-bottom:.5cqh">กำหนด $A = \{1, 2, 3, 4\}$ และ $B = \{a, b, c, d\}$ ตรวจสอบความเป็นฟังก์ชันจาก $A$ ไป $B$:</div>
-      <div class="cols">
-        <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">✓ เป็นฟังก์ชัน</span> $f_1 = \{(1, a), (2, b), (3, c), (4, d)\}$</div>
-            สมาชิก $A$ ครบทุกตัว ($1, 2, 3, 4$) แต่ละตัวจับคู่ปลายทางตัวเดียวพอดี $\to$ <b>เป็นฟังก์ชัน</b> (และเป็น 1-1)
-          </div>
-          <div class="block ex">
-            <div class="lab"><span class="pin">✓ เป็นฟังก์ชัน</span> $f_2 = \{(1, a), (2, a), (3, b), (4, c)\}$</div>
-            สมาชิก $1, 2, 3, 4$ มีคู่ครบ และส่งไปค่าเดียว (แม้ $1, 2$ จะส่งไป $a$ เหมือนกัน แต่ถือเป็น <b>Many-to-One ยอมรับได้</b>)
-          </div>
+    <div class="body tight">
+      <div style="font-size:1.9cqh;margin-bottom:.2cqh">กำหนด $A = \{1, 2, 3, 4\}$ และ $B = \{a, b, c, d\}$ ตรวจสอบการจับคู่ด้วยแผนภาพลูกศร:</div>
+      <div class="mini-grid">
+        <!-- Card f1 -->
+        <div class="mini-card" style="border-top:3.5px solid var(--green)">
+          <div class="title">f₁ (จับคู่หนึ่งต่อหนึ่ง)</div>
+          <svg class="diag-svg" viewBox="0 0 150 108" style="max-height:13cqh">
+            <defs><marker id="arr-c1" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 1 L 8 5 L 0 9 z" fill="#2E8B57"/></marker></defs>
+            <circle cx="28" cy="18" r="8" class="diag-node"/><text x="28" y="18" class="diag-text" style="font-size:9.5px">1</text>
+            <circle cx="28" cy="44" r="8" class="diag-node"/><text x="28" y="44" class="diag-text" style="font-size:9.5px">2</text>
+            <circle cx="28" cy="70" r="8" class="diag-node"/><text x="28" y="70" class="diag-text" style="font-size:9.5px">3</text>
+            <circle cx="28" cy="96" r="8" class="diag-node"/><text x="28" y="96" class="diag-text" style="font-size:9.5px">4</text>
+            <circle cx="122" cy="18" r="8" class="diag-node"/><text x="122" y="18" class="diag-text" style="font-size:9.5px">a</text>
+            <circle cx="122" cy="44" r="8" class="diag-node"/><text x="122" y="44" class="diag-text" style="font-size:9.5px">b</text>
+            <circle cx="122" cy="70" r="8" class="diag-node"/><text x="122" y="70" class="diag-text" style="font-size:9.5px">c</text>
+            <circle cx="122" cy="96" r="8" class="diag-node"/><text x="122" y="96" class="diag-text" style="font-size:9.5px">d</text>
+            <path d="M 36 18 L 114 18" class="diag-edge" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-c1)"/>
+            <path d="M 36 44 L 114 44" class="diag-edge" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-c1)"/>
+            <path d="M 36 70 L 114 70" class="diag-edge" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-c1)"/>
+            <path d="M 36 96 L 114 96" class="diag-edge" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-c1)"/>
+          </svg>
+          <div class="badge ok">✓ เป็นฟังก์ชัน (1-1)</div>
+          <div style="font-size:1.3cqh;color:var(--ink-soft);text-align:center">สมาชิกครบ ไม่ซ้ำกัน</div>
         </div>
-        <div class="col">
-          <div class="block al">
-            <div class="lab"><span class="pin">✗ ไม่เป็นฟังก์ชัน</span> $f_3 = \{(1, a), (2, b), (2, c), (3, d), (4, a)\}$</div>
-            <span class="rd">ไม่เป็นฟังก์ชัน!</span> เพราะสมาชิก $2 \in A$ จับคู่กับปลายทาง 2 ค่าพร้อมกัน ($b$ และ $c$) <b>ฝ่าฝืน Uniqueness</b>
-          </div>
-          <div class="block al">
-            <div class="lab"><span class="pin">✗ ไม่เป็นฟังก์ชัน</span> $f_4 = \{(1, a), (3, b), (4, c)\}$</div>
-            <span class="rd">ไม่เป็นฟังก์ชันจาก A ไป B!</span> เพราะสมาชิก $2 \in A$ ไม่ถูกจับคู่ <b>ฝ่าฝืน Total Mapping</b> ($\operatorname{Dom}(f_4) \neq A$)
-          </div>
+
+        <!-- Card f2 -->
+        <div class="mini-card" style="border-top:3.5px solid var(--green)">
+          <div class="title">f₂ (หลายตัวไปหนึ่ง)</div>
+          <svg class="diag-svg" viewBox="0 0 150 108" style="max-height:13cqh">
+            <defs><marker id="arr-c2" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 1 L 8 5 L 0 9 z" fill="#2E8B57"/></marker></defs>
+            <circle cx="28" cy="18" r="8" class="diag-node"/><text x="28" y="18" class="diag-text" style="font-size:9.5px">1</text>
+            <circle cx="28" cy="44" r="8" class="diag-node"/><text x="28" y="44" class="diag-text" style="font-size:9.5px">2</text>
+            <circle cx="28" cy="70" r="8" class="diag-node"/><text x="28" y="70" class="diag-text" style="font-size:9.5px">3</text>
+            <circle cx="28" cy="96" r="8" class="diag-node"/><text x="28" y="96" class="diag-text" style="font-size:9.5px">4</text>
+            <circle cx="122" cy="18" r="8" class="diag-node gold"/><text x="122" y="18" class="diag-text" style="font-size:9.5px">a</text>
+            <circle cx="122" cy="44" r="8" class="diag-node"/><text x="122" y="44" class="diag-text" style="font-size:9.5px">b</text>
+            <circle cx="122" cy="70" r="8" class="diag-node"/><text x="122" y="70" class="diag-text" style="font-size:9.5px">c</text>
+            <circle cx="122" cy="96" r="8" class="diag-node" style="stroke:#a0aec0;stroke-dasharray:2"/><text x="122" y="96" class="diag-text" style="font-size:9.5px;fill:#a0aec0">d</text>
+            <path d="M 36 18 L 114 18" class="diag-edge" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-c2)"/>
+            <path d="M 36 44 L 114 21" class="diag-edge" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-c2)"/>
+            <path d="M 36 70 L 114 46" class="diag-edge" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-c2)"/>
+            <path d="M 36 96 L 114 72" class="diag-edge" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-c2)"/>
+          </svg>
+          <div class="badge ok">✓ เป็นฟังก์ชัน (Many-1)</div>
+          <div style="font-size:1.3cqh;color:var(--ink-soft);text-align:center">1, 2 ชี้ไป a ได้, d ว่างได้</div>
+        </div>
+
+        <!-- Card f3 -->
+        <div class="mini-card" style="border-top:3.5px solid var(--red)">
+          <div class="title">f₃ (โหนดแตกกิ่ง)</div>
+          <svg class="diag-svg" viewBox="0 0 150 108" style="max-height:13cqh">
+            <defs>
+              <marker id="arr-c3" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 1 L 8 5 L 0 9 z" fill="#C0392B"/></marker>
+              <marker id="arr-c3g" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 1 L 8 5 L 0 9 z" fill="#718096"/></marker>
+            </defs>
+            <circle cx="28" cy="18" r="8" class="diag-node"/><text x="28" y="18" class="diag-text" style="font-size:9.5px">1</text>
+            <circle cx="28" cy="44" r="8" class="diag-node err"/><text x="28" y="44" class="diag-text" style="font-size:9.5px;fill:var(--red2)">2</text>
+            <circle cx="28" cy="70" r="8" class="diag-node"/><text x="28" y="70" class="diag-text" style="font-size:9.5px">3</text>
+            <circle cx="28" cy="96" r="8" class="diag-node"/><text x="28" y="96" class="diag-text" style="font-size:9.5px">4</text>
+            <circle cx="122" cy="18" r="8" class="diag-node"/><text x="122" y="18" class="diag-text" style="font-size:9.5px">a</text>
+            <circle cx="122" cy="44" r="8" class="diag-node"/><text x="122" y="44" class="diag-text" style="font-size:9.5px">b</text>
+            <circle cx="122" cy="70" r="8" class="diag-node"/><text x="122" y="70" class="diag-text" style="font-size:9.5px">c</text>
+            <circle cx="122" cy="96" r="8" class="diag-node"/><text x="122" y="96" class="diag-text" style="font-size:9.5px">d</text>
+            <path d="M 36 18 L 114 18" class="diag-edge" stroke="#718096" style="stroke:#718096" marker-end="url(#arr-c3g)"/>
+            <path d="M 36 44 L 114 44" class="diag-edge err" stroke="var(--red)" style="stroke:var(--red);stroke-width:2" marker-end="url(#arr-c3)"/>
+            <path d="M 36 44 L 114 70" class="diag-edge err" stroke="var(--red)" style="stroke:var(--red);stroke-width:2" marker-end="url(#arr-c3)"/>
+            <path d="M 36 70 L 114 96" class="diag-edge" stroke="#718096" style="stroke:#718096" marker-end="url(#arr-c3g)"/>
+            <path d="M 36 96 L 114 20" class="diag-edge" stroke="#718096" style="stroke:#718096" marker-end="url(#arr-c3g)"/>
+          </svg>
+          <div class="badge no">✗ ไม่เป็นฟังก์ชัน</div>
+          <div style="font-size:1.3cqh;color:var(--red2);text-align:center">เลข 2 แตกกิ่งไป b และ c</div>
+        </div>
+
+        <!-- Card f4 -->
+        <div class="mini-card" style="border-top:3.5px solid var(--red)">
+          <div class="title">f₄ (สมาชิกไม่ครบ)</div>
+          <svg class="diag-svg" viewBox="0 0 150 108" style="max-height:13cqh">
+            <defs><marker id="arr-c4g" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 1 L 8 5 L 0 9 z" fill="#718096"/></marker></defs>
+            <circle cx="28" cy="18" r="8" class="diag-node"/><text x="28" y="18" class="diag-text" style="font-size:9.5px">1</text>
+            <circle cx="28" cy="44" r="8" class="diag-node" style="stroke:var(--red);stroke-dasharray:2.5;stroke-width:2;fill:var(--pink)"/><text x="28" y="44" class="diag-text" style="font-size:9.5px;fill:var(--red2)">2</text>
+            <circle cx="28" cy="70" r="8" class="diag-node"/><text x="28" y="70" class="diag-text" style="font-size:9.5px">3</text>
+            <circle cx="28" cy="96" r="8" class="diag-node"/><text x="28" y="96" class="diag-text" style="font-size:9.5px">4</text>
+            <circle cx="122" cy="18" r="8" class="diag-node"/><text x="122" y="18" class="diag-text" style="font-size:9.5px">a</text>
+            <circle cx="122" cy="44" r="8" class="diag-node"/><text x="122" y="44" class="diag-text" style="font-size:9.5px">b</text>
+            <circle cx="122" cy="70" r="8" class="diag-node"/><text x="122" y="70" class="diag-text" style="font-size:9.5px">c</text>
+            <circle cx="122" cy="96" r="8" class="diag-node" style="stroke:#a0aec0;stroke-dasharray:2"/><text x="122" y="96" class="diag-text" style="font-size:9.5px;fill:#a0aec0">d</text>
+            <path d="M 36 18 L 114 18" class="diag-edge" stroke="#718096" style="stroke:#718096" marker-end="url(#arr-c4g)"/>
+            <path d="M 36 70 L 114 44" class="diag-edge" stroke="#718096" style="stroke:#718096" marker-end="url(#arr-c4g)"/>
+            <path d="M 36 96 L 114 70" class="diag-edge" stroke="#718096" style="stroke:#718096" marker-end="url(#arr-c4g)"/>
+          </svg>
+          <div class="badge no">✗ ไม่เป็นฟังก์ชัน</div>
+          <div style="font-size:1.3cqh;color:var(--red2);text-align:center">เลข 2 ไม่มีลูกศรออกเลย</div>
         </div>
       </div>
     </div>
     <div class="foot"><span>4 กรณีตัวอย่างตรวจสอบฟังก์ชัน</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 8: Pure Function in CS -->
+  <!-- SLIDE 8: Pure Function in CS (with Data Flow Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 1.4</span><h2>ฟังก์ชันในวิทยาการคอมพิวเตอร์และ Pure Function</h2></div>
@@ -418,28 +552,34 @@ b,strong{font-weight:700;color:var(--navy2)}
         <div class="col">
           <div class="block ex">
             <div class="lab"><span class="pin">CONCEPT</span> Pure Function ใน Functional Programming</div>
-            คือฟังก์ชันที่มีพฤติกรรมสอดคล้องกับคณิตศาสตร์ 100%:
-            <ul style="margin-top:.4cqh;margin-left:1.5cqw;font-size:.95em">
-              <li><b>Deterministic Output:</b> ส่ง Input เดิม ย่อมได้ Output เดิมเสมอ</li>
-              <li><b>No Side Effects:</b> ไม่แอบแก้ไขตัวแปร Global หรือ I/O นอกฟังก์ชัน</li>
-            </ul>
+            • <b>Deterministic:</b> ป้อนอินพุตเดิม ได้ผลลัพธ์เดิมเสมอ ไม่ขึ้นกับเวลา<br>
+            • <b>No Side Effects:</b> ไม่แอบแก้ไขตัวแปรภายนอกหรือระบบ I/O
           </div>
-          <div class="block gold">
-            <div class="lab"><span class="pin">WHY</span> ประโยชน์ในระบบขนาดใหญ่</div>
-            ช่วยให้ทำ <b>Memoization (แคชผลลัพธ์)</b> ได้ปลอดภัย และประมวลผลแบบขนาน (Parallel / MapReduce) ได้โดยไม่เกิด Race Condition
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 280 80">
+              <rect x="10" y="25" width="55" height="30" rx="6" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.8"/>
+              <text x="37" y="42" class="diag-text" style="font-size:11px">Input (x)</text>
+              <path d="M 68 40 L 98 40" class="diag-edge pulse" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-c1)"/>
+              <rect x="102" y="15" width="76" height="50" rx="8" fill="var(--mint)" stroke="var(--green)" stroke-width="2"/>
+              <text x="140" y="36" style="font-family:var(--f-head);font-size:11.5px;font-weight:700;fill:var(--green2);text-anchor:middle">Pure Fn</text>
+              <text x="140" y="52" style="font-family:var(--f-head);font-size:9.5px;fill:var(--green2);text-anchor:middle">No Side Effects</text>
+              <path d="M 180 40 L 210 40" class="diag-edge pulse" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-c1)"/>
+              <rect x="214" y="25" width="56" height="30" rx="6" fill="var(--mint)" stroke="var(--green)" stroke-width="1.8"/>
+              <text x="242" y="42" class="diag-text" style="font-size:11px;fill:var(--green2)">f(x) คงที่</text>
+            </svg>
           </div>
         </div>
         <div class="col">
           <div class="code-box">
-<span class="code-cm"># Pure Function (ทำนายผลได้ 100%)</span>
+<span class="code-cm"># Pure Function (ปลอดภัย แคชได้)</span>
 <span class="code-kw">def</span> <span class="code-fn">add</span>(a, b):
     <span class="code-kw">return</span> a + b
 
-<span class="code-cm"># Impure Function (มี Side Effects)</span>
+<span class="code-cm"># Impure Function (มี Side Effect)</span>
 total = 0
 <span class="code-kw">def</span> <span class="code-fn">accumulate</span>(x):
     <span class="code-kw">global</span> total
-    total += x  <span class="code-cm"># แก้ไขตัวแปรภายนอก!</span>
+    total += x  <span class="code-cm"># แก้ไขตัวแปรนอก!</span>
     <span class="code-kw">return</span> total
           </div>
         </div>
@@ -458,37 +598,33 @@ total = 0
         <div class="col">
           <div class="block">
             <div class="lab"><span class="pin">TEST</span> กฎการทดสอบบนระนาบพิกัดฉาก</div>
-            กราฟของความสัมพันธ์จะเป็นฟังก์ชัน ก็ต่อเมื่อ <b>ไม่มีเส้นตรงแนวตั้งใดๆ ($x = c$) ลากตัดกราฟเกินกว่า 1 จุด</b>
+            กราฟจะเป็นฟังก์ชัน ก็ต่อเมื่อ <b>ไม่มีเส้นตรงแนวตั้ง $x = c$ ใดๆ ลากตัดกราฟเกินกว่า 1 จุด</b>
           </div>
           <div class="block gold">
             <div class="lab"><span class="pin">INSIGHT</span> เหตุผลทางคณิตศาสตร์</div>
-            ถ้าเส้นแนวตั้ง $x = c$ ตัดกราฟ 2 จุด แปลว่าค่าอินพุต $c$ เพียงค่าเดียว มีค่าเอาต์พุต $y$ ถึงสองค่า ซึ่งขัดกับกฎ <b>Uniqueness</b> ทันที!
+            ถ้าเส้นตรงแนวตั้งตัด 2 จุด แปลว่าอินพุต $x = c$ ตัวเดียว ให้ผลลัพธ์ $y$ ถึงสองค่า ฝ่าฝืนกฎ <b>Uniqueness</b>
           </div>
         </div>
         <div class="col">
           <div class="diag-box">
             <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.8cqh;margin-bottom:.3cqh">พาราโบลา vs วงกลม</div>
             <svg class="diag-svg" viewBox="0 0 240 130">
-              <!-- Axes Left -->
+              <!-- Parabola -->
               <line x1="20" y1="110" x2="110" y2="110" stroke="#a0aec0" stroke-width="1.5"/>
               <line x1="65" y1="20" x2="65" y2="120" stroke="#a0aec0" stroke-width="1.5"/>
-              <!-- Parabola y = x^2 -->
               <path d="M 35 30 Q 65 110 95 30" fill="none" stroke="var(--navy)" stroke-width="2.5"/>
-              <!-- Vertical line 1 -->
               <line x1="85" y1="15" x2="85" y2="120" stroke="var(--green)" stroke-width="2" stroke-dasharray="3"/>
               <circle cx="85" cy="50" r="4" fill="var(--green)"/>
-              <text x="65" y="125" style="font-size:11px;fill:var(--green);font-family:var(--f-head);font-weight:700;text-anchor:middle">y = x² (ตัด 1 จุด ✓)</text>
+              <text x="65" y="125" style="font-size:11px;fill:var(--green2);font-family:var(--f-head);font-weight:700;text-anchor:middle">y = x² (ตัด 1 จุด ✓)</text>
 
-              <!-- Axes Right -->
+              <!-- Circle -->
               <line x1="140" y1="70" x2="230" y2="70" stroke="#a0aec0" stroke-width="1.5"/>
               <line x1="185" y1="20" x2="185" y2="120" stroke="#a0aec0" stroke-width="1.5"/>
-              <!-- Circle x^2 + y^2 = r^2 -->
               <circle cx="185" cy="70" r="35" fill="none" stroke="var(--navy)" stroke-width="2.5"/>
-              <!-- Vertical line 2 -->
               <line x1="195" y1="15" x2="195" y2="120" stroke="var(--red)" stroke-width="2" stroke-dasharray="3"/>
               <circle cx="195" cy="36" r="4" fill="var(--red)"/>
               <circle cx="195" cy="104" r="4" fill="var(--red)"/>
-              <text x="185" y="125" style="font-size:11px;fill:var(--red);font-family:var(--f-head);font-weight:700;text-anchor:middle">วงกลม (ตัด 2 จุด ✗)</text>
+              <text x="185" y="125" style="font-size:11px;fill:var(--red2);font-family:var(--f-head);font-weight:700;text-anchor:middle">วงกลม (ตัด 2 จุด ✗)</text>
             </svg>
           </div>
         </div>
@@ -497,26 +633,92 @@ total = 0
     <div class="foot"><span>Vertical Line Test</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 10: Arrow Diagram Test -->
+  <!-- SLIDE 10: Arrow Diagram Test (with Comprehensive Dual Diagrams) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 1.6</span><h2>การตรวจสอบด้วยแผนภาพลูกศร (Arrow Diagram Rules)</h2></div>
     </div>
     <div class="body">
       <div class="cols">
+        <!-- Valid Arrow Diagram -->
         <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">✓ เกณฑ์ผ่าน</span> ลูกศรพุ่งออกจากต้นทาง 1 เส้นพอดี</div>
-            ทุกโหนดในเซตต้นทาง $A$ ต้องมีลูกศรพุ่งออก <b>1 เส้นพอดี</b><br>
-            <span class="gn">• ปลายทางหลายลูกศรชี้เข้าจุดเดียวกันได้ (Many-to-One ยอมรับได้)<br>
-            • สมาชิกในโคโดเมน $B$ จะมีโหนดว่างที่ไม่มีลูกศรชี้เข้าก็ได้</span>
+          <div class="diag-box" style="border-top:4px solid var(--green);gap:.5cqh">
+            <div style="font-family:var(--f-head);font-size:2cqh;font-weight:700;color:var(--green2)">
+              ✓ รูปแบบที่เป็นฟังก์ชัน (Valid Function)
+            </div>
+            <svg class="diag-svg" viewBox="0 0 280 145" style="max-height:20cqh">
+              <defs>
+                <marker id="arr-ok-10" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#1f6b41"/>
+                </marker>
+              </defs>
+              <text x="45" y="14" style="font-family:var(--f-head);font-weight:700;font-size:12px;fill:var(--navy);text-anchor:middle">เซต A (ต้นทาง)</text>
+              <text x="235" y="14" style="font-family:var(--f-head);font-weight:700;font-size:12px;fill:var(--navy);text-anchor:middle">เซต B (ปลายทาง)</text>
+              <rect x="18" y="20" width="54" height="118" rx="27" fill="none" stroke="var(--line2)" stroke-dasharray="3"/>
+              <rect x="208" y="20" width="54" height="118" rx="27" fill="none" stroke="var(--line2)" stroke-dasharray="3"/>
+              <!-- Nodes A -->
+              <circle cx="45" cy="40" r="12" class="diag-node"/><text x="45" y="40" class="diag-text">1</text>
+              <circle cx="45" cy="76" r="12" class="diag-node"/><text x="45" y="76" class="diag-text">2</text>
+              <circle cx="45" cy="112" r="12" class="diag-node"/><text x="45" y="112" class="diag-text">3</text>
+              <!-- Nodes B -->
+              <circle cx="235" cy="35" r="11" class="diag-node"/><text x="235" y="35" class="diag-text">x</text>
+              <circle cx="235" cy="68" r="11" class="diag-node gold"/><text x="235" y="68" class="diag-text">y</text>
+              <circle cx="235" cy="101" r="11" class="diag-node"/><text x="235" y="101" class="diag-text">z</text>
+              <circle cx="235" cy="126" r="7" class="diag-node" style="stroke:#a0aec0;stroke-dasharray:2"/><text x="235" y="126" style="font-size:8.5px;font-family:var(--f-mono);fill:#a0aec0;text-anchor:middle;dominant-baseline:central">w</text>
+              <!-- Edges -->
+              <path d="M 58 40 L 222 35" class="diag-edge pulse" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-ok-10)"/>
+              <path d="M 58 76 L 222 68" class="diag-edge pulse" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-ok-10)"/>
+              <path d="M 58 112 L 222 70" class="diag-edge pulse" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-ok-10)"/>
+              <!-- Note -->
+              <rect x="80" y="80" width="118" height="18" rx="4" fill="var(--mint)" stroke="var(--green)" stroke-width="1"/>
+              <text x="139" y="92" style="font-family:var(--f-head);font-size:9.5px;fill:var(--green2);font-weight:700;text-anchor:middle">ชี้เข้า y ร่วมกันได้ (Many-1)</text>
+            </svg>
+            <div style="background:var(--mint);color:var(--green2);font-weight:700;font-size:1.55cqh;padding:.25cqh .6cqw;border-radius:6px;width:100%;text-align:center">
+              ✓ ทุกโหนดใน A มีลูกศรพุ่งออก 1 เส้นพอดี (ปลายทางซ้ำ/เหลือได้)
+            </div>
           </div>
         </div>
+
+        <!-- Invalid Arrow Diagram -->
         <div class="col">
-          <div class="block al">
-            <div class="lab"><span class="pin">✗ ข้อห้าม</span> 2 ข้อห้ามเด็ดขาด</div>
-            1. <b>ห้ามมีโหนดต้นทางที่ไม่มีลูกศรออก</b> $\implies$ ฝ่าฝืน Total Mapping<br>
-            2. <b>ห้ามมีโหนดต้นทางที่แตกกิ่งลูกศรออก $\ge 2$ เส้น</b> $\implies$ ฝ่าฝืน Uniqueness
+          <div class="diag-box" style="border-top:4px solid var(--red);gap:.5cqh">
+            <div style="font-family:var(--f-head);font-size:2cqh;font-weight:700;color:var(--red2)">
+              ✗ รูปแบบที่ไม่เป็นฟังก์ชัน (Violations)
+            </div>
+            <svg class="diag-svg" viewBox="0 0 280 145" style="max-height:20cqh">
+              <defs>
+                <marker id="arr-err-10" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#c0392b"/>
+                </marker>
+                <marker id="arr-gray-10" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#718096"/>
+                </marker>
+              </defs>
+              <text x="45" y="14" style="font-family:var(--f-head);font-weight:700;font-size:12px;fill:var(--navy);text-anchor:middle">เซต A (ต้นทาง)</text>
+              <text x="235" y="14" style="font-family:var(--f-head);font-weight:700;font-size:12px;fill:var(--navy);text-anchor:middle">เซต B (ปลายทาง)</text>
+              <rect x="18" y="20" width="54" height="118" rx="27" fill="none" stroke="var(--line2)" stroke-dasharray="3"/>
+              <rect x="208" y="20" width="54" height="118" rx="27" fill="none" stroke="var(--line2)" stroke-dasharray="3"/>
+              <!-- Nodes A -->
+              <circle cx="45" cy="40" r="12" class="diag-node"/><text x="45" y="40" class="diag-text">1</text>
+              <circle cx="45" cy="76" r="12" class="diag-node err"/><text x="45" y="76" class="diag-text" style="fill:var(--red2)">2</text>
+              <circle cx="45" cy="112" r="12" class="diag-node" style="stroke:var(--red);stroke-dasharray:3;fill:var(--pink)"/><text x="45" y="112" class="diag-text" style="fill:var(--red2)">3</text>
+              <!-- Nodes B -->
+              <circle cx="235" cy="40" r="11" class="diag-node"/><text x="235" y="40" class="diag-text">x</text>
+              <circle cx="235" cy="76" r="11" class="diag-node"/><text x="235" y="76" class="diag-text">y</text>
+              <circle cx="235" cy="112" r="11" class="diag-node"/><text x="235" y="112" class="diag-text">z</text>
+              <!-- Edges -->
+              <path d="M 58 40 L 222 40" class="diag-edge" stroke="#718096" style="stroke:#718096" marker-end="url(#arr-gray-10)"/>
+              <path d="M 58 76 L 222 76" class="diag-edge err" stroke="var(--red)" style="stroke:var(--red)" marker-end="url(#arr-err-10)"/>
+              <path d="M 58 76 L 222 112" class="diag-edge err" stroke="var(--red)" style="stroke:var(--red)" marker-end="url(#arr-err-10)"/>
+              <!-- Annotations -->
+              <rect x="80" y="52" width="122" height="18" rx="4" fill="var(--pink)" stroke="var(--red)" stroke-width="1"/>
+              <text x="141" y="64" style="font-family:var(--f-head);font-size:9.5px;fill:var(--red2);font-weight:700;text-anchor:middle">โหนด 2 แตกกิ่ง 2 เส้น ✗</text>
+              <rect x="75" y="114" width="130" height="18" rx="4" fill="var(--pink)" stroke="var(--red)" stroke-width="1"/>
+              <text x="140" y="126" style="font-family:var(--f-head);font-size:9.5px;fill:var(--red2);font-weight:700;text-anchor:middle">โหนด 3 ไม่มีลูกศรออก ✗</text>
+            </svg>
+            <div style="background:var(--pink);color:var(--red2);font-weight:700;font-size:1.55cqh;padding:.25cqh .6cqw;border-radius:6px;width:100%;text-align:center">
+              ✗ ห้ามแตกกิ่ง (ขัด Uniqueness) และห้ามขาดคู่ (ขัด Total Mapping)
+            </div>
           </div>
         </div>
       </div>
@@ -524,28 +726,44 @@ total = 0
     <div class="foot"><span>Arrow Diagram Test</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 11: Domain and Codomain -->
+  <!-- SLIDE 11: Domain and Codomain (with Type System Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 1.7</span><h2>โดเมน (Domain) และโคโดเมน (Codomain)</h2></div>
     </div>
     <div class="body">
-      <div class="cols">
+      <div class="cols wide-l">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">DOMAIN</span> โดเมน $\operatorname{Dom}(f)$</div>
-            เซตของสมาชิกต้นทางทั้งหมด:<br>
-            $$\mathbf{\operatorname{Dom}(f) = A}$$
-            • สำหรับฟังก์ชัน โดเมนต้องเท่ากับเซตต้นทาง $A$ เต็มทั้งเซตเสมอ<br>
+            <div class="lab"><span class="pin">DOMAIN</span> โดเมน $\operatorname{Dom}(f) = A$</div>
+            เซตของสมาชิกต้นทางทั้งหมด ต้องถูกใช้ครบทุกตัว<br>
             • ในการเขียนโปรแกรม เปรียบเสมือน <b>Parameter Type</b> เช่น <span class="code">x: int</span>
+          </div>
+          <div class="block gold">
+            <div class="lab"><span class="pin">CODOMAIN</span> โคโดเมน (Codomain) $B$</div>
+            เซตของประเภทผลลัพธ์ที่เป็นไปได้ทั้งหมดที่ฟังก์ชันอาจคืนค่า<br>
+            • ในการเขียนโปรแกรม เปรียบเสมือน <b>Return Type</b> เช่น <span class="code">float myFunc(...)</span>
           </div>
         </div>
         <div class="col">
-          <div class="block gold">
-            <div class="lab"><span class="pin">CODOMAIN</span> โคโดเมน (Codomain)</div>
-            เซตปลายทางทั้งหมด $B$ ที่ระบุขอบเขตของประเภทผลลัพธ์:<br>
-            • เป็นประเภทของข้อมูลที่อนุญาตให้คืนค่าออกมา<br>
-            • ในการเขียนโปรแกรม เปรียบเสมือน <b>Return Type</b> เช่น <span class="code">float myFunc(int x)</span> $\implies$ โคโดเมนคือเซตของ Float
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.75cqh;margin-bottom:.3cqh">Type Mapping ในภาษาโปรแกรม</div>
+            <svg class="diag-svg" viewBox="0 0 220 125">
+              <!-- Set A (int) -->
+              <rect x="15" y="25" width="75" height="75" rx="8" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="2"/>
+              <text x="52" y="48" class="diag-text" style="font-size:12px">Domain</text>
+              <text x="52" y="70" style="font-family:var(--f-mono);font-size:11px;fill:var(--navy2);font-weight:700;text-anchor:middle">int</text>
+
+              <!-- Arrow -->
+              <path d="M 94 62 L 122 62" class="diag-edge pulse" stroke="var(--navy)" marker-end="url(#arr-m)"/>
+              <text x="108" y="52" style="font-family:var(--f-mono);font-size:11px;fill:var(--gold2);font-weight:700;text-anchor:middle">f</text>
+
+              <!-- Set B (float) -->
+              <rect x="128" y="25" width="78" height="75" rx="8" fill="var(--lyellow)" stroke="var(--gold)" stroke-width="2"/>
+              <text x="167" y="48" class="diag-text" style="font-size:12px;fill:var(--gold2)">Codomain</text>
+              <text x="167" y="70" style="font-family:var(--f-mono);font-size:11px;fill:var(--gold2);font-weight:700;text-anchor:middle">float</text>
+            </svg>
+            <div style="font-size:1.5cqh;color:var(--navy);font-weight:600">float f(int x) ≡ f: int → float</div>
           </div>
         </div>
       </div>
@@ -553,46 +771,96 @@ total = 0
     <div class="foot"><span>Domain & Codomain</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 12: Range of Function -->
+  <!-- SLIDE 12: Range of Function (with SubsetImage Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 1.8</span><h2>เรนจ์ (Range) หรือภาพของฟังก์ชัน (Image $f(A)$)</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">DEF</span> เรนจ์ $\operatorname{Ran}(f)$</div>
-        เซตของค่าผลลัพธ์จริงที่ถูกจับคู่โดยฟังก์ชัน $f$:
-        $$\mathbf{\operatorname{Ran}(f) = \{f(x) \mid x \in A\} \subseteq B}$$
-        • สมาชิกในโคโดเมน $B$ อาจมีสมาชิกบางตัวที่ไม่เคยถูกจับคู่เลย
-      </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">EXAMPLE</span> ตัวอย่างการแยกแยะ โคโดเมน vs เรนจ์</div>
-        ให้ $f: \mathbb{R} \to \mathbb{R}$ โดย $f(x) = x^2$<br>
-        • <b>โดเมน:</b> $\mathbb{R}$ (จำนวนจริงทั้งหมด)<br>
-        • <b>โคโดเมน:</b> $\mathbb{R}$ (ระบุไว้ว่าผลลัพธ์เป็นจำนวนจริงใดๆ)<br>
-        • <b>เรนจ์:</b> $[0, \infty)$ (เพราะเลขยกกำลังสองไม่มีทางติดลบ!) $\implies \mathbf{\operatorname{Ran}(f) \subsetneq \text{Codomain}}$
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> เรนจ์ $\operatorname{Ran}(f)$</div>
+            เซตของค่าผลลัพธ์จริงที่ถูกจับคู่โดยฟังก์ชัน $f$:
+            $$\mathbf{\operatorname{Ran}(f) = \{f(x) \mid x \in A\} \subseteq B}$$
+          </div>
+          <div class="block ex">
+            <div class="lab"><span class="pin">EXAMPLE</span> ตัวอย่าง $f: \mathbb{R} \to \mathbb{R}$ โดย $f(x) = x^2$</div>
+            • <b>โคโดเมน:</b> $\mathbb{R}$ (กำหนดไว้เป็นจำนวนจริงทั้งหมด)<br>
+            • <b>เรนจ์:</b> $[0, \infty)$ (เฉพาะเลขที่ไม่ติดลบ!) $\implies \mathbf{\operatorname{Ran}(f) \subsetneq B}$
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.75cqh;margin-bottom:.3cqh">เรนจ์เป็นสับเซตของโคโดเมน</div>
+            <svg class="diag-svg" viewBox="0 0 220 135">
+              <!-- Codomain B -->
+              <ellipse cx="120" cy="68" rx="80" ry="50" fill="var(--lyellow)" stroke="var(--gold)" stroke-width="2"/>
+              <text x="175" y="38" style="font-family:var(--f-head);font-size:12px;fill:var(--gold2);font-weight:700">Codomain B</text>
+
+              <!-- Range Subset -->
+              <ellipse cx="105" cy="72" rx="48" ry="32" fill="var(--mint)" stroke="var(--green)" stroke-width="2"/>
+              <text x="105" y="68" style="font-family:var(--f-head);font-size:12px;fill:var(--green2);font-weight:700;text-anchor:middle">Range Ran(f)</text>
+              <text x="105" y="85" style="font-family:var(--f-mono);font-size:10px;fill:var(--green2);font-weight:600;text-anchor:middle">{ f(x) | x ∈ A }</text>
+
+              <!-- Unmapped point -->
+              <circle cx="165" cy="90" r="4" fill="var(--gold)"/>
+              <text x="173" y="93" style="font-family:var(--f-head);font-size:10px;fill:var(--gold2)">ค่าที่ไม่มีคู่</text>
+            </svg>
+            <div style="font-size:1.5cqh;color:var(--green2);font-weight:700">Ran(f) ⊆ Codomain เสมอ</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>เรนจ์ของฟังก์ชัน</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 13: Detailed Domain & Range Example (from Worksheet Activity 1) -->
+  <!-- SLIDE 13: Detailed Domain & Range Example (with Parabola Graph) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 1.9</span><h2>ตัวอย่างเชิงลึก: หาโดเมนและเรนจ์ของ $g(x) = x^2 - 4x + 7$</h2></div>
     </div>
     <div class="body">
-      <div class="block gold">
-        <div class="lab"><span class="pin">STEP 1</span> โดเมนของฟังก์ชัน</div>
-        เนื่องจาก $g(x) = x^2 - 4x + 7$ เป็นพหุนาม ไม่มีตัวส่วนเป็นศูนย์และไม่มีค่าติดลบใต้กรณฑ์รากที่สอง<br>
-        ดังนั้น สามารถคำนวณหาค่าได้สำหรับทุกจำนวนจริง $\implies \mathbf{\operatorname{Dom}(g) = \mathbb{R}}$
-      </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">STEP 2</span> เรนจ์ด้วยการจัดรูปกำลังสองสมบูรณ์ (Completing the Square)</div>
-        $$g(x) = x^2 - 4x + 7 = (x^2 - 4x + 4) + 3 = \mathbf{(x - 2)^2 + 3}$$
-        เนื่องจาก $(x - 2)^2 \ge 0$ สำหรับทุก $x \in \mathbb{R}$ เสมอ<br>
-        ดังนั้น $g(x) \ge 0 + 3 = 3$ โดยมีจุดต่ำสุดอยู่ที่ $g(2) = 3$<br>
-        สรุปได้ว่า <b>เรนจ์ของฟังก์ชันคือ:</b> $\mathbf{\operatorname{Ran}(g) = [3, \infty) = \{y \in \mathbb{R} \mid y \ge 3\}}$
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">STEP 1</span> โดเมนของฟังก์ชัน</div>
+            พหุนามหาค่าได้สำหรับทุกจำนวนจริง $\implies \mathbf{\operatorname{Dom}(g) = \mathbb{R}}$
+          </div>
+          <div class="block ex">
+            <div class="lab"><span class="pin">STEP 2</span> จัดรูปกำลังสองสมบูรณ์</div>
+            $$g(x) = (x^2 - 4x + 4) + 3 = \mathbf{(x - 2)^2 + 3}$$
+            เนื่องจาก $(x - 2)^2 \ge 0$ สำหรับทุก $x \in \mathbb{R}$ เสมอ<br>
+            ดังนั้น $g(x) \ge 0 + 3 = 3$ โดยมีจุดต่ำสุดอยู่ที่ $(2, 3)$<br>
+            $\therefore \mathbf{\operatorname{Ran}(g) = [3, \infty) = \{y \in \mathbb{R} \mid y \ge 3\}}$
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.75cqh;margin-bottom:.2cqh">กราฟพาราโบลาหงาย จุดต่ำสุด (2, 3)</div>
+            <svg class="diag-svg" viewBox="0 0 220 140">
+              <!-- Axes -->
+              <line x1="20" y1="120" x2="205" y2="120" stroke="#a0aec0" stroke-width="1.5"/>
+              <line x1="50" y1="15" x2="50" y2="130" stroke="#a0aec0" stroke-width="1.5"/>
+              <text x="200" y="132" style="font-family:var(--f-mono);font-size:10px;fill:#718096">x</text>
+              <text x="38" y="20" style="font-family:var(--f-mono);font-size:10px;fill:#718096">y</text>
+
+              <!-- Shaded Range on Y-axis -->
+              <line x1="50" y1="75" x2="50" y2="20" stroke="var(--green)" stroke-width="4.5"/>
+              <text x="32" y="78" style="font-family:var(--f-mono);font-size:10px;fill:var(--green2);font-weight:700">y=3</text>
+
+              <!-- Parabola Curve -->
+              <path d="M 60 25 Q 115 125 170 25" fill="none" stroke="var(--navy)" stroke-width="2.5"/>
+
+              <!-- Vertex Dot -->
+              <circle cx="115" cy="75" r="5" fill="var(--gold)"/>
+              <text x="145" y="85" style="font-family:var(--f-mono);font-size:10.5px;font-weight:700;fill:var(--navy2)">(2, 3)</text>
+              <line x1="115" y1="75" x2="115" y2="120" stroke="var(--gold)" stroke-width="1.2" stroke-dasharray="2"/>
+              <text x="115" y="132" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--gold2);text-anchor:middle">x=2</text>
+            </svg>
+            <div style="font-size:1.5cqh;color:var(--green2);font-weight:700">เรนจ์คือช่วง [3, ∞)</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>ตัวอย่างการหาโดเมนและเรนจ์</span><span class="right">4091606 · CH03-W08</span></div>
@@ -607,25 +875,50 @@ total = 0
     </div>
   </section>
 
-  <!-- SLIDE 15: Injective Function Definition -->
+  <!-- SLIDE 15: Injective Function (with Arrow Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 2.1</span><h2>ฟังก์ชันหนึ่งต่อหนึ่ง (Injective / One-to-One)</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันหนึ่งต่อหนึ่ง</div>
-        สมาชิกปลายทางแต่ละตัวโดนจับคู่ <b>ไม่เกิน 1 ครั้ง</b> (ไม่มีลูกศรชนกัน):
-        $$\mathbf{\forall a, b \in A, f(a) = f(b) \implies a = b}$$
-        หรือเขียนในรูปประพจน์แย้งสลับที่ (Contrapositive) ที่เข้าใจง่าย:
-        $$\mathbf{\forall a, b \in A, a \neq b \implies f(a) \neq f(b)}$$
-        <span class="gn">"อินพุตต่างกัน ต้องได้ผลลัพธ์ต่างกันเสมอ"</span>
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันหนึ่งต่อหนึ่ง</div>
+            สมาชิกปลายทางแต่ละตัวโดนจับคู่ <b>ไม่เกิน 1 ครั้ง</b> (ห้ามลูกศรชนกัน):
+            $$\mathbf{\forall a, b \in A, f(a) = f(b) \implies a = b}$$
+            หรือเขียนในรูปประพจน์แย้งสลับที่ (Contrapositive):
+            $$\mathbf{\forall a, b \in A, a \neq b \implies f(a) \neq f(b)}$$
+            <span class="gn">"คนละอินพุต ต้องได้คนละเอาต์พุตเสมอ"</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--green2);font-size:1.75cqh;margin-bottom:.2cqh">แผนภาพ Injective (ลูกศรไม่ชนกัน)</div>
+            <svg class="diag-svg" viewBox="0 0 200 130">
+              <!-- Nodes A -->
+              <circle cx="40" cy="30" r="11" class="diag-node"/><text x="40" y="30" class="diag-text">1</text>
+              <circle cx="40" cy="65" r="11" class="diag-node"/><text x="40" y="65" class="diag-text">2</text>
+              <circle cx="40" cy="100" r="11" class="diag-node"/><text x="40" y="100" class="diag-text">3</text>
+              <!-- Nodes B -->
+              <circle cx="160" cy="25" r="11" class="diag-node"/><text x="160" y="25" class="diag-text">a</text>
+              <circle cx="160" cy="58" r="11" class="diag-node"/><text x="160" y="58" class="diag-text">b</text>
+              <circle cx="160" cy="92" r="11" class="diag-node"/><text x="160" y="92" class="diag-text">c</text>
+              <circle cx="160" cy="118" r="7" class="diag-node" style="stroke:#a0aec0;stroke-dasharray:2"/><text x="160" y="118" style="font-size:8px;font-family:var(--f-mono);fill:#a0aec0;text-anchor:middle;dominant-baseline:central">d</text>
+              <!-- Arrows -->
+              <path d="M 52 30 L 148 25" class="diag-edge pulse" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-c1)"/>
+              <path d="M 52 65 L 148 58" class="diag-edge pulse" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-c1)"/>
+              <path d="M 52 100 L 148 92" class="diag-edge pulse" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-c1)"/>
+            </svg>
+            <div style="font-size:1.45cqh;color:var(--green2);font-weight:700">ปลายทางรับลูกศรไม่เกิน 1 เส้น</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>ฟังก์ชันหนึ่งต่อหนึ่ง</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 16: Algebraic Verification of Injective -->
+  <!-- SLIDE 16: Algebraic Verification of Injective (with Proof Flow Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 2.2</span><h2>การตรวจสอบ Injective ทางพีชคณิต (Algebraic Verification)</h2></div>
@@ -635,28 +928,57 @@ total = 0
         <div class="col">
           <div class="block ex">
             <div class="lab"><span class="pin">✓ ตัวอย่าง 1</span> $f(x) = 3x - 5$ บน $\mathbb{R} \to \mathbb{R}$</div>
-            สมมุติให้ $f(a) = f(b)$:<br>
-            $$3a - 5 = 3b - 5$$
-            $$3a = 3b \implies \mathbf{a = b}$$
-            สรุปได้ทันทีว่า <span class="gn">f เป็นฟังก์ชันหนึ่งต่อหนึ่ง (Injective)</span>
+            สมมุติ $f(a) = f(b)$:<br>
+            $$3a - 5 = 3b - 5 \implies 3a = 3b \implies \mathbf{a = b}$$
+            สรุปได้ทันทีว่า <span class="gn">เป็นฟังก์ชันหนึ่งต่อหนึ่ง (Injective)</span>
           </div>
         </div>
         <div class="col">
           <div class="block al">
             <div class="lab"><span class="pin">✗ ตัวอย่าง 2</span> $g(x) = x^2$ บน $\mathbb{R} \to \mathbb{R}$</div>
-            สมมุติให้ $g(a) = g(b)$:<br>
+            สมมุติ $g(a) = g(b)$:<br>
             $$a^2 = b^2 \implies \mathbf{a = \pm b}$$
-            เช่น เลือก $a = 2$ และ $b = -2$ ($a \neq b$)<br>
-            แต่ $g(2) = 4$ และ $g(-2) = 4$ (ได้ผลลัพธ์ชนกัน!)<br>
-            สรุปได้ว่า <span class="rd">g ไม่เป็นฟังก์ชันหนึ่งต่อหนึ่ง</span>
+            เช่น $a = 2, b = -2$ แต่ $g(2) = g(-2) = 4$ (ชนกัน!)<br>
+            สรุปได้ว่า <span class="rd">ไม่เป็นฟังก์ชันหนึ่งต่อหนึ่ง</span>
           </div>
         </div>
+      </div>
+      <div class="diag-box" style="margin-top:.4cqh;padding:.6cqh 1cqw">
+        <div style="font-family:var(--f-head);font-size:1.6cqh;font-weight:700;color:var(--navy);margin-bottom:.2cqh">
+          ผังงานตรรกะการพิสูจน์ Injective (Proof Decision Flowchart)
+        </div>
+        <svg class="diag-svg" viewBox="0 0 540 85" style="max-height:13cqh">
+          <!-- Step 1: Start -->
+          <rect x="10" y="24" width="130" height="38" rx="6" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.8"/>
+          <text x="75" y="40" style="font-family:var(--f-mono);font-size:11px;fill:var(--navy);font-weight:700;text-anchor:middle">สมมุติ f(a) = f(b)</text>
+          <text x="75" y="53" style="font-family:var(--f-head);font-size:9.5px;fill:var(--ink-soft);text-anchor:middle">ตั้งสมการเริ่มต้น</text>
+
+          <!-- Arrow to Decision -->
+          <path d="M 140 43 L 180 43" class="diag-edge" stroke="var(--navy)" stroke-width="2" marker-end="url(#arr-m)"/>
+
+          <!-- Step 2: Solve -->
+          <rect x="180" y="20" width="140" height="46" rx="6" fill="#fff" stroke="var(--navy)" stroke-width="1.8"/>
+          <text x="250" y="38" style="font-family:var(--f-head);font-size:11px;fill:var(--navy);font-weight:700;text-anchor:middle">จัดรูป &amp; แก้สมการ</text>
+          <text x="250" y="54" style="font-family:var(--f-head);font-size:9.5px;fill:var(--ink-soft);text-anchor:middle">พิจารณาคำตอบของ a และ b</text>
+
+          <!-- Branch Up: a = b only -->
+          <path d="M 320 35 L 355 20 L 380 20" class="diag-edge" stroke="var(--green)" stroke-width="2" marker-end="url(#arr-ok-10)"/>
+          <text x="350" y="14" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);font-weight:700">a = b ตัวเดียว</text>
+          <rect x="380" y="6" width="150" height="28" rx="5" fill="var(--mint)" stroke="var(--green)" stroke-width="1.8"/>
+          <text x="455" y="23" style="font-family:var(--f-head);font-size:10.5px;fill:var(--green2);font-weight:700;text-anchor:middle">✓ เป็น 1-to-1 (Injective)</text>
+
+          <!-- Branch Down: a = ±b -->
+          <path d="M 320 51 L 355 66 L 380 66" class="diag-edge" stroke="var(--red)" stroke-width="2" marker-end="url(#arr-bad-10)"/>
+          <text x="340" y="78" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--red2);font-weight:700">มีหลายคำตอบ (±b)</text>
+          <rect x="380" y="52" width="150" height="28" rx="5" fill="var(--pink)" stroke="var(--red)" stroke-width="1.8"/>
+          <text x="455" y="69" style="font-family:var(--f-head);font-size:10.5px;fill:var(--red2);font-weight:700;text-anchor:middle">✗ ไม่เป็น 1-to-1 (ชนกัน)</text>
+        </svg>
       </div>
     </div>
     <div class="foot"><span>การตรวจสอบ Injective ทางพีชคณิต</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 17: Horizontal Line Test -->
+  <!-- SLIDE 17: Horizontal Line Test (with SVG Graph) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 2.3</span><h2>การทดสอบเส้นแนวนอน (Horizontal Line Test)</h2></div>
@@ -666,19 +988,35 @@ total = 0
         <div class="col">
           <div class="block">
             <div class="lab"><span class="pin">TEST</span> กฎเส้นแนวนอนบนกราฟ</div>
-            ฟังก์ชันจะเป็นหนึ่งต่อหนึ่ง ก็ต่อเมื่อ <b>ไม่มีเส้นตรงแนวนอนใดๆ ($y = k$) ลากตัดกราฟเกินกว่า 1 จุด</b>
+            ฟังก์ชันจะเป็นหนึ่งต่อหนึ่ง ก็ต่อเมื่อ <b>ไม่มีเส้นตรงแนวนอน $y = k$ ใดๆ ลากตัดกราฟเกินกว่า 1 จุด</b>
           </div>
           <div class="block gold">
             <div class="lab"><span class="pin">NOTE</span> ข้อแตกต่าง</div>
-            • <b>เส้นแนวตั้ง (Vertical):</b> ตรวจสอบว่า "เป็นฟังก์ชันหรือไม่"<br>
-            • <b>เส้นแนวนอน (Horizontal):</b> ตรวจสอบว่า "เป็นหนึ่งต่อหนึ่งหรือไม่"
+            • <b>เส้นแนวตั้ง (Vertical):</b> เช็คว่า "เป็นฟังก์ชันหรือไม่"<br>
+            • <b>เส้นแนวนอน (Horizontal):</b> เช็คว่า "เป็นหนึ่งต่อหนึ่งหรือไม่"
           </div>
         </div>
         <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">EX</span> การเปรียบเทียบ</div>
-            • $f(x) = 2x + 1$ $\implies$ เส้นแนวนอนตัด 1 จุดเสมอ $\to$ <span class="gn">✓ เป็น Injective</span><br><br>
-            • $f(x) = x^2$ $\implies$ เส้นแนวนอน $y = 4$ ตัดกราฟ 2 จุด ($x = 2, -2$) $\to$ <span class="rd">✗ ไม่เป็น Injective</span>
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.75cqh;margin-bottom:.3cqh">เส้นตรง (1-1) vs พาราโบลา (ไม่ 1-1)</div>
+            <svg class="diag-svg" viewBox="0 0 240 125">
+              <!-- Left: Linear -->
+              <line x1="15" y1="105" x2="105" y2="105" stroke="#a0aec0" stroke-width="1.2"/>
+              <line x1="60" y1="15" x2="60" y2="115" stroke="#a0aec0" stroke-width="1.2"/>
+              <line x1="25" y1="95" x2="95" y2="25" stroke="var(--navy)" stroke-width="2.2"/>
+              <line x1="15" y1="60" x2="105" y2="60" stroke="var(--green)" stroke-width="1.8" stroke-dasharray="3"/>
+              <circle cx="60" cy="60" r="3.5" fill="var(--green)"/>
+              <text x="60" y="120" style="font-size:10px;fill:var(--green2);font-weight:700;text-anchor:middle">เส้นตัด 1 จุด ✓</text>
+
+              <!-- Right: Parabola -->
+              <line x1="135" y1="105" x2="225" y2="105" stroke="#a0aec0" stroke-width="1.2"/>
+              <line x1="180" y1="15" x2="180" y2="115" stroke="#a0aec0" stroke-width="1.2"/>
+              <path d="M 150 25 Q 180 105 210 25" fill="none" stroke="var(--navy)" stroke-width="2.2"/>
+              <line x1="135" y1="55" x2="225" y2="55" stroke="var(--red)" stroke-width="1.8" stroke-dasharray="3"/>
+              <circle cx="162" cy="55" r="3.5" fill="var(--red)"/>
+              <circle cx="198" cy="55" r="3.5" fill="var(--red)"/>
+              <text x="180" y="120" style="font-size:10px;fill:var(--red2);font-weight:700;text-anchor:middle">เส้นตัด 2 จุด ✗</text>
+            </svg>
           </div>
         </div>
       </div>
@@ -686,48 +1024,106 @@ total = 0
     <div class="foot"><span>Horizontal Line Test</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 18: Surjective Function Definition -->
+  <!-- SLIDE 18: Surjective Function (with Full Coverage Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 2.4</span><h2>ฟังก์ชันทั่วถึง (Surjective / Onto)</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันทั่วถึง</div>
-        สมาชิกในโคโดเมน $B$ ทุกตัวต้องถูกจับคู่อย่างน้อย 1 ครั้ง (ไม่มีตัวใดใน $B$ ถูกทิ้งว่าง):
-        $$\mathbf{\forall y \in B, \exists x \in A \text{ such that } f(x) = y}$$
-      </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">CRITERIA</span> เกณฑ์ตรวจสอบที่ง่ายและแม่นยำที่สุด</div>
-        ฟังก์ชัน $f: A \to B$ จะเป็นฟังก์ชันทั่วถึง ก็ต่อเมื่อ <b>เรนจ์เท่ากับโคโดเมนพอดี</b>:
-        $$\mathbf{\operatorname{Ran}(f) = B}$$
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันทั่วถึง</div>
+            สมาชิกในโคโดเมน $B$ ทุกตัวต้องถูกจับคู่อย่างน้อย 1 ครั้ง (ไม่มีตัวใดใน $B$ ถูกทิ้งว่าง):
+            $$\mathbf{\forall y \in B, \exists x \in A \text{ such that } f(x) = y}$$
+          </div>
+          <div class="block ex">
+            <div class="lab"><span class="pin">CRITERIA</span> เกณฑ์ตัดสินที่ง่ายและแม่นยำที่สุด</div>
+            ฟังก์ชัน $f: A \to B$ จะเป็นฟังก์ชันทั่วถึง ก็ต่อเมื่อ <b>เรนจ์เท่ากับโคโดเมนพอดี</b>:
+            $$\mathbf{\operatorname{Ran}(f) = B}$$
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--green2);font-size:1.75cqh;margin-bottom:.2cqh">แผนภาพ Surjective (โดนใช้ครบทุกตัว)</div>
+            <svg class="diag-svg" viewBox="0 0 200 130">
+              <!-- Nodes A -->
+              <circle cx="40" cy="22" r="10" class="diag-node"/><text x="40" y="22" class="diag-text">1</text>
+              <circle cx="40" cy="52" r="10" class="diag-node"/><text x="40" y="52" class="diag-text">2</text>
+              <circle cx="40" cy="82" r="10" class="diag-node"/><text x="40" y="82" class="diag-text">3</text>
+              <circle cx="40" cy="112" r="10" class="diag-node"/><text x="40" y="112" class="diag-text">4</text>
+              <!-- Nodes B -->
+              <circle cx="160" cy="35" r="11" class="diag-node gold"/><text x="160" y="35" class="diag-text">a</text>
+              <circle cx="160" cy="72" r="11" class="diag-node gold"/><text x="160" y="72" class="diag-text">b</text>
+              <circle cx="160" cy="109" r="11" class="diag-node gold"/><text x="160" y="109" class="diag-text">c</text>
+              <!-- Arrows -->
+              <path d="M 51 22 L 148 35" class="diag-edge pulse" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-c1)"/>
+              <path d="M 51 52 L 148 37" class="diag-edge pulse" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-c1)"/>
+              <path d="M 51 82 L 148 72" class="diag-edge pulse" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-c1)"/>
+              <path d="M 51 112 L 148 109" class="diag-edge pulse" stroke="var(--green)" style="stroke:var(--green)" marker-end="url(#arr-c1)"/>
+            </svg>
+            <div style="font-size:1.45cqh;color:var(--green2);font-weight:700">ไม่มีสมาชิกใน B ตัวใดถูกทิ้งว่าง</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>ฟังก์ชันทั่วถึง</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 19: Algebraic Verification of Surjective -->
+  <!-- SLIDE 19: Algebraic Verification of Surjective (with Solve Step Flow Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 2.5</span><h2>การตรวจสอบ Surjective ทางพีชคณิต (Algebraic Verification)</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">ALGORITHM</span> กระบวนการตรวจสอบทางพีชคณิต</div>
-        1. กำหนดให้ $y \in B$ เป็นสมาชิกใดๆ ในโคโดเมน<br>
-        2. ตั้งสมการ $y = f(x)$ แล้วจัดรูป <b>แก้สมการหา $x$ ในรูปของ $y$</b> ($x = \dots$)<br>
-        3. ตรวจสอบว่า ค่า $x$ ที่ได้นั้น <b>ตกอยู่ในโดเมน $A$ เสมอหรือไม่</b>
-      </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">EXAMPLE</span> ให้ $f: \mathbb{R} \to \mathbb{R}$ โดย $f(x) = 3x - 5$</div>
-        ให้ $y \in \mathbb{R}$ แก้สมการ $y = 3x - 5 \implies 3x = y + 5 \implies \mathbf{x = \frac{y + 5}{3}}$<br>
-        สำหรับจำนวนจริง $y$ ใดๆ ค่า $\frac{y+5}{3}$ เป็นจำนวนจริง ($\in \mathbb{R}$) เสมอ $\implies$ <span class="gn">✓ เป็นฟังก์ชันทั่วถึง</span>
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">ALGORITHM</span> 3 ขั้นตอนตรวจสอบทางพีชคณิต</div>
+            1. กำหนดให้ $y \in B$ ใดๆ เป็นสมาชิกปลายทางในโคโดเมน<br>
+            2. ตั้งสมการ $y = f(x)$ แล้วแก้สมการ <b>หา $x$ ในรูปของ $y$</b> ($x = \dots$)<br>
+            3. ตรวจสอบว่า ค่า $x$ ตกอยู่ในโดเมน $A$ สำหรับทุก $y$ หรือไม่
+          </div>
+          <div class="block ex">
+            <div class="lab"><span class="pin">EXAMPLE</span> ให้ $f: \mathbb{R} \to \mathbb{R}$ โดย $f(x) = 3x - 5$</div>
+            แก้สมการ $y = 3x - 5 \implies \mathbf{x = \frac{y + 5}{3}}$<br>
+            ทุก $y \in \mathbb{R}$ จะได้ $\frac{y+5}{3} \in \mathbb{R}$ เสมอ $\implies$ <span class="gn">✓ เป็นฟังก์ชันทั่วถึง (Surjective)</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy);font-size:1.7cqh;margin-bottom:.2cqh">ผังขั้นตอนการตรวจ Surjective</div>
+            <svg class="diag-svg" viewBox="0 0 200 135">
+              <!-- Step 1 -->
+              <rect x="25" y="10" width="150" height="26" rx="5" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.5"/>
+              <text x="100" y="27" style="font-family:var(--f-mono);font-size:10px;fill:var(--navy);font-weight:700;text-anchor:middle">1. สุ่มเลือก y ∈ B</text>
+
+              <path d="M 100 36 L 100 46" class="diag-edge" stroke="var(--navy)" stroke-width="1.8" marker-end="url(#arr-m)"/>
+
+              <!-- Step 2 -->
+              <rect x="25" y="46" width="150" height="26" rx="5" fill="#fff" stroke="var(--navy)" stroke-width="1.5"/>
+              <text x="100" y="63" style="font-family:var(--f-mono);font-size:10px;fill:var(--navy);font-weight:700;text-anchor:middle">2. แก้หา x = f⁻¹(y)</text>
+
+              <path d="M 100 72 L 100 82" class="diag-edge" stroke="var(--navy)" stroke-width="1.8" marker-end="url(#arr-m)"/>
+
+              <!-- Step 3 Decision -->
+              <rect x="20" y="82" width="75" height="42" rx="5" fill="var(--mint)" stroke="var(--green)" stroke-width="1.5"/>
+              <text x="57" y="99" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);font-weight:700;text-anchor:middle">x ∈ A เสมอ?</text>
+              <text x="57" y="115" style="font-family:var(--f-head);font-size:9px;fill:var(--green2);font-weight:700;text-anchor:middle">✓ ทั่วถึง (Onto)</text>
+
+              <rect x="105" y="82" width="75" height="42" rx="5" fill="var(--pink)" stroke="var(--red)" stroke-width="1.5"/>
+              <text x="142" y="99" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--red2);font-weight:700;text-anchor:middle">x ∉ A บางตัว</text>
+              <text x="142" y="115" style="font-family:var(--f-head);font-size:9px;fill:var(--red2);font-weight:700;text-anchor:middle">✗ ไม่ทั่วถึง</text>
+            </svg>
+            <div style="font-size:1.35cqh;color:var(--navy2);font-weight:600">หากมี y ใดไม่มี x ในโดเมนรองรับ จะไม่ทั่วถึงทันที</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>การตรวจสอบ Surjective ทางพีชคณิต</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 20: Domain & Codomain Matter (R vs Z) -->
+  <!-- SLIDE 20: Domain & Codomain Matter (R vs Z with Number Line Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 2.6</span><h2>อิทธิพลของชนิดข้อมูล: $f(x) = 2x$ บน $\mathbb{R}$ vs $\mathbb{Z}$</h2></div>
@@ -737,113 +1133,228 @@ total = 0
         <div class="col">
           <div class="block ex">
             <div class="lab"><span class="pin">✓ ทั่วถึง</span> $f: \mathbb{R} \to \mathbb{R}$ โดย $f(x) = 2x$</div>
-            • ให้ $y \in \mathbb{R}$ จะได้ $x = y/2$<br>
-            • จำนวนจริงหาร 2 ยังคงเป็นจำนวนจริงเสมอ ($x \in \mathbb{R}$)<br>
-            • $\operatorname{Ran}(f) = \mathbb{R} = \text{Codomain}$ $\to$ <span class="gn">เป็นทั่วถึง (Surjective)</span>
+            • ให้ $y \in \mathbb{R}$ จะได้ $x = y/2 \in \mathbb{R}$ เสมอ<br>
+            • เรนจ์ $\operatorname{Ran}(f) = \mathbb{R} = \text{Codomain}$ $\to$ <span class="gn">ทั่วถึง (Surjective)</span>
           </div>
         </div>
         <div class="col">
           <div class="block al">
             <div class="lab"><span class="pin">✗ ไม่ทั่วถึง!</span> $g: \mathbb{Z} \to \mathbb{Z}$ โดย $g(x) = 2x$</div>
-            • ให้ $y \in \mathbb{Z}$ จะได้ $x = y/2$<br>
-            • ถ้าเลือกจำนวนคี่ เช่น $y = 3 \in \mathbb{Z}$ จะได้ $x = 1.5 \notin \mathbb{Z}$<br>
-            • เรนจ์มีเฉพาะจำนวนคู่ $\{\dots, -2, 0, 2, 4, \dots\} \neq \mathbb{Z}$ $\to$ <span class="rd">ไม่เป็นทั่วถึง!</span>
+            • ให้ $y = 3 \in \mathbb{Z}$ จะได้ $x = 1.5 \notin \mathbb{Z}$ (ไม่ใช่จำนวนเต็ม!)<br>
+            • เรนจ์มีเฉพาะเลขคู่ $\{\dots, -2, 0, 2, 4, \dots\} \neq \mathbb{Z}$ $\to$ <span class="rd">ไม่ทั่วถึง!</span>
           </div>
         </div>
       </div>
-      <div class="block gold" style="font-size:2.2cqh">
-        <span class="gd">บทเรียนสำคัญ:</span> ฟังก์ชันสูตรเดียวกัน เมื่อเปลี่ยนประเภทข้อมูลของโดเมน/โคโดเมน สมบัติทางคณิตศาสตร์เปลี่ยนไปทันที!
+      <div class="diag-box" style="margin-top:.3cqh">
+        <svg class="diag-svg" viewBox="0 0 320 50" style="max-height:8cqh">
+          <line x1="20" y1="25" x2="300" y2="25" stroke="#a0aec0" stroke-width="1.8"/>
+          <!-- Even ticks (green) -->
+          <circle cx="50" cy="25" r="4" fill="var(--green)"/><text x="50" y="42" class="diag-text" style="font-size:10px;fill:var(--green2)">0</text>
+          <circle cx="110" cy="25" r="4" fill="var(--green)"/><text x="110" y="42" class="diag-text" style="font-size:10px;fill:var(--green2)">2</text>
+          <circle cx="170" cy="25" r="4" fill="var(--green)"/><text x="170" y="42" class="diag-text" style="font-size:10px;fill:var(--green2)">4</text>
+          <!-- Odd ticks (red cross) -->
+          <circle cx="80" cy="25" r="4" fill="none" stroke="var(--red)" stroke-width="2"/><text x="80" y="42" class="diag-text" style="font-size:10px;fill:var(--red2)">1 (ขาด)</text>
+          <circle cx="140" cy="25" r="4" fill="none" stroke="var(--red)" stroke-width="2"/><text x="140" y="42" class="diag-text" style="font-size:10px;fill:var(--red2)">3 (ขาด)</text>
+          <text x="240" y="29" style="font-family:var(--f-head);font-size:11px;fill:var(--red2);font-weight:700">เลขคี่ไม่มีอินพุตใน ℤ</text>
+        </svg>
       </div>
     </div>
     <div class="foot"><span>อิทธิพลของชนิดข้อมูล</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 21: Bijective Function -->
+  <!-- SLIDE 21: Bijective Function (with Inverse Arrow Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 2.7</span><h2>ฟังก์ชันหนึ่งต่อหนึ่งทั่วถึง (Bijective Function)</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยาม Bijective (One-to-One Correspondence)</div>
-        ฟังก์ชันที่เป็น <b>ทั้งหนึ่งต่อหนึ่ง (Injective) และทั่วถึง (Surjective) พร้อมกัน</b>:
-        $$\mathbf{\text{Bijective} = \text{Injective} \land \text{Surjective}}$$
-      </div>
-      <div class="block gold">
-        <div class="lab"><span class="pin">PROPERTY</span> สมบัติการมีฟังก์ชันผกผัน</div>
-        ความเป็น Bijective คือ <b>เงื่อนไขจำเป็นและเพียงพอ (Necessary & Sufficient Condition)</b> ที่ทำให้ฟังก์ชันมี <b>ฟังก์ชันผกผัน ($f^{-1}$)</b>
-        <ul style="margin-top:.4cqh;margin-left:1.5cqw">
-          <li>ถ้าไม่ 1-1 $\implies$ ย้อนกลับแล้ว $y$ ตัวเดียวจะแตกกิ่งไปหลาย $x$ (ไม่เป็นฟังก์ชัน)</li>
-          <li>ถ้าไม่ทั่วถึง $\implies$ ย้อนกลับแล้วมีบาง $y$ ที่ไม่มีลูกศรออก (โดเมนไม่ครบ)</li>
-        </ul>
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> นิยาม Bijective (1-to-1 Correspondence)</div>
+            ฟังก์ชันที่เป็น <b>ทั้งหนึ่งต่อหนึ่ง (Injective) และทั่วถึง (Surjective) พร้อมกัน</b>:
+            $$\mathbf{\text{Bijective} = \text{Injective} \land \text{Surjective}}$$
+          </div>
+          <div class="block gold">
+            <div class="lab"><span class="pin">PROPERTY</span> เงื่อนไขการมีฟังก์ชันผกผัน</div>
+            ความเป็น Bijective คือ <b>เงื่อนไขจำเป็นและเพียงพอ</b> ที่ทำให้ฟังก์ชันมี <b>ฟังก์ชันผกผัน ($f^{-1}$)</b>
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.75cqh;margin-bottom:.2cqh">การจับคู่สมบูรณ์แบบ & ฟังก์ชันผกผัน</div>
+            <svg class="diag-svg" viewBox="0 0 220 135">
+              <!-- Nodes A -->
+              <circle cx="45" cy="30" r="11" class="diag-node"/><text x="45" y="30" class="diag-text">1</text>
+              <circle cx="45" cy="68" r="11" class="diag-node"/><text x="45" y="68" class="diag-text">2</text>
+              <circle cx="45" cy="106" r="11" class="diag-node"/><text x="45" y="106" class="diag-text">3</text>
+              <!-- Nodes B -->
+              <circle cx="175" cy="30" r="11" class="diag-node gold"/><text x="175" y="30" class="diag-text">a</text>
+              <circle cx="175" cy="68" r="11" class="diag-node gold"/><text x="175" y="68" class="diag-text">b</text>
+              <circle cx="175" cy="106" r="11" class="diag-node gold"/><text x="175" y="106" class="diag-text">c</text>
+              <!-- Forward Arrows f -->
+              <path d="M 58 26 L 162 26" class="diag-edge pulse" stroke="var(--navy)" style="stroke:var(--navy)" marker-end="url(#arr-m)"/>
+              <path d="M 58 64 L 162 64" class="diag-edge pulse" stroke="var(--navy)" style="stroke:var(--navy)" marker-end="url(#arr-m)"/>
+              <path d="M 58 102 L 162 102" class="diag-edge pulse" stroke="var(--navy)" style="stroke:var(--navy)" marker-end="url(#arr-m)"/>
+              <text x="110" y="20" style="font-family:var(--f-mono);font-size:11px;fill:var(--navy);font-weight:700">f →</text>
+              <!-- Backward Arrows f^-1 -->
+              <path d="M 162 34 L 58 34" class="diag-edge" stroke="var(--gold)" style="stroke:var(--gold);stroke-dasharray:3" marker-end="url(#arr-c1)"/>
+              <path d="M 162 72 L 58 72" class="diag-edge" stroke="var(--gold)" style="stroke:var(--gold);stroke-dasharray:3" marker-end="url(#arr-c1)"/>
+              <path d="M 162 110 L 58 110" class="diag-edge" stroke="var(--gold)" style="stroke:var(--gold);stroke-dasharray:3" marker-end="url(#arr-c1)"/>
+              <text x="110" y="85" style="font-family:var(--f-mono);font-size:11px;fill:var(--gold2);font-weight:700">← f⁻¹</text>
+            </svg>
+            <div style="font-size:1.45cqh;color:var(--navy2);font-weight:700">จับคู่ 1-1 ครบถ้วน ย้อนกลับได้เสมอ</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>ฟังก์ชันหนึ่งต่อหนึ่งทั่วถึง</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 22: The 4-Quadrant Matrix -->
+  <!-- SLIDE 22: The 4-Quadrant Matrix (Table & SVG Comparison) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 2.8</span><h2>เมทริกซ์ 4 รูปแบบการจับคู่ของฟังก์ชัน (The 4-Quadrant Matrix)</h2></div>
     </div>
     <div class="body">
-      <table class="table-slide">
-        <thead>
-          <tr>
-            <th style="width:20%">ประเภท</th>
-            <th style="width:40%">สมบัติทางเซต & แผนภาพลูกศร</th>
-            <th style="width:40%">ตัวอย่างทางคณิตศาสตร์ ($A \to B$)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="gn">1. Injective Only</span></td>
-            <td>ลูกศรไม่ชนกัน แต่ปลายทางมีโหนดเหลือว่าง ($|A| \le |B|$)</td>
-            <td>$f: \mathbb{N} \to \mathbb{R}$ โดย $f(x) = x$</td>
-          </tr>
-          <tr>
-            <td><span class="gn">2. Surjective Only</span></td>
-            <td>ปลายทางถูกใช้ครบทุกโหนด แต่มีลูกศรชนกัน ($|A| \ge |B|$)</td>
-            <td>$f: \mathbb{R} \to [0, \infty)$ โดย $f(x) = x^2$</td>
-          </tr>
-          <tr>
-            <td><span class="gd">3. Bijective</span></td>
-            <td>จับคู่สมบูรณ์แบบ 1 ต่อ 1 ครบทุกคู่ ($|A| = |B|$) มี $f^{-1}$</td>
-            <td>$f: \mathbb{R} \to \mathbb{R}$ โดย $f(x) = 3x - 5$</td>
-          </tr>
-          <tr>
-            <td><span class="rd">4. Neither</span></td>
-            <td>ทั้งมีลูกศรชนกัน และมีโหนดปลายทางเหลือว่าง</td>
-            <td>$f: \mathbb{R} \to \mathbb{R}$ โดย $f(x) = x^2$</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="cols wide-l">
+        <div class="col">
+          <table class="table-slide" style="font-size:1.45cqh">
+            <thead>
+              <tr>
+                <th style="width:28%">ประเภท</th>
+                <th style="width:40%">สมบัติลูกศร</th>
+                <th style="width:32%">ตัวอย่าง ($A \to B$)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="gn">1. Injective Only</span></td>
+                <td>ไม่ชนกัน ปลายทางเหลือ ($|A| \le |B|$)</td>
+                <td>$f: \mathbb{N} \to \mathbb{R}, f(x) = x$</td>
+              </tr>
+              <tr>
+                <td><span class="gn">2. Surjective Only</span></td>
+                <td>ชนกัน ใช้ครบทุกตัว ($|A| \ge |B|$)</td>
+                <td>$f: \mathbb{R} \to [0, \infty), x^2$</td>
+              </tr>
+              <tr>
+                <td><span class="gd">3. Bijective</span></td>
+                <td>1-to-1 ครบถ้วน (มี $f^{-1}$) ($|A| = |B|$)</td>
+                <td>$f: \mathbb{R} \to \mathbb{R}, 3x-5$</td>
+              </tr>
+              <tr>
+                <td><span class="rd">4. Neither</span></td>
+                <td>ชนกันด้วย และมีตัวเหลือว่าง</td>
+                <td>$f: \mathbb{R} \to \mathbb{R}, x^2$</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col">
+          <div class="diag-box" style="padding:.5cqh">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy);font-size:1.6cqh;margin-bottom:.2cqh">
+              เมทริกซ์ 4 ควอดรันต์ (The 4 Quadrants)
+            </div>
+            <svg class="diag-svg" viewBox="0 0 240 145">
+              <!-- Grid Dividing Lines -->
+              <line x1="120" y1="5" x2="120" y2="140" stroke="var(--line2)" stroke-width="1.5" stroke-dasharray="3"/>
+              <line x1="5" y1="72" x2="235" y2="72" stroke="var(--line2)" stroke-width="1.5" stroke-dasharray="3"/>
+
+              <!-- Q1 (Top-Left): Bijective -->
+              <g transform="translate(5, 5)">
+                <text x="55" y="10" style="font-family:var(--f-head);font-size:9.5px;fill:var(--gold2);font-weight:700;text-anchor:middle">Bijective (1-1 &amp; ทั่วถึง)</text>
+                <circle cx="25" cy="25" r="5" class="diag-node"/><circle cx="25" cy="45" r="5" class="diag-node"/>
+                <circle cx="85" cy="25" r="5" class="diag-node gold"/><circle cx="85" cy="45" r="5" class="diag-node gold"/>
+                <path d="M 31 25 L 78 25" stroke="var(--green)" stroke-width="1.5" marker-end="url(#arr-c1)"/>
+                <path d="M 31 45 L 78 45" stroke="var(--green)" stroke-width="1.5" marker-end="url(#arr-c1)"/>
+              </g>
+
+              <!-- Q2 (Top-Right): Injective Only -->
+              <g transform="translate(125, 5)">
+                <text x="55" y="10" style="font-family:var(--f-head);font-size:9.5px;fill:var(--navy);font-weight:700;text-anchor:middle">1-to-1 แต่ไม่ทั่วถึง</text>
+                <circle cx="25" cy="25" r="5" class="diag-node"/><circle cx="25" cy="45" r="5" class="diag-node"/>
+                <circle cx="85" cy="20" r="5" class="diag-node"/><circle cx="85" cy="38" r="5" class="diag-node"/>
+                <circle cx="85" cy="55" r="4" style="stroke:#a0aec0;fill:none;stroke-dasharray:2"/>
+                <path d="M 31 25 L 78 20" stroke="var(--navy)" stroke-width="1.5" marker-end="url(#arr-m)"/>
+                <path d="M 31 45 L 78 38" stroke="var(--navy)" stroke-width="1.5" marker-end="url(#arr-m)"/>
+              </g>
+
+              <!-- Q3 (Bottom-Left): Surjective Only -->
+              <g transform="translate(5, 75)">
+                <text x="55" y="11" style="font-family:var(--f-head);font-size:9.5px;fill:var(--green2);font-weight:700;text-anchor:middle">ทั่วถึง แต่ไม่ 1-to-1</text>
+                <circle cx="25" cy="23" r="5" class="diag-node"/><circle cx="25" cy="40" r="5" class="diag-node"/><circle cx="25" cy="57" r="5" class="diag-node"/>
+                <circle cx="85" cy="28" r="5" class="diag-node gold"/><circle cx="85" cy="50" r="5" class="diag-node gold"/>
+                <path d="M 31 23 L 78 28" stroke="var(--green)" stroke-width="1.5" marker-end="url(#arr-c1)"/>
+                <path d="M 31 40 L 78 28" stroke="var(--green)" stroke-width="1.5" marker-end="url(#arr-c1)"/>
+                <path d="M 31 57 L 78 50" stroke="var(--green)" stroke-width="1.5" marker-end="url(#arr-c1)"/>
+              </g>
+
+              <!-- Q4 (Bottom-Right): Neither -->
+              <g transform="translate(125, 75)">
+                <text x="55" y="11" style="font-family:var(--f-head);font-size:9.5px;fill:var(--red2);font-weight:700;text-anchor:middle">ไม่ 1-1 และไม่ทั่วถึง</text>
+                <circle cx="25" cy="25" r="5" class="diag-node"/><circle cx="25" cy="50" r="5" class="diag-node"/>
+                <circle cx="85" cy="25" r="5" class="diag-node"/><circle cx="85" cy="50" r="4" style="stroke:var(--red);fill:none;stroke-dasharray:2"/>
+                <path d="M 31 25 L 78 25" stroke="var(--red)" stroke-width="1.5" marker-end="url(#arr-c3)"/>
+                <path d="M 31 50 L 78 26" stroke="var(--red)" stroke-width="1.5" marker-end="url(#arr-c3)"/>
+              </g>
+            </svg>
+            <div style="font-size:1.35cqh;color:var(--navy2);font-weight:600">4 รูปแบบพื้นฐานที่ใช้จำแนกฟังก์ชันทั้งหมด</div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="foot"><span>เมทริกซ์ 4 รูปแบบฟังก์ชัน</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 23: Pigeonhole Principle -->
+  <!-- SLIDE 23: Pigeonhole Principle (with Visual Pigeon Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 2.9</span><h2>หลักการช่องนกพิราบ (Pigeonhole Principle)</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">THEOREM</span> ทฤษฎีบทช่องนกพิราบ</div>
-        ถ้านำนกพิราบ $k + 1$ ตัว ใส่ลงในรังนก $k$ รัง แล้วจะมีรังนกอย่างน้อย 1 รังที่บรรจุนกพิราบตั้งแต่ 2 ตัวขึ้นไป<br><br>
-        <b>ในมุมมองของฟังก์ชัน $f: A \to B$:</b><br>
-        ถ้าเซตต้นทางมีสมาชิกมากกว่าเซตปลายทาง ($|A| > |B|$) แล้ว <b>ฟังก์ชัน $f$ ไม่มีทางเป็นหนึ่งต่อหนึ่ง (Injective) ได้เลย!</b>
-      </div>
-      <div class="block gold">
-        <div class="lab"><span class="pin">GENERALIZED</span> รูปนัยทั่วไป (Generalized PHP)</div>
-        ถ้ามีสิ่งของ $N$ ชิ้น จัดลงในกล่อง $k$ กล่อง จะมีกล่องอย่างน้อย 1 ใบที่บรรจุของไม่น้อยกว่า:
-        $$\mathbf{\lceil N / k \rceil \text{ ชิ้น}}$$
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">THEOREM</span> ทฤษฎีบทช่องนกพิราบ</div>
+            ถ้านำนกพิราบ $k + 1$ ตัว ใส่ลงในรังนก $k$ รัง แล้วจะมีรังนกอย่างน้อย 1 รังที่บรรจุนกพิราบตั้งแต่ 2 ตัวขึ้นไป<br><br>
+            <b>ในมุมมองของฟังก์ชัน $f: A \to B$:</b><br>
+            ถ้า $|A| > |B|$ แล้ว <b>$f$ ไม่มีทางเป็น Injective ได้เลย!</b>
+          </div>
+          <div class="block gold">
+            <div class="lab"><span class="pin">GENERALIZED</span> รูปนัยทั่วไป: $\mathbf{\lceil N / k \rceil \text{ ตัว}}$</div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.75cqh;margin-bottom:.3cqh">นก 4 ตัว ใน 3 รัง (ต้องชนกัน!)</div>
+            <svg class="diag-svg" viewBox="0 0 200 130">
+              <!-- Holes -->
+              <rect x="20" y="20" width="45" height="40" rx="6" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.5"/>
+              <text x="42" y="35" style="font-size:10px;fill:var(--ink-soft);text-anchor:middle">รัง 1</text>
+              <circle cx="42" cy="48" r="5" fill="var(--navy)"/>
+
+              <rect x="78" y="20" width="45" height="40" rx="6" fill="var(--pink)" stroke="var(--red)" stroke-width="2"/>
+              <text x="100" y="35" style="font-size:10px;fill:var(--red2);font-weight:700;text-anchor:middle">รัง 2 (ชน!)</text>
+              <circle cx="93" cy="48" r="5" fill="var(--red)"/>
+              <circle cx="107" cy="48" r="5" fill="var(--red)"/>
+
+              <rect x="136" y="20" width="45" height="40" rx="6" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.5"/>
+              <text x="158" y="35" style="font-size:10px;fill:var(--ink-soft);text-anchor:middle">รัง 3</text>
+              <circle cx="158" cy="48" r="5" fill="var(--navy)"/>
+
+              <!-- Note -->
+              <text x="100" y="90" style="font-family:var(--f-head);font-size:11.5px;fill:var(--red2);font-weight:700;text-anchor:middle">นก 4 ตัว / รัง 3 รัง</text>
+              <text x="100" y="110" style="font-family:var(--f-mono);font-size:11px;fill:var(--navy);font-weight:700;text-anchor:middle">⌈ 4 / 3 ⌉ = 2 ตัวในหนึ่งรัง</text>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>หลักการช่องนกพิราบ</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 24: Pigeonhole in CS -->
+  <!-- SLIDE 24: Pigeonhole in CS (with Hash Collision Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 2.10</span><h2>การประยุกต์หลักการช่องนกพิราบในทางคอมพิวเตอร์</h2></div>
@@ -853,16 +1364,55 @@ total = 0
         <div class="col">
           <div class="block ex">
             <div class="lab"><span class="pin">HASH</span> การชนกันของแฮช (Hash Collision)</div>
-            หากมีข้อมูล $N = 10,000$ รายการ แต่ตารางแฮชมีขนาด $M = 1,000$ ช่อง<br>
-            PHP ยืนยันว่าจะต้องมีอย่างน้อยหนึ่งช่องที่มีข้อมูลชนกัน $\lceil 10000 / 1000 \rceil = \mathbf{10 \text{ รายการ}}$
+            หากมีข้อมูล $N = 10,000$ รายการ ลงตารางแฮช $M = 1,000$ ช่อง<br>
+            ตามหลัก PHP รับประกันว่าจะต้องมีช่องหนึ่งที่มีข้อมูลชนกันอย่างน้อย:
+            $$\lceil 10,000 / 1,000 \rceil = \mathbf{10 \text{ รายการ}}$$
           </div>
         </div>
         <div class="col">
           <div class="block al">
-            <div class="lab"><span class="pin">COMPRESS</span> ขีดจำกัดของการบีบอัดข้อมูล</div>
-            ไม่มีอัลกอริทึมการบีบอัดแบบไม่สูญเสียข้อมูล (Lossless Compression) ใดที่สามารถบีบอัดไฟล์ทุกไฟล์ให้เล็กลงได้เสมอ เพราะจำนวนบิตของไฟล์ที่สั้นกว่ามีจำนวนรูปแบบน้อยกว่า
+            <div class="lab"><span class="pin">COMPRESS</span> ขีดจำกัดการบีบอัดไฟล์ (Lossless)</div>
+            ไม่มีโปรแกรมบีบอัดแบบไม่สูญเสียข้อมูลใดที่ย่อไฟล์ทุกไฟล์ได้เสมอ เพราะไฟล์ขนาด $N$ บิตมี $2^N$ แบบ แต่ไฟล์ขนาด $\le N-1$ บิตมีเพียง $2^N - 1$ แบบ ตาม PHP ย่อมมีไฟล์ที่ชนกัน!
           </div>
         </div>
+      </div>
+      <div class="diag-box" style="margin-top:.4cqh;padding:.5cqh 1cqw">
+        <div style="font-family:var(--f-head);font-size:1.6cqh;font-weight:700;color:var(--navy);margin-bottom:.2cqh">
+          แผนภาพจำลองการชนกันของแฮชตามหลัก PHP ($N$ Keys &gt; $M$ Slots)
+        </div>
+        <svg class="diag-svg" viewBox="0 0 520 70" style="max-height:12cqh">
+          <!-- Keys (N=4) -->
+          <circle cx="30" cy="18" r="10" class="diag-node"/><text x="30" y="18" class="diag-text">k₁</text>
+          <circle cx="30" cy="52" r="10" class="diag-node"/><text x="30" y="52" class="diag-text">k₂</text>
+          <circle cx="95" cy="18" r="10" class="diag-node"/><text x="95" y="18" class="diag-text">k₃</text>
+          <circle cx="95" cy="52" r="10" class="diag-node gold"/><text x="95" y="52" class="diag-text">k₄</text>
+
+          <!-- Label Keys -->
+          <text x="62" y="68" style="font-family:var(--f-head);font-size:10px;fill:var(--navy);font-weight:700;text-anchor:middle">N = 4 ข้อมูล</text>
+
+          <!-- Arrows -->
+          <path d="M 42 18 L 205 22" stroke="var(--navy)" stroke-width="1.6" marker-end="url(#arr-m)"/>
+          <path d="M 42 52 L 205 48" stroke="var(--navy)" stroke-width="1.6" marker-end="url(#arr-m)"/>
+          <path d="M 107 18 L 205 24" stroke="var(--red)" stroke-width="1.8" marker-end="url(#arr-bad-10)"/>
+          <path d="M 107 52 L 205 26" stroke="var(--red)" stroke-width="1.8" marker-end="url(#arr-bad-10)"/>
+
+          <!-- Buckets (M=3) -->
+          <g transform="translate(210, 4)">
+            <rect x="0" y="5" width="85" height="18" rx="4" fill="var(--pink)" stroke="var(--red)" stroke-width="1.8"/>
+            <text x="42" y="18" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--red2);font-weight:700;text-anchor:middle">[ช่อง 0] k₁, k₃, k₄ ✗</text>
+
+            <rect x="0" y="27" width="85" height="18" rx="4" fill="#fff" stroke="var(--navy)" stroke-width="1.2"/>
+            <text x="42" y="40" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--navy);text-anchor:middle">[ช่อง 1] k₂</text>
+
+            <rect x="0" y="49" width="85" height="18" rx="4" fill="#fff" stroke="var(--line2)" stroke-width="1.2" stroke-dasharray="2"/>
+            <text x="42" y="62" style="font-family:var(--f-mono);font-size:9px;fill:#a0aec0;text-anchor:middle">[ช่อง 2] ว่าง</text>
+          </g>
+
+          <!-- Explanation text on right -->
+          <text x="320" y="24" style="font-family:var(--f-head);font-size:11px;fill:var(--red2);font-weight:700">เกิดการชนกัน (Collision) ที่ช่อง 0</text>
+          <text x="320" y="42" style="font-family:var(--f-body);font-size:10px;fill:var(--ink-soft)">เมื่อจำนวนข้อมูล N มากกว่าช่อง M ย่อมมีช่องที่มีข้อมูลซ้ำกัน</text>
+          <text x="320" y="58" style="font-family:var(--f-mono);font-size:10px;fill:var(--navy);font-weight:700">⌈ 4 / 3 ⌉ = 2 ข้อมูลขั้นต่ำในหนึ่งช่อง</text>
+        </svg>
       </div>
     </div>
     <div class="foot"><span>การประยุกต์ช่องนกพิราบ</span><span class="right">4091606 · CH03-W08</span></div>
@@ -877,66 +1427,180 @@ total = 0
     </div>
   </section>
 
-  <!-- SLIDE 26: Function Composition Definition -->
+  <!-- SLIDE 26: Function Composition (with 3-Set Chain Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 3.1</span><h2>การประกอบฟังก์ชัน (Function Composition $f \circ g$)</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันประกอบ</div>
-        ให้ $g: A \to B$ และ $f: B \to C$ ฟังก์ชันประกอบ $f \circ g: A \to C$ นิยามโดย:
-        $$\mathbf{(f \circ g)(x) = f(g(x))}$$
-        • นำค่า $x$ ป้อนให้ฟังก์ชันตัวหลัง ($g$) ทำงานก่อน<br>
-        • เมื่อได้ผลลัพธ์ $g(x)$ ให้นำค่านั้นไปป้อนต่อเป็น Input ของฟังก์ชันตัวหน้า ($f$)
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันประกอบ</div>
+            ให้ $g: A \to B$ และ $f: B \to C$ ฟังก์ชันประกอบ $f \circ g: A \to C$ นิยามโดย:
+            $$\mathbf{(f \circ g)(x) = f(g(x))}$$
+            • นำ $x$ ป้อนให้ฟังก์ชันตัวหลัง ($g$) ทำงานก่อน<br>
+            • เมื่อได้ $g(x)$ ให้นำผลลัพธ์ไปป้อนต่อเป็นอินพุตของ $f$
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.75cqh;margin-bottom:.2cqh">แผนภาพลูกโซ่ 3 เซต (A → B → C)</div>
+            <svg class="diag-svg" viewBox="0 0 240 135">
+              <!-- Set Circles -->
+              <circle cx="35" cy="45" r="22" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.8"/>
+              <text x="35" y="45" class="diag-text">A</text>
+
+              <circle cx="120" cy="45" r="22" fill="var(--lyellow)" stroke="var(--gold)" stroke-width="1.8"/>
+              <text x="120" y="45" class="diag-text" style="fill:var(--gold2)">B</text>
+
+              <circle cx="205" cy="45" r="22" fill="var(--mint)" stroke="var(--green)" stroke-width="1.8"/>
+              <text x="205" y="45" class="diag-text" style="fill:var(--green2)">C</text>
+
+              <!-- Step Arrows -->
+              <path d="M 59 45 L 96 45" class="diag-edge pulse" marker-end="url(#arr-m)"/>
+              <text x="77" y="36" style="font-family:var(--f-mono);font-size:11px;font-weight:700;fill:var(--navy)">g</text>
+
+              <path d="M 144 45 L 181 45" class="diag-edge pulse" marker-end="url(#arr-m)"/>
+              <text x="162" y="36" style="font-family:var(--f-mono);font-size:11px;font-weight:700;fill:var(--navy)">f</text>
+
+              <!-- Bottom Composite Arc -->
+              <path d="M 35 70 Q 120 125 205 70" fill="none" stroke="var(--gold)" stroke-width="2.5" marker-end="url(#arr-m)"/>
+              <text x="120" y="118" style="font-family:var(--f-mono);font-size:12px;font-weight:700;fill:var(--gold2);text-anchor:middle">f ∘ g</text>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>การประกอบฟังก์ชัน</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 27: Data Pipeline Analogy -->
+  <!-- SLIDE 27: Data Pipeline Analogy (with SVG Pipeline Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 3.2</span><h2>โมเดลท่อส่งข้อมูล (Data Pipeline Analogy & Condition)</h2></div>
     </div>
     <div class="body">
-      <div class="block gold">
-        <div class="lab"><span class="pin">ANALOGY</span> ท่อส่งข้อมูล (Pipeline เหมือนเครื่องหมาย Pipe | ใน Linux)</div>
-        $$x \xrightarrow{\quad g(x) \quad} \boxed{\text{Function } g} \xrightarrow{\quad \text{Output } g(x) \quad} \boxed{\text{Function } f} \xrightarrow{\quad \text{Output } f(g(x)) \quad}$$
-        เช่นในคำสั่ง <span class="code">cat log.txt | grep "ERROR" | wc -l</span> ผลลัพธ์ของคำสั่งก่อนหน้ากลายเป็นอินพุตของคำสั่งถัดไป
-      </div>
-      <div class="block al">
-        <div class="lab"><span class="pin">CONDITION</span> เงื่อนไขการหาฟังก์ชันประกอบได้</div>
-        ฟังก์ชันประกอบ $f \circ g$ จะหาได้ ก็ต่อเมื่อ <b>เรนจ์ของ $g$ ต้องเป็นสับเซตของโดเมนของ $f$</b>:
-        $$\mathbf{\operatorname{Ran}(g) \subseteq \operatorname{Dom}(f)}$$
-        (ถ้าเอาต์พุตจาก $g$ อยู่นอกโดเมนที่ $f$ รับได้ ท่อส่งข้อมูลจะพังและเกิด Runtime Error!)
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">ANALOGY</span> ท่อส่งข้อมูล (เหมือนเครื่องหมาย Pipe | ใน Linux)</div>
+            $$x \xrightarrow{\quad g \quad} \boxed{\text{Stage 1: } g} \xrightarrow{\quad g(x) \quad} \boxed{\text{Stage 2: } f} \xrightarrow{\quad f(g(x)) \quad}$$
+            เช่น <span class="code">cat log.txt | grep "ERROR" | wc -l</span> ผลลัพธ์คำสั่งก่อนหน้าส่งต่อเป็นอินพุตคำสั่งถัดไป
+          </div>
+          <div class="block al">
+            <div class="lab"><span class="pin">CONDITION</span> เงื่อนไขการหาฟังก์ชันประกอบได้</div>
+            ฟังก์ชันประกอบ $f \circ g$ จะหาได้ ก็ต่อเมื่อ <b>เรนจ์ของ $g$ ต้องเป็นสับเซตของโดเมนของ $f$</b>:
+            $$\mathbf{\operatorname{Ran}(g) \subseteq \operatorname{Dom}(f)}$$
+            (ถ้าผลลัพธ์จาก $g$ อยู่นอกเหนือโดเมนที่ $f$ รองรับ ระบบจะ Error ทันที!)
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy);font-size:1.65cqh;margin-bottom:.2cqh">โมเดลท่อส่งข้อมูล (Data Pipeline)</div>
+            <svg class="diag-svg" viewBox="0 0 220 140">
+              <!-- Input x -->
+              <circle cx="25" cy="70" r="12" class="diag-node"/><text x="25" y="70" class="diag-text">x</text>
+
+              <!-- Arrow into g -->
+              <path d="M 37 70 L 55 70" stroke="var(--navy)" stroke-width="2" marker-end="url(#arr-m)"/>
+
+              <!-- Stage 1: g -->
+              <rect x="58" y="45" width="46" height="50" rx="6" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="2"/>
+              <text x="81" y="66" style="font-family:var(--f-mono);font-size:12px;fill:var(--navy);font-weight:700;text-anchor:middle">g(x)</text>
+              <text x="81" y="82" style="font-family:var(--f-head);font-size:8.5px;fill:var(--ink-soft);text-anchor:middle">ขั้นที่ 1</text>
+
+              <!-- Arrow into f with Ran(g) gate -->
+              <path d="M 104 70 L 126 70" stroke="var(--green)" stroke-width="2" marker-end="url(#arr-ok-10)"/>
+
+              <!-- Stage 2: f -->
+              <rect x="129" y="45" width="46" height="50" rx="6" fill="var(--mint)" stroke="var(--green)" stroke-width="2"/>
+              <text x="152" y="66" style="font-family:var(--f-mono);font-size:12px;fill:var(--green2);font-weight:700;text-anchor:middle">f(·)</text>
+              <text x="152" y="82" style="font-family:var(--f-head);font-size:8.5px;fill:var(--green2);text-anchor:middle">ขั้นที่ 2</text>
+
+              <!-- Arrow to output -->
+              <path d="M 175 70 L 192 70" stroke="var(--green)" stroke-width="2" marker-end="url(#arr-ok-10)"/>
+              <circle cx="204" cy="70" r="11" class="diag-node gold"/><text x="204" y="70" class="diag-text" style="font-size:9px">f(g)</text>
+
+              <!-- Condition Gate Badge -->
+              <rect x="55" y="108" width="120" height="22" rx="4" fill="var(--mint)" stroke="var(--green)" stroke-width="1.2"/>
+              <text x="115" y="122" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);font-weight:700;text-anchor:middle">Ran(g) ⊆ Dom(f) ✓</text>
+            </svg>
+            <div style="font-size:1.3cqh;color:var(--navy2);font-weight:600">เอาต์พุตขั้นที่ 1 ต้องเข้ากันได้กับโดเมนขั้นที่ 2</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>โมเดลท่อส่งข้อมูลและเงื่อนไข</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 28: Composition Step-by-Step Example -->
+  <!-- SLIDE 28: Composition Step-by-Step Example (with Non-Commutative Comparison) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 3.3</span><h2>ตัวอย่างการคำนวณและสมบัติไม่สลับที่ (Non-commutative)</h2></div>
     </div>
     <div class="body">
-      <div class="block gold">
-        <div class="lab"><span class="pin">EXAMPLE</span> ให้ $f(x) = 2x + 3$ และ $g(x) = x^2 - 1$</div>
-        1. <b>หา $(f \circ g)(x)$ :</b><br>
-        $$(f \circ g)(x) = f(g(x)) = f(x^2 - 1) = 2(x^2 - 1) + 3 = \mathbf{2x^2 + 1}$$
-        2. <b>หา $(g \circ f)(x)$ :</b><br>
-        $$(g \circ f)(x) = g(f(x)) = g(2x + 3) = (2x + 3)^2 - 1 = (4x^2 + 12x + 9) - 1 = \mathbf{4x^2 + 12x + 8}$$
-      </div>
-      <div class="block al">
-        <div class="lab"><span class="pin">CAUTION</span> ข้อควรระวังสูงสุด</div>
-        $(f \circ g)(x) \neq (g \circ f)(x)$ — การประกอบฟังก์ชัน <b>ไม่มีสมบัติการสลับที่ (Non-commutative)</b>
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">EXAMPLE</span> ให้ $f(x) = 2x + 3$ และ $g(x) = x^2 - 1$</div>
+            1. <b>หา $(f \circ g)(x)$ :</b><br>
+            $$(f \circ g)(x) = f(g(x)) = f(x^2 - 1) = 2(x^2 - 1) + 3 = \mathbf{2x^2 + 1}$$
+            2. <b>หา $(g \circ f)(x)$ :</b><br>
+            $$(g \circ f)(x) = g(f(x)) = g(2x + 3) = (2x + 3)^2 - 1 = \mathbf{4x^2 + 12x + 8}$$
+          </div>
+          <div class="block al">
+            <div class="lab"><span class="pin">CAUTION</span> ข้อควรระวังสูงสุด</div>
+            $(f \circ g)(x) \neq (g \circ f)(x)$ — การประกอบฟังก์ชัน <b>ไม่มีสมบัติการสลับที่ (Non-commutative)</b>
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy);font-size:1.65cqh;margin-bottom:.2cqh">เปรียบเทียบผลลัพธ์ 2 ลำดับ (x = 3)</div>
+            <svg class="diag-svg" viewBox="0 0 220 140">
+              <!-- Path 1: f o g -->
+              <g transform="translate(10, 15)">
+                <text x="0" y="10" style="font-family:var(--f-mono);font-size:10.5px;fill:var(--navy);font-weight:700">(f ∘ g)(3):</text>
+                <circle cx="65" cy="8" r="9" class="diag-node"/><text x="65" y="8" class="diag-text" style="font-size:9px">3</text>
+                <path d="M 74 8 L 92 8" stroke="var(--navy)" stroke-width="1.5" marker-end="url(#arr-m)"/>
+                <rect x="94" y="-2" width="28" height="20" rx="3" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.2"/>
+                <text x="108" y="11" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--navy);text-anchor:middle">g</text>
+                <path d="M 122 8 L 138 8" stroke="var(--navy)" stroke-width="1.5" marker-end="url(#arr-m)"/>
+                <rect x="140" y="-2" width="28" height="20" rx="3" fill="var(--mint)" stroke="var(--green)" stroke-width="1.2"/>
+                <text x="154" y="11" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);text-anchor:middle">f</text>
+                <path d="M 168 8 L 182 8" stroke="var(--green)" stroke-width="1.5" marker-end="url(#arr-ok-10)"/>
+                <circle cx="193" cy="8" r="10" class="diag-node gold"/><text x="193" y="8" class="diag-text" style="font-size:9px;fill:var(--gold2)">19</text>
+              </g>
+
+              <!-- Not Equal Symbol -->
+              <text x="110" y="72" style="font-family:var(--f-mono);font-size:18px;fill:var(--red);font-weight:700;text-anchor:middle">19 ≠ 80 (≠)</text>
+
+              <!-- Path 2: g o f -->
+              <g transform="translate(10, 85)">
+                <text x="0" y="10" style="font-family:var(--f-mono);font-size:10.5px;fill:var(--navy);font-weight:700">(g ∘ f)(3):</text>
+                <circle cx="65" cy="8" r="9" class="diag-node"/><text x="65" y="8" class="diag-text" style="font-size:9px">3</text>
+                <path d="M 74 8 L 92 8" stroke="var(--navy)" stroke-width="1.5" marker-end="url(#arr-m)"/>
+                <rect x="94" y="-2" width="28" height="20" rx="3" fill="var(--mint)" stroke="var(--green)" stroke-width="1.2"/>
+                <text x="108" y="11" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);text-anchor:middle">f</text>
+                <path d="M 122 8 L 138 8" stroke="var(--navy)" stroke-width="1.5" marker-end="url(#arr-m)"/>
+                <rect x="140" y="-2" width="28" height="20" rx="3" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.2"/>
+                <text x="154" y="11" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--navy);text-anchor:middle">g</text>
+                <path d="M 168 8 L 182 8" stroke="var(--red)" stroke-width="1.5" marker-end="url(#arr-bad-10)"/>
+                <circle cx="193" cy="8" r="10" class="diag-node" style="stroke:var(--red)"/><text x="193" y="8" class="diag-text" style="font-size:9px;fill:var(--red2)">80</text>
+              </g>
+
+              <line x1="20" y1="125" x2="200" y2="125" stroke="var(--line2)" stroke-width="1"/>
+              <text x="110" y="136" style="font-family:var(--f-head);font-size:10px;fill:var(--red2);font-weight:700;text-anchor:middle">สลับลำดับ ผลลัพธ์เปลี่ยนทันที</text>
+            </svg>
+            <div style="font-size:1.3cqh;color:var(--navy2);font-weight:600">ลำดับการประกอบฟังก์ชันมีความสำคัญยิ่ง</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>ตัวอย่างการประกอบฟังก์ชัน</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 29: Algebraic Properties of Composition -->
+  <!-- SLIDE 29: Algebraic Properties of Composition (with Socks & Shoes SVG) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 3.4</span><h2>สมบัติพีชคณิตของการประกอบฟังก์ชัน</h2></div>
@@ -956,43 +1620,103 @@ total = 0
           <div class="p-title">ฟังก์ชันเอกลักษณ์</div>
           <div class="p-desc">
             $$\mathbf{f \circ I_A = f = I_B \circ f}$$
-            ฟังก์ชันเอกลักษณ์ $I(x) = x$ เปรียบเสมือนเลข 1 ในการคูณ
+            $I(x) = x$ เปรียบเหมือนเลข 1 ในการคูณ
           </div>
         </div>
         <div class="proc-card">
           <div class="p-num">PROP 3</div>
-          <div class="p-title">ผกผันของฟังก์ชันประกอบ</div>
+          <div class="p-title">ผกผันของการประกอบ</div>
           <div class="p-desc">
             $$\mathbf{(f \circ g)^{-1} = g^{-1} \circ f^{-1}}$$
-            <b>Socks & Shoes:</b> สวมถุงเท้าก่อนใส่รองเท้า เวลาถอดต้องถอดรองเท้าก่อน!
+            <b>Socks &amp; Shoes:</b> สวมถุงเท้าก่อนใส่รองเท้า เวลาถอดต้องถอดรองเท้าก่อน!
           </div>
         </div>
+      </div>
+      <div class="diag-box" style="margin-top:.4cqh;padding:.5cqh 1cqw">
+        <div style="font-family:var(--f-head);font-size:1.6cqh;font-weight:700;color:var(--navy);margin-bottom:.2cqh">
+          หลักการถุงเท้าและรองเท้า (Socks &amp; Shoes Property: $(f \circ g)^{-1} = g^{-1} \circ f^{-1}$)
+        </div>
+        <svg class="diag-svg" viewBox="0 0 520 65" style="max-height:11cqh">
+          <!-- Forward Flow -->
+          <text x="30" y="24" style="font-family:var(--f-head);font-size:10px;fill:var(--navy);font-weight:700">ขาไป (f ∘ g):</text>
+          <rect x="95" y="10" width="105" height="22" rx="4" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.2"/>
+          <text x="147" y="24" style="font-family:var(--f-body);font-size:10px;fill:var(--navy);text-anchor:middle">1. สวมถุงเท้า (g)</text>
+          <path d="M 200 21 L 225 21" stroke="var(--navy)" stroke-width="1.5" marker-end="url(#arr-m)"/>
+          <rect x="228" y="10" width="105" height="22" rx="4" fill="var(--mint)" stroke="var(--green)" stroke-width="1.2"/>
+          <text x="280" y="24" style="font-family:var(--f-body);font-size:10px;fill:var(--green2);text-anchor:middle">2. สวมรองเท้า (f)</text>
+
+          <!-- Inverse Flow -->
+          <text x="30" y="52" style="font-family:var(--f-head);font-size:10px;fill:var(--gold2);font-weight:700">ขากลับ (ย้อนรอย):</text>
+          <rect x="95" y="38" width="105" height="22" rx="4" fill="var(--mint)" stroke="var(--green)" stroke-width="1.2"/>
+          <text x="147" y="52" style="font-family:var(--f-body);font-size:10px;fill:var(--green2);text-anchor:middle">1. ถอดรองเท้า (f⁻¹)</text>
+          <path d="M 200 49 L 225 49" stroke="var(--gold)" stroke-width="1.5" marker-end="url(#arr-c1)"/>
+          <rect x="228" y="38" width="105" height="22" rx="4" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.2"/>
+          <text x="280" y="52" style="font-family:var(--f-body);font-size:10px;fill:var(--navy);text-anchor:middle">2. ถอดถุงเท้า (g⁻¹)</text>
+
+          <!-- Result badge on right -->
+          <rect x="355" y="18" width="150" height="32" rx="6" fill="var(--lyellow)" stroke="var(--gold)" stroke-width="1.5"/>
+          <text x="430" y="38" style="font-family:var(--f-mono);font-size:11px;fill:var(--gold2);font-weight:700;text-anchor:middle">(f ∘ g)⁻¹ = g⁻¹ ∘ f⁻¹</text>
+        </svg>
       </div>
     </div>
     <div class="foot"><span>สมบัติพีชคณิตของการประกอบ</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 30: Inverse Function Definition -->
+  <!-- SLIDE 30: Inverse Function Definition (with Mapping & Identity Loop Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 3.5</span><h2>ฟังก์ชันผกผัน (Inverse Function $f^{-1}$)</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันผกผัน</div>
-        ถ้า $f: A \to B$ เป็นฟังก์ชันหนึ่งต่อหนึ่งทั่วถึง (Bijective) จะมีฟังก์ชันผกผัน $f^{-1}: B \to A$:
-        $$\mathbf{f^{-1}(y) = x \iff f(x) = y}$$
-        $$\mathbf{(f^{-1} \circ f)(x) = x \quad \text{และ} \quad (f \circ f^{-1})(y) = y}$$
-      </div>
-      <div class="block al">
-        <div class="lab"><span class="pin">WARNING</span> ข้อผิดพลาดที่พบบ่อยมาก</div>
-        $f^{-1}(x)$ <b>ไม่ใช่ส่วนกลับ $\frac{1}{f(x)}$</b> แต่เป็นสัญลักษณ์แทนฟังก์ชันย้อนทางกลับ
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันผกผัน</div>
+            ถ้า $f: A \to B$ เป็นฟังก์ชันหนึ่งต่อหนึ่งทั่วถึง (Bijective) จะมีฟังก์ชันผกผัน $f^{-1}: B \to A$:
+            $$\mathbf{f^{-1}(y) = x \iff f(x) = y}$$
+            $$\mathbf{(f^{-1} \circ f)(x) = x \quad \text{และ} \quad (f \circ f^{-1})(y) = y}$$
+          </div>
+          <div class="block al">
+            <div class="lab"><span class="pin">WARNING</span> ข้อผิดพลาดที่พบบ่อยมาก</div>
+            $f^{-1}(x)$ <b>ไม่ใช่ส่วนกลับ $\frac{1}{f(x)}$</b> แต่เป็นสัญลักษณ์แทนฟังก์ชันย้อนทางกลับ
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy);font-size:1.65cqh;margin-bottom:.2cqh">การจับคู่ผกผันและการวนกลับสู่เอกลักษณ์</div>
+            <svg class="diag-svg" viewBox="0 0 220 135">
+              <!-- Sets A and B -->
+              <rect x="20" y="20" width="50" height="95" rx="25" fill="none" stroke="var(--navy)" stroke-width="1.8"/>
+              <text x="45" y="14" style="font-family:var(--f-head);font-size:11px;fill:var(--navy);font-weight:700;text-anchor:middle">เซต A</text>
+
+              <rect x="150" y="20" width="50" height="95" rx="25" fill="none" stroke="var(--green)" stroke-width="1.8"/>
+              <text x="175" y="14" style="font-family:var(--f-head);font-size:11px;fill:var(--green2);font-weight:700;text-anchor:middle">เซต B</text>
+
+              <!-- Element x and y -->
+              <circle cx="45" cy="55" r="9" class="diag-node"/><text x="45" y="55" class="diag-text">x</text>
+              <circle cx="175" cy="55" r="9" class="diag-node gold"/><text x="175" y="55" class="diag-text">y</text>
+
+              <!-- Forward arrow f -->
+              <path d="M 56 46 Q 110 25 163 46" fill="none" stroke="var(--navy)" stroke-width="2" marker-end="url(#arr-m)"/>
+              <text x="110" y="32" style="font-family:var(--f-mono);font-size:11px;fill:var(--navy);font-weight:700;text-anchor:middle">f(x) = y →</text>
+
+              <!-- Backward arrow f^-1 -->
+              <path d="M 163 65 Q 110 86 56 65" fill="none" stroke="var(--gold)" stroke-width="2" marker-end="url(#arr-c1)"/>
+              <text x="110" y="80" style="font-family:var(--f-mono);font-size:11px;fill:var(--gold2);font-weight:700;text-anchor:middle">← f⁻¹(y) = x</text>
+
+              <!-- Identity note below -->
+              <rect x="35" y="98" width="150" height="22" rx="4" fill="var(--mint)" stroke="var(--green)" stroke-width="1"/>
+              <text x="110" y="112" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);font-weight:700;text-anchor:middle">(f⁻¹ ∘ f)(x) = x (Identity)</text>
+            </svg>
+            <div style="font-size:1.3cqh;color:var(--navy2);font-weight:600">การจับคู่ย้อนกลับ ส่งค่าคืนสู่จุดตั้งต้นเดิม</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>ฟังก์ชันผกผัน</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 31: 3 Steps to Find Inverse -->
+  <!-- SLIDE 31: 3 Steps to Find Inverse (with Flowchart Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 3.6</span><h2>3 ขั้นตอนมาตรฐานการหาฟังก์ชันผกผัน $f^{-1}(x)$</h2></div>
@@ -1015,31 +1739,67 @@ total = 0
           <div class="p-desc">แทน $x$ ด้วย $f^{-1}(x)$ และแทน $y$ ด้วย $x$: $\mathbf{f^{-1}(x) = \frac{x - 3}{2}}$</div>
         </div>
       </div>
+      <div class="diag-box" style="margin-top:.4cqh;padding:.5cqh 1cqw">
+        <div style="font-family:var(--f-head);font-size:1.6cqh;font-weight:700;color:var(--navy);margin-bottom:.2cqh">
+          ผังกระบวนการหาฟังก์ชันผกผัน (Inverse Function Calculation Flow)
+        </div>
+        <svg class="diag-svg" viewBox="0 0 520 65" style="max-height:11cqh">
+          <!-- Step 1 Box -->
+          <rect x="15" y="12" width="130" height="42" rx="5" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.5"/>
+          <text x="80" y="28" style="font-family:var(--f-mono);font-size:11px;fill:var(--navy);font-weight:700;text-anchor:middle">y = 2x + 3</text>
+          <text x="80" y="44" style="font-family:var(--f-head);font-size:9.5px;fill:var(--ink-soft);text-anchor:middle">ขั้นที่ 1: ตั้งสมการ y</text>
+
+          <path d="M 148 33 L 182 33" stroke="var(--navy)" stroke-width="2" marker-end="url(#arr-m)"/>
+
+          <!-- Step 2 Box -->
+          <rect x="185" y="12" width="145" height="42" rx="5" fill="var(--mint)" stroke="var(--green)" stroke-width="1.5"/>
+          <text x="257" y="28" style="font-family:var(--f-mono);font-size:11px;fill:var(--green2);font-weight:700;text-anchor:middle">x = (y - 3) / 2</text>
+          <text x="257" y="44" style="font-family:var(--f-head);font-size:9.5px;fill:var(--green2);text-anchor:middle">ขั้นที่ 2: แก้สมการหา x</text>
+
+          <path d="M 333 33 L 367 33" stroke="var(--green)" stroke-width="2" marker-end="url(#arr-ok-10)"/>
+
+          <!-- Step 3 Box -->
+          <rect x="370" y="12" width="135" height="42" rx="5" fill="var(--lyellow)" stroke="var(--gold)" stroke-width="2"/>
+          <text x="437" y="28" style="font-family:var(--f-mono);font-size:11px;fill:var(--gold2);font-weight:700;text-anchor:middle">f⁻¹(x) = (x - 3) / 2</text>
+          <text x="437" y="44" style="font-family:var(--f-head);font-size:9.5px;fill:var(--gold2);text-anchor:middle">ขั้นที่ 3: สลับ x ↔ y จบ!</text>
+        </svg>
+      </div>
     </div>
     <div class="foot"><span>ขั้นตอนการหาฟังก์ชันผกผัน</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 32: Deep Example of Rational Function Inverse & Symmetry -->
+  <!-- SLIDE 32: Deep Example of Rational Function Inverse & Symmetry (with Graph) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 3.7</span><h2>ตัวอย่างเชิงลึก: ฟังก์ชันตรรกยะและสมมาตร $y = x$</h2></div>
     </div>
     <div class="body">
-      <div class="cols">
+      <div class="cols wide-l">
         <div class="col">
           <div class="block ex">
             <div class="lab"><span class="pin">EXAMPLE</span> จงหา $f^{-1}(x)$ ของ $f(x) = \frac{2x + 1}{x - 3}$ ($x \neq 3$)</div>
-            1. $y = \frac{2x + 1}{x - 3} \implies y(x - 3) = 2x + 1$<br>
-            2. $yx - 3y = 2x + 1 \implies yx - 2x = 3y + 1$<br>
-            3. $x(y - 2) = 3y + 1 \implies x = \frac{3y + 1}{y - 2}$<br>
-            $\therefore \mathbf{f^{-1}(x) = \frac{3x + 1}{x - 2}} \quad (x \neq 2)$
+            1. $y = \frac{2x + 1}{x - 3} \implies yx - 3y = 2x + 1$<br>
+            2. $yx - 2x = 3y + 1 \implies x(y - 2) = 3y + 1$<br>
+            3. $x = \frac{3y + 1}{y - 2} \implies \mathbf{f^{-1}(x) = \frac{3x + 1}{x - 2}} \quad (x \neq 2)$
           </div>
         </div>
         <div class="col">
-          <div class="block gold">
-            <div class="lab"><span class="pin">SYMMETRY</span> สมมาตรทางเรขาคณิต</div>
-            กราฟของฟังก์ชัน $f(x)$ และกราฟของฟังก์ชันผกผัน $f^{-1}(x)$ จะเป็น <b>ภาพสะท้อน (Reflection) ซึ่งกันและกัน ข้ามเส้นตรง $y = x$ เสมอ!</b><br><br>
-            ถ้า $(a, b)$ อยู่บนกราฟ $f$ แล้ว $(b, a)$ จะต้องอยู่บนกราฟ $f^{-1}$ เสมอ
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.75cqh;margin-bottom:.3cqh">สมมาตรข้ามเส้นตรง y = x</div>
+            <svg class="diag-svg" viewBox="0 0 200 130">
+              <line x1="15" y1="115" x2="185" y2="115" stroke="#a0aec0" stroke-width="1.2"/>
+              <line x1="35" y1="15" x2="35" y2="125" stroke="#a0aec0" stroke-width="1.2"/>
+              <!-- Line y = x -->
+              <line x1="30" y1="120" x2="175" y2="20" stroke="var(--gold)" stroke-width="1.8" stroke-dasharray="4"/>
+              <text x="175" y="32" style="font-family:var(--f-mono);font-size:10px;fill:var(--gold2);font-weight:700">y = x</text>
+              <!-- Curve f -->
+              <path d="M 45 105 Q 85 95 160 40" fill="none" stroke="var(--navy)" stroke-width="2.2"/>
+              <text x="165" y="45" style="font-family:var(--f-mono);font-size:10px;fill:var(--navy);font-weight:700">f</text>
+              <!-- Curve f^-1 (reflected) -->
+              <path d="M 50 95 Q 65 50 125 35" fill="none" stroke="var(--green)" stroke-width="2.2"/>
+              <text x="130" y="30" style="font-family:var(--f-mono);font-size:10px;fill:var(--green2);font-weight:700">f⁻¹</text>
+            </svg>
+            <div style="font-size:1.45cqh;color:var(--navy2);font-weight:600">จุด (a, b) บน f สมมาตรกับ (b, a) บน f⁻¹</div>
           </div>
         </div>
       </div>
@@ -1056,55 +1816,107 @@ total = 0
     </div>
   </section>
 
-  <!-- SLIDE 34: Floor Function -->
+  <!-- SLIDE 34: Floor Function (with Number Line Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 4.1</span><h2>ฟังก์ชันพื้น (Floor Function $\lfloor x \rfloor$)</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันพื้น</div>
-        จำนวนเต็มที่มากที่สุดที่ <b>น้อยกว่าหรือเท่ากับ $x$</b> (การปัดเศษลงทางซ้ายของเส้นจำนวน):
-        $$\mathbf{\lfloor x \rfloor = \max \{n \in \mathbb{Z} \mid n \le x\}}$$
-      </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">EXAMPLES</span> ตัวอย่างเชิงตัวเลข</div>
-        • $\lfloor 3.8 \rfloor = 3$<br>
-        • $\lfloor 3.0 \rfloor = 3$<br>
-        • $\lfloor -3.2 \rfloor = \mathbf{-4}$ <span class="rd">(ข้อควรระวัง: จำนวนลบปัดลงไปหาค่าที่น้อยกว่าทางซ้าย คือ -4 ไม่ใช่ -3)</span>
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันพื้น</div>
+            จำนวนเต็มที่มากที่สุดที่ <b>น้อยกว่าหรือเท่ากับ $x$</b> (ปัดเศษลงทางซ้ายของเส้นจำนวน):
+            $$\mathbf{\lfloor x \rfloor = \max \{n \in \mathbb{Z} \mid n \le x\}}$$
+          </div>
+          <div class="block ex">
+            <div class="lab"><span class="pin">EXAMPLES</span> ตัวอย่างเชิงตัวเลข</div>
+            • $\lfloor 3.8 \rfloor = 3$<br>
+            • $\lfloor 3.0 \rfloor = 3$<br>
+            • $\lfloor -3.2 \rfloor = \mathbf{-4}$ <span class="rd">(ข้อควรระวัง: ปัดลงไปทางซ้ายได้ -4 ไม่ใช่ -3)</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.75cqh;margin-bottom:.3cqh">การปัดลงบนเส้นจำนวน (Floor)</div>
+            <svg class="diag-svg" viewBox="0 0 220 120">
+              <line x1="15" y1="65" x2="205" y2="65" stroke="#a0aec0" stroke-width="1.8"/>
+              <!-- Ticks -->
+              <circle cx="35" cy="65" r="4" fill="var(--navy)"/><text x="35" y="85" class="diag-text" style="font-size:11px">-4</text>
+              <circle cx="85" cy="65" r="4" fill="var(--navy)"/><text x="85" y="85" class="diag-text" style="font-size:11px">-3</text>
+              <circle cx="135" cy="65" r="4" fill="var(--navy)"/><text x="135" y="85" class="diag-text" style="font-size:11px">3</text>
+              <circle cx="185" cy="65" r="4" fill="var(--navy)"/><text x="185" y="85" class="diag-text" style="font-size:11px">4</text>
+              <!-- Arrow for -3.2 -->
+              <circle cx="75" cy="65" r="3.5" fill="var(--red)"/>
+              <text x="75" y="48" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--red2);font-weight:700;text-anchor:middle">-3.2</text>
+              <path d="M 75 42 Q 55 25 38 56" fill="none" stroke="var(--red)" stroke-width="1.8" marker-end="url(#arr-c3)"/>
+              <!-- Arrow for 3.8 -->
+              <circle cx="175" cy="65" r="3.5" fill="var(--green)"/>
+              <text x="175" y="48" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);font-weight:700;text-anchor:middle">3.8</text>
+              <path d="M 175 42 Q 155 25 138 56" fill="none" stroke="var(--green)" stroke-width="1.8" marker-end="url(#arr-c1)"/>
+            </svg>
+            <div style="font-size:1.45cqh;color:var(--navy2);font-weight:600">ลูกศรปัดถอยหลังไปทางซ้ายเสมอ</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>ฟังก์ชันพื้น (Floor)</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 35: Ceiling Function -->
+  <!-- SLIDE 35: Ceiling Function (with Number Line Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 4.2</span><h2>ฟังก์ชันเพดาน (Ceiling Function $\lceil x \rceil$)</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันเพดาน</div>
-        จำนวนเต็มที่น้อยที่สุดที่ <b>มากกว่าหรือเท่ากับ $x$</b> (การปัดเศษขึ้นทางขวาของเส้นจำนวน):
-        $$\mathbf{\lceil x \rceil = \min \{n \in \mathbb{Z} \mid n \ge x\}}$$
-      </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">EXAMPLES</span> ตัวอย่างเชิงตัวเลข</div>
-        • $\lceil 3.2 \rceil = 4$<br>
-        • $\lceil 3.0 \rceil = 3$<br>
-        • $\lceil -3.8 \rceil = \mathbf{-3}$ <span class="rd">(ข้อควรระวัง: จำนวนลบปัดขึ้นไปหาค่าที่มากกว่าทางขวา คือ -3 ไม่ใช่ -4)</span>
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันเพดาน</div>
+            จำนวนเต็มที่น้อยที่สุดที่ <b>มากกว่าหรือเท่ากับ $x$</b> (ปัดเศษขึ้นทางขวาของเส้นจำนวน):
+            $$\mathbf{\lceil x \rceil = \min \{n \in \mathbb{Z} \mid n \ge x\}}$$
+          </div>
+          <div class="block ex">
+            <div class="lab"><span class="pin">EXAMPLES</span> ตัวอย่างเชิงตัวเลข</div>
+            • $\lceil 3.2 \rceil = 4$<br>
+            • $\lceil 3.0 \rceil = 3$<br>
+            • $\lceil -3.8 \rceil = \mathbf{-3}$ <span class="rd">(ข้อควรระวัง: ปัดขึ้นไปทางขวาได้ -3 ไม่ใช่ -4)</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.75cqh;margin-bottom:.3cqh">การปัดขึ้นบนเส้นจำนวน (Ceiling)</div>
+            <svg class="diag-svg" viewBox="0 0 220 120">
+              <line x1="15" y1="65" x2="205" y2="65" stroke="#a0aec0" stroke-width="1.8"/>
+              <!-- Ticks -->
+              <circle cx="35" cy="65" r="4" fill="var(--navy)"/><text x="35" y="85" class="diag-text" style="font-size:11px">-4</text>
+              <circle cx="85" cy="65" r="4" fill="var(--navy)"/><text x="85" y="85" class="diag-text" style="font-size:11px">-3</text>
+              <circle cx="135" cy="65" r="4" fill="var(--navy)"/><text x="135" y="85" class="diag-text" style="font-size:11px">3</text>
+              <circle cx="185" cy="65" r="4" fill="var(--navy)"/><text x="185" y="85" class="diag-text" style="font-size:11px">4</text>
+              <!-- Arrow for -3.8 -->
+              <circle cx="45" cy="65" r="3.5" fill="var(--red)"/>
+              <text x="45" y="48" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--red2);font-weight:700;text-anchor:middle">-3.8</text>
+              <path d="M 45 42 Q 65 25 82 56" fill="none" stroke="var(--red)" stroke-width="1.8" marker-end="url(#arr-c3)"/>
+              <!-- Arrow for 3.2 -->
+              <circle cx="145" cy="65" r="3.5" fill="var(--green)"/>
+              <text x="145" y="48" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);font-weight:700;text-anchor:middle">3.2</text>
+              <path d="M 145 42 Q 165 25 182 56" fill="none" stroke="var(--green)" stroke-width="1.8" marker-end="url(#arr-c1)"/>
+            </svg>
+            <div style="font-size:1.45cqh;color:var(--navy2);font-weight:600">ลูกศรปัดเดินหน้าไปทางขวาเสมอ</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>ฟังก์ชันเพดาน (Ceiling)</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 36: Floor/Ceiling Properties in CS -->
+  <!-- SLIDE 36: Floor/Ceiling Properties in CS (with Truncate vs Floor Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 4.3</span><h2>สมบัติของ Floor & Ceiling ในระบบคอมพิวเตอร์</h2></div>
     </div>
     <div class="body">
-      <div class="cols">
+      <div class="cols wide-l">
         <div class="col">
           <div class="block">
             <div class="lab"><span class="pin">MATH</span> สมบัติทางคณิตศาสตร์</div>
@@ -1112,14 +1924,43 @@ total = 0
             • $\lceil x \rceil = -\lfloor -x \rfloor$ (สลับเครื่องหมาย)<br>
             • $\lfloor x \rfloor = x \iff x \in \mathbb{Z}$
           </div>
-        </div>
-        <div class="col">
           <div class="block gold">
-            <div class="lab"><span class="pin">CODE</span> Floor Division ใน Python</div>
+            <div class="lab"><span class="pin">CODE</span> Floor Division ใน Python vs C</div>
             ตัวดำเนินการ <span class="code">//</span> ใน Python คือ Floor Division เสมอ:<br>
             • <span class="code">7 // 2</span> ได้ค่า <span class="code">3</span> ($\lfloor 3.5 \rfloor = 3$)<br>
             • <span class="code">-7 // 2</span> ได้ค่า <span class="code">-4</span> ($\lfloor -3.5 \rfloor = -4$)<br>
             <span class="rd">ต่างจากภาษา C/Java ที่เป็นการ Truncate เข้าหา 0 (-7/2 = -3)</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy);font-size:1.65cqh;margin-bottom:.2cqh">Truncate (เข้าหา 0) vs Floor (ลงซ้าย)</div>
+            <svg class="diag-svg" viewBox="0 0 220 135">
+              <line x1="15" y1="70" x2="205" y2="70" stroke="#a0aec0" stroke-width="1.8"/>
+              <!-- Marks -->
+              <circle cx="35" cy="70" r="4" fill="var(--navy)"/><text x="35" y="90" class="diag-text" style="font-size:10.5px">-4</text>
+              <circle cx="95" cy="70" r="4" fill="var(--navy)"/><text x="95" y="90" class="diag-text" style="font-size:10.5px">-3</text>
+              <circle cx="185" cy="70" r="4" fill="var(--navy)"/><text x="185" y="90" class="diag-text" style="font-size:10.5px">0</text>
+
+              <!-- Point -3.5 -->
+              <circle cx="65" cy="70" r="4" fill="var(--gold)"/>
+              <text x="65" y="52" style="font-family:var(--f-mono);font-size:10px;fill:var(--gold2);font-weight:700;text-anchor:middle">-3.5</text>
+
+              <!-- Arrow 1: Floor to -4 -->
+              <path d="M 65 64 Q 50 40 38 64" fill="none" stroke="var(--green)" stroke-width="2" marker-end="url(#arr-c1)"/>
+              <text x="38" y="32" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);font-weight:700;text-anchor:middle">Floor = -4</text>
+              <text x="38" y="44" style="font-family:var(--f-head);font-size:8.5px;fill:var(--green2);text-anchor:middle">(Python //)</text>
+
+              <!-- Arrow 2: Truncate to -3 -->
+              <path d="M 65 64 Q 80 40 92 64" fill="none" stroke="var(--red)" stroke-width="2" marker-end="url(#arr-bad-10)"/>
+              <text x="105" y="32" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--red2);font-weight:700;text-anchor:middle">Trunc = -3</text>
+              <text x="105" y="44" style="font-family:var(--f-head);font-size:8.5px;fill:var(--red2);text-anchor:middle">(C / Java /)</text>
+
+              <!-- Zero Anchor Line -->
+              <line x1="185" y1="45" x2="185" y2="70" stroke="var(--line2)" stroke-width="1.5" stroke-dasharray="2"/>
+              <text x="185" y="40" style="font-family:var(--f-head);font-size:9px;fill:var(--ink-soft);text-anchor:middle">จุด 0</text>
+            </svg>
+            <div style="font-size:1.3cqh;color:var(--navy2);font-weight:600">จำนวนลบ: Floor ปัดลงซ้าย, Truncate ปัดเข้าหาศูนย์</div>
           </div>
         </div>
       </div>
@@ -1127,114 +1968,247 @@ total = 0
     <div class="foot"><span>สมบัติ Floor & Ceiling</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 37: Pagination Application -->
+  <!-- SLIDE 37: Pagination Application (with Page Grid Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 4.4</span><h2>การประยุกต์: การแบ่งหน้าข้อมูล (Pagination Formula)</h2></div>
     </div>
     <div class="body">
-      <div class="block gold">
-        <div class="lab"><span class="pin">FORMULA</span> สูตรคำนวณจำนวนหน้าเว็บ</div>
-        เมื่อมีข้อมูลทั้งหมด $N$ รายการ และต้องการแสดงผลหน้าละ $S$ รายการ:
-        $$\mathbf{\text{จำนวนหน้าทั้งหมด} = \lceil N / S \rceil}$$
-      </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">EX</span> กรณีศึกษาจากใบกิจกรรม</div>
-        1. ฐานข้อมูลมีบทความ $N = 127$ รายการ กำหนดแสดงหน้าละ $S = 10$ รายการ:<br>
-        $$\text{จำนวนหน้า} = \lceil 127 / 10 \rceil = \lceil 12.7 \rceil = \mathbf{13 \text{ หน้า}} \quad (\text{หน้าสุดท้ายมี 7 รายการ})$$
-        2. สินค้า $N = 155$ รายการ แสดงหน้าละ $S = 20$ รายการ:<br>
-        $$\text{จำนวนหน้า} = \lceil 155 / 20 \rceil = \lceil 7.75 \rceil = \mathbf{8 \text{ หน้า}}$$
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">FORMULA</span> สูตรคำนวณจำนวนหน้าเว็บ</div>
+            เมื่อมีข้อมูลทั้งหมด $N$ รายการ แสดงผลหน้าละ $S$ รายการ:
+            $$\mathbf{\text{จำนวนหน้าทั้งหมด} = \lceil N / S \rceil}$$
+          </div>
+          <div class="block ex">
+            <div class="lab"><span class="pin">EX</span> บทความ $N = 127$ รายการ หน้าละ $S = 10$ รายการ</div>
+            $$\text{จำนวนหน้า} = \lceil 127 / 10 \rceil = \lceil 12.7 \rceil = \mathbf{13 \text{ หน้า}}$$
+            <span class="gn">หน้าที่ 1 ถึง 12 มีหน้าละ 10 รายการ และหน้าที่ 13 มีเศษ 7 รายการ</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.75cqh;margin-bottom:.3cqh">การแบ่งหน้า Pagination Box</div>
+            <svg class="diag-svg" viewBox="0 0 200 120">
+              <!-- Page 1 -->
+              <rect x="15" y="20" width="48" height="38" rx="5" fill="var(--mint)" stroke="var(--green)" stroke-width="1.5"/>
+              <text x="39" y="38" class="diag-text" style="font-size:10.5px">หน้า 1</text>
+              <text x="39" y="50" style="font-size:9px;fill:var(--ink-soft);text-anchor:middle">10 รายการ</text>
+
+              <!-- Page 2 -->
+              <rect x="75" y="20" width="48" height="38" rx="5" fill="var(--mint)" stroke="var(--green)" stroke-width="1.5"/>
+              <text x="99" y="38" class="diag-text" style="font-size:10.5px">หน้า 2</text>
+              <text x="99" y="50" style="font-size:9px;fill:var(--ink-soft);text-anchor:middle">10 รายการ</text>
+
+              <!-- Dots -->
+              <text x="140" y="42" style="font-size:16px;fill:var(--navy);font-weight:700">···</text>
+
+              <!-- Page 12 -->
+              <rect x="15" y="70" width="48" height="38" rx="5" fill="var(--mint)" stroke="var(--green)" stroke-width="1.5"/>
+              <text x="39" y="88" class="diag-text" style="font-size:10.5px">หน้า 12</text>
+              <text x="39" y="100" style="font-size:9px;fill:var(--ink-soft);text-anchor:middle">10 รายการ</text>
+
+              <!-- Page 13 (Last partial page) -->
+              <rect x="75" y="70" width="48" height="38" rx="5" fill="var(--lyellow)" stroke="var(--gold)" stroke-width="2"/>
+              <text x="99" y="88" class="diag-text" style="font-size:10.5px;fill:var(--gold2)">หน้า 13</text>
+              <text x="99" y="100" style="font-size:9px;fill:var(--gold2);text-anchor:middle;font-weight:700">7 รายการ</text>
+
+              <text x="160" y="93" style="font-family:var(--f-head);font-size:11px;fill:var(--navy);font-weight:700">รวม 13 หน้า</text>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>การแบ่งหน้าข้อมูล (Pagination)</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 38: Modulo Function & The Trap -->
+  <!-- SLIDE 38: Modulo Function & The Trap (with Modulo Clock Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 4.5</span><h2>ฟังก์ชันมอดุโลและการระวัง "The Modulo Trap"</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันมอดุโลเชิงคณิตศาสตร์</div>
-        เศษจากการหารจำนวนเต็ม $a$ ด้วยจำนวนเต็มบวก $m$:
-        $$\mathbf{a \bmod m = r \quad (0 \le r < m \text{ โดย } a = qm + r)}$$
-        • เช่น $17 \bmod 5 = 2 \quad (17 = 3 \times 5 + 2)$ และ $-8 \bmod 3 = 1 \quad (-8 = -3 \times 3 + 1)$
-      </div>
-      <div class="block al">
-        <div class="lab"><span class="pin">TRAP</span> ข้อแตกต่างอันตรายในภาษาโปรแกรม</div>
-        • <b>Python:</b> ยึดตามคณิตศาสตร์ <span class="code">-8 % 3</span> คืนค่า <span class="gn">1</span> (เศษบวกเสมอ)<br>
-        • <b>C / C++ / Java / JS:</b> ทำ Truncated Modulo <span class="code">-8 % 3</span> คืนค่า <span class="rd">-2</span> (เศษติดลบตามตัวตั้ง!)<br>
-        <span class="hl">สูตรแก้ให้ได้ค่าบวกเสมอใน C/Java:</span> <span class="code">((a % m) + m) % m</span>
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันมอดุโลเชิงคณิตศาสตร์</div>
+            เศษจากการหารจำนวนเต็ม $a$ ด้วยจำนวนเต็มบวก $m$:
+            $$\mathbf{a \bmod m = r \quad (0 \le r < m \text{ โดย } a = qm + r)}$$
+            • $17 \bmod 5 = 2 \quad (17 = 3 \times 5 + 2)$ และ $-8 \bmod 3 = 1 \quad (-8 = -3 \times 3 + 1)$
+          </div>
+          <div class="block al">
+            <div class="lab"><span class="pin">TRAP</span> ข้อแตกต่างอันตรายในภาษาโปรแกรม</div>
+            • <b>Python:</b> ยึดตามคณิตศาสตร์ <span class="code">-8 % 3</span> คืนค่า <span class="gn">1</span> (เศษบวกเสมอ)<br>
+            • <b>C / C++ / Java / JS:</b> ทำ Truncated Modulo <span class="code">-8 % 3</span> คืนค่า <span class="rd">-2</span> (เศษติดลบตามตัวตั้ง!)<br>
+            <span class="hl">สูตรแก้ให้ได้ค่าบวกเสมอใน C/Java:</span> <span class="code">((a % m) + m) % m</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy);font-size:1.65cqh;margin-bottom:.2cqh">นาฬิกามอดุโล (Modulo Ring m = 5)</div>
+            <svg class="diag-svg" viewBox="0 0 200 135">
+              <circle cx="100" cy="68" r="48" fill="none" stroke="var(--line2)" stroke-width="1.8" stroke-dasharray="3"/>
+              <!-- Nodes 0 to 4 -->
+              <circle cx="100" cy="20" r="11" class="diag-node gold"/><text x="100" y="20" class="diag-text">0</text>
+              <circle cx="145" cy="52" r="11" class="diag-node"/><text x="145" y="52" class="diag-text">1</text>
+              <circle cx="128" cy="104" r="11" class="diag-node"/><text x="128" y="104" class="diag-text">2</text>
+              <circle cx="72" cy="104" r="11" class="diag-node"/><text x="72" y="104" class="diag-text">3</text>
+              <circle cx="55" cy="52" r="11" class="diag-node"/><text x="55" y="52" class="diag-text">4</text>
+
+              <!-- Forward rotation arc (+7) -->
+              <path d="M 100 9 Q 155 12 136 94" fill="none" stroke="var(--green)" stroke-width="2" marker-end="url(#arr-c1)"/>
+              <text x="158" y="85" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);font-weight:700">+7 ≡ 2</text>
+
+              <!-- Backward rotation for negative (-8) -->
+              <path d="M 100 9 Q 45 12 64 94" fill="none" stroke="var(--gold)" stroke-width="2" marker-end="url(#arr-m)"/>
+              <text x="32" y="85" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--gold2);font-weight:700">-8 ≡ 2</text>
+            </svg>
+            <div style="font-size:1.3cqh;color:var(--navy2);font-weight:600">มอดุโลวนเป็นวงกลม ค่าตกอยู่ในช่วง [0, m-1] เสมอ</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>ฟังก์ชันมอดุโล & The Modulo Trap</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 39: Circular Queue Application -->
+  <!-- SLIDE 39: Circular Queue (with Ring Buffer SVG Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 4.6</span><h2>การประยุกต์มอดุโล: คิววงกลม (Circular Queue / Ring Buffer)</h2></div>
     </div>
     <div class="body">
-      <div class="block gold">
-        <div class="lab"><span class="pin">FORMULA</span> การวนกลับมาตำแหน่งเริ่มต้น</div>
-        การเลื่อนตำแหน่งดัชนีใน Circular Buffer หรือ Round-Robin Scheduling บนอาร์เรย์ขนาด $N$:
-        $$\mathbf{\text{next\_index} = (\text{current\_index} + 1) \bmod N}$$
-      </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">EX</span> ตัวอย่าง</div>
-        อาร์เรย์ขนาด $N = 5$ (ดัชนี $0, 1, 2, 3, 4$):<br>
-        เมื่ออยู่ที่ดัชนี $4 \implies (4 + 1) \bmod 5 = 5 \bmod 5 = \mathbf{0}$ <span class="gn">(วนกลับมาหัวแถวอัตโนมัติ โดยไม่ต้องเขียน if-else เช็ค)</span>
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">FORMULA</span> การวนกลับมาตำแหน่งเริ่มต้น</div>
+            การเลื่อนตำแหน่งดัชนีใน Circular Buffer บนอาร์เรย์ขนาด $N$:
+            $$\mathbf{\text{next\_index} = (\text{current\_index} + 1) \bmod N}$$
+          </div>
+          <div class="block ex">
+            <div class="lab"><span class="pin">EX</span> ตัวอย่างอาร์เรย์ขนาด $N = 5$ (ดัชนี $0, 1, 2, 3, 4$)</div>
+            เมื่ออยู่ที่ดัชนี $4 \implies (4 + 1) \bmod 5 = 5 \bmod 5 = \mathbf{0}$<br>
+            <span class="gn">วนกลับมาที่หัวแถวอัตโนมัติ โดยไม่ต้องเขียน if-else เช็คเงื่อนไข</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.75cqh;margin-bottom:.2cqh">วงแหวนบัฟเฟอร์ (Ring Buffer N=5)</div>
+            <svg class="diag-svg" viewBox="0 0 180 140">
+              <circle cx="90" cy="70" r="50" fill="none" stroke="var(--line2)" stroke-width="2" stroke-dasharray="3"/>
+              <!-- Slots 0 to 4 -->
+              <circle cx="90" cy="20" r="13" class="diag-node gold"/><text x="90" y="20" class="diag-text">0</text>
+              <circle cx="137" cy="54" r="13" class="diag-node"/><text x="137" y="54" class="diag-text">1</text>
+              <circle cx="119" cy="110" r="13" class="diag-node"/><text x="119" y="110" class="diag-text">2</text>
+              <circle cx="61" cy="110" r="13" class="diag-node"/><text x="61" y="110" class="diag-text">3</text>
+              <circle cx="43" cy="54" r="13" class="diag-node gold"/><text x="43" y="54" class="diag-text">4</text>
+              <!-- Arrow 4 to 0 -->
+              <path d="M 52 44 Q 65 24 76 22" fill="none" stroke="var(--green)" stroke-width="2.5" marker-end="url(#arr-c1)"/>
+              <text x="90" y="73" style="font-family:var(--f-mono);font-size:10px;fill:var(--navy);font-weight:700;text-anchor:middle">mod 5</text>
+            </svg>
+            <div style="font-size:1.4cqh;color:var(--navy);font-weight:600">4 + 1 ≡ 0 (mod 5)</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>Circular Queue & Round-Robin</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 40: Hash Function -->
+  <!-- SLIDE 40: Hash Function (with Hash Table Mapping Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 4.7</span><h2>ฟังก์ชันแฮช (Hash Function $h(k) = k \bmod m$)</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันแฮช</div>
-        ฟังก์ชันที่แปลงคีย์ข้อมูลขนาดใหญ่ $k$ ให้เป็นดัชนีช่องตารางขนาดจำกัด $m$:
-        $$\mathbf{h(k) = k \bmod m}$$
-        ช่วยให้ระบบสามารถค้นหา (Search), แทรก (Insert), และลบ (Delete) ข้อมูลได้ด้วยความเร็วเฉลี่ยระดับ <b>$O(1)$</b>
-      </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">EX</span> ตัวอย่าง (ตารางขนาด $m = 7$ ช่อง $0$ ถึง $6$)</div>
-        • $h(24) = 24 \bmod 7 = \mathbf{3}$<br>
-        • $h(15) = 15 \bmod 7 = \mathbf{1}$<br>
-        • $h(62) = 62 \bmod 7 = \mathbf{6}$
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันแฮช</div>
+            ฟังก์ชันที่แปลงคีย์ขนาดใหญ่ $k$ ให้เป็นดัชนีช่องตารางขนาดจำกัด $m$:
+            $$\mathbf{h(k) = k \bmod m}$$
+            ช่วยให้ค้นหา (Search), แทรก (Insert), ลบ (Delete) ข้อมูลได้เร็วเฉลี่ยระดับ <b>$O(1)$</b>
+          </div>
+          <div class="block ex">
+            <div class="lab"><span class="pin">EX</span> ตัวอย่าง ($m = 7$ ดัชนี $0$ ถึง $6$)</div>
+            • $h(24) = 24 \bmod 7 = \mathbf{3}$<br>
+            • $h(15) = 15 \bmod 7 = \mathbf{1}$<br>
+            • $h(62) = 62 \bmod 7 = \mathbf{6}$
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.75cqh;margin-bottom:.2cqh">ตารางแฮช (Hash Table m=7)</div>
+            <svg class="diag-svg" viewBox="0 0 200 140">
+              <!-- Key -->
+              <rect x="10" y="45" width="45" height="30" rx="5" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.8"/>
+              <text x="32" y="63" class="diag-text" style="font-size:11px">k=24</text>
+              <path d="M 58 60 L 90 60" class="diag-edge pulse" marker-end="url(#arr-m)"/>
+              <text x="74" y="52" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--gold2);font-weight:700">mod 7</text>
+
+              <!-- Table Buckets -->
+              <g transform="translate(100, 15)">
+                <rect x="0" y="0" width="85" height="16" fill="#fff" stroke="var(--navy)" stroke-width="1.2"/>
+                <text x="10" y="12" style="font-family:var(--f-mono);font-size:9px;fill:var(--navy)">[0]</text>
+                <rect x="0" y="16" width="85" height="16" fill="#fff" stroke="var(--navy)" stroke-width="1.2"/>
+                <text x="10" y="28" style="font-family:var(--f-mono);font-size:9px;fill:var(--navy)">[1] 15</text>
+                <rect x="0" y="32" width="85" height="16" fill="#fff" stroke="var(--navy)" stroke-width="1.2"/>
+                <text x="10" y="44" style="font-family:var(--f-mono);font-size:9px;fill:var(--navy)">[2]</text>
+                <rect x="0" y="48" width="85" height="16" fill="var(--mint)" stroke="var(--green)" stroke-width="2"/>
+                <text x="10" y="60" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);font-weight:700">[3] 24 ✓</text>
+                <rect x="0" y="64" width="85" height="16" fill="#fff" stroke="var(--navy)" stroke-width="1.2"/>
+                <text x="10" y="76" style="font-family:var(--f-mono);font-size:9px;fill:var(--navy)">[4]</text>
+                <rect x="0" y="80" width="85" height="16" fill="#fff" stroke="var(--navy)" stroke-width="1.2"/>
+                <text x="10" y="92" style="font-family:var(--f-mono);font-size:9px;fill:var(--navy)">[5]</text>
+                <rect x="0" y="96" width="85" height="16" fill="#fff" stroke="var(--navy)" stroke-width="1.2"/>
+                <text x="10" y="108" style="font-family:var(--f-mono);font-size:9px;fill:var(--navy)">[6] 62</text>
+              </g>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>ฟังก์ชันแฮช</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 41: Hash Collision Resolution -->
+  <!-- SLIDE 41: Hash Collision Resolution (with Chaining SVG Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 4.8</span><h2>การชนกันของแฮช (Hash Collision) และวิธีรับมือ</h2></div>
     </div>
     <div class="body">
-      <div class="block al">
-        <div class="lab"><span class="pin">PROBLEM</span> นิยามการชนกัน</div>
-        เกิดขึ้นเมื่อคีย์ข้อมูลที่ต่างกัน ($k_1 \neq k_2$) ถูกแปลงแล้วได้ดัชนีช่องเดียวกัน: $h(k_1) = h(k_2)$<br>
-        สำหรับ $h(k) = k \bmod 7$: $h(15) = 1$ และ $h(50) = 50 \bmod 7 = 1$ <span class="rd">(เกิดการชนกันที่ช่องดัชนี 1!)</span>
-      </div>
-      <div class="cols">
+      <div class="cols wide-l">
         <div class="col">
+          <div class="block al">
+            <div class="lab"><span class="pin">PROBLEM</span> นิยามการชนกัน</div>
+            เมื่อคีย์ต่างกัน ($k_1 \neq k_2$) แต่ได้ดัชนีเดียวกัน: $h(k_1) = h(k_2)$<br>
+            เช่น $h(15) = 15 \bmod 7 = 1$ และ $h(50) = 50 \bmod 7 = 1$ <span class="rd">(ชนกันที่ช่อง 1!)</span>
+          </div>
           <div class="block gold">
-            <div class="lab"><span class="pin">1</span> Separate Chaining</div>
-            แต่ละช่องตารางเก็บเป็น <b>Linked List</b> เมื่อมีคีย์ชนกัน ให้นำโหนดใหม่ไปต่อท้ายสายโซ่
+            <div class="lab"><span class="pin">2 STRATEGIES</span> แนวทางแก้ไข</div>
+            1. <b>Separate Chaining:</b> แต่ละช่องเก็บเป็นสายโซ่ Linked List<br>
+            2. <b>Open Addressing:</b> เลื่อนหาช่องว่างถัดไป $h(k, i) = (h(k) + i) \bmod m$
           </div>
         </div>
         <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">2</span> Open Addressing (Linear Probing)</div>
-            ถ้าช่องดัชนีนั้นเต็ม ให้เลื่อนไปดูช่องถัดไปทีละ 1: $h(k, i) = (h(k) + i) \bmod m$
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.75cqh;margin-bottom:.2cqh">Separate Chaining (Linked List)</div>
+            <svg class="diag-svg" viewBox="0 0 200 120">
+              <!-- Bucket 1 -->
+              <rect x="15" y="45" width="45" height="24" rx="4" fill="var(--pink)" stroke="var(--red)" stroke-width="2"/>
+              <text x="37" y="60" style="font-family:var(--f-mono);font-size:10.5px;fill:var(--red2);font-weight:700;text-anchor:middle">[ช่อง 1]</text>
+
+              <!-- Arrow to Node 15 -->
+              <path d="M 62 57 L 85 57" class="diag-edge" stroke="var(--navy)" marker-end="url(#arr-m)"/>
+              <rect x="88" y="45" width="38" height="24" rx="4" fill="#fff" stroke="var(--navy)" stroke-width="1.5"/>
+              <text x="107" y="60" style="font-family:var(--f-mono);font-size:10.5px;fill:var(--navy2);font-weight:700;text-anchor:middle">15</text>
+
+              <!-- Arrow to Node 50 -->
+              <path d="M 128 57 L 148 57" class="diag-edge" stroke="var(--navy)" marker-end="url(#arr-m)"/>
+              <rect x="150" y="45" width="38" height="24" rx="4" fill="#fff" stroke="var(--navy)" stroke-width="1.5"/>
+              <text x="169" y="60" style="font-family:var(--f-mono);font-size:10.5px;fill:var(--navy2);font-weight:700;text-anchor:middle">50</text>
+
+              <text x="100" y="100" style="font-family:var(--f-head);font-size:11px;fill:var(--navy);font-weight:600;text-anchor:middle">คีย์ชนกัน นำมาต่อท้าย Linked List</text>
+            </svg>
           </div>
         </div>
       </div>
@@ -1242,59 +2216,113 @@ total = 0
     <div class="foot"><span>การชนกันของแฮชและวิธีรับมือ</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 42: Recursive Function Structure -->
+  <!-- SLIDE 42: Recursive Function Structure (with Recursion Flow Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 4.9</span><h2>โครงสร้างของฟังก์ชันแบบเรียกซ้ำ (Recursive Functions)</h2></div>
     </div>
     <div class="body">
-      <div class="cols">
+      <div class="cols wide-l">
         <div class="col">
-          <div class="block">
-            <div class="lab"><span class="pin">1</span> กรณีฐาน (Base Case)</div>
-            เงื่อนไขหยุดที่คืนค่าผลลัพธ์ทันทีโดยไม่เรียกซ้ำอีก เพื่อป้องกันการวนรอบไม่รู้จบ
+          <div class="cols" style="gap:1cqw">
+            <div class="col">
+              <div class="block">
+                <div class="lab"><span class="pin">1</span> กรณีฐาน (Base Case)</div>
+                เงื่อนไขหยุดที่คืนค่าทันทีโดยไม่เรียกซ้ำอีก ป้องกัน Infinite Loop
+              </div>
+            </div>
+            <div class="col">
+              <div class="block ex">
+                <div class="lab"><span class="pin">2</span> ขั้นตอนเรียกซ้ำ (Recursive Step)</div>
+                เรียกตัวเองซ้ำโดยลดรูปปัญหาลงทีละขั้นเข้าหากรณีฐาน
+              </div>
+            </div>
+          </div>
+          <div class="block gold" style="margin-top:.4cqh">
+            <div class="lab"><span class="pin">FORMULA</span> แฟกทอเรียล $f(n) = n!$</div>
+            $$f(n) = \begin{cases} 1 & n = 0 \text{ (Base Case)}\\ n \cdot f(n-1) & n \ge 1 \text{ (Recursive Step)} \end{cases}$$
           </div>
         </div>
         <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">2</span> ขั้นตอนเรียกซ้ำ (Recursive Step)</div>
-            การเรียกฟังก์ชันตัวเองซ้ำโดยลดขนาดของปัญหาลงทีละขั้นเข้าสู่กรณีฐาน
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy);font-size:1.65cqh;margin-bottom:.2cqh">สายการเรียกซ้ำและค่าคืนกลับ (3!)</div>
+            <svg class="diag-svg" viewBox="0 0 220 140">
+              <!-- Call Down Flow -->
+              <rect x="15" y="10" width="85" height="24" rx="4" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.5"/>
+              <text x="57" y="26" style="font-family:var(--f-mono);font-size:10px;fill:var(--navy);font-weight:700;text-anchor:middle">f(3) = 3·f(2)</text>
+
+              <path d="M 57 35 L 57 44" stroke="var(--navy)" stroke-width="1.8" marker-end="url(#arr-m)"/>
+
+              <rect x="15" y="45" width="85" height="24" rx="4" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.5"/>
+              <text x="57" y="61" style="font-family:var(--f-mono);font-size:10px;fill:var(--navy);font-weight:700;text-anchor:middle">f(2) = 2·f(1)</text>
+
+              <path d="M 57 70 L 57 79" stroke="var(--navy)" stroke-width="1.8" marker-end="url(#arr-m)"/>
+
+              <rect x="15" y="80" width="85" height="24" rx="4" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.5"/>
+              <text x="57" y="96" style="font-family:var(--f-mono);font-size:10px;fill:var(--navy);font-weight:700;text-anchor:middle">f(1) = 1·f(0)</text>
+
+              <path d="M 57 105 L 57 114" stroke="var(--gold)" stroke-width="1.8" marker-end="url(#arr-m)"/>
+
+              <!-- Base Case Hit -->
+              <rect x="10" y="115" width="95" height="22" rx="4" fill="var(--mint)" stroke="var(--green)" stroke-width="2"/>
+              <text x="57" y="129" style="font-family:var(--f-mono);font-size:9.5px;fill:var(--green2);font-weight:700;text-anchor:middle">f(0) = 1 (Base)</text>
+
+              <!-- Return Flow Up -->
+              <path d="M 106 126 L 140 126 L 140 92 L 115 92" fill="none" stroke="var(--green)" stroke-width="1.8" marker-end="url(#arr-ok-10)"/>
+              <text x="148" y="112" style="font-family:var(--f-mono);font-size:9px;fill:var(--green2);font-weight:700">คืน 1</text>
+
+              <path d="M 115 88 L 165 88 L 165 57 L 115 57" fill="none" stroke="var(--green)" stroke-width="1.8" marker-end="url(#arr-ok-10)"/>
+              <text x="173" y="75" style="font-family:var(--f-mono);font-size:9px;fill:var(--green2);font-weight:700">คืน 2</text>
+
+              <path d="M 115 53 L 190 53 L 190 22 L 115 22" fill="none" stroke="var(--gold)" stroke-width="2" marker-end="url(#arr-c1)"/>
+              <text x="195" y="40" style="font-family:var(--f-mono);font-size:10px;fill:var(--gold2);font-weight:700">คืน 6</text>
+            </svg>
+            <div style="font-size:1.3cqh;color:var(--navy2);font-weight:600">ยุบปัญหาลงสู่กรณีฐาน แล้วส่งผลลัพธ์ย้อนกลับ</div>
           </div>
         </div>
-      </div>
-      <div class="block gold">
-        <div class="lab"><span class="pin">FORMULA</span> ฟังก์ชันแฟกทอเรียล $f(n)$</div>
-        $$f(n) = \begin{cases} 1 & n = 0 \text{ (กรณีฐาน)}\\ n \cdot f(n-1) & n \ge 1 \text{ (ขั้นตอนเรียกซ้ำ)} \end{cases}$$
       </div>
     </div>
     <div class="foot"><span>โครงสร้างฟังก์ชันเรียกซ้ำ</span><span class="right">4091606 · CH03-W08</span></div>
   </section>
 
-  <!-- SLIDE 43: Call Stack Trace & Memoization -->
+  <!-- SLIDE 43: Call Stack Trace & Memoization (with Stack Diagram) -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Concept 4.10</span><h2>การทำงานบนหน่วยความจำ (Call Stack) และ Memoization</h2></div>
     </div>
     <div class="body">
-      <div class="cols">
+      <div class="cols wide-l">
         <div class="col">
           <div class="block gold">
-            <div class="lab"><span class="pin">STACK TRACE</span> การคำนวณ $3!$ ($f(3)$)</div>
-            $f(3) \to 3 \cdot f(2)$<br>
-            $\quad \to 2 \cdot f(1)$<br>
-            $\quad\quad \to 1 \cdot f(0) \implies \text{Base Hit: คืนค่า } 1$<br>
-            $\quad \leftarrow 2 \cdot 1 = 2$<br>
-            $\leftarrow 3 \cdot 2 = \mathbf{6}$
-          </div>
-        </div>
-        <div class="col">
-          <div class="block al">
-            <div class="lab"><span class="pin">OVERFLOW</span> ข้อควรระวัง</div>
-            หากไม่มี Base Case ฟังก์ชันจะกินพื้นที่ Stack จนเต็มและเกิดข้อผิดพลาด <b>Stack Overflow!</b>
+            <div class="lab"><span class="pin">STACK TRACE</span> คำนวณ $3!$ ($f(3)$)</div>
+            $f(3) \to 3 \cdot f(2) \to 2 \cdot f(1) \to 1 \cdot f(0)$<br>
+            $\implies \text{Base Hit คืนค่า } 1 \to 1 \to 2 \to \mathbf{6}$
           </div>
           <div class="block ex">
             <div class="lab"><span class="pin">OPTIMIZE</span> เทคนิค Memoization</div>
-            ฟังก์ชันเช่น Fibonacci คำนวณซ้ำซ้อนระดับ $O(2^n)$ หากนำผลลัพธ์มาจำไว้ในตาราง (Cache) จะลดเหลือเพียง <b>$O(n)$</b>
+            ฟังก์ชันเช่น Fibonacci คำนวณซ้ำซ้อน $O(2^n)$ หากนำผลลัพธ์มาจำไว้ในตาราง (Cache) จะลดเหลือเพียง <b>$O(n)$</b>
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.75cqh;margin-bottom:.3cqh">Call Stack ในหน่วยความจำ</div>
+            <svg class="diag-svg" viewBox="0 0 180 130">
+              <!-- Stack Container -->
+              <rect x="35" y="15" width="110" height="105" fill="#fff" stroke="var(--navy)" stroke-width="2"/>
+              <!-- Stack Frames -->
+              <rect x="40" y="20" width="100" height="22" fill="var(--mint)" stroke="var(--green)" stroke-width="1.5"/>
+              <text x="90" y="34" class="diag-text" style="font-size:10.5px;fill:var(--green2)">f(0) → return 1</text>
+
+              <rect x="40" y="44" width="100" height="22" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.5"/>
+              <text x="90" y="58" class="diag-text" style="font-size:10.5px">f(1) = 1 · f(0)</text>
+
+              <rect x="40" y="68" width="100" height="22" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.5"/>
+              <text x="90" y="82" class="diag-text" style="font-size:10.5px">f(2) = 2 · f(1)</text>
+
+              <rect x="40" y="92" width="100" height="22" fill="var(--lnavy)" stroke="var(--navy)" stroke-width="1.5"/>
+              <text x="90" y="106" class="diag-text" style="font-size:10.5px">f(3) = 3 · f(2)</text>
+            </svg>
+            <div style="font-size:1.35cqh;color:var(--navy);font-weight:600">Push ซ้อนขึ้นไป และ Pop คืนค่าลงมา</div>
           </div>
         </div>
       </div>
@@ -1439,16 +2467,29 @@ total = 0
 </div>
 
 <script>
-/* KaTeX rendering trigger */
+/* KaTeX rendering trigger with Error Logging */
 document.addEventListener("DOMContentLoaded", function() {
   if (window.renderMathInElement) {
-    renderMathInElement(document.body, {
-      delimiters: [
-        {left: '$$', right: '$$', display: true},
-        {left: '$', right: '$', display: false}
-      ],
-      throwOnError: false
-    });
+    try {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: true
+      });
+      console.log("KaTeX rendering: 100% Success, No syntax errors!");
+    } catch (err) {
+      console.error("KaTeX render error caught:", err);
+      // Fallback with throwOnError false so user still sees text
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+    }
   }
 });
 
@@ -1537,6 +2578,11 @@ function checkFunctionType(){
 
   const isBij = isInj && isSur;
   txtBij.innerHTML = isBij ? '<span class="gn">✓ เป็น Bijective สมบูรณ์ $\\to$ มีฟังก์ชันผกผัน f⁻¹ ได้!</span>' : '<span class="rd">✗ ไม่เป็น Bijective</span>';
+
+  // Re-render KaTeX in sandbox output
+  if (window.renderMathInElement) {
+    renderMathInElement(txtBij, { delimiters: [{left: '$', right: '$', display: false}], throwOnError: false });
+  }
 }
 
 if(document.getElementById('map1')) checkFunctionType();

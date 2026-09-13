@@ -1,9 +1,7 @@
 % !TeX program = xelatex
 %% =====================================================================
-%%  ใบกิจกรรมในชั้นเรียน (Worksheet) บทที่ 3 : ความสัมพันธ์และฟังก์ชัน --- สัปดาห์ที่ 7
-%%  สร้างใบงานรายบุคคล: 2 หน้าเต็มต่อ 1 รหัสนักศึกษา (รายชื่อใน _students.tex)
-%%  หน้า 1: พิมพ์รหัสนักศึกษา + QR Code (สำหรับสแกนเก็บคะแนน)
-%%  หน้า 2: หัวกระดาษแบบต่อเนื่อง (เฉพาะชื่อและรหัส ไม่พิมพ์ QR Code ซ้ำ)
+%%  [เฉลย] ใบกิจกรรมในชั้นเรียน (Worksheet Solution) บทที่ 3 : ความสัมพันธ์และฟังก์ชัน --- สัปดาห์ที่ 7
+%%  เอกสารเฉลยสำหรับผู้สอน: 2 หน้าเต็ม (ฉบับสมบูรณ์)
 %% =====================================================================
 \documentclass[a4paper,12pt]{article}
 \usepackage{fontspec}
@@ -13,8 +11,6 @@
 \usepackage{array}
 \usepackage{xcolor}
 \usepackage{tikz}
-\usepackage{qrcode}
-\usepackage{pgffor}
 
 \XeTeXlinebreaklocale "th_TH"
 \XeTeXlinebreakskip = 0pt plus 1pt
@@ -22,43 +18,28 @@
 \definecolor{navy}{HTML}{1F3A93}
 \definecolor{mint}{HTML}{E8F5E9}
 \definecolor{lightnavy}{HTML}{EAEEF7}
+\definecolor{ans}{HTML}{C0392B} % สีเฉลยเน้นชัดเจน
+\newcommand{\ans}[1]{\textbf{\color{ans}#1}}
+
 \renewcommand{\arraystretch}{1.15}
 \setlist{topsep=1pt,itemsep=2pt,parsep=0pt}
 \pagestyle{empty}
 
-\input{_students}
-\qrset{height=1.85cm}
+\begin{document}
 
-%% ---------- หัวกระดาษหน้า 1 (มี QR Code) ----------
-\newcommand{\wshead}[1]{%
-  \noindent
-  \begin{minipage}[c]{0.78\textwidth}
-    {\Large\bfseries\color{navy} ใบกิจกรรมในชั้นเรียน บทที่ 3 : ความสัมพันธ์และฟังก์ชัน (สัปดาห์ที่ 7)}\\[0.1em]
-    {\normalsize รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์}\\[0.5em]
-    ชื่อ-สกุล: \dotfill\\[0.35em]
-    รหัสนักศึกษา: {\large\bfseries #1} \qquad กลุ่ม: \makebox[3cm]{\dotfill}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.2\textwidth}
-    \centering
-    \qrcode{4091606-W07-#1}\\[0.15em]
-    {\scriptsize\ttfamily #1}
-  \end{minipage}
-  \par\vspace{0.3em}\hrule\vspace{0.4em}
-}
+%% ---------- หัวกระดาษหน้า 1 ----------
+\noindent
+\begin{minipage}[c]{0.78\textwidth}
+  {\Large\bfseries\color{navy} [เฉลย] ใบกิจกรรมในชั้นเรียน บทที่ 3 : ความสัมพันธ์และฟังก์ชัน (สัปดาห์ที่ 7)}\\[0.1em]
+  {\normalsize รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์}\\[0.5em]
+  {\bfseries\color{ans} ฉบับเฉลยและแนวทางคำตอบสำหรับผู้สอน (Master Answer Key)}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.2\textwidth}
+  \centering
+  \fbox{\parbox{2.8cm}{\centering\bfseries\color{navy}เฉลยประจำสัปดาห์\\ Week 07 KEY}}
+\end{minipage}
+\par\vspace{0.3em}\hrule\vspace{0.4em}
 
-%% ---------- หัวกระดาษหน้า 2 (ไม่มี QR Code มีเฉพาะชื่อ-รหัส) ----------
-\newcommand{\wsheadcontinued}[1]{%
-  \noindent
-  \begin{minipage}[c]{\textwidth}
-    {\large\bfseries\color{navy} ใบกิจกรรมในชั้นเรียน บทที่ 3 : ความสัมพันธ์และฟังก์ชัน (สัปดาห์ที่ 7) --- หน้า 2}\\[0.25em]
-    ชื่อ-สกุล (ต่อ): \dotfill \qquad รหัส: {\large\bfseries #1} \qquad กลุ่ม: \makebox[2.5cm]{\dotfill}
-  \end{minipage}
-  \par\vspace{0.3em}\hrule\vspace{0.4em}
-}
-
-%% ---------- เนื้อหาใบกิจกรรม 1 ชุด 2 หน้าเต็ม (#1 = รหัสนักศึกษา) ----------
-\newcommand{\wsbody}[1]{%
-\wshead{#1}
 \noindent\textbf{คำชี้แจง:} จงแสดงวิธีคิดและเติมคำตอบลงในช่องว่างให้สมบูรณ์ เพื่อร่วมอภิปรายและประเมินผลในชั้นเรียน
 \vspace{0.3em}
 
@@ -67,15 +48,15 @@
 \begin{enumerate}[label=\arabic*)]
   \item กำหนด $A = \{2, 5, 8\}$ และ $B = \{x, y\}$ จงหา:
         \begin{enumerate}[label=(\alph*),itemsep=2pt]
-          \item จำนวนสมาชิก $|A \times B| =$ \makebox[3cm]{\dotfill}
-          \item จำนวนความสัมพันธ์ทั้งหมดจาก $A$ ไป $B = 2^{|A \times B|} =$ \makebox[4cm]{\dotfill}
-          \item จำนวนความสัมพันธ์ทวิภาคทั้งหมดบนเซต $A = 2^{|A|^2} =$ \makebox[4cm]{\dotfill}
+          \item จำนวนสมาชิก $|A \times B| =$ \ans{6 \quad ($|A| \cdot |B| = 3 \times 2 = 6$)}
+          \item จำนวนความสัมพันธ์ทั้งหมดจาก $A$ ไป $B = 2^{|A \times B|} =$ \ans{$2^6 = 64$ \text{ความสัมพันธ์}}
+          \item จำนวนความสัมพันธ์ทวิภาคทั้งหมดบนเซต $A = 2^{|A|^2} =$ \ans{$2^{3^2} = 2^9 = 512$ \text{ความสัมพันธ์}}
         \end{enumerate}
   \item กำหนดเซตของจำนวนเฉพาะ $S = \{2, 3, 5, 7\}$ และความสัมพันธ์ $R = \{(a, b) \in S \times S \mid a < b\}$\\
-        จงแจกแจงสมาชิกของ $R = $ \makebox[13cm]{\dotfill}
+        จงแจกแจงสมาชิกของ $R = $ \ans{\{(2, 3), (2, 5), (2, 7), (3, 5), (3, 7), (5, 7)\}}
   \item จงหาโดเมนและเรนจ์ของ $R$ ในข้อ 2):
-        \quad $\operatorname{Dom}(R) = $ \makebox[3.5cm]{\dotfill}
-        \quad $\operatorname{Ran}(R) = $ \makebox[3.5cm]{\dotfill}
+        \quad $\operatorname{Dom}(R) = $ \ans{\{2, 3, 5\}}
+        \quad $\operatorname{Ran}(R) = $ \ans{\{3, 5, 7\}}
 \end{enumerate}
 \vspace{0.6em}
 
@@ -83,12 +64,12 @@
 \noindent\textbf{กิจกรรมที่ 2 : ความสัมพันธ์ผกผันและการดำเนินการระหว่างความสัมพันธ์} \hfill \textit{(6 นาที)}
 \begin{enumerate}[label=\arabic*)]
   \item กำหนด $R_1 = \{(a, 10), (b, 20), (c, 10)\}$ จากเซต $\{a, b, c\}$ ไปยังเซต $\{10, 20\}$\\
-        จงหาความสัมพันธ์ผกผัน $R_1^{-1} = $ \makebox[12cm]{\dotfill}
+        จงหาความสัมพันธ์ผกผัน $R_1^{-1} = $ \ans{\{(10, a), (20, b), (10, c)\}}
   \item กำหนด $R_2 = \{(a, 20), (b, 20), (c, 10)\}$ จงหา:
         \begin{enumerate}[label=(\alph*),itemsep=2pt]
-          \item $R_1 \cup R_2 =$ \makebox[12cm]{\dotfill}
-          \item $R_1 \cap R_2 =$ \makebox[12cm]{\dotfill}
-          \item $R_1 - R_2 =$ \makebox[12cm]{\dotfill}
+          \item $R_1 \cup R_2 =$ \ans{\{(a, 10), (a, 20), (b, 20), (c, 10)\}}
+          \item $R_1 \cap R_2 =$ \ans{\{(b, 20), (c, 10)\}}
+          \item $R_1 - R_2 =$ \ans{\{(a, 10)\}}
         \end{enumerate}
 \end{enumerate}
 \vspace{0.6em}
@@ -102,16 +83,22 @@
 \begin{tabular}{|l|c|c|c|c|}
 \hline
 \textbf{ความสัมพันธ์บน $A$} & \textbf{สะท้อน (Refl.)} & \textbf{สมมาตร (Sym.)} & \textbf{ปฏิสมมาตร (Antisym.)} & \textbf{ถ่ายทอด (Trans.)} \\ \hline
-$R_A = \{(p,p), (q,q), (r,r), (p,q), (q,p)\}$ & & & & \\ \hline
-$R_B = \{(p,q), (q,r), (p,r)\}$ & & & & \\ \hline
-$R_C = \{(p,p), (q,q), (r,r), (p,q), (q,r), (p,r)\}$ & & & & \\ \hline
-$R_D = \{(p,q), (q,p)\}$ & & & & \\ \hline
+$R_A = \{(p,p), (q,q), (r,r), (p,q), (q,p)\}$ & \ans{$\checkmark$} & \ans{$\checkmark$} & \ans{$\times$} & \ans{$\checkmark$} \\ \hline
+$R_B = \{(p,q), (q,r), (p,r)\}$ & \ans{$\times$} & \ans{$\times$} & \ans{$\checkmark$} & \ans{$\checkmark$} \\ \hline
+$R_C = \{(p,p), (q,q), (r,r), (p,q), (q,r), (p,r)\}$ & \ans{$\checkmark$} & \ans{$\times$} & \ans{$\checkmark$} & \ans{$\checkmark$} \\ \hline
+$R_D = \{(p,q), (q,p)\}$ & \ans{$\times$} & \ans{$\checkmark$} & \ans{$\times$} & \ans{$\times$} \\ \hline
 \end{tabular}
 \end{center}
 
 \clearpage
 %% ====================== หน้าที่ 2 ======================
-\wsheadcontinued{#1}
+\noindent
+\begin{minipage}[c]{\textwidth}
+  {\large\bfseries\color{navy} [เฉลย] ใบกิจกรรมในชั้นเรียน บทที่ 3 : ความสัมพันธ์และฟังก์ชัน (สัปดาห์ที่ 7) --- หน้า 2}\\[0.25em]
+  {\bfseries\color{ans} เฉลยกิจกรรมที่ 4 และ 5 (Master Answer Key)}
+\end{minipage}
+\par\vspace{0.3em}\hrule\vspace{0.4em}
+
 \noindent\textbf{คำชี้แจง:} จงแสดงวิธีคิดและหาคำตอบตามเนื้อหาบทเรียน (ทำต่อเนื่องจากหน้า 1)
 \vspace{0.5em}
 
@@ -120,23 +107,23 @@ $R_D = \{(p,q), (q,p)\}$ & & & & \\ \hline
 กำหนด $A = \{x, y, z\}, B = \{1, 2, 3\}, C = \{a, b\}$ โดย $R = \{(x, 1), (x, 2), (y, 3), (z, 1)\}$ และ $S = \{(1, a), (2, b), (3, a)\}$
 \begin{enumerate}[label=\arabic*)]
   \item จงหาความสัมพันธ์ประกอบ $S \circ R$ (จาก $A$ ไป $C$ โดยผ่าน $B$):\\[0.3em]
-        $S \circ R =$ \makebox[13.5cm]{\dotfill}
+        $S \circ R =$ \ans{\{(x, a), (x, b), (y, a), (z, a)\}}
   \item เขียนเมทริกซ์บูลีน $M_R$ (ขนาด $3 \times 3$ ของแถว $x,y,z$ และคอลัมน์ $1,2,3$) และ $M_S$ (แถว $1,2,3$ และคอลัมน์ $a,b$):
         \[
         M_R = \begin{bmatrix}
-        \makebox[0.8cm]{\dotfill} & \makebox[0.8cm]{\dotfill} & \makebox[0.8cm]{\dotfill} \\[0.3em]
-        \makebox[0.8cm]{\dotfill} & \makebox[0.8cm]{\dotfill} & \makebox[0.8cm]{\dotfill} \\[0.3em]
-        \makebox[0.8cm]{\dotfill} & \makebox[0.8cm]{\dotfill} & \makebox[0.8cm]{\dotfill}
+        \ans{1} & \ans{1} & \ans{0} \\[0.3em]
+        \ans{0} & \ans{0} & \ans{1} \\[0.3em]
+        \ans{1} & \ans{0} & \ans{0}
         \end{bmatrix}, \quad
         M_S = \begin{bmatrix}
-        \makebox[0.8cm]{\dotfill} & \makebox[0.8cm]{\dotfill} \\[0.3em]
-        \makebox[0.8cm]{\dotfill} & \makebox[0.8cm]{\dotfill} \\[0.3em]
-        \makebox[0.8cm]{\dotfill} & \makebox[0.8cm]{\dotfill}
+        \ans{1} & \ans{0} \\[0.3em]
+        \ans{0} & \ans{1} \\[0.3em]
+        \ans{1} & \ans{0}
         \end{bmatrix}
         \quad \implies M_{S \circ R} = M_R \odot M_S = \begin{bmatrix}
-        \makebox[0.8cm]{\dotfill} & \makebox[0.8cm]{\dotfill} \\[0.3em]
-        \makebox[0.8cm]{\dotfill} & \makebox[0.8cm]{\dotfill} \\[0.3em]
-        \makebox[0.8cm]{\dotfill} & \makebox[0.8cm]{\dotfill}
+        \ans{1} & \ans{1} \\[0.3em]
+        \ans{1} & \ans{0} \\[0.3em]
+        \ans{1} & \ans{0}
         \end{bmatrix}
         \]
 \end{enumerate}
@@ -147,22 +134,16 @@ $R_D = \{(p,q), (q,p)\}$ & & & & \\ \hline
 \begin{enumerate}[label=\arabic*)]
   \item กำหนดเซต $A = \{a, b, c, d\}$ และความสัมพันธ์ $R_1 = \{(a, b), (b, c), (c, d)\}$ บนเซต $A$ จงหา:
         \begin{enumerate}[label=(\alph*),itemsep=3pt]
-          \item การปิดสมบัติสะท้อน (Reflexive Closure): $r(R_1) =$ \makebox[8.5cm]{\dotfill}
-          \item การปิดสมบัติสมมาตร (Symmetric Closure): $s(R_1) =$ \makebox[8.5cm]{\dotfill}
-          \item การปิดสมบัติถ่ายทอด (Transitive Closure): $t(R_1) =$ \makebox[8.5cm]{\dotfill}
+          \item การปิดสมบัติสะท้อน (Reflexive Closure): $r(R_1) =$ \ans{\{(a, b), (b, c), (c, d), (a, a), (b, b), (c, c), (d, d)\}}
+          \item การปิดสมบัติสมมาตร (Symmetric Closure): $s(R_1) =$ \ans{\{(a, b), (b, c), (c, d), (b, a), (c, b), (d, c)\}}
+          \item การปิดสมบัติถ่ายทอด (Transitive Closure): $t(R_1) =$ \ans{\{(a, b), (b, c), (c, d), (a, c), (b, d), (a, d)\}}
         \end{enumerate}
   \item กำหนดเซต $B = \{2, 4, 6\}$ และความสัมพันธ์ $R_2 = \{(2, 2), (2, 4), (4, 6)\}$ บนเซต $B$ จงหา:
         \begin{enumerate}[label=(\alph*),itemsep=3pt]
-          \item การปิดสมบัติสะท้อน (Reflexive Closure): $r(R_2) =$ \makebox[8.5cm]{\dotfill}
-          \item การปิดสมบัติสมมาตร (Symmetric Closure): $s(R_2) =$ \makebox[8.5cm]{\dotfill}
-          \item การปิดสมบัติถ่ายทอด (Transitive Closure): $t(R_2) =$ \makebox[8.5cm]{\dotfill}
+          \item การปิดสมบัติสะท้อน (Reflexive Closure): $r(R_2) =$ \ans{\{(2, 2), (2, 4), (4, 6), (4, 4), (6, 6)\}}
+          \item การปิดสมบัติสมมาตร (Symmetric Closure): $s(R_2) =$ \ans{\{(2, 2), (2, 4), (4, 6), (4, 2), (6, 4)\}}
+          \item การปิดสมบัติถ่ายทอด (Transitive Closure): $t(R_2) =$ \ans{\{(2, 2), (2, 4), (4, 6), (2, 6)\}}
         \end{enumerate}
 \end{enumerate}
-}
 
-\begin{document}
-\foreach \sid in \studentlist {%
-  \expandafter\wsbody\expandafter{\sid}%
-  \clearpage
-}
 \end{document}

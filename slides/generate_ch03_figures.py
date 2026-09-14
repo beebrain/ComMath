@@ -417,6 +417,98 @@ def make_hash_collision_diagram():
     print(f'Generated: {out_path}')
 
 
+# ==============================================================================
+# Figure 6: Inverse Function Symmetry (Slide 32)
+# f(x) = (2x+1)/(x-3) และ f^-1(x) = (3x+1)/(x-2) สะท้อนข้ามเส้นตรง y = x
+# ==============================================================================
+def make_inverse_symmetry():
+    fig, ax = plt.subplots(figsize=(7.2, 3.8), dpi=300)
+    fig.patch.set_facecolor('#ffffff')
+    ax.set_facecolor('#fafafa')
+
+    # แกนพิกัด x และ y
+    ax.axhline(0, color='#94a3b8', linewidth=1.0)
+    ax.axvline(0, color='#94a3b8', linewidth=1.0)
+    ax.grid(True, linestyle=':', color=GRAY_LINE, alpha=0.8)
+
+    # 1. เส้นสมมาตร y = x
+    line_x = np.linspace(-5, 8.5, 200)
+    ax.plot(line_x, line_x, color=GOLD, linestyle='--', linewidth=2.0, label='เส้นสมมาตร y = x')
+
+    # 2. กราฟฟังก์ชัน f(x) = (2x + 1) / (x - 3)
+    # กิ่งซ้าย: x in [-5, 2.5]
+    x_f1 = np.linspace(-5, 2.5, 300)
+    y_f1 = (2 * x_f1 + 1) / (x_f1 - 3)
+    # กิ่งขวา: x in [3.5, 8.5]
+    x_f2 = np.linspace(3.5, 8.5, 300)
+    y_f2 = (2 * x_f2 + 1) / (x_f2 - 3)
+    ax.plot(x_f1, y_f1, color=NAVY, linewidth=2.4, label=r'$f(x) = \frac{2x+1}{x-3}$')
+    ax.plot(x_f2, y_f2, color=NAVY, linewidth=2.4)
+
+    # 3. กราฟฟังก์ชันผกผัน f^-1(x) = (3x + 1) / (x - 2)
+    # กิ่งซ้าย: x in [-5, 1.5]
+    x_inv1 = np.linspace(-5, 1.5, 300)
+    y_inv1 = (3 * x_inv1 + 1) / (x_inv1 - 2)
+    # กิ่งขวา: x in [2.5, 8.5]
+    x_inv2 = np.linspace(2.5, 8.5, 300)
+    y_inv2 = (3 * x_inv2 + 1) / (x_inv2 - 2)
+    ax.plot(x_inv1, y_inv1, color=GREEN_DARK, linewidth=2.4, label=r'$f^{-1}(x) = \frac{3x+1}{x-2}$')
+    ax.plot(x_inv2, y_inv2, color=GREEN_DARK, linewidth=2.4)
+
+    # 4. จุดสมมาตรคู่ที่ 1: A(5, 5.5) บน f และ A'(5.5, 5) บน f^-1
+    pt1_f = (5.0, 5.5)
+    pt1_inv = (5.5, 5.0)
+    ax.plot([pt1_f[0], pt1_inv[0]], [pt1_f[1], pt1_inv[1]], color='#64748b', linestyle=':', linewidth=1.5, zorder=5)
+    ax.plot(pt1_f[0], pt1_f[1], 'o', color=NAVY, markersize=7.5, zorder=6)
+    ax.plot(pt1_inv[0], pt1_inv[1], 'o', color=GREEN_DARK, markersize=7.5, zorder=6)
+    
+    ax.annotate('(5, 5.5) บน f', xy=pt1_f, xytext=(pt1_f[0] - 2.8, pt1_f[1] + 1.1),
+                fontsize=11.5, fontweight='bold', color=NAVY,
+                bbox=dict(boxstyle='round,pad=0.2', facecolor=NAVY_LIGHT, edgecolor=NAVY, alpha=0.9),
+                arrowprops=dict(arrowstyle='->', color=NAVY, lw=1.2))
+    ax.annotate('(5.5, 5) บน ' + r'$f^{-1}$', xy=pt1_inv, xytext=(pt1_inv[0] + 0.3, pt1_inv[1] - 1.5),
+                fontsize=11.5, fontweight='bold', color=GREEN_DARK,
+                bbox=dict(boxstyle='round,pad=0.2', facecolor=GREEN_LIGHT, edgecolor=GREEN_DARK, alpha=0.9),
+                arrowprops=dict(arrowstyle='->', color=GREEN_DARK, lw=1.2))
+
+    # 5. จุดสมมาตรคู่ที่ 2: B(1, -1.5) บน f และ B'(-1.5, 1) บน f^-1
+    pt2_f = (1.0, -1.5)
+    pt2_inv = (-1.5, 1.0)
+    ax.plot([pt2_f[0], pt2_inv[0]], [pt2_f[1], pt2_inv[1]], color='#64748b', linestyle=':', linewidth=1.5, zorder=5)
+    ax.plot(pt2_f[0], pt2_f[1], 'o', color=NAVY, markersize=7.5, zorder=6)
+    ax.plot(pt2_inv[0], pt2_inv[1], 'o', color=GREEN_DARK, markersize=7.5, zorder=6)
+    
+    ax.annotate('(1, -1.5)', xy=pt2_f, xytext=(pt2_f[0] - 2.8, pt2_f[1] - 1.6),
+                fontsize=11.5, fontweight='bold', color=NAVY,
+                bbox=dict(boxstyle='round,pad=0.15', facecolor='#ffffff', edgecolor='#cbd5e1', alpha=0.9),
+                arrowprops=dict(arrowstyle='->', color=NAVY, lw=1.1))
+    ax.annotate('(-1.5, 1)', xy=pt2_inv, xytext=(-4.2, 1.8),
+                fontsize=11.5, fontweight='bold', color=GREEN_DARK,
+                bbox=dict(boxstyle='round,pad=0.15', facecolor='#ffffff', edgecolor='#cbd5e1', alpha=0.9),
+                arrowprops=dict(arrowstyle='->', color=GREEN_DARK, lw=1.1))
+
+    # ป้ายข้อความ y = x
+    ax.text(7.2, 6.4, r'$y = x$', fontsize=12.5, fontweight='bold', color=GOLD, rotation=45, va='bottom')
+
+    # ขอบเขตแกน
+    ax.set_xlim(-5, 8.5)
+    ax.set_ylim(-5, 8.5)
+    ax.set_aspect('equal')
+    ax.set_xlabel('x', fontsize=12, loc='right', labelpad=-2)
+    ax.set_ylabel('y', fontsize=12, loc='top', labelpad=-4, rotation=0)
+
+    # Title & Legend (Lower Right: บริเวณ x > 2.5, y < 0 ว่างเปล่า 100% ไม่มีเส้นกราฟ)
+    ax.set_title('สมมาตรของฟังก์ชันผกผันข้ามเส้นตรง ' + r'$y = x$' + '\nจุด ' + r'$(a, b)$' + ' บน ' + r'$f$' + ' สะท้อนเป็น ' + r'$(b, a)$' + ' บน ' + r'$f^{-1}$' + ' เสมอ',
+                 fontsize=12.5, fontweight='bold', color=NAVY_DARK, pad=8)
+    ax.legend(loc='lower right', fontsize=11.5, framealpha=0.95, edgecolor='#cbd5e1')
+
+    plt.tight_layout()
+    out_path = os.path.join(OUTPUT_DIR, 'ch03_w08_inverse_symmetry.png')
+    plt.savefig(out_path, dpi=300, bbox_inches='tight', facecolor='#ffffff')
+    plt.close()
+    print(f'Generated: {out_path}')
+
+
 if __name__ == '__main__':
     print('Starting Python figure generation for Chapter 3 Week 8 Slides...')
     make_vertical_line_test()
@@ -424,4 +516,6 @@ if __name__ == '__main__':
     make_horizontal_line_test()
     make_pigeonhole_diagram()
     make_hash_collision_diagram()
-    print('All 5 figures generated successfully!')
+    make_inverse_symmetry()
+    print('All 6 figures generated successfully!')
+

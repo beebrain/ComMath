@@ -1708,7 +1708,7 @@ total = 0
       <div><span class="kick">Concept 3.7</span><h2>ตัวอย่างเชิงลึก: ฟังก์ชันตรรกยะและสมมาตร $y = x$</h2></div>
     </div>
     <div class="body">
-      <div class="cols wide-l">
+      <div class="cols stretch">
         <div class="col">
           <div class="block ex">
             <div class="lab"><span class="pin">EXAMPLE</span> จงหา $f^{-1}(x)$ ของ $f(x) = \frac{2x + 1}{x - 3}$ ($x \neq 3$)</div>
@@ -1716,24 +1716,14 @@ total = 0
             2. $yx - 2x = 3y + 1 \implies x(y - 2) = 3y + 1$<br>
             3. $x = \frac{3y + 1}{y - 2} \implies \mathbf{f^{-1}(x) = \frac{3x + 1}{x - 2}} \quad (x \neq 2)$
           </div>
+          <div class="block gold" style="margin-top:.4cqh">
+            <div class="lab"><span class="pin">SYMMETRY</span> หลักการสมมาตรของฟังก์ชันผกผัน</div>
+            กราฟของ $f^{-1}(x)$ จะเป็น<b>ภาพสะท้อนในกระจก (Reflection)</b> ของ $f(x)$ ข้ามเส้นตรง $y = x$ เสมอ โดยทุกพิกัด $(a, b)$ บน $f$ จะสลับเป็นพิกัด $(b, a)$ บน $f^{-1}$
+          </div>
         </div>
-        <div class="col">
-          <div class="diag-box">
-            <div style="font-family:var(--f-head);font-weight:700;color:var(--navy2);font-size:1.75cqh;margin-bottom:.3cqh">สมมาตรข้ามเส้นตรง y = x</div>
-            <svg class="diag-svg" viewBox="0 0 200 130">
-              <line x1="15" y1="115" x2="185" y2="115" stroke="#a0aec0" stroke-width="1.2"/>
-              <line x1="35" y1="15" x2="35" y2="125" stroke="#a0aec0" stroke-width="1.2"/>
-              <!-- Line y = x -->
-              <line x1="30" y1="120" x2="175" y2="20" stroke="var(--gold)" stroke-width="1.8" stroke-dasharray="4"/>
-              <text x="175" y="32" style="font-family:var(--f-mono);font-size:10px;fill:var(--gold2);font-weight:700">y = x</text>
-              <!-- Curve f -->
-              <path d="M 45 105 Q 85 95 160 40" fill="none" stroke="var(--navy)" stroke-width="2.2"/>
-              <text x="165" y="45" style="font-family:var(--f-mono);font-size:10px;fill:var(--navy);font-weight:700">f</text>
-              <!-- Curve f^-1 (reflected) -->
-              <path d="M 50 95 Q 65 50 125 35" fill="none" stroke="var(--green)" stroke-width="2.2"/>
-              <text x="130" y="30" style="font-family:var(--f-mono);font-size:10px;fill:var(--green2);font-weight:700">f⁻¹</text>
-            </svg>
-            <div style="font-size:1.45cqh;color:var(--navy2);font-weight:600">จุด (a, b) บน f สมมาตรกับ (b, a) บน f⁻¹</div>
+        <div class="col flex-col">
+          <div class="diag-box fill-h" style="padding:.5cqh .8cqw">
+            <img src="img/ch03_w08_inverse_symmetry.png" alt="สมมาตรของฟังก์ชันผกผันข้ามเส้นตรง y = x" class="diag-img" style="max-height:35cqh">
           </div>
         </div>
       </div>
@@ -2337,18 +2327,19 @@ total = 0
           <div class="lab"><span class="pin">KEY</span> สรุปเฉลยคำตอบใบกิจกรรมที่ 1–7 ประจำสัปดาห์ที่ 8</div>
           <div class="cols" style="margin-top:.4cqh;gap:1.8cqw">
             <div class="col" style="display:flex;flex-direction:column;gap:.6cqh">
-              <div><b>ก.1 นิยาม &amp; โดเมน:</b> $f_1, f_2$ เป็นฟังก์ชัน | $f_3, f_4$ ไม่เป็น<br>
+              <div><b>ก.1 นิยาม &amp; โดเมน:</b> $f_1, f_2$ เป็นฟังก์ชัน | $f_3$ ไม่เป็น (2 ซ้ำ), $f_4$ ไม่เป็น (ขาด 2)<br>
                 $\operatorname{Dom}(g)=\mathbb{R}, \operatorname{Ran}(g)=[3, \infty)$</div>
-              <div><b>ก.2 จำแนกประเภท:</b> $3x-5$ เป็น Bijective | $x^2$ บน $\mathbb{R}$ ไม่เป็นทั้งคู่ | $2n$ บน $\mathbb{Z}$ เป็น 1-1 แต่ไม่ทั่วถึง</div>
-              <div><b>ก.3 ฟังก์ชันประกอบ &amp; ผกผัน:</b> $(f \circ g)(x) = 2x^2+1$<br>
-                $(g \circ f)(x) = 4x^2+12x+8$ | $f^{-1}(x) = \frac{x-3}{2}$</div>
+              <div><b>ก.2 จำแนกประเภท:</b> $3x-5$ (Bijective) | $x^2$ บน $\mathbb{R}$ (ไม่เป็นทั้งคู่) | $2x+1$ บน $\mathbb{Z}$ (1-1 เท่านั้น) | $x^2$ สู่ $[0,\infty)$ (ทั่วถึงเท่านั้น)</div>
+              <div><b>ก.3 ฟังก์ชันประกอบ &amp; ผกผัน:</b> $(f \circ g)(x) = 2x^2+1, (g \circ f)(x) = 4x^2+12x+8$<br>
+                $(f \circ g)(2) = 9, (g \circ f)(2) = 48$ | $f^{-1}(x) = \frac{x-3}{2}$</div>
             </div>
             <div class="col" style="display:flex;flex-direction:column;gap:.6cqh">
-              <div><b>ก.4 Floor &amp; Ceiling:</b> $\lfloor 3.8 \rfloor = 3, \lfloor -3.2 \rfloor = -4, \lceil 3.2 \rceil = 4, \lceil -3.8 \rceil = -3$<br>
-                แบ่งหน้าเว็บ: $\lceil 127/10 \rceil = 13$ หน้า</div>
-              <div><b>ก.5 มอดุโล &amp; คิว:</b> $17 \bmod 5 = 2, -8 \bmod 3 = 1$ | คิว: $(4+1) \bmod 5 = 0$</div>
-              <div><b>ก.6 ตารางแฮช:</b> $h(24)=3, h(15)=1, h(50)=1$ (เกิดชนกันที่ 1)</div>
-              <div><b>ก.7 ฟังก์ชันเรียกซ้ำ:</b> $f(4) = 24$, กรณีฐานคือ $n = 0$</div>
+              <div><b>ก.4 Floor &amp; Ceiling:</b> $\lfloor 3.8 \rfloor = 3, \lfloor -3.2 \rfloor = -4, \lceil 5.1 \rceil = 6, \lceil -4.9 \rceil = -4$<br>
+                แบ่งหน้าเว็บ: $\lceil 127/10 \rceil = 13$ หน้า | จัดสรรบล็อก: $5,120$ ไบต์</div>
+              <div><b>ก.5 มอดุโล &amp; คิว:</b> $17 \bmod 5 = 2, -8 \bmod 3 = 1, 1234 \bmod 100 = 34$<br>
+                คิววงกลม: $(7+1) \bmod 8 = 0$ | Round-Robin: $38 \bmod 4 = 2$</div>
+              <div><b>ก.6 ตารางแฮช:</b> $h(15)=1, h(24)=3, h(37)=2, h(50)=1, h(62)=6$ (ชนกันที่ 1)</div>
+              <div><b>ก.7 ฟังก์ชันเรียกซ้ำ:</b> $f(4) = 24$, กรณีฐาน $n = 0$ ป้องกัน Stack Overflow</div>
             </div>
           </div>
         </div>

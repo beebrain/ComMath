@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="triggerKaTeX()"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
 /* =====================================================================
    WEEK 9: SEQUENCES, SERIES, INFINITE SERIES & RECURSION IN DAILY LIFE
@@ -198,6 +199,21 @@ b,strong{font-weight:700;color:var(--navy2)}
 .table-slide th{background:var(--navy);color:#fff;padding:.6cqh .8cqw;font-family:var(--f-head);font-weight:600;text-align:center}
 .table-slide td{padding:.6cqh .8cqw;border-bottom:1px solid var(--line2);color:var(--ink);line-height:1.4;text-align:center}
 .table-slide tr:nth-child(even){background:var(--paper2)}
+
+/* Professional Charts & Generated Image Visuals */
+.chart-box{background:#fff;border-radius:10px;padding:.8cqh 1cqw;border:1px solid var(--line2);
+  box-shadow:0 4px 14px rgba(14,26,68,.06);display:flex;flex-direction:column;gap:.4cqh;width:100%}
+.chart-title{font-family:var(--f-head);font-size:1.75cqh;font-weight:700;color:var(--navy2);
+  display:flex;align-items:center;gap:.5em;margin-bottom:.2cqh}
+.chart-canvas-wrap{position:relative;width:100%;height:22.5cqh}
+.slide-img-card{background:#fff;border-radius:10px;padding:.8cqh 1cqw;border:1px solid var(--line2);
+  box-shadow:0 4px 14px rgba(14,26,68,.06);display:flex;flex-direction:column;align-items:center;width:100%}
+.slide-img-card img{width:100%;height:auto;max-height:22cqh;object-fit:cover;border-radius:6px;
+  box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.img-caption{font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.4cqh;font-weight:600}
+.prompt-badge{display:block;font-family:var(--f-mono);font-size:1.15cqh;color:var(--navy);background:var(--lnavy);
+  padding:.3cqh .6cqw;border-radius:4px;margin-top:.4cqh;border:1px dashed var(--line2);word-break:break-word;text-align:left;width:100%}
+.prompt-badge b{color:var(--navy2);font-weight:700}
 </style>
 </head>
 <body>
@@ -399,39 +415,10 @@ b,strong{font-weight:700;color:var(--navy2)}
           </div>
         </div>
         <div class="col">
-          <div class="diag-box">
-            <svg class="diag-svg" viewBox="0 0 240 160">
-              <line x1="30" y1="135" x2="225" y2="135" stroke="#7884a4" stroke-width="1.5"/>
-              <line x1="30" y1="135" x2="30" y2="20" stroke="#7884a4" stroke-width="1.5"/>
-              <text x="220" y="150" font-family="JetBrains Mono" font-size="10" fill="#7884a4">งวด (n)</text>
-              <text x="12" y="24" font-family="JetBrains Mono" font-size="10" fill="#7884a4">เงิน (aₙ)</text>
-
-              <rect x="42" y="105" width="32" height="30" rx="4" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.8"/>
-              <text x="58" y="100" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93" text-anchor="middle">1,000</text>
-              <text x="58" y="148" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">1</text>
-
-              <rect x="86" y="85" width="32" height="50" rx="4" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.8"/>
-              <text x="102" y="80" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93" text-anchor="middle">1,500</text>
-              <text x="102" y="148" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">2</text>
-
-              <rect x="130" y="65" width="32" height="70" rx="4" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.8"/>
-              <text x="146" y="60" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93" text-anchor="middle">2,000</text>
-              <text x="146" y="148" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">3</text>
-
-              <rect x="174" y="45" width="32" height="90" rx="4" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.8"/>
-              <text x="190" y="40" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93" text-anchor="middle">2,500</text>
-              <text x="190" y="148" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">4</text>
-
-              <line x1="58" y1="105" x2="190" y2="45" stroke="#C0392B" stroke-width="2" stroke-dasharray="3"/>
-              
-              <path d="M 74 105 Q 86 85 86 87" fill="none" stroke="#2E8B57" stroke-width="1.6"/>
-              <text x="80" y="70" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57">+500</text>
-              <path d="M 118 85 Q 130 65 130 67" fill="none" stroke="#2E8B57" stroke-width="1.6"/>
-              <text x="124" y="50" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57">+500</text>
-              <path d="M 162 65 Q 174 45 174 47" fill="none" stroke="#2E8B57" stroke-width="1.6"/>
-              <text x="168" y="30" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57">+500</text>
-            </svg>
-            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">ยอดเงินเพิ่มขึ้นทีละ $d = 500$ บาทคงที่ (เชิงเส้น)</div>
+          <div class="slide-img-card">
+            <img src="img/ch03_w09_arithmetic_savings.jpg" alt="บันไดเงินออมลำดับเลขคณิต">
+            <div class="img-caption">มโนภาพ: บันไดเงินออมรายเดือน เพิ่มขึ้นงวดละ $d = +500$ บาทคงที่</div>
+            <div class="prompt-badge"><b>Prompt:</b> Semi-academic flat-design educational illustration of arithmetic sequence savings ladder in daily life, 16:9 landscape...</div>
           </div>
         </div>
       </div>
@@ -468,41 +455,12 @@ b,strong{font-weight:700;color:var(--navy2)}
           </div>
         </div>
         <div class="col">
-          <div class="diag-box">
-            <svg class="diag-svg" viewBox="0 0 240 160">
-              <line x1="20" y1="110" x2="225" y2="110" stroke="#7884a4" stroke-width="2"/>
-
-              <circle cx="35" cy="110" r="5" fill="#1F3A93"/>
-              <text x="35" y="128" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#1F3A93" text-anchor="middle">3</text>
-              <text x="35" y="142" font-family="JetBrains Mono" font-size="9" fill="#7884a4" text-anchor="middle">(a₁)</text>
-
-              <circle cx="70" cy="110" r="4" fill="#1F3A93"/>
-              <text x="70" y="128" font-family="JetBrains Mono" font-size="10" fill="#1F3A93" text-anchor="middle">7</text>
-              <text x="70" y="142" font-family="JetBrains Mono" font-size="9" fill="#7884a4" text-anchor="middle">(a₂)</text>
-
-              <circle cx="105" cy="110" r="4" fill="#1F3A93"/>
-              <text x="105" y="128" font-family="JetBrains Mono" font-size="10" fill="#1F3A93" text-anchor="middle">11</text>
-              <text x="105" y="142" font-family="JetBrains Mono" font-size="9" fill="#7884a4" text-anchor="middle">(a₃)</text>
-
-              <text x="138" y="112" font-family="JetBrains Mono" font-size="14" font-weight="700" fill="#7884a4" text-anchor="middle">···</text>
-
-              <circle cx="195" cy="110" r="5.5" fill="#C0392B"/>
-              <text x="195" y="128" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#C0392B" text-anchor="middle">199</text>
-              <text x="195" y="142" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#C0392B" text-anchor="middle">(a₅₀)</text>
-
-              <path d="M 35 105 Q 52.5 85 70 105" fill="none" stroke="#2E8B57" stroke-width="1.8"/>
-              <text x="52.5" y="82" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#2E8B57" text-anchor="middle">+4</text>
-
-              <path d="M 70 105 Q 87.5 85 105 105" fill="none" stroke="#2E8B57" stroke-width="1.8"/>
-              <text x="87.5" y="82" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#2E8B57" text-anchor="middle">+4</text>
-
-              <path d="M 35 70 Q 115 15 195 70" fill="none" stroke="#B7950B" stroke-width="2.2" stroke-dasharray="4"/>
-              <rect x="75" y="22" width="80" height="24" rx="5" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.2"/>
-              <text x="115" y="38" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#B7950B" text-anchor="middle">49 ช่วง × (+4) = +196</text>
-
-              <text x="115" y="65" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">a₅₀ = 3 + 196 = 199</text>
-            </svg>
-            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">จาก $a_1$ ถึง $a_{50}$ มีการก้าว $50-1 = 49$ ช่วง</div>
+          <div class="chart-box">
+            <div class="chart-title">📈 กราฟลำดับ $a_n = 4n - 1$ (ความชัน $d = 4$)</div>
+            <div class="chart-canvas-wrap">
+              <canvas id="chartSlide7"></canvas>
+            </div>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.2cqh">จุดข้อมูล $a_1=3, a_2=7, \dots a_5=19$ และจุดปลาย $a_{50}=199$</div>
           </div>
         </div>
       </div>
@@ -541,33 +499,12 @@ b,strong{font-weight:700;color:var(--navy2)}
           </div>
         </div>
         <div class="col">
-          <div class="diag-box">
-            <svg class="diag-svg" viewBox="0 0 240 160">
-              <path d="M 30 45 L 30 35 L 210 35 L 210 45" fill="none" stroke="#1F3A93" stroke-width="1.8"/>
-              <rect x="75" y="22" width="90" height="22" rx="4" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1"/>
-              <text x="120" y="37" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93" text-anchor="middle">ระยะรวม Δ = 83 - 7 = 76</text>
-
-              <line x1="25" y1="90" x2="215" y2="90" stroke="#7884a4" stroke-width="2"/>
-              <circle cx="30" cy="90" r="6" fill="#1F3A93"/>
-              <text x="30" y="108" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#1F3A93" text-anchor="middle">7</text>
-              <text x="30" y="122" font-family="JetBrains Mono" font-size="8.5" fill="#7884a4" text-anchor="middle">(พจน์ 1)</text>
-
-              <rect x="35" y="76" width="30" height="14" rx="3" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1.2"/>
-              <text x="50" y="87" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57" text-anchor="middle">d=4</text>
-
-              <rect x="68" y="76" width="30" height="14" rx="3" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1.2"/>
-              <text x="83" y="87" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57" text-anchor="middle">d=4</text>
-
-              <text x="120" y="88" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#7884a4" text-anchor="middle">··· 19 ช่วง ···</text>
-
-              <circle cx="210" cy="90" r="6" fill="#C0392B"/>
-              <text x="210" y="108" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#C0392B" text-anchor="middle">83</text>
-              <text x="210" y="122" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#C0392B" text-anchor="middle">(พจน์ n)</text>
-
-              <rect x="40" y="130" width="160" height="24" rx="5" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.2"/>
-              <text x="120" y="146" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">n = (76 ÷ 4) + 1 = 19 + 1 = 20 พจน์</text>
-            </svg>
-            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">หลักการเสารั้ว: จำนวนพจน์ = จำนวนช่วง + 1</div>
+          <div class="chart-box">
+            <div class="chart-title">📊 กราฟหาจำนวนพจน์ $n = 20$ (สู่ค่า $83$)</div>
+            <div class="chart-canvas-wrap">
+              <canvas id="chartSlide8"></canvas>
+            </div>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.2cqh">พจน์ที่ 1 ($a_1=7$) ก้าวทีละ $+4$ รวม 19 ช่วงสู่พจน์ที่ 20 ($a_{20}=83$)</div>
           </div>
         </div>
       </div>
@@ -605,34 +542,12 @@ b,strong{font-weight:700;color:var(--navy2)}
           </div>
         </div>
         <div class="col">
-          <div class="diag-box">
-            <svg class="diag-svg" viewBox="0 0 240 160">
-              <line x1="25" y1="135" x2="225" y2="135" stroke="#7884a4" stroke-width="1.5"/>
-              <line x1="25" y1="135" x2="25" y2="20" stroke="#7884a4" stroke-width="1.5"/>
-              <text x="215" y="148" font-family="JetBrains Mono" font-size="9" fill="#7884a4">พจน์ (n)</text>
-              <text x="10" y="24" font-family="JetBrains Mono" font-size="9" fill="#7884a4">ค่า (aₙ)</text>
-
-              <line x1="30" y1="117" x2="210" y2="27" stroke="#1F3A93" stroke-width="2"/>
-
-              <circle cx="70" cy="97" r="5" fill="#1F3A93"/>
-              <text x="60" y="90" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93">(3, 13)</text>
-
-              <circle cx="170" cy="47" r="5" fill="#C0392B"/>
-              <text x="175" y="42" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#C0392B">(7, 29)</text>
-
-              <line x1="70" y1="97" x2="170" y2="97" stroke="#7884a4" stroke-width="1.4" stroke-dasharray="3"/>
-              <line x1="170" y1="97" x2="170" y2="47" stroke="#7884a4" stroke-width="1.4" stroke-dasharray="3"/>
-
-              <text x="120" y="112" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#2E8B57" text-anchor="middle">Δn = 7 - 3 = 4</text>
-              <text x="195" y="75" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#2E8B57">Δa = 16</text>
-
-              <circle cx="45" cy="110" r="4" fill="#B7950B"/>
-              <text x="45" y="128" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#B7950B" text-anchor="middle">a₁=5</text>
-
-              <rect x="50" y="15" width="115" height="22" rx="4" fill="#FEF9C3" stroke="#B7950B" stroke-width="1"/>
-              <text x="107" y="30" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#16265e" text-anchor="middle">ความชัน d = 16 ÷ 4 = 4</text>
-            </svg>
-            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">ผลต่างร่วม $d$ คือความชัน (Slope) ของเส้นตรง</div>
+          <div class="chart-box">
+            <div class="chart-title">📐 ระนาบพิกัด $(n, a_n)$ และความชัน $d = 4$</div>
+            <div class="chart-canvas-wrap">
+              <canvas id="chartSlide9"></canvas>
+            </div>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.2cqh">จุด $(3, 13)$ และ $(7, 29) \implies d = (29-13)/(7-3) = 4$</div>
           </div>
         </div>
       </div>
@@ -670,41 +585,10 @@ b,strong{font-weight:700;color:var(--navy2)}
           </div>
         </div>
         <div class="col">
-          <div class="diag-box">
-            <svg class="diag-svg" viewBox="0 0 240 160">
-              <line x1="28" y1="135" x2="225" y2="135" stroke="#7884a4" stroke-width="1.5"/>
-              <line x1="28" y1="135" x2="28" y2="20" stroke="#7884a4" stroke-width="1.5"/>
-              <text x="220" y="150" font-family="JetBrains Mono" font-size="10" fill="#7884a4">งวด (n)</text>
-              <text x="12" y="24" font-family="JetBrains Mono" font-size="10" fill="#7884a4">เงิน (aₙ)</text>
-
-              <rect x="40" y="112" width="30" height="23" rx="4" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.8"/>
-              <text x="55" y="106" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#B7950B" text-anchor="middle">10k</text>
-              <text x="55" y="148" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">1</text>
-
-              <rect x="84" y="92" width="30" height="43" rx="4" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.8"/>
-              <text x="99" y="86" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#B7950B" text-anchor="middle">20k</text>
-              <text x="99" y="148" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">2</text>
-
-              <rect x="128" y="60" width="30" height="75" rx="4" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.8"/>
-              <text x="143" y="54" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#B7950B" text-anchor="middle">40k</text>
-              <text x="143" y="148" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">3</text>
-
-              <rect x="172" y="18" width="30" height="117" rx="4" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.8"/>
-              <text x="187" y="14" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#B7950B" text-anchor="middle">80k</text>
-              <text x="187" y="148" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">4</text>
-
-              <path d="M 55 112 Q 130 90 187 18" fill="none" stroke="#C0392B" stroke-width="2" stroke-dasharray="3"/>
-
-              <path d="M 70 112 Q 84 92 84 95" fill="none" stroke="#C0392B" stroke-width="1.5"/>
-              <text x="77" y="84" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#C0392B">×2</text>
-
-              <path d="M 114 92 Q 128 60 128 63" fill="none" stroke="#C0392B" stroke-width="1.5"/>
-              <text x="121" y="52" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#C0392B">×2</text>
-
-              <path d="M 158 60 Q 172 18 172 21" fill="none" stroke="#C0392B" stroke-width="1.5"/>
-              <text x="165" y="24" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#C0392B">×2</text>
-            </svg>
-            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">ยอดเงินทวีคูณเท่าตัวในแต่ละงวด ($r = 2$)</div>
+          <div class="slide-img-card">
+            <img src="img/ch03_w09_geometric_doubling.jpg" alt="การเติบโตแบบทวีคูณเท่าตัว">
+            <div class="img-caption">มโนภาพ: เงินลงทุนทบเท่าตัว ($r = 2$) พุ่งทะยานแบบ Exponential</div>
+            <div class="prompt-badge"><b>Prompt:</b> Semi-academic flat-design educational illustration of geometric doubling growth curve, 16:9 landscape...</div>
           </div>
         </div>
       </div>
@@ -741,39 +625,12 @@ b,strong{font-weight:700;color:var(--navy2)}
           </div>
         </div>
         <div class="col">
-          <div class="diag-box">
-            <svg class="diag-svg" viewBox="0 0 240 160">
-              <line x1="25" y1="135" x2="225" y2="135" stroke="#7884a4" stroke-width="1.5"/>
-              <line x1="25" y1="135" x2="25" y2="20" stroke="#7884a4" stroke-width="1.5"/>
-              <text x="215" y="148" font-family="JetBrains Mono" font-size="9" fill="#7884a4">งวด (n)</text>
-              <text x="10" y="24" font-family="JetBrains Mono" font-size="9" fill="#7884a4">ค่า (aₙ)</text>
-
-              <!-- Exponential curve soaring up -->
-              <path d="M 35 130 Q 110 125 185 28" fill="none" stroke="#C0392B" stroke-width="2.2"/>
-
-              <circle cx="35" cy="130" r="4.5" fill="#1F3A93"/>
-              <text x="42" y="125" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#1F3A93">a₁=2</text>
-
-              <circle cx="65" cy="125" r="4" fill="#1F3A93"/>
-              <text x="72" y="120" font-family="JetBrains Mono" font-size="8.5" fill="#1F3A93">a₂=6</text>
-
-              <circle cx="95" cy="115" r="4" fill="#1F3A93"/>
-              <text x="100" y="110" font-family="JetBrains Mono" font-size="8.5" fill="#1F3A93">a₃=18</text>
-
-              <circle cx="125" cy="95" r="4" fill="#1F3A93"/>
-              <text x="130" y="90" font-family="JetBrains Mono" font-size="8.5" fill="#1F3A93">a₄=54</text>
-
-              <!-- Rocket point a8 -->
-              <circle cx="185" cy="28" r="6" fill="#C0392B"/>
-              <rect x="110" y="15" width="105" height="24" rx="4" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.2"/>
-              <text x="162" y="31" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#C0392B" text-anchor="middle">a₈ = 2 × 3⁷ = 4,374</text>
-
-              <path d="M 50 128 Q 57 118 64 125" fill="none" stroke="#2E8B57" stroke-width="1.3"/>
-              <text x="56" y="116" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57">×3</text>
-              <path d="M 80 123 Q 87 110 94 115" fill="none" stroke="#2E8B57" stroke-width="1.3"/>
-              <text x="86" y="106" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57">×3</text>
-            </svg>
-            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">การเติบโตแบบก้าวกระโดดด้วยตัวคูณ $r = 3$</div>
+          <div class="chart-box">
+            <div class="chart-title">🚀 กราฟการเติบโตแบบเรขาคณิต ($a_n = 2 \cdot 3^{n-1}$)</div>
+            <div class="chart-canvas-wrap">
+              <canvas id="chartSlide11"></canvas>
+            </div>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.2cqh">อัตราส่วน $r = 3$ ดันค่าจาก $2$ สู่ $4,374$ ในพจน์ที่ 8</div>
           </div>
         </div>
       </div>
@@ -795,24 +652,11 @@ b,strong{font-weight:700;color:var(--navy2)}
             • $a_1 = 5, r = \frac{-10}{5} = \mathbf{-2}$ $\implies a_n = 5(-2)^{n-1}$<br>
             • พจน์คี่เป็นบวก, พจน์คู่เป็นลบ (แกว่งขึ้นลงตามงวด)
           </div>
-          <div class="diag-box" style="margin-top:.4cqh">
-            <svg class="diag-svg" viewBox="0 0 220 85">
-              <line x1="20" y1="42" x2="205" y2="42" stroke="#7884a4" stroke-width="1.4" stroke-dasharray="3"/>
-              <text x="208" y="45" font-family="JetBrains Mono" font-size="8" fill="#7884a4">0</text>
-              <!-- Zig-zag line -->
-              <polyline points="35,33 75,55 115,22 155,70 195,12" fill="none" stroke="#C0392B" stroke-width="1.8"/>
-              <circle cx="35" cy="33" r="3.5" fill="#1F3A93"/>
-              <text x="35" y="27" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#1F3A93" text-anchor="middle">+5</text>
-              <circle cx="75" cy="55" r="3.5" fill="#C0392B"/>
-              <text x="75" y="67" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#C0392B" text-anchor="middle">-10</text>
-              <circle cx="115" cy="22" r="3.5" fill="#1F3A93"/>
-              <text x="115" y="16" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#1F3A93" text-anchor="middle">+20</text>
-              <circle cx="155" cy="70" r="3.5" fill="#C0392B"/>
-              <text x="155" y="80" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#C0392B" text-anchor="middle">-40</text>
-              <circle cx="195" cy="12" r="3.5" fill="#1F3A93"/>
-              <text x="195" y="8" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#1F3A93" text-anchor="middle">+80</text>
-            </svg>
-            <div style="font-size:1.4cqh;color:var(--ink-soft);text-align:center">แกว่งขึ้นลงสลับขั้วบวก-ลบ (Oscillation)</div>
+          <div class="chart-box" style="margin-top:.4cqh">
+            <div class="chart-title">📉 สลับขั้วบวก-ลบ ($r = -2$)</div>
+            <div class="chart-canvas-wrap" style="height:12cqh;">
+              <canvas id="chartSlide12A"></canvas>
+            </div>
           </div>
         </div>
         <div class="col">
@@ -822,24 +666,11 @@ b,strong{font-weight:700;color:var(--navy2)}
             • $a_1 = 64, r = \frac{32}{64} = \mathbf{\frac{1}{2}}$ $\implies a_n = 2^{7-n}$<br>
             • เช่น การสลายตัวกัมมันตรังสี, ปริมาณยาในเลือด
           </div>
-          <div class="diag-box" style="margin-top:.4cqh">
-            <svg class="diag-svg" viewBox="0 0 220 85">
-              <line x1="20" y1="72" x2="205" y2="72" stroke="#7884a4" stroke-width="1.4"/>
-              <text x="208" y="75" font-family="JetBrains Mono" font-size="8" fill="#7884a4">0</text>
-              <!-- Decay curve -->
-              <path d="M 30 18 Q 80 55 190 70" fill="none" stroke="#2E8B57" stroke-width="2"/>
-              <circle cx="30" cy="18" r="3.5" fill="#2E8B57"/>
-              <text x="30" y="13" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57" text-anchor="middle">64</text>
-              <circle cx="65" cy="38" r="3.5" fill="#2E8B57"/>
-              <text x="65" y="32" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57" text-anchor="middle">32</text>
-              <circle cx="105" cy="52" r="3.5" fill="#2E8B57"/>
-              <text x="105" y="47" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57" text-anchor="middle">16</text>
-              <circle cx="145" cy="62" r="3.5" fill="#2E8B57"/>
-              <text x="145" y="58" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57" text-anchor="middle">8</text>
-              <circle cx="185" cy="68" r="3.5" fill="#2E8B57"/>
-              <text x="185" y="64" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57" text-anchor="middle">4</text>
-            </svg>
-            <div style="font-size:1.4cqh;color:var(--ink-soft);text-align:center">ลดลงครึ่งหนึ่งในแต่ละงวด ($r = 0.5$)</div>
+          <div class="chart-box" style="margin-top:.4cqh">
+            <div class="chart-title">📉 สลายตัวครึ่งชีวิต ($r = 0.5$)</div>
+            <div class="chart-canvas-wrap" style="height:12cqh;">
+              <canvas id="chartSlide12B"></canvas>
+            </div>
           </div>
         </div>
       </div>
@@ -869,20 +700,14 @@ b,strong{font-weight:700;color:var(--navy2)}
           </div>
         </div>
         <div class="col">
-          <div class="diag-box">
-            <svg class="diag-svg" viewBox="0 0 240 160">
-              <line x1="30" y1="130" x2="220" y2="130" stroke="#7884a4" stroke-width="1.5"/>
-              <line x1="30" y1="130" x2="30" y2="20" stroke="#7884a4" stroke-width="1.5"/>
-              <text x="220" y="145" font-family="JetBrains Mono" font-size="10" fill="#7884a4">งวด (n)</text>
-              <text x="15" y="25" font-family="JetBrains Mono" font-size="10" fill="#7884a4">ยอดเงิน</text>
-
-              <line x1="30" y1="120" x2="200" y2="70" stroke="#1F3A93" stroke-width="2.5"/>
-              <text x="205" y="75" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93">เชิงเส้น (แผน ก)</text>
-
-              <path d="M 30 125 Q 130 120 185 25" fill="none" stroke="#C0392B" stroke-width="2.5"/>
-              <text x="100" y="25" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#C0392B">ทวีคูณ (แผน ข)</text>
-            </svg>
-            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">เปรียบเทียบการเติบโตเชิงเส้น vs ทวีคูณ</div>
+          <div class="chart-box">
+            <div class="chart-title">⚡ กราฟเปรียบเทียบการเติบโต: เชิงเส้น vs ทวีคูณ</div>
+            <div class="chart-canvas-wrap" style="height:23cqh;">
+              <canvas id="chartSlide13"></canvas>
+            </div>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.2cqh">
+              คลิกที่ Legend เพื่อซ่อน/แสดงเส้นกราฟ · ชี้เพื่อดูตัวเลขเปรียบเทียบ
+            </div>
           </div>
         </div>
       </div>
@@ -977,44 +802,10 @@ b,strong{font-weight:700;color:var(--navy2)}
           </div>
         </div>
         <div class="col">
-          <div class="diag-box">
-            <svg class="diag-svg" viewBox="0 0 240 160">
-              <circle cx="30" cy="115" r="4.5" fill="#1F3A93"/>
-              <text x="30" y="132" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#1F3A93" text-anchor="middle">1</text>
-
-              <circle cx="60" cy="115" r="4" fill="#2E8B57"/>
-              <text x="60" y="132" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#2E8B57" text-anchor="middle">2</text>
-
-              <circle cx="90" cy="115" r="4" fill="#B7950B"/>
-              <text x="90" y="132" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#B7950B" text-anchor="middle">3</text>
-
-              <text x="120" y="118" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#7884a4" text-anchor="middle">···</text>
-
-              <circle cx="150" cy="115" r="4" fill="#B7950B"/>
-              <text x="150" y="132" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#B7950B" text-anchor="middle">98</text>
-
-              <circle cx="180" cy="115" r="4" fill="#2E8B57"/>
-              <text x="180" y="132" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#2E8B57" text-anchor="middle">99</text>
-
-              <circle cx="210" cy="115" r="4.5" fill="#1F3A93"/>
-              <text x="210" y="132" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#1F3A93" text-anchor="middle">100</text>
-
-              <path d="M 30 110 Q 120 18 210 110" fill="none" stroke="#1F3A93" stroke-width="2"/>
-              <rect x="85" y="16" width="70" height="18" rx="4" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1"/>
-              <text x="120" y="29" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#1F3A93" text-anchor="middle">1+100 = 101</text>
-
-              <path d="M 60 110 Q 120 45 180 110" fill="none" stroke="#2E8B57" stroke-width="1.8"/>
-              <rect x="85" y="44" width="70" height="18" rx="4" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1"/>
-              <text x="120" y="57" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#2E8B57" text-anchor="middle">2+99 = 101</text>
-
-              <path d="M 90 110 Q 120 72 150 110" fill="none" stroke="#B7950B" stroke-width="1.6"/>
-              <rect x="87" y="72" width="66" height="16" rx="4" fill="#FEF9C3" stroke="#B7950B" stroke-width="1"/>
-              <text x="120" y="84" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#B7950B" text-anchor="middle">3+98 = 101</text>
-
-              <rect x="40" y="140" width="160" height="18" rx="4" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.2"/>
-              <text x="120" y="153" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#16265e" text-anchor="middle">50 คู่ × 101 = 5,050 บาท</text>
-            </svg>
-            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">วิธีจับคู่หัว-ท้ายของเกาส์ (Gauss's Pairing)</div>
+          <div class="slide-img-card">
+            <img src="img/ch03_w09_gauss_pairing.jpg" alt="วิธีจับคู่ของเกาส์ ชาเลนจ์ออมเงิน 100 วัน">
+            <div class="img-caption">มโนภาพ: เกาส์จับคู่หัว-ท้าย $1+100=101$ ได้ 50 คู่ รวมเป็น 5,050 บาท</div>
+            <div class="prompt-badge"><b>Prompt:</b> Semi-academic flat-design educational illustration of young Carl Friedrich Gauss solving 100-day savings challenge, 16:9 landscape...</div>
           </div>
         </div>
       </div>
@@ -1053,29 +844,12 @@ b,strong{font-weight:700;color:var(--navy2)}
           </div>
         </div>
         <div class="col">
-          <div class="diag-box">
-            <svg class="diag-svg" viewBox="0 0 240 160">
-              <line x1="30" y1="135" x2="225" y2="135" stroke="#7884a4" stroke-width="1.5"/>
-              <line x1="30" y1="135" x2="30" y2="20" stroke="#7884a4" stroke-width="1.5"/>
-              <text x="215" y="148" font-family="JetBrains Mono" font-size="9" fill="#7884a4">งวด (n)</text>
-              <text x="12" y="24" font-family="JetBrains Mono" font-size="9" fill="#7884a4">aₙ</text>
-
-              <rect x="35" y="105" width="175" height="30" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.2"/>
-              <text x="122" y="123" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#1F3A93" text-anchor="middle">ฐานสี่เหลี่ยม = 20 × 5 = 100</text>
-
-              <polygon points="35,105 210,105 210,25" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.2"/>
-              <text x="155" y="80" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#B7950B" text-anchor="middle">สามเหลี่ยม = ½(20)(57) = 570</text>
-
-              <line x1="35" y1="105" x2="210" y2="25" stroke="#C0392B" stroke-width="2"/>
-              <circle cx="35" cy="105" r="4" fill="#1F3A93"/>
-              <text x="35" y="98" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#1F3A93">a₁=5</text>
-              <circle cx="210" cy="25" r="4" fill="#C0392B"/>
-              <text x="210" y="20" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#C0392B" text-anchor="end">a₂₀=62</text>
-
-              <rect x="50" y="138" width="145" height="20" rx="4" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1.2"/>
-              <text x="122" y="152" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#2E8B57" text-anchor="middle">S₂₀ = 100 + 570 = 670 บาท</text>
-            </svg>
-            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">พื้นที่สะสมรูปสี่เหลี่ยมคางหมู = ผลรวมอนุกรม</div>
+          <div class="chart-box">
+            <div class="chart-title">📊 ผลรวมอนุกรมเลขคณิต $S_{20} = 670$</div>
+            <div class="chart-canvas-wrap">
+              <canvas id="chartSlide17"></canvas>
+            </div>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.2cqh">แท่งสีฟ้า = แต่ละพจน์ ($a_n$) · เส้นสีเขียว = ผลรวมสะสม ($S_n$)</div>
           </div>
         </div>
       </div>
@@ -1114,26 +888,12 @@ b,strong{font-weight:700;color:var(--navy2)}
           </div>
         </div>
         <div class="col">
-          <div class="diag-box">
-            <svg class="diag-svg" viewBox="0 0 240 160">
-              <rect x="25" y="18" width="190" height="26" rx="5" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.4"/>
-              <text x="35" y="35" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93">คู่ที่ 1:  a₁ + a₂₀</text>
-              <text x="150" y="35" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#1F3A93">= 2 + 59 = 61</text>
-
-              <rect x="25" y="50" width="190" height="26" rx="5" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1.4"/>
-              <text x="35" y="67" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#2E8B57">คู่ที่ 2:  a₂ + a₁₉</text>
-              <text x="150" y="67" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#2E8B57">= 5 + 56 = 61</text>
-
-              <rect x="25" y="82" width="190" height="26" rx="5" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.4"/>
-              <text x="35" y="99" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#B7950B">คู่ที่ 3:  a₃ + a₁₈</text>
-              <text x="150" y="99" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#B7950B">= 8 + 53 = 61</text>
-
-              <text x="120" y="122" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#7884a4" text-anchor="middle">··· มีทั้งหมด n/2 = 20/2 = 10 คู่ ···</text>
-
-              <rect x="35" y="132" width="170" height="24" rx="5" fill="#C0392B" fill-opacity="0.1" stroke="#C0392B" stroke-width="1.4"/>
-              <text x="120" y="148" font-family="JetBrains Mono" font-size="10.5" font-weight="700" fill="#C0392B" text-anchor="middle">ผลรวม S₂₀ = 10 × 61 = 610</text>
-            </svg>
-            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">ทุกคู่บวกกันได้ 61 เท่ากัน จำนวน 10 คู่</div>
+          <div class="chart-box">
+            <div class="chart-title">📊 การสะสมผลบวก $S_{10} = 610$ (10 คู่ $\times 61$)</div>
+            <div class="chart-canvas-wrap">
+              <canvas id="chartSlide18"></canvas>
+            </div>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.2cqh">ยอดเงินสะสมจาก $2$ บาทจนถึงยอดรวม $610$ บาท</div>
           </div>
         </div>
       </div>
@@ -1228,44 +988,12 @@ b,strong{font-weight:700;color:var(--navy2)}
           </div>
         </div>
         <div class="col">
-          <div class="diag-box">
-            <svg class="diag-svg" viewBox="0 0 240 160">
-              <line x1="25" y1="135" x2="225" y2="135" stroke="#7884a4" stroke-width="1.5"/>
-              <line x1="25" y1="135" x2="25" y2="20" stroke="#7884a4" stroke-width="1.5"/>
-              <text x="215" y="148" font-family="JetBrains Mono" font-size="9" fill="#7884a4">งวด</text>
-              <text x="12" y="24" font-family="JetBrains Mono" font-size="9" fill="#7884a4">ยอด</text>
-
-              <rect x="35" y="128" width="22" height="7" rx="2" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1"/>
-              <text x="46" y="124" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">3</text>
-              <text x="46" y="146" font-family="JetBrains Mono" font-size="9" fill="#16265e" text-anchor="middle">1</text>
-
-              <rect x="63" y="122" width="22" height="13" rx="2" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1"/>
-              <text x="74" y="118" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">6</text>
-              <text x="74" y="146" font-family="JetBrains Mono" font-size="9" fill="#16265e" text-anchor="middle">2</text>
-
-              <rect x="91" y="110" width="22" height="25" rx="2" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1"/>
-              <text x="102" y="105" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">12</text>
-              <text x="102" y="146" font-family="JetBrains Mono" font-size="9" fill="#16265e" text-anchor="middle">3</text>
-
-              <rect x="119" y="88" width="22" height="47" rx="2" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1"/>
-              <text x="130" y="83" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">24</text>
-              <text x="130" y="146" font-family="JetBrains Mono" font-size="9" fill="#16265e" text-anchor="middle">4</text>
-
-              <rect x="147" y="55" width="22" height="80" rx="2" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1"/>
-              <text x="158" y="50" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">48</text>
-              <text x="158" y="146" font-family="JetBrains Mono" font-size="9" fill="#16265e" text-anchor="middle">5</text>
-
-              <rect x="175" y="18" width="22" height="117" rx="2" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.5"/>
-              <text x="186" y="14" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#B7950B" text-anchor="middle">96</text>
-              <text x="186" y="146" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#B7950B" text-anchor="middle">6</text>
-
-              <path d="M 46 128 L 74 122 L 102 110 L 130 88 L 158 55 L 186 18" fill="none" stroke="#C0392B" stroke-width="1.8"/>
-              <circle cx="186" cy="18" r="4.5" fill="#C0392B"/>
-
-              <rect x="65" y="24" width="105" height="24" rx="4" fill="#C0392B" fill-opacity="0.1" stroke="#C0392B" stroke-width="1.2"/>
-              <text x="117" y="40" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#C0392B" text-anchor="middle">ยอดรวม S₆ = 189</text>
-            </svg>
-            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">ยอดเงินรวมสะสมเพิ่มขึ้นเป็น 189 บาท</div>
+          <div class="chart-box">
+            <div class="chart-title">📈 การสะสมเงินออมทวีคูณ $S_6 = 189$ บาท</div>
+            <div class="chart-canvas-wrap">
+              <canvas id="chartSlide20"></canvas>
+            </div>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.2cqh">ยอดเงินออมเบิ้ล 2 เท่าทุกงวด สะสมครบ 6 งวดได้ 189 บาท</div>
           </div>
         </div>
       </div>
@@ -1307,39 +1035,12 @@ b,strong{font-weight:700;color:var(--navy2)}
           </div>
         </div>
         <div class="col">
-          <div class="diag-box">
-            <svg class="diag-svg" viewBox="0 0 240 160">
-              <line x1="25" y1="135" x2="225" y2="135" stroke="#7884a4" stroke-width="1.5"/>
-              <line x1="25" y1="135" x2="25" y2="20" stroke="#7884a4" stroke-width="1.5"/>
-              <text x="215" y="148" font-family="JetBrains Mono" font-size="9" fill="#7884a4">งวด n</text>
-              <text x="12" y="24" font-family="JetBrains Mono" font-size="9" fill="#7884a4">Sₙ</text>
-
-              <line x1="25" y1="50" x2="220" y2="50" stroke="#B7950B" stroke-width="1.8" stroke-dasharray="4"/>
-              <text x="155" y="44" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#B7950B">Limit S_∞</text>
-
-              <circle cx="50" cy="115" r="4.5" fill="#1F3A93"/>
-              <text x="50" y="128" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#1F3A93" text-anchor="middle">S₁</text>
-
-              <circle cx="85" cy="85" r="4.5" fill="#1F3A93"/>
-              <text x="85" y="98" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#1F3A93" text-anchor="middle">S₂</text>
-
-              <circle cx="120" cy="68" r="4.5" fill="#1F3A93"/>
-              <text x="120" y="81" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#1F3A93" text-anchor="middle">S₃</text>
-
-              <circle cx="155" cy="59" r="4.5" fill="#1F3A93"/>
-              <text x="155" y="72" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#1F3A93" text-anchor="middle">S₄</text>
-
-              <circle cx="190" cy="54" r="4.5" fill="#2E8B57"/>
-              <text x="190" y="67" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#2E8B57" text-anchor="middle">S₅</text>
-
-              <polyline points="50,115 85,85 120,68 155,59 190,54" fill="none" stroke="#2E8B57" stroke-width="2"/>
-
-              <path d="M 50 115 Q 67 85 85 85" fill="none" stroke="#C0392B" stroke-width="1.2" stroke-dasharray="2"/>
-              <path d="M 85 85 Q 102 68 120 68" fill="none" stroke="#C0392B" stroke-width="1.2" stroke-dasharray="2"/>
-              <text x="75" y="72" font-family="JetBrains Mono" font-size="8" fill="#C0392B">+a₂</text>
-              <text x="110" y="58" font-family="JetBrains Mono" font-size="8" fill="#C0392B">+a₃</text>
-            </svg>
-            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">ผลบวกย่อย $S_n$ วิ่งเข้าใกล้เส้นลิมิตกำกับ $S_\infty$</div>
+          <div class="chart-box">
+            <div class="chart-title">🎯 ผลบวกย่อย $S_n$ วิ่งประชิดเส้นกำกับ $S_\infty = 24$</div>
+            <div class="chart-canvas-wrap">
+              <canvas id="chartSlide22"></canvas>
+            </div>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.2cqh">เส้นประสีแดง = ลิมิต $L=24$ เมื่อ $n \to \infty$</div>
           </div>
         </div>
       </div>
@@ -1372,29 +1073,29 @@ b,strong{font-weight:700;color:var(--navy2)}
           </div>
         </div>
         <div class="col">
-          <div class="diag-box">
+          <div class="slide-img-card">
             <svg class="diag-svg" viewBox="0 0 240 160">
-              <rect x="45" y="10" width="140" height="140" fill="#fff" stroke="#16265e" stroke-width="2"/>
+              <rect x="45" y="10" width="140" height="140" fill="#fff" stroke="#16265e" stroke-width="2" rx="4"/>
+              <rect x="45" y="10" width="70" height="140" fill="#3B82F6" stroke="#1F3A93" stroke-width="1.2"/>
+              <text x="80" y="85" font-family="JetBrains Mono" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">1/2</text>
 
-              <rect x="45" y="10" width="70" height="140" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.4"/>
-              <text x="80" y="85" font-family="JetBrains Mono" font-size="18" font-weight="700" fill="#1F3A93" text-anchor="middle">1/2</text>
+              <rect x="115" y="10" width="70" height="70" fill="#10B981" stroke="#1F3A93" stroke-width="1.2"/>
+              <text x="150" y="48" font-family="JetBrains Mono" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">1/4</text>
 
-              <rect x="115" y="10" width="70" height="70" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1.4"/>
-              <text x="150" y="50" font-family="JetBrains Mono" font-size="15" font-weight="700" fill="#2E8B57" text-anchor="middle">1/4</text>
+              <rect x="115" y="80" width="35" height="70" fill="#F59E0B" stroke="#1F3A93" stroke-width="1.2"/>
+              <text x="132.5" y="118" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">1/8</text>
 
-              <rect x="115" y="80" width="35" height="70" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.4"/>
-              <text x="132.5" y="120" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#B7950B" text-anchor="middle">1/8</text>
+              <rect x="150" y="80" width="35" height="35" fill="#EC4899" stroke="#1F3A93" stroke-width="1.2"/>
+              <text x="167.5" y="102" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">1/16</text>
 
-              <rect x="150" y="80" width="35" height="35" fill="#FADBD8" stroke="#C0392B" stroke-width="1.2"/>
-              <text x="167.5" y="102" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#C0392B" text-anchor="middle">1/16</text>
+              <text x="167.5" y="134" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#7884a4" text-anchor="middle">···</text>
 
-              <text x="167.5" y="132" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#7884a4" text-anchor="middle">···</text>
-
-              <rect x="5" y="55" width="34" height="40" rx="4" fill="#16265e" fill-opacity="0.08"/>
-              <text x="22" y="74" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#16265e" text-anchor="middle">พื้นที่</text>
-              <text x="22" y="88" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#2E8B57" text-anchor="middle">= 1</text>
+              <rect x="5" y="52" width="34" height="46" rx="4" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.2"/>
+              <text x="22" y="70" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#16265e" text-anchor="middle">ผลรวม</text>
+              <text x="22" y="88" font-family="JetBrains Mono" font-size="13" font-weight="800" fill="#2E8B57" text-anchor="middle">= 1</text>
             </svg>
-            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">การแบ่งพื้นที่เค้ก: รวมกันได้เต็ม 1 ชิ้นพอดี</div>
+            <div class="img-caption">มโนภาพการแบ่งเค้กอนันต์: $\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \dots = 1$ ก้อนเต็ม</div>
+            <div class="prompt-badge"><b>Prompt:</b> Semi-academic flat-design educational illustration of infinite cake halving paradox (1/2+1/4+1/8+...=1), 16:9 landscape...</div>
           </div>
         </div>
       </div>
@@ -1419,22 +1120,11 @@ b,strong{font-weight:700;color:var(--navy2)}
             เช่น $1 + 2 + 4 + 8 + 16 + \dots$ ($r = 2$)<br>
             • พจน์ต่อๆ ไปใหญ่ขึ้นเรื่อยๆ ยอดรวมสะสมจึงพุ่งทะยานสู่ **อนันต์ ($\infty$)**
           </div>
-          <div class="diag-box" style="margin-top:.4cqh">
-            <svg class="diag-svg" viewBox="0 0 220 85">
-              <line x1="25" y1="75" x2="205" y2="75" stroke="#7884a4" stroke-width="1.4"/>
-              <line x1="25" y1="75" x2="25" y2="10" stroke="#7884a4" stroke-width="1.4"/>
-              <text x="195" y="83" font-family="JetBrains Mono" font-size="8" fill="#7884a4">งวด n</text>
-              <text x="10" y="15" font-family="JetBrains Mono" font-size="8" fill="#7884a4">Sₙ</text>
-
-              <path d="M 25 72 Q 95 68 180 12" fill="none" stroke="#C0392B" stroke-width="2.2"/>
-              <polygon points="180,12 170,17 175,23" fill="#C0392B"/>
-              <circle cx="25" cy="72" r="3" fill="#C0392B"/>
-              <circle cx="65" cy="69" r="3" fill="#C0392B"/>
-              <circle cx="105" cy="60" r="3" fill="#C0392B"/>
-              <circle cx="145" cy="40" r="3" fill="#C0392B"/>
-              <text x="110" y="28" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#C0392B">Sₙ → +∞</text>
-            </svg>
-            <div style="font-size:1.4cqh;color:var(--ink-soft);text-align:center">โตขึ้นไร้ขอบเขต (Unbounded Growth)</div>
+          <div class="chart-box" style="margin-top:.4cqh">
+            <div class="chart-title">💥 ระเบิดสู่อนันต์ ($r = 2$)</div>
+            <div class="chart-canvas-wrap" style="height:12cqh;">
+              <canvas id="chartSlide24A"></canvas>
+            </div>
           </div>
         </div>
         <div class="col">
@@ -1443,25 +1133,11 @@ b,strong{font-weight:700;color:var(--navy2)}
             เช่น $1 - 1 + 1 - 1 + 1 - \dots$ ($r = -1$)<br>
             • ผลบวกย่อยจะแกว่งสลับ: $S_1=1, S_2=0, S_3=1, S_4=0, \dots$
           </div>
-          <div class="diag-box" style="margin-top:.4cqh">
-            <svg class="diag-svg" viewBox="0 0 220 85">
-              <line x1="25" y1="28" x2="205" y2="28" stroke="#7884a4" stroke-width="1.2" stroke-dasharray="3"/>
-              <text x="12" y="31" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#1F3A93">S=1</text>
-              <line x1="25" y1="65" x2="205" y2="65" stroke="#7884a4" stroke-width="1.2" stroke-dasharray="3"/>
-              <text x="12" y="68" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#7884a4">S=0</text>
-
-              <polyline points="35,28 75,65 115,28 155,65 195,28" fill="none" stroke="#C0392B" stroke-width="2"/>
-              <circle cx="35" cy="28" r="3.5" fill="#1F3A93"/>
-              <circle cx="75" cy="65" r="3.5" fill="#7884a4"/>
-              <circle cx="115" cy="28" r="3.5" fill="#1F3A93"/>
-              <circle cx="155" cy="65" r="3.5" fill="#7884a4"/>
-              <circle cx="195" cy="28" r="3.5" fill="#1F3A93"/>
-              <text x="35" y="20" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">S₁</text>
-              <text x="75" y="78" font-family="JetBrains Mono" font-size="7.5" fill="#7884a4" text-anchor="middle">S₂</text>
-              <text x="115" y="20" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">S₃</text>
-              <text x="155" y="78" font-family="JetBrains Mono" font-size="7.5" fill="#7884a4" text-anchor="middle">S₄</text>
-            </svg>
-            <div style="font-size:1.4cqh;color:var(--ink-soft);text-align:center">แกว่งสลับ $1 \leftrightarrow 0$ ไม่ลู่เข้าหาค่าใด</div>
+          <div class="chart-box" style="margin-top:.4cqh">
+            <div class="chart-title">💥 กวัดแกว่งสลับค่า ($r = -1$)</div>
+            <div class="chart-canvas-wrap" style="height:12cqh;">
+              <canvas id="chartSlide24B"></canvas>
+            </div>
           </div>
         </div>
       </div>
@@ -1469,7 +1145,7 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>ภาวะลู่ออกของอนุกรมอนันต์</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 25: Infinite Series Example & Repeating Decimals -->
+  <!-- SLIDE 25: Infinite Series Examples -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Example 3.4</span><h2>ตัวอย่างที่ 9 — การคำนวณผลรวมอนันต์และการแปลงทศนิยมซ้ำ</h2></div>
@@ -1483,23 +1159,11 @@ b,strong{font-weight:700;color:var(--navy2)}
             2. $|0.5| < 1 \implies$ <b>ลู่เข้า</b> หาผลรวมได้<br>
             3. $S_\infty = \frac{a_1}{1 - r} = \frac{12}{1 - 0.5} = \frac{12}{0.5} = \mathbf{24}$
           </div>
-          <div class="diag-box" style="margin-top:.4cqh">
-            <svg class="diag-svg" viewBox="0 0 220 75">
-              <line x1="20" y1="20" x2="200" y2="20" stroke="#B7950B" stroke-width="1.4" stroke-dasharray="3"/>
-              <text x="135" y="15" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#B7950B">Limit S_∞ = 24</text>
-
-              <line x1="20" y1="65" x2="200" y2="65" stroke="#7884a4" stroke-width="1.2"/>
-              <circle cx="35" cy="45" r="3.5" fill="#1F3A93"/>
-              <text x="35" y="58" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">12</text>
-              <circle cx="75" cy="32" r="3.5" fill="#1F3A93"/>
-              <text x="75" y="45" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">18</text>
-              <circle cx="115" cy="26" r="3.5" fill="#1F3A93"/>
-              <text x="115" y="38" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">21</text>
-              <circle cx="155" cy="23" r="3.5" fill="#2E8B57"/>
-              <text x="155" y="35" font-family="JetBrains Mono" font-size="7.5" fill="#2E8B57" text-anchor="middle">22.5</text>
-              <polyline points="35,45 75,32 115,26 155,23 185,21" fill="none" stroke="#2E8B57" stroke-width="1.6"/>
-            </svg>
-            <div style="font-size:1.35cqh;color:var(--ink-soft);text-align:center">บวกทีละครึ่งของระยะที่เหลือ เข้าหา 24</div>
+          <div class="chart-box" style="margin-top:.4cqh">
+            <div class="chart-title">🎯 ลู่เข้าสู่ขอบเขต $S_\infty = 24$</div>
+            <div class="chart-canvas-wrap" style="height:11cqh;">
+              <canvas id="chartSlide25A"></canvas>
+            </div>
           </div>
         </div>
         <div class="col">
@@ -1509,25 +1173,11 @@ b,strong{font-weight:700;color:var(--navy2)}
             • $a_1 = 0.3, r = 0.1$ ($|r| < 1$ ลู่เข้า)<br>
             • $S_\infty = \frac{0.3}{1 - 0.1} = \frac{0.3}{0.9} = \mathbf{\frac{1}{3}}$
           </div>
-          <div class="diag-box" style="margin-top:.4cqh">
-            <svg class="diag-svg" viewBox="0 0 220 75">
-              <line x1="15" y1="52" x2="205" y2="52" stroke="#7884a4" stroke-width="1.5"/>
-              <circle cx="25" cy="52" r="3.5" fill="#7884a4"/>
-              <text x="25" y="66" font-family="JetBrains Mono" font-size="8" fill="#7884a4" text-anchor="middle">0</text>
-
-              <path d="M 25 48 Q 65 18 105 48" fill="none" stroke="#1F3A93" stroke-width="1.6"/>
-              <text x="65" y="24" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#1F3A93" text-anchor="middle">+0.3</text>
-
-              <path d="M 105 48 Q 130 28 155 48" fill="none" stroke="#2E8B57" stroke-width="1.6"/>
-              <text x="130" y="32" font-family="JetBrains Mono" font-size="7.5" font-weight="700" fill="#2E8B57" text-anchor="middle">+0.03</text>
-
-              <path d="M 155 48 Q 168 38 180 48" fill="none" stroke="#B7950B" stroke-width="1.4"/>
-
-              <line x1="185" y1="52" x2="185" y2="15" stroke="#C0392B" stroke-width="1.8"/>
-              <polygon points="185,15 205,22 185,29" fill="#C0392B"/>
-              <text x="185" y="66" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#C0392B" text-anchor="middle">1/3</text>
-            </svg>
-            <div style="font-size:1.35cqh;color:var(--ink-soft);text-align:center">ก้าวเข้าหาเป้าหมายที่แท้จริงคือ $1/3$</div>
+          <div class="chart-box" style="margin-top:.4cqh">
+            <div class="chart-title">🎯 ทศนิยมซ้ำลู่เข้าสู่เศษส่วน $1/3$</div>
+            <div class="chart-canvas-wrap" style="height:11cqh;">
+              <canvas id="chartSlide25B"></canvas>
+            </div>
           </div>
         </div>
       </div>
@@ -1556,26 +1206,14 @@ b,strong{font-weight:700;color:var(--navy2)}
           </div>
         </div>
         <div class="col">
-          <div class="diag-box">
-            <svg class="diag-svg" viewBox="0 0 240 160">
-              <line x1="30" y1="130" x2="220" y2="130" stroke="#7884a4" stroke-width="1.5"/>
-              <line x1="30" y1="130" x2="30" y2="20" stroke="#7884a4" stroke-width="1.5"/>
-              <text x="210" y="145" font-family="JetBrains Mono" font-size="10" fill="#7884a4">งวด n</text>
-              <text x="15" y="25" font-family="JetBrains Mono" font-size="10" fill="#7884a4">Sₙ</text>
-
-              <!-- Asymptote line -->
-              <line x1="30" y1="65" x2="215" y2="65" stroke="#B7950B" stroke-width="1.8" stroke-dasharray="4"/>
-              <text x="140" y="58" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#B7950B">Limit S_∞</text>
-
-              <!-- Convergent curve -->
-              <path d="M 30 120 Q 80 75 210 66" fill="none" stroke="#2E8B57" stroke-width="2.5"/>
-              <text x="90" y="90" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#2E8B57">Converge (|r| < 1)</text>
-
-              <!-- Divergent curve -->
-              <path d="M 30 120 Q 90 110 160 25" fill="none" stroke="#C0392B" stroke-width="2.5"/>
-              <text x="155" y="35" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#C0392B">Diverge (r ≥ 1)</text>
-            </svg>
-            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">พฤติกรรมของผลบวกย่อย $S_n$ เมื่อ $n \to \infty$</div>
+          <div class="chart-box">
+            <div class="chart-title">📊 กราฟเปรียบเทียบ: ลู่เข้า vs ลู่ออก</div>
+            <div class="chart-canvas-wrap" style="height:23cqh;">
+              <canvas id="chartSlide26"></canvas>
+            </div>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.2cqh">
+              คลิกที่ Legend เพื่อซ่อน/แสดงเส้นพฤติกรรมแต่ละแบบ
+            </div>
           </div>
         </div>
       </div>
@@ -1654,6 +1292,7 @@ b,strong{font-weight:700;color:var(--navy2)}
               <text x="175" y="36" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57">13,310</text>
             </svg>
             <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">เจาะลึกหา Base Case (ซ้าย) แล้วส่งค่ากลับขึ้นมา (ขวา)</div>
+            <div class="prompt-badge" style="margin-top:.6cqh;font-size:1.15cqh">🎨 Concept Prompt: "Semi-academic Thai educational illustration of Russian nesting dolls (Matryoshka) or layered gift boxes representing mathematical recursion, showing unfolding layers leading to a solid golden base core (Base Case) and values bubbling back up, clean white background, textbook infographic style."</div>
           </div>
         </div>
       </div>
@@ -1690,38 +1329,12 @@ b,strong{font-weight:700;color:var(--navy2)}
             • สิ้นปี 2: 12,100.00 บาท &emsp;• สิ้นปี 3: 13,310.00 บาท (+1,210)<br>
             • สิ้นปี 4: 14,641.00 บาท &emsp;• สิ้นปี 5: 16,105.10 บาท (+1,464)
           </div>
-          <div class="diag-box" style="margin-top:.4cqh">
-            <svg class="diag-svg" viewBox="0 0 240 85">
-              <line x1="20" y1="72" x2="225" y2="72" stroke="#7884a4" stroke-width="1.2"/>
-              <text x="10" y="14" font-family="JetBrains Mono" font-size="8" fill="#7884a4">บาท</text>
-
-              <rect x="28" y="38" width="22" height="34" rx="2" fill="#FEF9C3" stroke="#B7950B" stroke-width="1"/>
-              <text x="39" y="34" font-family="JetBrains Mono" font-size="7" font-weight="700" fill="#B7950B" text-anchor="middle">10k</text>
-              <text x="39" y="81" font-family="JetBrains Mono" font-size="8" fill="#7884a4" text-anchor="middle">ปี 0</text>
-
-              <rect x="58" y="34" width="22" height="38" rx="2" fill="#FEF9C3" stroke="#B7950B" stroke-width="1"/>
-              <text x="69" y="30" font-family="JetBrains Mono" font-size="7" font-weight="700" fill="#B7950B" text-anchor="middle">11k</text>
-              <text x="69" y="81" font-family="JetBrains Mono" font-size="8" fill="#7884a4" text-anchor="middle">ปี 1</text>
-
-              <rect x="88" y="29" width="22" height="43" rx="2" fill="#FEF9C3" stroke="#B7950B" stroke-width="1"/>
-              <text x="99" y="25" font-family="JetBrains Mono" font-size="7" font-weight="700" fill="#B7950B" text-anchor="middle">12.1k</text>
-              <text x="99" y="81" font-family="JetBrains Mono" font-size="8" fill="#7884a4" text-anchor="middle">ปี 2</text>
-
-              <rect x="118" y="24" width="22" height="48" rx="2" fill="#FEF9C3" stroke="#B7950B" stroke-width="1"/>
-              <text x="129" y="20" font-family="JetBrains Mono" font-size="7" font-weight="700" fill="#B7950B" text-anchor="middle">13.3k</text>
-              <text x="129" y="81" font-family="JetBrains Mono" font-size="8" fill="#7884a4" text-anchor="middle">ปี 3</text>
-
-              <rect x="148" y="18" width="22" height="54" rx="2" fill="#FEF9C3" stroke="#B7950B" stroke-width="1"/>
-              <text x="159" y="14" font-family="JetBrains Mono" font-size="7" font-weight="700" fill="#B7950B" text-anchor="middle">14.6k</text>
-              <text x="159" y="81" font-family="JetBrains Mono" font-size="8" fill="#7884a4" text-anchor="middle">ปี 4</text>
-
-              <rect x="178" y="12" width="22" height="60" rx="2" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1.3"/>
-              <text x="189" y="8" font-family="JetBrains Mono" font-size="7.5" font-weight="700" fill="#2E8B57" text-anchor="middle">16.1k</text>
-              <text x="189" y="81" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57" text-anchor="middle">ปี 5</text>
-
-              <path d="M 39 38 Q 110 28 189 12" fill="none" stroke="#C0392B" stroke-width="1.8"/>
-            </svg>
-            <div style="font-size:1.4cqh;color:var(--ink-soft);text-align:center">ยอดเงินเติบโตทบต้น $10\%$ ทุกสิ้นปี</div>
+          <div class="chart-box" style="margin-top:.4cqh">
+            <div class="chart-title">📈 ยอดเงินฝากเติบโตแบบทบต้นรายปี ($B(n) = 10000 \times 1.10^n$)</div>
+            <div class="chart-canvas-wrap" style="height:17cqh">
+              <canvas id="chartSlide29"></canvas>
+            </div>
+            <div style="font-size:1.4cqh;color:var(--ink-soft);text-align:center">ยอดเงินเติบโตทบต้น $10\%$ ทุกสิ้นปี สะสม 5 ปีได้ 16,105.10 บาท</div>
           </div>
         </div>
       </div>
@@ -1739,7 +1352,7 @@ b,strong{font-weight:700;color:var(--navy2)}
         <div class="col">
           <div class="block">
             <div class="lab"><span class="pin">DEF</span> นิยามฟังก์ชันเวียนเกิดของแฟกทอเรียล</div>
-            $$\mathbf{n! = \begin{cases} 1 & \text{เมื่อ } n = 0 \text{ หรือ } n = 1 \quad \text{(Base Case)} \ n \times (n - 1)! & \text{เมื่อ } n \ge 2 \quad \text{(Recursive Step)} \end{cases}}$$
+            $$\mathbf{n! = \begin{cases} 1 & \text{เมื่อ } n = 0 \text{ หรือ } n = 1 \quad \text{(Base Case)} \\ n \times (n - 1)! & \text{เมื่อ } n \ge 2 \quad \text{(Recursive Step)} \end{cases}}$$
           </div>
           <div class="block gold" style="margin-top:.4cqh">
             <div class="lab"><span class="pin">TRACE</span> การคลี่ขั้นตอนคำนวณ $4!$</div>
@@ -1775,15 +1388,16 @@ b,strong{font-weight:700;color:var(--navy2)}
               <text x="115" y="84" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57">= 1</text>
 
               <path d="M 160 80 Q 178 70 160 60" fill="none" stroke="#2E8B57" stroke-width="1.5"/>
-              <text x="186" y="73" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57">คืน 1</text>
+              <text x="186" y="73" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57">คืน 1</text>
 
               <path d="M 160 59 Q 178 49 160 39" fill="none" stroke="#2E8B57" stroke-width="1.5"/>
-              <text x="186" y="52" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57">คืน 2</text>
+              <text x="186" y="52" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57">คืน 2</text>
 
               <path d="M 160 38 Q 178 28 160 18" fill="none" stroke="#C0392B" stroke-width="1.5"/>
-              <text x="186" y="31" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#C0392B">คืน 6</text>
+              <text x="186" y="31" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#C0392B">คืน 6</text>
             </svg>
             <div style="font-size:1.4cqh;color:var(--ink-soft);text-align:center">การคลี่ฟังก์ชันแฟกทอเรียลแล้วส่งผลคูณกลับ</div>
+            <div class="prompt-badge" style="margin-top:.5cqh;font-size:1.15cqh">🎨 Concept Prompt: "Clear academic illustration of a stack of 4 colorful books being arranged on a wooden library shelf, demonstrating 4! = 24 permutations and factorial recursive call stack unfolding, clean vector aesthetic, pastel tones, Thai educational textbook."</div>
           </div>
         </div>
       </div>
@@ -1817,30 +1431,13 @@ b,strong{font-weight:700;color:var(--navy2)}
             • <b>กลีบดอกไม้:</b> ลิลลี่ (3 กลีบ), บัตเตอร์คัพ (5 กลีบ), เดซี่ (13, 21 กลีบ)<br>
             • <b>ตาสับปะรดและทานตะวัน:</b> เกลียวก้นหอยจัดเรียงตามลำดับฟีโบนัชชี
           </div>
-          <div class="diag-box" style="margin-top:.4cqh">
-            <svg class="diag-svg" viewBox="0 0 240 105">
-              <rect x="20" y="10" width="70" height="70" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.3"/>
-              <text x="55" y="48" font-family="JetBrains Mono" font-size="14" font-weight="700" fill="#1F3A93" text-anchor="middle">8</text>
-
-              <rect x="90" y="10" width="44" height="44" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1.3"/>
-              <text x="112" y="36" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#2E8B57" text-anchor="middle">5</text>
-
-              <rect x="108" y="54" width="26" height="26" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.2"/>
-              <text x="121" y="70" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#B7950B" text-anchor="middle">3</text>
-
-              <rect x="90" y="54" width="18" height="18" fill="#FADBD8" stroke="#C0392B" stroke-width="1.2"/>
-              <text x="99" y="66" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#C0392B" text-anchor="middle">2</text>
-
-              <rect x="90" y="72" width="9" height="8" fill="#fff" stroke="#7884a4" stroke-width="0.8"/>
-              <rect x="99" y="72" width="9" height="8" fill="#fff" stroke="#7884a4" stroke-width="0.8"/>
-
-              <path d="M 90 72 A 9 9 0 0 1 99 72 A 18 18 0 0 1 108 54 A 26 26 0 0 1 134 80 A 44 44 0 0 1 90 10 A 70 70 0 0 1 20 80" fill="none" stroke="#C0392B" stroke-width="2.2"/>
-
-              <rect x="145" y="25" width="85" height="45" rx="5" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.2"/>
-              <text x="187" y="42" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#16265e" text-anchor="middle">Golden Spiral</text>
-              <text x="187" y="58" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#C0392B" text-anchor="middle">ϕ ≈ 1.618</text>
-            </svg>
-            <div style="font-size:1.4cqh;color:var(--ink-soft);text-align:center">เกลียวก้นหอยทองคำ (Golden Spiral) จากลำดับฟีโบนัชชี</div>
+          <div class="chart-box" style="margin-top:.4cqh">
+            <div class="chart-title">📈 อัตราส่วน $F_n / F_{n-1}$ ลู่เข้าสู่สัดส่วนทองคำ ($\phi \approx 1.618$)</div>
+            <div class="chart-canvas-wrap" style="height:16cqh">
+              <canvas id="chartSlide31"></canvas>
+            </div>
+            <div style="font-size:1.35cqh;color:var(--ink-soft);text-align:center">อัตราส่วนระหว่างสองพจน์ติดกันลู่เข้าสู่อัตราส่วนทองคำ $\phi = 1.61803...$</div>
+            <div class="prompt-badge" style="margin-top:.4cqh;font-size:1.15cqh">🎨 Concept Prompt: "Minimalist academic vector diagram of the Golden Spiral and Fibonacci nautilus shell in warm tones, harmonious geometric curve intersecting squares 1, 1, 2, 3, 5, 8, clean white background, educational textbook style."</div>
           </div>
         </div>
       </div>
@@ -2169,6 +1766,744 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 window.addEventListener('load', triggerKaTeX);
 
+/* =========================================================
+   Chart.js Global Config & Dynamic Chart Generators
+   ========================================================= */
+if(window.Chart){
+  Chart.defaults.font.family = "'IBM Plex Sans Thai', sans-serif";
+  Chart.defaults.color = '#334155';
+  Chart.defaults.plugins.tooltip.padding = 6;
+  Chart.defaults.plugins.tooltip.cornerRadius = 6;
+  Chart.defaults.plugins.legend.labels.boxWidth = 12;
+  Chart.defaults.plugins.legend.labels.boxHeight = 10;
+  Chart.defaults.plugins.legend.labels.font = { size: 10, weight: '600' };
+}
+
+const chartInstances = {};
+
+function initOrResizeChart(id, factoryFn){
+  const canvas = document.getElementById(id);
+  if(!canvas || !window.Chart) return;
+  if(!chartInstances[id]){
+    chartInstances[id] = factoryFn(canvas);
+  } else {
+    chartInstances[id].resize();
+  }
+}
+
+window.addEventListener('resize', () => {
+  Object.values(chartInstances).forEach(c => {
+    if(c && typeof c.resize === 'function') c.resize();
+  });
+});
+
+/* Factory Functions */
+function createChartSlide7(canvas){
+  return new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: ['n=1', 'n=2', 'n=3', 'n=4', 'n=5'],
+      datasets: [{
+        label: 'aₙ = 4n - 1',
+        data: [3, 7, 11, 15, 19],
+        borderColor: '#1F3A93',
+        backgroundColor: 'rgba(31,58,147,0.12)',
+        fill: true,
+        pointBackgroundColor: '#1F3A93',
+        pointRadius: 6,
+        pointHoverRadius: 8,
+        tension: 0.1,
+        borderWidth: 2.5
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: { beginAtZero: true, max: 22, grid: { color: '#E2E8F0' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+function createChartSlide8(canvas){
+  const labels = Array.from({length: 20}, (_, i) => i + 1);
+  const data = labels.map(n => 4 * n + 3);
+  return new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'aₙ = 4n + 3',
+          data: data,
+          borderColor: '#1F3A93',
+          backgroundColor: 'rgba(31,58,147,0.08)',
+          fill: true,
+          pointBackgroundColor: labels.map(n => n === 20 ? '#2E8B57' : '#1F3A93'),
+          pointRadius: labels.map(n => n === 20 ? 7 : 3),
+          borderWidth: 2,
+          tension: 0.05
+        },
+        {
+          label: 'เป้าหมาย a₂₀ = 83',
+          data: Array(20).fill(83),
+          borderColor: '#C0392B',
+          borderDash: [5, 4],
+          pointRadius: 0,
+          borderWidth: 1.8,
+          fill: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: { beginAtZero: true, max: 95, grid: { color: '#E2E8F0' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+function createChartSlide9(canvas){
+  return new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: ['n=1', 'n=2', 'n=3', 'n=4', 'n=5', 'n=6', 'n=7', 'n=8'],
+      datasets: [{
+        label: 'aₙ = 4n + 1 (ความชัน d = 4)',
+        data: [5, 9, 13, 17, 21, 25, 29, 33],
+        borderColor: '#1F3A93',
+        backgroundColor: 'rgba(31,58,147,0.1)',
+        pointBackgroundColor: ['#1F3A93', '#1F3A93', '#C0392B', '#1F3A93', '#1F3A93', '#1F3A93', '#2E8B57', '#1F3A93'],
+        pointRadius: [4, 4, 8, 4, 4, 4, 8, 4],
+        borderWidth: 2.5,
+        tension: 0,
+        fill: false
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: { beginAtZero: true, max: 36, grid: { color: '#E2E8F0' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+function createChartSlide11(canvas){
+  return new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: ['n=1', 'n=2', 'n=3', 'n=4', 'n=5', 'n=6', 'n=7', 'n=8'],
+      datasets: [{
+        label: 'aₙ = 2 · 3ⁿ⁻¹ (เติบโตทวีคูณ)',
+        data: [2, 6, 18, 54, 162, 486, 1458, 4374],
+        borderColor: '#C0392B',
+        backgroundColor: 'rgba(192,57,43,0.12)',
+        fill: true,
+        pointBackgroundColor: '#C0392B',
+        pointRadius: [4, 4, 4, 4, 5, 5, 6, 8],
+        borderWidth: 2.5,
+        tension: 0.3
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: { beginAtZero: true, max: 4800, grid: { color: '#E2E8F0' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+function createChartSlide12A(canvas){
+  return new Chart(canvas, {
+    type: 'bar',
+    data: {
+      labels: ['n=1', 'n=2', 'n=3', 'n=4', 'n=5'],
+      datasets: [{
+        label: 'aₙ = 5 · (-2)ⁿ⁻¹',
+        data: [5, -10, 20, -40, 80],
+        backgroundColor: (ctx) => ctx.raw >= 0 ? 'rgba(31,58,147,0.7)' : 'rgba(192,57,43,0.7)',
+        borderColor: (ctx) => ctx.raw >= 0 ? '#1F3A93' : '#C0392B',
+        borderWidth: 1.5,
+        borderRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { grid: { color: '#E2E8F0' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+function createChartSlide12B(canvas){
+  return new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: ['n=1', 'n=2', 'n=3', 'n=4', 'n=5', 'n=6'],
+      datasets: [{
+        label: 'aₙ = 64 · (0.5)ⁿ⁻¹',
+        data: [64, 32, 16, 8, 4, 2],
+        borderColor: '#2E8B57',
+        backgroundColor: 'rgba(46,139,87,0.15)',
+        fill: true,
+        pointBackgroundColor: '#2E8B57',
+        pointRadius: 5,
+        borderWidth: 2.5,
+        tension: 0.25
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero: true, max: 72, grid: { color: '#E2E8F0' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+function createChartSlide13(canvas){
+  return new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: ['เดือน 1', 'เดือน 2', 'เดือน 3', 'เดือน 4', 'เดือน 5', 'เดือน 6', 'เดือน 7'],
+      datasets: [
+        {
+          label: 'แบบเลขคณิต: 2,000 บาท/เดือน (+2,000)',
+          data: [2000, 4000, 6000, 8000, 10000, 12000, 14000],
+          borderColor: '#1F3A93',
+          backgroundColor: 'transparent',
+          borderWidth: 2.5,
+          pointRadius: 5,
+          pointBackgroundColor: '#1F3A93'
+        },
+        {
+          label: 'แบบเรขาคณิต: ทวีคูณ 2 เท่า (×2)',
+          data: [1000, 2000, 4000, 8000, 16000, 32000, 64000],
+          borderColor: '#C0392B',
+          backgroundColor: 'rgba(192,57,43,0.08)',
+          fill: true,
+          borderWidth: 2.5,
+          pointRadius: 6,
+          pointBackgroundColor: '#C0392B'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: { beginAtZero: true, max: 70000, grid: { color: '#E2E8F0' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+function createChartSlide17(canvas){
+  const terms = Array.from({length: 20}, (_, i) => 2 + i * 3);
+  let cum = 0;
+  const cumSums = terms.map(t => { cum += t; return cum; });
+  const labels = Array.from({length: 20}, (_, i) => i + 1);
+
+  return new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'ผลรวมสะสม Sₙ (สิ้นสุด 670)',
+          data: cumSums,
+          borderColor: '#1F3A93',
+          backgroundColor: 'rgba(31,58,147,0.12)',
+          fill: true,
+          pointBackgroundColor: labels.map(n => n === 20 ? '#2E8B57' : '#1F3A93'),
+          pointRadius: labels.map(n => n === 20 ? 7 : 3),
+          borderWidth: 2.5,
+          tension: 0.1
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: { beginAtZero: true, max: 720, grid: { color: '#E2E8F0' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+function createChartSlide18(canvas){
+  const terms = Array.from({length: 10}, (_, i) => 7 + i * 12);
+  let cum = 0;
+  const cumSums = terms.map(t => { cum += t; return cum; });
+  const labels = Array.from({length: 10}, (_, i) => `งวด ${i + 1}`);
+
+  return new Chart(canvas, {
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          type: 'line',
+          label: 'ผลรวมสะสม Sₙ (แตะ 610)',
+          data: cumSums,
+          borderColor: '#2E8B57',
+          backgroundColor: 'rgba(46,139,87,0.1)',
+          fill: true,
+          pointBackgroundColor: '#2E8B57',
+          pointRadius: 6,
+          borderWidth: 2.5,
+          yAxisID: 'y'
+        },
+        {
+          type: 'bar',
+          label: 'ยอดสะสมต่องวด (aₙ = 7, 19, ... 115)',
+          data: terms,
+          backgroundColor: 'rgba(31,58,147,0.3)',
+          borderColor: '#1F3A93',
+          borderWidth: 1.2,
+          borderRadius: 4,
+          yAxisID: 'y1'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: { type: 'linear', position: 'left', beginAtZero: true, max: 680, grid: { color: '#E2E8F0' } },
+        y1: { type: 'linear', position: 'right', beginAtZero: true, max: 130, grid: { display: false } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+function createChartSlide20(canvas){
+  const daily = [3, 6, 12, 24, 48, 96];
+  let cum = 0;
+  const cumSums = daily.map(d => { cum += d; return cum; });
+  const labels = ['วันที่ 1', 'วันที่ 2', 'วันที่ 3', 'วันที่ 4', 'วันที่ 5', 'วันที่ 6'];
+
+  return new Chart(canvas, {
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          type: 'line',
+          label: 'เงินออมสะสม Sₙ (บาท)',
+          data: cumSums,
+          borderColor: '#C0392B',
+          backgroundColor: 'rgba(192,57,43,0.12)',
+          fill: true,
+          pointBackgroundColor: '#C0392B',
+          pointRadius: 6,
+          borderWidth: 2.5,
+          tension: 0.15
+        },
+        {
+          type: 'bar',
+          label: 'เงินออมรายวัน aₙ (บาท)',
+          data: daily,
+          backgroundColor: 'rgba(183,149,11,0.5)',
+          borderColor: '#B7950B',
+          borderWidth: 1.2,
+          borderRadius: 4
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: { beginAtZero: true, max: 210, grid: { color: '#E2E8F0' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+function createChartSlide22(canvas){
+  const terms = [12, 6, 3, 1.5, 0.75, 0.375, 0.1875, 0.09375];
+  let cum = 0;
+  const cumSums = terms.map(t => { cum += t; return cum; });
+  const labels = ['n=1', 'n=2', 'n=3', 'n=4', 'n=5', 'n=6', 'n=7', 'n=8'];
+
+  return new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'ผลบวกย่อย Sₙ',
+          data: cumSums,
+          borderColor: '#2E8B57',
+          backgroundColor: 'rgba(46,139,87,0.12)',
+          fill: true,
+          pointBackgroundColor: '#2E8B57',
+          pointRadius: 5,
+          borderWidth: 2.5,
+          tension: 0.2
+        },
+        {
+          label: 'เส้นกำกับแนวนอน S_∞ = 24',
+          data: Array(8).fill(24),
+          borderColor: '#B7950B',
+          borderDash: [5, 4],
+          pointRadius: 0,
+          borderWidth: 2,
+          fill: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: { beginAtZero: true, max: 27, grid: { color: '#E2E8F0' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+function createChartSlide24A(canvas){
+  return new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: ['n=1', 'n=2', 'n=3', 'n=4', 'n=5', 'n=6'],
+      datasets: [{
+        label: 'Sₙ พุ่งสู่ ∞ (r = 2)',
+        data: [2, 6, 14, 30, 62, 126],
+        borderColor: '#C0392B',
+        backgroundColor: 'rgba(192,57,43,0.12)',
+        fill: true,
+        pointBackgroundColor: '#C0392B',
+        pointRadius: 5,
+        borderWidth: 2.5,
+        tension: 0.2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero: true, max: 140, grid: { color: '#E2E8F0' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+function createChartSlide24B(canvas){
+  return new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: ['n=1', 'n=2', 'n=3', 'n=4', 'n=5', 'n=6'],
+      datasets: [{
+        label: 'Sₙ แกว่งกวัด 1 กับ 0 (r = -1)',
+        data: [1, 0, 1, 0, 1, 0],
+        borderColor: '#B7950B',
+        backgroundColor: 'transparent',
+        pointBackgroundColor: '#B7950B',
+        pointRadius: 6,
+        borderWidth: 2,
+        tension: 0
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { min: -0.5, max: 1.5, ticks: { stepSize: 0.5 }, grid: { color: '#E2E8F0' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+function createChartSlide25A(canvas){
+  const terms = [12, 6, 3, 1.5, 0.75, 0.375, 0.1875];
+  let cum = 0;
+  const cumSums = terms.map(t => { cum += t; return cum; });
+  const labels = ['n=1', 'n=2', 'n=3', 'n=4', 'n=5', 'n=6', 'n=7'];
+
+  return new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Sₙ',
+          data: cumSums,
+          borderColor: '#2E8B57',
+          backgroundColor: 'rgba(46,139,87,0.12)',
+          fill: true,
+          pointBackgroundColor: '#2E8B57',
+          pointRadius: 5,
+          borderWidth: 2.2
+        },
+        {
+          label: 'S_∞ = 24',
+          data: Array(7).fill(24),
+          borderColor: '#B7950B',
+          borderDash: [5, 4],
+          pointRadius: 0,
+          borderWidth: 1.8,
+          fill: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: { beginAtZero: true, max: 27, grid: { color: '#E2E8F0' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+function createChartSlide25B(canvas){
+  const terms = [0.3, 0.03, 0.003, 0.0003, 0.00003];
+  let cum = 0;
+  const cumSums = terms.map(t => { cum += t; return Number(cum.toFixed(5)); });
+  const labels = ['n=1', 'n=2', 'n=3', 'n=4', 'n=5'];
+
+  return new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Sₙ (0.3, 0.33, 0.333...)',
+          data: cumSums,
+          borderColor: '#1F3A93',
+          backgroundColor: 'rgba(31,58,147,0.12)',
+          fill: true,
+          pointBackgroundColor: '#1F3A93',
+          pointRadius: 5,
+          borderWidth: 2.2
+        },
+        {
+          label: 'ลิมิต 1/3 (≈ 0.33333)',
+          data: Array(5).fill(0.33333),
+          borderColor: '#B7950B',
+          borderDash: [5, 4],
+          pointRadius: 0,
+          borderWidth: 1.8,
+          fill: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: { min: 0.25, max: 0.36, grid: { color: '#E2E8F0' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+function createChartSlide26(canvas){
+  const nPoints = 8;
+  const labels = Array.from({length: nPoints}, (_, i) => `n=${i+1}`);
+  
+  let c1 = 0, d1 = [];
+  for(let i=0; i<nPoints; i++){ c1 += 12 * Math.pow(0.5, i); d1.push(c1); }
+
+  let c2 = 0, d2 = [];
+  for(let i=0; i<nPoints; i++){ c2 += 10 * Math.pow(-0.6, i); d2.push(c2); }
+
+  let c3 = 0, d3 = [];
+  for(let i=0; i<nPoints; i++){ c3 += 2 * Math.pow(1.4, i); d3.push(c3); }
+
+  return new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'ลู่เข้าเรียบ (r = 0.5) → ลู่เข้า 24',
+          data: d1,
+          borderColor: '#2E8B57',
+          backgroundColor: 'transparent',
+          borderWidth: 2.5,
+          pointRadius: 4,
+          pointBackgroundColor: '#2E8B57'
+        },
+        {
+          label: 'แกว่งลู่เข้า (r = -0.6) → ลู่เข้า 6.25',
+          data: d2,
+          borderColor: '#1F3A93',
+          backgroundColor: 'transparent',
+          borderWidth: 2,
+          pointRadius: 4,
+          pointBackgroundColor: '#1F3A93'
+        },
+        {
+          label: 'ลู่ออกพุ่ง (r = 1.4) → พุ่งสู่อนันต์',
+          data: d3,
+          borderColor: '#C0392B',
+          backgroundColor: 'transparent',
+          borderWidth: 2,
+          pointRadius: 4,
+          pointBackgroundColor: '#C0392B'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: { beginAtZero: true, max: 45, grid: { color: '#E2E8F0' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+function createChartSlide29(canvas){
+  const balances = [10000, 11000, 12100, 13310, 14641, 16105.10];
+  const labels = ['ปี 0', 'ปี 1', 'ปี 2', 'ปี 3', 'ปี 4', 'ปี 5'];
+
+  return new Chart(canvas, {
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          type: 'line',
+          label: 'เส้นแนวโน้มทบต้น (+10%/ปี)',
+          data: balances,
+          borderColor: '#C0392B',
+          backgroundColor: 'transparent',
+          borderWidth: 2.5,
+          pointRadius: 5,
+          pointBackgroundColor: '#C0392B',
+          tension: 0.15
+        },
+        {
+          type: 'bar',
+          label: 'ยอดเงินสิ้นปี (บาท)',
+          data: balances,
+          backgroundColor: balances.map((_, i) => i === 5 ? 'rgba(46,139,87,0.6)' : 'rgba(183,149,11,0.5)'),
+          borderColor: balances.map((_, i) => i === 5 ? '#2E8B57' : '#B7950B'),
+          borderWidth: 1.2,
+          borderRadius: 4
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: { beginAtZero: true, max: 18000, grid: { color: '#E2E8F0' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+function createChartSlide31(canvas){
+  const fibs = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
+  let ratios = [];
+  let labels = [];
+  for(let i=2; i<=10; i++){
+    ratios.push(Number((fibs[i] / fibs[i-1]).toFixed(4)));
+    labels.push(`F_${i}/F_${i-1}`);
+  }
+
+  return new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'อัตราส่วน Fₙ / Fₙ₋₁',
+          data: ratios,
+          borderColor: '#1F3A93',
+          backgroundColor: 'rgba(31,58,147,0.1)',
+          fill: true,
+          pointBackgroundColor: '#1F3A93',
+          pointRadius: 5,
+          borderWidth: 2.2,
+          tension: 0.15
+        },
+        {
+          label: 'อัตราส่วนทองคำ ϕ = 1.61803',
+          data: Array(ratios.length).fill(1.618),
+          borderColor: '#B7950B',
+          borderDash: [5, 4],
+          pointRadius: 0,
+          borderWidth: 2,
+          fill: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: { min: 0.8, max: 2.2, grid: { color: '#E2E8F0' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+function renderChartsForSlide(idx){
+  switch(idx){
+    case 6:  initOrResizeChart('chartSlide7', createChartSlide7); break;
+    case 7:  initOrResizeChart('chartSlide8', createChartSlide8); break;
+    case 8:  initOrResizeChart('chartSlide9', createChartSlide9); break;
+    case 10: initOrResizeChart('chartSlide11', createChartSlide11); break;
+    case 11:
+      initOrResizeChart('chartSlide12A', createChartSlide12A);
+      initOrResizeChart('chartSlide12B', createChartSlide12B);
+      break;
+    case 12: initOrResizeChart('chartSlide13', createChartSlide13); break;
+    case 16: initOrResizeChart('chartSlide17', createChartSlide17); break;
+    case 17: initOrResizeChart('chartSlide18', createChartSlide18); break;
+    case 19: initOrResizeChart('chartSlide20', createChartSlide20); break;
+    case 21: initOrResizeChart('chartSlide22', createChartSlide22); break;
+    case 23:
+      initOrResizeChart('chartSlide24A', createChartSlide24A);
+      initOrResizeChart('chartSlide24B', createChartSlide24B);
+      break;
+    case 24:
+      initOrResizeChart('chartSlide25A', createChartSlide25A);
+      initOrResizeChart('chartSlide25B', createChartSlide25B);
+      break;
+    case 25: initOrResizeChart('chartSlide26', createChartSlide26); break;
+    case 28: initOrResizeChart('chartSlide29', createChartSlide29); break;
+    case 30: initOrResizeChart('chartSlide31', createChartSlide31); break;
+  }
+}
+
 /* Slide Deck Engine */
 const slides = document.querySelectorAll('.slide');
 const totalSlides = slides.length;
@@ -2200,6 +2535,11 @@ function updateSlide(idx){
       throwOnError: false
     });
   }
+
+  // Trigger Chart.js rendering for the active slide
+  setTimeout(() => {
+    renderChartsForSlide(currentSlide);
+  }, 50);
 
   // If entering Lab 2 or 3, trigger canvas resize/draw
   if(currentSlide === 33){

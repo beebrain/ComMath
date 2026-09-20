@@ -380,7 +380,7 @@ b,strong{font-weight:700;color:var(--navy2)}
         • สิ้นเดือน 1: $1,000$ บาท &emsp;• สิ้นเดือน 2: $1,000 + 500 = 1,500$ บาท &emsp;• สิ้นเดือน 3: $1,500 + 500 = 2,000$ บาท<br>
         • สิ้นปี (เดือนที่ 12): $a_{12} = 1,000 + 11(500) = \mathbf{6,500 \text{ บาท}}$ (เพิ่มด้วยอัตราคงที่)
       </div>
-      <div class="cols" style="margin-top:.4cqh">
+      <div class="cols wide-l" style="margin-top:.4cqh">
         <div class="col">
           <div class="block gold">
             <div class="lab"><span class="pin">FORMULA</span> การคลี่รูปเพื่อหาสูตรพจน์ทั่วไป</div>
@@ -391,14 +391,47 @@ b,strong{font-weight:700;color:var(--navy2)}
             $$\mathbf{\implies a_n = a_1 + (n - 1)d}$$
             โดย $d = a_{n+1} - a_n$ คือ <b>ผลต่างร่วม (Common Difference)</b>
           </div>
+          <div class="block ex" style="margin-top:.4cqh">
+            <div class="lab"><span class="pin">PROPERTIES</span> พฤติกรรมและข้อสังเกต</div>
+            1. ถ้า $d > 0$ เงินเพิ่มขึ้นเรื่อยๆ (Strictly Increasing)<br>
+            2. ถ้า $d < 0$ ถอนเงินคงที่ ยอดเงินลดลงเรื่อยๆ (Strictly Decreasing)<br>
+            3. ถ้า $d = 0$ ไม่เคลื่อนไหว ยอดเงินคงที่ตลอด ($a_n = a_1$)
+          </div>
         </div>
         <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">PROPERTIES</span> พฤติกรรมและข้อสังเกต</div>
-            1. ถ้า $d > 0$ เงินในบัญชีเพิ่มขึ้นเรื่อยๆ (Strictly Increasing)<br>
-            2. ถ้า $d < 0$ มีการถอนเงินคงที่ ยอดเงินลดลงเรื่อยๆ (Strictly Decreasing)<br>
-            3. ถ้า $d = 0$ ไม่มีการเคลื่อนไหว ยอดเงินคงที่ตลอด ($a_n = a_1$)<br>
-            4. ในชีวิตจริง: การผ่อนชำระค่างวดคงที่, อัตราค่าบริการรายชั่วโมงคงที่
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 240 160">
+              <line x1="30" y1="135" x2="225" y2="135" stroke="#7884a4" stroke-width="1.5"/>
+              <line x1="30" y1="135" x2="30" y2="20" stroke="#7884a4" stroke-width="1.5"/>
+              <text x="220" y="150" font-family="JetBrains Mono" font-size="10" fill="#7884a4">งวด (n)</text>
+              <text x="12" y="24" font-family="JetBrains Mono" font-size="10" fill="#7884a4">เงิน (aₙ)</text>
+
+              <rect x="42" y="105" width="32" height="30" rx="4" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.8"/>
+              <text x="58" y="100" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93" text-anchor="middle">1,000</text>
+              <text x="58" y="148" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">1</text>
+
+              <rect x="86" y="85" width="32" height="50" rx="4" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.8"/>
+              <text x="102" y="80" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93" text-anchor="middle">1,500</text>
+              <text x="102" y="148" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">2</text>
+
+              <rect x="130" y="65" width="32" height="70" rx="4" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.8"/>
+              <text x="146" y="60" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93" text-anchor="middle">2,000</text>
+              <text x="146" y="148" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">3</text>
+
+              <rect x="174" y="45" width="32" height="90" rx="4" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.8"/>
+              <text x="190" y="40" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93" text-anchor="middle">2,500</text>
+              <text x="190" y="148" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">4</text>
+
+              <line x1="58" y1="105" x2="190" y2="45" stroke="#C0392B" stroke-width="2" stroke-dasharray="3"/>
+              
+              <path d="M 74 105 Q 86 85 86 87" fill="none" stroke="#2E8B57" stroke-width="1.6"/>
+              <text x="80" y="70" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57">+500</text>
+              <path d="M 118 85 Q 130 65 130 67" fill="none" stroke="#2E8B57" stroke-width="1.6"/>
+              <text x="124" y="50" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57">+500</text>
+              <path d="M 162 65 Q 174 45 174 47" fill="none" stroke="#2E8B57" stroke-width="1.6"/>
+              <text x="168" y="30" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57">+500</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">ยอดเงินเพิ่มขึ้นทีละ $d = 500$ บาทคงที่ (เชิงเส้น)</div>
           </div>
         </div>
       </div>
@@ -412,23 +445,65 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div><span class="kick">Example 1.3</span><h2>ตัวอย่างที่ 1 — การหาพจน์ทั่วไปและพจน์ที่กำหนด ($a_{50}$)</h2></div>
     </div>
     <div class="body">
-      <div class="block gold">
-        <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
-        กำหนดลำดับเลขคณิต $3, 7, 11, 15, \dots$ จงหาผลต่างร่วม $d$, พจน์ทั่วไป $a_n$, และพจน์ที่ 50 ($a_{50}$)
-      </div>
-      <div class="step-list" style="margin-top:.4cqh">
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 1</div>
-          <div class="step-text"><b>หาพจน์แรกและผลต่างร่วม:</b> พจน์แรก $a_1 = 3$, ผลต่างร่วม $d = a_2 - a_1 = 7 - 3 = \mathbf{4}$ (ตรวจสอบ: $11 - 7 = 4$ เท่ากัน)</div>
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
+            กำหนดลำดับเลขคณิต $3, 7, 11, 15, \dots$ จงหาผลต่างร่วม $d$, พจน์ทั่วไป $a_n$, และพจน์ที่ 50 ($a_{50}$)
+          </div>
+          <div class="step-list" style="margin-top:.4cqh">
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 1</div>
+              <div class="step-text"><b>หาพจน์แรกและผลต่างร่วม:</b> พจน์แรก $a_1 = 3$, ผลต่างร่วม $d = a_2 - a_1 = 7 - 3 = \mathbf{4}$</div>
+            </div>
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 2</div>
+              <div class="step-text"><b>ตั้งสูตรพจน์ทั่วไป:</b> $a_n = 3 + (n-1)(4) = 3 + 4n - 4 = \mathbf{4n - 1}$</div>
+            </div>
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 3</div>
+              <div class="step-text"><b>คำนวณพจน์ที่ 50:</b> $a_{50} = 4(50) - 1 = \mathbf{199}$<br>
+              <span class="gn">หรือใช้สูตร $a_{50} = 3 + (49 \times 4) = 3 + 196 = \mathbf{199}$</span></div>
+            </div>
+          </div>
         </div>
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 2</div>
-          <div class="step-text"><b>ตั้งสูตรพจน์ทั่วไป:</b> $a_n = a_1 + (n-1)d = 3 + (n-1)(4) = 3 + 4n - 4 = \mathbf{4n - 1}$</div>
-        </div>
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 3</div>
-          <div class="step-text"><b>คำนวณพจน์ที่ 50 ($a_{50}$):</b> แทน $n = 50$ ในสูตรพจน์ทั่วไป<br>
-          $a_{50} = 4(50) - 1 = 200 - 1 = \mathbf{199}$ หรือใช้ $a_{50} = 3 + (50-1)(4) = 3 + 196 = \mathbf{199}$</div>
+        <div class="col">
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 240 160">
+              <line x1="20" y1="110" x2="225" y2="110" stroke="#7884a4" stroke-width="2"/>
+
+              <circle cx="35" cy="110" r="5" fill="#1F3A93"/>
+              <text x="35" y="128" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#1F3A93" text-anchor="middle">3</text>
+              <text x="35" y="142" font-family="JetBrains Mono" font-size="9" fill="#7884a4" text-anchor="middle">(a₁)</text>
+
+              <circle cx="70" cy="110" r="4" fill="#1F3A93"/>
+              <text x="70" y="128" font-family="JetBrains Mono" font-size="10" fill="#1F3A93" text-anchor="middle">7</text>
+              <text x="70" y="142" font-family="JetBrains Mono" font-size="9" fill="#7884a4" text-anchor="middle">(a₂)</text>
+
+              <circle cx="105" cy="110" r="4" fill="#1F3A93"/>
+              <text x="105" y="128" font-family="JetBrains Mono" font-size="10" fill="#1F3A93" text-anchor="middle">11</text>
+              <text x="105" y="142" font-family="JetBrains Mono" font-size="9" fill="#7884a4" text-anchor="middle">(a₃)</text>
+
+              <text x="138" y="112" font-family="JetBrains Mono" font-size="14" font-weight="700" fill="#7884a4" text-anchor="middle">···</text>
+
+              <circle cx="195" cy="110" r="5.5" fill="#C0392B"/>
+              <text x="195" y="128" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#C0392B" text-anchor="middle">199</text>
+              <text x="195" y="142" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#C0392B" text-anchor="middle">(a₅₀)</text>
+
+              <path d="M 35 105 Q 52.5 85 70 105" fill="none" stroke="#2E8B57" stroke-width="1.8"/>
+              <text x="52.5" y="82" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#2E8B57" text-anchor="middle">+4</text>
+
+              <path d="M 70 105 Q 87.5 85 105 105" fill="none" stroke="#2E8B57" stroke-width="1.8"/>
+              <text x="87.5" y="82" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#2E8B57" text-anchor="middle">+4</text>
+
+              <path d="M 35 70 Q 115 15 195 70" fill="none" stroke="#B7950B" stroke-width="2.2" stroke-dasharray="4"/>
+              <rect x="75" y="22" width="80" height="24" rx="5" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.2"/>
+              <text x="115" y="38" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#B7950B" text-anchor="middle">49 ช่วง × (+4) = +196</text>
+
+              <text x="115" y="65" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">a₅₀ = 3 + 196 = 199</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">จาก $a_1$ ถึง $a_{50}$ มีการก้าว $50-1 = 49$ ช่วง</div>
+          </div>
         </div>
       </div>
     </div>
@@ -441,26 +516,59 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div><span class="kick">Example 1.4</span><h2>ตัวอย่างที่ 2 — การหาจำนวนพจน์ทั้งหมดของลำดับ (Find $n$)</h2></div>
     </div>
     <div class="body">
-      <div class="block gold">
-        <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
-        กำหนดลำดับเลขคณิต $7, 11, 15, 19, \dots, 83$ จงหาว่าลำดับนี้มีทั้งหมดกี่พจน์?
-      </div>
-      <div class="step-list" style="margin-top:.4cqh">
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 1</div>
-          <div class="step-text"><b>ระบุค่าคงที่ที่ทราบจากโจทย์:</b><br>
-          พจน์แรก $a_1 = 7$, ผลต่างร่วม $d = 11 - 7 = 4$, และพจน์สุดท้าย $a_n = 83$ โดยต้องการหาค่า $n$</div>
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
+            กำหนดลำดับเลขคณิต $7, 11, 15, 19, \dots, 83$ จงหาว่าลำดับนี้มีทั้งหมดกี่พจน์?
+          </div>
+          <div class="step-list" style="margin-top:.4cqh">
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 1</div>
+              <div class="step-text"><b>ระบุค่าคงที่ที่ทราบ:</b> พจน์แรก $a_1 = 7$, ผลต่างร่วม $d = 4$, พจน์สุดท้าย $a_n = 83$</div>
+            </div>
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 2</div>
+              <div class="step-text"><b>แทนค่าลงในสมการพจน์ทั่วไป:</b><br>
+              $$83 = a_1 + (n - 1)d \implies 83 = 7 + (n - 1)(4)$$</div>
+            </div>
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 3</div>
+              <div class="step-text"><b>แก้สมการเชิงเส้นหาค่า $n$:</b><br>
+              $76 = 4(n - 1) \implies n - 1 = 19 \implies \mathbf{n = 20}$<br>
+              <span class="gn">สรุป: ลำดับนี้มีสมาชิกทั้งหมด 20 พจน์</span></div>
+            </div>
+          </div>
         </div>
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 2</div>
-          <div class="step-text"><b>แทนค่าลงในสมการพจน์ทั่วไป:</b><br>
-          $$83 = a_1 + (n - 1)d \implies 83 = 7 + (n - 1)(4)$$</div>
-        </div>
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 3</div>
-          <div class="step-text"><b>แก้สมการเชิงเส้นเพื่อหาค่า $n$:</b><br>
-          $83 - 7 = (n - 1)(4) \implies 76 = 4(n - 1) \implies n - 1 = \frac{76}{4} = 19 \implies \mathbf{n = 20}$<br>
-          <span class="gn">สรุป: ลำดับนี้มีสมาชิกทั้งหมด 20 พจน์</span></div>
+        <div class="col">
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 240 160">
+              <path d="M 30 45 L 30 35 L 210 35 L 210 45" fill="none" stroke="#1F3A93" stroke-width="1.8"/>
+              <rect x="75" y="22" width="90" height="22" rx="4" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1"/>
+              <text x="120" y="37" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93" text-anchor="middle">ระยะรวม Δ = 83 - 7 = 76</text>
+
+              <line x1="25" y1="90" x2="215" y2="90" stroke="#7884a4" stroke-width="2"/>
+              <circle cx="30" cy="90" r="6" fill="#1F3A93"/>
+              <text x="30" y="108" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#1F3A93" text-anchor="middle">7</text>
+              <text x="30" y="122" font-family="JetBrains Mono" font-size="8.5" fill="#7884a4" text-anchor="middle">(พจน์ 1)</text>
+
+              <rect x="35" y="76" width="30" height="14" rx="3" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1.2"/>
+              <text x="50" y="87" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57" text-anchor="middle">d=4</text>
+
+              <rect x="68" y="76" width="30" height="14" rx="3" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1.2"/>
+              <text x="83" y="87" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57" text-anchor="middle">d=4</text>
+
+              <text x="120" y="88" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#7884a4" text-anchor="middle">··· 19 ช่วง ···</text>
+
+              <circle cx="210" cy="90" r="6" fill="#C0392B"/>
+              <text x="210" y="108" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#C0392B" text-anchor="middle">83</text>
+              <text x="210" y="122" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#C0392B" text-anchor="middle">(พจน์ n)</text>
+
+              <rect x="40" y="130" width="160" height="24" rx="5" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.2"/>
+              <text x="120" y="146" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">n = (76 ÷ 4) + 1 = 19 + 1 = 20 พจน์</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">หลักการเสารั้ว: จำนวนพจน์ = จำนวนช่วง + 1</div>
+          </div>
         </div>
       </div>
     </div>
@@ -473,26 +581,59 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div><span class="kick">Example 1.5</span><h2>ตัวอย่างที่ 3 — การแก้ระบบสมการหา $a_1$ และ $d$ เมื่อรู้สองพจน์ใดๆ</h2></div>
     </div>
     <div class="body">
-      <div class="block gold">
-        <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
-        กำหนดลำดับเลขคณิตที่มีพจน์ที่ 3 คือ $a_3 = 13$ และพจน์ที่ 7 คือ $a_7 = 29$ จงหาพจน์แรก $a_1$, ผลต่างร่วม $d$, และพจน์ทั่วไป $a_n$
-      </div>
-      <div class="step-list" style="margin-top:.4cqh">
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 1</div>
-          <div class="step-text"><b>ตั้งระบบสมการจากสูตร $a_n = a_1 + (n-1)d$:</b><br>
-          (1) $a_3 = a_1 + 2d = 13$&emsp;&emsp;และ&emsp;&emsp;(2) $a_7 = a_1 + 6d = 29$</div>
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
+            กำหนดลำดับเลขคณิตที่มีพจน์ที่ 3 คือ $a_3 = 13$ และพจน์ที่ 7 คือ $a_7 = 29$ จงหา $a_1$, $d$, และ $a_n$
+          </div>
+          <div class="step-list" style="margin-top:.4cqh">
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 1</div>
+              <div class="step-text"><b>ตั้งระบบสมการ:</b> (1) $a_1 + 2d = 13$&emsp;และ&emsp;(2) $a_1 + 6d = 29$</div>
+            </div>
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 2</div>
+              <div class="step-text"><b>กำจัดตัวแปรโดยนำ (2) ลบด้วย (1):</b><br>
+              $(a_1 + 6d) - (a_1 + 2d) = 29 - 13 \implies 4d = 16 \implies \mathbf{d = 4}$</div>
+            </div>
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 3</div>
+              <div class="step-text"><b>แทนค่า $d = 4$ ในสมการ (1) หา $a_1$:</b><br>
+              $a_1 + 2(4) = 13 \implies \mathbf{a_1 = 5} \implies \mathbf{a_n = 4n + 1}$</div>
+            </div>
+          </div>
         </div>
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 2</div>
-          <div class="step-text"><b>กำจัดตัวแปร $a_1$ โดยนำสมการ (2) ลบด้วยสมการ (1):</b><br>
-          $(a_1 + 6d) - (a_1 + 2d) = 29 - 13 \implies 4d = 16 \implies \mathbf{d = 4}$</div>
-        </div>
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 3</div>
-          <div class="step-text"><b>แทนค่า $d = 4$ กลับลงในสมการ (1) เพื่อหา $a_1$:</b><br>
-          $a_1 + 2(4) = 13 \implies a_1 + 8 = 13 \implies \mathbf{a_1 = 5}$<br>
-          ดังนั้น พจน์ทั่วไปคือ: $a_n = 5 + (n-1)(4) = \mathbf{4n + 1}$</div>
+        <div class="col">
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 240 160">
+              <line x1="25" y1="135" x2="225" y2="135" stroke="#7884a4" stroke-width="1.5"/>
+              <line x1="25" y1="135" x2="25" y2="20" stroke="#7884a4" stroke-width="1.5"/>
+              <text x="215" y="148" font-family="JetBrains Mono" font-size="9" fill="#7884a4">พจน์ (n)</text>
+              <text x="10" y="24" font-family="JetBrains Mono" font-size="9" fill="#7884a4">ค่า (aₙ)</text>
+
+              <line x1="30" y1="117" x2="210" y2="27" stroke="#1F3A93" stroke-width="2"/>
+
+              <circle cx="70" cy="97" r="5" fill="#1F3A93"/>
+              <text x="60" y="90" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93">(3, 13)</text>
+
+              <circle cx="170" cy="47" r="5" fill="#C0392B"/>
+              <text x="175" y="42" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#C0392B">(7, 29)</text>
+
+              <line x1="70" y1="97" x2="170" y2="97" stroke="#7884a4" stroke-width="1.4" stroke-dasharray="3"/>
+              <line x1="170" y1="97" x2="170" y2="47" stroke="#7884a4" stroke-width="1.4" stroke-dasharray="3"/>
+
+              <text x="120" y="112" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#2E8B57" text-anchor="middle">Δn = 7 - 3 = 4</text>
+              <text x="195" y="75" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#2E8B57">Δa = 16</text>
+
+              <circle cx="45" cy="110" r="4" fill="#B7950B"/>
+              <text x="45" y="128" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#B7950B" text-anchor="middle">a₁=5</text>
+
+              <rect x="50" y="15" width="115" height="22" rx="4" fill="#FEF9C3" stroke="#B7950B" stroke-width="1"/>
+              <text x="107" y="30" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#16265e" text-anchor="middle">ความชัน d = 16 ÷ 4 = 4</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">ผลต่างร่วม $d$ คือความชัน (Slope) ของเส้นตรง</div>
+          </div>
         </div>
       </div>
     </div>
@@ -511,7 +652,7 @@ b,strong{font-weight:700;color:var(--navy2)}
         • สิ้นปี 1: $10,000$ บาท &emsp;• สิ้นปี 2: $10,000 \times 2 = 20,000$ บาท &emsp;• สิ้นปี 3: $20,000 \times 2 = 40,000$ บาท<br>
         • สิ้นปี 5: $a_5 = 10,000 \times 2^4 = \mathbf{160,000 \text{ บาท}}$ (เพิ่มขึ้นด้วยการคูณทบเท่าตัวต่องวด)
       </div>
-      <div class="cols" style="margin-top:.4cqh">
+      <div class="cols wide-l" style="margin-top:.4cqh">
         <div class="col">
           <div class="block gold">
             <div class="lab"><span class="pin">FORMULA</span> การคลี่รูปเพื่อหาสูตรพจน์ทั่วไป</div>
@@ -522,13 +663,48 @@ b,strong{font-weight:700;color:var(--navy2)}
             $$\mathbf{\implies a_n = a_1 \cdot r^{n-1}}$$
             โดย $r = \frac{a_{n+1}}{a_n}$ คือ <b>อัตราส่วนร่วม (Common Ratio)</b>
           </div>
+          <div class="block ex" style="margin-top:.4cqh">
+            <div class="lab"><span class="pin">INTERPRET</span> การประยุกต์ในชีวิตประจำวัน</div>
+            • <b>ดอกเบี้ยทบต้น $10\%$ ต่อปี:</b> $r = 1 + 0.10 = 1.10$<br>
+            • <b>ประชากรแบคทีเรีย:</b> ทวีคูณเท่าตัวทุกชั่วโมง ($r = 2$)
+          </div>
         </div>
         <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">INTERPRET</span> การประยุกต์ในชีวิตประจำวัน</div>
-            • <b>ดอกเบี้ยเงินฝากทบต้น $10\%$ ต่อปี:</b> อัตราส่วนร่วมคือ $r = 1 + 0.10 = 1.10$<br>
-            • <b>การเพิ่มขึ้นของประชากร:</b> การทวีคูณของสิ่งมีชีวิตและแบคทีเรีย ($r = 2$)<br>
-            • <b>การกระจายตัวของข่าวสาร:</b> การแชร์ต่อแบบปากต่อปากในสื่อสังคมออนไลน์
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 240 160">
+              <line x1="28" y1="135" x2="225" y2="135" stroke="#7884a4" stroke-width="1.5"/>
+              <line x1="28" y1="135" x2="28" y2="20" stroke="#7884a4" stroke-width="1.5"/>
+              <text x="220" y="150" font-family="JetBrains Mono" font-size="10" fill="#7884a4">งวด (n)</text>
+              <text x="12" y="24" font-family="JetBrains Mono" font-size="10" fill="#7884a4">เงิน (aₙ)</text>
+
+              <rect x="40" y="112" width="30" height="23" rx="4" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.8"/>
+              <text x="55" y="106" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#B7950B" text-anchor="middle">10k</text>
+              <text x="55" y="148" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">1</text>
+
+              <rect x="84" y="92" width="30" height="43" rx="4" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.8"/>
+              <text x="99" y="86" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#B7950B" text-anchor="middle">20k</text>
+              <text x="99" y="148" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">2</text>
+
+              <rect x="128" y="60" width="30" height="75" rx="4" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.8"/>
+              <text x="143" y="54" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#B7950B" text-anchor="middle">40k</text>
+              <text x="143" y="148" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">3</text>
+
+              <rect x="172" y="18" width="30" height="117" rx="4" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.8"/>
+              <text x="187" y="14" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#B7950B" text-anchor="middle">80k</text>
+              <text x="187" y="148" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#16265e" text-anchor="middle">4</text>
+
+              <path d="M 55 112 Q 130 90 187 18" fill="none" stroke="#C0392B" stroke-width="2" stroke-dasharray="3"/>
+
+              <path d="M 70 112 Q 84 92 84 95" fill="none" stroke="#C0392B" stroke-width="1.5"/>
+              <text x="77" y="84" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#C0392B">×2</text>
+
+              <path d="M 114 92 Q 128 60 128 63" fill="none" stroke="#C0392B" stroke-width="1.5"/>
+              <text x="121" y="52" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#C0392B">×2</text>
+
+              <path d="M 158 60 Q 172 18 172 21" fill="none" stroke="#C0392B" stroke-width="1.5"/>
+              <text x="165" y="24" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#C0392B">×2</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">ยอดเงินทวีคูณเท่าตัวในแต่ละงวด ($r = 2$)</div>
           </div>
         </div>
       </div>
@@ -542,26 +718,63 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div><span class="kick">Example 1.7</span><h2>ตัวอย่างที่ 4 — การหาพจน์ทั่วไปและพจน์ที่กำหนด ($a_8$)</h2></div>
     </div>
     <div class="body">
-      <div class="block gold">
-        <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
-        กำหนดลำดับเรขาคณิต $2, 6, 18, 54, \dots$ จงหาอัตราส่วนร่วม $r$, พจน์ทั่วไป $a_n$, และพจน์ที่ 8 ($a_8$)
-      </div>
-      <div class="step-list" style="margin-top:.4cqh">
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 1</div>
-          <div class="step-text"><b>หาพจน์แรกและอัตราส่วนร่วม:</b><br>
-          พจน์แรก $a_1 = 2$, อัตราส่วนร่วม $r = \frac{a_2}{a_1} = \frac{6}{2} = \mathbf{3}$ (ตรวจสอบ: $\frac{18}{6} = 3$ เท่ากัน)</div>
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
+            กำหนดลำดับเรขาคณิต $2, 6, 18, 54, \dots$ จงหาอัตราส่วนร่วม $r$, พจน์ทั่วไป $a_n$, และพจน์ที่ 8 ($a_8$)
+          </div>
+          <div class="step-list" style="margin-top:.4cqh">
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 1</div>
+              <div class="step-text"><b>หาพจน์แรกและอัตราส่วนร่วม:</b> $a_1 = 2$, $r = \frac{6}{2} = \mathbf{3}$</div>
+            </div>
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 2</div>
+              <div class="step-text"><b>เขียนสูตรพจน์ทั่วไป:</b> $a_n = a_1 \cdot r^{n-1} = \mathbf{2 \cdot 3^{n-1}}$</div>
+            </div>
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 3</div>
+              <div class="step-text"><b>คำนวณพจน์ที่ 8 ($a_8$):</b> แทน $n = 8$<br>
+              $a_8 = 2 \cdot 3^{8-1} = 2 \cdot 3^7 = 2 \times 2,187 = \mathbf{4,374}$</div>
+            </div>
+          </div>
         </div>
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 2</div>
-          <div class="step-text"><b>เขียนสูตรพจน์ทั่วไป:</b><br>
-          $$a_n = a_1 \cdot r^{n-1} = \mathbf{2 \cdot 3^{n-1}}$$</div>
-        </div>
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 3</div>
-          <div class="step-text"><b>คำนวณพจน์ที่ 8 ($a_8$):</b> แทน $n = 8$<br>
-          $$a_8 = 2 \cdot 3^{8-1} = 2 \cdot 3^7$$
-          เนื่องจาก $3^7 = 2,187$ ดังนั้น $a_8 = 2 \times 2,187 = \mathbf{4,374}$</div>
+        <div class="col">
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 240 160">
+              <line x1="25" y1="135" x2="225" y2="135" stroke="#7884a4" stroke-width="1.5"/>
+              <line x1="25" y1="135" x2="25" y2="20" stroke="#7884a4" stroke-width="1.5"/>
+              <text x="215" y="148" font-family="JetBrains Mono" font-size="9" fill="#7884a4">งวด (n)</text>
+              <text x="10" y="24" font-family="JetBrains Mono" font-size="9" fill="#7884a4">ค่า (aₙ)</text>
+
+              <!-- Exponential curve soaring up -->
+              <path d="M 35 130 Q 110 125 185 28" fill="none" stroke="#C0392B" stroke-width="2.2"/>
+
+              <circle cx="35" cy="130" r="4.5" fill="#1F3A93"/>
+              <text x="42" y="125" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#1F3A93">a₁=2</text>
+
+              <circle cx="65" cy="125" r="4" fill="#1F3A93"/>
+              <text x="72" y="120" font-family="JetBrains Mono" font-size="8.5" fill="#1F3A93">a₂=6</text>
+
+              <circle cx="95" cy="115" r="4" fill="#1F3A93"/>
+              <text x="100" y="110" font-family="JetBrains Mono" font-size="8.5" fill="#1F3A93">a₃=18</text>
+
+              <circle cx="125" cy="95" r="4" fill="#1F3A93"/>
+              <text x="130" y="90" font-family="JetBrains Mono" font-size="8.5" fill="#1F3A93">a₄=54</text>
+
+              <!-- Rocket point a8 -->
+              <circle cx="185" cy="28" r="6" fill="#C0392B"/>
+              <rect x="110" y="15" width="105" height="24" rx="4" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.2"/>
+              <text x="162" y="31" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#C0392B" text-anchor="middle">a₈ = 2 × 3⁷ = 4,374</text>
+
+              <path d="M 50 128 Q 57 118 64 125" fill="none" stroke="#2E8B57" stroke-width="1.3"/>
+              <text x="56" y="116" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57">×3</text>
+              <path d="M 80 123 Q 87 110 94 115" fill="none" stroke="#2E8B57" stroke-width="1.3"/>
+              <text x="86" y="106" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57">×3</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">การเติบโตแบบก้าวกระโดดด้วยตัวคูณ $r = 3$</div>
+          </div>
         </div>
       </div>
     </div>
@@ -579,19 +792,54 @@ b,strong{font-weight:700;color:var(--navy2)}
           <div class="block">
             <div class="lab"><span class="pin">CASE 1</span> ลำดับสลับเครื่องหมาย ($r < 0$)</div>
             กำหนดลำดับ $5, -10, 20, -40, 80, \dots$<br>
-            • $a_1 = 5, r = \frac{-10}{5} = \mathbf{-2}$<br>
-            • พจน์ทั่วไป: $a_n = 5(-2)^{n-1}$<br>
-            • <b>ข้อสังเกต:</b> พจน์คี่เป็นบวก, พจน์คู่เป็นลบ (แกว่งขึ้นลงตามงวด)<br>
-            • ตัวอย่างในชีวิตจริง: การแกว่งของอุณหภูมิตามฤดูกาล หรือการสลับขั้วไฟฟ้า
+            • $a_1 = 5, r = \frac{-10}{5} = \mathbf{-2}$ $\implies a_n = 5(-2)^{n-1}$<br>
+            • พจน์คี่เป็นบวก, พจน์คู่เป็นลบ (แกว่งขึ้นลงตามงวด)
+          </div>
+          <div class="diag-box" style="margin-top:.4cqh">
+            <svg class="diag-svg" viewBox="0 0 220 85">
+              <line x1="20" y1="42" x2="205" y2="42" stroke="#7884a4" stroke-width="1.4" stroke-dasharray="3"/>
+              <text x="208" y="45" font-family="JetBrains Mono" font-size="8" fill="#7884a4">0</text>
+              <!-- Zig-zag line -->
+              <polyline points="35,33 75,55 115,22 155,70 195,12" fill="none" stroke="#C0392B" stroke-width="1.8"/>
+              <circle cx="35" cy="33" r="3.5" fill="#1F3A93"/>
+              <text x="35" y="27" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#1F3A93" text-anchor="middle">+5</text>
+              <circle cx="75" cy="55" r="3.5" fill="#C0392B"/>
+              <text x="75" y="67" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#C0392B" text-anchor="middle">-10</text>
+              <circle cx="115" cy="22" r="3.5" fill="#1F3A93"/>
+              <text x="115" y="16" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#1F3A93" text-anchor="middle">+20</text>
+              <circle cx="155" cy="70" r="3.5" fill="#C0392B"/>
+              <text x="155" y="80" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#C0392B" text-anchor="middle">-40</text>
+              <circle cx="195" cy="12" r="3.5" fill="#1F3A93"/>
+              <text x="195" y="8" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#1F3A93" text-anchor="middle">+80</text>
+            </svg>
+            <div style="font-size:1.4cqh;color:var(--ink-soft);text-align:center">แกว่งขึ้นลงสลับขั้วบวก-ลบ (Oscillation)</div>
           </div>
         </div>
         <div class="col">
           <div class="block ex">
             <div class="lab"><span class="pin">CASE 2</span> ลำดับลดลงแบบครึ่งหนึ่ง ($0 < r < 1$)</div>
             กำหนดลำดับ $64, 32, 16, 8, 4, \dots$<br>
-            • $a_1 = 64, r = \frac{32}{64} = \mathbf{\frac{1}{2}}$<br>
-            • พจน์ทั่วไป: $a_n = 64\left(\frac{1}{2}\right)^{n-1} = 2^6 \cdot 2^{-(n-1)} = \mathbf{2^{7-n}}$<br>
-            • ตัวอย่างในชีวิตจริง: การสลายตัวของสารกัมมันตรังสี (Half-life), การลดลงของปริมาณยาในกระแสเลือด
+            • $a_1 = 64, r = \frac{32}{64} = \mathbf{\frac{1}{2}}$ $\implies a_n = 2^{7-n}$<br>
+            • เช่น การสลายตัวกัมมันตรังสี, ปริมาณยาในเลือด
+          </div>
+          <div class="diag-box" style="margin-top:.4cqh">
+            <svg class="diag-svg" viewBox="0 0 220 85">
+              <line x1="20" y1="72" x2="205" y2="72" stroke="#7884a4" stroke-width="1.4"/>
+              <text x="208" y="75" font-family="JetBrains Mono" font-size="8" fill="#7884a4">0</text>
+              <!-- Decay curve -->
+              <path d="M 30 18 Q 80 55 190 70" fill="none" stroke="#2E8B57" stroke-width="2"/>
+              <circle cx="30" cy="18" r="3.5" fill="#2E8B57"/>
+              <text x="30" y="13" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57" text-anchor="middle">64</text>
+              <circle cx="65" cy="38" r="3.5" fill="#2E8B57"/>
+              <text x="65" y="32" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57" text-anchor="middle">32</text>
+              <circle cx="105" cy="52" r="3.5" fill="#2E8B57"/>
+              <text x="105" y="47" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57" text-anchor="middle">16</text>
+              <circle cx="145" cy="62" r="3.5" fill="#2E8B57"/>
+              <text x="145" y="58" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57" text-anchor="middle">8</text>
+              <circle cx="185" cy="68" r="3.5" fill="#2E8B57"/>
+              <text x="185" y="64" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57" text-anchor="middle">4</text>
+            </svg>
+            <div style="font-size:1.4cqh;color:var(--ink-soft);text-align:center">ลดลงครึ่งหนึ่งในแต่ละงวด ($r = 0.5$)</div>
           </div>
         </div>
       </div>
@@ -663,7 +911,7 @@ b,strong{font-weight:700;color:var(--navy2)}
         • <b>อนุกรม ($S_n$):</b> คือ <b>ยอดเงินรวมสะสมทั้งหมดในบัญชี</b> ตั้งแต่เดือนแรกถึงเดือนที่ $n$:
         $$\mathbf{S_n = \sum_{i=1}^n a_i = a_1 + a_2 + a_3 + \dots + a_n}$$
       </div>
-      <div class="cols" style="margin-top:.4cqh">
+      <div class="cols wide-l" style="margin-top:.4cqh">
         <div class="col">
           <div class="block gold">
             <div class="lab"><span class="pin">RULES</span> สมบัติของสัญกรณ์ซิกมา</div>
@@ -671,12 +919,32 @@ b,strong{font-weight:700;color:var(--navy2)}
             2. $\sum_{i=1}^n c \cdot a_i = c \sum_{i=1}^n a_i$ (ดึงตัวคูณร่วมออกนอกซิกมาได้)<br>
             3. $\sum_{i=1}^n (a_i \pm b_i) = \sum_{i=1}^n a_i \pm \sum_{i=1}^n b_i$ (แยกบวก-ลบระหว่างบัญชีได้)
           </div>
+          <div class="block ex" style="margin-top:.4cqh">
+            <div class="lab"><span class="pin">MEANING</span> ความสำคัญในชีวิตจริง</div>
+            หาก $a_i$ คือยอดเงินที่ออมในแต่ละงวด $i$ ผลรวม $S_n = \sum a_i$ คือ <b>ความมั่งคั่งสะสมรวมทั้งหมด (Total Wealth)</b>
+          </div>
         </div>
         <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">MEANING</span> ความสำคัญในชีวิตจริง</div>
-            หาก $a_i$ คือยอดเงินที่ออมในแต่ละงวด $i$<br>
-            ผลรวม $S_n = \sum a_i$ คือ <b>ความมั่งคั่งสะสมรวมทั้งหมด (Total Accumulated Wealth)</b> หรือค่าใช้จ่ายรวมทั้งหมดของโครงการตั้งแต่เริ่มต้นจนถึงปัจจุบัน
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 240 160">
+              <text x="80" y="105" font-family="JetBrains Mono, serif" font-size="56" font-weight="700" fill="#1F3A93" text-anchor="middle">∑</text>
+
+              <text x="80" y="42" font-family="JetBrains Mono" font-size="16" font-weight="700" fill="#C0392B" text-anchor="middle">n</text>
+              <line x1="95" y1="38" x2="135" y2="38" stroke="#C0392B" stroke-width="1.2"/>
+              <text x="140" y="42" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#C0392B">งวดสุดท้าย (Limit)</text>
+
+              <text x="80" y="128" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#2E8B57" text-anchor="middle">i=1</text>
+              <line x1="102" y1="124" x2="135" y2="124" stroke="#2E8B57" stroke-width="1.2"/>
+              <text x="140" y="128" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#2E8B57">จุดเริ่มต้น (Start)</text>
+
+              <text x="118" y="88" font-family="JetBrains Mono" font-size="20" font-weight="700" fill="#16265e">aᵢ</text>
+              <line x1="145" y1="82" x2="165" y2="82" stroke="#16265e" stroke-width="1.2"/>
+              <text x="170" y="86" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#16265e">สูตรแต่ละงวด</text>
+
+              <rect x="25" y="138" width="190" height="20" rx="4" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1"/>
+              <text x="120" y="152" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93" text-anchor="middle">= a₁ + a₂ + a₃ + ··· + aₙ</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">โครงสร้างของสัญกรณ์ผลรวมซิกมา $\sum$</div>
           </div>
         </div>
       </div>
@@ -701,15 +969,52 @@ b,strong{font-weight:700;color:var(--navy2)}
           <div class="block gold">
             <div class="lab"><span class="pin">FORMULA</span> สูตรผลรวมอนุกรมเลขคณิต $n$ พจน์แรก</div>
             $$\mathbf{S_n = \frac{n}{2}(a_1 + a_n) = \frac{n}{2}[2a_1 + (n - 1)d]}$$
-            • ใช้รูปแรกเมื่อ <b>ทราบพจน์สุดท้าย $a_n$</b><br>
-            • ใช้รูปหลังเมื่อ <b>ทราบผลต่างร่วม $d$</b>
+            • รูปแรกเมื่อทราบ $a_n$, รูปหลังเมื่อทราบ $d$
+          </div>
+          <div class="block ex" style="margin-top:.4cqh">
+            <div class="lab"><span class="pin">SPECIAL CASE</span> สูตรผลรวม 1 ถึง n ในชีวิตประจำวัน</div>
+            $$\mathbf{\sum_{i=1}^n i = 1 + 2 + \dots + n = \frac{n(n+1)}{2}}$$
           </div>
         </div>
         <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">SPECIAL CASE</span> สูตรผลรวม 1 ถึง n ในชีวิตประจำวัน</div>
-            $$\mathbf{\sum_{i=1}^n i = 1 + 2 + 3 + \dots + n = \frac{n(n+1)}{2} = \frac{1}{2}n^2 + \frac{1}{2}n}$$
-            ช่วยให้หาผลรวมตัวเลขจำนวนมากได้ทันทีในขั้นตอนเดียว เช่น การคำนวณแต้มสะสม หรือชาเลนจ์ออมเงิน
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 240 160">
+              <circle cx="30" cy="115" r="4.5" fill="#1F3A93"/>
+              <text x="30" y="132" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#1F3A93" text-anchor="middle">1</text>
+
+              <circle cx="60" cy="115" r="4" fill="#2E8B57"/>
+              <text x="60" y="132" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#2E8B57" text-anchor="middle">2</text>
+
+              <circle cx="90" cy="115" r="4" fill="#B7950B"/>
+              <text x="90" y="132" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#B7950B" text-anchor="middle">3</text>
+
+              <text x="120" y="118" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#7884a4" text-anchor="middle">···</text>
+
+              <circle cx="150" cy="115" r="4" fill="#B7950B"/>
+              <text x="150" y="132" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#B7950B" text-anchor="middle">98</text>
+
+              <circle cx="180" cy="115" r="4" fill="#2E8B57"/>
+              <text x="180" y="132" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#2E8B57" text-anchor="middle">99</text>
+
+              <circle cx="210" cy="115" r="4.5" fill="#1F3A93"/>
+              <text x="210" y="132" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#1F3A93" text-anchor="middle">100</text>
+
+              <path d="M 30 110 Q 120 18 210 110" fill="none" stroke="#1F3A93" stroke-width="2"/>
+              <rect x="85" y="16" width="70" height="18" rx="4" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1"/>
+              <text x="120" y="29" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#1F3A93" text-anchor="middle">1+100 = 101</text>
+
+              <path d="M 60 110 Q 120 45 180 110" fill="none" stroke="#2E8B57" stroke-width="1.8"/>
+              <rect x="85" y="44" width="70" height="18" rx="4" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1"/>
+              <text x="120" y="57" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#2E8B57" text-anchor="middle">2+99 = 101</text>
+
+              <path d="M 90 110 Q 120 72 150 110" fill="none" stroke="#B7950B" stroke-width="1.6"/>
+              <rect x="87" y="72" width="66" height="16" rx="4" fill="#FEF9C3" stroke="#B7950B" stroke-width="1"/>
+              <text x="120" y="84" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#B7950B" text-anchor="middle">3+98 = 101</text>
+
+              <rect x="40" y="140" width="160" height="18" rx="4" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.2"/>
+              <text x="120" y="153" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#16265e" text-anchor="middle">50 คู่ × 101 = 5,050 บาท</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">วิธีจับคู่หัว-ท้ายของเกาส์ (Gauss's Pairing)</div>
           </div>
         </div>
       </div>
@@ -723,26 +1028,55 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div><span class="kick">Example 2.3</span><h2>ตัวอย่างที่ 6 — การหาผลรวมอนุกรมเลขคณิต ($S_{20}$)</h2></div>
     </div>
     <div class="body">
-      <div class="block gold">
-        <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง (การจำลองยอดเงินออมสะสม)</div>
-        จงหาผลรวม 20 พจน์แรก ($S_{20}$) ของอนุกรมเลขคณิต $5 + 8 + 11 + 14 + \dots$<br>
-        <i>(เปรียบเหมือนแผนการออมเงิน: เริ่มวันแรก 5 บาท แล้วหยอดเพิ่มวันละ 3 บาท ต่อเนื่อง 20 วัน จะมีเงินรวมเท่าไร?)</i>
-      </div>
-      <div class="step-list" style="margin-top:.4cqh">
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 1</div>
-          <div class="step-text"><b>ระบุค่าคงที่:</b> พจน์แรก $a_1 = 5$, ผลต่างร่วม $d = 8 - 5 = 3$, จำนวนพจน์ที่ต้องการรวม $n = 20$</div>
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง (การจำลองยอดเงินออมสะสม)</div>
+            จงหาผลรวม 20 พจน์แรก ($S_{20}$) ของอนุกรมเลขคณิต $5 + 8 + 11 + 14 + \dots$<br>
+            <i>(ออมวันแรก 5 บาท หยอดเพิ่มวันละ 3 บาท ต่อเนื่อง 20 วัน รวมได้กี่บาท?)</i>
+          </div>
+          <div class="step-list" style="margin-top:.4cqh">
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 1</div>
+              <div class="step-text"><b>ระบุค่าคงที่:</b> $a_1 = 5$, $d = 3$, $n = 20$</div>
+            </div>
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 2</div>
+              <div class="step-text"><b>แทนค่าในสูตร:</b><br>
+              $$S_{20} = \frac{20}{2}[2(5) + (20-1)(3)] = 10[10 + 57]$$</div>
+            </div>
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 3</div>
+              <div class="step-text"><b>คำนวณผลลัพธ์:</b><br>
+              $S_{20} = 10 \times 67 = \mathbf{670}$ บาท</div>
+            </div>
+          </div>
         </div>
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 2</div>
-          <div class="step-text"><b>แทนค่าในสูตร $S_n = \frac{n}{2}[2a_1 + (n-1)d]$:</b><br>
-          $$S_{20} = \frac{20}{2}[2(5) + (20-1)(3)] = 10[10 + (19)(3)]$$</div>
-        </div>
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 3</div>
-          <div class="step-text"><b>คำนวณผลลัพธ์:</b><br>
-          $S_{20} = 10[10 + 57] = 10 \times 67 = \mathbf{670}$ บาท<br>
-          <span class="gn">วิธีทางเลือก: หา $a_{20} = 5 + 19(3) = 62 \implies S_{20} = \frac{20}{2}(5 + 62) = 10 \times 67 = 670$</span></div>
+        <div class="col">
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 240 160">
+              <line x1="30" y1="135" x2="225" y2="135" stroke="#7884a4" stroke-width="1.5"/>
+              <line x1="30" y1="135" x2="30" y2="20" stroke="#7884a4" stroke-width="1.5"/>
+              <text x="215" y="148" font-family="JetBrains Mono" font-size="9" fill="#7884a4">งวด (n)</text>
+              <text x="12" y="24" font-family="JetBrains Mono" font-size="9" fill="#7884a4">aₙ</text>
+
+              <rect x="35" y="105" width="175" height="30" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.2"/>
+              <text x="122" y="123" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#1F3A93" text-anchor="middle">ฐานสี่เหลี่ยม = 20 × 5 = 100</text>
+
+              <polygon points="35,105 210,105 210,25" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.2"/>
+              <text x="155" y="80" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#B7950B" text-anchor="middle">สามเหลี่ยม = ½(20)(57) = 570</text>
+
+              <line x1="35" y1="105" x2="210" y2="25" stroke="#C0392B" stroke-width="2"/>
+              <circle cx="35" cy="105" r="4" fill="#1F3A93"/>
+              <text x="35" y="98" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#1F3A93">a₁=5</text>
+              <circle cx="210" cy="25" r="4" fill="#C0392B"/>
+              <text x="210" y="20" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#C0392B" text-anchor="end">a₂₀=62</text>
+
+              <rect x="50" y="138" width="145" height="20" rx="4" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1.2"/>
+              <text x="122" y="152" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#2E8B57" text-anchor="middle">S₂₀ = 100 + 570 = 670 บาท</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">พื้นที่สะสมรูปสี่เหลี่ยมคางหมู = ผลรวมอนุกรม</div>
+          </div>
         </div>
       </div>
     </div>
@@ -755,25 +1089,52 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div><span class="kick">Example 2.4</span><h2>ตัวอย่างที่ 7 — ผลรวมอนุกรมเลขคณิตเมื่อรู้พจน์สุดท้าย</h2></div>
     </div>
     <div class="body">
-      <div class="block gold">
-        <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
-        จงหาผลรวมของอนุกรมเลขคณิต $2 + 5 + 8 + 11 + \dots + 59$
-      </div>
-      <div class="step-list" style="margin-top:.4cqh">
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 1</div>
-          <div class="step-text"><b>หาจำนวนพจน์ $n$ ก่อนเสมอ:</b> ทราบ $a_1 = 2, d = 3, a_n = 59$<br>
-          $59 = 2 + (n - 1)(3) \implies 57 = 3(n - 1) \implies n - 1 = 19 \implies \mathbf{n = 20}$ พจน์</div>
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
+            จงหาผลรวมของอนุกรมเลขคณิต $2 + 5 + 8 + 11 + \dots + 59$
+          </div>
+          <div class="step-list" style="margin-top:.4cqh">
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 1</div>
+              <div class="step-text"><b>หาจำนวนพจน์ $n$ ก่อนเสมอ:</b> ทราบ $a_1 = 2, d = 3, a_n = 59$<br>
+              $59 = 2 + (n - 1)(3) \implies \mathbf{n = 20}$ พจน์</div>
+            </div>
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 2</div>
+              <div class="step-text"><b>เลือกใช้สูตร $S_n = \frac{n}{2}(a_1 + a_n)$ เพราะทราบพจน์สุดท้าย:</b><br>
+              $$S_{20} = \frac{20}{2}(2 + 59) = 10 \times 61$$</div>
+            </div>
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 3</div>
+              <div class="step-text"><b>คำนวณผลลัพธ์:</b><br>
+              $S_{20} = 10 \times 61 = \mathbf{610}$</div>
+            </div>
+          </div>
         </div>
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 2</div>
-          <div class="step-text"><b>เลือกใช้สูตร $S_n = \frac{n}{2}(a_1 + a_n)$ เพราะทราบพจน์สุดท้ายแล้ว:</b><br>
-          $$S_{20} = \frac{20}{2}(2 + 59) = 10 \times (61)$$</div>
-        </div>
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 3</div>
-          <div class="step-text"><b>คำนวณผลลัพธ์:</b><br>
-          $S_{20} = 10 \times 61 = \mathbf{610}$</div>
+        <div class="col">
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 240 160">
+              <rect x="25" y="18" width="190" height="26" rx="5" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.4"/>
+              <text x="35" y="35" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93">คู่ที่ 1:  a₁ + a₂₀</text>
+              <text x="150" y="35" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#1F3A93">= 2 + 59 = 61</text>
+
+              <rect x="25" y="50" width="190" height="26" rx="5" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1.4"/>
+              <text x="35" y="67" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#2E8B57">คู่ที่ 2:  a₂ + a₁₉</text>
+              <text x="150" y="67" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#2E8B57">= 5 + 56 = 61</text>
+
+              <rect x="25" y="82" width="190" height="26" rx="5" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.4"/>
+              <text x="35" y="99" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#B7950B">คู่ที่ 3:  a₃ + a₁₈</text>
+              <text x="150" y="99" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#B7950B">= 8 + 53 = 61</text>
+
+              <text x="120" y="122" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#7884a4" text-anchor="middle">··· มีทั้งหมด n/2 = 20/2 = 10 คู่ ···</text>
+
+              <rect x="35" y="132" width="170" height="24" rx="5" fill="#C0392B" fill-opacity="0.1" stroke="#C0392B" stroke-width="1.4"/>
+              <text x="120" y="148" font-family="JetBrains Mono" font-size="10.5" font-weight="700" fill="#C0392B" text-anchor="middle">ผลรวม S₂₀ = 10 × 61 = 610</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">ทุกคู่บวกกันได้ 61 เท่ากัน จำนวน 10 คู่</div>
+          </div>
         </div>
       </div>
     </div>
@@ -796,18 +1157,38 @@ b,strong{font-weight:700;color:var(--navy2)}
         <div class="col">
           <div class="block gold">
             <div class="lab"><span class="pin">FORMULA</span> สูตรผลรวมอนุกรมเรขาคณิต $n$ พจน์แรก</div>
-            เมื่อ $r 
-eq 1$:
+            เมื่อ $r \neq 1$:
             $$\mathbf{S_n = \frac{a_1(1 - r^n)}{1 - r} = \frac{a_1(r^n - 1)}{r - 1}} \qquad \text{(กรณี } r = 1 \text{ จะได้ } S_n = n a_1)$$
             • ถ้า $r > 1$ นิยมใช้รูปขวาเพื่อให้เศษและส่วนเป็นบวก
           </div>
-        </div>
-        <div class="col">
-          <div class="block ex">
+          <div class="block ex" style="margin-top:.4cqh">
             <div class="lab"><span class="pin">PROOF</span> ที่มาของสูตร (Algebraic Subtraction)</div>
             (1) $S_n = a_1 + a_1 r + a_1 r^2 + \dots + a_1 r^{n-1}$<br>
             (2) $r S_n = a_1 r + a_1 r^2 + \dots + a_1 r^n$<br>
             (1) - (2): $S_n(1 - r) = a_1(1 - r^n) \implies \mathbf{S_n = \frac{a_1(1 - r^n)}{1 - r}}$
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 240 160">
+              <rect x="15" y="16" width="210" height="32" rx="4" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.2"/>
+              <text x="25" y="36" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#1F3A93">Sₙ  = a₁ + [a₁r + ··· + a₁rⁿ⁻¹]</text>
+
+              <text x="15" y="60" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#C0392B">−</text>
+
+              <rect x="15" y="65" width="210" height="32" rx="4" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1.2"/>
+              <text x="25" y="85" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#2E8B57">rSₙ =      [a₁r + ··· + a₁rⁿ⁻¹] + a₁rⁿ</text>
+
+              <line x1="75" y1="28" x2="195" y2="88" stroke="#C0392B" stroke-width="2.5" stroke-linecap="round"/>
+              <text x="175" y="58" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#C0392B">หักล้างกันหมด!</text>
+
+              <line x1="15" y1="105" x2="225" y2="105" stroke="#7884a4" stroke-width="1.5"/>
+
+              <rect x="20" y="112" width="200" height="42" rx="5" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.2"/>
+              <text x="120" y="128" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#16265e" text-anchor="middle">Sₙ(1 − r) = a₁(1 − rⁿ)</text>
+              <text x="120" y="145" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#C0392B" text-anchor="middle">⇒ Sₙ = a₁(1 − rⁿ) / (1 − r)</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">นำ $S_n - rS_n$ หักล้างพจน์ตรงกลางออกทั้งหมด</div>
           </div>
         </div>
       </div>
@@ -821,26 +1202,71 @@ eq 1$:
       <div><span class="kick">Example 2.6</span><h2>ตัวอย่างที่ 8 — การหาผลรวมอนุกรมเรขาคณิตจำกัด ($S_6$)</h2></div>
     </div>
     <div class="body">
-      <div class="block gold">
-        <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง (การออมเงินแบบทวีคูณ)</div>
-        จงหาผลรวม 6 พจน์แรก ($S_6$) ของอนุกรมเรขาคณิต $3 + 6 + 12 + 24 + \dots$<br>
-        <i>(เปรียบเหมือนการออมเงิน: เริ่มวันแรก 3 บาท แล้วเพิ่มเป็น 2 เท่าทุกวัน เมื่อครบ 6 วันจะมีเงินรวมเท่าไร?)</i>
-      </div>
-      <div class="step-list" style="margin-top:.4cqh">
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 1</div>
-          <div class="step-text"><b>ระบุค่าคงที่:</b> พจน์แรก $a_1 = 3$, อัตราส่วนร่วม $r = \frac{6}{3} = 2$, จำนวนพจน์ $n = 6$</div>
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง (การออมเงินแบบทวีคูณ)</div>
+            จงหาผลรวม 6 พจน์แรก ($S_6$) ของอนุกรมเรขาคณิต $3 + 6 + 12 + 24 + \dots$<br>
+            <i>(เปรียบเหมือนการออมเงิน: เริ่มวันแรก 3 บาท แล้วเพิ่มเป็น 2 เท่าทุกวัน เมื่อครบ 6 วันจะมีเงินรวมเท่าไร?)</i>
+          </div>
+          <div class="step-list" style="margin-top:.4cqh">
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 1</div>
+              <div class="step-text"><b>ระบุค่าคงที่:</b> พจน์แรก $a_1 = 3$, อัตราส่วนร่วม $r = 2$, จำนวนพจน์ $n = 6$</div>
+            </div>
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 2</div>
+              <div class="step-text"><b>แทนค่าในสูตร $S_n = \frac{a_1(r^n - 1)}{r - 1}$:</b><br>
+              $$S_6 = \frac{3(2^6 - 1)}{2 - 1} = \frac{3(64 - 1)}{1}$$</div>
+            </div>
+            <div class="step-item">
+              <div class="step-badge">ขั้นที่ 3</div>
+              <div class="step-text"><b>คำนวณผลลัพธ์:</b><br>
+              $S_6 = 3 \times 63 = \mathbf{189}$ บาท<br>
+              <span class="gn">ตรวจสอบด้วยการบวกตรง: $3 + 6 + 12 + 24 + 48 + 96 = 189$ ตรงกัน</span></div>
+            </div>
+          </div>
         </div>
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 2</div>
-          <div class="step-text"><b>แทนค่าในสูตร $S_n = \frac{a_1(r^n - 1)}{r - 1}$ (เนื่องจาก $r = 2 > 1$):</b><br>
-          $$S_6 = \frac{3(2^6 - 1)}{2 - 1} = \frac{3(64 - 1)}{1}$$</div>
-        </div>
-        <div class="step-item">
-          <div class="step-badge">ขั้นที่ 3</div>
-          <div class="step-text"><b>คำนวณผลลัพธ์:</b><br>
-          $S_6 = 3 \times 63 = \mathbf{189}$ บาท<br>
-          <span class="gn">ตรวจสอบด้วยการบวกตรง: $3 + 6 + 12 + 24 + 48 + 96 = 189$ ตรงกันอย่างแม่นยำ</span></div>
+        <div class="col">
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 240 160">
+              <line x1="25" y1="135" x2="225" y2="135" stroke="#7884a4" stroke-width="1.5"/>
+              <line x1="25" y1="135" x2="25" y2="20" stroke="#7884a4" stroke-width="1.5"/>
+              <text x="215" y="148" font-family="JetBrains Mono" font-size="9" fill="#7884a4">งวด</text>
+              <text x="12" y="24" font-family="JetBrains Mono" font-size="9" fill="#7884a4">ยอด</text>
+
+              <rect x="35" y="128" width="22" height="7" rx="2" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1"/>
+              <text x="46" y="124" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">3</text>
+              <text x="46" y="146" font-family="JetBrains Mono" font-size="9" fill="#16265e" text-anchor="middle">1</text>
+
+              <rect x="63" y="122" width="22" height="13" rx="2" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1"/>
+              <text x="74" y="118" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">6</text>
+              <text x="74" y="146" font-family="JetBrains Mono" font-size="9" fill="#16265e" text-anchor="middle">2</text>
+
+              <rect x="91" y="110" width="22" height="25" rx="2" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1"/>
+              <text x="102" y="105" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">12</text>
+              <text x="102" y="146" font-family="JetBrains Mono" font-size="9" fill="#16265e" text-anchor="middle">3</text>
+
+              <rect x="119" y="88" width="22" height="47" rx="2" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1"/>
+              <text x="130" y="83" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">24</text>
+              <text x="130" y="146" font-family="JetBrains Mono" font-size="9" fill="#16265e" text-anchor="middle">4</text>
+
+              <rect x="147" y="55" width="22" height="80" rx="2" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1"/>
+              <text x="158" y="50" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">48</text>
+              <text x="158" y="146" font-family="JetBrains Mono" font-size="9" fill="#16265e" text-anchor="middle">5</text>
+
+              <rect x="175" y="18" width="22" height="117" rx="2" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.5"/>
+              <text x="186" y="14" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#B7950B" text-anchor="middle">96</text>
+              <text x="186" y="146" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#B7950B" text-anchor="middle">6</text>
+
+              <path d="M 46 128 L 74 122 L 102 110 L 130 88 L 158 55 L 186 18" fill="none" stroke="#C0392B" stroke-width="1.8"/>
+              <circle cx="186" cy="18" r="4.5" fill="#C0392B"/>
+
+              <rect x="65" y="24" width="105" height="24" rx="4" fill="#C0392B" fill-opacity="0.1" stroke="#C0392B" stroke-width="1.2"/>
+              <text x="117" y="40" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#C0392B" text-anchor="middle">ยอดรวม S₆ = 189</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">ยอดเงินรวมสะสมเพิ่มขึ้นเป็น 189 บาท</div>
+          </div>
         </div>
       </div>
     </div>
@@ -868,19 +1294,52 @@ eq 1$:
         $$\mathbf{S_\infty = \sum_{i=1}^\infty a_i = a_1 + a_2 + a_3 + \dots = \lim_{n \to \infty} S_n}$$
         โดยที่ $S_n = a_1 + a_2 + \dots + a_n$ เรียกว่า <b>ผลบวกย่อยลำดับที่ $n$ (Sequence of Partial Sums)</b>
       </div>
-      <div class="cols" style="margin-top:.4cqh">
+      <div class="cols wide-l" style="margin-top:.4cqh">
         <div class="col">
           <div class="block ex">
             <div class="lab"><span class="pin">QUESTION</span> เราสามารถบวกตัวเลขไปเรื่อยๆ จนถึงอนันต์ได้หรือไม่?</div>
-            • <b>กรณีที่ 1:</b> หากผลบวกย่อย $S_n$ วิ่งเข้าใกล้ค่าคงที่จำกัดค่าหนึ่ง $\implies$ <b>อนุกรมลู่เข้า (Convergent Series)</b><br>
-            • <b>กรณีที่ 2:</b> หากผลบวกย่อย $S_n$ โตขึ้นเรื่อยๆ ไร้ขอบเขต หรือแกว่งไปมา $\implies$ <b>อนุกรมลู่ออก (Divergent Series)</b>
+            • <b>ลู่เข้า (Convergent):</b> ผลบวกย่อย $S_n$ วิ่งเข้าใกล้ค่าคงที่จำกัดค่าหนึ่ง<br>
+            • <b>ลู่ออก (Divergent):</b> $S_n$ โตขึ้นไร้ขอบเขต หรือแกว่งไปมา
+          </div>
+          <div class="block gold" style="margin-top:.4cqh">
+            <div class="lab"><span class="pin">INSIGHT</span> ความน่าทึ่งของคณิตศาสตร์</div>
+            การบวกจำนวนอนันต์ตัว ไม่จำเป็นต้องได้ $\infty$ เสมอไป หากแต่ละพจน์ <b>เล็กลงเร็วพอ</b> ผลรวมจะหยุดนิ่งที่ค่าจำกัดค่าหนึ่ง
           </div>
         </div>
         <div class="col">
-          <div class="block gold">
-            <div class="lab"><span class="pin">INSIGHT</span> ความน่าทึ่งของคณิตศาสตร์</div>
-            การบวกจำนวนอนันต์ตัว ไม่จำเป็นต้องได้ค่าเป็นอนันต์ ($\infty$) เสมอไป!<br>
-            หากค่าที่นำมาบวกในแต่ละงวดมีขนาด <b>เล็กลงอย่างรวดเร็วพอ</b> ผลรวมทั้งหมดจะหยุดอยู่ที่ค่าคงที่ค่าหนึ่งอย่างสวยงาม
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 240 160">
+              <line x1="25" y1="135" x2="225" y2="135" stroke="#7884a4" stroke-width="1.5"/>
+              <line x1="25" y1="135" x2="25" y2="20" stroke="#7884a4" stroke-width="1.5"/>
+              <text x="215" y="148" font-family="JetBrains Mono" font-size="9" fill="#7884a4">งวด n</text>
+              <text x="12" y="24" font-family="JetBrains Mono" font-size="9" fill="#7884a4">Sₙ</text>
+
+              <line x1="25" y1="50" x2="220" y2="50" stroke="#B7950B" stroke-width="1.8" stroke-dasharray="4"/>
+              <text x="155" y="44" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#B7950B">Limit S_∞</text>
+
+              <circle cx="50" cy="115" r="4.5" fill="#1F3A93"/>
+              <text x="50" y="128" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#1F3A93" text-anchor="middle">S₁</text>
+
+              <circle cx="85" cy="85" r="4.5" fill="#1F3A93"/>
+              <text x="85" y="98" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#1F3A93" text-anchor="middle">S₂</text>
+
+              <circle cx="120" cy="68" r="4.5" fill="#1F3A93"/>
+              <text x="120" y="81" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#1F3A93" text-anchor="middle">S₃</text>
+
+              <circle cx="155" cy="59" r="4.5" fill="#1F3A93"/>
+              <text x="155" y="72" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#1F3A93" text-anchor="middle">S₄</text>
+
+              <circle cx="190" cy="54" r="4.5" fill="#2E8B57"/>
+              <text x="190" y="67" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#2E8B57" text-anchor="middle">S₅</text>
+
+              <polyline points="50,115 85,85 120,68 155,59 190,54" fill="none" stroke="#2E8B57" stroke-width="2"/>
+
+              <path d="M 50 115 Q 67 85 85 85" fill="none" stroke="#C0392B" stroke-width="1.2" stroke-dasharray="2"/>
+              <path d="M 85 85 Q 102 68 120 68" fill="none" stroke="#C0392B" stroke-width="1.2" stroke-dasharray="2"/>
+              <text x="75" y="72" font-family="JetBrains Mono" font-size="8" fill="#C0392B">+a₂</text>
+              <text x="110" y="58" font-family="JetBrains Mono" font-size="8" fill="#C0392B">+a₃</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">ผลบวกย่อย $S_n$ วิ่งเข้าใกล้เส้นลิมิตกำกับ $S_\infty$</div>
           </div>
         </div>
       </div>
@@ -904,15 +1363,38 @@ eq 1$:
           <div class="block ex">
             <div class="lab"><span class="pin">FORMULA</span> สูตรผลรวมอนุกรมเรขาคณิตอนันต์</div>
             เมื่อ $-1 < r < 1$ (หรือ $|r| < 1$) จะได้ว่า $r^n \to 0$ เมื่อ $n \to \infty$<br>
-            ทำให้สูตรผลรวมลดรูปลงเหลือเพียง:
             $$\mathbf{S_\infty = \frac{a_1}{1 - r}}$$
-            ผลรวมจะลู่เข้าสู่ค่าคงที่จำกัดค่าหนึ่งเสมอ (เรียกว่า เส้นกำกับแนวนอน หรือ Horizontal Asymptote)
+            ผลรวมจะลู่เข้าสู่ค่าคงที่จำกัดค่าหนึ่งเสมอ (เส้นกำกับแนวนอน)
+          </div>
+          <div class="block gold" style="margin-top:.4cqh">
+            <div class="lab"><span class="pin">FINANCE</span> การประยุกต์ในทางการเงิน</div>
+            สูตรนี้คือที่มาของการประเมินมูลค่า <b>กองทุนเงินปันผลถาวร (Perpetuity)</b> และการคิดลดมูลค่าปัจจุบัน (Present Value)
           </div>
         </div>
         <div class="col">
-          <div class="block gold">
-            <div class="lab"><span class="pin">FINANCE</span> การประยุกต์ในทางการเงิน</div>
-            สูตรนี้คือที่มาของการประเมินมูลค่า <b>กองทุนเงินปันผลถาวร (Perpetuity)</b> และการคิดลดกระแสเงินสดในอนาคตกลับมาเป็นมูลค่าปัจจุบัน (Present Value)
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 240 160">
+              <rect x="45" y="10" width="140" height="140" fill="#fff" stroke="#16265e" stroke-width="2"/>
+
+              <rect x="45" y="10" width="70" height="140" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.4"/>
+              <text x="80" y="85" font-family="JetBrains Mono" font-size="18" font-weight="700" fill="#1F3A93" text-anchor="middle">1/2</text>
+
+              <rect x="115" y="10" width="70" height="70" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1.4"/>
+              <text x="150" y="50" font-family="JetBrains Mono" font-size="15" font-weight="700" fill="#2E8B57" text-anchor="middle">1/4</text>
+
+              <rect x="115" y="80" width="35" height="70" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.4"/>
+              <text x="132.5" y="120" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#B7950B" text-anchor="middle">1/8</text>
+
+              <rect x="150" y="80" width="35" height="35" fill="#FADBD8" stroke="#C0392B" stroke-width="1.2"/>
+              <text x="167.5" y="102" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#C0392B" text-anchor="middle">1/16</text>
+
+              <text x="167.5" y="132" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#7884a4" text-anchor="middle">···</text>
+
+              <rect x="5" y="55" width="34" height="40" rx="4" fill="#16265e" fill-opacity="0.08"/>
+              <text x="22" y="74" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#16265e" text-anchor="middle">พื้นที่</text>
+              <text x="22" y="88" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#2E8B57" text-anchor="middle">= 1</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">การแบ่งพื้นที่เค้ก: รวมกันได้เต็ม 1 ชิ้นพอดี</div>
           </div>
         </div>
       </div>
@@ -935,16 +1417,51 @@ eq 1$:
           <div class="block">
             <div class="lab"><span class="pin">CASE 1</span> กรณี $r \ge 1$: โตขึ้นไร้ขอบเขต ($S_n \to \infty$)</div>
             เช่น $1 + 2 + 4 + 8 + 16 + \dots$ ($r = 2$)<br>
-            • พจน์ต่อๆ ไปมีขนาดใหญ่ขึ้นเรื่อยๆ ยอดรวมสะสมจึงพุ่งทะยานสู่ **อนันต์ ($\infty$)**<br>
-            • เปรียบเหมือนการออมเงินที่เพิ่มเป็น 2 เท่าทุกงวด ยอดเงินจะไม่มีลิมิตจำกัด
+            • พจน์ต่อๆ ไปใหญ่ขึ้นเรื่อยๆ ยอดรวมสะสมจึงพุ่งทะยานสู่ **อนันต์ ($\infty$)**
+          </div>
+          <div class="diag-box" style="margin-top:.4cqh">
+            <svg class="diag-svg" viewBox="0 0 220 85">
+              <line x1="25" y1="75" x2="205" y2="75" stroke="#7884a4" stroke-width="1.4"/>
+              <line x1="25" y1="75" x2="25" y2="10" stroke="#7884a4" stroke-width="1.4"/>
+              <text x="195" y="83" font-family="JetBrains Mono" font-size="8" fill="#7884a4">งวด n</text>
+              <text x="10" y="15" font-family="JetBrains Mono" font-size="8" fill="#7884a4">Sₙ</text>
+
+              <path d="M 25 72 Q 95 68 180 12" fill="none" stroke="#C0392B" stroke-width="2.2"/>
+              <polygon points="180,12 170,17 175,23" fill="#C0392B"/>
+              <circle cx="25" cy="72" r="3" fill="#C0392B"/>
+              <circle cx="65" cy="69" r="3" fill="#C0392B"/>
+              <circle cx="105" cy="60" r="3" fill="#C0392B"/>
+              <circle cx="145" cy="40" r="3" fill="#C0392B"/>
+              <text x="110" y="28" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#C0392B">Sₙ → +∞</text>
+            </svg>
+            <div style="font-size:1.4cqh;color:var(--ink-soft);text-align:center">โตขึ้นไร้ขอบเขต (Unbounded Growth)</div>
           </div>
         </div>
         <div class="col">
           <div class="block gold">
             <div class="lab"><span class="pin">CASE 2</span> กรณี $r \le -1$: แกว่งกวัดไม่คงที่ (Oscillation)</div>
             เช่น $1 - 1 + 1 - 1 + 1 - \dots$ ($r = -1$)<br>
-            • ผลบวกย่อยจะแกว่งสลับ: $S_1=1, S_2=0, S_3=1, S_4=0, \dots$<br>
-            • ค่าไม่วิ่งเข้าหาตัวเลขใดตัวเลขหนึ่งอย่างแท้จริง จึงถือว่า **ลู่ออก (Divergent)** เช่นกัน
+            • ผลบวกย่อยจะแกว่งสลับ: $S_1=1, S_2=0, S_3=1, S_4=0, \dots$
+          </div>
+          <div class="diag-box" style="margin-top:.4cqh">
+            <svg class="diag-svg" viewBox="0 0 220 85">
+              <line x1="25" y1="28" x2="205" y2="28" stroke="#7884a4" stroke-width="1.2" stroke-dasharray="3"/>
+              <text x="12" y="31" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#1F3A93">S=1</text>
+              <line x1="25" y1="65" x2="205" y2="65" stroke="#7884a4" stroke-width="1.2" stroke-dasharray="3"/>
+              <text x="12" y="68" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#7884a4">S=0</text>
+
+              <polyline points="35,28 75,65 115,28 155,65 195,28" fill="none" stroke="#C0392B" stroke-width="2"/>
+              <circle cx="35" cy="28" r="3.5" fill="#1F3A93"/>
+              <circle cx="75" cy="65" r="3.5" fill="#7884a4"/>
+              <circle cx="115" cy="28" r="3.5" fill="#1F3A93"/>
+              <circle cx="155" cy="65" r="3.5" fill="#7884a4"/>
+              <circle cx="195" cy="28" r="3.5" fill="#1F3A93"/>
+              <text x="35" y="20" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">S₁</text>
+              <text x="75" y="78" font-family="JetBrains Mono" font-size="7.5" fill="#7884a4" text-anchor="middle">S₂</text>
+              <text x="115" y="20" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">S₃</text>
+              <text x="155" y="78" font-family="JetBrains Mono" font-size="7.5" fill="#7884a4" text-anchor="middle">S₄</text>
+            </svg>
+            <div style="font-size:1.4cqh;color:var(--ink-soft);text-align:center">แกว่งสลับ $1 \leftrightarrow 0$ ไม่ลู่เข้าหาค่าใด</div>
           </div>
         </div>
       </div>
@@ -962,21 +1479,55 @@ eq 1$:
         <div class="col">
           <div class="block gold">
             <div class="lab"><span class="pin">EX 1</span> ผลรวมอนันต์ของ $12 + 6 + 3 + 1.5 + \dots$</div>
-            1. พจน์แรก $a_1 = 12$, อัตราส่วนร่วม $r = \frac{6}{12} = \frac{1}{2} = 0.5$<br>
-            2. ตรวจสอบเงื่อนไข: $|r| = |0.5| < 1$ $\implies$ <b>อนุกรมลู่เข้า</b><br>
-            3. แทนค่าในสูตรผลรวมอนันต์:
-            $$S_\infty = \frac{a_1}{1 - r} = \frac{12}{1 - 0.5} = \frac{12}{0.5} = \mathbf{24}$$
-            <span class="gn">สรุป: ผลบวกไปเรื่อยๆ จนถึงอนันต์จะมีค่าเท่ากับ 24 พอดี</span>
+            1. พจน์แรก $a_1 = 12$, อัตราส่วนร่วม $r = \frac{6}{12} = \mathbf{0.5}$<br>
+            2. $|0.5| < 1 \implies$ <b>ลู่เข้า</b> หาผลรวมได้<br>
+            3. $S_\infty = \frac{a_1}{1 - r} = \frac{12}{1 - 0.5} = \frac{12}{0.5} = \mathbf{24}$
+          </div>
+          <div class="diag-box" style="margin-top:.4cqh">
+            <svg class="diag-svg" viewBox="0 0 220 75">
+              <line x1="20" y1="20" x2="200" y2="20" stroke="#B7950B" stroke-width="1.4" stroke-dasharray="3"/>
+              <text x="135" y="15" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#B7950B">Limit S_∞ = 24</text>
+
+              <line x1="20" y1="65" x2="200" y2="65" stroke="#7884a4" stroke-width="1.2"/>
+              <circle cx="35" cy="45" r="3.5" fill="#1F3A93"/>
+              <text x="35" y="58" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">12</text>
+              <circle cx="75" cy="32" r="3.5" fill="#1F3A93"/>
+              <text x="75" y="45" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">18</text>
+              <circle cx="115" cy="26" r="3.5" fill="#1F3A93"/>
+              <text x="115" y="38" font-family="JetBrains Mono" font-size="7.5" fill="#1F3A93" text-anchor="middle">21</text>
+              <circle cx="155" cy="23" r="3.5" fill="#2E8B57"/>
+              <text x="155" y="35" font-family="JetBrains Mono" font-size="7.5" fill="#2E8B57" text-anchor="middle">22.5</text>
+              <polyline points="35,45 75,32 115,26 155,23 185,21" fill="none" stroke="#2E8B57" stroke-width="1.6"/>
+            </svg>
+            <div style="font-size:1.35cqh;color:var(--ink-soft);text-align:center">บวกทีละครึ่งของระยะที่เหลือ เข้าหา 24</div>
           </div>
         </div>
         <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">EX 2</span> การแปลงทศนิยมซ้ำ $0.333\dots$ เป็นเศษส่วน</div>
-            กระจายเป็นอนุกรมเรขาคณิตอนันต์:<br>
+            <div class="lab"><span class="pin">EX 2</span> แปลงทศนิยมซ้ำ $0.333\dots$ เป็นเศษส่วน</div>
             $0.333\dots = \frac{3}{10} + \frac{3}{100} + \frac{3}{1000} + \dots$<br>
-            • พจน์แรก $a_1 = 0.3$, อัตราส่วนร่วม $r = 0.1$ ($|r| < 1$ ลู่เข้า)<br>
-            • แทนค่าในสูตรผลรวมอนันต์:
-            $$S_\infty = \frac{0.3}{1 - 0.1} = \frac{0.3}{0.9} = \mathbf{\frac{1}{3}}$$
+            • $a_1 = 0.3, r = 0.1$ ($|r| < 1$ ลู่เข้า)<br>
+            • $S_\infty = \frac{0.3}{1 - 0.1} = \frac{0.3}{0.9} = \mathbf{\frac{1}{3}}$
+          </div>
+          <div class="diag-box" style="margin-top:.4cqh">
+            <svg class="diag-svg" viewBox="0 0 220 75">
+              <line x1="15" y1="52" x2="205" y2="52" stroke="#7884a4" stroke-width="1.5"/>
+              <circle cx="25" cy="52" r="3.5" fill="#7884a4"/>
+              <text x="25" y="66" font-family="JetBrains Mono" font-size="8" fill="#7884a4" text-anchor="middle">0</text>
+
+              <path d="M 25 48 Q 65 18 105 48" fill="none" stroke="#1F3A93" stroke-width="1.6"/>
+              <text x="65" y="24" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#1F3A93" text-anchor="middle">+0.3</text>
+
+              <path d="M 105 48 Q 130 28 155 48" fill="none" stroke="#2E8B57" stroke-width="1.6"/>
+              <text x="130" y="32" font-family="JetBrains Mono" font-size="7.5" font-weight="700" fill="#2E8B57" text-anchor="middle">+0.03</text>
+
+              <path d="M 155 48 Q 168 38 180 48" fill="none" stroke="#B7950B" stroke-width="1.4"/>
+
+              <line x1="185" y1="52" x2="185" y2="15" stroke="#C0392B" stroke-width="1.8"/>
+              <polygon points="185,15 205,22 185,29" fill="#C0392B"/>
+              <text x="185" y="66" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#C0392B" text-anchor="middle">1/3</text>
+            </svg>
+            <div style="font-size:1.35cqh;color:var(--ink-soft);text-align:center">ก้าวเข้าหาเป้าหมายที่แท้จริงคือ $1/3$</div>
           </div>
         </div>
       </div>
@@ -1049,23 +1600,60 @@ eq 1$:
     <div class="body">
       <div class="block">
         <div class="lab"><span class="pin">ANALOGY</span> มโนภาพในชีวิตจริง: ยอดเงินในบัญชีดอกเบี้ยทบต้น (Compound Interest)</div>
-        สมมุติยอดเงินในบัญชีสิ้นปีที่ $n$ คือ $B(n)$ โดยได้ดอกเบี้ยทบต้น $10\%$ ต่อปี ($1.10$) จากเงินต้นตั้งต้น 10,000 บาท:<br>
+        สมมุติยอดเงินในบัญชีสิ้นปีที่ $n$ คือ $B(n)$ ดอกเบี้ยทบต้น $10\%$ ต่อปี ($1.10$) จากเงินต้นตั้งต้น 10,000 บาท:<br>
         • <b>ขั้นตอนเวียนเกิด (Recursive Step):</b> $B(n) = B(n - 1) \times 1.10$ (ยอดเงินปีนี้คำนวณจากยอดเงินปีก่อนหน้า)<br>
-        • <b>กรณีฐาน (Base Case):</b> $B(0) = 10,000$ บาท (หากไม่มีเงินต้นตั้งต้น เราจะไม่สามารถคำนวณยอดเงินปีใดๆ ได้เลย!)
+        • <b>กรณีฐาน (Base Case):</b> $B(0) = 10,000$ บาท (หากไม่มีเงินต้นตั้งต้น จะคำนวณยอดเงินปีใดๆ ไม่ได้!)
       </div>
-      <div class="cols" style="margin-top:.4cqh">
+      <div class="cols wide-l" style="margin-top:.4cqh">
         <div class="col">
           <div class="block gold">
             <div class="lab"><span class="pin">PART 1</span> 1. กรณีฐาน (Base Case)</div>
-            • เงื่อนไขหรือค่าเริ่มต้นที่ทราบค่าแน่นอนโดยไม่ต้องคำนวณย้อนกลับต่อ เช่น เงินต้นตั้งต้น ณ วันเปิดบัญชี ($B(0) = 10,000$)<br>
-            • <span class="rd"><b>สำคัญมาก:</b> หากไม่มี Base Case การคำนวณจะย้อนกลับไปข้างหลังอย่างไม่มีที่สิ้นสุดและหาคำตอบไม่ได้</span>
+            • เงื่อนไขหรือค่าเริ่มต้นที่ทราบแน่นอน เช่น เงินต้นตั้งต้น ($B(0) = 10,000$)<br>
+            • <span class="rd"><b>สำคัญมาก:</b> หากไม่มี Base Case จะเกิดการคำนวณวนซ้ำไม่รู้จบ</span>
+          </div>
+          <div class="block ex" style="margin-top:.4cqh">
+            <div class="lab"><span class="pin">PART 2</span> 2. ขั้นตอนเวียนเกิด (Recursive Step)</div>
+            • สูตรความสัมพันธ์ที่แสดงค่าปัจจุบันโดยอิงจากงวดก่อนหน้า $B(n) = 1.10 B(n-1)$<br>
+            • ทุกการย้อนกลับต้องเคลื่อนที่เข้าใกล้ <b>Base Case</b> เสมอ
           </div>
         </div>
         <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">PART 2</span> 2. ขั้นตอนเวียนเกิด (Recursive Step)</div>
-            • กฎหรือสูตรความสัมพันธ์ที่แสดงค่าปัจจุบันโดยอิงจากค่างวดก่อนหน้า เช่น $B(n) = B(n-1) \times 1.10$<br>
-            • ต้องรับประกันว่าทุกการย้อนกลับจะเคลื่อนที่เข้าใกล้ **Base Case** เสมอ
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 240 160">
+              <!-- Winding down -->
+              <rect x="20" y="12" width="85" height="22" rx="4" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.2"/>
+              <text x="62" y="27" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93" text-anchor="middle">B(3) = 1.1·B(2)</text>
+
+              <line x1="62" y1="34" x2="62" y2="44" stroke="#1F3A93" stroke-width="1.5"/>
+              <polygon points="62,47 59,42 65,42" fill="#1F3A93"/>
+
+              <rect x="20" y="48" width="85" height="22" rx="4" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.2"/>
+              <text x="62" y="63" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93" text-anchor="middle">B(2) = 1.1·B(1)</text>
+
+              <line x1="62" y1="70" x2="62" y2="80" stroke="#1F3A93" stroke-width="1.5"/>
+              <polygon points="62,83 59,78 65,78" fill="#1F3A93"/>
+
+              <rect x="20" y="84" width="85" height="22" rx="4" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.2"/>
+              <text x="62" y="99" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93" text-anchor="middle">B(1) = 1.1·B(0)</text>
+
+              <!-- Base Case Card -->
+              <rect x="20" y="120" width="200" height="28" rx="5" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1.6"/>
+              <text x="120" y="138" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#2E8B57" text-anchor="middle">Base Case: B(0) = 10,000 (จุดสิ้นสุด)</text>
+
+              <!-- Unwinding Up -->
+              <line x1="165" y1="120" x2="165" y2="98" stroke="#2E8B57" stroke-width="1.5"/>
+              <polygon points="165,95 162,100 168,100" fill="#2E8B57"/>
+              <text x="175" y="108" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57">11,000</text>
+
+              <line x1="165" y1="84" x2="165" y2="62" stroke="#2E8B57" stroke-width="1.5"/>
+              <polygon points="165,59 162,64 168,64" fill="#2E8B57"/>
+              <text x="175" y="72" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57">12,100</text>
+
+              <line x1="165" y1="48" x2="165" y2="26" stroke="#2E8B57" stroke-width="1.5"/>
+              <polygon points="165,23 162,28 168,28" fill="#2E8B57"/>
+              <text x="175" y="36" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57">13,310</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">เจาะลึกหา Base Case (ซ้าย) แล้วส่งค่ากลับขึ้นมา (ขวา)</div>
           </div>
         </div>
       </div>
@@ -1085,7 +1673,7 @@ eq 1$:
             <div class="lab"><span class="pin">MODEL</span> การตั้งแบบจำลองความสัมพันธ์เวียนเกิด</div>
             ฝากเงิน 10,000 บาท ดอกเบี้ย $10\%$ ต่อปี แบบทบต้นทุกสิ้นปี:<br>
             • <b>กรณีฐาน:</b> $B(0) = 10,000$<br>
-            • <b>ขั้นตอนเวียนเกิด:</b> $B(n) = B(n-1) + 0.10 \times B(n-1) = \mathbf{1.10 \times B(n-1)}$
+            • <b>ขั้นตอนเวียนเกิด:</b> $B(n) = \mathbf{1.10 \times B(n-1)}$
           </div>
           <div class="block ex" style="margin-top:.4cqh">
             <div class="lab"><span class="pin">UNFOLD</span> การคลี่รูปเพื่อหาสูตรสำเร็จ (Closed-form)</div>
@@ -1098,12 +1686,42 @@ eq 1$:
         <div class="col">
           <div class="block">
             <div class="lab"><span class="pin">TABLE</span> ตารางยอดเงินจริง 5 ปีแรก</div>
-            • สิ้นปี 0: 10,000.00 บาท (เงินต้น)<br>
-            • สิ้นปี 1: 11,000.00 บาท (+1,000)<br>
-            • สิ้นปี 2: 12,100.00 บาท (+1,100)<br>
-            • สิ้นปี 3: 13,310.00 บาท (+1,210)<br>
-            • สิ้นปี 4: 14,641.00 บาท (+1,331)<br>
-            • สิ้นปี 5: 16,105.10 บาท (+1,464.10)
+            • สิ้นปี 0: 10,000.00 บาท &emsp;• สิ้นปี 1: 11,000.00 บาท (+1,000)<br>
+            • สิ้นปี 2: 12,100.00 บาท &emsp;• สิ้นปี 3: 13,310.00 บาท (+1,210)<br>
+            • สิ้นปี 4: 14,641.00 บาท &emsp;• สิ้นปี 5: 16,105.10 บาท (+1,464)
+          </div>
+          <div class="diag-box" style="margin-top:.4cqh">
+            <svg class="diag-svg" viewBox="0 0 240 85">
+              <line x1="20" y1="72" x2="225" y2="72" stroke="#7884a4" stroke-width="1.2"/>
+              <text x="10" y="14" font-family="JetBrains Mono" font-size="8" fill="#7884a4">บาท</text>
+
+              <rect x="28" y="38" width="22" height="34" rx="2" fill="#FEF9C3" stroke="#B7950B" stroke-width="1"/>
+              <text x="39" y="34" font-family="JetBrains Mono" font-size="7" font-weight="700" fill="#B7950B" text-anchor="middle">10k</text>
+              <text x="39" y="81" font-family="JetBrains Mono" font-size="8" fill="#7884a4" text-anchor="middle">ปี 0</text>
+
+              <rect x="58" y="34" width="22" height="38" rx="2" fill="#FEF9C3" stroke="#B7950B" stroke-width="1"/>
+              <text x="69" y="30" font-family="JetBrains Mono" font-size="7" font-weight="700" fill="#B7950B" text-anchor="middle">11k</text>
+              <text x="69" y="81" font-family="JetBrains Mono" font-size="8" fill="#7884a4" text-anchor="middle">ปี 1</text>
+
+              <rect x="88" y="29" width="22" height="43" rx="2" fill="#FEF9C3" stroke="#B7950B" stroke-width="1"/>
+              <text x="99" y="25" font-family="JetBrains Mono" font-size="7" font-weight="700" fill="#B7950B" text-anchor="middle">12.1k</text>
+              <text x="99" y="81" font-family="JetBrains Mono" font-size="8" fill="#7884a4" text-anchor="middle">ปี 2</text>
+
+              <rect x="118" y="24" width="22" height="48" rx="2" fill="#FEF9C3" stroke="#B7950B" stroke-width="1"/>
+              <text x="129" y="20" font-family="JetBrains Mono" font-size="7" font-weight="700" fill="#B7950B" text-anchor="middle">13.3k</text>
+              <text x="129" y="81" font-family="JetBrains Mono" font-size="8" fill="#7884a4" text-anchor="middle">ปี 3</text>
+
+              <rect x="148" y="18" width="22" height="54" rx="2" fill="#FEF9C3" stroke="#B7950B" stroke-width="1"/>
+              <text x="159" y="14" font-family="JetBrains Mono" font-size="7" font-weight="700" fill="#B7950B" text-anchor="middle">14.6k</text>
+              <text x="159" y="81" font-family="JetBrains Mono" font-size="8" fill="#7884a4" text-anchor="middle">ปี 4</text>
+
+              <rect x="178" y="12" width="22" height="60" rx="2" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1.3"/>
+              <text x="189" y="8" font-family="JetBrains Mono" font-size="7.5" font-weight="700" fill="#2E8B57" text-anchor="middle">16.1k</text>
+              <text x="189" y="81" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57" text-anchor="middle">ปี 5</text>
+
+              <path d="M 39 38 Q 110 28 189 12" fill="none" stroke="#C0392B" stroke-width="1.8"/>
+            </svg>
+            <div style="font-size:1.4cqh;color:var(--ink-soft);text-align:center">ยอดเงินเติบโตทบต้น $10\%$ ทุกสิ้นปี</div>
           </div>
         </div>
       </div>
@@ -1134,10 +1752,38 @@ eq 1$:
         </div>
         <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">REAL LIFE</span> การประยุกต์: การเข้าแถวและสลับที่</div>
-            • หากมีคน 4 คน เข้าแถวซื้อบัตรคอนเสิร์ต จะจัดเรียงได้ $4! = \mathbf{24 \text{ แบบ}}$<br>
-            • หากมีหนังสือ 5 เล่ม วางเรียงบนชั้น จะจัดได้ $5! = 120 \text{ แบบ}$<br>
-            แฟกทอเรียลคือพื้นฐานสำคัญของการนับความน่าจะเป็น
+            <div class="lab"><span class="pin">REAL LIFE</span> การประยุกต์: การจัดลำดับสิ่งของ</div>
+            • จัดคน 4 คนเข้าแถวได้ $4! = \mathbf{24 \text{ แบบ}}$<br>
+            • จัดหนังสือ 5 เล่มบนชั้นได้ $5! = 120 \text{ แบบ}$
+          </div>
+          <div class="diag-box" style="margin-top:.4cqh">
+            <svg class="diag-svg" viewBox="0 0 240 95">
+              <rect x="25" y="8" width="125" height="18" rx="3" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.2"/>
+              <text x="35" y="21" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#1F3A93">4! = 4 × 3!</text>
+              <text x="115" y="21" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#C0392B">= 24</text>
+
+              <rect x="25" y="29" width="125" height="18" rx="3" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.2"/>
+              <text x="35" y="42" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#1F3A93">3! = 3 × 2!</text>
+              <text x="115" y="42" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57">= 6</text>
+
+              <rect x="25" y="50" width="125" height="18" rx="3" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.2"/>
+              <text x="35" y="63" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#1F3A93">2! = 2 × 1!</text>
+              <text x="115" y="63" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57">= 2</text>
+
+              <rect x="25" y="71" width="125" height="18" rx="3" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1.4"/>
+              <text x="35" y="84" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57">1! = 1 (Base)</text>
+              <text x="115" y="84" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#2E8B57">= 1</text>
+
+              <path d="M 160 80 Q 178 70 160 60" fill="none" stroke="#2E8B57" stroke-width="1.5"/>
+              <text x="186" y="73" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57">คืน 1</text>
+
+              <path d="M 160 59 Q 178 49 160 39" fill="none" stroke="#2E8B57" stroke-width="1.5"/>
+              <text x="186" y="52" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#2E8B57">คืน 2</text>
+
+              <path d="M 160 38 Q 178 28 160 18" fill="none" stroke="#C0392B" stroke-width="1.5"/>
+              <text x="186" y="31" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#C0392B">คืน 6</text>
+            </svg>
+            <div style="font-size:1.4cqh;color:var(--ink-soft);text-align:center">การคลี่ฟังก์ชันแฟกทอเรียลแล้วส่งผลคูณกลับ</div>
           </div>
         </div>
       </div>
@@ -1160,13 +1806,41 @@ eq 1$:
             $$\mathbf{F_n = F_{n-1} + F_{n-2} \quad (n \ge 2)}$$
             ลำดับที่ได้คือ: $0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, \dots$
           </div>
+          <div class="block gold" style="margin-top:.4cqh">
+            <div class="lab"><span class="pin">RATIO</span> อัตราส่วนทองคำ (Golden Ratio $\phi$)</div>
+            เมื่อนำ $F_{n} / F_{n-1}$ จะลู่เข้าสู่ $\mathbf{\phi \approx 1.61803...}$ ซึ่งเป็นสัดส่วนที่สายตามนุษย์มองว่าสมดุลและสวยงามที่สุด
+          </div>
         </div>
         <div class="col">
           <div class="block ex">
             <div class="lab"><span class="pin">NATURE</span> สิ่งที่พบในธรรมชาติจริง</div>
-            • <b>การแพร่พันธุ์กระต่าย:</b> แบบจำลองลูกกระต่ายของฟีโบนัชชี<br>
-            • <b>กลีบดอกไม้:</b> ดอกลิลลี่ (3 กลีบ), บัตเตอร์คัพ (5 กลีบ), เดซี่ (13, 21 กลีบ)<br>
-            • <b>ตาสับปะรดและดอกทานตะวัน:</b> เกลียวก้นหอยจัดเรียงตามสัดส่วนฟีโบนัชชี เพื่อรับแสงแดดได้เต็มที่ที่สุด
+            • <b>กลีบดอกไม้:</b> ลิลลี่ (3 กลีบ), บัตเตอร์คัพ (5 กลีบ), เดซี่ (13, 21 กลีบ)<br>
+            • <b>ตาสับปะรดและทานตะวัน:</b> เกลียวก้นหอยจัดเรียงตามลำดับฟีโบนัชชี
+          </div>
+          <div class="diag-box" style="margin-top:.4cqh">
+            <svg class="diag-svg" viewBox="0 0 240 105">
+              <rect x="20" y="10" width="70" height="70" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.3"/>
+              <text x="55" y="48" font-family="JetBrains Mono" font-size="14" font-weight="700" fill="#1F3A93" text-anchor="middle">8</text>
+
+              <rect x="90" y="10" width="44" height="44" fill="#E6F4EA" stroke="#2E8B57" stroke-width="1.3"/>
+              <text x="112" y="36" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#2E8B57" text-anchor="middle">5</text>
+
+              <rect x="108" y="54" width="26" height="26" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.2"/>
+              <text x="121" y="70" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#B7950B" text-anchor="middle">3</text>
+
+              <rect x="90" y="54" width="18" height="18" fill="#FADBD8" stroke="#C0392B" stroke-width="1.2"/>
+              <text x="99" y="66" font-family="JetBrains Mono" font-size="8" font-weight="700" fill="#C0392B" text-anchor="middle">2</text>
+
+              <rect x="90" y="72" width="9" height="8" fill="#fff" stroke="#7884a4" stroke-width="0.8"/>
+              <rect x="99" y="72" width="9" height="8" fill="#fff" stroke="#7884a4" stroke-width="0.8"/>
+
+              <path d="M 90 72 A 9 9 0 0 1 99 72 A 18 18 0 0 1 108 54 A 26 26 0 0 1 134 80 A 44 44 0 0 1 90 10 A 70 70 0 0 1 20 80" fill="none" stroke="#C0392B" stroke-width="2.2"/>
+
+              <rect x="145" y="25" width="85" height="45" rx="5" fill="#FEF9C3" stroke="#B7950B" stroke-width="1.2"/>
+              <text x="187" y="42" font-family="JetBrains Mono" font-size="8.5" font-weight="700" fill="#16265e" text-anchor="middle">Golden Spiral</text>
+              <text x="187" y="58" font-family="JetBrains Mono" font-size="10" font-weight="700" fill="#C0392B" text-anchor="middle">ϕ ≈ 1.618</text>
+            </svg>
+            <div style="font-size:1.4cqh;color:var(--ink-soft);text-align:center">เกลียวก้นหอยทองคำ (Golden Spiral) จากลำดับฟีโบนัชชี</div>
           </div>
         </div>
       </div>

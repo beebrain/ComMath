@@ -113,15 +113,15 @@
 \vspace{0.3em}
 
 %% ---------- กิจกรรม 4 ----------
-\noindent\textbf{กิจกรรมที่ 4 : ฐานข้อมูลเชิงสัมพันธ์และพีชคณิตเชิงสัมพันธ์ (Relational Algebra: $\sigma, \pi, \bowtie$)} \hfill \textit{(8 นาที)}\\
-กำหนดรีเลชัน \texttt{Students(ID, Name, Major, GPA)} และ \texttt{Enroll(ID, CourseID, Grade)}
+\noindent\textbf{กิจกรรมที่ 4 : อนุกรมเรขาคณิตและการประยุกต์ในวิทยาการคอมพิวเตอร์ (Geometric Series \& CS Applications)} \hfill \textit{(8 นาที)}
 \begin{enumerate}[label=\arabic*)]
-  \item \textbf{การเลือก (Selection $\sigma$):} จงเขียนนิพจน์พีชคณิตเชิงสัมพันธ์เพื่อเลือกนักศึกษาที่มี $\text{GPA} \ge 3.50$:\\[0.15em]
-        นิพจน์: \makebox[13cm]{\dotfill}
-  \item \textbf{การฉาย (Projection $\pi$):} จงเขียนนิพจน์เพื่อดึงเฉพาะคอลัมน์ \texttt{Name} และ \texttt{Major} ของทุกคน:\\[0.15em]
-        นิพจน์: \makebox[13cm]{\dotfill}
-  \item \textbf{การเชื่อม (Natural Join $\bowtie$):} นิพจน์ $\pi_{\text{Name, CourseID}}(\sigma_{\text{Grade='A'}}(\text{Students} \bowtie \text{Enroll}))$ มีความหมายทางภาษาคนว่าอย่างไร?\\[0.15em]
-        \textcolor{gray!60}{\hrulefill}
+  \item \textbf{ผลรวมอนุกรมเรขาคณิตจำกัด:} กำหนดอนุกรม $3 + 6 + 12 + 24 + \dots$ จงหาผลรวม 6 พจน์แรก ($S_6$)\\[0.15em]
+        วิธีทำ: $a_1 = 3, \ r = $ \makebox[1.5cm]{\dotfill} , \quad สูตร $S_6 = \frac{a_1(r^6 - 1)}{r - 1} =$ \makebox[3.5cm]{\dotfill} $= $ \makebox[2cm]{\dotfill}
+  \item \textbf{ผลรวมอนุกรมเรขาคณิตอนันต์ ($S_\infty$):} จงหาผลรวมอนันต์ของ $12 + 6 + 3 + 1.5 + \dots$\\[0.15em]
+        วิธีทำ: $a_1 = 12, \ r = $ \makebox[1.5cm]{\dotfill} (เนื่องจาก $|r| < 1$ อนุกรมลู่เข้า) $\implies S_\infty = \frac{a_1}{1 - r} =$ \makebox[3cm]{\dotfill} $= $ \makebox[2cm]{\dotfill}
+  \item \textbf{การเติบโตแบบทวีคูณและการขยายอาร์เรย์ (Dynamic Array Doubling Strategy):}\\
+        ในภาษาไพทอน เมื่ออาร์เรย์เต็มจะขยายขนาดเป็น 2 เท่าเสมอ ($1 \to 2 \to 4 \to 8 \to \dots \to N$) มีต้นทุนคัดลอกสะสมคือ $N - 1$\\
+        ต้นทุนถัวเฉลี่ยต่อการเพิ่มข้อมูล 1 ตัว (Amortized Cost) $= \frac{N - 1}{N} \approx$ \makebox[2cm]{\dotfill} $\implies$ Big-O $= O($\makebox[1.5cm]{\dotfill}$)$
 \end{enumerate}
 \vspace{0.2em}
 

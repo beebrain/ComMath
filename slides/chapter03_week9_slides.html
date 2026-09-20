@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>บทที่ 3 ความสัมพันธ์และฟังก์ชัน — สัปดาห์ที่ 9 (1 Slide 1 Concept · 36 Slides)</title>
+<title>บทที่ 3 ความสัมพันธ์และฟังก์ชัน — สัปดาห์ที่ 9 (ลำดับ อนุกรม ฟังก์ชันเวียนเกิด และการวิเคราะห์ขั้นตอนวิธี)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,19 +12,19 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <style>
 /* =====================================================================
-   SEQUENCES & CS APPLICATIONS — 1 SLIDE 1 CONCEPT (WEEK 9)
+   WEEK 9: SEQUENCES, SERIES & RECURSIVE FUNCTIONS
    4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์ · มรภ.อุตรดิตถ์
    ===================================================================== */
 :root{
-  --paper:#F4EEDF; --paper2:#FCFAF3; --ink:#15203a; --ink-soft:#42506e;
+  --paper:#EEF2F8; --paper2:#F8FAFC; --ink:#111827; --ink-soft:#4B5563;
   --navy:#1F3A93; --navy2:#16265e; --navy3:#0e1a44;
   --green:#2E8B57; --green2:#1f6b41;
   --red:#C0392B; --red2:#962b20;
   --gold:#B7950B; --gold2:#8a7008;
   --cyan:#00838F; --purple:#6A1B9A;
-  --lnavy:#E7ECF8; --mint:#E6F4EA; --pink:#FBE7E4; --cream:#FFF7DD; --lyellow:#FFF6D5;
-  --line:rgba(31,58,147,.16);
-  --line2:rgba(31,58,147,.30);
+  --lnavy:#E7ECF8; --mint:#E6F4EA; --pink:#FBE7E4; --cream:#FEF9C3; --lyellow:#FEF08A;
+  --line:rgba(31,58,147,.14);
+  --line2:rgba(31,58,147,.28);
   --f-head:'IBM Plex Sans Thai','Noto Sans Thai','Sarabun',system-ui,-apple-system,sans-serif;
   --f-body:'Sarabun','Noto Sans Thai','IBM Plex Sans Thai',system-ui,-apple-system,sans-serif;
   --f-mono:'JetBrains Mono','Courier New',ui-monospace,monospace;
@@ -34,19 +34,13 @@ html,body{height:100%;font-family:var(--f-body);text-rendering:optimizeLegibilit
 body{color:var(--ink);background:var(--paper);overflow:hidden}
 
 .bg{position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(120% 90% at 12% 0%, #FAF5E7 0%, var(--paper) 55%, #ECE3CC 100%);
-}
-.bg::before{content:"";position:absolute;inset:0;opacity:.5;
-  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
-  background-size:46px 46px,46px 46px;
-  -webkit-mask-image:radial-gradient(120% 120% at 50% 40%,#000 55%,transparent 100%);
-  mask-image:radial-gradient(120% 120% at 50% 40%,#000 55%,transparent 100%);
+  background:radial-gradient(120% 90% at 15% 5%, #FFFFFF 0%, var(--paper) 60%, #E2E8F0 100%);
 }
 
 #app{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:100vh;width:100vw}
 .stage{position:relative;width:min(95.5vw,169vh);aspect-ratio:16/9;
   background:var(--paper2);border-radius:14px;
-  box-shadow:0 30px 70px -28px rgba(14,26,68,.55),0 2px 0 rgba(255,255,255,.6) inset,0 0 0 1px rgba(31,58,147,.10);
+  box-shadow:0 18px 45px -20px rgba(14,26,68,.45),0 0 0 1px rgba(31,58,147,.12);
   overflow:hidden;
 }
 .deck{position:absolute;inset:0}
@@ -58,22 +52,23 @@ body{color:var(--ink);background:var(--paper);overflow:hidden}
 /* Header & Footers */
 .head{display:flex;align-items:flex-end;gap:2cqw;
   background:linear-gradient(100deg,var(--navy2),var(--navy));
-  color:#fff;padding:2.8cqh 5cqw 2.2cqh;position:relative}
-.head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:.65cqh;
+  color:#fff;padding:2.2cqh 5cqw 1.8cqh;position:relative}
+.head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:.6cqh;
   background:linear-gradient(90deg,var(--gold) 0 16%,rgba(255,255,255,.25) 16% 100%)}
-.head .kick{font-family:var(--f-mono);font-size:1.65cqh;letter-spacing:.25em;
-  text-transform:uppercase;color:#cdd8f4;font-weight:500;display:block;margin-bottom:.3cqh}
-.head h2{font-family:var(--f-head);font-weight:700;font-size:4cqh;line-height:1.15}
+.head .kick{font-family:var(--f-mono);font-size:1.5cqh;letter-spacing:.25em;
+  text-transform:uppercase;color:#cdd8f4;font-weight:500;display:block;margin-bottom:.2cqh}
+.head h2{font-family:var(--f-head);font-weight:700;font-size:3.5cqh;line-height:1.25}
 .head h2 .en{font-weight:500;color:#b9c6ee;font-size:.72em}
 
 .body{position:absolute;top:0;left:0;right:0;bottom:0;
-  padding:12.8cqh 5.2cqw 5.6cqh;display:flex;flex-direction:column;justify-content:center;gap:1.8cqh;
-  font-size:2.85cqh;line-height:1.45;overflow:hidden}
-.body.tight{gap:1.2cqh}
+  padding:11.8cqh 5.2cqw 5.2cqh;display:flex;flex-direction:column;justify-content:flex-start;gap:1.6cqh;
+  font-size:2.45cqh;line-height:1.5;overflow:hidden}
+.body.tight{gap:1.1cqh;padding-top:11.2cqh}
+.body.center{justify-content:center}
 
-.foot{position:absolute;left:0;right:0;bottom:0;height:4.8cqh;
+.foot{position:absolute;left:0;right:0;bottom:0;height:4.4cqh;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 5.2cqw;font-size:1.85cqh;color:var(--navy);
+  padding:0 5cqw;font-size:1.7cqh;color:var(--navy);
   font-family:var(--f-head);border-top:1px solid var(--line)}
 .foot .right{font-family:var(--f-mono);letter-spacing:.05em;color:#7884a4}
 .foot .dot{color:var(--gold);margin:0 .5em}
@@ -81,13 +76,10 @@ body{color:var(--ink);background:var(--paper);overflow:hidden}
 /* Divider Slide */
 .divider{display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;text-align:center;
   background:linear-gradient(135deg,var(--navy2),var(--navy3));color:#fff;position:relative;overflow:hidden}
-.divider::before{content:"";position:absolute;inset:0;opacity:.08;
-  background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);
-  background-size:40px 40px}
-.divider .ghost{position:absolute;font-family:var(--f-mono);font-size:32cqh;font-weight:700;color:rgba(255,255,255,.04);
+.divider .ghost{position:absolute;font-family:var(--f-mono);font-size:30cqh;font-weight:700;color:rgba(255,255,255,.04);
   user-select:none;pointer-events:none}
-.divider .no{font-family:var(--f-mono);font-size:2.6cqh;color:var(--gold);letter-spacing:.3em;text-transform:uppercase;margin-bottom:1.5cqh}
-.divider h2{font-family:var(--f-head);font-size:5.6cqh;font-weight:700;line-height:1.2}
+.divider .no{font-family:var(--f-mono);font-size:2.4cqh;color:var(--gold);letter-spacing:.3em;text-transform:uppercase;margin-bottom:1.2cqh}
+.divider h2{font-family:var(--f-head);font-size:5.2cqh;font-weight:700;line-height:1.3}
 .divider h2 .en{display:block;font-size:.5em;color:#b9c6ee;font-weight:500;margin-top:.4cqh}
 
 /* Typography & Badges */
@@ -101,41 +93,54 @@ b,strong{font-weight:700;color:var(--navy2)}
 .expr{font-family:var(--f-mono);font-weight:600;color:var(--navy2)}
 
 /* Blocks & Columns */
-.block{border-radius:10px;padding:1.5cqh 2.2cqw;background:var(--lnavy);
-  border-left:.85cqh solid var(--navy);position:relative;
-  box-shadow:0 8px 20px -16px rgba(31,58,147,.6)}
-.block .lab{display:inline-flex;align-items:center;gap:.5em;font-family:var(--f-head);
-  font-weight:700;color:var(--navy);font-size:.85em;margin-bottom:.35cqh}
-.block .lab .pin{font-family:var(--f-mono);font-size:.8em;background:var(--navy);color:#fff;
-  padding:.1em .55em;border-radius:.4em}
-.block.ex{background:var(--mint);border-color:var(--green)}
+.block{border-radius:10px;padding:1.6cqh 2cqw;background:var(--lnavy);
+  border:1px solid rgba(31,58,147,.22);position:relative;
+  box-shadow:0 2px 6px rgba(14,26,68,.04)}
+.block .lab{display:flex;align-items:center;gap:.5em;font-family:var(--f-head);
+  font-weight:700;color:var(--navy);font-size:.92em;margin-bottom:.3cqh}
+.block .lab .pin{font-family:var(--f-mono);font-size:.82em;background:var(--navy);color:#fff;
+  padding:.1em .55em;border-radius:.35em}
+.block.ex{background:var(--mint);border-color:rgba(46,139,87,.3)}
 .block.ex .lab{color:var(--green2)} .block.ex .lab .pin{background:var(--green)}
-.block.al{background:var(--pink);border-color:var(--red)}
+.block.al{background:var(--pink);border-color:rgba(192,57,43,.3)}
 .block.al .lab{color:var(--red2)} .block.al .lab .pin{background:var(--red)}
-.block.gold{background:var(--lyellow);border-color:var(--gold)}
-.block.gold .lab{color:var(--gold2)} .block.gold .lab .pin{background:var(--gold)}
+.block.gold{background:var(--lyellow);border-color:rgba(183,149,11,.35)}
+.block.gold .lab{color:var(--gold2)} .block.gold .lab .pin{background:#78350F;color:#fff}
+.block.purple{background:#F3E8FF;border-color:rgba(106,27,154,.3)}
+.block.purple .lab{color:var(--purple)} .block.purple .lab .pin{background:var(--purple);color:#fff}
 
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:2.2cqw;align-items:start}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:1.8cqw;align-items:start}
 .cols.wide-l{grid-template-columns:1.2fr .8fr}
 .cols.wide-r{grid-template-columns:.8fr 1.2fr}
-.cols.three{grid-template-columns:repeat(3,1fr);gap:1.5cqw}
+.cols.three{grid-template-columns:repeat(3,1fr);gap:1.3cqw}
 .col{display:flex;flex-direction:column;gap:1.2cqh}
 
-.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1cqw;margin-top:.3cqh}
-.proc-card{background:#fff;border-radius:10px;padding:1.3cqh 1.1cqw;border:1px solid var(--line2);
-  box-shadow:0 6px 16px -10px rgba(31,58,147,.3);display:flex;flex-direction:column;gap:.4cqh}
-.proc-card .p-num{font-family:var(--f-mono);font-size:1.6cqh;font-weight:700;background:var(--navy);
-  color:#fff;border-radius:6px;padding:.12em .45em;align-self:flex-start}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2cqw;margin-top:.3cqh}
+.proc-card{background:#fff;border-radius:10px;padding:1.8cqh 1.4cqw;border:1px solid rgba(31,58,147,.16);
+  box-shadow:0 2px 6px rgba(14,26,68,.04);display:flex;flex-direction:column;gap:.5cqh}
+.proc-card .p-num{font-family:var(--f-mono);font-size:1.5cqh;font-weight:700;background:var(--navy);
+  color:#fff;border-radius:6px;padding:.1em .5em;align-self:flex-start}
 .proc-card .p-title{font-family:var(--f-head);font-size:2cqh;font-weight:700;color:var(--navy2)}
-.proc-card .p-desc{font-size:1.75cqh;color:var(--ink-soft);line-height:1.35}
+.proc-card .p-desc{font-size:1.7cqh;color:var(--ink-soft);line-height:1.4}
+
+/* Step-by-Step Card */
+.step-list{display:flex;flex-direction:column;gap:1cqh}
+.step-item{display:flex;align-items:flex-start;gap:1.2cqw;background:#fff;padding:1.1cqh 1.3cqw;border-radius:8px;border:1px solid var(--line2)}
+.step-badge{font-family:var(--f-mono);font-size:1.5cqh;font-weight:700;background:var(--navy);color:#fff;padding:.15em .55em;border-radius:6px;flex-shrink:0}
+.step-text{font-size:2.2cqh;line-height:1.4}
+
+/* Visual Diagrams (SVG) */
+.diag-box{background:#fff;border-radius:10px;padding:1.4cqh 1.6cqw;border:1px solid rgba(31,58,147,.16);
+  box-shadow:0 2px 6px rgba(14,26,68,.04);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.diag-svg{width:100%;max-height:24cqh;display:block}
 
 /* Reveal Component */
 .reveal{position:relative;cursor:pointer}
-.reveal .inner{filter:blur(10px);opacity:.2;transition:all .3s ease;pointer-events:none}
+.reveal .inner{filter:blur(9px);opacity:.2;transition:all .3s ease;pointer-events:none}
 .reveal.on .inner{filter:none;opacity:1;pointer-events:auto}
 .reveal .hint{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  background:var(--navy);color:#fff;font-family:var(--f-head);font-size:2.2cqh;font-weight:600;
-  padding:.4em 1.2em;border-radius:20px;box-shadow:0 8px 20px rgba(31,58,147,.4);
+  background:var(--navy);color:#fff;font-family:var(--f-head);font-size:2.1cqh;font-weight:600;
+  padding:.35em 1.1em;border-radius:20px;box-shadow:0 8px 20px rgba(31,58,147,.4);
   pointer-events:none;transition:opacity .25s ease;display:flex;align-items:center;gap:.5em}
 .reveal.on .hint{opacity:0}
 
@@ -156,16 +161,21 @@ b,strong{font-weight:700;color:var(--navy2)}
 .cover{display:flex;flex-direction:column;justify-content:center;height:100%;padding:0 8cqw;position:relative}
 .cover .tag{font-family:var(--f-mono);font-size:2.2cqh;letter-spacing:.3em;color:var(--gold2);
   font-weight:700;margin-bottom:1cqh;text-transform:uppercase}
-.cover h1{font-family:var(--f-head);font-size:6.4cqh;font-weight:700;line-height:1.1;color:var(--navy2);margin-bottom:1.5cqh}
+.cover h1{font-family:var(--f-head);font-size:5.6cqh;font-weight:700;line-height:1.15;color:var(--navy2);margin-bottom:1.4cqh}
 .cover h1 .en{display:block;font-size:.52em;color:var(--navy);font-weight:500;margin-top:.2cqh}
-.cover .sub{font-size:2.85cqh;color:var(--ink-soft);line-height:1.4;margin-bottom:3.2cqh}
-.cover .meta{font-size:2.2cqh;color:#596788;border-left:3px solid var(--gold);padding-left:1.5cqw}
+.cover .sub{font-size:2.55cqh;color:var(--ink-soft);line-height:1.45;margin-bottom:2.6cqh}
+.cover .meta{font-size:2.1cqh;color:#596788;border-left:3px solid var(--gold);padding-left:1.5cqw}
 .cover .meta .course{font-family:var(--f-mono);font-weight:700;color:var(--navy)}
 
 /* Interactive Simulator */
 .sim-box{background:#fff;border-radius:12px;padding:1.6cqh 1.8cqw;border:1px solid var(--line2);
   box-shadow:0 10px 24px -14px rgba(31,58,147,.4);display:flex;flex-direction:column;gap:.9cqh}
-.sim-input{font-family:var(--f-mono);font-size:1.9cqh;padding:.35cqh .7cqw;border:1px solid var(--line2);border-radius:6px;width:110px}
+.sim-row{display:flex;gap:1.2cqw;align-items:center;flex-wrap:wrap}
+.sim-input{font-family:var(--f-mono);font-size:1.9cqh;padding:.35cqh .7cqw;border:1px solid var(--line2);border-radius:6px;width:95px}
+.sim-select{font-family:var(--f-body);font-size:1.8cqh;padding:.35cqh .7cqw;border:1px solid var(--line2);border-radius:6px;background:#fff}
+.sim-btn{background:var(--navy);color:#fff;border:none;padding:.45cqh 1.2cqw;border-radius:6px;font-family:var(--f-head);font-weight:600;font-size:1.8cqh;cursor:pointer;transition:all .2s}
+.sim-btn:hover{background:var(--navy2);transform:translateY(-1px)}
+.sim-out{font-family:var(--f-mono);background:var(--lnavy);padding:1cqh 1.2cqw;border-radius:8px;font-size:1.9cqh;color:var(--navy2);min-height:3.2cqh;display:flex;align-items:center}
 
 /* Interactive Game */
 .game-box{background:#fff;border-radius:12px;padding:1.8cqh 2.2cqw;border:1px solid var(--line2);
@@ -180,6 +190,12 @@ b,strong{font-weight:700;color:var(--navy2)}
 .g-fb{font-size:1.95cqh;font-weight:600;padding:.5cqh 1cqw;border-radius:6px;display:none}
 .g-fb.ok{display:block;background:var(--mint);color:var(--green2)}
 .g-fb.no{display:block;background:var(--pink);color:var(--red2)}
+
+/* Table Slide */
+.table-slide{width:100%;border-collapse:collapse;font-size:1.9cqh;background:#fff;border-radius:8px;overflow:hidden;border:1px solid rgba(31,58,147,.18);box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.table-slide th{background:var(--navy);color:#fff;padding:.6cqh .8cqw;font-family:var(--f-head);font-weight:600;text-align:center}
+.table-slide td{padding:.6cqh .8cqw;border-bottom:1px solid var(--line2);color:var(--ink);line-height:1.4;text-align:center}
+.table-slide tr:nth-child(even){background:var(--paper2)}
 </style>
 </head>
 <body>
@@ -195,15 +211,15 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="cover">
       <div class="tag">Week 09 · Computer Mathematics</div>
       <h1>บทที่ 3 ความสัมพันธ์และฟังก์ชัน
-        <span class="en">Sequences, Series, Relational Algebra, Topological Sorting & Hash Tables</span>
+        <span class="en">Sequences, Series, Recursive Functions & Algorithm Complexity</span>
       </h1>
-      <p class="sub">เจาะลึก 1 ประเด็นต่อ 1 สไลด์ · ลำดับ อนุกรม & การวิเคราะห์ Loop · พีชคณิตเชิงสัมพันธ์ ($\sigma, \pi, \bowtie$) · และโครงสร้างตารางแฮช</p>
+      <p class="sub">เจาะลึก 1 ประเด็นต่อ 1 สไลด์ · ลำดับ อนุกรม · ฟังก์ชันเวียนเกิดและการทำงานของ Call Stack · วิเคราะห์ Loop $O(n^2)$ · Binary Tree · หอคอยแห่งฮานอย และเครื่องมือจำลอง Interactive</p>
       <div class="meta">
         <div class="course">4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์</div>
         <div>ผู้สอน: <b>ผู้ช่วยศาสตราจารย์ ดร.พิศิษฐ์ นาคใจ</b> · สาขาวิชาวิทยาการข้อมูล มรภ.อุตรดิตถ์</div>
       </div>
     </div>
-    <div class="foot"><span>สัปดาห์ที่ 9 : ลำดับ อนุกรม & การประยุกต์</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>สัปดาห์ที่ 9 : ลำดับ อนุกรม & ฟังก์ชันเวียนเกิด</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
   <!-- SLIDE 2: Objectives -->
@@ -215,23 +231,23 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div class="proc-grid">
         <div class="proc-card">
           <div class="p-num">01</div>
-          <div class="p-title">ลำดับ & อนุกรม</div>
-          <div class="p-desc">คำนวณพจน์ทั่วไปและผลรวมอนุกรม เพื่อใช้วิเคราะห์วงวน (Loops) และ Binary Tree</div>
+          <div class="p-title">ลำดับและพจน์ทั่วไป</div>
+          <div class="p-desc">เข้าใจลำดับในมุมมองของฟังก์ชัน หาพจน์ทั่วไป $a_n$ ของลำดับเลขคณิตและเรขาคณิตได้อย่างแม่นยำ</div>
         </div>
         <div class="proc-card">
           <div class="p-num">02</div>
-          <div class="p-title">ความสัมพันธ์เวียนเกิด</div>
-          <div class="p-desc">สร้างสมการ $T(n)$ อธิบายขั้นตอนวิธี Divide & Conquer เช่น Merge Sort</div>
+          <div class="p-title">อนุกรมและผลรวม</div>
+          <div class="p-desc">คำนวณผลรวมจำกัด $S_n$ และผลรวมอนันต์ $S_\infty$ พร้อมเข้าใจที่มาของสูตรและการลู่เข้า</div>
         </div>
         <div class="proc-card">
           <div class="p-num">03</div>
-          <div class="p-title">พีชคณิตเชิงสัมพันธ์</div>
-          <div class="p-desc">ประยุกต์ใช้ $\sigma, \pi, \bowtie$ ในแบบจำลองฐานข้อมูลเชิงสัมพันธ์ (SQL Model)</div>
+          <div class="p-title">การวิเคราะห์วงวน</div>
+          <div class="p-desc">ประยุกต์ใช้อนุกรมคำนวณรอบการทำงานของ Nested Loops ($O(n^2)$) และโครงสร้าง Binary Tree</div>
         </div>
         <div class="proc-card">
           <div class="p-num">04</div>
-          <div class="p-title">การจัดลำดับงาน & แฮช</div>
-          <div class="p-desc">หา Topological Sort สำหรับ DAG และแก้ปัญหาการชนกันในตารางแฮช</div>
+          <div class="p-title">ฟังก์ชันเวียนเกิด</div>
+          <div class="p-desc">เข้าใจกลไก Call Stack, Base Case, ลำดับฟีโบนัชชี, หอคอยแห่งฮานอย และการวิเคราะห์ Divide & Conquer</div>
         </div>
       </div>
     </div>
@@ -241,29 +257,39 @@ b,strong{font-weight:700;color:var(--navy2)}
   <!-- SLIDE 3: TOC -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Outline</span><h2>สาระการเรียนรู้ประจำสัปดาห์ที่ 9</h2></div>
+      <div><span class="kick">Outline</span><h2>โครงสร้างเนื้อหาประจำสัปดาห์ที่ 9</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">PART 1</span> ลำดับและอนุกรม (Sequences & Series)</div>
-            • ลำดับเลขคณิต/เรขาคณิต และผลรวมอนุกรม<br>
-            • การวิเคราะห์ Big-O ของวงวนซ้อน $O(n^2)$ และ Binary Tree Nodes
+            <div class="lab"><span class="pin">หมวด 1</span> พื้นฐานลำดับ (Sequences Foundations)</div>
+            • ลำดับในมุมมองของฟังก์ชัน ($a: \mathbb{Z}^+ \to \mathbb{R}$)<br>
+            • ลำดับเลขคณิต ผลต่างร่วม $d$ และการหาพจน์ $a_n$<br>
+            • ลำดับเรขาคณิต อัตราส่วนร่วม $r$ และพฤติกรรมการเติบโต
           </div>
           <div class="block ex">
-            <div class="lab"><span class="pin">PART 2</span> ความสัมพันธ์เวียนเกิด</div>
-            • ฟีโบนัชชี และการวิเคราะห์ Merge Sort ($O(n \log n)$)
+            <div class="lab"><span class="pin">หมวด 2</span> อนุกรมและผลรวม (Series & Summations)</div>
+            • สัญกรณ์ซิกมา ($\sum$) และผลรวมอนุกรมเลขคณิต (เทคนิคเกาส์)<br>
+            • ผลรวมอนุกรมเรขาคณิตจำกัด ($S_n$) และอนันต์ ($S_\infty$)
+          </div>
+          <div class="block gold">
+            <div class="lab"><span class="pin">หมวด 3</span> การวิเคราะห์วงวน (Loop Complexity Analysis)</div>
+            • Single Loop $O(n)$, Logarithmic Loop $O(\log n)$, Nested Loops $O(n^2)$
           </div>
         </div>
         <div class="col">
-          <div class="block gold">
-            <div class="lab"><span class="pin">PART 3</span> ฐานข้อมูลและพีชคณิตเชิงสัมพันธ์</div>
-            • Selection ($\sigma$), Projection ($\pi$), Join ($\bowtie$) และการแปลงเป็น SQL
+          <div class="block purple">
+            <div class="lab"><span class="pin">หมวด 4</span> โครงสร้างข้อมูล (Binary Trees & Dynamic Array)</div>
+            • โหนดรวมใน Complete Binary Tree ($2^{h+1}-1$) และการขยายอาร์เรย์ Amortized $O(1)$
           </div>
           <div class="block al">
-            <div class="lab"><span class="pin">PART 4</span> Poset, Topological Sort & Hash Tables</div>
-            • Hasse Diagram, การจัดลำดับงาน DAG และวิธีแก้ Collision ในตารางแฮช
+            <div class="lab"><span class="pin">หมวด 5</span> ฟังก์ชันเวียนเกิดและการประยุกต์ (Recursive Functions)</div>
+            • กลไก Call Stack, Factorial, Fast Power, Fibonacci, หอคอยแห่งฮานอย และ Merge Sort
+          </div>
+          <div class="block">
+            <div class="lab"><span class="pin">หมวด 6</span> ห้องปฏิบัติการจำลองและสรุปภาพรวม (Interactive Lab)</div>
+            • เครื่องมือคำนวณลำดับ, จำลอง Call Stack, นับรอบ Loop และเกมประลองความรู้
           </div>
         </div>
       </div>
@@ -276,7 +302,7 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="divider">
       <div class="ghost">aₙ</div>
       <div class="no">หมวดที่ 01</div>
-      <h2>ลำดับ (Sequences)<span class="en">Arithmetic & Geometric Sequences</span></h2>
+      <h2>พื้นฐานลำดับ (Sequences Foundations)<span class="en">Arithmetic & Geometric Sequences</span></h2>
     </div>
   </section>
 
@@ -286,15 +312,51 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div><span class="kick">Concept 1.1</span><h2>ลำดับในมุมมองของฟังก์ชัน (Sequence as a Function)</h2></div>
     </div>
     <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามลำดับ</div>
-        <b>ลำดับ (Sequence)</b> คือ ฟังก์ชันที่มีโดเมนเป็นเซตของจำนวนเต็มบวก $\mathbb{Z}^+ = \{1, 2, 3, \dots\}$:
-        $$\mathbf{a: \mathbb{Z}^+ \to \mathbb{R}}$$
-        โดยนิยมเขียนสัญลักษณ์แทนค่าผลลัพธ์ $a(n)$ ด้วย <b>พจน์ที่ $n$ หรือ $a_n$</b>
-      </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">NOTATION</span> ตัวอย่างลำดับ</div>
-        ลำดับ $a_n = 2n$ ให้สมาชิกคือ: $\mathbf{a_1 = 2, a_2 = 4, a_3 = 6, a_4 = 8, \dots}$
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> นิยามเชิงคณิตศาสตร์</div>
+            <b>ลำดับ (Sequence)</b> คือ ฟังก์ชันที่โดเมนถูกจำกัดให้เป็นเซตของจำนวนเต็มบวก $\mathbb{Z}^+ = \{1, 2, 3, \dots\}$:
+            $$\mathbf{a: \mathbb{Z}^+ \to \mathbb{R}}$$
+            นิยมเขียนสัญลักษณ์ผลลัพธ์ $a(n)$ ด้วย <b>พจน์ที่ $n$ หรือ $a_n$</b>
+          </div>
+          <div class="block ex">
+            <div class="lab"><span class="pin">MEANING</span> ความหมายในคอมพิวเตอร์</div>
+            ลำดับใช้เป็นตัวแทนของ:
+            • <b>แถวลำดับ (Array / List):</b> ข้อมูลที่เรียงลำดับตามดัชนีช่อง $0, 1, 2, \dots$<br>
+            • <b>ภาระงานในแต่ละรอบ (Work per iteration):</b> ปริมาณงานที่เกิดขึ้นในรอบที่ $n$ ของลูป
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 260 180">
+              <rect x="15" y="20" width="70" height="140" rx="10" fill="#E7ECF8" stroke="#1F3A93" stroke-width="2"/>
+              <text x="50" y="42" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#16265e" text-anchor="middle">Domain ℤ⁺</text>
+              <circle cx="50" cy="65" r="10" fill="#fff" stroke="#1F3A93" stroke-width="1.8"/>
+              <text x="50" y="69" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#1F3A93" text-anchor="middle">1</text>
+              <circle cx="50" cy="95" r="10" fill="#fff" stroke="#1F3A93" stroke-width="1.8"/>
+              <text x="50" y="99" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#1F3A93" text-anchor="middle">2</text>
+              <circle cx="50" cy="125" r="10" fill="#fff" stroke="#1F3A93" stroke-width="1.8"/>
+              <text x="50" y="129" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#1F3A93" text-anchor="middle">3</text>
+              <text x="50" y="150" font-family="JetBrains Mono" font-size="12" fill="#7884a4" text-anchor="middle">⋮</text>
+
+              <path d="M 65 65 Q 120 50 175 65" fill="none" stroke="#2E8B57" stroke-width="2"/>
+              <path d="M 65 95 Q 120 95 175 95" fill="none" stroke="#2E8B57" stroke-width="2"/>
+              <path d="M 65 125 Q 120 140 175 125" fill="none" stroke="#2E8B57" stroke-width="2"/>
+
+              <rect x="175" y="20" width="70" height="140" rx="10" fill="#E6F4EA" stroke="#2E8B57" stroke-width="2"/>
+              <text x="210" y="42" font-family="JetBrains Mono" font-size="12" font-weight="700" fill="#1f6b41" text-anchor="middle">Range ℝ</text>
+              <circle cx="210" cy="65" r="10" fill="#fff" stroke="#2E8B57" stroke-width="1.8"/>
+              <text x="210" y="69" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#1f6b41" text-anchor="middle">a₁</text>
+              <circle cx="210" cy="95" r="10" fill="#fff" stroke="#2E8B57" stroke-width="1.8"/>
+              <text x="210" y="99" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#1f6b41" text-anchor="middle">a₂</text>
+              <circle cx="210" cy="125" r="10" fill="#fff" stroke="#2E8B57" stroke-width="1.8"/>
+              <text x="210" y="129" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#1f6b41" text-anchor="middle">a₃</text>
+              <text x="210" y="150" font-family="JetBrains Mono" font-size="12" fill="#7884a4" text-anchor="middle">⋮</text>
+            </svg>
+            <div style="font-size:1.6cqh;color:var(--ink-soft);text-align:center;margin-top:.4cqh">การจับคู่แบบ 1 ต่อ 1 จากลำดับพจน์ $n$ ไปสู่ค่า $a_n$</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>ลำดับในมุมมองของฟังก์ชัน</span><span class="right">4091606 · CH03-W09</span></div>
@@ -307,531 +369,1305 @@ b,strong{font-weight:700;color:var(--navy2)}
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">DEF</span> พจน์ทั่วไปของลำดับเลขคณิต</div>
-        ลำดับที่ผลต่างของพจน์ที่ติดกันมีค่าคงที่เสมอ ($d = a_{n+1} - a_n$ เรียกว่า ผลต่างร่วม):
-        $$\mathbf{a_n = a_1 + (n - 1)d}$$
+        <div class="lab"><span class="pin">DEF</span> นิยามและผลต่างร่วม (Common Difference)</div>
+        ลำดับที่ผลต่างของพจน์ที่อยู่ติดกันมีค่าคงที่เสมอ เขียนแทนด้วย $d$:
+        $$\mathbf{d = a_{n+1} - a_n = \text{คงที่เสมอสำหรับทุก } n \ge 1}$$
+      </div>
+      <div class="cols" style="margin-top:.4cqh">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">FORMULA</span> การคลี่รูปเพื่อหาสูตรพจน์ทั่วไป</div>
+            • พจน์ที่ 1: $a_1$<br>
+            • พจน์ที่ 2: $a_2 = a_1 + d$<br>
+            • พจน์ที่ 3: $a_3 = a_2 + d = a_1 + 2d$<br>
+            • พจน์ที่ 4: $a_4 = a_3 + d = a_1 + 3d$<br>
+            $$\mathbf{\implies a_n = a_1 + (n - 1)d}$$
+          </div>
+        </div>
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">PROPERTIES</span> ข้อสังเกตสำคัญ</div>
+            1. ถ้า $d > 0$ ลำดับจะมีค่าเพิ่มขึ้นเรื่อยๆ (Strictly Increasing)<br>
+            2. ถ้า $d < 0$ ลำดับจะมีค่าลดลงเรื่อยๆ (Strictly Decreasing)<br>
+            3. ถ้า $d = 0$ ลำดับจะเป็นลำดับคงที่ ($a_n = a_1$)<br>
+            4. กราฟของพจน์ $a_n$ เป็นจุดบนเส้นตรงที่มีความชันเท่ากับ $d$
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>ลำดับเลขคณิต</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 7: Arithmetic Sequence Example -->
+  <!-- SLIDE 7: Arithmetic Example 1 -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 1.3</span><h2>ตัวอย่างการคำนวณลำดับเลขคณิต</h2></div>
+      <div><span class="kick">Example 1.3</span><h2>ตัวอย่างที่ 1 — การหาพจน์ทั่วไปและพจน์ที่กำหนด ($a_{50}$)</h2></div>
     </div>
     <div class="body">
       <div class="block gold">
-        <div class="lab"><span class="pin">EXAMPLE</span> กำหนดลำดับ $3, 7, 11, 15, \dots$ จงหาพจน์ที่ 50 ($a_{50}$)</div>
-        1. <b>ระบุค่าคงที่:</b> พจน์แรก $a_1 = 3$, ผลต่างร่วม $d = 7 - 3 = 4$<br>
-        2. <b>แทนค่าในสูตร:</b>
-        $$a_{50} = a_1 + (50 - 1)d = 3 + (49)(4)$$
-        $$a_{50} = 3 + 196 = \mathbf{199}$$
+        <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
+        กำหนดลำดับเลขคณิต $3, 7, 11, 15, \dots$ จงหาผลต่างร่วม $d$, พจน์ทั่วไป $a_n$, และพจน์ที่ 50 ($a_{50}$)
+      </div>
+      <div class="step-list" style="margin-top:.4cqh">
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 1</div>
+          <div class="step-text"><b>หาพจน์แรกและผลต่างร่วม:</b> พจน์แรก $a_1 = 3$, ผลต่างร่วม $d = a_2 - a_1 = 7 - 3 = \mathbf{4}$ (ตรวจสอบ: $11 - 7 = 4$ เท่ากัน)</div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 2</div>
+          <div class="step-text"><b>ตั้งสูตรพจน์ทั่วไป:</b> $a_n = a_1 + (n-1)d = 3 + (n-1)(4) = 3 + 4n - 4 = \mathbf{4n - 1}$</div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 3</div>
+          <div class="step-text"><b>คำนวณพจน์ที่ 50 ($a_{50}$):</b> แทน $n = 50$ ในสูตรพจน์ทั่วไป<br>
+          $a_{50} = 4(50) - 1 = 200 - 1 = \mathbf{199}$ หรือใช้ $a_{50} = 3 + (50-1)(4) = 3 + 196 = \mathbf{199}$</div>
+        </div>
       </div>
     </div>
-    <div class="foot"><span>ตัวอย่างลำดับเลขคณิต</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>ตัวอย่างการคำนวณพจน์ที่ 50</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 8: Geometric Sequence Definition -->
+  <!-- SLIDE 8: Arithmetic Example 2 -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 1.4</span><h2>ลำดับเรขาคณิต (Geometric Sequence)</h2></div>
+      <div><span class="kick">Example 1.4</span><h2>ตัวอย่างที่ 2 — การหาจำนวนพจน์ทั้งหมดของลำดับ (Find $n$)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block gold">
+        <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
+        กำหนดลำดับเลขคณิต $7, 11, 15, 19, \dots, 83$ จงหาว่าลำดับนี้มีทั้งหมดกี่พจน์?
+      </div>
+      <div class="step-list" style="margin-top:.4cqh">
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 1</div>
+          <div class="step-text"><b>ระบุค่าคงที่ที่ทราบจากโจทย์:</b><br>
+          พจน์แรก $a_1 = 7$, ผลต่างร่วม $d = 11 - 7 = 4$, และพจน์สุดท้าย $a_n = 83$ โดยต้องการหาค่า $n$</div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 2</div>
+          <div class="step-text"><b>แทนค่าลงในสมการพจน์ทั่วไป:</b><br>
+          $$83 = a_1 + (n - 1)d \implies 83 = 7 + (n - 1)(4)$$</div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 3</div>
+          <div class="step-text"><b>แก้สมการเชิงเส้นเพื่อหาค่า $n$:</b><br>
+          $83 - 7 = (n - 1)(4) \implies 76 = 4(n - 1) \implies n - 1 = \frac{76}{4} = 19 \implies \mathbf{n = 20}$<br>
+          <span class="gn">สรุป: ลำดับนี้มีสมาชิกทั้งหมด 20 พจน์</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การหาจำนวนพจน์</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 9: Arithmetic Example 3 -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Example 1.5</span><h2>ตัวอย่างที่ 3 — การแก้ระบบสมการหา $a_1$ และ $d$ เมื่อรู้สองพจน์ใดๆ</h2></div>
+    </div>
+    <div class="body">
+      <div class="block gold">
+        <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
+        กำหนดลำดับเลขคณิตที่มีพจน์ที่ 3 คือ $a_3 = 13$ และพจน์ที่ 7 คือ $a_7 = 29$ จงหาพจน์แรก $a_1$, ผลต่างร่วม $d$, และพจน์ทั่วไป $a_n$
+      </div>
+      <div class="step-list" style="margin-top:.4cqh">
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 1</div>
+          <div class="step-text"><b>ตั้งระบบสมการจากสูตร $a_n = a_1 + (n-1)d$:</b><br>
+          (1) $a_3 = a_1 + 2d = 13$&emsp;&emsp;และ&emsp;&emsp;(2) $a_7 = a_1 + 6d = 29$</div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 2</div>
+          <div class="step-text"><b>กำจัดตัวแปร $a_1$ โดยนำสมการ (2) ลบด้วยสมการ (1):</b><br>
+          $(a_1 + 6d) - (a_1 + 2d) = 29 - 13 \implies 4d = 16 \implies \mathbf{d = 4}$</div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 3</div>
+          <div class="step-text"><b>แทนค่า $d = 4$ กลับลงในสมการ (1) เพื่อหา $a_1$:</b><br>
+          $a_1 + 2(4) = 13 \implies a_1 + 8 = 13 \implies \mathbf{a_1 = 5}$<br>
+          ดังนั้น พจน์ทั่วไปคือ: $a_n = 5 + (n-1)(4) = \mathbf{4n + 1}$</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การแก้ระบบสมการหาค่าพจน์ทั่วไป</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 10: Geometric Sequence Definition -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 1.6</span><h2>ลำดับเรขาคณิต (Geometric Sequence)</h2></div>
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">DEF</span> พจน์ทั่วไปของลำดับเรขาคณิต</div>
-        ลำดับที่อัตราส่วนของพจน์ที่ติดกันมีค่าคงที่เสมอ ($r = \frac{a_{n+1}}{a_n}$ เรียกว่า อัตราส่วนร่วม):
-        $$\mathbf{a_n = a_1 \cdot r^{n - 1}}$$
+        <div class="lab"><span class="pin">DEF</span> นิยามและอัตราส่วนร่วม (Common Ratio)</div>
+        ลำดับที่พจน์ถัดไปได้จากการคูณพจน์ก่อนหน้าด้วยค่าคงที่ $r$ เสมอ โดยที่ $a_1 \neq 0$ และ $r \neq 0$:
+        $$\mathbf{r = \frac{a_{n+1}}{a_n} = \text{คงที่เสมอสำหรับทุก } n \ge 1}$$
+      </div>
+      <div class="cols" style="margin-top:.4cqh">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">FORMULA</span> การคลี่รูปเพื่อหาสูตรพจน์ทั่วไป</div>
+            • พจน์ที่ 1: $a_1$<br>
+            • พจน์ที่ 2: $a_2 = a_1 \cdot r$<br>
+            • พจน์ที่ 3: $a_3 = a_2 \cdot r = a_1 \cdot r^2$<br>
+            • พจน์ที่ 4: $a_4 = a_3 \cdot r = a_1 \cdot r^3$<br>
+            $$\mathbf{\implies a_n = a_1 \cdot r^{n-1}}$$
+          </div>
+        </div>
+        <div class="col">
+          <div class="block al">
+            <div class="lab"><span class="pin">WARNING</span> เหตุผลที่ $r \neq 0$ และ $a_1 \neq 0$</div>
+            หากยอมให้ $r = 0$ ลำดับจะเป็น $a_1, 0, 0, 0, \dots$<br>
+            ซึ่งตั้งแต่พจน์ที่สองเป็นต้นไปจะไม่สามารถหาอัตราส่วน $\frac{0}{0}$ ได้ (เกิดการหารด้วยศูนย์ undefined)<br>
+            จึงไม่นับเป็นลำดับเรขาคณิตตามหลักวิชาการ
+          </div>
+        </div>
       </div>
     </div>
     <div class="foot"><span>ลำดับเรขาคณิต</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 9: Geometric Sequence Example -->
+  <!-- SLIDE 11: Geometric Example 1 -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 1.5</span><h2>ตัวอย่างการคำนวณลำดับเรขาคณิต</h2></div>
+      <div><span class="kick">Example 1.7</span><h2>ตัวอย่างที่ 4 — การหาพจน์ทั่วไปและพจน์ที่กำหนด ($a_8$)</h2></div>
     </div>
     <div class="body">
       <div class="block gold">
-        <div class="lab"><span class="pin">EXAMPLE</span> กำหนดลำดับ $2, 6, 18, 54, \dots$ จงหาพจน์ที่ 8 ($a_8$)</div>
-        1. <b>ระบุค่าคงที่:</b> พจน์แรก $a_1 = 2$, อัตราส่วนร่วม $r = \frac{6}{2} = 3$<br>
-        2. <b>แทนค่าในสูตร:</b>
-        $$a_8 = a_1 \cdot r^{8-1} = 2 \cdot 3^7$$
-        $$a_8 = 2 \cdot 2,187 = \mathbf{4,374}$$
+        <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
+        กำหนดลำดับเรขาคณิต $2, 6, 18, 54, \dots$ จงหาอัตราส่วนร่วม $r$, พจน์ทั่วไป $a_n$, และพจน์ที่ 8 ($a_8$)
+      </div>
+      <div class="step-list" style="margin-top:.4cqh">
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 1</div>
+          <div class="step-text"><b>หาพจน์แรกและอัตราส่วนร่วม:</b><br>
+          พจน์แรก $a_1 = 2$, อัตราส่วนร่วม $r = \frac{a_2}{a_1} = \frac{6}{2} = \mathbf{3}$ (ตรวจสอบ: $\frac{18}{6} = 3$ เท่ากัน)</div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 2</div>
+          <div class="step-text"><b>เขียนสูตรพจน์ทั่วไป:</b><br>
+          $$a_n = a_1 \cdot r^{n-1} = \mathbf{2 \cdot 3^{n-1}}$$</div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 3</div>
+          <div class="step-text"><b>คำนวณพจน์ที่ 8 ($a_8$):</b> แทน $n = 8$<br>
+          $$a_8 = 2 \cdot 3^{8-1} = 2 \cdot 3^7$$
+          เนื่องจาก $3^7 = 2,187$ ดังนั้น $a_8 = 2 \times 2,187 = \mathbf{4,374}$</div>
+        </div>
       </div>
     </div>
-    <div class="foot"><span>ตัวอย่างลำดับเรขาคณิต</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>การคำนวณลำดับเรขาคณิต</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 10: DIVIDER 2 -->
+  <!-- SLIDE 12: Geometric Example 2 -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Example 1.8</span><h2>ตัวอย่างที่ 5 — ลำดับเรขาคณิตสลับเครื่องหมายและแบบลดลง</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">CASE 1</span> ลำดับสลับเครื่องหมาย ($r < 0$)</div>
+            กำหนดลำดับ $5, -10, 20, -40, 80, \dots$<br>
+            • $a_1 = 5, r = \frac{-10}{5} = \mathbf{-2}$<br>
+            • พจน์ทั่วไป: $a_n = 5(-2)^{n-1}$<br>
+            • <b>ข้อสังเกต:</b> พจน์คี่เป็นบวก, พจน์คู่เป็นลบ<br>
+            • ตัวอย่างใน CS: การกลับทิศสัญญาณ หรือ Bit-flip parity
+          </div>
+        </div>
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">CASE 2</span> ลำดับลดลงแบบครึ่งหนึ่ง ($0 < r < 1$)</div>
+            กำหนดลำดับ $64, 32, 16, 8, 4, \dots$<br>
+            • $a_1 = 64, r = \frac{32}{64} = \mathbf{\frac{1}{2}}$<br>
+            • พจน์ทั่วไป: $a_n = 64\left(\frac{1}{2}\right)^{n-1} = 2^6 \cdot 2^{-(n-1)} = \mathbf{2^{7-n}}$<br>
+            • ตัวอย่างใน CS: ขนาดข้อมูลที่เหลือในแต่ละรอบของ <b>Binary Search</b>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>รูปแบบลำดับเรขาคณิตที่พบบ่อย</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 13: Growth Comparison -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Visual Contrast</span><h2>การเปรียบเทียบการเติบโต: เชิงเส้น (Linear) vs ทวีคูณ (Exponential)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">COMPARE</span> ความเร็วในการเพิ่มค่า</div>
+            • <b>ลำดับเลขคณิต ($a_n = a_1 + (n-1)d$):</b> เติบโตแบบเชิงเส้น (Linear Growth $O(n)$) ค่าเพิ่มขึ้นด้วยอัตราคงที่ $d$<br>
+            • <b>ลำดับเรขาคณิต ($a_n = a_1 r^{n-1}$ เมื่อ $r > 1$):</b> เติบโตแบบทวีคูณ (Exponential Growth $O(r^n)$) ค่าจะพุ่งขึ้นอย่างมหาศาลเมื่อ $n$ มากขึ้น
+          </div>
+          <div class="block ex" style="margin-top:.4cqh">
+            <div class="lab"><span class="pin">DATA</span> ตัวอย่างเปรียบเทียบเมื่อ $n = 10$</div>
+            • เลขคณิต ($a_1=1, d=2$): $1, 3, 5, 7, \dots, a_{10} = \mathbf{19}$<br>
+            • เรขาคณิต ($a_1=1, r=2$): $1, 2, 4, 8, \dots, a_{10} = 2^9 = \mathbf{512}$ (โตกว่า 26 เท่า!)
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 240 160">
+              <line x1="30" y1="130" x2="220" y2="130" stroke="#7884a4" stroke-width="1.5"/>
+              <line x1="30" y1="130" x2="30" y2="20" stroke="#7884a4" stroke-width="1.5"/>
+              <text x="220" y="145" font-family="JetBrains Mono" font-size="10" fill="#7884a4">n</text>
+              <text x="15" y="25" font-family="JetBrains Mono" font-size="10" fill="#7884a4">aₙ</text>
+
+              <line x1="30" y1="120" x2="200" y2="70" stroke="#1F3A93" stroke-width="2.5"/>
+              <text x="205" y="75" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#1F3A93">Arithmetic (d)</text>
+
+              <path d="M 30 125 Q 130 120 185 25" fill="none" stroke="#C0392B" stroke-width="2.5"/>
+              <text x="120" y="25" font-family="JetBrains Mono" font-size="9.5" font-weight="700" fill="#C0392B">Geometric (rⁿ)</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center;margin-top:.3cqh">กราฟแสดงการเติบโตระหว่าง Arithmetic vs Geometric</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การเปรียบเทียบการเติบโต</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 14: DIVIDER 2 -->
   <section class="slide">
     <div class="divider">
       <div class="ghost">∑</div>
       <div class="no">หมวดที่ 02</div>
-      <h2>อนุกรมและการวิเคราะห์อัลกอริทึม<span class="en">Series, Loop Complexity & Recurrence</span></h2>
+      <h2>อนุกรมและผลรวม (Series & Summations)<span class="en">Arithmetic & Geometric Series (Finite & Infinite)</span></h2>
     </div>
   </section>
 
-  <!-- SLIDE 11: Arithmetic Series -->
+  <!-- SLIDE 15: Series Definition & Sigma -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 2.1</span><h2>อนุกรมเลขคณิต (Arithmetic Series $S_n$)</h2></div>
+      <div><span class="kick">Concept 2.1</span><h2>นิยามอนุกรมและสัญกรณ์ซิกมา (Series & Sigma $\sum$)</h2></div>
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">FORMULA</span> ผลรวมอนุกรมเลขคณิต</div>
-        $$\mathbf{S_n = \frac{n}{2}(a_1 + a_n) = \frac{n}{2}[2a_1 + (n - 1)d]}$$
+        <div class="lab"><span class="pin">DEF</span> นิยามอนุกรม (Series)</div>
+        <b>อนุกรม (Series)</b> คือ ผลบวกสะสมของสมาชิกในลำดับ ตั้งแต่พจน์แรก $a_1$ จนถึงพจน์ที่ $n$ เขียนแทนด้วย $S_n$:
+        $$\mathbf{S_n = \sum_{i=1}^n a_i = a_1 + a_2 + a_3 + \dots + a_n}$$
       </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">SUM 1..N</span> ผลรวมจำนวนเต็ม $1$ ถึง $n$</div>
-        $$\mathbf{\sum_{i=1}^n i = 1 + 2 + 3 + \dots + n = \frac{n(n+1)}{2}}$$
+      <div class="cols" style="margin-top:.4cqh">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">RULES</span> สมบัติของสัญกรณ์ซิกมา</div>
+            1. $\sum_{i=1}^n c = n \cdot c$ (เมื่อ $c$ เป็นค่าคงที่)<br>
+            2. $\sum_{i=1}^n c \cdot a_i = c \sum_{i=1}^n a_i$ (ดึงค่าคงที่ออกนอกซิกมาได้)<br>
+            3. $\sum_{i=1}^n (a_i \pm b_i) = \sum_{i=1}^n a_i \pm \sum_{i=1}^n b_i$ (แยกบวกลบได้)
+          </div>
+        </div>
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">CS MEANING</span> ความสำคัญในคอมพิวเตอร์</div>
+            หาก $a_i$ คือจำนวนคำสั่งที่โปรแกรมทำงานในรอบลูปที่ $i$<br>
+            ผลรวม $S_n = \sum a_i$ จะเท่ากับ <b>จำนวนคำสั่งทั้งหมดที่ CPU ต้องประมวลผล (Total Work)</b> ซึ่งนำไปสู่การหา Big-O notation
+          </div>
+        </div>
       </div>
     </div>
-    <div class="foot"><span>อนุกรมเลขคณิต</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>นิยามอนุกรมและสัญกรณ์ซิกมา</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 12: Nested Loops O(n^2) -->
+  <!-- SLIDE 16: Arithmetic Series Formula & Gauss -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 2.2</span><h2>การวิเคราะห์วงวนซ้อน (Nested Loops Analysis $O(n^2)$)</h2></div>
+      <div><span class="kick">Concept 2.2</span><h2>อนุกรมเลขคณิตและที่มาของสูตร (Gauss's Pairing Method)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">FORMULA</span> สูตรผลรวมอนุกรมเลขคณิต $n$ พจน์แรก</div>
+            $$\mathbf{S_n = \frac{n}{2}(a_1 + a_n) = \frac{n}{2}[2a_1 + (n - 1)d]}$$
+          </div>
+          <div class="block ex" style="margin-top:.4cqh">
+            <div class="lab"><span class="pin">SPECIAL CASE</span> ผลรวม $1$ ถึง $n$ ที่พบบ่อยที่สุดใน CS</div>
+            $$\mathbf{\sum_{i=1}^n i = 1 + 2 + 3 + \dots + n = \frac{n(n+1)}{2} = \frac{1}{2}n^2 + \frac{1}{2}n}$$
+          </div>
+        </div>
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">PROOF</span> เทคนิคการจับคู่ของเกาส์ (Gauss)</div>
+            บวกหัวกับท้ายเข้าหากันทีละคู่:<br>
+            $S = 1 + 2 + 3 + \dots + n$<br>
+            $S = n + (n-1) + \dots + 1$<br>
+            $2S = (n+1) + (n+1) + \dots + (n+1)$ ($n$ คู่)<br>
+            $2S = n(n+1) \implies \mathbf{S = \frac{n(n+1)}{2}}$
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>สูตรผลรวมอนุกรมเลขคณิต</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 17: Arithmetic Series Example 1 -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Example 2.3</span><h2>ตัวอย่างที่ 6 — การหาผลรวมอนุกรมเลขคณิต ($S_{20}$)</h2></div>
     </div>
     <div class="body">
       <div class="block gold">
-        <div class="lab"><span class="pin">NESTED LOOP</span> ที่มาของความซับซ้อน $O(n^2)$</div>
-        ในขั้นตอนวิธีจัดเรียงข้อมูล เช่น Bubble Sort หรือ Selection Sort ที่มี Loop ซ้อนกัน:<br>
-        $$\text{จำนวนรอบการทำงาน} = \sum_{i=1}^{n-1} i = \frac{n(n-1)}{2} = \mathbf{\frac{1}{2}n^2 - \frac{1}{2}n \implies O(n^2)}$$
+        <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
+        จงหาผลรวม 20 พจน์แรก ($S_{20}$) ของอนุกรมเลขคณิต $5 + 8 + 11 + 14 + \dots$
       </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">EX</span> เมื่อ $n = 100$ รายการ</div>
-        จะมีการเปรียบเทียบข้อมูลทั้งหมด $= \frac{100 \times 99}{2} = \mathbf{4,950 \text{ ครั้ง}}$
-      </div>
-    </div>
-    <div class="foot"><span>การวิเคราะห์วงวนซ้อน</span><span class="right">4091606 · CH03-W09</span></div>
-  </section>
-
-  <!-- SLIDE 13: Geometric Series & Binary Trees -->
-  <section class="slide">
-    <div class="head">
-      <div><span class="kick">Concept 2.3</span><h2>อนุกรมเรขาคณิต และจำนวนโหนดของ Binary Tree</h2></div>
-    </div>
-    <div class="body">
-      <div class="cols">
-        <div class="col">
-          <div class="block">
-            <div class="lab"><span class="pin">FORMULA</span> ผลรวมอนุกรมเรขาคณิต</div>
-            $$\mathbf{S_n = \frac{a_1(1 - r^n)}{1 - r} = \frac{a_1(r^n - 1)}{r - 1} \quad (r \neq 1)}$$
-          </div>
+      <div class="step-list" style="margin-top:.4cqh">
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 1</div>
+          <div class="step-text"><b>ระบุค่าคงที่:</b> พจน์แรก $a_1 = 5$, ผลต่างร่วม $d = 8 - 5 = 3$, จำนวนพจน์ที่ต้องการรวม $n = 20$</div>
         </div>
-        <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">TREE</span> โหนดใน Complete Binary Tree</div>
-            ต้นไม้ทวิภาคความสูง $h$ แต่ละชั้นมีโหนด $1, 2, 4, \dots, 2^h$<br>
-            $$\mathbf{\sum_{i=0}^h 2^i = 1 + 2 + 4 + \dots + 2^h = 2^{h+1} - 1}$$
-          </div>
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 2</div>
+          <div class="step-text"><b>แทนค่าในสูตร $S_n = \frac{n}{2}[2a_1 + (n-1)d]$:</b><br>
+          $$S_{20} = \frac{20}{2}[2(5) + (20-1)(3)] = 10[10 + (19)(3)]$$</div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 3</div>
+          <div class="step-text"><b>คำนวณผลลัพธ์:</b><br>
+          $S_{20} = 10[10 + 57] = 10 \times 67 = \mathbf{670}$<br>
+          <span class="gn">วิธีทางเลือก: หา $a_{20} = 5 + 19(3) = 62 \implies S_{20} = \frac{20}{2}(5 + 62) = 10 \times 67 = 670$</span></div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>อนุกรมเรขาคณิต & Binary Tree</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>การคำนวณผลรวมอนุกรมเลขคณิต</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 14: Recurrence Relations Definition -->
+  <!-- SLIDE 18: Arithmetic Series Example 2 -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 2.4</span><h2>ความสัมพันธ์เวียนเกิด (Recurrence Relations)</h2></div>
-    </div>
-    <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามความสัมพันธ์เวียนเกิด</div>
-        สมการที่กำหนดค่าของพจน์ $a_n$ ในรูปของพจน์ก่อนหน้า $a_{n-1}, a_{n-2}, \dots$ พร้อมทั้งกำหนดค่าเริ่มต้น (Initial Conditions)
-      </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">FIBONACCI</span> ตัวอย่างลำดับฟีโบนัชชี</div>
-        $$F_0 = 0, \quad F_1 = 1, \quad \mathbf{F_n = F_{n-1} + F_{n-2} \quad (n \ge 2)}$$
-        ลำดับที่ได้คือ: $0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, \dots$
-      </div>
-    </div>
-    <div class="foot"><span>ความสัมพันธ์เวียนเกิด</span><span class="right">4091606 · CH03-W09</span></div>
-  </section>
-
-  <!-- SLIDE 15: Merge Sort Recurrence Analysis -->
-  <section class="slide">
-    <div class="head">
-      <div><span class="kick">Concept 2.5</span><h2>การวิเคราะห์ Divide & Conquer: Merge Sort</h2></div>
+      <div><span class="kick">Example 2.4</span><h2>ตัวอย่างที่ 7 — ผลรวมอนุกรมเลขคณิตเมื่อรู้พจน์สุดท้าย</h2></div>
     </div>
     <div class="body">
       <div class="block gold">
-        <div class="lab"><span class="pin">RECURRENCE</span> สมการเวลาทำงานของ Merge Sort</div>
-        $$T(n) = 2T(n/2) + c\cdot n \quad \text{โดย } T(1) = c$$
+        <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
+        จงหาผลรวมของอนุกรมเลขคณิต $2 + 5 + 8 + 11 + \dots + 59$
       </div>
-      <div class="block ex">
-        <div class="lab"><span class="pin">PROOF</span> การคลี่สมการ (Recursion Tree)</div>
-        • ชั้นที่ 0 ถึงชั้นสุดท้ายมีจำนวนระดับความลึกทั้งหมด $= \log_2 n$ ชั้น<br>
-        • ในแต่ละชั้น งานที่ใช้ในการ Merge รวมกันเท่ากับ $cn$ หน่วยเสมอ<br>
-        $$\mathbf{T(n) = c \cdot n \cdot \log_2 n \implies O(n \log n)}$$
+      <div class="step-list" style="margin-top:.4cqh">
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 1</div>
+          <div class="step-text"><b>หาจำนวนพจน์ $n$ ก่อนเสมอ:</b> ทราบ $a_1 = 2, d = 3, a_n = 59$<br>
+          $59 = 2 + (n - 1)(3) \implies 57 = 3(n - 1) \implies n - 1 = 19 \implies \mathbf{n = 20}$ พจน์</div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 2</div>
+          <div class="step-text"><b>เลือกใช้สูตร $S_n = \frac{n}{2}(a_1 + a_n)$ เพราะทราบพจน์สุดท้ายแล้ว:</b><br>
+          $$S_{20} = \frac{20}{2}(2 + 59) = 10 \times (61)$$</div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 3</div>
+          <div class="step-text"><b>คำนวณผลลัพธ์:</b><br>
+          $S_{20} = 10 \times 61 = \mathbf{610}$</div>
+        </div>
       </div>
     </div>
-    <div class="foot"><span>การวิเคราะห์ Merge Sort</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>ผลรวมเมื่อรู้พจน์สุดท้าย</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 16: DIVIDER 3 -->
-  <section class="slide">
-    <div class="divider">
-      <div class="ghost">⋈</div>
-      <div class="no">หมวดที่ 03</div>
-      <h2>ฐานข้อมูลเชิงสัมพันธ์และพีชคณิตเชิงสัมพันธ์<span class="en">Relational Model & Relational Algebra</span></h2>
-    </div>
-  </section>
-
-  <!-- SLIDE 17: Codd's Relational Model -->
+  <!-- SLIDE 19: Geometric Series Finite -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 3.1</span><h2>แบบจำลองฐานข้อมูลเชิงสัมพันธ์ของคอดด์ (Codd's Model)</h2></div>
+      <div><span class="kick">Concept 2.5</span><h2>อนุกรมเรขาคณิตจำกัด (Finite Geometric Series)</h2></div>
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">CONCEPT</span> ตารางข้อมูล คือ ความสัมพันธ์ทางคณิตศาสตร์</div>
-        เอ็ดการ์ เอฟ. คอดด์ (E.F. Codd) เสนอให้มองตารางในฐานข้อมูลเป็น <b>ความสัมพันธ์ $n$ มิติ (n-ary Relation)</b>:<br>
-        • <b>ตาราง (Table / Relation):</b> เซตย่อยของ $D_1 \times D_2 \times \dots \times D_n$<br>
-        • <b>แถว (Row / Tuple):</b> คู่อันดับ $n$ สิ่ง $(v_1, v_2, \dots, v_n)$<br>
-        • <b>คอลัมน์ (Column / Attribute):</b> โดเมนของข้อมูลประเภทนั้นๆ
+        <div class="lab"><span class="pin">FORMULA</span> สูตรผลรวมอนุกรมเรขาคณิต $n$ พจน์แรก</div>
+        เมื่อ $r \neq 1$:
+        $$\mathbf{S_n = \frac{a_1(1 - r^n)}{1 - r} = \frac{a_1(r^n - 1)}{r - 1}} \qquad \text{(กรณี } r = 1 \text{ จะได้ } S_n = n a_1)$$
       </div>
-    </div>
-    <div class="foot"><span>แบบจำลองฐานข้อมูลเชิงสัมพันธ์</span><span class="right">4091606 · CH03-W09</span></div>
-  </section>
-
-  <!-- SLIDE 18: Selection Operator -->
-  <section class="slide">
-    <div class="head">
-      <div><span class="kick">Concept 3.2</span><h2>การเลือกแถวข้อมูล (Selection $\sigma$)</h2></div>
-    </div>
-    <div class="body">
-      <div class="cols">
+      <div class="cols" style="margin-top:.4cqh">
         <div class="col">
-          <div class="block">
-            <div class="lab"><span class="pin">ALGEBRA</span> นิพจน์ $\sigma_{\text{condition}}(R)$</div>
-            เลือกเฉพาะ <b>แถว (Tuples)</b> ที่ตรงตามเงื่อนไขที่กำหนด
+          <div class="block gold">
+            <div class="lab"><span class="pin">PROOF</span> ที่มาของสูตร (Algebraic Subtraction)</div>
+            (1) $S_n = a_1 + a_1 r + a_1 r^2 + \dots + a_1 r^{n-1}$<br>
+            คูณด้วย $r$: (2) $r S_n = a_1 r + a_1 r^2 + \dots + a_1 r^n$<br>
+            นำ (1) - (2): $S_n - r S_n = a_1 - a_1 r^n$<br>
+            $S_n(1 - r) = a_1(1 - r^n) \implies \mathbf{S_n = \frac{a_1(1 - r^n)}{1 - r}}$
           </div>
         </div>
         <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">SQL EQUIVALENT</span> เทียบเท่าคำสั่ง SQL</div>
-            $$\mathbf{\sigma_{\text{GPA} \ge 3.50}(\text{Students})}$$
-            <span class="code">SELECT * FROM Students WHERE GPA >= 3.50;</span>
+            <div class="lab"><span class="pin">TIP</span> เคล็ดลับการเลือกใช้รูปสูตร</div>
+            • ถ้า $r > 1$ นิยมใช้รูป $\frac{a_1(r^n - 1)}{r - 1}$ เพื่อให้ทั้งเศษและส่วนเป็นค่าบวก<br>
+            • ถ้า $r < 1$ นิยมใช้รูป $\frac{a_1(1 - r^n)}{1 - r}$ เพื่อหลีกเลี่ยงเครื่องหมายลบ
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>การเลือก (Selection)</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>อนุกรมเรขาคณิตจำกัด</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 19: Projection Operator -->
+  <!-- SLIDE 20: Geometric Series Example 1 -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 3.3</span><h2>การฉายคอลัมน์ (Projection $\pi$)</h2></div>
+      <div><span class="kick">Example 2.6</span><h2>ตัวอย่างที่ 8 — การหาผลรวมอนุกรมเรขาคณิตจำกัด ($S_6$)</h2></div>
     </div>
     <div class="body">
-      <div class="cols">
-        <div class="col">
-          <div class="block">
-            <div class="lab"><span class="pin">ALGEBRA</span> นิพจน์ $\pi_{A_1, A_2, \dots}(R)$</div>
-            เลือกเฉพาะ <b>คอลัมน์ (Attributes)</b> ที่ระบุ และตัดแถวที่ซ้ำกันทิ้งไปโดยอัตโนมัติ
-          </div>
+      <div class="block gold">
+        <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
+        จงหาผลรวม 6 พจน์แรก ($S_6$) ของอนุกรมเรขาคณิต $3 + 6 + 12 + 24 + \dots$
+      </div>
+      <div class="step-list" style="margin-top:.4cqh">
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 1</div>
+          <div class="step-text"><b>ระบุค่าคงที่:</b> พจน์แรก $a_1 = 3$, อัตราส่วนร่วม $r = \frac{6}{3} = 2$, จำนวนพจน์ $n = 6$</div>
         </div>
-        <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">SQL EQUIVALENT</span> เทียบเท่าคำสั่ง SQL</div>
-            $$\mathbf{\pi_{\text{StudentID, Name}}(\text{Students})}$$
-            <span class="code">SELECT DISTINCT StudentID, Name FROM Students;</span>
-          </div>
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 2</div>
+          <div class="step-text"><b>แทนค่าในสูตร $S_n = \frac{a_1(r^n - 1)}{r - 1}$ (เนื่องจาก $r = 2 > 1$):</b><br>
+          $$S_6 = \frac{3(2^6 - 1)}{2 - 1} = \frac{3(64 - 1)}{1}$$</div>
+        </div>
+        <div class="step-item">
+          <div class="step-badge">ขั้นที่ 3</div>
+          <div class="step-text"><b>คำนวณผลลัพธ์:</b><br>
+          $S_6 = 3 \times 63 = \mathbf{189}$<br>
+          <span class="gn">ตรวจสอบด้วยการบวกตรง: $3 + 6 + 12 + 24 + 48 + 96 = 189$ ตรงกันอย่างแม่นยำ</span></div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>การฉาย (Projection)</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>การคำนวณอนุกรมเรขาคณิต</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 20: Natural Join Operator -->
+  <!-- SLIDE 21: Infinite Geometric Series -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 3.4</span><h2>การเชื่อมตาราง (Natural Join $\bowtie$)</h2></div>
-    </div>
-    <div class="body">
-      <div class="cols">
-        <div class="col">
-          <div class="block">
-            <div class="lab"><span class="pin">ALGEBRA</span> นิพจน์ $R \bowtie S$</div>
-            รวมสองตารางเข้าด้วยกัน โดยจับคู่แถวที่มี <b>ชื่อคอลัมน์และค่าข้อมูลตรงกัน</b>
-          </div>
-        </div>
-        <div class="col">
-          <div class="block ex">
-            <div class="lab"><span class="pin">SQL EQUIVALENT</span> เทียบเท่าคำสั่ง SQL</div>
-            $$\mathbf{\text{Students} \bowtie \text{Enrollment}}$$
-            <span class="code">SELECT * FROM Students NATURAL JOIN Enrollment;</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span>การเชื่อม (Join)</span><span class="right">4091606 · CH03-W09</span></div>
-  </section>
-
-  <!-- SLIDE 21: DIVIDER 4 -->
-  <section class="slide">
-    <div class="divider">
-      <div class="ghost">DAG</div>
-      <div class="no">หมวดที่ 04</div>
-      <h2>ลำดับบางส่วนและการจัดลำดับงาน<span class="en">Partial Orders & Topological Sorting</span></h2>
-    </div>
-  </section>
-
-  <!-- SLIDE 22: Partial Order Definition -->
-  <section class="slide">
-    <div class="head">
-      <div><span class="kick">Concept 4.1</span><h2>ลำดับบางส่วน (Partial Order / Poset)</h2></div>
+      <div><span class="kick">Concept 2.7</span><h2>อนุกรมเรขาคณิตอนันต์ (Infinite Geometric Series $S_\infty$)</h2></div>
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยาม Poset</div>
-        ความสัมพันธ์ $R$ บนเซต $A$ จะเป็น <b>ความสัมพันธ์ลำดับบางส่วน</b> ก็ต่อเมื่อมีครบทั้ง 3 สมบัติ:
-        $$\mathbf{\text{1. สะท้อน (Reflexive)}} \quad \mathbf{\text{2. ปฏิสมมาตร (Antisymmetric)}} \quad \mathbf{\text{3. ถ่ายทอด (Transitive)}}$$
+        <div class="lab"><span class="pin">DEF</span> ผลรวมอนันต์และการลู่เข้า (Convergence)</div>
+        เมื่อพิจารณาผลรวมไม่จำกัดพจน์ ($n \to \infty$) ของอนุกรมเรขาคณิต:
+        $$\mathbf{S_\infty = \sum_{i=1}^\infty a_1 r^{i-1} = \lim_{n \to \infty} \frac{a_1(1 - r^n)}{1 - r}}$$
       </div>
       <div class="cols" style="margin-top:.4cqh">
         <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">EXAMPLES</span> ตัวอย่าง Poset ยอดนิยม</div>
-            • ความสัมพันธ์ $\le$ บนจำนวนจริง $\mathbb{R}$<br>
-            • ความสัมพันธ์การเป็นเซตย่อย $\subseteq$ บน $\mathcal{P}(S)$<br>
-            • ความสัมพันธ์การหารลงตัว $a \mid b$ บน $\mathbb{Z}^+$
+            <div class="lab"><span class="pin">CONVERGE</span> กรณีลู่เข้า ($|r| < 1$)</div>
+            เมื่อ $-1 < r < 1$ จะได้ว่า $r^n \to 0$ เมื่อ $n \to \infty$<br>
+            ทำให้สูตรลดรูปเหลือ:
+            $$\mathbf{S_\infty = \frac{a_1}{1 - r}}$$
+            ผลรวมจะลู่เข้าสู่ค่าคงที่จำกัดค่าหนึ่งเสมอ
           </div>
         </div>
         <div class="col">
-          <div class="block gold">
-            <div class="lab"><span class="pin">COMPARE</span> เปรียบเทียบกับความสัมพันธ์สมมูล</div>
-            • <b>ความสัมพันธ์สมมูล:</b> สะท้อน + <span class="gn">สมมาตร</span> + ถ่ายทอด (เช่น $a+b$ เป็นคู่, $a \equiv b \pmod m$)<br>
-            • <b>Poset:</b> สะท้อน + <span class="gn">ปฏิสมมาตร</span> + ถ่ายทอด
+          <div class="block al">
+            <div class="lab"><span class="pin">DIVERGE</span> กรณีลู่ออก ($|r| \ge 1$)</div>
+            เมื่อ $r \ge 1$ หรือ $r \le -1$ ค่าของ $r^n$ จะโตขึ้นอย่างไม่มีขอบเขตหรือแกว่งไปมา<br>
+            ส่งผลให้ **อนุกรมลู่ออก (Divergent Series)** ไม่สามารถหาผลรวมอนันต์ได้
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>ลำดับบางส่วน (Poset)</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>อนุกรมเรขาคณิตอนันต์</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 23: Hasse Diagram -->
+  <!-- SLIDE 22: Infinite Geometric Example -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 4.2</span><h2>แผนภาพฮาสเซ (Hasse Diagram)</h2></div>
-    </div>
-    <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">DEF</span> การวาดแผนภาพฮาสเซ</div>
-        กราฟลดรูปสำหรับแทน Poset โดยมีกฎการตัดส่วนซ้ำซ้อน 3 ข้อ:
-        <ul style="margin-top:.4cqh;margin-left:1.5cqw">
-          <li>1. <b>ตัดลูปบนตัวเองออกทั้งหมด</b> (เพราะรู้อยู่แล้วว่าเป็นสะท้อน)</li>
-          <li>2. <b>ตัดเส้นทางลัดตรงออกทั้งหมด</b> (เพราะรู้อยู่แล้วว่าเป็นถ่ายทอด)</li>
-          <li>3. <b>วาดสมาชิกที่น้อยกว่าไว้ด้านล่าง</b> และสมาชิกที่มากกว่าไว้ด้านบน (ไม่ต้องใส่หัวลูกศร)</li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot"><span>แผนภาพฮาสเซ</span><span class="right">4091606 · CH03-W09</span></div>
-  </section>
-
-  <!-- SLIDE 24: Topological Sorting -->
-  <section class="slide">
-    <div class="head">
-      <div><span class="kick">Concept 4.3</span><h2>การจัดลำดับงานเชิงทอพอโลยี (Topological Sorting)</h2></div>
-    </div>
-    <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">ALGO</span> ขั้นตอนวิธีบน DAG (Directed Acyclic Graph)</div>
-        จัดลำดับงานในแนวเส้นตรง โดยที่งานเงื่อนไขก่อนหน้า (Prerequisite) ต้องทำเสร็จก่อนเสมอ:<br><br>
-        1. ค้นหาโหนดที่มี $\text{In-degree} = 0$ (ไม่มีเงื่อนไขค้าง)<br>
-        2. บันทึกโหนดนั้นลงในลำดับผลลัพธ์ แล้วลบโหนดและเส้นเชื่อมที่พุ่งออกทิ้ง<br>
-        3. ทำซ้ำจนกระทั่งครบทุกโหนด
-      </div>
-    </div>
-    <div class="foot"><span>Topological Sorting</span><span class="right">4091606 · CH03-W09</span></div>
-  </section>
-
-  <!-- SLIDE 25: Topological Sort in Software -->
-  <section class="slide">
-    <div class="head">
-      <div><span class="kick">Concept 4.4</span><h2>การประยุกต์ Topological Sort ในระบบซอฟต์แวร์</h2></div>
+      <div><span class="kick">Example 2.8</span><h2>ตัวอย่างที่ 9 — การหาผลรวมอนันต์และทศนิยมซ้ำ</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">EX 1</span> ผลรวมอนันต์ของ $12 + 6 + 3 + 1.5 + \dots$</div>
+            1. $a_1 = 12, r = \frac{6}{12} = \frac{1}{2}$<br>
+            2. เนื่องจาก $|r| = |\frac{1}{2}| < 1$ อนุกรมลู่เข้า<br>
+            3. แทนในสูตร:
+            $$S_\infty = \frac{a_1}{1 - r} = \frac{12}{1 - \frac{1}{2}} = \frac{12}{0.5} = \mathbf{24}$$
+          </div>
+        </div>
+        <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">BUILD</span> Build Systems & Package Managers</div>
-            • การคอมไพล์โค้ดใน <b>Makefile, Webpack, npm, Gradle</b> ที่มี Package Dependencies<br>
-            • Task Scheduler ในระบบประมวลผลข้อมูลขนาดใหญ่ (เช่น Apache Airflow DAGs)
+            <div class="lab"><span class="pin">EX 2</span> การแปลงทศนิยมซ้ำ $0.333\dots$ เป็นเศษส่วน</div>
+            $0.333\dots = \frac{3}{10} + \frac{3}{100} + \frac{3}{1000} + \dots$<br>
+            • พจน์แรก $a_1 = \frac{3}{10} = 0.3$, อัตราส่วนร่วม $r = 0.1$<br>
+            • แทนค่าในสูตรผลรวมอนันต์:
+            $$S_\infty = \frac{0.3}{1 - 0.1} = \frac{0.3}{0.9} = \mathbf{\frac{1}{3}}$$
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การประยุกต์ผลรวมอนันต์</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 23: DIVIDER 3 -->
+  <section class="slide">
+    <div class="divider">
+      <div class="ghost">O(n)</div>
+      <div class="no">หมวดที่ 03</div>
+      <h2>การวิเคราะห์วงวนและอัลกอริทึม<span class="en">Algorithm & Loop Complexity Analysis</span></h2>
+    </div>
+  </section>
+
+  <!-- SLIDE 24: Single Loop Analysis -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 3.1</span><h2>การวิเคราะห์ Single Loop ด้วยลำดับเลขคณิต ($O(n)$)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">CODE</span> ตัวอย่างลูปที่มีการเพิ่มค่าคงที่</div>
+            <pre class="code" style="display:block;padding:1cqh 1cqw;line-height:1.4">
+for i in range(1, n + 1, 2):
+    # งานภายในทำ c หน่วยเวลา (Constant work)
+    total += arr[i]
+            </pre>
+          </div>
+          <div class="block ex" style="margin-top:.4cqh">
+            <div class="lab"><span class="pin">MATH</span> การสร้างแบบจำลองลำดับ</div>
+            ค่าของตัวแปร $i$ ในแต่ละรอบคือ: $1, 3, 5, 7, \dots \le n$<br>
+            เป็นลำดับเลขคณิตที่มี $a_1 = 1, d = 2$ และพจน์สุดท้าย $a_k \le n$<br>
+            $$1 + (k - 1)2 \le n \implies 2k - 1 \le n \implies k = \left\lceil \frac{n}{2} \right\rceil$$
+            จำนวนรอบการทำงาน $= \frac{n}{2}$ รอบ $\implies$ <b>ความซับซ้อน $O(n)$</b>
           </div>
         </div>
         <div class="col">
           <div class="block gold">
-            <div class="lab"><span class="pin">COURSE</span> การวางแผนหลักสูตรวิชา</div>
-            การจัดตารางแผนการเรียนวิชาที่มี <b>วิชาบังคับก่อน (Prerequisite Courses)</b> เพื่อไม่ให้เกิดข้อขัดแย้ง
+            <div class="lab"><span class="pin">RULE</span> สรุปกฎของลูปเชิงเส้น</div>
+            เมื่อตัวแปรลูปเพิ่มขึ้นหรือลดลงด้วย <b>การบวก/ลบค่าคงที่</b>:<br>
+            $$\mathbf{\text{จำนวนรอบ} = \frac{\text{ขอบเขต}}{d} \implies O(n)}$$
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>การประยุกต์ Topological Sort</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>การวิเคราะห์ Single Loop</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 26: DIVIDER 5 -->
-  <section class="slide">
-    <div class="divider">
-      <div class="ghost">Hash</div>
-      <div class="no">หมวดที่ 05</div>
-      <h2>โครงสร้างตารางแฮชและการแก้ปัญหาการชนกัน<span class="en">Hash Tables & Collision Resolution</span></h2>
-    </div>
-  </section>
-
-  <!-- SLIDE 27: Hash Table Structure -->
+  <!-- SLIDE 25: Logarithmic Loop Analysis -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 5.1</span><h2>โครงสร้างตารางแฮช (Hash Table Data Structure)</h2></div>
+      <div><span class="kick">Concept 3.2</span><h2>การวิเคราะห์ Logarithmic Loop ด้วยลำดับเรขาคณิต ($O(\log n)$)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">CODE</span> ตัวอย่างลูปที่มีการคูณทวีคูณ</div>
+            <pre class="code" style="display:block;padding:1cqh 1cqw;line-height:1.4">
+i = 1
+while i <= n:
+    # งานคงที่ c หน่วย
+    i = i * 2
+            </pre>
+          </div>
+          <div class="block ex" style="margin-top:.4cqh">
+            <div class="lab"><span class="pin">MATH</span> การสร้างแบบจำลองลำดับ</div>
+            ค่าของตัวแปร $i$ ในแต่ละรอบคือ: $1, 2, 4, 8, 16, \dots, 2^k \le n$<br>
+            เป็นลำดับเรขาคณิตที่มี $a_1 = 1, r = 2$<br>
+            ลูปจะหยุดเมื่อ $2^k > n \implies k > \log_2 n$<br>
+            จำนวนรอบการทำงาน $= \lfloor \log_2 n \rfloor + 1$ รอบ $\implies$ <b>ความซับซ้อน $O(\log n)$</b>
+          </div>
+        </div>
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">POWER</span> ประสิทธิภาพระดับ $O(\log n)$</div>
+            หาก $n = 1,000,000$ (หนึ่งล้าน):<br>
+            • ลูปแบบ $O(n)$ ทำงาน $1,000,000$ รอบ<br>
+            • ลูปแบบ $O(\log n)$ ทำงานเพียง $\approx 20$ รอบเท่านั้น!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การวิเคราะห์ Logarithmic Loop</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 26: Nested Loops O(n^2) Analysis -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 3.3</span><h2>การวิเคราะห์ Nested Loops แบบสามเหลี่ยม ($O(n^2)$)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">CODE</span> โครงสร้าง Nested Loop แบบสามเหลี่ยม</div>
+            <pre class="code" style="display:block;padding:1cqh 1cqw;line-height:1.35">
+for i in range(1, n + 1):
+    for j in range(1, i + 1):
+        do_work()  # งาน c หน่วย
+            </pre>
+          </div>
+          <div class="block gold" style="margin-top:.3cqh">
+            <div class="lab"><span class="pin">ANALYSIS</span> การนับรอบการทำงานด้วยอนุกรม</div>
+            • เมื่อ $i = 1$: ลูปในทำ $j = 1$ (1 รอบ)<br>
+            • เมื่อ $i = 2$: ลูปในทำ $j = 1, 2$ (2 รอบ)<br>
+            • ... เมื่อ $i = n$: ลูปในทำ $j = 1, 2, \dots, n$ ($n$ รอบ)<br>
+            $$\text{งานรวม} = \sum_{i=1}^n i = 1 + 2 + 3 + \dots + n = \mathbf{\frac{n(n+1)}{2} = \frac{1}{2}n^2 + \frac{1}{2}n \implies O(n^2)}$$
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 200 150">
+              <text x="15" y="25" font-family="JetBrains Mono" font-size="10" fill="#1F3A93" font-weight="700">i=1: ■ (1)</text>
+              <text x="15" y="50" font-family="JetBrains Mono" font-size="10" fill="#1F3A93" font-weight="700">i=2: ■ ■ (2)</text>
+              <text x="15" y="75" font-family="JetBrains Mono" font-size="10" fill="#1F3A93" font-weight="700">i=3: ■ ■ ■ (3)</text>
+              <text x="15" y="100" font-family="JetBrains Mono" font-size="10" fill="#1F3A93" font-weight="700">i=4: ■ ■ ■ ■ (4)</text>
+              <text x="15" y="125" font-family="JetBrains Mono" font-size="10" fill="#7884a4">⋮</text>
+              <path d="M 60 15 L 170 125 L 60 125 Z" fill="rgba(31,58,147,0.12)" stroke="#1F3A93" stroke-width="1.5" stroke-dasharray="3"/>
+              <text x="110" y="90" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#1F3A93">Area ≈ n²/2</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center">พื้นที่ครึ่งสี่เหลี่ยมจัตุรัส $\implies O(n^2)$</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การวิเคราะห์ Nested Loops</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 27: Sorting Comparison Analysis -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Application 3.4</span><h2>การวิเคราะห์ Bubble Sort และ Selection Sort</h2></div>
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">STRUCT</span> การทำงานของตารางแฮช</div>
-        โครงสร้างข้อมูลที่ใช้ฟังก์ชันแฮช $h(k)$ ในการแปลงคีย์ข้อมูลให้เป็นดัชนีช่องตารางโดยตรง ทำให้สามารถ <b>ค้นหา (Search), แทรก (Insert), และลบ (Delete)</b> ข้อมูลได้ด้วยความเร็วเฉลี่ยระดับ:
-        $$\mathbf{O(1) \quad (\text{Constant Time})}$$
+        <div class="lab"><span class="pin">ALGO</span> การนับจำนวนครั้งในการเปรียบเทียบข้อมูล</div>
+        ในขั้นตอนวิธีจัดเรียงข้อมูลพื้นฐาน (Bubble Sort / Selection Sort) ที่มีข้อมูล $n$ รายการ:
+        • รอบที่ 1: เปรียบเทียบ $n - 1$ ครั้ง เพื่อหาค่าน้อยสุดหรือดันค่ามากสุดไปท้ายสุด<br>
+        • รอบที่ 2: เปรียบเทียบ $n - 2$ ครั้ง<br>
+        • ... รอบสุดท้าย: เปรียบเทียบ $1$ ครั้ง
+      </div>
+      <div class="cols" style="margin-top:.4cqh">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">SUM</span> ผลรวมการเปรียบเทียบทั้งหมด</div>
+            $$\sum_{k=1}^{n-1} k = (n-1) + (n-2) + \dots + 1 = \mathbf{\frac{(n-1)n}{2}}$$
+          </div>
+        </div>
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">CALC</span> ตัวอย่างตัวเลขจริง</div>
+            • เมื่อ $n = 100$: เปรียบเทียบ $\frac{99 \times 100}{2} = \mathbf{4,950 \text{ ครั้ง}}$<br>
+            • เมื่อ $n = 1,000$: เปรียบเทียบ $\frac{999 \times 1,000}{2} = \mathbf{499,500 \text{ ครั้ง}}$
+          </div>
+        </div>
       </div>
     </div>
-    <div class="foot"><span>โครงสร้างตารางแฮช</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>การวิเคราะห์อัลกอริทึมจัดเรียงข้อมูล</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 28: Separate Chaining -->
+  <!-- SLIDE 28: Triple Nested Loops -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 5.2</span><h2>การแก้ปัญหาการชนกัน: วิธีลูกโซ่ (Separate Chaining)</h2></div>
+      <div><span class="kick">Application 3.5</span><h2>การวิเคราะห์ Loop ซ้อน 3 ชั้น (Cubic Complexity $O(n^3)$)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">CODE</span> การคูณเมทริกซ์ (Matrix Multiplication)</div>
+            <pre class="code" style="display:block;padding:1cqh 1cqw;line-height:1.35">
+for i in range(n):
+    for j in range(n):
+        for k in range(n):
+            C[i][j] += A[i][k] * B[k][j]
+            </pre>
+          </div>
+          <div class="block gold" style="margin-top:.4cqh">
+            <div class="lab"><span class="pin">MATH</span> การคำนวณรอบการทำงาน</div>
+            ลูปนอกทำ $n$ รอบ, ลูปกลางทำ $n$ รอบ, ลูปในทำ $n$ รอบ:<br>
+            $$\text{รอบรวม} = \sum_{i=1}^n \sum_{j=1}^n \sum_{k=1}^n 1 = n \times n \times n = \mathbf{n^3 \implies O(n^3)}$$
+          </div>
+        </div>
+        <div class="col">
+          <div class="block al">
+            <div class="lab"><span class="pin">IMPACT</span> ผลกระทบต่อทรัพยากร</div>
+            หาก $n = 1,000$ รายการ:<br>
+            $n^3 = 1,000^3 = \mathbf{1,000,000,000 \text{ ครั้ง}}$ (หนึ่งพันล้านรอบ!)<br>
+            ขั้นตอนวิธี $O(n^3)$ จึงไม่เหมาะกับข้อมูลขนาดใหญ่
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การวิเคราะห์ Loop 3 ชั้น</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 29: DIVIDER 4 -->
+  <section class="slide">
+    <div class="divider">
+      <div class="ghost">Tree</div>
+      <div class="no">หมวดที่ 04</div>
+      <h2>โครงสร้างข้อมูลด้านต้นไม้และอาร์เรย์<span class="en">Binary Trees & Dynamic Array Doubling</span></h2>
+    </div>
+  </section>
+
+  <!-- SLIDE 30: Binary Tree Geometric Sequence -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 4.1</span><h2>ต้นไม้ทวิภาคสมบูรณ์กับลำดับเรขาคณิต (Binary Trees)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">STRUCT</span> จำนวนโหนดในแต่ละระดับชั้น (Level)</div>
+            ในต้นไม้ทวิภาคสมบูรณ์ (Complete Binary Tree) โดยให้ระดับรากคือระดับ $0$ (Level $0$):
+            • ระดับ 0: มี $2^0 = 1$ โหนด<br>
+            • ระดับ 1: มี $2^1 = 2$ โหนด<br>
+            • ระดับ 2: มี $2^2 = 4$ โหนด<br>
+            • ระดับ $i$: มี $2^i$ โหนด
+          </div>
+          <div class="block ex" style="margin-top:.4cqh">
+            <div class="lab"><span class="pin">SEQUENCE</span> การเชื่อมโยงทางคณิตศาสตร์</div>
+            จำนวนโหนดในแต่ละระดับชั้น เรียงกันเป็น <b>ลำดับเรขาคณิต:</b>
+            $$\mathbf{1, 2, 4, 8, 16, \dots, 2^h} \quad (a_1 = 1, r = 2)$$
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 220 150">
+              <circle cx="110" cy="20" r="10" fill="#1F3A93"/>
+              <text x="110" y="24" font-family="JetBrains Mono" font-size="9" fill="#fff" text-anchor="middle">L0: 1</text>
+              <line x1="110" y1="30" x2="60" y2="65" stroke="#1F3A93" stroke-width="1.8"/>
+              <line x1="110" y1="30" x2="160" y2="65" stroke="#1F3A93" stroke-width="1.8"/>
+              <circle cx="60" cy="65" r="10" fill="#2E8B57"/>
+              <circle cx="160" cy="65" r="10" fill="#2E8B57"/>
+              <text x="60" y="69" font-family="JetBrains Mono" font-size="9" fill="#fff" text-anchor="middle">L1</text>
+              <text x="160" y="69" font-family="JetBrains Mono" font-size="9" fill="#fff" text-anchor="middle">L1: 2</text>
+              <line x1="60" y1="75" x2="35" y2="115" stroke="#2E8B57" stroke-width="1.5"/>
+              <line x1="60" y1="75" x2="85" y2="115" stroke="#2E8B57" stroke-width="1.5"/>
+              <line x1="160" y1="75" x2="135" y2="115" stroke="#2E8B57" stroke-width="1.5"/>
+              <line x1="160" y1="75" x2="185" y2="115" stroke="#2E8B57" stroke-width="1.5"/>
+              <circle cx="35" cy="115" r="9" fill="#B7950B"/>
+              <circle cx="85" cy="115" r="9" fill="#B7950B"/>
+              <circle cx="135" cy="115" r="9" fill="#B7950B"/>
+              <circle cx="185" cy="115" r="9" fill="#B7950B"/>
+              <text x="185" y="119" font-family="JetBrains Mono" font-size="8" fill="#fff" text-anchor="middle">L2: 4</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center">การแตกกิ่งเป็น 2 เท่าในทุกชั้น</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>Binary Tree กับลำดับเรขาคณิต</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 31: Total Nodes in Binary Tree Geometric Series -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 4.2</span><h2>ผลรวมโหนดใน Complete Binary Tree (อนุกรมเรขาคณิต)</h2></div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">FORMULA</span> การคำนวณโหนดรวมของต้นไม้ความสูง $h$</div>
+        จำนวนโหนดทั้งหมด $N$ คือผลบวกของทุกระดับตั้งแต่ชั้น $0$ ถึงชั้น $h$:
+        $$\mathbf{N = \sum_{i=0}^h 2^i = 1 + 2 + 4 + 8 + \dots + 2^h}$$
+        ใช้สูตรอนุกรมเรขาคณิต ($a_1 = 1, r = 2$, จำนวนพจน์ $= h + 1$):
+        $$\mathbf{N = \frac{1(2^{h+1} - 1)}{2 - 1} = 2^{h+1} - 1}$$
+      </div>
+      <div class="cols" style="margin-top:.4cqh">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">EXAMPLE</span> ต้นไม้ความสูง $h = 5$</div>
+            $$N = 2^{5+1} - 1 = 2^6 - 1 = 64 - 1 = \mathbf{63 \text{ โหนด}}$$
+          </div>
+        </div>
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">INVERSE</span> ความสูงเมื่อทราบจำนวนโหนด $N$</div>
+            $$2^{h+1} \approx N \implies \mathbf{h \approx \lfloor \log_2 N \rfloor}$$
+            นี่คือเหตุผลที่โครงสร้างต้นไม้สมดุลค้นหาข้อมูลได้เร็วระดับ $O(\log N)$
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>ผลรวมโหนดใน Binary Tree</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 32: Dynamic Array Doubling Strategy -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 4.3</span><h2>การขยายขนาดอาร์เรย์แบบทวีคูณ (Dynamic Array Doubling)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">STRATEGY</span> ทำไม Python list และ Java ArrayList ถึงขยายขนาดเป็น 2 เท่า?</div>
+            เมื่ออาร์เรย์เต็ม จะจองหน่วยความจำใหม่ขนาด $2 \times \text{เดิม}$ แล้ว Copy ข้อมูลเดิมไปวาง:<br>
+            ขนาดที่ขยาย: $1 \to 2 \to 4 \to 8 \to 16 \to \dots \to N$<br>
+            ต้นทุนการ Copy ทั้งหมดคือผลรวมอนุกรมเรขาคณิต:
+            $$\mathbf{1 + 2 + 4 + 8 + \dots + \frac{N}{2} = N - 1 < N}$$
+          </div>
+          <div class="block ex" style="margin-top:.4cqh">
+            <div class="lab"><span class="pin">AMORTIZED</span> ต้นทุนถัวเฉลี่ย (Amortized Analysis)</div>
+            นำต้นทุนรวมทั้งหมดหารด้วยจำนวนข้อมูล $N$ ตัว:
+            $$\mathbf{\text{Amortized Cost} = \frac{\text{ต้นทุนรวม}}{N} = \frac{O(N)}{N} = O(1)}$$
+            ทำให้การ `append()` มีความเร็วเฉลี่ยระดับ **Constant Time $O(1)$**
+          </div>
+        </div>
+        <div class="col">
+          <div class="block al">
+            <div class="lab"><span class="pin">CONTRAST</span> ถ้าขยายทีละ 1 ช่องล่ะ?</div>
+            ต้นทุนจะเป็นอนุกรมเลขคณิต:<br>
+            $1 + 2 + 3 + \dots + N = \frac{N(N+1)}{2} \implies O(N^2)$<br>
+            ถัวเฉลี่ยต่อตัวจะกลายเป็น $O(N)$ ซึ่ง **ช้ากว่าอย่างมหาศาล!**
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การขยายขนาดอาร์เรย์แบบทวีคูณ</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 33: DIVIDER 5 -->
+  <section class="slide">
+    <div class="divider">
+      <div class="ghost">Recur</div>
+      <div class="no">หมวดที่ 05</div>
+      <h2>ฟังก์ชันเวียนเกิดและความสัมพันธ์เวียนเกิด<span class="en">Recursive Functions, Call Stack & CS Applications</span></h2>
+    </div>
+  </section>
+
+  <!-- SLIDE 34: Recursive Function Definition -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 5.1</span><h2>นิยามฟังก์ชันเวียนเกิดและโครงสร้าง 2 ส่วนสำคัญ</h2></div>
+    </div>
+    <div class="body">
+      <div class="block">
+        <div class="lab"><span class="pin">DEF</span> ฟังก์ชันเวียนเกิด (Recursive Function)</div>
+        ฟังก์ชันที่นิยามผลลัพธ์ของตัวเองโดยการ **เรียกใช้ตัวเอง (Self-calling)** กับข้อมูลนำเข้าที่มีขนาดเล็กลงเรื่อยๆ จนกระทั่งถึงจุดสิ้นสุด
+      </div>
+      <div class="cols" style="margin-top:.4cqh">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">PART 1</span> 1. กรณีฐาน (Base Case)</div>
+            • เงื่อนไขการหยุดการเรียกซ้ำ ที่สามารถส่งค่าผลลัพธ์กลับได้ทันทีโดยไม่ต้องคำนวณต่อ<br>
+            • <span class="rd"><b>คำเตือนสำคัญ:</b> หากลืมกำหนด Base Case โปรแกรมจะเรียกตัวเองไม่รู้จบจนเกิด <b>Stack Overflow Error!</b></span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">PART 2</span> 2. ขั้นตอนเวียนเกิด (Recursive Step)</div>
+            • ส่วนที่ฟังก์ชันเรียกตัวเองด้วยอาร์กิวเมนต์ที่ลดขนาดลง เช่น $f(n-1)$ หรือ $f(n/2)$<br>
+            • ต้องรับประกันว่าทุกการเรียกซ้ำจะมีทิศทางเคลื่อนที่เข้าใกล้ **Base Case** เสมอ
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>โครงสร้างฟังก์ชันเวียนเกิด</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 35: Call Stack Architecture -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Concept 5.2</span><h2>กลไกการทำงานของ Call Stack ในหน่วยความจำ</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">STACK</span> การซ้อนทับของเฟรมการทำงาน (Stack Frames)</div>
+            เมื่อฟังก์ชันเรียกตัวเอง คอมพิวเตอร์จะจำลองสแตก (LIFO - Last In First Out):<br>
+            1. <b>Winding (Push):</b> แต่ละครั้งที่ฟังก์ชันถูกเรียก กรอบข้อมูลตัวแปรโลคอลจะถูกดันเข้าสู่ Call Stack<br>
+            2. <b>Base Hit:</b> เมื่อถึง Base Case จะหยุดการ Push<br>
+            3. <b>Unwinding (Pop):</b> ส่งค่ากลับ ย้อนคืนเฟรมทีละชั้นจนกลับมาถึงจุดเริ่มต้น
+          </div>
+        </div>
+        <div class="col">
+          <div class="diag-box">
+            <svg class="diag-svg" viewBox="0 0 220 160">
+              <rect x="35" y="115" width="150" height="28" rx="5" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.8"/>
+              <text x="110" y="133" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#1F3A93" text-anchor="middle">fact(1) -> returns 1</text>
+              <rect x="35" y="80" width="150" height="28" rx="5" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.8"/>
+              <text x="110" y="98" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#1F3A93" text-anchor="middle">fact(2) -> wait</text>
+              <rect x="35" y="45" width="150" height="28" rx="5" fill="#E7ECF8" stroke="#1F3A93" stroke-width="1.8"/>
+              <text x="110" y="63" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#1F3A93" text-anchor="middle">fact(3) -> wait</text>
+              <rect x="35" y="10" width="150" height="28" rx="5" fill="#FFF7DD" stroke="#B7950B" stroke-width="2"/>
+              <text x="110" y="28" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#B7950B" text-anchor="middle">fact(4) -> initial</text>
+            </svg>
+            <div style="font-size:1.55cqh;color:var(--ink-soft);text-align:center">โครงสร้าง Call Stack สำหรับคำนวณ 4!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>กลไก Call Stack</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 36: Factorial Example -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Example 5.3</span><h2>ตัวอย่างที่ 10 — การวิเคราะห์ Factorial ($n!$) และ Call Stack Trace</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">CODE</span> โค้ดฟังก์ชันแฟกทอเรียล</div>
+            <pre class="code" style="display:block;padding:1cqh 1cqw;line-height:1.4">
+def factorial(n):
+    if n <= 1:
+        return 1               # Base case
+    return n * factorial(n - 1)  # Recursive step
+            </pre>
+          </div>
+          <div class="block gold" style="margin-top:.3cqh">
+            <div class="lab"><span class="pin">TRACE</span> การคลี่สมการ factorial(4)</div>
+            • $\textext{fact}(4) = 4 \times \text{fact}(3)$<br>
+            • $\text{fact}(3) = 3 \times \text{fact}(2)$<br>
+            • $\text{fact}(2) = 2 \times \text{fact}(1)$<br>
+            • $\text{fact}(1) = 1$ (ถึง Base case $\implies$ เริ่มส่งค่ากลับ!)<br>
+            • $\text{fact}(4) = 4 \times (3 \times (2 \times 1)) = \mathbf{24}$
+          </div>
+        </div>
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">COMPLEXITY</span> ความซับซ้อน</div>
+            • <b>Time Complexity:</b> $O(n)$ เพราะมีการเรียกฟังก์ชัน $n$ ครั้ง<br>
+            • <b>Space Complexity:</b> $O(n)$ เพราะหน่วยความจำ Call Stack ต้องเก็บ $n$ เฟรมพร้อมกัน
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>ตัวอย่างแฟกทอเรียล</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 37: Fast Exponentiation Example -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Example 5.4</span><h2>ตัวอย่างที่ 11 — การยกกำลังแบบเร็ว (Fast Exponentiation $O(\log n)$)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">MATH</span> การลดรูปปัญหาด้วยสมบัติเลขยกกำลัง</div>
+            $$a^n = \begin{cases} 1 & \text{เมื่อ } n = 0 \\ (a^{n/2})^2 & \text{เมื่อ } n \text{ เป็นเลขคู่} \\ a \cdot (a^{(n-1)/2})^2 & \text{เมื่อ } n \text{ เป็นเลขคี่} \end{cases}$$
+          </div>
+          <div class="block gold" style="margin-top:.3cqh">
+            <div class="lab"><span class="pin">RECURRENCE</span> สมการเวลาทำงาน</div>
+            $$T(n) = T(n/2) + O(1) \implies \mathbf{T(n) = O(\log n)}$$
+          </div>
+        </div>
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">SPEEDUP</span> เปรียบเทียบกับ Loop ธรรมดา</div>
+            หากต้องการคำนวณ $2^{64}$:<br>
+            • การคูณทีละตัว (Linear $O(n)$): คูณ 64 ครั้ง<br>
+            • การยกกำลังเวียนเกิด (Fast Power $O(\log n)$): คูณเพียง <b>6 ครั้ง</b> เท่านั้น!<br>
+            เป็นพื้นฐานสำคัญของ <b>ระบบเข้ารหัส RSA</b> ในความปลอดภัยไซเบอร์
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>การยกกำลังแบบเร็ว</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 38: Fibonacci & Memoization -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Example 5.5</span><h2>ตัวอย่างที่ 12 — ลำดับฟีโบนัชชี ต้นไม้การเรียกซ้ำ และ DP</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">DEF</span> สมการเวียนเกิดฟีโบนัชชี</div>
+            $$F_0 = 0, \quad F_1 = 1, \quad \mathbf{F_n = F_{n-1} + F_{n-2} \quad (n \ge 2)}$$
+          </div>
+          <div class="block al" style="margin-top:.3cqh">
+            <div class="lab"><span class="pin">NAIVE</span> ปัญหา Overlapping Subproblems ($O(2^n)$)</div>
+            การเรียกซ้ำแบบธรรมดาจะคำนวณค่าเดิมซ้ำมหาศาล เช่น $F_3$ ถูกคำนวณซ้ำหลายรอบ ทำให้เวลาพุ่งเป็น $O(2^n)$
+          </div>
+        </div>
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">MEMO</span> การแก้ปัญหาด้วย Memoization / DP ($O(n)$)</div>
+            จดจำผลลัพธ์ที่คำนวณแล้วไว้ในตาราง (Array / Dict):
+            <pre class="code" style="display:block;margin-top:.3cqh;padding:.5cqh .7cqw">
+def fib(n, memo={}):
+    if n in memo: return memo[n]
+    if n <= 1: return n
+    memo[n] = fib(n-1, memo) + fib(n-2, memo)
+    return memo[n]
+            </pre>
+            ลดเวลาจาก $O(2^n)$ เหลือเพียง **$O(n)$** อย่างมหัศจรรย์!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>ฟีโบนัชชี & การปรับปรุงประสิทธิภาพ</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 39: Tower of Hanoi -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Application 5.6</span><h2>ตัวอย่างที่ 13 — ปัญหาหอคอยแห่งฮานอย (Tower of Hanoi)</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block">
+            <div class="lab"><span class="pin">ALGO</span> ขั้นตอนวิธีแก้ปัญหาฮานอยสำหรับ $n$ แผ่น</div>
+            1. ย้ายแผ่นจาน $n - 1$ แผ่นบน จากเสา A ไปเสา B (เสาพัก)<br>
+            2. ย้ายแผ่นจานที่ใหญ่ที่สุดแผ่นที่ $n$ จากเสา A ไปเสา C (เสาเป้าหมาย)<br>
+            3. ย้ายแผ่นจาน $n - 1$ แผ่นจากเสา B ไปเสา C
+          </div>
+          <div class="block gold" style="margin-top:.3cqh">
+            <div class="lab"><span class="pin">RECURRENCE</span> การสร้างและแก้สมการเวียนเกิด</div>
+            $$T(n) = 2T(n - 1) + 1 \quad \text{โดยที่ } T(1) = 1$$
+            คลี่สมการ: $T(n) = 1 + 2 + 4 + \dots + 2^{n-1} = \mathbf{2^n - 1 \implies O(2^n)}$
+          </div>
+        </div>
+        <div class="col">
+          <div class="block al">
+            <div class="lab"><span class="pin">MYTH</span> ตำนาน 64 แผ่นทองคำ</div>
+            หากพระในวัดต้องย้ายแผ่นจาน 64 แผ่น วินาทีละ 1 แผ่น:<br>
+            $T(64) = 2^{64} - 1 \approx 1.84 \times 10^{19} \text{ วินาที}$<br>
+            หรือมากกว่า <b>5.8 แสนล้านปี!</b> (นานกว่าอายุจักรวาล)
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>ปัญหาหอคอยแห่งฮานอย</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 40: Divide & Conquer Binary Search vs Merge Sort -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Application 5.7</span><h2>ตัวอย่างที่ 14 — Divide & Conquer: Binary Search vs Merge Sort</h2></div>
     </div>
     <div class="body">
       <div class="cols">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">CHAINING</span> กลไกรายการโยง (Linked List)</div>
-            แต่ละช่องของตารางแฮชจะเป็นหัวแถวของ Linked List<br>
-            • เมื่อข้อมูลชนกัน จะนำข้อมูลใหม่ไปต่อท้ายลูกโซ่ในช่องเดิม<br>
-            • <b>ข้อดี:</b> ตารางไม่มีวันเต็ม รองรับข้อมูลเกินขนาดตารางได้
+            <div class="lab"><span class="pin">SEARCH</span> การค้นหาทวิภาค (Binary Search)</div>
+            • <b>กลยุทธ์:</b> ตรวจสอบค่ากลาง แล้วตัดข้อมูลทิ้งครึ่งหนึ่งเสมอ<br>
+            • <b>สมการเวียนเกิด:</b> $T(n) = T(n/2) + c$<br>
+            • <b>ผลลัพธ์:</b> $T(n) = c \log_2 n \implies \mathbf{O(\log n)}$<br>
+            • ข้อมูล $1,000,000$ ตัว ค้นหาไม่เกิน 20 ครั้ง
           </div>
         </div>
         <div class="col">
-          <div class="block al">
-            <div class="lab"><span class="pin">TRADE-OFF</span> ข้อพึงระวัง</div>
-            หากฟังก์ชันแฮชกระจายข้อมูลไม่ดี ข้อมูลจะไปกระจุกตัวในช่องเดียวกัน ทำให้กลายเป็น Linked List ยาว และความเร็วตกไปเป็น $O(n)$
+          <div class="block ex">
+            <div class="lab"><span class="pin">SORT</span> การเรียงลำดับแบบผสาน (Merge Sort)</div>
+            • <b>กลยุทธ์:</b> แบ่งครึ่ง 2 ฝั่ง เรียงย่อย แล้วผสาน (Merge)<br>
+            • <b>สมการเวียนเกิด:</b> $T(n) = 2T(n/2) + cn$<br>
+            • <b>ผลลัพธ์:</b> $T(n) = cn \log_2 n \implies \mathbf{O(n \log n)}$<br>
+            • เร็วกว่า Bubble Sort ($O(n^2)$) อย่างมหาศาล
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>วิธีลูกโซ่ (Chaining)</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>Divide & Conquer เปรียบเทียบ</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 29: Linear Probing -->
+  <!-- SLIDE 41: Tree Traversals -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Concept 5.3</span><h2>วิธีกำหนดตำแหน่งเปิดเชิงเส้น (Linear Probing)</h2></div>
+      <div><span class="kick">Application 5.8</span><h2>ตัวอย่างที่ 15 — การท่องไปในโครงสร้างต้นไม้ (Tree Traversals)</h2></div>
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">PROBING</span> การตรวจหาช่องว่างถัดไป</div>
-        เมื่อช่อง $h(k)$ ไม่ว่าง จะเลื่อนตรวจหาช่องว่างถัดไปทีละ 1 ช่องตามสูตร:
-        $$\mathbf{h(k, i) = (h(k) + i) \bmod m \quad (i = 0, 1, 2, \dots)}$$
+        <div class="lab"><span class="pin">STRUCT</span> ต้นไม้ (Tree) มีนิยามเป็นฟังก์ชันเวียนเกิดโดยธรรมชาติ</div>
+        ต้นไม้ทวิภาคประกอบด้วย <b>โหนดราก (Root)</b> + <b>ต้นไม้ย่อยซ้าย (Left Subtree)</b> + <b>ต้นไม้ย่อยขวา (Right Subtree)</b>
       </div>
-      <div class="block gold">
-        <div class="lab"><span class="pin">EX</span> ตัวอย่าง</div>
-        ตารางขนาด $m = 7$ ช่อง 1 เต็มแล้ว เมื่อมีคีย์ 50 ($50 \bmod 7 = 1$ ชน!) $\implies$ เลื่อนตรวจช่อง 2 ถ้าว่างจะบันทึกที่ช่อง 2 ทันที
+      <div class="cols three" style="margin-top:.4cqh">
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">PRE</span> Pre-order</div>
+            1. ทำงานที่ Root<br>
+            2. ท่องไป Left subtree<br>
+            3. ท่องไป Right subtree<br>
+            (ใช้ Clone หรือคัดลอกต้นไม้)
+          </div>
+        </div>
+        <div class="col">
+          <div class="block ex">
+            <div class="lab"><span class="pin">IN</span> In-order</div>
+            1. ท่องไป Left subtree<br>
+            2. ทำงานที่ Root<br>
+            3. ท่องไป Right subtree<br>
+            (ได้ข้อมูลเรียงจากน้อยไปมากใน BST)
+          </div>
+        </div>
+        <div class="col">
+          <div class="block purple">
+            <div class="lab"><span class="pin">POST</span> Post-order</div>
+            1. ท่องไป Left subtree<br>
+            2. ท่องไป Right subtree<br>
+            3. ทำงานที่ Root<br>
+            (ใช้ลบโหนดหรือคำนวณขนาด)
+          </div>
+        </div>
       </div>
     </div>
-    <div class="foot"><span>Linear Probing</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>การท่องไปในต้นไม้ด้วยฟังก์ชันเวียนเกิด</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 30: Interactive Simulator -->
+  <!-- SLIDE 42: Stack Overflow & Tail Recursion -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Interactive Lab</span><h2>ตัวจำลองการทำงานตารางแฮชแบบ Linear Probing ($m = 7$)</h2></div>
+      <div><span class="kick">Optimization 5.9</span><h2>ปัญหา Stack Overflow และการปรับปรุงด้วย Tail Recursion</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="block al">
+            <div class="lab"><span class="pin">RISK</span> ปัญหา Stack Overflow</div>
+            เมื่อฟังก์ชันเรียกซ้ำลึกเกินไป (เช่น $n = 100,000$ ใน Python) หน่วยความจำ Call Stack จะเต็มและระบบจะแคลชทันที
+          </div>
+          <div class="block ex" style="margin-top:.4cqh">
+            <div class="lab"><span class="pin">TCO</span> เวียนเกิดส่วนท้าย (Tail Recursion Optimization)</div>
+            การจัดรูปให้คำสั่งสุดท้ายคือการเรียกฟังก์ชันตัวเองโดยไม่มีการค้างการดำเนินการใดๆ คอมไพเลอร์สามารถแปลงเป็น Loop ให้อัตโนมัติ โดยใช้ Memory $O(1)$!
+          </div>
+        </div>
+        <div class="col">
+          <div class="block gold">
+            <div class="lab"><span class="pin">CODE</span> ตัวอย่าง Tail Recursive Factorial</div>
+            <pre class="code" style="display:block;padding:1cqh 1cqw;line-height:1.4">
+def fact_tail(n, acc=1):
+    if n <= 1:
+        return acc
+    return fact_tail(n - 1, acc * n)
+            </pre>
+            ส่งผลสะสม `acc` ไปข้างหน้า ไม่ต้องค้างเฟรมบน Call Stack
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>Tail Recursion Optimization</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE: DIVIDER 6 -->
+  <section class="slide">
+    <div class="divider">
+      <div class="ghost">Lab</div>
+      <div class="no">หมวดที่ 06</div>
+      <h2>ห้องปฏิบัติการจำลองและเกมประลองความรู้<span class="en">Interactive Simulators & Knowledge Challenge</span></h2>
+    </div>
+  </section>
+
+  <!-- SLIDE 50: Interactive Sequence & Series Visualizer -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Interactive Lab</span><h2>เครื่องมือคำนวณและจำลองลำดับ/อนุกรม (Sequence Visualizer)</h2></div>
     </div>
     <div class="body">
       <div class="cols wide-l">
         <div class="col">
           <div class="sim-box">
-            <div style="display:flex;gap:1cqw;align-items:center">
-              <label style="font-weight:700;color:var(--navy2)">ป้อนคีย์:</label>
-              <input type="number" id="inputHashKey" class="sim-input" value="12">
-              <button class="sim-btn" id="btnInsertHash">Insert</button>
-              <button class="sim-btn" id="btnResetHash">Reset</button>
+            <div class="sim-row">
+              <label style="font-weight:700;color:var(--navy2)">ประเภท:</label>
+              <select id="simType" class="sim-select" onchange="runSim()">
+                <option value="arith">ลำดับเลขคณิต (Arithmetic)</option>
+                <option value="geom">ลำดับเรขาคณิต (Geometric)</option>
+              </select>
             </div>
-            <div id="hashLog" style="font-family:var(--f-mono);font-size:1.8cqh;color:var(--navy);min-height:2em">
-              ฟังก์ชันแฮช: $h(k) = k \bmod 7$
+            <div class="sim-row">
+              <label style="font-weight:700">พจน์แรก ($a_1$):</label>
+              <input type="number" id="simA1" class="sim-input" value="3" onchange="runSim()">
+              <label id="simConstLabel" style="font-weight:700">ผลต่างร่วม ($d$):</label>
+              <input type="number" id="simConst" class="sim-input" value="4" onchange="runSim()">
+              <label style="font-weight:700">จำนวนพจน์ ($n$):</label>
+              <input type="number" id="simN" class="sim-input" value="10" min="1" max="50" onchange="runSim()">
+              <button class="sim-btn" onclick="runSim()">คำนวณ ↺</button>
             </div>
-            <div style="display:grid;grid-template-columns:repeat(7, 1fr);gap:6px;margin-top:.4cqh" id="hashTableGrid"></div>
+            <div class="sim-out" id="simResult">
+              คำนวณผลลัพธ์...
+            </div>
+            <div id="simList" style="font-family:var(--f-mono);font-size:1.7cqh;background:#fff;padding:1cqh 1cqw;border:1px solid var(--line2);border-radius:6px;max-height:8.5cqh;overflow-y:auto">
+            </div>
           </div>
         </div>
         <div class="col">
           <div class="block gold">
-            <div class="lab"><span class="pin">RULE</span> กลไก Probing</div>
-            1. คำนวณ $idx = k \bmod 7$<br>
-            2. ถ้าช่องว่าง $\to$ บันทึกทันที<br>
-            3. ถ้าชน $\to$ เลื่อน $(idx + 1) \bmod 7$ จนกว่าจะเจอช่องว่าง
+            <div class="lab"><span class="pin">GUIDE</span> วิธีใช้งาน</div>
+            1. เลือกประเภทลำดับที่ต้องการทดสอบ<br>
+            2. ปรับเปลี่ยนค่า $a_1$, $d$ (หรือ $r$), และจำนวนพจน์ $n$<br>
+            3. ระบบจะคำนวณพจน์สุดท้าย $a_n$, ผลรวมอนุกรม $S_n$, พร้อมแสดงรายชื่อสมาชิกทุกพจน์แบบเรียลไทม์!
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>Hash Simulator</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>Interactive Sequence Visualizer</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 31: Worksheet Activity Guide -->
+  <!-- SLIDE 51: Interactive Recursion & Call Stack Trace Visualizer -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Classroom Activity</span><h2>ใบกิจกรรมในชั้นเรียน สัปดาห์ที่ 9 (Worksheet Guide)</h2></div>
+      <div><span class="kick">Interactive Lab</span><h2>ตัวจำลองการทำงานของฟังก์ชันเวียนเกิด (Recursion Trace)</h2></div>
     </div>
     <div class="body">
-      <div class="cols">
+      <div class="cols wide-l">
         <div class="col">
-          <div class="block">
-            <div class="lab"><span class="pin">WS-1</span> หน้า 1 : ลำดับ อนุกรม & การวิเคราะห์อัลกอริทึม</div>
-            • <b>กิจกรรม 1:</b> คำนวณลำดับเลขคณิต ($a_{50}$) และลำดับเรขาคณิต ($a_8$)<br>
-            • <b>กิจกรรม 2:</b> วิเคราะห์ Big-O ของวงวนซ้อนและจำนวนโหนดใน Binary Tree<br>
-            • <b>กิจกรรม 3:</b> หาความซับซ้อนของ Merge Sort $T(n) \implies O(n \log n)$
+          <div class="sim-box">
+            <div class="sim-row">
+              <label style="font-weight:700;color:var(--navy2)">ฟังก์ชัน:</label>
+              <select id="recType" class="sim-select" onchange="runRecSim()">
+                <option value="fact">Factorial (n!)</option>
+                <option value="hanoi">Tower of Hanoi Moves (2ⁿ - 1)</option>
+              </select>
+              <label style="font-weight:700">ค่า n:</label>
+              <input type="number" id="recN" class="sim-input" value="4" min="1" max="10" onchange="runRecSim()">
+              <button class="sim-btn" onclick="runRecSim()">จำลอง Call Stack ▶</button>
+            </div>
+            <div class="sim-out" id="recResult">
+              ผลลัพธ์การคำนวณ...
+            </div>
+            <div id="recTrace" style="font-family:var(--f-mono);font-size:1.6cqh;background:#fff;padding:1cqh 1cqw;border:1px solid var(--line2);border-radius:6px;max-height:8.5cqh;overflow-y:auto;line-height:1.4">
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="block purple">
+            <div class="lab"><span class="pin">INSIGHT</span> สังเกตการณ์ Call Stack</div>
+            • <b>Winding:</b> แสดงการดันกรอบฟังก์ชันลงสู่ Stack ทีละชั้นจนถึง Base Case<br>
+            • <b>Unwinding:</b> ส่งค่าคำนวณคืนกลับและปลดเฟรมออกจาก Stack
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span>Interactive Recursion Trace</span><span class="right">4091606 · CH03-W09</span></div>
+  </section>
+
+  <!-- SLIDE 52: Interactive Loop Step Counter -->
+  <section class="slide">
+    <div class="head">
+      <div><span class="kick">Interactive Lab</span><h2>ตัวจำลองและนับรอบการทำงานของ Nested Loops</h2></div>
+    </div>
+    <div class="body">
+      <div class="cols wide-l">
+        <div class="col">
+          <div class="sim-box">
+            <div class="sim-row">
+              <label style="font-weight:700;color:var(--navy2)">ป้อนค่า $n$:</label>
+              <input type="number" id="loopN" class="sim-input" value="6" min="1" max="25" onchange="runLoopSim()">
+              <button class="sim-btn" onclick="runLoopSim()">จำลองลูป ▶</button>
+            </div>
+            <div class="sim-out" id="loopResult">
+              กำลังประมวลผล...
+            </div>
+            <div id="loopGrid" style="font-family:var(--f-mono);font-size:1.6cqh;background:#fff;padding:1cqh 1cqw;border:1px solid var(--line2);border-radius:6px;max-height:8.5cqh;overflow-y:auto;line-height:1.4">
+            </div>
           </div>
         </div>
         <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">WS-2</span> หน้า 2 : พีชคณิตฐานข้อมูล & ตารางแฮช</div>
-            • <b>กิจกรรม 4:</b> เขียนนิพจน์ $\sigma, \pi, \bowtie$ สำหรับคิวรีฐานข้อมูล<br>
-            • <b>กิจกรรม 5:</b> หา Topological Sort สำหรับงาน 5 งานที่มี Dependency<br>
-            • <b>กิจกรรม 6:</b> เติมข้อมูลลงในตารางแฮชด้วยวิธี Linear Probing และ Chaining
+            <div class="lab"><span class="pin">FORMULA</span> ตรวจสอบความสอดคล้อง</div>
+            สำหรับโค้ด:
+            <pre class="code" style="display:block;margin-top:.3cqh;padding:.4cqh .6cqw">
+for i in 1..n:
+    for j in 1..i:
+        # work
+            </pre>
+            สูตรคำนวณรอบรวม: $\mathbf{S_n = \frac{n(n+1)}{2}}$<br>
+            จะเห็นว่ารอบรวมตรงกับที่ตัวจำลองนับได้จริง 100%!
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>ใบกิจกรรมสัปดาห์ที่ 9</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>Interactive Loop Counter</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 32: Worksheet Answer Reveal -->
+  <!-- SLIDE 53: Quiz Game Week 9 -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Solutions</span><h2>เฉลยคำตอบสำคัญประจำใบกิจกรรม สัปดาห์ที่ 9</h2></div>
-    </div>
-    <div class="body">
-      <div class="block gold reveal" onclick="this.classList.toggle('on')">
-        <div class="hint">คลิกเพื่อดูเฉลย <span class="k">Reveal</span></div>
-        <div class="inner">
-          <div class="lab"><span class="pin">KEY</span> สรุปคำตอบสำคัญ</div>
-          • <b>กิจกรรม 1:</b> $a_{50} = 3 + 49(4) = 199$, $a_8 = 2(3^7) = 4,374$<br>
-          • <b>กิจกรรม 2:</b> $S_n = n(n+1)/2 \implies O(n^2)$<br>
-          • <b>กิจกรรม 4:</b> $\sigma_{\text{GPA} \ge 3.50}(\text{Students})$, $\pi_{\text{Name, Major}}(\text{Students})$<br>
-          • <b>กิจกรรม 5:</b> ลำดับงานที่ถูกต้องคือ A $\to$ B $\to$ C $\to$ D $\to$ E
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span>เฉลยใบกิจกรรมสัปดาห์ที่ 9</span><span class="right">4091606 · CH03-W09</span></div>
-  </section>
-
-  <!-- SLIDE 33: Quiz Game -->
-  <section class="slide">
-    <div class="head">
-      <div><span class="kick">Challenge</span><h2>เกมประลองความรู้ : สรุปยอดบทที่ 3 (Grand Review)</h2></div>
+      <div><span class="kick">Challenge</span><h2>เกมประลองความรู้ : ลำดับ อนุกรม และฟังก์ชันเวียนเกิด</h2></div>
     </div>
     <div class="body">
       <div class="game-box" id="gameContainerW9"></div>
@@ -839,60 +1675,43 @@ b,strong{font-weight:700;color:var(--navy2)}
     <div class="foot"><span>เกมประลองความรู้</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 34: Chapter 3 Big Picture Mindmap -->
+  <!-- SLIDE 54: Grand Summary -->
   <section class="slide">
     <div class="head">
-      <div><span class="kick">Grand Summary</span><h2>แผนผังภาพรวมองค์ความรู้บทที่ 3 (Relations & Functions)</h2></div>
+      <div><span class="kick">Grand Summary</span><h2>สรุปภาพรวมเปรียบเทียบ : ลำดับ อนุกรม และฟังก์ชันเวียนเกิด</h2></div>
     </div>
     <div class="body">
       <div class="cols three">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">WEEK 7</span> ความสัมพันธ์ (Relations)</div>
-            • ผลคูณคาร์ทีเซียน $A \times B$<br>
-            • 4 สมบัติทวิภาค (Refl, Sym, Antisym, Trans)<br>
-            • ความสัมพันธ์สมมูล $\to$ Partition<br>
-            • การปิดสมบัติ & Warshall
+            <div class="lab"><span class="pin">ARITHMETIC</span> ลำดับ/อนุกรมเลขคณิต</div>
+            • <b>สูตร:</b> $a_n = a_1 + (n-1)d$<br>
+            • <b>ผลรวม:</b> $S_n = \frac{n}{2}(a_1 + a_n)$<br>
+            • <b>CS:</b> Single loop, Nested loop ($O(n^2)$), Bubble Sort
           </div>
         </div>
         <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">WEEK 8</span> ฟังก์ชัน (Functions)</div>
-            • ความเป็นฟังก์ชัน (Uniqueness)<br>
-            • Injective, Surjective, Bijective<br>
-            • ฟังก์ชันผกผัน $f^{-1}$ & การประกอบ $f \circ g$<br>
-            • Floor, Ceiling, Modulo & Hash
+            <div class="lab"><span class="pin">GEOMETRIC</span> ลำดับ/อนุกรมเรขาคณิต</div>
+            • <b>สูตร:</b> $a_n = a_1 r^{n-1}$<br>
+            • <b>ผลรวม:</b> $S_n = \frac{a_1(r^n - 1)}{r - 1}$<br>
+            • <b>CS:</b> Complete Binary Tree ($2^{h+1}-1$), Dynamic Array ($O(1)$)
           </div>
         </div>
         <div class="col">
-          <div class="block gold">
-            <div class="lab"><span class="pin">WEEK 9</span> ประยุกต์ในคอมพิวเตอร์</div>
-            • ลำดับ & อนุกรม (Loop $O(n^2)$)<br>
-            • ความสัมพันธ์เวียนเกิด ($O(n \log n)$)<br>
-            • พีชคณิตเชิงสัมพันธ์ ($\sigma, \pi, \bowtie$)<br>
-            • Topo Sort & ตารางแฮช
+          <div class="block purple">
+            <div class="lab"><span class="pin">RECURSION</span> ฟังก์ชันเวียนเกิด</div>
+            • <b>โครงสร้าง:</b> Base Case + Step<br>
+            • <b>กลไก:</b> Call Stack (Frames)<br>
+            • <b>CS:</b> Divide & Conquer ($O(n\log n)$), Hanoi ($2^n - 1$), Tree Traversal
           </div>
         </div>
       </div>
     </div>
-    <div class="foot"><span>สรุปภาพรวมบทที่ 3</span><span class="right">4091606 · CH03-W09</span></div>
+    <div class="foot"><span>สรุปภาพรวมสัปดาห์ที่ 9</span><span class="right">4091606 · CH03-W09</span></div>
   </section>
 
-  <!-- SLIDE 35: Closing -->
-  <section class="slide">
-    <div class="head">
-      <div><span class="kick">Complete</span><h2>ยินดีด้วย! คุณผ่านบทที่ 3 อย่างสมบูรณ์แบบ</h2></div>
-    </div>
-    <div class="body">
-      <div class="block">
-        <div class="lab"><span class="pin">COMPLETE</span> ปิดบทที่ 3 : ความสัมพันธ์และฟังก์ชัน</div>
-        เราได้เรียนรู้โครงสร้างการจับคู่ข้อมูล การแปลง และการคำนวณอย่างเป็นระบบ ซึ่งเป็นรากฐานโดยตรงของการเขียนโปรแกรมและระบบฐานข้อมูล
-      </div>
-    </div>
-    <div class="foot"><span>จบบทที่ 3</span><span class="right">4091606 · CH03-W09</span></div>
-  </section>
-
-  <!-- SLIDE 36: Next Chapter -->
+  <!-- SLIDE 55: Next Chapter -->
   <section class="slide">
     <div class="head">
       <div><span class="kick">Next Chapter</span><h2>เตรียมพบกับบทที่ 4 : ระบบเลขฐานและเลขคณิตคอมพิวเตอร์</h2></div>
@@ -901,7 +1720,7 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div class="block ex">
         <div class="lab"><span class="pin">NEXT</span> บทที่ 4 : ระบบเลขฐาน (Number Bases)</div>
         • การแทนจำนวนในคอมพิวเตอร์ (Binary, Octal, Hexadecimal)<br>
-        • การแปลงเลขฐานสอง ฐานแปด และฐานสิบหก<br>
+        • การแปลงเลขฐานสอง ฐานแปด และฐานสิบหก อย่างรวดเร็ว<br>
         • การแทนจำนวนเต็มลบด้วย 1's และ 2's Complement<br>
         • การคำนวณเลขคณิตฐานสอง (Binary Arithmetic & Overflow)
       </div>
@@ -916,7 +1735,7 @@ b,strong{font-weight:700;color:var(--navy2)}
 <!-- Dock toolbar -->
 <div class="dock">
   <button id="btnPrev" title="สไลด์ก่อนหน้า (←)">‹</button>
-  <span class="count" id="slideCount">1 / 36</span>
+  <span class="count" id="slideCount">1 / 55</span>
   <button id="btnNext" title="สไลด์ถัดไป (→ / Space)">›</button>
   <span class="sep"></span>
   <button id="btnFull" title="เต็มจอ (F)">⛶</button>
@@ -973,7 +1792,7 @@ btnFull.onclick = () => {
 };
 
 window.addEventListener('keydown', (e) => {
-  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
   if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
     e.preventDefault();
     updateSlide(currentSlide + 1);
@@ -997,81 +1816,119 @@ window.addEventListener('keydown', (e) => {
 
 updateSlide(0);
 
-/* Hash Simulator Engine */
-(function(){
-  const HASH_SIZE = 7;
-  let table = new Array(HASH_SIZE).fill(null);
-  const grid = document.getElementById('hashTableGrid');
-  const log = document.getElementById('hashLog');
-  const inputKey = document.getElementById('inputHashKey');
-  const btnInsert = document.getElementById('btnInsertHash');
-  const btnReset = document.getElementById('btnResetHash');
+/* Simulator 1: Sequence Visualizer */
+function runSim(){
+  const type = document.getElementById('simType').value;
+  const a1 = parseFloat(document.getElementById('simA1').value) || 0;
+  const c = parseFloat(document.getElementById('simConst').value) || 0;
+  const n = parseInt(document.getElementById('simN').value, 10) || 1;
+  const label = document.getElementById('simConstLabel');
+  const res = document.getElementById('simResult');
+  const list = document.getElementById('simList');
 
-  if(!grid) return;
+  if(type === 'arith'){
+    label.textContent = 'ผลต่างร่วม (d):';
+    const an = a1 + (n - 1) * c;
+    const sn = (n / 2) * (2 * a1 + (n - 1) * c);
+    res.innerHTML = `พจน์ที่ ${n} (a_${n}) = <b>${an.toLocaleString()}</b> &nbsp;|&nbsp; ผลรวม ${n} พจน์แรก (S_${n}) = <b>${sn.toLocaleString()}</b>`;
 
-  function renderTable(highlightIdx = -1, isColl = false){
-    grid.innerHTML = '';
-    for(let i=0; i<HASH_SIZE; i++){
-      const cell = document.createElement('div');
-      cell.style.border = '1px solid var(--line2)';
-      cell.style.borderRadius = '6px';
-      cell.style.padding = '8px 4px';
-      cell.style.textAlign = 'center';
-      cell.style.background = (i === highlightIdx) ? (isColl ? 'var(--pink)' : 'var(--mint)') : '#fff';
-      cell.style.transition = 'all .2s';
-
-      cell.innerHTML = `
-        <div style="font-family:var(--f-mono);font-size:12px;color:#7884a4;margin-bottom:2px">ดัชนี ${i}</div>
-        <div style="font-family:var(--f-mono);font-size:18px;font-weight:700;color:var(--navy2)">${table[i] !== null ? table[i] : '—'}</div>
-      `;
-      grid.appendChild(cell);
+    let terms = [];
+    for(let i=1; i<=Math.min(n, 20); i++){
+      terms.push(`a_${i}=${a1 + (i-1)*c}`);
     }
+    if(n > 20) terms.push(`... ถึง a_${n}=${an}`);
+    list.innerHTML = `<b>รายการพจน์:</b> ${terms.join(', ')}`;
+  } else {
+    label.textContent = 'อัตราส่วนร่วม (r):';
+    const an = a1 * Math.pow(c, n - 1);
+    let sn = 0;
+    if(c === 1) sn = n * a1;
+    else sn = a1 * (Math.pow(c, n) - 1) / (c - 1);
+
+    let infText = '';
+    if(Math.abs(c) < 1){
+      const sinf = a1 / (1 - c);
+      infText = ` &nbsp;|&nbsp; S_∞ = <b>${sinf.toLocaleString()}</b>`;
+    }
+
+    res.innerHTML = `พจน์ที่ ${n} (a_${n}) = <b>${an.toLocaleString()}</b> &nbsp;|&nbsp; S_${n} = <b>${sn.toLocaleString()}</b>${infText}`;
+
+    let terms = [];
+    for(let i=1; i<=Math.min(n, 15); i++){
+      terms.push(`a_${i}=${(a1 * Math.pow(c, i-1)).toLocaleString()}`);
+    }
+    if(n > 15) terms.push(`... ถึง a_${n}=${an.toLocaleString()}`);
+    list.innerHTML = `<b>รายการพจน์:</b> ${terms.join(', ')}`;
   }
+}
 
-  btnInsert.onclick = () => {
-    const key = parseInt(inputKey.value, 10);
-    if(isNaN(key)) return;
+/* Simulator 2: Recursion Trace Visualizer */
+function runRecSim(){
+  const type = document.getElementById('recType').value;
+  const n = parseInt(document.getElementById('recN').value, 10) || 1;
+  const res = document.getElementById('recResult');
+  const trace = document.getElementById('recTrace');
 
-    let initialHash = key % HASH_SIZE;
-    if(initialHash < 0) initialHash += HASH_SIZE;
-
-    let idx = initialHash;
-    let probes = 0;
-
-    while(table[idx] !== null && probes < HASH_SIZE){
-      if(table[idx] === key){
-        log.innerHTML = `<span class="rd">คีย์ ${key} มีอยู่ในตารางที่ดัชนี ${idx} แล้ว</span>`;
-        renderTable(idx, true);
+  if(type === 'fact'){
+    let fact = 1;
+    let pushLines = [];
+    let popLines = [];
+    for(let i=n; i>=1; i--){
+      pushLines.push(`[PUSH] Call fact(${i}) -> รอดำเนินการ ${i} * fact(${i-1})`);
+    }
+    pushLines.push(`[BASE CASE] fact(1) คืนค่า 1 ทันที`);
+    for(let i=2; i<=n; i++){
+      fact *= i;
+      popLines.push(`[POP] คืนค่า fact(${i}) = ${i} * fact(${i-1}) = ${fact}`);
+    }
+    res.innerHTML = `ผลลัพธ์ <b>${n}! = ${fact.toLocaleString()}</b> (ใช้ Call Stack ความลึก ${n} ชั้น)`;
+    trace.innerHTML = `<b>ขั้นตอน Winding (Push):</b><br>${pushLines.join('<br>')}<br><br><b>ขั้นตอน Unwinding (Pop):</b><br>${popLines.join('<br>')}`;
+  } else {
+    const moves = Math.pow(2, n) - 1;
+    res.innerHTML = `หอคอยแห่งฮานอย ${n} แผ่น $\implies$ ย้ายทั้งหมด <b>${moves.toLocaleString()} ครั้ง</b> (สูตร 2ⁿ - 1 = 2^${n} - 1)`;
+    let hanoiLines = [];
+    function hanoi(disks, from, to, aux){
+      if(disks === 1){
+        hanoiLines.push(`ย้ายแผ่น 1 จากเสา ${from} ไป ${to}`);
         return;
       }
-      probes++;
-      idx = (initialHash + probes) % HASH_SIZE;
+      hanoi(disks - 1, from, aux, to);
+      hanoiLines.push(`ย้ายแผ่น ${disks} จากเสา ${from} ไป ${to}`);
+      hanoi(disks - 1, aux, to, from);
     }
-
-    if(probes >= HASH_SIZE){
-      log.innerHTML = `<span class="rd">ตารางแฮชเต็มแล้ว ไม่สามารถแทรก ${key} ได้!</span>`;
-      renderTable();
-      return;
-    }
-
-    table[idx] = key;
-    if(probes === 0){
-      log.innerHTML = `<span class="gn">แทรก ${key} สำเร็จที่ดัชนี ${idx}</span> (h(${key}) = ${initialHash} ไม่มีชน)`;
+    if(n <= 5){
+      hanoi(n, 'A', 'C', 'B');
+      trace.innerHTML = `<b>ลำดับการย้าย (${moves} ขั้น):</b><br>${hanoiLines.join('<br>')}`;
     } else {
-      log.innerHTML = `<span class="gd">เกิดการชนกันที่ดัชนี ${initialHash}!</span> เลื่อนตรวจหา ${probes} ครั้ง $\\to$ บันทึกที่ดัชนี ${idx}`;
+      trace.innerHTML = `(จำนวนครั้งย้าย ${moves.toLocaleString()} ครั้ง — ซ่อนรายละเอียดขั้นตอนเนื่องจากเกิน 5 แผ่น)`;
     }
-    renderTable(idx, probes > 0);
-    inputKey.value = key + 7;
-  };
+  }
+}
 
-  btnReset.onclick = () => {
-    table = new Array(HASH_SIZE).fill(null);
-    log.innerHTML = 'ฟังก์ชันแฮช: h(k) = k mod 7 (รีเซ็ตตารางเรียบร้อย)';
-    renderTable();
-  };
+/* Simulator 3: Loop Step Counter */
+function runLoopSim(){
+  const n = parseInt(document.getElementById('loopN').value, 10) || 1;
+  const res = document.getElementById('loopResult');
+  const grid = document.getElementById('loopGrid');
 
-  renderTable();
-})();
+  const totalSteps = (n * (n + 1)) / 2;
+  res.innerHTML = `เมื่อ n = ${n} $\implies$ ทำงานทั้งหมด <b>${totalSteps} รอบ</b> (ตรงกับสูตร n(n+1)/2 = ${(n*(n+1))/2})`;
+
+  let lines = [];
+  for(let i=1; i<=n; i++){
+    let dots = [];
+    for(let j=1; j<=i; j++){
+      dots.push(`(i=${i}, j=${j})`);
+    }
+    lines.push(`รอบที่ i = ${i} (ทำ ${i} ครั้ง): ${dots.join(' ')}`);
+  }
+  grid.innerHTML = lines.join('<br>');
+}
+
+// Initial simulator execution
+runSim();
+runRecSim();
+runLoopSim();
 
 /* Quiz Game Engine Week 9 */
 (function(){
@@ -1080,28 +1937,40 @@ updateSlide(0);
 
   const QUESTIONS = [
     {
-      q: '1. ผลรวมของอนุกรม 1 + 2 + 3 + ... + n เท่ากับสูตรใด และมีความซับซ้อน Big-O เท่าใด?',
+      q: '1. กำหนดลำดับเลขคณิต 3, 7, 11, 15, ... พจน์ที่ 50 (a₅₀) มีค่าเท่ากับข้อใด?',
+      opts: ['196', '199', '200', '203'],
+      ans: 1,
+      exp: 'a_n = a_1 + (n-1)d = 3 + (49)(4) = 3 + 196 = 199'
+    },
+    {
+      q: '2. ผลรวมของอนุกรม 1 + 2 + 3 + ... + n มีค่าเท่ากับสูตรใด และมีความซับซ้อน Big-O เท่าใด?',
       opts: ['n(n-1)/2 และ O(n)', 'n(n+1)/2 และ O(n²)', '2ⁿ - 1 และ O(2ⁿ)', 'n log n และ O(n log n)'],
       ans: 1,
       exp: 'S_n = n(n+1)/2 = 1/2 n² + 1/2 n ซึ่งเป็นพหุนามกำลังสอง มี Big-O เท่ากับ O(n²)'
     },
     {
-      q: '2. การดำเนินการในพีชคณิตเชิงสัมพันธ์ที่ใช้เลือกเฉพาะ "คอลัมน์" ที่ต้องการ คือข้อใด?',
-      opts: ['การเลือก (Selection σ)', 'การฉาย (Projection π)', 'การเชื่อม (Natural Join ⋈)', 'การยูเนียน (∪)'],
+      q: '3. ในฟังก์ชันเวียนเกิด (Recursive Function) หากโปรแกรมไม่มีกรณีฐาน (Base Case) จะเกิดผลกระทบใด?',
+      opts: ['โปรแกรมทำงานเร็วขึ้น', 'เกิด Stack Overflow Error เพราะฟังก์ชันเรียกตัวเองไม่รู้จบ', 'โปรแกรมได้ผลลัพธ์เป็นศูนย์เสมอ', 'คอมไพเลอร์ตัดการทำงานอัตโนมัติ'],
       ans: 1,
-      exp: 'Projection (π) ใช้คัดเลือกเฉพาะคอลัมน์ (Attributes) เทียบเท่าคำสั่ง SELECT ใน SQL'
+      exp: 'Base Case คือจุดหยุดการเรียกซ้ำ หากไม่มีจะเกิดการดันเฟรมลง Call Stack จนหน่วยความจำล้น (Stack Overflow)'
     },
     {
-      q: '3. ในโครงสร้างข้อมูล Directed Acyclic Graph (DAG) การหาลำดับงานที่ไม่มีการขัดแย้งของเงื่อนไข เรียกว่าอะไร?',
-      opts: ['Binary Search', 'Topological Sorting (การจัดลำดับงานเชิงทอพอโลยี)', 'Warshall Algorithm', 'Breadth-First Search'],
+      q: '4. ปัญหาหอคอยแห่งฮานอย (Tower of Hanoi) สำหรับแผ่นจาน n แผ่น มีสมการเวียนเกิดจำนวนครั้งย้ายเท่ากับข้อใด?',
+      opts: ['T(n) = T(n-1) + 1 ⇒ n', 'T(n) = 2T(n-1) + 1 ⇒ 2ⁿ - 1', 'T(n) = 2T(n/2) + cn ⇒ n log n', 'T(n) = T(n-1) + n ⇒ n²/2'],
       ans: 1,
-      exp: 'Topological Sorting ใช้จัดลำดับงานที่มีความสัมพันธ์ลำดับบางส่วน (Prerequisite dependencies)'
+      exp: 'T(n) = 2T(n-1) + 1 คลี่สมการได้ 1 + 2 + 4 + ... + 2ⁿ⁻¹ = 2ⁿ - 1 ครั้ง'
     },
     {
-      q: '4. วิธีแก้ปัญหาการชนกันในตารางแฮชแบบ Separate Chaining ใช้โครงสร้างข้อมูลใดในแต่ละช่อง?',
-      opts: ['อาร์เรย์สองมิติ', 'รายการโยง (Linked List)', 'ต้นไม้ทวิภาคค้นหาแบบสมดุล', 'คิวลำดับความสำคัญ'],
+      q: '5. ขั้นตอนวิธี Merge Sort มีสมการเวลาทำงาน T(n) = 2T(n/2) + cn มีความซับซ้อนระดับใด?',
+      opts: ['O(n)', 'O(n²)', 'O(n log n)', 'O(2ⁿ)'],
+      ans: 2,
+      exp: 'การกระจายสมการแตกกิ่งเป็น log n ชั้น แต่ละชั้นมีงานรวม cn ดังนั้น T(n) = cn log n ⇒ O(n log n)'
+    },
+    {
+      q: '6. การท่องไปในต้นไม้ทวิภาคค้นหา (BST) แบบใดที่ให้ผลลัพธ์ของข้อมูลเรียงลำดับจากน้อยไปมากเสมอ?',
+      opts: ['Pre-order', 'In-order', 'Post-order', 'Level-order'],
       ans: 1,
-      exp: 'Chaining ใช้ Linked List ต่อท้ายข้อมูลที่ได้แฮชตำแหน่งเดียวกัน ทำให้ตารางรองรับข้อมูลได้ไม่จำกัด'
+      exp: 'In-order Traversal (ซ้าย -> ราก -> ขวา) จะได้ข้อมูลเรียงจากน้อยไปมากตามคุณสมบัติของ BST'
     }
   ];
 

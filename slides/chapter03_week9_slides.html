@@ -321,10 +321,11 @@ b,strong{font-weight:700;color:var(--navy2)}
             นิยมเขียนสัญลักษณ์ผลลัพธ์ $a(n)$ ด้วย <b>พจน์ที่ $n$ หรือ $a_n$</b>
           </div>
           <div class="block ex">
-            <div class="lab"><span class="pin">MEANING</span> ความหมายในคอมพิวเตอร์</div>
-            ลำดับใช้เป็นตัวแทนของ:
-            • <b>แถวลำดับ (Array / List):</b> ข้อมูลที่เรียงลำดับตามดัชนีช่อง $0, 1, 2, \dots$<br>
-            • <b>ภาระงานในแต่ละรอบ (Work per iteration):</b> ปริมาณงานที่เกิดขึ้นในรอบที่ $n$ ของลูป
+            <div class="lab"><span class="pin">ANALOGY</span> มโนภาพในชีวิตจริง: สมุดบัญชีเงินฝากรายเดือน</div>
+            เปรียบเสมือน <b>สมุดบัญชีเงินฝากธนาคาร</b> ที่บันทึกยอดเงินตามงวดเวลา:<br>
+            • <b>โดเมน ($\mathbb{Z}^+$):</b> คืองวดเดือนที่ $1, 2, 3, \dots$ (ลำดับเวลาที่แน่นอน)<br>
+            • <b>เรนจ์ ($\mathbb{R}$):</b> คือยอดเงินในบัญชีจริง $a_1, a_2, a_3, \dots$ (เช่น 1,000, 1,500, 2,000 บาท)<br>
+            ในคอมพิวเตอร์จึงนำมาใช้แทน <b>ดัชนีของอาร์เรย์ (Array Index)</b> หรือภาระงานในแต่ละรอบของลูป
           </div>
         </div>
         <div class="col">
@@ -354,7 +355,7 @@ b,strong{font-weight:700;color:var(--navy2)}
               <text x="210" y="129" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#1f6b41" text-anchor="middle">a₃</text>
               <text x="210" y="150" font-family="JetBrains Mono" font-size="12" fill="#7884a4" text-anchor="middle">⋮</text>
             </svg>
-            <div style="font-size:1.6cqh;color:var(--ink-soft);text-align:center;margin-top:.4cqh">การจับคู่แบบ 1 ต่อ 1 จากลำดับพจน์ $n$ ไปสู่ค่า $a_n$</div>
+            <div style="font-size:1.6cqh;color:var(--ink-soft);text-align:center;margin-top:.4cqh">การจับคู่แบบ 1 ต่อ 1 จากงวดเวลา $n$ ไปสู่ยอดเงิน $a_n$</div>
           </div>
         </div>
       </div>
@@ -369,9 +370,10 @@ b,strong{font-weight:700;color:var(--navy2)}
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามและผลต่างร่วม (Common Difference)</div>
-        ลำดับที่ผลต่างของพจน์ที่อยู่ติดกันมีค่าคงที่เสมอ เขียนแทนด้วย $d$:
-        $$\mathbf{d = a_{n+1} - a_n = \text{คงที่เสมอสำหรับทุก } n \ge 1}$$
+        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพในชีวิตจริง: การออมเงินแบบฝากเพิ่มรายเดือนคงที่</div>
+        เปิดบัญชีมีเงินตั้งต้น 1,000 บาท ($a_1 = 1,000$) และฝากเงินเพิ่มเดือนละ 500 บาทเท่ากันทุกเดือน ($d = 500$):<br>
+        • สิ้นเดือน 1: $1,000$ บาท &emsp;• สิ้นเดือน 2: $1,000 + 500 = 1,500$ บาท &emsp;• สิ้นเดือน 3: $1,500 + 500 = 2,000$ บาท<br>
+        • สิ้นปี (เดือนที่ 12): $a_{12} = 1,000 + 11(500) = \mathbf{6,500 \text{ บาท}}$ (เพิ่มด้วยอัตราคงที่)
       </div>
       <div class="cols" style="margin-top:.4cqh">
         <div class="col">
@@ -382,15 +384,16 @@ b,strong{font-weight:700;color:var(--navy2)}
             • พจน์ที่ 3: $a_3 = a_2 + d = a_1 + 2d$<br>
             • พจน์ที่ 4: $a_4 = a_3 + d = a_1 + 3d$<br>
             $$\mathbf{\implies a_n = a_1 + (n - 1)d}$$
+            โดย $d = a_{n+1} - a_n$ คือ <b>ผลต่างร่วม (Common Difference)</b>
           </div>
         </div>
         <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">PROPERTIES</span> ข้อสังเกตสำคัญ</div>
-            1. ถ้า $d > 0$ ลำดับจะมีค่าเพิ่มขึ้นเรื่อยๆ (Strictly Increasing)<br>
-            2. ถ้า $d < 0$ ลำดับจะมีค่าลดลงเรื่อยๆ (Strictly Decreasing)<br>
-            3. ถ้า $d = 0$ ลำดับจะเป็นลำดับคงที่ ($a_n = a_1$)<br>
-            4. กราฟของพจน์ $a_n$ เป็นจุดบนเส้นตรงที่มีความชันเท่ากับ $d$
+            <div class="lab"><span class="pin">PROPERTIES</span> พฤติกรรมและข้อสังเกต</div>
+            1. ถ้า $d > 0$ เงินในบัญชีเพิ่มขึ้นเรื่อยๆ (Strictly Increasing)<br>
+            2. ถ้า $d < 0$ มีการถอนเงินคงที่ ยอดเงินลดลงเรื่อยๆ (Strictly Decreasing)<br>
+            3. ถ้า $d = 0$ ไม่มีการเคลื่อนไหว ยอดเงินคงที่ตลอด ($a_n = a_1$)<br>
+            4. ใน CS: ใช้คำนวณตำแหน่งหน่วยความจำ `Address = Base + i * Size`
           </div>
         </div>
       </div>
@@ -498,9 +501,10 @@ b,strong{font-weight:700;color:var(--navy2)}
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามและอัตราส่วนร่วม (Common Ratio)</div>
-        ลำดับที่พจน์ถัดไปได้จากการคูณพจน์ก่อนหน้าด้วยค่าคงที่ $r$ เสมอ โดยที่ $a_1 \neq 0$ และ $r \neq 0$:
-        $$\mathbf{r = \frac{a_{n+1}}{a_n} = \text{คงที่เสมอสำหรับทุก } n \ge 1}$$
+        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพในชีวิตจริง: การเติบโตของเงินลงทุนแบบทบเท่าตัว (Compound Doubling)</div>
+        ฝากเงินต้น 10,000 บาท ($a_1 = 10,000$) ในกองทุนที่มูลค่าเพิ่มขึ้นเป็น <b>2 เท่า ($r = 2$)</b> ทุกปี:<br>
+        • สิ้นปี 1: $10,000$ บาท &emsp;• สิ้นปี 2: $10,000 \times 2 = 20,000$ บาท &emsp;• สิ้นปี 3: $20,000 \times 2 = 40,000$ บาท<br>
+        • สิ้นปี 5: $a_5 = 10,000 \times 2^4 = \mathbf{160,000 \text{ บาท}}$ (เพิ่มขึ้นด้วยการคูณทบเท่าตัวต่องวด)
       </div>
       <div class="cols" style="margin-top:.4cqh">
         <div class="col">
@@ -511,14 +515,14 @@ b,strong{font-weight:700;color:var(--navy2)}
             • พจน์ที่ 3: $a_3 = a_2 \cdot r = a_1 \cdot r^2$<br>
             • พจน์ที่ 4: $a_4 = a_3 \cdot r = a_1 \cdot r^3$<br>
             $$\mathbf{\implies a_n = a_1 \cdot r^{n-1}}$$
+            โดย $r = \frac{a_{n+1}}{a_n}$ คือ <b>อัตราส่วนร่วม (Common Ratio)</b>
           </div>
         </div>
         <div class="col">
-          <div class="block al">
-            <div class="lab"><span class="pin">WARNING</span> เหตุผลที่ $r \neq 0$ และ $a_1 \neq 0$</div>
-            หากยอมให้ $r = 0$ ลำดับจะเป็น $a_1, 0, 0, 0, \dots$<br>
-            ซึ่งตั้งแต่พจน์ที่สองเป็นต้นไปจะไม่สามารถหาอัตราส่วน $\frac{0}{0}$ ได้ (เกิดการหารด้วยศูนย์ undefined)<br>
-            จึงไม่นับเป็นลำดับเรขาคณิตตามหลักวิชาการ
+          <div class="block ex">
+            <div class="lab"><span class="pin">INTERPRET</span> ดอกเบี้ยเงินฝากธนาคาร vs CS</div>
+            • <b>ดอกเบี้ยทบต้น $10\%$ ต่อปี:</b> อัตราส่วนร่วมคือ $r = 1 + 0.10 = 1.10$<br>
+            • <b>ในคอมพิวเตอร์:</b> การเพิ่มขนาดของ Binary Tree แต่ละชั้น ($r = 2$), การลดขนาดปัญหาใน Binary Search ($r = 1/2$), และการขยายหน่วยความจำ
           </div>
         </div>
       </div>
@@ -598,14 +602,16 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div class="cols wide-l">
         <div class="col">
           <div class="block">
-            <div class="lab"><span class="pin">COMPARE</span> ความเร็วในการเพิ่มค่า</div>
-            • <b>ลำดับเลขคณิต ($a_n = a_1 + (n-1)d$):</b> เติบโตแบบเชิงเส้น (Linear Growth $O(n)$) ค่าเพิ่มขึ้นด้วยอัตราคงที่ $d$<br>
-            • <b>ลำดับเรขาคณิต ($a_n = a_1 r^{n-1}$ เมื่อ $r > 1$):</b> เติบโตแบบทวีคูณ (Exponential Growth $O(r^n)$) ค่าจะพุ่งขึ้นอย่างมหาศาลเมื่อ $n$ มากขึ้น
+            <div class="lab"><span class="pin">COMPARE</span> เปรียบเทียบ: เงินออมรายเดือน vs เงินลงทุนทบต้น</div>
+            • <b>แผน ก (เงินออมเลขคณิต):</b> เริ่ม 1,000 บาท ฝากเพิ่มเดือนละ 1,000 บาท ($d = 1,000$)<br>
+            &emsp;เดือนที่ 10 มีเงิน $= 1,000 + 9(1,000) = \mathbf{10,000 \text{ บาท}}$ (เติบโตแบบเชิงเส้น $O(n)$)<br>
+            • <b>แผน ข (เงินลงทุนเรขาคณิต):</b> เริ่ม 1,000 บาท โตทบต้นเท่าตัวทุกเดือน ($r = 2$)<br>
+            &emsp;เดือนที่ 10 มีเงิน $= 1,000 \times 2^9 = 1,000 \times 512 = \mathbf{512,000 \text{ บาท}}$ (ทวีคูณ $O(2^n)$)
           </div>
           <div class="block ex" style="margin-top:.4cqh">
-            <div class="lab"><span class="pin">DATA</span> ตัวอย่างเปรียบเทียบเมื่อ $n = 10$</div>
-            • เลขคณิต ($a_1=1, d=2$): $1, 3, 5, 7, \dots, a_{10} = \mathbf{19}$<br>
-            • เรขาคณิต ($a_1=1, r=2$): $1, 2, 4, 8, \dots, a_{10} = 2^9 = \mathbf{512}$ (โตกว่า 26 เท่า!)
+            <div class="lab"><span class="pin">TAKEAWAY</span> บทเรียนสำคัญสู่การเขียนโปรแกรม</div>
+            แผน ข ได้เงินมากกว่าแผน ก ถึง <b>51 เท่า</b> เมื่อเวลาผ่านไปเพียง 10 งวด!<br>
+            ในคอมพิวเตอร์ ขั้นตอนวิธีที่มีความซับซ้อนแบบ Exponential ($O(2^n)$) จึงกินเวลาและทรัพยากรมหาศาลจนไม่สามารถทำงานกับข้อมูลขนาดใหญ่ได้
           </div>
         </div>
         <div class="col">
@@ -646,17 +652,18 @@ b,strong{font-weight:700;color:var(--navy2)}
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">DEF</span> นิยามอนุกรม (Series)</div>
-        <b>อนุกรม (Series)</b> คือ ผลบวกสะสมของสมาชิกในลำดับ ตั้งแต่พจน์แรก $a_1$ จนถึงพจน์ที่ $n$ เขียนแทนด้วย $S_n$:
+        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพในชีวิตจริง: ยอดเงินรวมสะสมในสมุดบัญชี (Cumulative Bank Balance)</div>
+        • <b>ลำดับ ($a_i$):</b> คือยอดเงินที่ฝากเพิ่มในแต่ละเดือน เช่น เดือนที่ 1 ฝาก 1,000, เดือนที่ 2 ฝาก 1,500, เดือนที่ 3 ฝาก 2,000<br>
+        • <b>อนุกรม ($S_n$):</b> คือ <b>ยอดเงินรวมสะสมทั้งหมดในบัญชี</b> ตั้งแต่เดือนแรกถึงเดือนที่ $n$:
         $$\mathbf{S_n = \sum_{i=1}^n a_i = a_1 + a_2 + a_3 + \dots + a_n}$$
       </div>
       <div class="cols" style="margin-top:.4cqh">
         <div class="col">
           <div class="block gold">
             <div class="lab"><span class="pin">RULES</span> สมบัติของสัญกรณ์ซิกมา</div>
-            1. $\sum_{i=1}^n c = n \cdot c$ (เมื่อ $c$ เป็นค่าคงที่)<br>
-            2. $\sum_{i=1}^n c \cdot a_i = c \sum_{i=1}^n a_i$ (ดึงค่าคงที่ออกนอกซิกมาได้)<br>
-            3. $\sum_{i=1}^n (a_i \pm b_i) = \sum_{i=1}^n a_i \pm \sum_{i=1}^n b_i$ (แยกบวกลบได้)
+            1. $\sum_{i=1}^n c = n \cdot c$ (ฝากเงินคงที่ $c$ บาททุกเดือน รวม $n$ เดือน ได้ $n \cdot c$ บาท)<br>
+            2. $\sum_{i=1}^n c \cdot a_i = c \sum_{i=1}^n a_i$ (ดึงตัวคูณร่วมออกนอกซิกมาได้)<br>
+            3. $\sum_{i=1}^n (a_i \pm b_i) = \sum_{i=1}^n a_i \pm \sum_{i=1}^n b_i$ (แยกบวก-ลบระหว่างบัญชีได้)
           </div>
         </div>
         <div class="col">
@@ -677,25 +684,26 @@ b,strong{font-weight:700;color:var(--navy2)}
       <div><span class="kick">Concept 2.2</span><h2>อนุกรมเลขคณิตและที่มาของสูตร (Gauss's Pairing Method)</h2></div>
     </div>
     <div class="body">
-      <div class="cols wide-l">
+      <div class="block">
+        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพในชีวิตจริง: ชาเลนจ์ออมเงิน 100 วัน (100-Day Savings Challenge)</div>
+        วันที่ 1 หยอด 1 บาท, วันที่ 2 หยอด 2 บาท, ... วันที่ 100 หยอด 100 บาท ครบ 100 วันจะมีเงินกี่บาท?<br>
+        เกาส์ (Gauss) จับคู่ <b>วันแรก + วันสุดท้าย</b>: $1 + 100 = 101$, คู่ถัดไป $2 + 99 = 101$, ทั้งหมดมี 50 คู่ ($100/2$ คู่)<br>
+        $$\text{ยอดเงินรวม} = 50 \times 101 = \mathbf{5,050 \text{ บาท}} \implies \text{สูตร: } S_n = \frac{n}{2}(a_1 + a_n)$$
+      </div>
+      <div class="cols wide-l" style="margin-top:.4cqh">
         <div class="col">
-          <div class="block">
+          <div class="block gold">
             <div class="lab"><span class="pin">FORMULA</span> สูตรผลรวมอนุกรมเลขคณิต $n$ พจน์แรก</div>
             $$\mathbf{S_n = \frac{n}{2}(a_1 + a_n) = \frac{n}{2}[2a_1 + (n - 1)d]}$$
-          </div>
-          <div class="block ex" style="margin-top:.4cqh">
-            <div class="lab"><span class="pin">SPECIAL CASE</span> ผลรวม $1$ ถึง $n$ ที่พบบ่อยที่สุดใน CS</div>
-            $$\mathbf{\sum_{i=1}^n i = 1 + 2 + 3 + \dots + n = \frac{n(n+1)}{2} = \frac{1}{2}n^2 + \frac{1}{2}n}$$
+            • ใช้รูปแรกเมื่อ <b>ทราบพจน์สุดท้าย $a_n$</b><br>
+            • ใช้รูปหลังเมื่อ <b>ทราบผลต่างร่วม $d$</b>
           </div>
         </div>
         <div class="col">
-          <div class="block gold">
-            <div class="lab"><span class="pin">PROOF</span> เทคนิคการจับคู่ของเกาส์ (Gauss)</div>
-            บวกหัวกับท้ายเข้าหากันทีละคู่:<br>
-            $S = 1 + 2 + 3 + \dots + n$<br>
-            $S = n + (n-1) + \dots + 1$<br>
-            $2S = (n+1) + (n+1) + \dots + (n+1)$ ($n$ คู่)<br>
-            $2S = n(n+1) \implies \mathbf{S = \frac{n(n+1)}{2}}$
+          <div class="block ex">
+            <div class="lab"><span class="pin">SPECIAL CASE</span> ผลรวม $1$ ถึง $n$ ที่พบบ่อยที่สุดใน CS</div>
+            $$\mathbf{\sum_{i=1}^n i = 1 + 2 + 3 + \dots + n = \frac{n(n+1)}{2} = \frac{1}{2}n^2 + \frac{1}{2}n}$$
+            เป็นหัวใจของการวิเคราะห์ลูปซ้อน 2 ชั้นแบบสามเหลี่ยม ($O(n^2)$)
           </div>
         </div>
       </div>
@@ -710,8 +718,9 @@ b,strong{font-weight:700;color:var(--navy2)}
     </div>
     <div class="body">
       <div class="block gold">
-        <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
-        จงหาผลรวม 20 พจน์แรก ($S_{20}$) ของอนุกรมเลขคณิต $5 + 8 + 11 + 14 + \dots$
+        <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง (การจำลองยอดเงินออมสะสม)</div>
+        จงหาผลรวม 20 พจน์แรก ($S_{20}$) ของอนุกรมเลขคณิต $5 + 8 + 11 + 14 + \dots$<br>
+        <i>(เปรียบเหมือนแผนการออมเงิน: เริ่มวันแรก 5 บาท แล้วหยอดเพิ่มวันละ 3 บาท ต่อเนื่อง 20 วัน จะมีเงินรวมเท่าไร?)</i>
       </div>
       <div class="step-list" style="margin-top:.4cqh">
         <div class="step-item">
@@ -726,7 +735,7 @@ b,strong{font-weight:700;color:var(--navy2)}
         <div class="step-item">
           <div class="step-badge">ขั้นที่ 3</div>
           <div class="step-text"><b>คำนวณผลลัพธ์:</b><br>
-          $S_{20} = 10[10 + 57] = 10 \times 67 = \mathbf{670}$<br>
+          $S_{20} = 10[10 + 57] = 10 \times 67 = \mathbf{670}$ บาท<br>
           <span class="gn">วิธีทางเลือก: หา $a_{20} = 5 + 19(3) = 62 \implies S_{20} = \frac{20}{2}(5 + 62) = 10 \times 67 = 670$</span></div>
         </div>
       </div>
@@ -772,25 +781,26 @@ b,strong{font-weight:700;color:var(--navy2)}
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">FORMULA</span> สูตรผลรวมอนุกรมเรขาคณิต $n$ พจน์แรก</div>
-        เมื่อ $r \neq 1$:
-        $$\mathbf{S_n = \frac{a_1(1 - r^n)}{1 - r} = \frac{a_1(r^n - 1)}{r - 1}} \qquad \text{(กรณี } r = 1 \text{ จะได้ } S_n = n a_1)$$
+        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพในชีวิตจริง: การสะสมเงินออมแบบทวีคูณ (Doubling Savings Plan)</div>
+        สมมุติวางแผนออมเงินรายสัปดาห์: สัปดาห์แรกออม 100 บาท ($a_1 = 100$) สัปดาห์ถัดไปออมเพิ่มเป็น 2 เท่า ($r = 2$):<br>
+        สัปดาห์ที่ 1 ถึง 4 ออม: $100, 200, 400, 800$ บาท $\implies$ ยอดรวมสะสมคือ $S_4 = 100 + 200 + 400 + 800 = \mathbf{1,500 \text{ บาท}}$<br>
+        เมื่อคำนวณด้วยสูตร: $S_4 = \frac{100(2^4 - 1)}{2 - 1} = \frac{100(16 - 1)}{1} = \mathbf{1,500 \text{ บาท}}$ (คำนวณสะดวกรวดเร็ว แม้มีหลายสิบงวด)
       </div>
-      <div class="cols" style="margin-top:.4cqh">
+      <div class="cols wide-l" style="margin-top:.4cqh">
         <div class="col">
           <div class="block gold">
-            <div class="lab"><span class="pin">PROOF</span> ที่มาของสูตร (Algebraic Subtraction)</div>
-            (1) $S_n = a_1 + a_1 r + a_1 r^2 + \dots + a_1 r^{n-1}$<br>
-            คูณด้วย $r$: (2) $r S_n = a_1 r + a_1 r^2 + \dots + a_1 r^n$<br>
-            นำ (1) - (2): $S_n - r S_n = a_1 - a_1 r^n$<br>
-            $S_n(1 - r) = a_1(1 - r^n) \implies \mathbf{S_n = \frac{a_1(1 - r^n)}{1 - r}}$
+            <div class="lab"><span class="pin">FORMULA</span> สูตรผลรวมอนุกรมเรขาคณิต $n$ พจน์แรก</div>
+            เมื่อ $r \neq 1$:
+            $$\mathbf{S_n = \frac{a_1(1 - r^n)}{1 - r} = \frac{a_1(r^n - 1)}{r - 1}} \qquad \text{(กรณี } r = 1 \text{ จะได้ } S_n = n a_1)$$
+            • ถ้า $r > 1$ นิยมใช้รูปขวาเพื่อให้เศษและส่วนเป็นบวก
           </div>
         </div>
         <div class="col">
           <div class="block ex">
-            <div class="lab"><span class="pin">TIP</span> เคล็ดลับการเลือกใช้รูปสูตร</div>
-            • ถ้า $r > 1$ นิยมใช้รูป $\frac{a_1(r^n - 1)}{r - 1}$ เพื่อให้ทั้งเศษและส่วนเป็นค่าบวก<br>
-            • ถ้า $r < 1$ นิยมใช้รูป $\frac{a_1(1 - r^n)}{1 - r}$ เพื่อหลีกเลี่ยงเครื่องหมายลบ
+            <div class="lab"><span class="pin">PROOF</span> ที่มาของสูตร (Algebraic Subtraction)</div>
+            (1) $S_n = a_1 + a_1 r + a_1 r^2 + \dots + a_1 r^{n-1}$<br>
+            (2) $r S_n = a_1 r + a_1 r^2 + \dots + a_1 r^n$<br>
+            (1) - (2): $S_n(1 - r) = a_1(1 - r^n) \implies \mathbf{S_n = \frac{a_1(1 - r^n)}{1 - r}}$
           </div>
         </div>
       </div>
@@ -805,8 +815,9 @@ b,strong{font-weight:700;color:var(--navy2)}
     </div>
     <div class="body">
       <div class="block gold">
-        <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง</div>
-        จงหาผลรวม 6 พจน์แรก ($S_6$) ของอนุกรมเรขาคณิต $3 + 6 + 12 + 24 + \dots$
+        <div class="lab"><span class="pin">PROBLEM</span> โจทย์ตัวอย่าง (การออมเงินแบบทวีคูณ)</div>
+        จงหาผลรวม 6 พจน์แรก ($S_6$) ของอนุกรมเรขาคณิต $3 + 6 + 12 + 24 + \dots$<br>
+        <i>(เปรียบเหมือนการออมเงิน: เริ่มวันแรก 3 บาท แล้วเพิ่มเป็น 2 เท่าทุกวัน เมื่อครบ 6 วันจะมีเงินรวมเท่าไร?)</i>
       </div>
       <div class="step-list" style="margin-top:.4cqh">
         <div class="step-item">
@@ -821,7 +832,7 @@ b,strong{font-weight:700;color:var(--navy2)}
         <div class="step-item">
           <div class="step-badge">ขั้นที่ 3</div>
           <div class="step-text"><b>คำนวณผลลัพธ์:</b><br>
-          $S_6 = 3 \times 63 = \mathbf{189}$<br>
+          $S_6 = 3 \times 63 = \mathbf{189}$ บาท<br>
           <span class="gn">ตรวจสอบด้วยการบวกตรง: $3 + 6 + 12 + 24 + 48 + 96 = 189$ ตรงกันอย่างแม่นยำ</span></div>
         </div>
       </div>
@@ -836,9 +847,9 @@ b,strong{font-weight:700;color:var(--navy2)}
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">DEF</span> ผลรวมอนันต์และการลู่เข้า (Convergence)</div>
-        เมื่อพิจารณาผลรวมไม่จำกัดพจน์ ($n \to \infty$) ของอนุกรมเรขาคณิต:
-        $$\mathbf{S_\infty = \sum_{i=1}^\infty a_1 r^{i-1} = \lim_{n \to \infty} \frac{a_1(1 - r^n)}{1 - r}}$$
+        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพในชีวิตจริง: การแบ่งเค้กทีละครึ่ง / กองทุนจ่ายเงินปันผลถาวร (Perpetuity)</div>
+        สมมุติมีเค้ก 1 ชิ้น วันนี้ตัดกินครึ่งหนึ่ง ($\frac{1}{2}$), วันพรุ่งนี้กินครึ่งหนึ่งของที่เหลือ ($\frac{1}{4}$), วันถัดไป ($\frac{1}{8}$) ต่อเนื่องไม่สิ้นสุด:<br>
+        ผลรวมเค้กที่กินทั้งหมดคือ $\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \dots = \mathbf{1 \text{ ชิ้นพอดี}}$ (ไม่มีทางเกิน 1 ชิ้น แม้บวกไปอนันต์งวด!)
       </div>
       <div class="cols" style="margin-top:.4cqh">
         <div class="col">
@@ -847,13 +858,13 @@ b,strong{font-weight:700;color:var(--navy2)}
             เมื่อ $-1 < r < 1$ จะได้ว่า $r^n \to 0$ เมื่อ $n \to \infty$<br>
             ทำให้สูตรลดรูปเหลือ:
             $$\mathbf{S_\infty = \frac{a_1}{1 - r}}$$
-            ผลรวมจะลู่เข้าสู่ค่าคงที่จำกัดค่าหนึ่งเสมอ
+            ผลรวมจะลู่เข้าสู่ค่าคงที่จำกัดค่าหนึ่งเสมอ (เช่น มูลค่าปัจจุบันของเงินปันผลถาวร)
           </div>
         </div>
         <div class="col">
           <div class="block al">
             <div class="lab"><span class="pin">DIVERGE</span> กรณีลู่ออก ($|r| \ge 1$)</div>
-            เมื่อ $r \ge 1$ หรือ $r \le -1$ ค่าของ $r^n$ จะโตขึ้นอย่างไม่มีขอบเขตหรือแกว่งไปมา<br>
+            เมื่อ $r \ge 1$ หรือ $r \le -1$ เช่น ออมเงินเพิ่มเป็น 2 เท่าทุกงวดไปเรื่อยๆ ผลรวมจะโตขึ้นอย่างไร้ขอบเขต<br>
             ส่งผลให้ **อนุกรมลู่ออก (Divergent Series)** ไม่สามารถหาผลรวมอนันต์ได้
           </div>
         </div>
@@ -1229,21 +1240,23 @@ for i in range(n):
     </div>
     <div class="body">
       <div class="block">
-        <div class="lab"><span class="pin">DEF</span> ฟังก์ชันเวียนเกิด (Recursive Function)</div>
-        ฟังก์ชันที่นิยามผลลัพธ์ของตัวเองโดยการ **เรียกใช้ตัวเอง (Self-calling)** กับข้อมูลนำเข้าที่มีขนาดเล็กลงเรื่อยๆ จนกระทั่งถึงจุดสิ้นสุด
+        <div class="lab"><span class="pin">ANALOGY</span> มโนภาพในชีวิตจริง: ยอดเงินในบัญชีดอกเบี้ยทบต้น (Compound Interest)</div>
+        สมมุติยอดเงินในบัญชีสิ้นปีที่ $n$ คือ $B(n)$ โดยได้ดอกเบี้ยทบต้น $10\%$ ต่อปี ($1.10$) จากเงินต้นตั้งต้น 10,000 บาท:<br>
+        • <b>ขั้นตอนเวียนเกิด (Recursive Step):</b> $B(n) = B(n - 1) \times 1.10$ (ยอดเงินปีนี้คำนวณจากยอดเงินปีก่อนหน้า)<br>
+        • <b>กรณีฐาน (Base Case):</b> $B(0) = 10,000$ บาท (หากไม่มีเงินต้นตั้งต้น เราจะไม่สามารถคำนวณยอดเงินปีใดๆ ได้เลย!)
       </div>
       <div class="cols" style="margin-top:.4cqh">
         <div class="col">
           <div class="block gold">
             <div class="lab"><span class="pin">PART 1</span> 1. กรณีฐาน (Base Case)</div>
-            • เงื่อนไขการหยุดการเรียกซ้ำ ที่สามารถส่งค่าผลลัพธ์กลับได้ทันทีโดยไม่ต้องคำนวณต่อ<br>
+            • เงื่อนไขการหยุดการเรียกซ้ำ ที่ส่งค่าผลลัพธ์กลับได้ทันทีโดยไม่ต้องคำนวณต่อ เช่น $n \le 1$<br>
             • <span class="rd"><b>คำเตือนสำคัญ:</b> หากลืมกำหนด Base Case โปรแกรมจะเรียกตัวเองไม่รู้จบจนเกิด <b>Stack Overflow Error!</b></span>
           </div>
         </div>
         <div class="col">
           <div class="block ex">
             <div class="lab"><span class="pin">PART 2</span> 2. ขั้นตอนเวียนเกิด (Recursive Step)</div>
-            • ส่วนที่ฟังก์ชันเรียกตัวเองด้วยอาร์กิวเมนต์ที่ลดขนาดลง เช่น $f(n-1)$ หรือ $f(n/2)$<br>
+            • ส่วนที่ฟังก์ชันเรียกตัวเองด้วยขนาดปัญหาที่เล็กลง เช่น $f(n-1)$ หรือ $f(n/2)$<br>
             • ต้องรับประกันว่าทุกการเรียกซ้ำจะมีทิศทางเคลื่อนที่เข้าใกล้ **Base Case** เสมอ
           </div>
         </div>
@@ -1307,7 +1320,7 @@ def factorial(n):
           </div>
           <div class="block gold" style="margin-top:.3cqh">
             <div class="lab"><span class="pin">TRACE</span> การคลี่สมการ factorial(4)</div>
-            • $\textext{fact}(4) = 4 \times \text{fact}(3)$<br>
+            • $\text{fact}(4) = 4 \times \text{fact}(3)$<br>
             • $\text{fact}(3) = 3 \times \text{fact}(2)$<br>
             • $\text{fact}(2) = 2 \times \text{fact}(1)$<br>
             • $\text{fact}(1) = 1$ (ถึง Base case $\implies$ เริ่มส่งค่ากลับ!)<br>

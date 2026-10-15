@@ -41,3 +41,13 @@ _render_tmp.*
 # แคชของ Python ไม่ใช่ซอร์ส
 __pycache__/
 *.pyc
+
+# ข้อสอบ (Exam papers must NOT be made public)
+*exam*.pdf
+*exam*.tex
+*exam*.aux
+*exam*.log
+final_exam/
+midterm_exam/
+midterm2/
+

@@ -390,17 +390,6 @@
             color: #ffffff;
         }
 
-        .sub-link.exam {
-            color: #fca5a5;
-            border-color: rgba(239, 68, 68, 0.3);
-            background: rgba(239, 68, 68, 0.08);
-        }
-
-        .sub-link.exam:hover {
-            background: rgba(239, 68, 68, 0.25);
-            border-color: rgba(239, 68, 68, 0.5);
-            color: #ffffff;
-        }
 
         /* Worksheets Hub Table */
         .ws-hub-card {
@@ -470,7 +459,6 @@
         .ws-tag-ch1 { background: rgba(59, 130, 246, 0.15); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.3); }
         .ws-tag-ch2 { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.3); }
         .ws-tag-ch3 { background: rgba(168, 85, 247, 0.15); color: #d8b4fe; border: 1px solid rgba(168, 85, 247, 0.3); }
-        .ws-tag-exam { background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); }
 
         .arrow-icon {
             width: 16px;
@@ -521,7 +509,6 @@
             <button class="tab-btn" onclick="filterChapter('ch2', event)">บทที่ 2: เซต</button>
             <button class="tab-btn" onclick="filterChapter('ch3', event)">บทที่ 3: ความสัมพันธ์และฟังก์ชัน</button>
             <button class="tab-btn" onclick="filterChapter('worksheets', event)">📑 คลังใบงาน & เฉลย (Worksheets)</button>
-            <button class="tab-btn" onclick="filterChapter('exam', event)">📝 ข้อสอบกลางภาค / ปลายภาค</button>
         </div>
     </header>
 
@@ -932,57 +919,6 @@
         </div>
     </div>
 
-    <!-- Exams Hub -->
-    <div class="chapter-section" data-chapter="exam">
-        <div class="chapter-header">
-            <span class="chapter-tag ws-tag-exam">Examinations</span>
-            <h2 class="chapter-title">📝 ข้อสอบกลางภาคและข้อสอบปลายภาค (Examination Papers)</h2>
-        </div>
-
-        <div class="grid">
-            <div class="card" style="cursor: default;">
-                <div class="card-top">
-                    <div class="week-badge-wrap">
-                        <span class="topic-icon">⏱️</span>
-                        <span class="week-badge">Midterm Exam</span>
-                    </div>
-                    <span class="ws-badge ws-tag-ch1">บทที่ 1 & 2</span>
-                </div>
-                <div class="card-body">
-                    <h2>ข้อสอบกลางภาคเรียน</h2>
-                    <p>ครอบคลุมเนื้อหาบทที่ 1 ตรรกศาสตร์ และบทที่ 2 ทฤษฎีเซต (Week 1–6) จำนวน 4 หน้า 10 ข้อ รวม 100 คะแนน</p>
-                </div>
-                <div class="card-actions">
-                    <div class="btn-links-group">
-                        <a href="midterm_exam.pdf" target="_blank" class="sub-link exam">📄 ข้อสอบกลางภาค PDF (ชุดมาตรฐาน)</a>
-                        <a href="midterm2_exam.pdf" target="_blank" class="sub-link exam">📄 ข้อสอบกลางภาค PDF (รอบสลับชุด)</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" style="cursor: default; border-color: rgba(99, 102, 241, 0.4);">
-                <div class="card-top">
-                    <div class="week-badge-wrap">
-                        <span class="topic-icon">🎓</span>
-                        <span class="week-badge" style="background: rgba(168, 85, 247, 0.25); color: #f0abfc;">Final Exam</span>
-                    </div>
-                    <span class="ws-badge ws-tag-ch3">บทที่ 3 (Week 7–9)</span>
-                </div>
-                <div class="card-body">
-                    <h2>ข้อสอบปลายภาคเรียน (4 หน้า)</h2>
-                    <p>เน้นเนื้อหาบทที่เรียนหลังกลางภาคเรียน ความสัมพันธ์ ทวิภาค การปิดสมบัติ ฟังก์ชันคอมพิวเตอร์ (Floor, Ceiling, Modulo, Queue, Scheduling) และความสัมพันธ์เวียนเกิด (Week 7–9) 8 ข้อใหญ่ รวม 100 คะแนน</p>
-                </div>
-                <div class="card-actions">
-                    <div class="btn-links-group">
-                        <a href="final_exam.pdf" target="_blank" class="sub-link exam" style="font-weight: 600; background: rgba(99, 102, 241, 0.2); border-color: rgba(99, 102, 241, 0.5); color: #ffffff;">📄 ข้อสอบปลายภาค PDF (ฉบับสมบูรณ์ 4 หน้า)</a>
-                        <a href="final_exam_set_A_blank.pdf" target="_blank" class="sub-link exam">📄 ชุด 1 (A)</a>
-                        <a href="final_exam_set_B_blank.pdf" target="_blank" class="sub-link exam">📄 ชุด 2 (B)</a>
-                        <a href="final_exam_set_C_blank.pdf" target="_blank" class="sub-link exam">📄 ชุด 3 (C)</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <footer>
         &copy; 2026 Department of Computer Science, Faculty of Science and Technology, Uttaradit Rajabhat University.

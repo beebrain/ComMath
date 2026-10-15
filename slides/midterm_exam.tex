@@ -1,0 +1,645 @@
+% !TeX program = xelatex
+%% =====================================================================
+%%  ข้อสอบกลางภาคเรียน (Midterm Examination) - 3 ชุดข้อสอบ (Set A, B, C)
+%%  รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์ (Computer Mathematics)
+%%  โครงสร้างข้อสอบ: 4 หน้ากระดาษ, 10 ข้อ, รวม 100 คะแนน
+%%  - หน้า 1: หัวข้อสอบ, ข้อมูลนักศึกษา, QR Code รหัสนักศึกษา, ข้อ 1--2 (20 คะแนน)
+%%  - หน้า 2: หัวกระดาษต่อเนื่อง (ชื่อ/รหัส), ข้อ 3--5 (30 คะแนน) [จบบทที่ 1 ตรรกศาสตร์ 50 คะแนน]
+%%  - หน้า 3: หัวกระดาษต่อเนื่อง (ชื่อ/รหัส), ข้อ 6--8 (30 คะแนน) [บทที่ 2 ทฤษฎีเซต]
+%%  - หน้า 4: หัวกระดาษต่อเนื่อง (ชื่อ/รหัส), ข้อ 9--10 (20 คะแนน) [บทที่ 2 ทฤษฎีเซต รวม 50 คะแนน]
+%% =====================================================================
+\documentclass[a4paper,12pt]{article}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1.4cm,top=1.2cm,bottom=1.2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{qrcode}
+\usepackage{pgffor}
+
+\XeTeXlinebreaklocale "th_TH"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\setmainfont[Script=Thai,Scale=1.18]{TH Sarabun New}
+
+\definecolor{navy}{HTML}{1F3A93}
+\definecolor{darkgray}{HTML}{333333}
+
+\renewcommand{\arraystretch}{1.25}
+\setlist{topsep=2pt,itemsep=3pt,parsep=0pt}
+\pagestyle{empty}
+
+\qrset{height=1.35cm}
+
+%% เส้นว่างสำหรับแสดงวิธีทำ (#1 = จำนวนบรรทัด)
+\newcounter{examline}
+\newcommand{\examlines}[1]{%
+  \setcounter{examline}{0}%
+  \loop\ifnum\value{examline}<#1\relax
+    \par\vspace{0.7em}\noindent\textcolor{gray!40}{\hrulefill}%
+    \stepcounter{examline}%
+  \repeat
+}
+
+%% ---------- หัวกระดาษหน้าแรก (#1=ชื่อ-สกุล, #2=รหัส) ----------
+\newcommand{\examheadfirst}[2]{%
+  \noindent
+  \begin{minipage}[c]{0.60\textwidth}
+    {\large\bfseries\color{navy} ข้อสอบกลางภาคเรียน ภาคเรียนที่ 1/2569}\\[0.1em]
+    {\normalsize\textbf{รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์}} \hfill {\small เวลาสอบ 90 นาที}\\[0.25em]
+    \textbf{ชื่อ-สกุล:} {\large\bfseries #1} \\[0.15em]
+    \textbf{รหัส:} {\large\bfseries #2} \enspace \textbf{กลุ่ม:} \makebox[1.5cm]{\dotfill}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.38\textwidth}
+    \flushright
+    \begin{minipage}[c]{0.46\textwidth}
+      \centering
+      \qrcode{#2}\\[0.1em]
+      {\scriptsize\ttfamily #2}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[c]{0.50\textwidth}
+      \flushright
+      \begin{tabular}{|m{2.0cm}|}
+        \hline
+        \centering\scriptsize\textbf{คะแนนรวม (100)} \tabularnewline
+        \hline
+        \vspace{0.45cm} \tabularnewline
+        \hline
+      \end{tabular}
+    \end{minipage}
+  \end{minipage}
+  \par\vspace{0.2em}\hrule\vspace{0.25em}
+  \noindent{\small\textbf{คำชี้แจง:} (1) ข้อสอบ 4 หน้า 10 ข้อ รวม 100 คะแนน (บทที่ 1 ข้อ 1--5 รวม 50 คะแนน, บทที่ 2 ข้อ 6--10 รวม 50 คะแนน) \\ (2) แสดงวิธีทำในช่องว่างอย่างละเอียด \ (3) ไม่อนุญาตให้นำเอกสารหรือเครื่องคำนวณเข้าห้องสอบ}
+  \par\vspace{0.2em}\hrule\vspace{0.35em}
+}
+
+%% ---------- หัวกระดาษหน้าต่อเนื่อง 2, 3, 4 (#1=ชื่อ-สกุล, #2=รหัส, #3=หน้าที่) ----------
+\newcommand{\examheadpage}[3]{%
+  \noindent
+  \begin{minipage}[c]{0.75\textwidth}
+    {\normalsize\bfseries\color{navy} ข้อสอบกลางภาคเรียน รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์ (หน้าที่ #3/4)}\\[0.15em]
+    \textbf{ชื่อ-สกุล:} {\large\bfseries #1} \qquad \textbf{รหัส:} {\large\bfseries #2}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.23\textwidth}
+    \flushright
+    \begin{tabular}{|m{2.0cm}|}
+      \hline
+      \centering\scriptsize\textbf{คะแนนหน้านี้} \tabularnewline
+      \hline
+      \vspace{0.45cm} \tabularnewline
+      \hline
+    \end{tabular}
+  \end{minipage}
+  \par\vspace{0.2em}\hrule\vspace{0.35em}
+}
+
+%% =====================================================================
+%%  ชุดที่ 1 (SET A)
+%% =====================================================================
+\newcommand{\generateexamA}[2]{%
+%% หน้าที่ 1 (20 คะแนน): บทที่ 1 ตรรกศาสตร์ (ข้อ 1--2)
+\examheadfirst{#1}{#2}
+
+\noindent\textbf{ข้อ 1 (10 คะแนน) [การจำแนกประพจน์ ค่าความจริง และประโยคเปิด]} \\
+จงพิจารณาข้อความต่อไปนี้ว่าเป็น \textbf{ประพจน์} หรือไม่ หากเป็นให้ระบุค่าความจริง (\textbf{T} หรือ \textbf{F}) หากไม่เป็นให้ระบุเหตุผลสั้น ๆ
+\begin{enumerate}[label=1.\arabic*), itemsep=5pt]
+  \item $3^3 - 2^4 = 11$ และ $\sqrt{144} = 12$ \hfill \makebox[7.8cm]{\dotfill}
+  \item สำหรับจำนวนเต็ม $n$ ใด ๆ ถ้า $n^2$ เป็นเลขคู่ แล้ว $n$ เป็นเลขคู่ \hfill \makebox[7.8cm]{\dotfill}
+  \item $2x + 3y = 15$ เมื่อ $x, y \in \mathbb{R}$ \hfill \makebox[7.8cm]{\dotfill}
+  \item จงเขียนฟังก์ชันวนลูปภาษาคอมพิวเตอร์เพื่อหาผลรวม $1$ ถึง $100$ \hfill \makebox[7.8cm]{\dotfill}
+  \item มีจำนวนเฉพาะ $p$ ซึ่งทำให้ $p+1$ และ $p+3$ เป็นจำนวนเฉพาะพร้อมกัน \hfill \makebox[7.8cm]{\dotfill}
+\end{enumerate}
+\vspace{0.6em}
+
+\noindent\textbf{ข้อ 2 (10 คะแนน) [การหาค่าความจริงของประพจน์เชิงประกอบหลายชั้น]} \\
+กำหนดให้ประพจน์ $p, r$ มีค่าความจริงเป็น \textbf{จริง (T)} และประพจน์ $q, s$ มีค่าความจริงเป็น \textbf{เท็จ (F)} จงหาค่าความจริงของรูปแบบประพจน์ต่อไปนี้ พร้อมเขียนแสดงขั้นตอนการแทนค่าและการคำนวณอย่างละเอียด
+\begin{enumerate}[label=2.\arabic*), itemsep=8pt]
+  \item $[(p \land \neg q) \rightarrow (\neg r \lor s)] \leftrightarrow (q \rightarrow p)$
+  \examlines{5}
+  \item $\neg[(p \rightarrow q) \lor (r \leftrightarrow \neg s)] \land (\neg p \lor \neg q)$
+  \examlines{5}
+\end{enumerate}
+
+\clearpage
+%% หน้าที่ 2 (30 คะแนน): บทที่ 1 ตรรกศาสตร์ (ข้อ 3--5)
+\examheadpage{#1}{#2}{2}
+
+\noindent\textbf{ข้อ 3 (10 คะแนน) [การสร้างตารางค่าความจริงและสัจนิรันดร์]} \\
+จงเติมตารางค่าความจริงให้สมบูรณ์ แล้วสรุปว่ารูปแบบประพจน์ $[(p \rightarrow q) \land (p \rightarrow \neg q)] \rightarrow \neg p$ เป็น \textbf{สัจนิรันดร์ (Tautology)} หรือไม่
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+  \hline
+  $p$ & $q$ & $\neg p$ & $\neg q$ & $p \rightarrow q$ & $p \rightarrow \neg q$ & $(p \rightarrow q) \land (p \rightarrow \neg q)$ & ผลลัพธ์รวม \\ \hline
+  T & T & \hspace{0.7cm} & \hspace{0.7cm} & \hspace{1.3cm} & \hspace{1.3cm} & \hspace{2.4cm} & \hspace{2.2cm} \\ \hline
+  T & F & & & & & & \\ \hline
+  F & T & & & & & & \\ \hline
+  F & F & & & & & & \\ \hline
+\end{tabular}
+\end{center}
+\vspace{0.2em}
+\noindent\textbf{สรุปผล:} รูปแบบประพจน์นี้ \dotfill \\
+\noindent\textbf{เหตุผล:} \dotfill
+\vspace{0.6em}
+
+\noindent\textbf{ข้อ 4 (10 คะแนน) [การพิสูจน์การสมมูลทางตรรกศาสตร์โดยใช้กฎพีชคณิต (Exportation Law)]} \\
+จงแสดงการพิสูจน์โดยใช้กฎพีชคณิตตรรกศาสตร์ (พร้อมเขียนชื่อกฎที่ใช้กำกับในแต่ละขั้นตอน) เพื่อแสดงว่า
+\[
+(p \land q) \rightarrow r \ \equiv \ p \rightarrow (q \rightarrow r)
+\]
+\noindent\textbf{วิธีทำ:}
+\examlines{6}
+\vspace{0.6em}
+
+\noindent\textbf{ข้อ 5 (10 คะแนน) [ตัวบ่งปริมาณ นิเสธ และตัวอย่างค้านบนเอกภพสัมพัทธ์]} \\
+กำหนดเอกภพสัมพัทธ์ $U = \{-2, -1, 0, 1, 2, 3\}$
+\begin{enumerate}[label=5.\arabic*), itemsep=6pt]
+  \item จงหาค่าความจริงของ $\forall x \, [x < 0 \rightarrow x^2 > 0]$ พร้อมแสดงวิธีคิดและตัวอย่างตรวจสอบ
+  \examlines{2}
+  \item จงหาค่าความจริงของ $\exists x \, [x^2 - x - 6 = 0]$ พร้อมแสดงวิธีคิดและระบุค่า $x$ ที่สอดคล้อง
+  \examlines{2}
+  \item จงเขียนนิเสธของ $\forall x \, [P(x) \rightarrow \neg Q(x)]$ ให้อยู่ในรูปที่ไม่มีเครื่องหมายนิเสธหน้าวงเล็บ พร้อมแสดงวิธีแปลง
+  \examlines{2}
+\end{enumerate}
+
+\clearpage
+%% หน้าที่ 3 (30 คะแนน): บทที่ 2 ทฤษฎีเซต (ข้อ 6--8)
+\examheadpage{#1}{#2}{3}
+
+\noindent\textbf{ข้อ 6 (10 คะแนน) [ความสัมพันธ์เชิงโครงสร้าง สมาชิก สับเซต และเพาเวอร์เซต]} \\
+กำหนดให้เซต $S = \{\emptyset, 0, \{0\}, \{0, 1\}\}$
+\begin{enumerate}[label=6.\arabic*), itemsep=4pt]
+  \item จงพิจารณาข้อความต่อไปนี้ว่า \textbf{จริง (T)} หรือ \textbf{เท็จ (F)}
+  \begin{itemize}[leftmargin=1.2cm, itemsep=3pt]
+    \item[ก)] $\emptyset \in S$ \hfill \makebox[3.8cm]{\dotfill} \qquad ข) $\emptyset \subseteq S$ \hfill \makebox[3.8cm]{\dotfill}
+    \item[ค)] $\{0\} \subseteq S$ \hfill \makebox[3.8cm]{\dotfill} \qquad ง) $\{\{0\}\} \subseteq S$ \hfill \makebox[3.8cm]{\dotfill}
+    \item[จ)] $\{\emptyset, 0\} \subseteq S$ \hfill \makebox[3.8cm]{\dotfill} \qquad ฉ) $\{\emptyset\} \in \mathcal{P}(S)$ \hfill \makebox[3.8cm]{\dotfill}
+  \end{itemize}
+  \item จงหา $n(\mathcal{P}(\mathcal{P}(\emptyset))) =$ \makebox[3cm]{\dotfill} \quad และ \quad $n(\mathcal{P}(S)) =$ \makebox[3cm]{\dotfill}
+  \item กำหนด $A = \{x, \{y\}\}$ จงเขียนแจกแจงสมาชิกทั้งหมดของ $\mathcal{P}(A)$\\
+        \noindent\textbf{คำตอบ} $\mathcal{P}(A) =$ \makebox[13.5cm]{\dotfill}
+\end{enumerate}
+\vspace{0.4em}
+
+\noindent\textbf{ข้อ 7 (10 คะแนน) [การดำเนินการบนเซต ผลต่างสมมาตร และส่วนเติมเต็ม]} \\
+กำหนดเอกภพสัมพัทธ์ $U = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}$ และเซตย่อยดังนี้\\
+$A = \{x \in U \mid x \text{ เป็นจำนวนเฉพาะ}\} = \{2, 3, 5, 7\}$\\
+$B = \{x \in U \mid x \text{ เป็นจำนวนคู่}\} = \{2, 4, 6, 8, 10\}$\\
+$C = \{x \in U \mid x \le 5\} = \{1, 2, 3, 4, 5\}$
+\begin{enumerate}[label=7.\arabic*), itemsep=5pt]
+  \item จงหา $(A \cup B) \cap C =$ \makebox[9.5cm]{\dotfill}
+  \item จงหาผลต่างสมมาตร $(A - B) \cup (B - A) =$ \makebox[9.5cm]{\dotfill}
+  \item จงหา $(A \cap C)' - B =$ \makebox[9.5cm]{\dotfill}
+  \item จงหา $(A' \cup B') \cap C' =$ \makebox[9.5cm]{\dotfill}
+\end{enumerate}
+\vspace{0.4em}
+
+\noindent\textbf{ข้อ 8 (10 คะแนน) [การแรเงาแผนภาพเวนน์ 3 เซต และการพิสูจน์เอกลักษณ์ของผลต่างเซต]} \\
+1) จงแรเงาแผนภาพเวนน์ 3 เซต เพื่อแสดงบริเวณของ $A - (B \cup C)$ และ $(A - B) \cap (A - C)$
+\begin{center}
+\begin{tikzpicture}[scale=0.88]
+  \draw[thick] (-2.2,-1.8) rectangle (2.2,2.0);
+  \node at (1.9,1.6) {$U$};
+  \draw[thick] (-0.7,0.5) circle (1.0);
+  \node at (-1.4,1.2) {$A$};
+  \draw[thick] (0.7,0.5) circle (1.0);
+  \node at (1.4,1.2) {$B$};
+  \draw[thick] (0,-0.6) circle (1.0);
+  \node at (0,-1.3) {$C$};
+  \node at (0,-2.3) {\small (ก) บริเวณ $A - (B \cup C)$};
+\end{tikzpicture}
+\qquad\qquad\qquad
+\begin{tikzpicture}[scale=0.88]
+  \draw[thick] (-2.2,-1.8) rectangle (2.2,2.0);
+  \node at (1.9,1.6) {$U$};
+  \draw[thick] (-0.7,0.5) circle (1.0);
+  \node at (-1.4,1.2) {$A$};
+  \draw[thick] (0.7,0.5) circle (1.0);
+  \node at (1.4,1.2) {$B$};
+  \draw[thick] (0,-0.6) circle (1.0);
+  \node at (0,-1.3) {$C$};
+  \node at (0,-2.3) {\small (ข) บริเวณ $(A - B) \cap (A - C)$};
+\end{tikzpicture}
+\end{center}
+\vspace{0.2em}
+\noindent 2) จากแผนภาพด้านบน ทั้งสองเซตเท่ากันหรือไม่ เพราะเหตุใด พร้อมแสดงวิธีพิสูจน์โดยใช้สมบัติพีชคณิตของเซต
+\examlines{4}
+
+\clearpage
+%% หน้าที่ 4 (20 คะแนน): บทที่ 2 ทฤษฎีเซต (ข้อ 9--10)
+\examheadpage{#1}{#2}{4}
+
+\noindent\textbf{ข้อ 9 (10 คะแนน) [ผลคูณคาร์ทีเซียน การแก้สมการคู่อันดับ และการกระจายเซต]} \\
+\begin{enumerate}[label=9.\arabic*), itemsep=5pt]
+  \item ถ้า $(2x - y, \ x + 3y) = (7, \ 7)$ จงหาค่าของ $x$ และ $y$\\[0.2em]
+        \noindent\textbf{วิธีทำ:} \makebox[14cm]{\dotfill}
+  \item กำหนด $A = \{1, 2, 3\}$ และ $B = \{a, b\}$ จงหา $n(A \times \mathcal{P}(B)) =$ \makebox[2.5cm]{\dotfill} \quad และ \quad $n(\mathcal{P}(A \times B)) =$ \makebox[2.5cm]{\dotfill}
+  \item กำหนด $A = \{1, 2\}, B = \{2, 3\}$ และ $C = \{3, 4\}$ จงหา $(A \times B) \cap (A \times C)$\\[0.2em]
+        $(A \times B) \cap (A \times C) =$ \makebox[11.5cm]{\dotfill}
+  \item จากข้อ 9.3) จงตรวจสอบว่า $(A \times B) \cap (A \times C)$ มีค่าเท่ากับ $A \times (B \cap C)$ หรือไม่ เพราะเหตุใด\\[0.2em]
+        \noindent\textbf{คำตอบ:} \makebox[13.5cm]{\dotfill}
+\end{enumerate}
+\vspace{0.4em}
+
+\noindent\textbf{ข้อ 10 (10 คะแนน) [โจทย์ประยุกต์การนับ 3 เซต และหลักการเพิ่มเข้า-ตัดออก (Inclusion-Exclusion)]} \\
+จากการสำรวจนักศึกษาคอมพิวเตอร์ 100 คน เกี่ยวกับความสนใจใน 3 สายงาน ได้แก่ ด้าน AI ($A$), ด้านความปลอดภัยไซเบอร์ ($S$) และด้านวิศวกรรมข้อมูล ($D$) พบข้อมูลดังนี้
+\begin{itemize}[leftmargin=1.2cm, itemsep=2pt]
+  \item สนใจด้าน AI จำนวน 48 คน, สนใจด้านความปลอดภัยไซเบอร์ จำนวน 42 คน, สนใจด้านวิศวกรรมข้อมูล จำนวน 38 คน
+  \item สนใจทั้ง AI และ ไซเบอร์ ($A \cap S$) 18 คน, สนใจทั้ง AI และ ข้อมูล ($A \cap D$) 15 คน, สนใจทั้ง ไซเบอร์ และ ข้อมูล ($S \cap D$) 14 คน
+  \item สนใจทั้ง 3 ด้าน ($A \cap S \cap D$) จำนวน 6 คน
+\end{itemize}
+\noindent\textbf{คำถาม:}
+\begin{enumerate}[label=10.\arabic*), itemsep=2pt]
+  \item จงเขียนจำนวนสมาชิกลงในแผนภาพเวนน์ด้านล่างให้ถูกต้องทุกช่อง (4 คะแนน)
+  \item มีนักศึกษาที่ไม่สนใจด้านใดเลยใน 3 ด้านนี้กี่คน (2 คะแนน) \hfill \textbf{คำตอบ:} \makebox[3.5cm]{\dotfill}
+  \item มีนักศึกษาที่สนใจ \textbf{เฉพาะด้านใดด้านหนึ่งเพียงด้านเดียว} กี่คน (2 คะแนน) \hfill \textbf{คำตอบ:} \makebox[3.5cm]{\dotfill}
+  \item มีนักศึกษาที่สนใจ \textbf{อย่างน้อย 2 ด้าน} กี่คน (2 คะแนน) \hfill \textbf{คำตอบ:} \makebox[3.5cm]{\dotfill}
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.92]
+  \draw[thick] (-3.4,-2.2) rectangle (3.4,2.3);
+  \node at (2.9,1.9) {$U = 100$};
+  \draw[thick] (-1.1,0.5) circle (1.3);
+  \node at (-2.0,1.5) {\textbf{AI (48)}};
+  \draw[thick] (1.1,0.5) circle (1.3);
+  \node at (2.0,1.5) {\textbf{Cyber ($S$: 42)}};
+  \draw[thick] (0,-0.7) circle (1.3);
+  \node at (0,-2.4) {\textbf{Data ($D$: 38)}};
+\end{tikzpicture}
+\end{center}
+
+\noindent\textbf{แสดงวิธีคำนวณและขั้นตอนการหาคำตอบอย่างละเอียด:}
+\examlines{7}
+}
+
+%% =====================================================================
+%%  ชุดที่ 2 (SET B)
+%% =====================================================================
+\newcommand{\generateexamB}[2]{%
+%% หน้าที่ 1 (20 คะแนน): บทที่ 1 ตรรกศาสตร์ (ข้อ 1--2)
+\examheadfirst{#1}{#2}
+
+\noindent\textbf{ข้อ 1 (10 คะแนน) [การจำแนกประพจน์ ค่าความจริง และประโยคเปิด]} \\
+จงพิจารณาข้อความต่อไปนี้ว่าเป็น \textbf{ประพจน์} หรือไม่ หากเป็นให้ระบุค่าความจริง (\textbf{T} หรือ \textbf{F}) หากไม่เป็นให้ระบุเหตุผลสั้น ๆ
+\begin{enumerate}[label=1.\arabic*), itemsep=5pt]
+  \item $2^5 - 3^3 = 5$ และ $\sqrt{169} = 13$ \hfill \makebox[7.8cm]{\dotfill}
+  \item สำหรับจำนวนเต็ม $n$ ใด ๆ ถ้า $n^2$ เป็นเลขคี่ แล้ว $n$ เป็นเลขคี่ \hfill \makebox[7.8cm]{\dotfill}
+  \item $3x - 4y = 20$ เมื่อ $x, y \in \mathbb{R}$ \hfill \makebox[7.8cm]{\dotfill}
+  \item จงออกแบบอัลกอริทึมเพื่อค้นหาข้อมูลแบบทวิภาค (Binary Search) \hfill \makebox[7.8cm]{\dotfill}
+  \item มีจำนวนเฉพาะ $p$ ซึ่งทำให้ $p+2$ และ $p+4$ เป็นจำนวนเฉพาะพร้อมกัน \hfill \makebox[7.8cm]{\dotfill}
+\end{enumerate}
+\vspace{0.6em}
+
+\noindent\textbf{ข้อ 2 (10 คะแนน) [การหาค่าความจริงของประพจน์เชิงประกอบหลายชั้น]} \\
+กำหนดให้ประพจน์ $p, r$ มีค่าความจริงเป็น \textbf{จริง (T)} และประพจน์ $q, s$ มีค่าความจริงเป็น \textbf{เท็จ (F)} จงหาค่าความจริงของรูปแบบประพจน์ต่อไปนี้ พร้อมเขียนแสดงขั้นตอนการแทนค่าและการคำนวณอย่างละเอียด
+\begin{enumerate}[label=2.\arabic*), itemsep=8pt]
+  \item $[(r \land \neg s) \rightarrow (\neg p \lor q)] \leftrightarrow (s \rightarrow r)$
+  \examlines{5}
+  \item $\neg[(r \rightarrow s) \lor (p \leftrightarrow \neg q)] \land (\neg r \lor \neg s)$
+  \examlines{5}
+\end{enumerate}
+
+\clearpage
+%% หน้าที่ 2 (30 คะแนน): บทที่ 1 ตรรกศาสตร์ (ข้อ 3--5)
+\examheadpage{#1}{#2}{2}
+
+\noindent\textbf{ข้อ 3 (10 คะแนน) [การสร้างตารางค่าความจริงและสัจนิรันดร์]} \\
+จงเติมตารางค่าความจริงให้สมบูรณ์ แล้วสรุปว่ารูปแบบประพจน์ $[(p \rightarrow q) \land \neg q] \rightarrow \neg p$ เป็น \textbf{สัจนิรันดร์ (Tautology)} หรือไม่
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+  \hline
+  $p$ & $q$ & $\neg p$ & $\neg q$ & $p \rightarrow q$ & $(p \rightarrow q) \land \neg q$ & ผลลัพธ์รวม \\ \hline
+  T & T & \hspace{0.8cm} & \hspace{0.8cm} & \hspace{1.6cm} & \hspace{2.8cm} & \hspace{2.8cm} \\ \hline
+  T & F & & & & & \\ \hline
+  F & T & & & & & \\ \hline
+  F & F & & & & & \\ \hline
+\end{tabular}
+\end{center}
+\vspace{0.2em}
+\noindent\textbf{สรุปผล:} รูปแบบประพจน์นี้ \dotfill \\
+\noindent\textbf{เหตุผล:} \dotfill
+\vspace{0.6em}
+
+\noindent\textbf{ข้อ 4 (10 คะแนน) [การพิสูจน์การสมมูลทางตรรกศาสตร์โดยใช้กฎพีชคณิต (Proof by Cases Law)]} \\
+จงแสดงการพิสูจน์โดยใช้กฎพีชคณิตตรรกศาสตร์ (พร้อมเขียนชื่อกฎที่ใช้กำกับในแต่ละขั้นตอน) เพื่อแสดงว่า
+\[
+(p \rightarrow r) \land (q \rightarrow r) \ \equiv \ (p \lor q) \rightarrow r
+\]
+\noindent\textbf{วิธีทำ:}
+\examlines{6}
+\vspace{0.6em}
+
+\noindent\textbf{ข้อ 5 (10 คะแนน) [ตัวบ่งปริมาณ นิเสธ และตัวอย่างค้านบนเอกภพสัมพัทธ์]} \\
+กำหนดเอกภพสัมพัทธ์ $U = \{-3, -2, -1, 0, 1, 2\}$
+\begin{enumerate}[label=5.\arabic*), itemsep=6pt]
+  \item จงหาค่าความจริงของ $\forall x \, [x > 0 \rightarrow x^2 > 0]$ พร้อมแสดงวิธีคิดและตัวอย่างตรวจสอบ
+  \examlines{2}
+  \item จงหาค่าความจริงของ $\exists x \, [x^2 + x - 6 = 0]$ พร้อมแสดงวิธีคิดและระบุค่า $x$ ที่สอดคล้อง
+  \examlines{2}
+  \item จงเขียนนิเสธของ $\forall x \, [\neg P(x) \rightarrow Q(x)]$ ให้อยู่ในรูปที่ไม่มีเครื่องหมายนิเสธหน้าวงเล็บ พร้อมแสดงวิธีแปลง
+  \examlines{2}
+\end{enumerate}
+
+\clearpage
+%% หน้าที่ 3 (30 คะแนน): บทที่ 2 ทฤษฎีเซต (ข้อ 6--8)
+\examheadpage{#1}{#2}{3}
+
+\noindent\textbf{ข้อ 6 (10 คะแนน) [ความสัมพันธ์เชิงโครงสร้าง สมาชิก สับเซต และเพาเวอร์เซต]} \\
+กำหนดให้เซต $S = \{\emptyset, 1, \{1\}, \{1, 2\}\}$
+\begin{enumerate}[label=6.\arabic*), itemsep=4pt]
+  \item จงพิจารณาข้อความต่อไปนี้ว่า \textbf{จริง (T)} หรือ \textbf{เท็จ (F)}
+  \begin{itemize}[leftmargin=1.2cm, itemsep=3pt]
+    \item[ก)] $\emptyset \in S$ \hfill \makebox[3.8cm]{\dotfill} \qquad ข) $\emptyset \subseteq S$ \hfill \makebox[3.8cm]{\dotfill}
+    \item[ค)] $\{1\} \subseteq S$ \hfill \makebox[3.8cm]{\dotfill} \qquad ง) $\{\{1\}\} \subseteq S$ \hfill \makebox[3.8cm]{\dotfill}
+    \item[จ)] $\{\emptyset, 1\} \subseteq S$ \hfill \makebox[3.8cm]{\dotfill} \qquad ฉ) $\{\emptyset\} \in \mathcal{P}(S)$ \hfill \makebox[3.8cm]{\dotfill}
+  \end{itemize}
+  \item จงหา $n(\mathcal{P}(\mathcal{P}(\emptyset))) =$ \makebox[3cm]{\dotfill} \quad และ \quad $n(\mathcal{P}(S)) =$ \makebox[3cm]{\dotfill}
+  \item กำหนด $A = \{a, \{b\}\}$ จงเขียนแจกแจงสมาชิกทั้งหมดของ $\mathcal{P}(A)$\\
+        \noindent\textbf{คำตอบ} $\mathcal{P}(A) =$ \makebox[13.5cm]{\dotfill}
+\end{enumerate}
+\vspace{0.4em}
+
+\noindent\textbf{ข้อ 7 (10 คะแนน) [การดำเนินการบนเซต ผลต่างสมมาตร และส่วนเติมเต็ม]} \\
+กำหนดเอกภพสัมพัทธ์ $U = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}$ และเซตย่อยดังนี้\\
+$A = \{x \in U \mid x \text{ เป็นจำนวนเฉพาะ}\} = \{2, 3, 5, 7\}$\\
+$B = \{x \in U \mid x \text{ เป็นจำนวนคี่}\} = \{1, 3, 5, 7, 9\}$\\
+$C = \{x \in U \mid x \ge 6\} = \{6, 7, 8, 9, 10\}$
+\begin{enumerate}[label=7.\arabic*), itemsep=5pt]
+  \item จงหา $(A \cup B) \cap C =$ \makebox[9.5cm]{\dotfill}
+  \item จงหาผลต่างสมมาตร $(A - B) \cup (B - A) =$ \makebox[9.5cm]{\dotfill}
+  \item จงหา $(A \cap C)' - B =$ \makebox[9.5cm]{\dotfill}
+  \item จงหา $(A' \cup B') \cap C' =$ \makebox[9.5cm]{\dotfill}
+\end{enumerate}
+\vspace{0.4em}
+
+\noindent\textbf{ข้อ 8 (10 คะแนน) [การแรเงาแผนภาพเวนน์ 3 เซต และการพิสูจน์เอกลักษณ์ของผลต่างเซต]} \\
+1) จงแรเงาแผนภาพเวนน์ 3 เซต เพื่อแสดงบริเวณของ $A - (B \cap C)$ และ $(A - B) \cup (A - C)$
+\begin{center}
+\begin{tikzpicture}[scale=0.88]
+  \draw[thick] (-2.2,-1.8) rectangle (2.2,2.0);
+  \node at (1.9,1.6) {$U$};
+  \draw[thick] (-0.7,0.5) circle (1.0);
+  \node at (-1.4,1.2) {$A$};
+  \draw[thick] (0.7,0.5) circle (1.0);
+  \node at (1.4,1.2) {$B$};
+  \draw[thick] (0,-0.6) circle (1.0);
+  \node at (0,-1.3) {$C$};
+  \node at (0,-2.3) {\small (ก) บริเวณ $A - (B \cap C)$};
+\end{tikzpicture}
+\qquad\qquad\qquad
+\begin{tikzpicture}[scale=0.88]
+  \draw[thick] (-2.2,-1.8) rectangle (2.2,2.0);
+  \node at (1.9,1.6) {$U$};
+  \draw[thick] (-0.7,0.5) circle (1.0);
+  \node at (-1.4,1.2) {$A$};
+  \draw[thick] (0.7,0.5) circle (1.0);
+  \node at (1.4,1.2) {$B$};
+  \draw[thick] (0,-0.6) circle (1.0);
+  \node at (0,-1.3) {$C$};
+  \node at (0,-2.3) {\small (ข) บริเวณ $(A - B) \cup (A - C)$};
+\end{tikzpicture}
+\end{center}
+\vspace{0.2em}
+\noindent 2) จากแผนภาพด้านบน ทั้งสองเซตเท่ากันหรือไม่ เพราะเหตุใด พร้อมแสดงวิธีพิสูจน์โดยใช้สมบัติพีชคณิตของเซต
+\examlines{4}
+
+\clearpage
+%% หน้าที่ 4 (20 คะแนน): บทที่ 2 ทฤษฎีเซต (ข้อ 9--10)
+\examheadpage{#1}{#2}{4}
+
+\noindent\textbf{ข้อ 9 (10 คะแนน) [ผลคูณคาร์ทีเซียน การแก้สมการคู่อันดับ และการกระจายเซต]} \\
+\begin{enumerate}[label=9.\arabic*), itemsep=5pt]
+  \item ถ้า $(3x - y, \ x + 2y) = (8, \ 5)$ จงหาค่าของ $x$ และ $y$\\[0.2em]
+        \noindent\textbf{วิธีทำ:} \makebox[14cm]{\dotfill}
+  \item กำหนด $A = \{a, b, c\}$ และ $B = \{1, 2\}$ จงหา $n(A \times \mathcal{P}(B)) =$ \makebox[2.5cm]{\dotfill} \quad และ \quad $n(\mathcal{P}(A \times B)) =$ \makebox[2.5cm]{\dotfill}
+  \item กำหนด $A = \{a, b\}, B = \{b, c\}$ และ $C = \{c, d\}$ จงหา $(A \times B) \cap (A \times C)$\\[0.2em]
+        $(A \times B) \cap (A \times C) =$ \makebox[11.5cm]{\dotfill}
+  \item จากข้อ 9.3) จงตรวจสอบว่า $(A \times B) \cap (A \times C)$ มีค่าเท่ากับ $A \times (B \cap C)$ หรือไม่ เพราะเหตุใด\\[0.2em]
+        \noindent\textbf{คำตอบ:} \makebox[13.5cm]{\dotfill}
+\end{enumerate}
+\vspace{0.4em}
+
+\noindent\textbf{ข้อ 10 (10 คะแนน) [โจทย์ประยุกต์การนับ 3 เซต และหลักการเพิ่มเข้า-ตัดออก (Inclusion-Exclusion)]} \\
+จากการสำรวจนักศึกษาคอมพิวเตอร์ 100 คน เกี่ยวกับความสนใจใน 3 สายงาน ได้แก่ ด้านการพัฒนาซอฟต์แวร์ ($S$), ด้านเครือข่าย ($N$) และด้านระบบคลาวด์ ($C$) พบข้อมูลดังนี้
+\begin{itemize}[leftmargin=1.2cm, itemsep=2pt]
+  \item สนใจด้านซอฟต์แวร์ จำนวน 46 คน, สนใจด้านเครือข่าย จำนวน 44 คน, สนใจด้านระบบคลาวด์ จำนวน 40 คน
+  \item สนใจทั้ง ซอฟต์แวร์ และ เครือข่าย ($S \cap N$) 16 คน, สนใจทั้ง ซอฟต์แวร์ และ คลาวด์ ($S \cap C$) 15 คน, สนใจทั้ง เครือข่าย และ คลาวด์ ($N \cap C$) 13 คน
+  \item สนใจทั้ง 3 ด้าน ($S \cap N \cap C$) จำนวน 5 คน
+\end{itemize}
+\noindent\textbf{คำถาม:}
+\begin{enumerate}[label=10.\arabic*), itemsep=2pt]
+  \item จงเขียนจำนวนสมาชิกลงในแผนภาพเวนน์ด้านล่างให้ถูกต้องทุกช่อง (4 คะแนน)
+  \item มีนักศึกษาที่ไม่สนใจด้านใดเลยใน 3 ด้านนี้กี่คน (2 คะแนน) \hfill \textbf{คำตอบ:} \makebox[3.5cm]{\dotfill}
+  \item มีนักศึกษาที่สนใจ \textbf{เฉพาะด้านใดด้านหนึ่งเพียงด้านเดียว} กี่คน (2 คะแนน) \hfill \textbf{คำตอบ:} \makebox[3.5cm]{\dotfill}
+  \item มีนักศึกษาที่สนใจ \textbf{อย่างน้อย 2 ด้าน} กี่คน (2 คะแนน) \hfill \textbf{คำตอบ:} \makebox[3.5cm]{\dotfill}
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.92]
+  \draw[thick] (-3.4,-2.2) rectangle (3.4,2.3);
+  \node at (2.9,1.9) {$U = 100$};
+  \draw[thick] (-1.1,0.5) circle (1.3);
+  \node at (-2.0,1.5) {\textbf{Software ($S$: 46)}};
+  \draw[thick] (1.1,0.5) circle (1.3);
+  \node at (2.0,1.5) {\textbf{Network ($N$: 44)}};
+  \draw[thick] (0,-0.7) circle (1.3);
+  \node at (0,-2.4) {\textbf{Cloud ($C$: 40)}};
+\end{tikzpicture}
+\end{center}
+
+\noindent\textbf{แสดงวิธีคำนวณและขั้นตอนการหาคำตอบอย่างละเอียด:}
+\examlines{7}
+}
+
+%% =====================================================================
+%%  ชุดที่ 3 (SET C)
+%% =====================================================================
+\newcommand{\generateexamC}[2]{%
+%% หน้าที่ 1 (20 คะแนน): บทที่ 1 ตรรกศาสตร์ (ข้อ 1--2)
+\examheadfirst{#1}{#2}
+
+\noindent\textbf{ข้อ 1 (10 คะแนน) [การจำแนกประพจน์ ค่าความจริง และประโยคเปิด]} \\
+จงพิจารณาข้อความต่อไปนี้ว่าเป็น \textbf{ประพจน์} หรือไม่ หากเป็นให้ระบุค่าความจริง (\textbf{T} หรือ \textbf{F}) หากไม่เป็นให้ระบุเหตุผลสั้น ๆ
+\begin{enumerate}[label=1.\arabic*), itemsep=5pt]
+  \item $4^3 - 5^2 = 39$ และ $\sqrt{196} = 14$ \hfill \makebox[7.8cm]{\dotfill}
+  \item สำหรับจำนวนเต็ม $n$ ใด ๆ ถ้า $n$ เป็นเลขคู่ แล้ว $n^2$ เป็นเลขคู่ \hfill \makebox[7.8cm]{\dotfill}
+  \item $4x + 5y = 25$ เมื่อ $x, y \in \mathbb{R}$ \hfill \makebox[7.8cm]{\dotfill}
+  \item จงเขียนโปรแกรมรับค่าอุณหภูมิแล้วแปลงจากเซลเซียสเป็นฟาเรนไฮต์ \hfill \makebox[7.8cm]{\dotfill}
+  \item มีจำนวนเฉพาะ $p$ ซึ่งทำให้ $p^2 + 1$ เป็นจำนวนเฉพาะ \hfill \makebox[7.8cm]{\dotfill}
+\end{enumerate}
+\vspace{0.6em}
+
+\noindent\textbf{ข้อ 2 (10 คะแนน) [การหาค่าความจริงของประพจน์เชิงประกอบหลายชั้น]} \\
+กำหนดให้ประพจน์ $p, r$ มีค่าความจริงเป็น \textbf{จริง (T)} และประพจน์ $q, s$ มีค่าความจริงเป็น \textbf{เท็จ (F)} จงหาค่าความจริงของรูปแบบประพจน์ต่อไปนี้ พร้อมเขียนแสดงขั้นตอนการแทนค่าและการคำนวณอย่างละเอียด
+\begin{enumerate}[label=2.\arabic*), itemsep=8pt]
+  \item $[(\neg q \land r) \rightarrow (p \lor \neg s)] \leftrightarrow (\neg p \rightarrow q)$
+  \examlines{5}
+  \item $\neg[(q \rightarrow \neg p) \lor (\neg s \leftrightarrow r)] \land (\neg r \lor q)$
+  \examlines{5}
+\end{enumerate}
+
+\clearpage
+%% หน้าที่ 2 (30 คะแนน): บทที่ 1 ตรรกศาสตร์ (ข้อ 3--5)
+\examheadpage{#1}{#2}{2}
+
+\noindent\textbf{ข้อ 3 (10 คะแนน) [การสร้างตารางค่าความจริงและสัจนิรันดร์]} \\
+จงเติมตารางค่าความจริงให้สมบูรณ์ แล้วสรุปว่ารูปแบบประพจน์ $[(p \lor q) \land \neg p] \rightarrow q$ เป็น \textbf{สัจนิรันดร์ (Tautology)} หรือไม่
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c|c|c|c|c|}
+  \hline
+  $p$ & $q$ & $\neg p$ & $p \lor q$ & $(p \lor q) \land \neg p$ & ผลลัพธ์รวม \\ \hline
+  T & T & \hspace{0.9cm} & \hspace{1.8cm} & \hspace{3.2cm} & \hspace{3.2cm} \\ \hline
+  T & F & & & & \\ \hline
+  F & T & & & & \\ \hline
+  F & F & & & & \\ \hline
+\end{tabular}
+\end{center}
+\vspace{0.2em}
+\noindent\textbf{สรุปผล:} รูปแบบประพจน์นี้ \dotfill \\
+\noindent\textbf{เหตุผล:} \dotfill
+\vspace{0.6em}
+
+\noindent\textbf{ข้อ 4 (10 คะแนน) [การพิสูจน์การสมมูลทางตรรกศาสตร์โดยใช้กฎพีชคณิต (Distributive Law of Implication)]} \\
+จงแสดงการพิสูจน์โดยใช้กฎพีชคณิตตรรกศาสตร์ (พร้อมเขียนชื่อกฎที่ใช้กำกับในแต่ละขั้นตอน) เพื่อแสดงว่า
+\[
+(p \rightarrow q) \land (p \rightarrow r) \ \equiv \ p \rightarrow (q \land r)
+\]
+\noindent\textbf{วิธีทำ:}
+\examlines{6}
+\vspace{0.6em}
+
+\noindent\textbf{ข้อ 5 (10 คะแนน) [ตัวบ่งปริมาณ นิเสธ และตัวอย่างค้านบนเอกภพสัมพัทธ์]} \\
+กำหนดเอกภพสัมพัทธ์ $U = \{-2, -1, 0, 1, 2, 3\}$
+\begin{enumerate}[label=5.\arabic*), itemsep=6pt]
+  \item จงหาค่าความจริงของ $\forall x \, [x \le 0 \rightarrow x^2 \ge 0]$ พร้อมแสดงวิธีคิดและตัวอย่างตรวจสอบ
+  \examlines{2}
+  \item จงหาค่าความจริงของ $\exists x \, [x^2 - 4 = 0]$ พร้อมแสดงวิธีคิดและระบุค่า $x$ ที่สอดคล้อง
+  \examlines{2}
+  \item จงเขียนนิเสธของ $\forall x \, [P(x) \land \neg Q(x)]$ ให้อยู่ในรูปที่ไม่มีเครื่องหมายนิเสธหน้าวงเล็บ พร้อมแสดงวิธีแปลง
+  \examlines{2}
+\end{enumerate}
+
+\clearpage
+%% หน้าที่ 3 (30 คะแนน): บทที่ 2 ทฤษฎีเซต (ข้อ 6--8)
+\examheadpage{#1}{#2}{3}
+
+\noindent\textbf{ข้อ 6 (10 คะแนน) [ความสัมพันธ์เชิงโครงสร้าง สมาชิก สับเซต และเพาเวอร์เซต]} \\
+กำหนดให้เซต $S = \{\emptyset, 2, \{2\}, \{2, 3\}\}$
+\begin{enumerate}[label=6.\arabic*), itemsep=4pt]
+  \item จงพิจารณาข้อความต่อไปนี้ว่า \textbf{จริง (T)} หรือ \textbf{เท็จ (F)}
+  \begin{itemize}[leftmargin=1.2cm, itemsep=3pt]
+    \item[ก)] $\emptyset \in S$ \hfill \makebox[3.8cm]{\dotfill} \qquad ข) $\emptyset \subseteq S$ \hfill \makebox[3.8cm]{\dotfill}
+    \item[ค)] $\{2\} \subseteq S$ \hfill \makebox[3.8cm]{\dotfill} \qquad ง) $\{\{2\}\} \subseteq S$ \hfill \makebox[3.8cm]{\dotfill}
+    \item[จ)] $\{\emptyset, 2\} \subseteq S$ \hfill \makebox[3.8cm]{\dotfill} \qquad ฉ) $\{\emptyset\} \in \mathcal{P}(S)$ \hfill \makebox[3.8cm]{\dotfill}
+  \end{itemize}
+  \item จงหา $n(\mathcal{P}(\mathcal{P}(\emptyset))) =$ \makebox[3cm]{\dotfill} \quad และ \quad $n(\mathcal{P}(S)) =$ \makebox[3cm]{\dotfill}
+  \item กำหนด $A = \{u, \{v\}\}$ จงเขียนแจกแจงสมาชิกทั้งหมดของ $\mathcal{P}(A)$\\
+        \noindent\textbf{คำตอบ} $\mathcal{P}(A) =$ \makebox[13.5cm]{\dotfill}
+\end{enumerate}
+\vspace{0.4em}
+
+\noindent\textbf{ข้อ 7 (10 คะแนน) [การดำเนินการบนเซต ผลต่างสมมาตร และส่วนเติมเต็ม]} \\
+กำหนดเอกภพสัมพัทธ์ $U = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}$ และเซตย่อยดังนี้\\
+$A = \{x \in U \mid x \text{ หารด้วย } 3 \text{ ลงตัว}\} = \{3, 6, 9\}$\\
+$B = \{x \in U \mid x \text{ เป็นจำนวนคู่}\} = \{2, 4, 6, 8, 10\}$\\
+$C = \{x \in U \mid x \le 6\} = \{1, 2, 3, 4, 5, 6\}$
+\begin{enumerate}[label=7.\arabic*), itemsep=5pt]
+  \item จงหา $(A \cup B) \cap C =$ \makebox[9.5cm]{\dotfill}
+  \item จงหาผลต่างสมมาตร $(A - B) \cup (B - A) =$ \makebox[9.5cm]{\dotfill}
+  \item จงหา $(A \cap C)' - B =$ \makebox[9.5cm]{\dotfill}
+  \item จงหา $(A' \cup B') \cap C' =$ \makebox[9.5cm]{\dotfill}
+\end{enumerate}
+\vspace{0.4em}
+
+\noindent\textbf{ข้อ 8 (10 คะแนน) [การแรเงาแผนภาพเวนน์ 3 เซต และการพิสูจน์เอกลักษณ์ของผลต่างเซต]} \\
+1) จงแรเงาแผนภาพเวนน์ 3 เซต เพื่อแสดงบริเวณของ $(A \cup B) - C$ และ $(A - C) \cup (B - C)$
+\begin{center}
+\begin{tikzpicture}[scale=0.88]
+  \draw[thick] (-2.2,-1.8) rectangle (2.2,2.0);
+  \node at (1.9,1.6) {$U$};
+  \draw[thick] (-0.7,0.5) circle (1.0);
+  \node at (-1.4,1.2) {$A$};
+  \draw[thick] (0.7,0.5) circle (1.0);
+  \node at (1.4,1.2) {$B$};
+  \draw[thick] (0,-0.6) circle (1.0);
+  \node at (0,-1.3) {$C$};
+  \node at (0,-2.3) {\small (ก) บริเวณ $(A \cup B) - C$};
+\end{tikzpicture}
+\qquad\qquad\qquad
+\begin{tikzpicture}[scale=0.88]
+  \draw[thick] (-2.2,-1.8) rectangle (2.2,2.0);
+  \node at (1.9,1.6) {$U$};
+  \node at (-1.4,1.2) {$A$};
+  \draw[thick] (-0.7,0.5) circle (1.0);
+  \node at (1.4,1.2) {$B$};
+  \draw[thick] (0.7,0.5) circle (1.0);
+  \node at (0,-1.3) {$C$};
+  \draw[thick] (0,-0.6) circle (1.0);
+  \node at (0,-2.3) {\small (ข) บริเวณ $(A - C) \cup (B - C)$};
+\end{tikzpicture}
+\end{center}
+\vspace{0.2em}
+\noindent 2) จากแผนภาพด้านบน ทั้งสองเซตเท่ากันหรือไม่ เพราะเหตุใด พร้อมแสดงวิธีพิสูจน์โดยใช้สมบัติพีชคณิตของเซต
+\examlines{4}
+
+\clearpage
+%% หน้าที่ 4 (20 คะแนน): บทที่ 2 ทฤษฎีเซต (ข้อ 9--10)
+\examheadpage{#1}{#2}{4}
+
+\noindent\textbf{ข้อ 9 (10 คะแนน) [ผลคูณคาร์ทีเซียน การแก้สมการคู่อันดับ และการกระจายเซต]} \\
+\begin{enumerate}[label=9.\arabic*), itemsep=5pt]
+  \item ถ้า $(2x + y, \ 3x - 2y) = (8, \ 5)$ จงหาค่าของ $x$ และ $y$\\[0.2em]
+        \noindent\textbf{วิธีทำ:} \makebox[14cm]{\dotfill}
+  \item กำหนด $A = \{x, y, z\}$ และ $B = \{3, 4\}$ จงหา $n(A \times \mathcal{P}(B)) =$ \makebox[2.5cm]{\dotfill} \quad และ \quad $n(\mathcal{P}(A \times B)) =$ \makebox[2.5cm]{\dotfill}
+  \item กำหนด $A = \{x, y\}, B = \{y, z\}$ และ $C = \{z, w\}$ จงหา $(A \times B) \cap (A \times C)$\\[0.2em]
+        $(A \times B) \cap (A \times C) =$ \makebox[11.5cm]{\dotfill}
+  \item จากข้อ 9.3) จงตรวจสอบว่า $(A \times B) \cap (A \times C)$ มีค่าเท่ากับ $A \times (B \cap C)$ หรือไม่ เพราะเหตุใด\\[0.2em]
+        \noindent\textbf{คำตอบ:} \makebox[13.5cm]{\dotfill}
+\end{enumerate}
+\vspace{0.4em}
+
+\noindent\textbf{ข้อ 10 (10 คะแนน) [โจทย์ประยุกต์การนับ 3 เซต และหลักการเพิ่มเข้า-ตัดออก (Inclusion-Exclusion)]} \\
+จากการสำรวจนักศึกษาคอมพิวเตอร์ 100 คน เกี่ยวกับความสนใจใน 3 สายงาน ได้แก่ ด้านการพัฒนาเว็บ ($W$), ด้านแอปพลิเคชันมือถือ ($M$) และด้านการพัฒนาเกม ($G$) พบข้อมูลดังนี้
+\begin{itemize}[leftmargin=1.2cm, itemsep=2pt]
+  \item สนใจด้านเว็บ จำนวน 50 คน, สนใจด้านแอปมือถือ จำนวน 40 คน, สนใจด้านเกม จำนวน 36 คน
+  \item สนใจทั้ง เว็บ และ แอปมือถือ ($W \cap M$) 17 คน, สนใจทั้ง เว็บ และ เกม ($W \cap G$) 14 คน, สนใจทั้ง แอปมือถือ และ เกม ($M \cap G$) 12 คน
+  \item สนใจทั้ง 3 ด้าน ($W \cap M \cap G$) จำนวน 7 คน
+\end{itemize}
+\noindent\textbf{คำถาม:}
+\begin{enumerate}[label=10.\arabic*), itemsep=2pt]
+  \item จงเขียนจำนวนสมาชิกลงในแผนภาพเวนน์ด้านล่างให้ถูกต้องทุกช่อง (4 คะแนน)
+  \item มีนักศึกษาที่ไม่สนใจด้านใดเลยใน 3 ด้านนี้กี่คน (2 คะแนน) \hfill \textbf{คำตอบ:} \makebox[3.5cm]{\dotfill}
+  \item มีนักศึกษาที่สนใจ \textbf{เฉพาะด้านใดด้านหนึ่งเพียงด้านเดียว} กี่คน (2 คะแนน) \hfill \textbf{คำตอบ:} \makebox[3.5cm]{\dotfill}
+  \item มีนักศึกษาที่สนใจ \textbf{อย่างน้อย 2 ด้าน} กี่คน (2 คะแนน) \hfill \textbf{คำตอบ:} \makebox[3.5cm]{\dotfill}
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.92]
+  \draw[thick] (-3.4,-2.2) rectangle (3.4,2.3);
+  \node at (2.9,1.9) {$U = 100$};
+  \draw[thick] (-1.1,0.5) circle (1.3);
+  \node at (-2.0,1.5) {\textbf{Web ($W$: 50)}};
+  \draw[thick] (1.1,0.5) circle (1.3);
+  \node at (2.0,1.5) {\textbf{Mobile ($M$: 40)}};
+  \draw[thick] (0,-0.7) circle (1.3);
+  \node at (0,-2.4) {\textbf{Game ($G$: 36)}};
+\end{tikzpicture}
+\end{center}
+
+\noindent\textbf{แสดงวิธีคำนวณและขั้นตอนการหาคำตอบอย่างละเอียด:}
+\examlines{7}
+}
+
+\begin{document}
+%% ตัวอย่างการเรียกใช้งาน
+\generateexamA{ตัวอย่างชุดที่ 1}{69042380108}
+\clearpage
+\generateexamB{ตัวอย่างชุดที่ 2}{69042380107}
+\clearpage
+\generateexamC{ตัวอย่างชุดที่ 3}{69042380109}
+\end{document}

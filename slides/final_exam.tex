@@ -1,0 +1,347 @@
+% !TeX program = xelatex
+%% =====================================================================
+%%  ข้อสอบปลายภาคเรียน (Final Examination)
+%%  รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์ (Computer Mathematics)
+%%  ภาคเรียนที่ 1/2569 มหาวิทยาลัยราชภัฏอุตรดิตถ์
+%%  โครงสร้างข้อสอบ: 4 หน้ากระดาษพอดี, 8 ข้อใหญ่, รวม 100 คะแนน
+%%  เน้นบทที่สอนหลังกลางภาคเรียน จนถึงสัปดาห์ที่ 9:
+%%  - หน้า 1 (25 คะแนน): Week 7 ความสัมพันธ์ กราฟระบุทิศทาง เมทริกซ์ และ 4 สมบัติทวิภาค + ความสัมพันธ์สมมูล
+%%  - หน้า 2 (25 คะแนน): Week 7 การปิดสมบัติ (Warshall) + Week 8 ชนิดของฟังก์ชัน (1-1, ทั่วถึง, ผกผัน)
+%%  - หน้า 3 (25 คะแนน): Week 8 ฟังก์ชันประกอบ + Floor/Ceiling/Modulo และ แฮชฟังก์ชัน (Linear Probing)
+%%  - หน้า 4 (25 คะแนน): Week 9 ลำดับ/อนุกรมเรขาคณิต (การลู่เข้า/ลู่ออก) + ความสัมพันธ์เวียนเกิด (Recurrence)
+%% =====================================================================
+\documentclass[a4paper,12pt]{article}
+\usepackage{fontspec}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1.3cm,top=1.1cm,bottom=1.1cm]{geometry}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{qrcode}
+\usepackage{pgffor}
+
+\XeTeXlinebreaklocale "th_TH"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\setmainfont[Script=Thai,Scale=1.15]{TH Sarabun New}
+
+\definecolor{navy}{HTML}{1F3A93}
+\definecolor{darkgray}{HTML}{333333}
+
+\renewcommand{\arraystretch}{1.2}
+\setlist{topsep=1.5pt,itemsep=2.5pt,parsep=0pt}
+\pagestyle{empty}
+
+\qrset{height=1.35cm}
+
+%% เส้นว่างสำหรับแสดงวิธีทำ (#1 = จำนวนบรรทัด)
+\newcounter{examline}
+\newcommand{\examlines}[1]{%
+  \setcounter{examline}{0}%
+  \loop\ifnum\value{examline}<#1\relax
+    \par\vspace{0.68em}\noindent\textcolor{gray!40}{\hrulefill}%
+    \stepcounter{examline}%
+  \repeat
+}
+
+%% ---------- หัวกระดาษหน้าแรก (#1=ชื่อ-สกุล, #2=รหัส) ----------
+\newcommand{\examheadfirst}[2]{%
+  \noindent
+  \begin{minipage}[c]{0.60\textwidth}
+    {\large\bfseries\color{navy} ข้อสอบปลายภาคเรียน ภาคเรียนที่ 1/2569}\\[0.1em]
+    {\normalsize\textbf{รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์}} \hfill {\small เวลาสอบ 120 นาที}\\[0.25em]
+    \textbf{ชื่อ-สกุล:} {\large\bfseries #1} \\[0.15em]
+    \textbf{รหัส:} {\large\bfseries #2} \enspace \textbf{กลุ่ม:} \makebox[1.5cm]{\dotfill}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.38\textwidth}
+    \flushright
+    \begin{minipage}[c]{0.46\textwidth}
+      \centering
+      \qrcode{#2}\\[0.1em]
+      {\scriptsize\ttfamily #2}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[c]{0.50\textwidth}
+      \flushright
+      \begin{tabular}{|m{2.0cm}|}
+        \hline
+        \centering\scriptsize\textbf{คะแนนรวม (100)} \tabularnewline
+        \hline
+        \vspace{0.45cm} \tabularnewline
+        \hline
+      \end{tabular}
+    \end{minipage}
+  \end{minipage}
+  \par\vspace{0.2em}\hrule\vspace{0.25em}
+  \noindent{\small\textbf{คำชี้แจง:} (1) ข้อสอบ 4 หน้า 8 ข้อใหญ่ รวม 100 คะแนน (หน้า 1: 25 คะแนน, หน้า 2: 25 คะแนน, หน้า 3: 25 คะแนน, หน้า 4: 25 คะแนน) \\ (2) แสดงวิธีทำและให้เหตุผลในช่องว่างอย่างละเอียด \ (3) ไม่อนุญาตให้นำเอกสาร ตำรา หรือเครื่องคำนวณทุกชนิดเข้าห้องสอบ}
+  \par\vspace{0.2em}\hrule\vspace{0.35em}
+}
+
+%% ---------- หัวกระดาษหน้าต่อเนื่อง 2, 3, 4 (#1=ชื่อ-สกุล, #2=รหัส, #3=หน้าที่) ----------
+\newcommand{\examheadpage}[3]{%
+  \noindent
+  \begin{minipage}[c]{0.75\textwidth}
+    {\normalsize\bfseries\color{navy} ข้อสอบปลายภาคเรียน รายวิชา 4091606 คณิตศาสตร์สำหรับคอมพิวเตอร์ (หน้าที่ #3/4)}\\[0.15em]
+    \textbf{ชื่อ-สกุล:} {\large\bfseries #1} \qquad \textbf{รหัส:} {\large\bfseries #2}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.23\textwidth}
+    \flushright
+    \begin{tabular}{|m{2.0cm}|}
+      \hline
+      \centering\scriptsize\textbf{คะแนนหน้านี้ (25)} \tabularnewline
+      \hline
+      \vspace{0.45cm} \tabularnewline
+      \hline
+    \end{tabular}
+  \end{minipage}
+  \par\vspace{0.2em}\hrule\vspace{0.35em}
+}
+
+\begin{document}
+
+%% =====================================================================
+%% หน้าที่ 1 (25 คะแนน): บทที่ 3 ความสัมพันธ์ ทวิภาค และความสัมพันธ์สมมูล (Week 7)
+%% =====================================================================
+\examheadfirst{...........................................................................}{....................................}
+
+\noindent\textbf{ข้อ 1 (15 คะแนน) [การแทนความสัมพันธ์ กราฟระบุทิศทาง เมทริกซ์ และการตรวจสอบสมบัติ 4 ประการ]} \\
+กำหนดเซต $A = \{1, 2, 3, 4\}$ และความสัมพันธ์ $R$ บนเซต $A$ นิยามโดย
+\[
+R = \{(1,1), (2,2), (3,3), (4,4), (1,2), (2,1), (2,3), (1,3)\}
+\]
+\begin{enumerate}[label=1.\arabic*), itemsep=3pt]
+  \item จงเขียน \textbf{เมทริกซ์แทนความสัมพันธ์ (Relation Matrix)} $M_R$ ให้ถูกต้อง (3 คะแนน)
+  \begin{center}
+    $M_R = \begin{bmatrix}
+    \makebox[0.6cm]{\dotfill} & \makebox[0.6cm]{\dotfill} & \makebox[0.6cm]{\dotfill} & \makebox[0.6cm]{\dotfill} \\[0.25em]
+    \makebox[0.6cm]{\dotfill} & \makebox[0.6cm]{\dotfill} & \makebox[0.6cm]{\dotfill} & \makebox[0.6cm]{\dotfill} \\[0.25em]
+    \makebox[0.6cm]{\dotfill} & \makebox[0.6cm]{\dotfill} & \makebox[0.6cm]{\dotfill} & \makebox[0.6cm]{\dotfill} \\[0.25em]
+    \makebox[0.6cm]{\dotfill} & \makebox[0.6cm]{\dotfill} & \makebox[0.6cm]{\dotfill} & \makebox[0.6cm]{\dotfill}
+    \end{bmatrix}$
+  \end{center}
+
+  \item จงวาด \textbf{กราฟระบุทิศทาง (Directed Graph / Digraph)} ของ $R$ ให้ชัดเจน (4 คะแนน)
+  \begin{center}
+  \begin{tikzpicture}[scale=0.9, auto, node distance=2.2cm, >=stealth,
+    node_style/.style={circle, draw=navy, fill=blue!8, thick, inner sep=0pt, minimum size=7.5mm, font=\bfseries}]
+    \node[node_style] (v1) at (0, 1.3) {$1$};
+    \node[node_style] (v2) at (3.5, 1.3) {$2$};
+    \node[node_style] (v3) at (3.5, -1.3) {$3$};
+    \node[node_style] (v4) at (0, -1.3) {$4$};
+    \node[gray!60] at (1.75, 0) {\scriptsize (วาดเส้นเชื่อม วนรอบ และหัวลูกศรระบุทิศทางในกรอบนี้)};
+  \end{tikzpicture}
+  \end{center}
+
+  \item จงตรวจสอบว่าความสัมพันธ์ $R$ มีสมบัติทวิภาคต่อไปนี้หรือไม่ พร้อมระบุเหตุผลประกอบสั้น ๆ (8 คะแนน)
+  \begin{itemize}[leftmargin=1.0cm, itemsep=2.5pt]
+    \item[ก)] \textbf{สมบัติสะท้อน (Reflexive):} \makebox[2.2cm]{\dotfill} เพราะ \makebox[8.2cm]{\dotfill}
+    \item[ข)] \textbf{สมบัติสมมาตร (Symmetric):} \makebox[2.2cm]{\dotfill} เพราะ \makebox[8.2cm]{\dotfill}
+    \item[ค)] \textbf{สมบัติถ่ายทอด (Transitive):} \makebox[2.2cm]{\dotfill} เพราะ \makebox[8.2cm]{\dotfill}
+    \item[ง)] \textbf{สมบัติปฏิสมมาตร (Antisymmetric):} \makebox[1.8cm]{\dotfill} เพราะ \makebox[8.0cm]{\dotfill}
+  \end{itemize}
+\end{enumerate}
+\vspace{0.4em}
+
+\noindent\textbf{ข้อ 2 (10 คะแนน) [ความสัมพันธ์สมมูล (Equivalence Relation) และชั้นสมมูล (Equivalence Class)]} \\
+กำหนดเซต $S = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11\}$ และความสัมพันธ์ $R$ บนเซต $S$ นิยามโดย
+\[
+(a, b) \in R \iff a \equiv b \pmod{4} \quad (\text{หรือ } 4 \text{ หาร } a - b \text{ ลงตัว})
+\]
+\begin{enumerate}[label=2.\arabic*), itemsep=3.5pt]
+  \item จงอธิบายอย่างกระชับว่าเหตุใดความสัมพันธ์ $R$ จึงเป็นความสัมพันธ์สมมูล (3 คะแนน)\\
+  \noindent\textbf{เหตุผล:} \dotfill
+  \examlines{2}
+  \item จงหา \textbf{ชั้นสมมูล (Equivalence Classes)} ทั้งหมดของสมาชิกในเซต $S$ (4 คะแนน)
+  \begin{itemize}[leftmargin=1.2cm, itemsep=2pt]
+    \item $[0] = \{ x \in S \mid x \equiv 0 \pmod{4} \} = $ \makebox[9.0cm]{\dotfill}
+    \item $[1] = \{ x \in S \mid x \equiv 1 \pmod{4} \} = $ \makebox[9.0cm]{\dotfill}
+    \item $[2] = \{ x \in S \mid x \equiv 2 \pmod{4} \} = $ \makebox[9.0cm]{\dotfill}
+    \item $[3] = \{ x \in S \mid x \equiv 3 \pmod{4} \} = $ \makebox[9.0cm]{\dotfill}
+  \end{itemize}
+  \item ผลรวมของชั้นสมมูลข้างต้นก่อให้เกิด \textbf{ผลแบ่งกั้น (Partition)} ของเซต $S$ หรือไม่ เพราะเหตุใด (3 คะแนน)\\
+  \noindent\textbf{ตอบ:} \makebox[2.5cm]{\dotfill} เพราะ \makebox[9.5cm]{\dotfill}
+\end{enumerate}
+
+\clearpage
+
+%% =====================================================================
+%% หน้าที่ 2 (25 คะแนน): การปิดสมบัติของความสัมพันธ์ (Week 7) & ชนิดของฟังก์ชัน (Week 8)
+%% =====================================================================
+\examheadpage{...........................................................................}{....................................}{2}
+
+\noindent\textbf{ข้อ 3 (12 คะแนน) [การปิดสมบัติของความสัมพันธ์ (Closures) และขั้นตอนวิธีวอร์แชล (Warshall's Algorithm)]} \\
+กำหนดเซต $A = \{a, b, c\}$ และความสัมพันธ์ $R = \{(a, b), (b, c), (a, c), (b, b)\}$
+\begin{enumerate}[label=3.\arabic*), itemsep=3.5pt]
+  \item จงหาการปิดแบบสะท้อน (Reflexive Closure) ของ $R$ (ระบุคู่อันดับทั้งหมด) (3 คะแนน)\\
+  \noindent\textbf{คำตอบ} $R \cup \Delta_A =$ \makebox[12.5cm]{\dotfill}
+
+  \item จงหาการปิดแบบสมมาตร (Symmetric Closure) ของ $R$ (ระบุคู่อันดับทั้งหมด) (3 คะแนน)\\
+  \noindent\textbf{คำตอบ} $R \cup R^{-1} =$ \makebox[12.5cm]{\dotfill}
+
+  \item จงแสดงการหาการปิดแบบถ่ายทอด (Transitive Closure: $R^*$) โดยใช้เมทริกซ์ตามขั้นตอนวิธีวอร์แชล (6 คะแนน)\\
+  กำหนดลำดับสมาชิก $v_1 = a, v_2 = b, v_3 = c$ จงเติมค่า 0 หรือ 1 ในเมทริกซ์แต่ละขั้น:
+  \begin{center}
+  \renewcommand{\arraystretch}{1.1}
+  $W^{[0]} = \begin{bmatrix}
+  0 & 1 & 1 \\
+  0 & 1 & 1 \\
+  0 & 0 & 0
+  \end{bmatrix} \quad \xrightarrow[\text{ผ่าน } v_1=a]{} \quad
+  W^{[1]} = \begin{bmatrix}
+  \makebox[0.4cm]{\dotfill} & \makebox[0.4cm]{\dotfill} & \makebox[0.4cm]{\dotfill} \\[0.2em]
+  \makebox[0.4cm]{\dotfill} & \makebox[0.4cm]{\dotfill} & \makebox[0.4cm]{\dotfill} \\[0.2em]
+  \makebox[0.4cm]{\dotfill} & \makebox[0.4cm]{\dotfill} & \makebox[0.4cm]{\dotfill}
+  \end{bmatrix} \quad \xrightarrow[\text{ผ่าน } v_2=b]{} \quad
+  W^{[2]} = \begin{bmatrix}
+  \makebox[0.4cm]{\dotfill} & \makebox[0.4cm]{\dotfill} & \makebox[0.4cm]{\dotfill} \\[0.2em]
+  \makebox[0.4cm]{\dotfill} & \makebox[0.4cm]{\dotfill} & \makebox[0.4cm]{\dotfill} \\[0.2em]
+  \makebox[0.4cm]{\dotfill} & \makebox[0.4cm]{\dotfill} & \makebox[0.4cm]{\dotfill}
+  \end{bmatrix}$
+  \end{center}
+  \noindent\textbf{สรุปคู่อันดับทั้งหมดของ $R^*$:} \makebox[12.5cm]{\dotfill}
+\end{enumerate}
+\vspace{0.6em}
+
+\noindent\textbf{ข้อ 4 (13 คะแนน) [การจำแนกประเภทฟังก์ชัน (Injective, Surjective, Bijective) และฟังก์ชันผกผัน]} \\
+กำหนดฟังก์ชันและเอกภพตามเงื่อนไขต่อไปนี้:
+\begin{enumerate}[label=4.\arabic*), itemsep=5pt]
+  \item กำหนด $f: \mathbb{R} \to \mathbb{R}$ นิยามโดย $f(x) = 4x - 7$ (7 คะแนน)
+  \begin{enumerate}[label=(\alph*), itemsep=2.5pt]
+    \item จงแสดงการพิสูจน์ว่า $f$ เป็นฟังก์ชันหนึ่งต่อหนึ่ง (Injective / One-to-One) หรือไม่
+    \examlines{3}
+    \item จงแสดงการพิสูจน์ว่า $f$ เป็นฟังก์ชันทั่วถึง (Surjective / Onto) หรือไม่
+    \examlines{3}
+    \item จงหาฟังก์ชันผกผัน $f^{-1}(x) =$ \makebox[8.5cm]{\dotfill}
+  \end{enumerate}
+
+  \item กำหนด $g: \mathbb{Z} \to \mathbb{Z}$ นิยามโดย $g(n) = n^2 + 2$ (6 คะแนน)
+  \begin{enumerate}[label=(\alph*), itemsep=3pt]
+    \item ฟังก์ชัน $g$ เป็นฟังก์ชันหนึ่งต่อหนึ่งหรือไม่ ตอบ \makebox[2.5cm]{\dotfill} \\
+    พร้อมยกตัวอย่างค้าน (Counterexample): \makebox[9.5cm]{\dotfill}
+    \item ฟังก์ชัน $g$ เป็นฟังก์ชันทั่วถึงหรือไม่ ตอบ \makebox[2.5cm]{\dotfill} \\
+    พร้อมยกตัวอย่างค้าน (Counterexample): \makebox[9.5cm]{\dotfill}
+    \item ฟังก์ชัน $g$ มีฟังก์ชันผกผัน $g^{-1}$ หรือไม่ เพราะเหตุใด ตอบ \makebox[7.5cm]{\dotfill}
+  \end{enumerate}
+\end{enumerate}
+
+\clearpage
+
+%% =====================================================================
+%% หน้าที่ 3 (25 คะแนน): ฟังก์ชันประกอบ, ฟังก์ชันคอมพิวเตอร์ และแฮชฟังก์ชัน (Week 8)
+%% =====================================================================
+\examheadpage{...........................................................................}{....................................}{3}
+
+\noindent\textbf{ข้อ 5 (12 คะแนน) [ฟังก์ชันประกอบ (Composition of Functions) และการวิเคราะห์เงื่อนไข]} \\
+กำหนดฟังก์ชัน $f(x) = \sqrt{2x + 8}$ เมื่อโดเมน $D_f = \{x \in \mathbb{R} \mid x \ge -4\}$ และ $g(x) = x^2 - 2$ สำหรับ $x \in \mathbb{R}$
+\begin{enumerate}[label=5.\arabic*), itemsep=4pt]
+  \item จงหานิพจน์ของฟังก์ชันประกอบ $(f \circ g)(x)$ และ $(g \circ f)(x)$ (4 คะแนน)
+  \begin{itemize}[leftmargin=1.2cm, itemsep=2.5pt]
+    \item $(f \circ g)(x) = f(g(x)) =$ \makebox[9.5cm]{\dotfill}
+    \item $(g \circ f)(x) = g(f(x)) =$ \makebox[9.5cm]{\dotfill}
+  \end{itemize}
+
+  \item จงหาค่าตัวเลขต่อไปนี้ให้ถูกต้อง (4 คะแนน)
+  \begin{itemize}[leftmargin=1.2cm, itemsep=2.5pt]
+    \item $(f \circ g)(3) =$ \makebox[4.0cm]{\dotfill} \qquad\qquad $(g \circ f)(4) =$ \makebox[4.0cm]{\dotfill}
+    \item $(f \circ f)(4) =$ \makebox[4.0cm]{\dotfill} \qquad\qquad $(g \circ g)(1) =$ \makebox[4.0cm]{\dotfill}
+  \end{itemize}
+
+  \item จงหาโดเมนของฟังก์ชันประกอบ $f \circ g$ (แสดงวิธีคิดสั้น ๆ) (4 คะแนน)
+  \examlines{3}
+\end{enumerate}
+\vspace{0.6em}
+
+\noindent\textbf{ข้อ 6 (13 คะแนน) [ฟังก์ชัน Floor, Ceiling, Modulo และโครงสร้างข้อมูล Hash Function]} \\
+\begin{enumerate}[label=6.\arabic*), itemsep=4pt]
+  \item จงหาค่าของฟังก์ชันพิเศษทางคอมพิวเตอร์ต่อไปนี้ (4 คะแนน)
+  \begin{itemize}[leftmargin=1.2cm, itemsep=2.5pt]
+    \item $\lfloor -3.8 \rfloor = $ \makebox[3.0cm]{\dotfill} \qquad\qquad $\lceil 4.2 \rceil = $ \makebox[3.0cm]{\dotfill}
+    \item $\lfloor 5.9 \rfloor + \lceil -2.1 \rceil = $ \makebox[2.5cm]{\dotfill} \qquad\qquad $(-37) \bmod 8 = $ \makebox[2.5cm]{\dotfill}
+  \end{itemize}
+
+  \item ในระบบจัดการฐานข้อมูล กำหนดตารางแฮช (Hash Table) มีขนาด $m = 7$ ช่อง (ดัชนี $0, 1, 2, 3, 4, 5, 6$)\\
+  ใช้แฮชฟังก์ชัน: $h(k) = k \bmod 7$ และแก้ปัญหาการชน (Collision Resolution) ด้วยวิธี \textbf{Linear Probing} \\
+  ($h_i(k) = (h(k) + i) \bmod 7$ เมื่อ $i = 0, 1, 2, \dots$) (9 คะแนน)
+  
+  หากต้องการบันทึกข้อมูลคีย์จำนวนเต็มตามลำดับดังนี้: \quad \textbf{17, \ 31, \ 24, \ 10, \ 38, \ 45}
+  \begin{enumerate}[label=(\alph*), itemsep=3pt]
+    \item จงแสดงการคำนวณตำแหน่งแฮช $h(k)$ และการแก้ปัญหาการชนทีละคีย์:
+    \begin{itemize}[leftmargin=0.8cm, itemsep=2pt]
+      \item บันทึกคีย์ 17: $h(17) = 17 \bmod 7 =$ \makebox[1.5cm]{\dotfill} ลงช่อง \makebox[1.5cm]{\dotfill}
+      \item บันทึกคีย์ 31: $h(31) = 31 \bmod 7 =$ \makebox[1.5cm]{\dotfill} ลงช่อง \makebox[1.5cm]{\dotfill}
+      \item บันทึกคีย์ 24: $h(24) = 24 \bmod 7 =$ \makebox[1.5cm]{\dotfill} ชนหรือไม่ \makebox[2.0cm]{\dotfill} ลงช่อง \makebox[1.5cm]{\dotfill}
+      \item บันทึกคีย์ 10: $h(10) = 10 \bmod 7 =$ \makebox[1.5cm]{\dotfill} ชนหรือไม่ \makebox[2.0cm]{\dotfill} ลงช่อง \makebox[1.5cm]{\dotfill}
+      \item บันทึกคีย์ 38: $h(38) = 38 \bmod 7 =$ \makebox[1.5cm]{\dotfill} ชนหรือไม่ \makebox[2.0cm]{\dotfill} ลงช่อง \makebox[1.5cm]{\dotfill}
+      \item บันทึกคีย์ 45: $h(45) = 45 \bmod 7 =$ \makebox[1.5cm]{\dotfill} ชนหรือไม่ \makebox[2.0cm]{\dotfill} ลงช่อง \makebox[1.5cm]{\dotfill}
+    \end{itemize}
+    \item จงเติมคีย์ข้อมูลลงในตารางแฮชผลลัพธ์สุดท้ายให้ถูกต้องสมบูรณ์:
+    \begin{center}
+    \renewcommand{\arraystretch}{1.3}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+      \hline
+      ดัชนี 0 & ดัชนี 1 & ดัชนี 2 & ดัชนี 3 & ดัชนี 4 & ดัชนี 5 & ดัชนี 6 \\ \hline
+      \hspace{0.9cm} & \hspace{0.9cm} & \hspace{0.9cm} & \hspace{0.9cm} & \hspace{0.9cm} & \hspace{0.9cm} & \hspace{0.9cm} \\ \hline
+    \end{tabular}
+    \end{center}
+  \end{enumerate}
+\end{enumerate}
+
+\clearpage
+
+%% =====================================================================
+%% หน้าที่ 4 (25 คะแนน): ลำดับ อนุกรมเรขาคณิต และความสัมพันธ์เวียนเกิด (Week 9)
+%% =====================================================================
+\examheadpage{...........................................................................}{....................................}{4}
+
+\noindent\textbf{ข้อ 7 (12 คะแนน) [ลำดับ อนุกรมเรขาคณิต และการวิเคราะห์การลู่เข้า vs ลู่ออกในคอมพิวเตอร์]} \\
+ระบบคอมพิวเตอร์กระจายงานประมวลผลเป็นรอบ โดยในแต่ละรอบ $n$ (สำหรับ $n = 1, 2, 3, \dots$) มีปริมาณภาระงาน (Workload) ตามลำดับเรขาคณิต ซึ่งมีพจน์แรก $a_1 = 128$ เมกะไบต์ (MB) และอัตราส่วนร่วม $r = \frac{1}{2}$
+\begin{enumerate}[label=7.\arabic*), itemsep=3.5pt]
+  \item จงเขียนสูตรพจน์ทั่วไป $a_n$ และหาปริมาณงานในรอบที่ $n = 6$ ($a_6$) (3 คะแนน)\\
+  \noindent\textbf{วิธีทำ:}
+  \examlines{2}
+  \noindent\textbf{คำตอบ} $a_n =$ \makebox[4.5cm]{\dotfill} \qquad\qquad $a_6 =$ \makebox[4.0cm]{\dotfill} MB
+
+  \item จงหาปริมาณงานสะสมรวมเมื่อระบบทำงานไปจนถึงรอบที่ $n = 7$ ($S_7$) โดยใช้สูตร $S_n = \frac{a_1(1 - r^n)}{1 - r}$ (4 คะแนน)\\
+  \noindent\textbf{วิธีทำ:}
+  \examlines{2}
+  \noindent\textbf{คำตอบ} $S_7 =$ \makebox[6.5cm]{\dotfill} MB
+
+  \item หากระบบประมวลผลนี้ทำงานต่อไปแบบวนรอบไม่รู้จบ ($n \to \infty$) (5 คะแนน)
+  \begin{enumerate}[label=(\alph*), itemsep=2pt]
+    \item อนุกรมนี้เป็นอนุกรมที่ \textbf{ลู่เข้า (Convergent)} หรือ \textbf{ลู่ออก (Divergent)} เพราะเหตุใด\\
+    \noindent\textbf{ตอบ:} \makebox[3.5cm]{\dotfill} เพราะ \makebox[8.0cm]{\dotfill}
+    \item จงหาผลรวมของปริมาณงานสะสมสูงสุดตลอดการทำงาน ($S_\infty$)\\
+    \noindent\textbf{คำตอบ} $S_\infty = \frac{a_1}{1 - r} =$ \makebox[8.5cm]{\dotfill} MB
+  \end{enumerate}
+\end{enumerate}
+\vspace{0.6em}
+
+\noindent\textbf{ข้อ 8 (13 คะแนน) [ความสัมพันธ์เวียนเกิด (Recurrence Relation) และการวิเคราะห์อัลกอริทึม]} \\
+\begin{enumerate}[label=8.\arabic*), itemsep=4pt]
+  \item กำหนดสมการความสัมพันธ์เวียนเกิด $T(n)$ ที่แทนเวลาการทำงานของอัลกอริทึม ดังนี้:
+  \[
+  T(1) = 3, \qquad T(n) = 2\,T(n-1) + 1 \quad \text{สำหรับ } n \ge 2
+  \]
+  \begin{enumerate}[label=(\alph*), itemsep=2.5pt]
+    \item จงหาค่าของ $T(2), T(3), T(4)$ และ $T(5)$ โดยแสดงขั้นตอนการแทนค่า (4 คะแนน)
+    \examlines{3}
+    \item จากแบบรูปที่ได้ จงคาดการณ์รูปปิด (Closed Form) ของ $T(n)$ ในรูปของ $n$ (3 คะแนน)\\
+    \noindent\textbf{คำตอบ} $T(n) =$ \makebox[9.5cm]{\dotfill}
+  \end{enumerate}
+
+  \item กำหนดฟังก์ชันเวียนเกิดของลำดับฟีโบนัชชี (Fibonacci Sequence):
+  \[
+  F_0 = 0, \quad F_1 = 1, \quad F_n = F_{n-1} + F_{n-2} \quad \text{สำหรับ } n \ge 2
+  \]
+  \begin{enumerate}[label=(\alph*), itemsep=2.5pt]
+    \item จงหาค่า $F_2, F_3, F_4, F_5, F_6$ และ $F_7$ โดยแสดงการบวกตามลำดับ (3 คะแนน)\\
+    \noindent\textbf{วิธีคิด:}
+    \examlines{2}
+    \noindent\textbf{คำตอบ} $F_7 =$ \makebox[5.0cm]{\dotfill}
+
+    \item ในทางวิทยาการคอมพิวเตอร์ หากเราเขียนโปรแกรมฟังก์ชันแบบเวียนเกิด (Recursive function) คำนวณ $F_n$ ตรง ๆ โดยไม่ใช้เทคนิค Dynamic Programming หรือการจดจำค่า (Memoization) จะเกิดข้อเสียต่อเวลาประมวลผล (Time Complexity) อย่างไร และมีวิธีการแก้ไขอย่างไร (3 คะแนน)
+    \examlines{3}
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}

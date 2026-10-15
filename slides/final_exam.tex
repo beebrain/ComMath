@@ -251,38 +251,29 @@ R = \{(1,1), (2,2), (3,3), (4,4), (1,2), (2,1), (2,3), (1,3)\}
 \end{enumerate}
 \vspace{0.6em}
 
-\noindent\textbf{ข้อ 6 (13 คะแนน) [ฟังก์ชัน Floor, Ceiling, Modulo และโครงสร้างข้อมูล Hash Function]} \\
+\noindent\textbf{ข้อ 6 (13 คะแนน) [ฟังก์ชัน Floor, Ceiling, Modulo และการประยุกต์ในวิทยาการคอมพิวเตอร์]} \\
 \begin{enumerate}[label=6.\arabic*), itemsep=4pt]
-  \item จงหาค่าของฟังก์ชันพิเศษทางคอมพิวเตอร์ต่อไปนี้ (4 คะแนน)
+  \item จงหาค่าของฟังก์ชันพื้นฐานทางคอมพิวเตอร์ต่อไปนี้ (4 คะแนน)
   \begin{itemize}[leftmargin=1.2cm, itemsep=2.5pt]
     \item $\lfloor -3.8 \rfloor = $ \makebox[3.0cm]{\dotfill} \qquad\qquad $\lceil 4.2 \rceil = $ \makebox[3.0cm]{\dotfill}
-    \item $\lfloor 5.9 \rfloor + \lceil -2.1 \rceil = $ \makebox[2.5cm]{\dotfill} \qquad\qquad $(-37) \bmod 8 = $ \makebox[2.5cm]{\dotfill}
+    \item $\lfloor 7/2 \rfloor + \lceil 7/2 \rceil = $ \makebox[2.5cm]{\dotfill} \qquad\qquad $(-37) \bmod 8 = $ \makebox[2.5cm]{\dotfill}
   \end{itemize}
 
-  \item ในระบบจัดการฐานข้อมูล กำหนดตารางแฮช (Hash Table) มีขนาด $m = 7$ ช่อง (ดัชนี $0, 1, 2, 3, 4, 5, 6$)\\
-  ใช้แฮชฟังก์ชัน: $h(k) = k \bmod 7$ และแก้ปัญหาการชน (Collision Resolution) ด้วยวิธี \textbf{Linear Probing} \\
-  ($h_i(k) = (h(k) + i) \bmod 7$ เมื่อ $i = 0, 1, 2, \dots$) (9 คะแนน)
-  
-  หากต้องการบันทึกข้อมูลคีย์จำนวนเต็มตามลำดับดังนี้: \quad \textbf{17, \ 31, \ 24, \ 10, \ 38, \ 45}
+  \item การประยุกต์ฟังก์ชันเพดาน (Ceiling Function) ในระบบคอมพิวเตอร์ (4 คะแนน)
   \begin{enumerate}[label=(\alph*), itemsep=3pt]
-    \item จงแสดงการคำนวณตำแหน่งแฮช $h(k)$ และการแก้ปัญหาการชนทีละคีย์:
-    \begin{itemize}[leftmargin=0.8cm, itemsep=2pt]
-      \item บันทึกคีย์ 17: $h(17) = 17 \bmod 7 =$ \makebox[1.5cm]{\dotfill} ลงช่อง \makebox[1.5cm]{\dotfill}
-      \item บันทึกคีย์ 31: $h(31) = 31 \bmod 7 =$ \makebox[1.5cm]{\dotfill} ลงช่อง \makebox[1.5cm]{\dotfill}
-      \item บันทึกคีย์ 24: $h(24) = 24 \bmod 7 =$ \makebox[1.5cm]{\dotfill} ชนหรือไม่ \makebox[2.0cm]{\dotfill} ลงช่อง \makebox[1.5cm]{\dotfill}
-      \item บันทึกคีย์ 10: $h(10) = 10 \bmod 7 =$ \makebox[1.5cm]{\dotfill} ชนหรือไม่ \makebox[2.0cm]{\dotfill} ลงช่อง \makebox[1.5cm]{\dotfill}
-      \item บันทึกคีย์ 38: $h(38) = 38 \bmod 7 =$ \makebox[1.5cm]{\dotfill} ชนหรือไม่ \makebox[2.0cm]{\dotfill} ลงช่อง \makebox[1.5cm]{\dotfill}
-      \item บันทึกคีย์ 45: $h(45) = 45 \bmod 7 =$ \makebox[1.5cm]{\dotfill} ชนหรือไม่ \makebox[2.0cm]{\dotfill} ลงช่อง \makebox[1.5cm]{\dotfill}
-    \end{itemize}
-    \item จงเติมคีย์ข้อมูลลงในตารางแฮชผลลัพธ์สุดท้ายให้ถูกต้องสมบูรณ์:
-    \begin{center}
-    \renewcommand{\arraystretch}{1.3}
-    \begin{tabular}{|c|c|c|c|c|c|c|}
-      \hline
-      ดัชนี 0 & ดัชนี 1 & ดัชนี 2 & ดัชนี 3 & ดัชนี 4 & ดัชนี 5 & ดัชนี 6 \\ \hline
-      \hspace{0.9cm} & \hspace{0.9cm} & \hspace{0.9cm} & \hspace{0.9cm} & \hspace{0.9cm} & \hspace{0.9cm} & \hspace{0.9cm} \\ \hline
-    \end{tabular}
-    \end{center}
+    \item \textbf{การแบ่งหน้าข้อมูลบนเว็บ (Pagination):} เว็บไซต์มีบทความ $N = 185$ รายการ ต้องการแสดงผลหน้าละ $S = 20$ รายการ ระบบจะต้องจัดสรรหน้าเว็บทั้งหมดกี่หน้า (แสดงสูตร $\lceil N/S \rceil$ และวิธีคำนวณ)\\
+    \noindent\textbf{วิธีทำ:} \makebox[13.5cm]{\dotfill}
+    \item \textbf{การจัดสรรบล็อกหน่วยความจำ (Block Allocation):} ระบบไฟล์กำหนดขนาดบล็อก $B = 4\text{ KB} = 4{,}096\text{ ไบต์}$ หากบันทึกไฟล์ขนาด $F = 15{,}000\text{ ไบต์}$ ระบบต้องจัดสรรกี่บล็อก และเกิดเนื้อที่สูญเปล่าภายในบล็อก (Internal Fragmentation) กี่ไบต์\\
+    \noindent\textbf{วิธีทำ:}
+    \examlines{2}
+  \end{enumerate}
+
+  \item การประยุกต์ฟังก์ชันมอดุโล (Modulo Function) ในโครงสร้างข้อมูลและเครือข่าย (5 คะแนน)
+  \begin{enumerate}[label=(\alph*), itemsep=3pt]
+    \item \textbf{คิววงกลม (Circular Queue):} บัฟเฟอร์ขนาด $N = 16$ ช่อง (ดัชนี $0$ ถึง $15$) ปัจจุบันพอยน์เตอร์อยู่ที่ดัชนี $13$ เมื่อนำข้อมูลเข้าคิวเพิ่มอีก $7$ รายการ พอยน์เตอร์จะชี้ไปที่ดัชนีใด (แสดงการคำนวณด้วยสูตรมอดุโล)\\
+    \noindent\textbf{วิธีทำ:} \makebox[13.5cm]{\dotfill}
+    \item \textbf{การกระจายโหลดงาน (Round-Robin Scheduling):} ระบบมีเซิร์ฟเวอร์ประมวลผล $4$ เครื่อง (หมายเลข $0, 1, 2, 3$) หากมีคำขอ (Request) หมายเลข $k = 142$ เข้ามายังระบบ ระบบจะส่งคำขอนี้ไปยังเซิร์ฟเวอร์หมายเลขใด\\
+    \noindent\textbf{วิธีทำ:} \makebox[13.5cm]{\dotfill}
   \end{enumerate}
 \end{enumerate}
 

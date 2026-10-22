@@ -223,6 +223,13 @@
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, transparent 100%);
             opacity: 0;
             transition: opacity 0.35s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .card > * {
+            position: relative;
+            z-index: 1;
         }
 
         .card:hover {
@@ -303,6 +310,8 @@
             flex-direction: column;
             gap: 0.5rem;
             margin-top: auto;
+            position: relative;
+            z-index: 2;
         }
 
         .btn-primary-slide {
@@ -319,6 +328,8 @@
             font-weight: 600;
             text-decoration: none;
             transition: all 0.25s ease;
+            position: relative;
+            z-index: 3;
         }
 
         .btn-primary-slide:hover, .card:hover .btn-primary-slide {
@@ -331,6 +342,8 @@
             display: flex;
             flex-wrap: wrap;
             gap: 0.4rem;
+            position: relative;
+            z-index: 3;
         }
 
         .sub-link {
@@ -345,6 +358,9 @@
             border-radius: 6px;
             text-decoration: none;
             transition: all 0.2s ease;
+            position: relative;
+            z-index: 4;
+            cursor: pointer;
         }
 
         .sub-link:hover {
@@ -927,7 +943,7 @@
 
 <script>
 function openSlide(e, url) {
-    if (e.target.closest('.sub-link')) {
+    if (e.target.closest('a') || e.target.closest('button') || e.target.closest('.card-actions') || e.target.closest('.sub-link')) {
         return;
     }
     window.location.href = url;

@@ -210,7 +210,7 @@
             gap: 1.25rem;
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            cursor: pointer;
+            cursor: default;
         }
 
         .card::before {
@@ -330,9 +330,10 @@
             transition: all 0.25s ease;
             position: relative;
             z-index: 3;
+            cursor: pointer;
         }
 
-        .btn-primary-slide:hover, .card:hover .btn-primary-slide {
+        .btn-primary-slide:hover {
             background: linear-gradient(135deg, var(--accent-indigo), var(--accent-purple));
             box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
             border-color: transparent;
@@ -537,7 +538,7 @@
 
         <div class="grid">
             <!-- Week 1 -->
-            <div class="card" onclick="openSlide(event, 'chapter01_week1_slides.html')">
+            <div class="card">
                 <div class="card-top">
                     <div class="week-badge-wrap">
                         <span class="topic-icon">💡</span>
@@ -557,15 +558,15 @@
                         <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
                     </a>
                     <div class="btn-links-group">
-                        <a href="chapter01_week1_worksheet.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ใบงาน PDF</a>
-                        <a href="chapter01_week1_handout.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link">📑 เอกสารแจก</a>
-                        <a href="chapter01_homework.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link hw">📝 การบ้าน</a>
+                        <a href="chapter01_week1_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF</a>
+                        <a href="chapter01_week1_handout.pdf" target="_blank" class="sub-link">📑 เอกสารแจก</a>
+                        <a href="chapter01_homework.pdf" target="_blank" class="sub-link hw">📝 การบ้าน</a>
                     </div>
                 </div>
             </div>
 
             <!-- Week 2 -->
-            <div class="card" onclick="openSlide(event, 'chapter01_week2_slides.html')">
+            <div class="card">
                 <div class="card-top">
                     <div class="week-badge-wrap">
                         <span class="topic-icon">⚖️</span>
@@ -585,15 +586,15 @@
                         <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
                     </a>
                     <div class="btn-links-group">
-                        <a href="chapter01_week2_worksheet.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ใบงาน PDF</a>
-                        <a href="chapter01_week2_handout.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link">📑 เอกสารแจก</a>
-                        <a href="chapter01_week2_slides.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link">📽️ สไลด์ PDF</a>
+                        <a href="chapter01_week2_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF</a>
+                        <a href="chapter01_week2_handout.pdf" target="_blank" class="sub-link">📑 เอกสารแจก</a>
+                        <a href="chapter01_week2_slides.pdf" target="_blank" class="sub-link">📽️ สไลด์ PDF</a>
                     </div>
                 </div>
             </div>
 
             <!-- Week 3 -->
-            <div class="card" onclick="openSlide(event, 'chapter01_week3_slides.html')">
+            <div class="card">
                 <div class="card-top">
                     <div class="week-badge-wrap">
                         <span class="topic-icon">🔀</span>
@@ -613,9 +614,9 @@
                         <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
                     </a>
                     <div class="btn-links-group">
-                        <a href="chapter01_week3_worksheet.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ใบงาน PDF</a>
-                        <a href="chapter01_week3_handout.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link">📑 เอกสารแจก</a>
-                        <a href="chapter01_week3_homework.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link hw">📝 การบ้าน</a>
+                        <a href="chapter01_week3_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF</a>
+                        <a href="chapter01_week3_handout.pdf" target="_blank" class="sub-link">📑 เอกสารแจก</a>
+                        <a href="chapter01_week3_homework.pdf" target="_blank" class="sub-link hw">📝 การบ้าน</a>
                     </div>
                 </div>
             </div>
@@ -631,7 +632,7 @@
 
         <div class="grid">
             <!-- Week 4 -->
-            <div class="card" onclick="openSlide(event, 'chapter02_week4_slides.html')">
+            <div class="card">
                 <div class="card-top">
                     <div class="week-badge-wrap">
                         <span class="topic-icon">📦</span>
@@ -651,15 +652,15 @@
                         <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
                     </a>
                     <div class="btn-links-group">
-                        <a href="chapter02_week4_worksheet.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ใบงาน PDF</a>
-                        <a href="chapter02_week4_handout.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link">📑 เอกสารแจก</a>
-                        <a href="chapter02_week4_slides.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link">📽️ สไลด์ PDF</a>
+                        <a href="chapter02_week4_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF</a>
+                        <a href="chapter02_week4_handout.pdf" target="_blank" class="sub-link">📑 เอกสารแจก</a>
+                        <a href="chapter02_week4_slides.pdf" target="_blank" class="sub-link">📽️ สไลด์ PDF</a>
                     </div>
                 </div>
             </div>
 
             <!-- Week 5 -->
-            <div class="card" onclick="openSlide(event, 'chapter02_week5_slides.html')">
+            <div class="card">
                 <div class="card-top">
                     <div class="week-badge-wrap">
                         <span class="topic-icon">🔄</span>
@@ -679,15 +680,15 @@
                         <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
                     </a>
                     <div class="btn-links-group">
-                        <a href="chapter02_week5_worksheet.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ใบงาน PDF</a>
-                        <a href="chapter02_week5_handout.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link">📑 เอกสารแจก</a>
-                        <a href="chapter02_week5_slides.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link">📽️ สไลด์ PDF</a>
+                        <a href="chapter02_week5_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF</a>
+                        <a href="chapter02_week5_handout.pdf" target="_blank" class="sub-link">📑 เอกสารแจก</a>
+                        <a href="chapter02_week5_slides.pdf" target="_blank" class="sub-link">📽️ สไลด์ PDF</a>
                     </div>
                 </div>
             </div>
 
             <!-- Week 6 -->
-            <div class="card" onclick="openSlide(event, 'chapter02_week6_slides.html')">
+            <div class="card">
                 <div class="card-top">
                     <div class="week-badge-wrap">
                         <span class="topic-icon">🔢</span>
@@ -707,9 +708,9 @@
                         <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
                     </a>
                     <div class="btn-links-group">
-                        <a href="chapter02_week6_worksheet.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ใบงาน PDF</a>
-                        <a href="chapter02_week6_worksheet_blank.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ฉบับเปล่า</a>
-                        <a href="chapter02_week6_handout.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link">📑 เอกสารแจก</a>
+                        <a href="chapter02_week6_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF</a>
+                        <a href="chapter02_week6_worksheet_blank.pdf" target="_blank" class="sub-link ws">📄 ฉบับเปล่า</a>
+                        <a href="chapter02_week6_handout.pdf" target="_blank" class="sub-link">📑 เอกสารแจก</a>
                     </div>
                 </div>
             </div>
@@ -725,7 +726,7 @@
 
         <div class="grid">
             <!-- Week 7 -->
-            <div class="card" onclick="openSlide(event, 'chapter03_week7_slides.html')">
+            <div class="card">
                 <div class="card-top">
                     <div class="week-badge-wrap">
                         <span class="topic-icon">↔️</span>
@@ -745,14 +746,14 @@
                         <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
                     </a>
                     <div class="btn-links-group">
-                        <a href="chapter03_week7_worksheet.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ใบงาน PDF (Week 7)</a>
-                        <a href="chapter03_week7_worksheet_solution.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link sol">💡 เฉลย Solution</a>
+                        <a href="chapter03_week7_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF (Week 7)</a>
+                        <a href="chapter03_week7_worksheet_solution.pdf" target="_blank" class="sub-link sol">💡 เฉลย Solution</a>
                     </div>
                 </div>
             </div>
 
             <!-- Week 8 -->
-            <div class="card" onclick="openSlide(event, 'chapter03_week8_slides.html')">
+            <div class="card">
                 <div class="card-top">
                     <div class="week-badge-wrap">
                         <span class="topic-icon">🎯</span>
@@ -772,14 +773,14 @@
                         <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
                     </a>
                     <div class="btn-links-group">
-                        <a href="chapter03_week8_worksheet.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ใบงาน PDF (Week 8)</a>
-                        <a href="chapter03_week8_worksheet_solution.pdf" target="_blank" onclick="event.stopPropagation()" class="sub-link sol">💡 เฉลย Solution</a>
+                        <a href="chapter03_week8_worksheet.pdf" target="_blank" class="sub-link ws">📄 ใบงาน PDF (Week 8)</a>
+                        <a href="chapter03_week8_worksheet_solution.pdf" target="_blank" class="sub-link sol">💡 เฉลย Solution</a>
                     </div>
                 </div>
             </div>
 
             <!-- Week 9 -->
-            <div class="card" onclick="openSlide(event, 'chapter03_week9_slides.html?v=20260921_impeccable')">
+            <div class="card">
                 <div class="card-top">
                     <div class="week-badge-wrap">
                         <span class="topic-icon">📈</span>
@@ -799,8 +800,8 @@
                         <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
                     </a>
                     <div class="btn-links-group">
-                        <a href="chapter03_week9_worksheet.pdf?v=20260921_impeccable" target="_blank" onclick="event.stopPropagation()" class="sub-link ws">📄 ใบงาน PDF (Week 9)</a>
-                        <a href="chapter03_week9_worksheet_solution.pdf?v=20260921_impeccable" target="_blank" onclick="event.stopPropagation()" class="sub-link sol">💡 เฉลย Solution</a>
+                        <a href="chapter03_week9_worksheet.pdf?v=20260921_impeccable" target="_blank" class="sub-link ws">📄 ใบงาน PDF (Week 9)</a>
+                        <a href="chapter03_week9_worksheet_solution.pdf?v=20260921_impeccable" target="_blank" class="sub-link sol">💡 เฉลย Solution</a>
                     </div>
                 </div>
             </div>
